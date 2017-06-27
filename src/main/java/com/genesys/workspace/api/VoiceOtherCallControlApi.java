@@ -59,12 +59,12 @@ public class VoiceOtherCallControlApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for alternateCall */
-    private com.squareup.okhttp.Call alternateCallCall(String id, Parameters16 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for alternate */
+    private com.squareup.okhttp.Call alternateCall(String id, Parameters16 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = parameters;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/alternate-call".replaceAll("\\{format\\}","json")
+        String localVarPath = "/voice/calls/{id}/alternate".replaceAll("\\{format\\}","json")
         .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -102,20 +102,20 @@ public class VoiceOtherCallControlApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call alternateCallValidateBeforeCall(String id, Parameters16 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call alternateValidateBeforeCall(String id, Parameters16 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling alternateCall(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling alternate(Async)");
         }
         
         // verify the required parameter 'parameters' is set
         if (parameters == null) {
-            throw new ApiException("Missing the required parameter 'parameters' when calling alternateCall(Async)");
+            throw new ApiException("Missing the required parameter 'parameters' when calling alternate(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = alternateCallCall(id, parameters, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = alternateCall(id, parameters, progressListener, progressRequestListener);
         return call;
 
         
@@ -132,8 +132,8 @@ public class VoiceOtherCallControlApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse alternateCall(String id, Parameters16 parameters) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = alternateCallWithHttpInfo(id, parameters);
+    public ApiSuccessResponse alternate(String id, Parameters16 parameters) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = alternateWithHttpInfo(id, parameters);
         return resp.getData();
     }
 
@@ -145,8 +145,8 @@ public class VoiceOtherCallControlApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> alternateCallWithHttpInfo(String id, Parameters16 parameters) throws ApiException {
-        com.squareup.okhttp.Call call = alternateCallValidateBeforeCall(id, parameters, null, null);
+    public ApiResponse<ApiSuccessResponse> alternateWithHttpInfo(String id, Parameters16 parameters) throws ApiException {
+        com.squareup.okhttp.Call call = alternateValidateBeforeCall(id, parameters, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -160,7 +160,7 @@ public class VoiceOtherCallControlApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call alternateCallAsync(String id, Parameters16 parameters, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call alternateAsync(String id, Parameters16 parameters, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -181,17 +181,17 @@ public class VoiceOtherCallControlApi {
             };
         }
 
-        com.squareup.okhttp.Call call = alternateCallValidateBeforeCall(id, parameters, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = alternateValidateBeforeCall(id, parameters, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for clearCall */
-    private com.squareup.okhttp.Call clearCallCall(String id, Parameters17 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for clear */
+    private com.squareup.okhttp.Call clearCall(String id, Parameters17 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = parameters;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/clear-call".replaceAll("\\{format\\}","json")
+        String localVarPath = "/voice/calls/{id}/clear".replaceAll("\\{format\\}","json")
         .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -229,20 +229,20 @@ public class VoiceOtherCallControlApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call clearCallValidateBeforeCall(String id, Parameters17 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call clearValidateBeforeCall(String id, Parameters17 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling clearCall(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling clear(Async)");
         }
         
         // verify the required parameter 'parameters' is set
         if (parameters == null) {
-            throw new ApiException("Missing the required parameter 'parameters' when calling clearCall(Async)");
+            throw new ApiException("Missing the required parameter 'parameters' when calling clear(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = clearCallCall(id, parameters, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = clearCall(id, parameters, progressListener, progressRequestListener);
         return call;
 
         
@@ -259,8 +259,8 @@ public class VoiceOtherCallControlApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse clearCall(String id, Parameters17 parameters) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = clearCallWithHttpInfo(id, parameters);
+    public ApiSuccessResponse clear(String id, Parameters17 parameters) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = clearWithHttpInfo(id, parameters);
         return resp.getData();
     }
 
@@ -272,8 +272,8 @@ public class VoiceOtherCallControlApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> clearCallWithHttpInfo(String id, Parameters17 parameters) throws ApiException {
-        com.squareup.okhttp.Call call = clearCallValidateBeforeCall(id, parameters, null, null);
+    public ApiResponse<ApiSuccessResponse> clearWithHttpInfo(String id, Parameters17 parameters) throws ApiException {
+        com.squareup.okhttp.Call call = clearValidateBeforeCall(id, parameters, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -287,7 +287,7 @@ public class VoiceOtherCallControlApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call clearCallAsync(String id, Parameters17 parameters, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call clearAsync(String id, Parameters17 parameters, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -308,17 +308,17 @@ public class VoiceOtherCallControlApi {
             };
         }
 
-        com.squareup.okhttp.Call call = clearCallValidateBeforeCall(id, parameters, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = clearValidateBeforeCall(id, parameters, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for reconnectCall */
-    private com.squareup.okhttp.Call reconnectCallCall(String id, Parameters15 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for reconnect */
+    private com.squareup.okhttp.Call reconnectCall(String id, Parameters15 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = parameters;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/reconnect-call".replaceAll("\\{format\\}","json")
+        String localVarPath = "/voice/calls/{id}/reconnect".replaceAll("\\{format\\}","json")
         .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -356,20 +356,20 @@ public class VoiceOtherCallControlApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call reconnectCallValidateBeforeCall(String id, Parameters15 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call reconnectValidateBeforeCall(String id, Parameters15 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling reconnectCall(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling reconnect(Async)");
         }
         
         // verify the required parameter 'parameters' is set
         if (parameters == null) {
-            throw new ApiException("Missing the required parameter 'parameters' when calling reconnectCall(Async)");
+            throw new ApiException("Missing the required parameter 'parameters' when calling reconnect(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = reconnectCallCall(id, parameters, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = reconnectCall(id, parameters, progressListener, progressRequestListener);
         return call;
 
         
@@ -386,8 +386,8 @@ public class VoiceOtherCallControlApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse reconnectCall(String id, Parameters15 parameters) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = reconnectCallWithHttpInfo(id, parameters);
+    public ApiSuccessResponse reconnect(String id, Parameters15 parameters) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = reconnectWithHttpInfo(id, parameters);
         return resp.getData();
     }
 
@@ -399,8 +399,8 @@ public class VoiceOtherCallControlApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> reconnectCallWithHttpInfo(String id, Parameters15 parameters) throws ApiException {
-        com.squareup.okhttp.Call call = reconnectCallValidateBeforeCall(id, parameters, null, null);
+    public ApiResponse<ApiSuccessResponse> reconnectWithHttpInfo(String id, Parameters15 parameters) throws ApiException {
+        com.squareup.okhttp.Call call = reconnectValidateBeforeCall(id, parameters, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -414,7 +414,7 @@ public class VoiceOtherCallControlApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reconnectCallAsync(String id, Parameters15 parameters, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call reconnectAsync(String id, Parameters15 parameters, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -435,17 +435,17 @@ public class VoiceOtherCallControlApi {
             };
         }
 
-        com.squareup.okhttp.Call call = reconnectCallValidateBeforeCall(id, parameters, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = reconnectValidateBeforeCall(id, parameters, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for redirectCall */
-    private com.squareup.okhttp.Call redirectCallCall(String id, Parameters18 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for redirect */
+    private com.squareup.okhttp.Call redirectCall(String id, Parameters18 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = parameters;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/redirect-call".replaceAll("\\{format\\}","json")
+        String localVarPath = "/voice/calls/{id}/redirect".replaceAll("\\{format\\}","json")
         .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -483,20 +483,20 @@ public class VoiceOtherCallControlApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call redirectCallValidateBeforeCall(String id, Parameters18 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call redirectValidateBeforeCall(String id, Parameters18 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling redirectCall(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling redirect(Async)");
         }
         
         // verify the required parameter 'parameters' is set
         if (parameters == null) {
-            throw new ApiException("Missing the required parameter 'parameters' when calling redirectCall(Async)");
+            throw new ApiException("Missing the required parameter 'parameters' when calling redirect(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = redirectCallCall(id, parameters, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = redirectCall(id, parameters, progressListener, progressRequestListener);
         return call;
 
         
@@ -513,8 +513,8 @@ public class VoiceOtherCallControlApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse redirectCall(String id, Parameters18 parameters) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = redirectCallWithHttpInfo(id, parameters);
+    public ApiSuccessResponse redirect(String id, Parameters18 parameters) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = redirectWithHttpInfo(id, parameters);
         return resp.getData();
     }
 
@@ -526,8 +526,8 @@ public class VoiceOtherCallControlApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> redirectCallWithHttpInfo(String id, Parameters18 parameters) throws ApiException {
-        com.squareup.okhttp.Call call = redirectCallValidateBeforeCall(id, parameters, null, null);
+    public ApiResponse<ApiSuccessResponse> redirectWithHttpInfo(String id, Parameters18 parameters) throws ApiException {
+        com.squareup.okhttp.Call call = redirectValidateBeforeCall(id, parameters, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -541,7 +541,7 @@ public class VoiceOtherCallControlApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call redirectCallAsync(String id, Parameters18 parameters, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call redirectAsync(String id, Parameters18 parameters, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -562,7 +562,7 @@ public class VoiceOtherCallControlApi {
             };
         }
 
-        com.squareup.okhttp.Call call = redirectCallValidateBeforeCall(id, parameters, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = redirectValidateBeforeCall(id, parameters, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

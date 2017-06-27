@@ -55,12 +55,12 @@ public class VoiceCallRecordingApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for pauseCallRecording */
-    private com.squareup.okhttp.Call pauseCallRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for pauseRecording */
+    private com.squareup.okhttp.Call pauseRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/pause-call-recording".replaceAll("\\{format\\}","json")
+        String localVarPath = "/voice/calls/{id}/pause-recording".replaceAll("\\{format\\}","json")
         .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -98,15 +98,15 @@ public class VoiceCallRecordingApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call pauseCallRecordingValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call pauseRecordingValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling pauseCallRecording(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling pauseRecording(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = pauseCallRecordingCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = pauseRecordingCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -122,8 +122,8 @@ public class VoiceCallRecordingApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse pauseCallRecording(String id) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = pauseCallRecordingWithHttpInfo(id);
+    public ApiSuccessResponse pauseRecording(String id) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = pauseRecordingWithHttpInfo(id);
         return resp.getData();
     }
 
@@ -134,8 +134,8 @@ public class VoiceCallRecordingApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> pauseCallRecordingWithHttpInfo(String id) throws ApiException {
-        com.squareup.okhttp.Call call = pauseCallRecordingValidateBeforeCall(id, null, null);
+    public ApiResponse<ApiSuccessResponse> pauseRecordingWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = pauseRecordingValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -148,7 +148,7 @@ public class VoiceCallRecordingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call pauseCallRecordingAsync(String id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call pauseRecordingAsync(String id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -169,17 +169,17 @@ public class VoiceCallRecordingApi {
             };
         }
 
-        com.squareup.okhttp.Call call = pauseCallRecordingValidateBeforeCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = pauseRecordingValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for resumeCallRecording */
-    private com.squareup.okhttp.Call resumeCallRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for resumeRecording */
+    private com.squareup.okhttp.Call resumeRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/resume-call-recording".replaceAll("\\{format\\}","json")
+        String localVarPath = "/voice/calls/{id}/resume-recording".replaceAll("\\{format\\}","json")
         .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -217,15 +217,15 @@ public class VoiceCallRecordingApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call resumeCallRecordingValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call resumeRecordingValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling resumeCallRecording(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling resumeRecording(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = resumeCallRecordingCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = resumeRecordingCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -241,8 +241,8 @@ public class VoiceCallRecordingApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse resumeCallRecording(String id) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = resumeCallRecordingWithHttpInfo(id);
+    public ApiSuccessResponse resumeRecording(String id) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = resumeRecordingWithHttpInfo(id);
         return resp.getData();
     }
 
@@ -253,8 +253,8 @@ public class VoiceCallRecordingApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> resumeCallRecordingWithHttpInfo(String id) throws ApiException {
-        com.squareup.okhttp.Call call = resumeCallRecordingValidateBeforeCall(id, null, null);
+    public ApiResponse<ApiSuccessResponse> resumeRecordingWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = resumeRecordingValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -267,7 +267,7 @@ public class VoiceCallRecordingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call resumeCallRecordingAsync(String id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call resumeRecordingAsync(String id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -288,17 +288,17 @@ public class VoiceCallRecordingApi {
             };
         }
 
-        com.squareup.okhttp.Call call = resumeCallRecordingValidateBeforeCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = resumeRecordingValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for startCallRecording */
-    private com.squareup.okhttp.Call startCallRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for startRecording */
+    private com.squareup.okhttp.Call startRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/start-call-recording".replaceAll("\\{format\\}","json")
+        String localVarPath = "/voice/calls/{id}/start-recording".replaceAll("\\{format\\}","json")
         .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -336,15 +336,15 @@ public class VoiceCallRecordingApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call startCallRecordingValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call startRecordingValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling startCallRecording(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling startRecording(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = startCallRecordingCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = startRecordingCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -360,8 +360,8 @@ public class VoiceCallRecordingApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse startCallRecording(String id) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = startCallRecordingWithHttpInfo(id);
+    public ApiSuccessResponse startRecording(String id) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = startRecordingWithHttpInfo(id);
         return resp.getData();
     }
 
@@ -372,8 +372,8 @@ public class VoiceCallRecordingApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> startCallRecordingWithHttpInfo(String id) throws ApiException {
-        com.squareup.okhttp.Call call = startCallRecordingValidateBeforeCall(id, null, null);
+    public ApiResponse<ApiSuccessResponse> startRecordingWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = startRecordingValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -386,7 +386,7 @@ public class VoiceCallRecordingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call startCallRecordingAsync(String id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call startRecordingAsync(String id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -407,17 +407,17 @@ public class VoiceCallRecordingApi {
             };
         }
 
-        com.squareup.okhttp.Call call = startCallRecordingValidateBeforeCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = startRecordingValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for stopCallRecording */
-    private com.squareup.okhttp.Call stopCallRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for stopRecording */
+    private com.squareup.okhttp.Call stopRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/stop-call-recording".replaceAll("\\{format\\}","json")
+        String localVarPath = "/voice/calls/{id}/stop-recording".replaceAll("\\{format\\}","json")
         .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -455,15 +455,15 @@ public class VoiceCallRecordingApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call stopCallRecordingValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call stopRecordingValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling stopCallRecording(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling stopRecording(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = stopCallRecordingCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = stopRecordingCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -479,8 +479,8 @@ public class VoiceCallRecordingApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse stopCallRecording(String id) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = stopCallRecordingWithHttpInfo(id);
+    public ApiSuccessResponse stopRecording(String id) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = stopRecordingWithHttpInfo(id);
         return resp.getData();
     }
 
@@ -491,8 +491,8 @@ public class VoiceCallRecordingApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> stopCallRecordingWithHttpInfo(String id) throws ApiException {
-        com.squareup.okhttp.Call call = stopCallRecordingValidateBeforeCall(id, null, null);
+    public ApiResponse<ApiSuccessResponse> stopRecordingWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = stopRecordingValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -505,7 +505,7 @@ public class VoiceCallRecordingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call stopCallRecordingAsync(String id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call stopRecordingAsync(String id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -526,7 +526,7 @@ public class VoiceCallRecordingApi {
             };
         }
 
-        com.squareup.okhttp.Call call = stopCallRecordingValidateBeforeCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = stopRecordingValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

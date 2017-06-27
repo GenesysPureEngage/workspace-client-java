@@ -29,8 +29,9 @@ import java.io.IOException;
 
 import com.genesys.workspace.model.ApiErrorResponse;
 import com.genesys.workspace.model.ApiSuccessResponse;
-import com.genesys.workspace.model.Parameters40;
+import com.genesys.workspace.model.Parameters39;
 import com.genesys.workspace.model.Statistics;
+import com.genesys.workspace.model.Statistics1;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -57,6 +58,243 @@ public class ReportingApi {
         this.apiClient = apiClient;
     }
 
+    /* Build call for peek */
+    private com.squareup.okhttp.Call peekCall(String subscriptionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/reporting/{subscriptionId}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "subscriptionId" + "\\}", apiClient.escapeString(subscriptionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call peekValidateBeforeCall(String subscriptionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'subscriptionId' is set
+        if (subscriptionId == null) {
+            throw new ApiException("Missing the required parameter 'subscriptionId' when calling peek(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = peekCall(subscriptionId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get peek values for subscriptionId
+     * 
+     * @param subscriptionId id of the subscription (required)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse peek(String subscriptionId) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = peekWithHttpInfo(subscriptionId);
+        return resp.getData();
+    }
+
+    /**
+     * Get peek values for subscriptionId
+     * 
+     * @param subscriptionId id of the subscription (required)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> peekWithHttpInfo(String subscriptionId) throws ApiException {
+        com.squareup.okhttp.Call call = peekValidateBeforeCall(subscriptionId, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get peek values for subscriptionId (asynchronously)
+     * 
+     * @param subscriptionId id of the subscription (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call peekAsync(String subscriptionId, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = peekValidateBeforeCall(subscriptionId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for register */
+    private com.squareup.okhttp.Call registerCall(Statistics1 statistics, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = statistics;
+        
+        // create path and map variables
+        String localVarPath = "/reporting/register".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call registerValidateBeforeCall(Statistics1 statistics, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'statistics' is set
+        if (statistics == null) {
+            throw new ApiException("Missing the required parameter 'statistics' when calling register(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = registerCall(statistics, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId}
+     * 
+     * @param statistics Requested Statistics (required)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse register(Statistics1 statistics) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = registerWithHttpInfo(statistics);
+        return resp.getData();
+    }
+
+    /**
+     * Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId}
+     * 
+     * @param statistics Requested Statistics (required)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> registerWithHttpInfo(Statistics1 statistics) throws ApiException {
+        com.squareup.okhttp.Call call = registerValidateBeforeCall(statistics, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId} (asynchronously)
+     * 
+     * @param statistics Requested Statistics (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call registerAsync(Statistics1 statistics, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = registerValidateBeforeCall(statistics, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /* Build call for subscribe */
     private com.squareup.okhttp.Call subscribeCall(Statistics statistics, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = statistics;
@@ -176,7 +414,7 @@ public class ReportingApi {
         return call;
     }
     /* Build call for unsubscribe */
-    private com.squareup.okhttp.Call unsubscribeCall(Parameters40 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call unsubscribeCall(Parameters39 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = parameters;
         
         // create path and map variables
@@ -217,7 +455,7 @@ public class ReportingApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call unsubscribeValidateBeforeCall(Parameters40 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call unsubscribeValidateBeforeCall(Parameters39 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'parameters' is set
         if (parameters == null) {
@@ -241,7 +479,7 @@ public class ReportingApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse unsubscribe(Parameters40 parameters) throws ApiException {
+    public ApiSuccessResponse unsubscribe(Parameters39 parameters) throws ApiException {
         ApiResponse<ApiSuccessResponse> resp = unsubscribeWithHttpInfo(parameters);
         return resp.getData();
     }
@@ -253,7 +491,7 @@ public class ReportingApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> unsubscribeWithHttpInfo(Parameters40 parameters) throws ApiException {
+    public ApiResponse<ApiSuccessResponse> unsubscribeWithHttpInfo(Parameters39 parameters) throws ApiException {
         com.squareup.okhttp.Call call = unsubscribeValidateBeforeCall(parameters, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -267,7 +505,7 @@ public class ReportingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call unsubscribeAsync(Parameters40 parameters, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call unsubscribeAsync(Parameters39 parameters, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

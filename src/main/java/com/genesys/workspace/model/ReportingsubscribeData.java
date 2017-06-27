@@ -23,30 +23,30 @@ import java.util.List;
 /**
  * ReportingsubscribeData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-26T21:43:42.815Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-27T18:31:02.547Z")
 public class ReportingsubscribeData {
-  @SerializedName("socketId")
-  private String socketId = null;
+  @SerializedName("connectionId")
+  private String connectionId = null;
 
   @SerializedName("statistics")
   private List<String> statistics = new ArrayList<String>();
 
-  public ReportingsubscribeData socketId(String socketId) {
-    this.socketId = socketId;
+  public ReportingsubscribeData connectionId(String connectionId) {
+    this.connectionId = connectionId;
     return this;
   }
 
    /**
-   * Get socketId
-   * @return socketId
+   * Get connectionId
+   * @return connectionId
   **/
   @ApiModelProperty(example = "null", required = true, value = "")
-  public String getSocketId() {
-    return socketId;
+  public String getConnectionId() {
+    return connectionId;
   }
 
-  public void setSocketId(String socketId) {
-    this.socketId = socketId;
+  public void setConnectionId(String connectionId) {
+    this.connectionId = connectionId;
   }
 
   public ReportingsubscribeData statistics(List<String> statistics) {
@@ -82,13 +82,13 @@ public class ReportingsubscribeData {
       return false;
     }
     ReportingsubscribeData reportingsubscribeData = (ReportingsubscribeData) o;
-    return Objects.equals(this.socketId, reportingsubscribeData.socketId) &&
+    return Objects.equals(this.connectionId, reportingsubscribeData.connectionId) &&
         Objects.equals(this.statistics, reportingsubscribeData.statistics);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(socketId, statistics);
+    return Objects.hash(connectionId, statistics);
   }
 
 
@@ -97,7 +97,7 @@ public class ReportingsubscribeData {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReportingsubscribeData {\n");
     
-    sb.append("    socketId: ").append(toIndentedString(socketId)).append("\n");
+    sb.append("    connectionId: ").append(toIndentedString(connectionId)).append("\n");
     sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
     sb.append("}");
     return sb.toString();
