@@ -17,31 +17,53 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 
 /**
- * UcsgetinteractioncontentData
+ * RecentData
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-29T18:26:24.017Z")
-public class UcsgetinteractioncontentData {
-  @SerializedName("interactionId")
-  private String interactionId = null;
+public class RecentData {
+  @SerializedName("media")
+  private String media = null;
 
-  public UcsgetinteractioncontentData interactionId(String interactionId) {
-    this.interactionId = interactionId;
+  @SerializedName("timeStamp")
+  private BigDecimal timeStamp = null;
+
+  public RecentData media(String media) {
+    this.media = media;
     return this;
   }
 
    /**
-   * The id of the interaction
-   * @return interactionId
+   * Get media
+   * @return media
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The id of the interaction")
-  public String getInteractionId() {
-    return interactionId;
+  @ApiModelProperty(example = "null", value = "")
+  public String getMedia() {
+    return media;
   }
 
-  public void setInteractionId(String interactionId) {
-    this.interactionId = interactionId;
+  public void setMedia(String media) {
+    this.media = media;
+  }
+
+  public RecentData timeStamp(BigDecimal timeStamp) {
+    this.timeStamp = timeStamp;
+    return this;
+  }
+
+   /**
+   * Get timeStamp
+   * @return timeStamp
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public BigDecimal getTimeStamp() {
+    return timeStamp;
+  }
+
+  public void setTimeStamp(BigDecimal timeStamp) {
+    this.timeStamp = timeStamp;
   }
 
 
@@ -53,22 +75,24 @@ public class UcsgetinteractioncontentData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UcsgetinteractioncontentData ucsgetinteractioncontentData = (UcsgetinteractioncontentData) o;
-    return Objects.equals(this.interactionId, ucsgetinteractioncontentData.interactionId);
+    RecentData recentData = (RecentData) o;
+    return Objects.equals(this.media, recentData.media) &&
+        Objects.equals(this.timeStamp, recentData.timeStamp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(interactionId);
+    return Objects.hash(media, timeStamp);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UcsgetinteractioncontentData {\n");
+    sb.append("class RecentData {\n");
     
-    sb.append("    interactionId: ").append(toIndentedString(interactionId)).append("\n");
+    sb.append("    media: ").append(toIndentedString(media)).append("\n");
+    sb.append("    timeStamp: ").append(toIndentedString(timeStamp)).append("\n");
     sb.append("}");
     return sb.toString();
   }

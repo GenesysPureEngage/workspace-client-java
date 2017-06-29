@@ -14,7 +14,7 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.genesys.workspace.model.ReportingunsubscribeData;
+import com.genesys.workspace.model.TargetsrecentsaddData;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -22,12 +22,12 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Parameters39
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-27T18:31:02.547Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-29T18:26:24.017Z")
 public class Parameters39 {
   @SerializedName("data")
-  private ReportingunsubscribeData data = null;
+  private TargetsrecentsaddData data = null;
 
-  public Parameters39 data(ReportingunsubscribeData data) {
+  public Parameters39 data(TargetsrecentsaddData data) {
     this.data = data;
     return this;
   }
@@ -37,11 +37,11 @@ public class Parameters39 {
    * @return data
   **/
   @ApiModelProperty(example = "null", value = "")
-  public ReportingunsubscribeData getData() {
+  public TargetsrecentsaddData getData() {
     return data;
   }
 
-  public void setData(ReportingunsubscribeData data) {
+  public void setData(TargetsrecentsaddData data) {
     this.data = data;
   }
 

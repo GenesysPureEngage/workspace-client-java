@@ -19,29 +19,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * UcsgetinteractioncontentData
+ * TargetId
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-29T18:26:24.017Z")
-public class UcsgetinteractioncontentData {
-  @SerializedName("interactionId")
-  private String interactionId = null;
+public class TargetId {
+  @SerializedName("type")
+  private String type = null;
 
-  public UcsgetinteractioncontentData interactionId(String interactionId) {
-    this.interactionId = interactionId;
+  @SerializedName("id")
+  private String id = null;
+
+  public TargetId type(String type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * The id of the interaction
-   * @return interactionId
+   * Get type
+   * @return type
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The id of the interaction")
-  public String getInteractionId() {
-    return interactionId;
+  @ApiModelProperty(example = "null", value = "")
+  public String getType() {
+    return type;
   }
 
-  public void setInteractionId(String interactionId) {
-    this.interactionId = interactionId;
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public TargetId id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
 
@@ -53,22 +74,24 @@ public class UcsgetinteractioncontentData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UcsgetinteractioncontentData ucsgetinteractioncontentData = (UcsgetinteractioncontentData) o;
-    return Objects.equals(this.interactionId, ucsgetinteractioncontentData.interactionId);
+    TargetId targetId = (TargetId) o;
+    return Objects.equals(this.type, targetId.type) &&
+        Objects.equals(this.id, targetId.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(interactionId);
+    return Objects.hash(type, id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UcsgetinteractioncontentData {\n");
+    sb.append("class TargetId {\n");
     
-    sb.append("    interactionId: ").append(toIndentedString(interactionId)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

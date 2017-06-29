@@ -29,7 +29,7 @@ import java.io.IOException;
 
 import com.genesys.workspace.model.ApiErrorResponse;
 import com.genesys.workspace.model.ApiSuccessResponse;
-import com.genesys.workspace.model.Parameters39;
+import com.genesys.workspace.model.Parameters40;
 import com.genesys.workspace.model.Statistics;
 import com.genesys.workspace.model.Statistics1;
 
@@ -414,7 +414,7 @@ public class ReportingApi {
         return call;
     }
     /* Build call for unsubscribe */
-    private com.squareup.okhttp.Call unsubscribeCall(Parameters39 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call unsubscribeCall(Parameters40 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = parameters;
         
         // create path and map variables
@@ -455,7 +455,7 @@ public class ReportingApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call unsubscribeValidateBeforeCall(Parameters39 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call unsubscribeValidateBeforeCall(Parameters40 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'parameters' is set
         if (parameters == null) {
@@ -479,7 +479,7 @@ public class ReportingApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse unsubscribe(Parameters39 parameters) throws ApiException {
+    public ApiSuccessResponse unsubscribe(Parameters40 parameters) throws ApiException {
         ApiResponse<ApiSuccessResponse> resp = unsubscribeWithHttpInfo(parameters);
         return resp.getData();
     }
@@ -491,7 +491,7 @@ public class ReportingApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> unsubscribeWithHttpInfo(Parameters39 parameters) throws ApiException {
+    public ApiResponse<ApiSuccessResponse> unsubscribeWithHttpInfo(Parameters40 parameters) throws ApiException {
         com.squareup.okhttp.Call call = unsubscribeValidateBeforeCall(parameters, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -505,7 +505,7 @@ public class ReportingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call unsubscribeAsync(Parameters39 parameters, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call unsubscribeAsync(Parameters40 parameters, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
