@@ -25,25 +25,19 @@ import java.util.List;
 /**
  * Call
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-29T18:26:24.017Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-11T17:21:32.804Z")
 public class Call {
-  @SerializedName("key")
-  private String key = null;
-
   @SerializedName("type")
   private String type = null;
 
   @SerializedName("id")
   private String id = null;
 
-  @SerializedName("previousCallId")
-  private String previousCallId = null;
+  @SerializedName("previousConnId")
+  private String previousConnId = null;
 
-  @SerializedName("parentCallPath")
-  private String parentCallPath = null;
-
-  @SerializedName("parentCallUri")
-  private String parentCallUri = null;
+  @SerializedName("parentConnId")
+  private String parentConnId = null;
 
   @SerializedName("phoneNumber")
   private String phoneNumber = null;
@@ -81,24 +75,6 @@ public class Call {
   @SerializedName("extensions")
   private List<Kvpair> extensions = new ArrayList<Kvpair>();
 
-  public Call key(String key) {
-    this.key = key;
-    return this;
-  }
-
-   /**
-   * Get key
-   * @return key
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getKey() {
-    return key;
-  }
-
-  public void setKey(String key) {
-    this.key = key;
-  }
-
   public Call type(String type) {
     this.type = type;
     return this;
@@ -135,58 +111,40 @@ public class Call {
     this.id = id;
   }
 
-  public Call previousCallId(String previousCallId) {
-    this.previousCallId = previousCallId;
+  public Call previousConnId(String previousConnId) {
+    this.previousConnId = previousConnId;
     return this;
   }
 
    /**
-   * Get previousCallId
-   * @return previousCallId
+   * Get previousConnId
+   * @return previousConnId
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getPreviousCallId() {
-    return previousCallId;
+  public String getPreviousConnId() {
+    return previousConnId;
   }
 
-  public void setPreviousCallId(String previousCallId) {
-    this.previousCallId = previousCallId;
+  public void setPreviousConnId(String previousConnId) {
+    this.previousConnId = previousConnId;
   }
 
-  public Call parentCallPath(String parentCallPath) {
-    this.parentCallPath = parentCallPath;
+  public Call parentConnId(String parentConnId) {
+    this.parentConnId = parentConnId;
     return this;
   }
 
    /**
-   * Get parentCallPath
-   * @return parentCallPath
+   * Get parentConnId
+   * @return parentConnId
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getParentCallPath() {
-    return parentCallPath;
+  public String getParentConnId() {
+    return parentConnId;
   }
 
-  public void setParentCallPath(String parentCallPath) {
-    this.parentCallPath = parentCallPath;
-  }
-
-  public Call parentCallUri(String parentCallUri) {
-    this.parentCallUri = parentCallUri;
-    return this;
-  }
-
-   /**
-   * Get parentCallUri
-   * @return parentCallUri
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getParentCallUri() {
-    return parentCallUri;
-  }
-
-  public void setParentCallUri(String parentCallUri) {
-    this.parentCallUri = parentCallUri;
+  public void setParentConnId(String parentConnId) {
+    this.parentConnId = parentConnId;
   }
 
   public Call phoneNumber(String phoneNumber) {
@@ -435,12 +393,10 @@ public class Call {
       return false;
     }
     Call call = (Call) o;
-    return Objects.equals(this.key, call.key) &&
-        Objects.equals(this.type, call.type) &&
+    return Objects.equals(this.type, call.type) &&
         Objects.equals(this.id, call.id) &&
-        Objects.equals(this.previousCallId, call.previousCallId) &&
-        Objects.equals(this.parentCallPath, call.parentCallPath) &&
-        Objects.equals(this.parentCallUri, call.parentCallUri) &&
+        Objects.equals(this.previousConnId, call.previousConnId) &&
+        Objects.equals(this.parentConnId, call.parentConnId) &&
         Objects.equals(this.phoneNumber, call.phoneNumber) &&
         Objects.equals(this.connId, call.connId) &&
         Objects.equals(this.callUuid, call.callUuid) &&
@@ -457,7 +413,7 @@ public class Call {
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, type, id, previousCallId, parentCallPath, parentCallUri, phoneNumber, connId, callUuid, callType, state, capabilities, participants, dnis, ani, recordingState, userData, extensions);
+    return Objects.hash(type, id, previousConnId, parentConnId, phoneNumber, connId, callUuid, callType, state, capabilities, participants, dnis, ani, recordingState, userData, extensions);
   }
 
 
@@ -466,12 +422,10 @@ public class Call {
     StringBuilder sb = new StringBuilder();
     sb.append("class Call {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    previousCallId: ").append(toIndentedString(previousCallId)).append("\n");
-    sb.append("    parentCallPath: ").append(toIndentedString(parentCallPath)).append("\n");
-    sb.append("    parentCallUri: ").append(toIndentedString(parentCallUri)).append("\n");
+    sb.append("    previousConnId: ").append(toIndentedString(previousConnId)).append("\n");
+    sb.append("    parentConnId: ").append(toIndentedString(parentConnId)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    connId: ").append(toIndentedString(connId)).append("\n");
     sb.append("    callUuid: ").append(toIndentedString(callUuid)).append("\n");

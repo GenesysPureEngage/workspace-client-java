@@ -29,10 +29,10 @@ import java.io.IOException;
 
 import com.genesys.workspace.model.ApiErrorResponse;
 import com.genesys.workspace.model.ApiSuccessResponse;
+import com.genesys.workspace.model.ChannelsData;
 import com.genesys.workspace.model.ConfigResponse;
 import com.genesys.workspace.model.CurrentUser;
-import com.genesys.workspace.model.Login;
-import com.genesys.workspace.model.Parameters;
+import com.genesys.workspace.model.LoginData;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -60,8 +60,8 @@ public class SessionApi {
     }
 
     /* Build call for activateChannels */
-    private com.squareup.okhttp.Call activateChannelsCall(Parameters parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = parameters;
+    private com.squareup.okhttp.Call activateChannelsCall(ChannelsData channelsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = channelsData;
         
         // create path and map variables
         String localVarPath = "/activate-channels".replaceAll("\\{format\\}","json");
@@ -101,15 +101,15 @@ public class SessionApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call activateChannelsValidateBeforeCall(Parameters parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call activateChannelsValidateBeforeCall(ChannelsData channelsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'parameters' is set
-        if (parameters == null) {
-            throw new ApiException("Missing the required parameter 'parameters' when calling activateChannels(Async)");
+        // verify the required parameter 'channelsData' is set
+        if (channelsData == null) {
+            throw new ApiException("Missing the required parameter 'channelsData' when calling activateChannels(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = activateChannelsCall(parameters, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = activateChannelsCall(channelsData, progressListener, progressRequestListener);
         return call;
 
         
@@ -121,24 +121,24 @@ public class SessionApi {
     /**
      * Activate channels for the user with the specified resources
      * The activate-channels request is used to activate voice/media for the user by declaring the channels and resources that should be used. If the channels are is successfully activated, additional information about the state of active resources (dns, channels) will be received via events. 
-     * @param parameters  (required)
+     * @param channelsData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse activateChannels(Parameters parameters) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = activateChannelsWithHttpInfo(parameters);
+    public ApiSuccessResponse activateChannels(ChannelsData channelsData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = activateChannelsWithHttpInfo(channelsData);
         return resp.getData();
     }
 
     /**
      * Activate channels for the user with the specified resources
      * The activate-channels request is used to activate voice/media for the user by declaring the channels and resources that should be used. If the channels are is successfully activated, additional information about the state of active resources (dns, channels) will be received via events. 
-     * @param parameters  (required)
+     * @param channelsData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> activateChannelsWithHttpInfo(Parameters parameters) throws ApiException {
-        com.squareup.okhttp.Call call = activateChannelsValidateBeforeCall(parameters, null, null);
+    public ApiResponse<ApiSuccessResponse> activateChannelsWithHttpInfo(ChannelsData channelsData) throws ApiException {
+        com.squareup.okhttp.Call call = activateChannelsValidateBeforeCall(channelsData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -146,12 +146,12 @@ public class SessionApi {
     /**
      * Activate channels for the user with the specified resources (asynchronously)
      * The activate-channels request is used to activate voice/media for the user by declaring the channels and resources that should be used. If the channels are is successfully activated, additional information about the state of active resources (dns, channels) will be received via events. 
-     * @param parameters  (required)
+     * @param channelsData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call activateChannelsAsync(Parameters parameters, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call activateChannelsAsync(ChannelsData channelsData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -172,13 +172,13 @@ public class SessionApi {
             };
         }
 
-        com.squareup.okhttp.Call call = activateChannelsValidateBeforeCall(parameters, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = activateChannelsValidateBeforeCall(channelsData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for businessAttributeHierarchy */
-    private com.squareup.okhttp.Call businessAttributeHierarchyCall(Integer id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getBusinessAttributeHierarchy */
+    private com.squareup.okhttp.Call getBusinessAttributeHierarchyCall(Integer id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -220,15 +220,15 @@ public class SessionApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call businessAttributeHierarchyValidateBeforeCall(Integer id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getBusinessAttributeHierarchyValidateBeforeCall(Integer id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling businessAttributeHierarchy(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling getBusinessAttributeHierarchy(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = businessAttributeHierarchyCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getBusinessAttributeHierarchyCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -244,8 +244,8 @@ public class SessionApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse businessAttributeHierarchy(Integer id) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = businessAttributeHierarchyWithHttpInfo(id);
+    public ApiSuccessResponse getBusinessAttributeHierarchy(Integer id) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = getBusinessAttributeHierarchyWithHttpInfo(id);
         return resp.getData();
     }
 
@@ -256,8 +256,8 @@ public class SessionApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> businessAttributeHierarchyWithHttpInfo(Integer id) throws ApiException {
-        com.squareup.okhttp.Call call = businessAttributeHierarchyValidateBeforeCall(id, null, null);
+    public ApiResponse<ApiSuccessResponse> getBusinessAttributeHierarchyWithHttpInfo(Integer id) throws ApiException {
+        com.squareup.okhttp.Call call = getBusinessAttributeHierarchyValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -270,7 +270,7 @@ public class SessionApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call businessAttributeHierarchyAsync(Integer id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getBusinessAttributeHierarchyAsync(Integer id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -291,13 +291,13 @@ public class SessionApi {
             };
         }
 
-        com.squareup.okhttp.Call call = businessAttributeHierarchyValidateBeforeCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getBusinessAttributeHierarchyValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for callConfiguration */
-    private com.squareup.okhttp.Call callConfigurationCall(String types, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getConfiguration */
+    private com.squareup.okhttp.Call getConfigurationCall(String types, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -340,10 +340,10 @@ public class SessionApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call callConfigurationValidateBeforeCall(String types, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getConfigurationValidateBeforeCall(String types, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = callConfigurationCall(types, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getConfigurationCall(types, progressListener, progressRequestListener);
         return call;
 
         
@@ -359,8 +359,8 @@ public class SessionApi {
      * @return ConfigResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ConfigResponse callConfiguration(String types) throws ApiException {
-        ApiResponse<ConfigResponse> resp = callConfigurationWithHttpInfo(types);
+    public ConfigResponse getConfiguration(String types) throws ApiException {
+        ApiResponse<ConfigResponse> resp = getConfigurationWithHttpInfo(types);
         return resp.getData();
     }
 
@@ -371,8 +371,8 @@ public class SessionApi {
      * @return ApiResponse&lt;ConfigResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ConfigResponse> callConfigurationWithHttpInfo(String types) throws ApiException {
-        com.squareup.okhttp.Call call = callConfigurationValidateBeforeCall(types, null, null);
+    public ApiResponse<ConfigResponse> getConfigurationWithHttpInfo(String types) throws ApiException {
+        com.squareup.okhttp.Call call = getConfigurationValidateBeforeCall(types, null, null);
         Type localVarReturnType = new TypeToken<ConfigResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -385,7 +385,7 @@ public class SessionApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call callConfigurationAsync(String types, final ApiCallback<ConfigResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getConfigurationAsync(String types, final ApiCallback<ConfigResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -406,7 +406,7 @@ public class SessionApi {
             };
         }
 
-        com.squareup.okhttp.Call call = callConfigurationValidateBeforeCall(types, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getConfigurationValidateBeforeCall(types, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConfigResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -522,8 +522,8 @@ public class SessionApi {
         return call;
     }
     /* Build call for login */
-    private com.squareup.okhttp.Call loginCall(Login body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
+    private com.squareup.okhttp.Call loginCall(LoginData loginData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = loginData;
         
         // create path and map variables
         String localVarPath = "/login".replaceAll("\\{format\\}","json");
@@ -563,15 +563,15 @@ public class SessionApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call loginValidateBeforeCall(Login body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call loginValidateBeforeCall(LoginData loginData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling login(Async)");
+        // verify the required parameter 'loginData' is set
+        if (loginData == null) {
+            throw new ApiException("Missing the required parameter 'loginData' when calling login(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = loginCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = loginCall(loginData, progressListener, progressRequestListener);
         return call;
 
         
@@ -583,24 +583,24 @@ public class SessionApi {
     /**
      * login the specified user (HTTP session only)
      * The login request authenticates the user and creates the HTTP session. 
-     * @param body Authentication Data (required)
+     * @param loginData Authentication Data (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse login(Login body) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = loginWithHttpInfo(body);
+    public ApiSuccessResponse login(LoginData loginData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = loginWithHttpInfo(loginData);
         return resp.getData();
     }
 
     /**
      * login the specified user (HTTP session only)
      * The login request authenticates the user and creates the HTTP session. 
-     * @param body Authentication Data (required)
+     * @param loginData Authentication Data (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> loginWithHttpInfo(Login body) throws ApiException {
-        com.squareup.okhttp.Call call = loginValidateBeforeCall(body, null, null);
+    public ApiResponse<ApiSuccessResponse> loginWithHttpInfo(LoginData loginData) throws ApiException {
+        com.squareup.okhttp.Call call = loginValidateBeforeCall(loginData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -608,12 +608,12 @@ public class SessionApi {
     /**
      * login the specified user (HTTP session only) (asynchronously)
      * The login request authenticates the user and creates the HTTP session. 
-     * @param body Authentication Data (required)
+     * @param loginData Authentication Data (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call loginAsync(Login body, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call loginAsync(LoginData loginData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -634,7 +634,7 @@ public class SessionApi {
             };
         }
 
-        com.squareup.okhttp.Call call = loginValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = loginValidateBeforeCall(loginData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

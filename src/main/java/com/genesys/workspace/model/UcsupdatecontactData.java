@@ -23,19 +23,19 @@ import java.util.List;
 /**
  * UcsupdatecontactData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-29T18:26:24.017Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-11T17:21:32.804Z")
 public class UcsupdatecontactData {
   @SerializedName("contactId")
   private String contactId = null;
 
   @SerializedName("addedProperties")
-  private List<String> addedProperties = new ArrayList<String>();
+  private List<Object> addedProperties = new ArrayList<Object>();
 
   @SerializedName("changedProperties")
-  private List<String> changedProperties = new ArrayList<String>();
+  private List<Object> changedProperties = new ArrayList<Object>();
 
   @SerializedName("deletedProperties")
-  private List<String> deletedProperties = new ArrayList<String>();
+  private List<Object> deletedProperties = new ArrayList<Object>();
 
   public UcsupdatecontactData contactId(String contactId) {
     this.contactId = contactId;
@@ -55,12 +55,12 @@ public class UcsupdatecontactData {
     this.contactId = contactId;
   }
 
-  public UcsupdatecontactData addedProperties(List<String> addedProperties) {
+  public UcsupdatecontactData addedProperties(List<Object> addedProperties) {
     this.addedProperties = addedProperties;
     return this;
   }
 
-  public UcsupdatecontactData addAddedPropertiesItem(String addedPropertiesItem) {
+  public UcsupdatecontactData addAddedPropertiesItem(Object addedPropertiesItem) {
     this.addedProperties.add(addedPropertiesItem);
     return this;
   }
@@ -70,20 +70,20 @@ public class UcsupdatecontactData {
    * @return addedProperties
   **/
   @ApiModelProperty(example = "null", required = true, value = "The list of contact attributes to be added to the contact")
-  public List<String> getAddedProperties() {
+  public List<Object> getAddedProperties() {
     return addedProperties;
   }
 
-  public void setAddedProperties(List<String> addedProperties) {
+  public void setAddedProperties(List<Object> addedProperties) {
     this.addedProperties = addedProperties;
   }
 
-  public UcsupdatecontactData changedProperties(List<String> changedProperties) {
+  public UcsupdatecontactData changedProperties(List<Object> changedProperties) {
     this.changedProperties = changedProperties;
     return this;
   }
 
-  public UcsupdatecontactData addChangedPropertiesItem(String changedPropertiesItem) {
+  public UcsupdatecontactData addChangedPropertiesItem(Object changedPropertiesItem) {
     this.changedProperties.add(changedPropertiesItem);
     return this;
   }
@@ -93,20 +93,20 @@ public class UcsupdatecontactData {
    * @return changedProperties
   **/
   @ApiModelProperty(example = "null", required = true, value = "The list of contact attributes to be updated for the contact")
-  public List<String> getChangedProperties() {
+  public List<Object> getChangedProperties() {
     return changedProperties;
   }
 
-  public void setChangedProperties(List<String> changedProperties) {
+  public void setChangedProperties(List<Object> changedProperties) {
     this.changedProperties = changedProperties;
   }
 
-  public UcsupdatecontactData deletedProperties(List<String> deletedProperties) {
+  public UcsupdatecontactData deletedProperties(List<Object> deletedProperties) {
     this.deletedProperties = deletedProperties;
     return this;
   }
 
-  public UcsupdatecontactData addDeletedPropertiesItem(String deletedPropertiesItem) {
+  public UcsupdatecontactData addDeletedPropertiesItem(Object deletedPropertiesItem) {
     this.deletedProperties.add(deletedPropertiesItem);
     return this;
   }
@@ -116,11 +116,11 @@ public class UcsupdatecontactData {
    * @return deletedProperties
   **/
   @ApiModelProperty(example = "null", required = true, value = "The list of contact attributes to be deleted for the contact")
-  public List<String> getDeletedProperties() {
+  public List<Object> getDeletedProperties() {
     return deletedProperties;
   }
 
-  public void setDeletedProperties(List<String> deletedProperties) {
+  public void setDeletedProperties(List<Object> deletedProperties) {
     this.deletedProperties = deletedProperties;
   }
 

@@ -30,7 +30,7 @@ import java.io.IOException;
 import com.genesys.workspace.model.ApiErrorResponse;
 import com.genesys.workspace.model.ApiSuccessResponse;
 import java.math.BigDecimal;
-import com.genesys.workspace.model.Parameters39;
+import com.genesys.workspace.model.RecentTargetData;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -57,9 +57,119 @@ public class TargetsApi {
         this.apiClient = apiClient;
     }
 
+    /* Build call for ackRecentMissedCalls */
+    private com.squareup.okhttp.Call ackRecentMissedCallsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/targets/recents/ack-missed-calls".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call ackRecentMissedCallsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        
+        com.squareup.okhttp.Call call = ackRecentMissedCallsCall(progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Ack the missed calls in recent target
+     * 
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse ackRecentMissedCalls() throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = ackRecentMissedCallsWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Ack the missed calls in recent target
+     * 
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> ackRecentMissedCallsWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = ackRecentMissedCallsValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Ack the missed calls in recent target (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call ackRecentMissedCallsAsync(final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = ackRecentMissedCallsValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /* Build call for addRecentTarget */
-    private com.squareup.okhttp.Call addRecentTargetCall(Parameters39 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = parameters;
+    private com.squareup.okhttp.Call addRecentTargetCall(RecentTargetData recentTargetData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = recentTargetData;
         
         // create path and map variables
         String localVarPath = "/targets/recents/add".replaceAll("\\{format\\}","json");
@@ -99,15 +209,15 @@ public class TargetsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addRecentTargetValidateBeforeCall(Parameters39 parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call addRecentTargetValidateBeforeCall(RecentTargetData recentTargetData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'parameters' is set
-        if (parameters == null) {
-            throw new ApiException("Missing the required parameter 'parameters' when calling addRecentTarget(Async)");
+        // verify the required parameter 'recentTargetData' is set
+        if (recentTargetData == null) {
+            throw new ApiException("Missing the required parameter 'recentTargetData' when calling addRecentTarget(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = addRecentTargetCall(parameters, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addRecentTargetCall(recentTargetData, progressListener, progressRequestListener);
         return call;
 
         
@@ -119,24 +229,24 @@ public class TargetsApi {
     /**
      * Add a recent target
      * 
-     * @param parameters  (required)
+     * @param recentTargetData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse addRecentTarget(Parameters39 parameters) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = addRecentTargetWithHttpInfo(parameters);
+    public ApiSuccessResponse addRecentTarget(RecentTargetData recentTargetData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = addRecentTargetWithHttpInfo(recentTargetData);
         return resp.getData();
     }
 
     /**
      * Add a recent target
      * 
-     * @param parameters  (required)
+     * @param recentTargetData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> addRecentTargetWithHttpInfo(Parameters39 parameters) throws ApiException {
-        com.squareup.okhttp.Call call = addRecentTargetValidateBeforeCall(parameters, null, null);
+    public ApiResponse<ApiSuccessResponse> addRecentTargetWithHttpInfo(RecentTargetData recentTargetData) throws ApiException {
+        com.squareup.okhttp.Call call = addRecentTargetValidateBeforeCall(recentTargetData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -144,12 +254,12 @@ public class TargetsApi {
     /**
      * Add a recent target (asynchronously)
      * 
-     * @param parameters  (required)
+     * @param recentTargetData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addRecentTargetAsync(Parameters39 parameters, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call addRecentTargetAsync(RecentTargetData recentTargetData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -170,7 +280,7 @@ public class TargetsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = addRecentTargetValidateBeforeCall(parameters, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addRecentTargetValidateBeforeCall(recentTargetData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
