@@ -18,7 +18,7 @@ import java.util.Objects;
 /**
  * ApiRequestData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T15:07:53.738Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T15:15:30.675Z")
 public class ApiRequestData {
 
   @Override
