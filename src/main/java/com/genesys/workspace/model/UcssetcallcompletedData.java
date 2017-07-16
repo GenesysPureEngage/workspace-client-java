@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * UcssetcallcompletedData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T13:24:30.617Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T13:45:29.964Z")
 public class UcssetcallcompletedData {
   @SerializedName("interactionId")
   private String interactionId = null;
