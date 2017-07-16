@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * CallNoteData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T13:14:58.883Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T13:24:30.617Z")
 public class CallNoteData {
   @SerializedName("data")
   private UcssetcallnoteData data = null;
