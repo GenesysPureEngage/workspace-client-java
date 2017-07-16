@@ -24,16 +24,13 @@ import java.util.List;
 /**
  * VoicemakecallData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-11T17:21:32.804Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T13:04:00.614Z")
 public class VoicemakecallData {
   @SerializedName("destination")
   private String destination = null;
 
   @SerializedName("location")
   private String location = null;
-
-  @SerializedName("makeCallType")
-  private Integer makeCallType = null;
 
   @SerializedName("userData")
   private List<Kvpair> userData = new ArrayList<Kvpair>();
@@ -81,24 +78,6 @@ public class VoicemakecallData {
 
   public void setLocation(String location) {
     this.location = location;
-  }
-
-  public VoicemakecallData makeCallType(Integer makeCallType) {
-    this.makeCallType = makeCallType;
-    return this;
-  }
-
-   /**
-   * Refer to the type TMakeCallType.
-   * @return makeCallType
-  **/
-  @ApiModelProperty(example = "null", value = "Refer to the type TMakeCallType.")
-  public Integer getMakeCallType() {
-    return makeCallType;
-  }
-
-  public void setMakeCallType(Integer makeCallType) {
-    this.makeCallType = makeCallType;
   }
 
   public VoicemakecallData userData(List<Kvpair> userData) {
@@ -200,7 +179,6 @@ public class VoicemakecallData {
     VoicemakecallData voicemakecallData = (VoicemakecallData) o;
     return Objects.equals(this.destination, voicemakecallData.destination) &&
         Objects.equals(this.location, voicemakecallData.location) &&
-        Objects.equals(this.makeCallType, voicemakecallData.makeCallType) &&
         Objects.equals(this.userData, voicemakecallData.userData) &&
         Objects.equals(this.reasons, voicemakecallData.reasons) &&
         Objects.equals(this.extensions, voicemakecallData.extensions) &&
@@ -209,7 +187,7 @@ public class VoicemakecallData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(destination, location, makeCallType, userData, reasons, extensions, outboundCallerId);
+    return Objects.hash(destination, location, userData, reasons, extensions, outboundCallerId);
   }
 
 
@@ -220,7 +198,6 @@ public class VoicemakecallData {
     
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
-    sb.append("    makeCallType: ").append(toIndentedString(makeCallType)).append("\n");
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");

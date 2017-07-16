@@ -14,37 +14,12 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.genesys.workspace.model.UcsgetcontactsData;
-import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * GetContactsData
+ * ApiRequestData
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T13:04:00.614Z")
-public class GetContactsData {
-  @SerializedName("data")
-  private UcsgetcontactsData data = null;
-
-  public GetContactsData data(UcsgetcontactsData data) {
-    this.data = data;
-    return this;
-  }
-
-   /**
-   * Get data
-   * @return data
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public UcsgetcontactsData getData() {
-    return data;
-  }
-
-  public void setData(UcsgetcontactsData data) {
-    this.data = data;
-  }
-
+public class ApiRequestData {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -54,22 +29,20 @@ public class GetContactsData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetContactsData getContactsData = (GetContactsData) o;
-    return Objects.equals(this.data, getContactsData.data);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash();
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetContactsData {\n");
+    sb.append("class ApiRequestData {\n");
     
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

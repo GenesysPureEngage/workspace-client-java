@@ -355,7 +355,7 @@ public class SessionApi {
     /**
      * Read settings, action codes, business attributes and other configuration.
      * This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
-     * @param types use to return transactions having this particular key in userProperties (optional)
+     * @param types An undercore delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)
      * @return ConfigResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -367,7 +367,7 @@ public class SessionApi {
     /**
      * Read settings, action codes, business attributes and other configuration.
      * This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
-     * @param types use to return transactions having this particular key in userProperties (optional)
+     * @param types An undercore delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)
      * @return ApiResponse&lt;ConfigResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -380,7 +380,7 @@ public class SessionApi {
     /**
      * Read settings, action codes, business attributes and other configuration. (asynchronously)
      * This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
-     * @param types use to return transactions having this particular key in userProperties (optional)
+     * @param types An undercore delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

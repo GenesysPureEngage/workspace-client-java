@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * UcsgetcontactsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-11T17:21:32.804Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T13:04:00.614Z")
 public class UcsgetcontactsData {
   @SerializedName("searchCriteria")
   private Object searchCriteria = null;
@@ -38,7 +38,7 @@ public class UcsgetcontactsData {
   private Integer maxCount = null;
 
   @SerializedName("sortCriteria")
-  private List<String> sortCriteria = new ArrayList<String>();
+  private List<Object> sortCriteria = new ArrayList<Object>();
 
   public UcsgetcontactsData searchCriteria(Object searchCriteria) {
     this.searchCriteria = searchCriteria;
@@ -117,12 +117,12 @@ public class UcsgetcontactsData {
     this.maxCount = maxCount;
   }
 
-  public UcsgetcontactsData sortCriteria(List<String> sortCriteria) {
+  public UcsgetcontactsData sortCriteria(List<Object> sortCriteria) {
     this.sortCriteria = sortCriteria;
     return this;
   }
 
-  public UcsgetcontactsData addSortCriteriaItem(String sortCriteriaItem) {
+  public UcsgetcontactsData addSortCriteriaItem(Object sortCriteriaItem) {
     this.sortCriteria.add(sortCriteriaItem);
     return this;
   }
@@ -132,11 +132,11 @@ public class UcsgetcontactsData {
    * @return sortCriteria
   **/
   @ApiModelProperty(example = "null", value = "The sorting criteria")
-  public List<String> getSortCriteria() {
+  public List<Object> getSortCriteria() {
     return sortCriteria;
   }
 
-  public void setSortCriteria(List<String> sortCriteria) {
+  public void setSortCriteria(List<Object> sortCriteria) {
     this.sortCriteria = sortCriteria;
   }
 

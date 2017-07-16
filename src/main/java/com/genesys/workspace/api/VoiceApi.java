@@ -42,8 +42,10 @@ import com.genesys.workspace.model.InitiateTransferData;
 import com.genesys.workspace.model.InlineResponse200;
 import com.genesys.workspace.model.KeyData;
 import com.genesys.workspace.model.MakeCallData;
+import com.genesys.workspace.model.MergeData;
 import com.genesys.workspace.model.MonitoringScopeData;
 import com.genesys.workspace.model.NotReadyData;
+import com.genesys.workspace.model.ReadyData;
 import com.genesys.workspace.model.ReconnectData;
 import com.genesys.workspace.model.RedirectData;
 import com.genesys.workspace.model.ReleaseData;
@@ -148,7 +150,7 @@ public class VoiceApi {
 
     /**
      * Alternate between calls
-     * On behalf of the telephony object specified by the parameter dn, places the active call specified by the parameter current_conn_id on hold and connects the call specified by the parameter held_conn_id.
+     * Alternate between two calls when one call is held and the other is established.
      * @param id Connection identifier of the call that is requested to be connected. (required)
      * @param alternateData  (required)
      * @return ApiSuccessResponse
@@ -161,7 +163,7 @@ public class VoiceApi {
 
     /**
      * Alternate between calls
-     * On behalf of the telephony object specified by the parameter dn, places the active call specified by the parameter current_conn_id on hold and connects the call specified by the parameter held_conn_id.
+     * Alternate between two calls when one call is held and the other is established.
      * @param id Connection identifier of the call that is requested to be connected. (required)
      * @param alternateData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
@@ -175,7 +177,7 @@ public class VoiceApi {
 
     /**
      * Alternate between calls (asynchronously)
-     * On behalf of the telephony object specified by the parameter dn, places the active call specified by the parameter current_conn_id on hold and connects the call specified by the parameter held_conn_id.
+     * Alternate between two calls when one call is held and the other is established.
      * @param id Connection identifier of the call that is requested to be connected. (required)
      * @param alternateData  (required)
      * @param callback The callback to be executed when the API call finishes
@@ -512,8 +514,8 @@ public class VoiceApi {
     }
 
     /**
-     * Cancel active forward
-     * 
+     * Cancel call forwardarding
+     * Cancel call forwardarding
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -523,8 +525,8 @@ public class VoiceApi {
     }
 
     /**
-     * Cancel active forward
-     * 
+     * Cancel call forwardarding
+     * Cancel call forwardarding
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -535,8 +537,8 @@ public class VoiceApi {
     }
 
     /**
-     * Cancel active forward (asynchronously)
-     * 
+     * Cancel call forwardarding (asynchronously)
+     * Cancel call forwardarding
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1262,8 +1264,8 @@ public class VoiceApi {
     }
 
     /**
-     * Forward to other dn
-     * 
+     * Fordward calls
+     * Turn on call forwarding to the specified destination. 
      * @param forwardData Request parameters. (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1274,8 +1276,8 @@ public class VoiceApi {
     }
 
     /**
-     * Forward to other dn
-     * 
+     * Fordward calls
+     * Turn on call forwarding to the specified destination. 
      * @param forwardData Request parameters. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1287,8 +1289,8 @@ public class VoiceApi {
     }
 
     /**
-     * Forward to other dn (asynchronously)
-     * 
+     * Fordward calls (asynchronously)
+     * Turn on call forwarding to the specified destination. 
      * @param forwardData Request parameters. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1862,7 +1864,7 @@ public class VoiceApi {
 
     /**
      * Login the media voice
-     * 
+     * Login on the voice channel. This can be used to login the voice channel if it is logge out. (ex. after using /voice/logout). Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1873,7 +1875,7 @@ public class VoiceApi {
 
     /**
      * Login the media voice
-     * 
+     * Login on the voice channel. This can be used to login the voice channel if it is logge out. (ex. after using /voice/logout). Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1885,7 +1887,7 @@ public class VoiceApi {
 
     /**
      * Login the media voice (asynchronously)
-     * 
+     * Login on the voice channel. This can be used to login the voice channel if it is logge out. (ex. after using /voice/logout). Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1972,7 +1974,7 @@ public class VoiceApi {
 
     /**
      * Logout the media voice
-     * 
+     * Logout on the voice channel. Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1983,7 +1985,7 @@ public class VoiceApi {
 
     /**
      * Logout the media voice
-     * 
+     * Logout on the voice channel. Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1995,7 +1997,7 @@ public class VoiceApi {
 
     /**
      * Logout the media voice (asynchronously)
-     * 
+     * Logout on the voice channel. Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2087,7 +2089,7 @@ public class VoiceApi {
 
     /**
      * Make a new call to the specified destination
-     * 
+     * Make a new call to the specified destination
      * @param makeCallData Request parameters. (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2099,7 +2101,7 @@ public class VoiceApi {
 
     /**
      * Make a new call to the specified destination
-     * 
+     * Make a new call to the specified destination
      * @param makeCallData Request parameters. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2112,7 +2114,7 @@ public class VoiceApi {
 
     /**
      * Make a new call to the specified destination (asynchronously)
-     * 
+     * Make a new call to the specified destination
      * @param makeCallData Request parameters. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2140,6 +2142,133 @@ public class VoiceApi {
         }
 
         com.squareup.okhttp.Call call = makeCallValidateBeforeCall(makeCallData, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for merge */
+    private com.squareup.okhttp.Call mergeCall(String id, MergeData mergeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = mergeData;
+        
+        // create path and map variables
+        String localVarPath = "/voice/calls/{id}/merge".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call mergeValidateBeforeCall(String id, MergeData mergeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling merge(Async)");
+        }
+        
+        // verify the required parameter 'mergeData' is set
+        if (mergeData == null) {
+            throw new ApiException("Missing the required parameter 'mergeData' when calling merge(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = mergeCall(id, mergeData, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Merge two calls
+     * Merge two calls 
+     * @param id Connection identifier of the first call to be merged (required)
+     * @param mergeData  (required)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse merge(String id, MergeData mergeData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = mergeWithHttpInfo(id, mergeData);
+        return resp.getData();
+    }
+
+    /**
+     * Merge two calls
+     * Merge two calls 
+     * @param id Connection identifier of the first call to be merged (required)
+     * @param mergeData  (required)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> mergeWithHttpInfo(String id, MergeData mergeData) throws ApiException {
+        com.squareup.okhttp.Call call = mergeValidateBeforeCall(id, mergeData, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Merge two calls (asynchronously)
+     * Merge two calls 
+     * @param id Connection identifier of the first call to be merged (required)
+     * @param mergeData  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call mergeAsync(String id, MergeData mergeData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = mergeValidateBeforeCall(id, mergeData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -3239,8 +3368,8 @@ public class VoiceApi {
         return call;
     }
     /* Build call for setAgentStateReady */
-    private com.squareup.okhttp.Call setAgentStateReadyCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    private com.squareup.okhttp.Call setAgentStateReadyCall(ReadyData readyData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = readyData;
         
         // create path and map variables
         String localVarPath = "/voice/ready".replaceAll("\\{format\\}","json");
@@ -3280,10 +3409,10 @@ public class VoiceApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call setAgentStateReadyValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call setAgentStateReadyValidateBeforeCall(ReadyData readyData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = setAgentStateReadyCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = setAgentStateReadyCall(readyData, progressListener, progressRequestListener);
         return call;
 
         
@@ -3295,22 +3424,24 @@ public class VoiceApi {
     /**
      * Change to the ready state for voice
      * 
+     * @param readyData  (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse setAgentStateReady() throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = setAgentStateReadyWithHttpInfo();
+    public ApiSuccessResponse setAgentStateReady(ReadyData readyData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = setAgentStateReadyWithHttpInfo(readyData);
         return resp.getData();
     }
 
     /**
      * Change to the ready state for voice
      * 
+     * @param readyData  (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> setAgentStateReadyWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = setAgentStateReadyValidateBeforeCall(null, null);
+    public ApiResponse<ApiSuccessResponse> setAgentStateReadyWithHttpInfo(ReadyData readyData) throws ApiException {
+        com.squareup.okhttp.Call call = setAgentStateReadyValidateBeforeCall(readyData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -3318,11 +3449,12 @@ public class VoiceApi {
     /**
      * Change to the ready state for voice (asynchronously)
      * 
+     * @param readyData  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call setAgentStateReadyAsync(final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call setAgentStateReadyAsync(ReadyData readyData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3343,7 +3475,7 @@ public class VoiceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = setAgentStateReadyValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = setAgentStateReadyValidateBeforeCall(readyData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -3403,8 +3535,8 @@ public class VoiceApi {
     }
 
     /**
-     * Set dnd off for voice
-     * 
+     * Turn off do not disturb for voice
+     * Turn off do not disturb for voice
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3414,8 +3546,8 @@ public class VoiceApi {
     }
 
     /**
-     * Set dnd off for voice
-     * 
+     * Turn off do not disturb for voice
+     * Turn off do not disturb for voice
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3426,8 +3558,8 @@ public class VoiceApi {
     }
 
     /**
-     * Set dnd off for voice (asynchronously)
-     * 
+     * Turn off do not disturb for voice (asynchronously)
+     * Turn off do not disturb for voice
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3513,8 +3645,8 @@ public class VoiceApi {
     }
 
     /**
-     * Set dnd on for voice
-     * 
+     * Turn on do not disturb for voice
+     * Turn on do not disturb for voice
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3524,8 +3656,8 @@ public class VoiceApi {
     }
 
     /**
-     * Set dnd on for voice
-     * 
+     * Turn on do not disturb for voice
+     * Turn on do not disturb for voice
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3536,8 +3668,8 @@ public class VoiceApi {
     }
 
     /**
-     * Set dnd on for voice (asynchronously)
-     * 
+     * Turn on do not disturb for voice (asynchronously)
+     * Turn on do not disturb for voice
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3883,7 +4015,7 @@ public class VoiceApi {
 
     /**
      * Start the monitoring of an agent.
-     * Start the monitoring of an agent, providing monitoring information (deviceId to be monitored, operationMode (Monitor/Coach), monitoringMode (NextCall/AllCalls), monitoringScope (Agent/Call)).
+     * Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Monitor/Coach), monitoringNextCallType (NextCall/AllCalls), monitoringScope (Agent/Call)).
      * @param startMonitoringData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3895,7 +4027,7 @@ public class VoiceApi {
 
     /**
      * Start the monitoring of an agent.
-     * Start the monitoring of an agent, providing monitoring information (deviceId to be monitored, operationMode (Monitor/Coach), monitoringMode (NextCall/AllCalls), monitoringScope (Agent/Call)).
+     * Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Monitor/Coach), monitoringNextCallType (NextCall/AllCalls), monitoringScope (Agent/Call)).
      * @param startMonitoringData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3908,7 +4040,7 @@ public class VoiceApi {
 
     /**
      * Start the monitoring of an agent. (asynchronously)
-     * Start the monitoring of an agent, providing monitoring information (deviceId to be monitored, operationMode (Monitor/Coach), monitoringMode (NextCall/AllCalls), monitoringScope (Agent/Call)).
+     * Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Monitor/Coach), monitoringNextCallType (NextCall/AllCalls), monitoringScope (Agent/Call)).
      * @param startMonitoringData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4120,7 +4252,7 @@ public class VoiceApi {
 
     /**
      * Stop the monitoring of an agent.
-     * Stop the monitoring of an agent, providing monitoring information (deviceId to be monitored).
+     * Stop the monitoring of an agent, providing monitoring information (phoneNumber to be monitored).
      * @param stopMonitoringData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4132,7 +4264,7 @@ public class VoiceApi {
 
     /**
      * Stop the monitoring of an agent.
-     * Stop the monitoring of an agent, providing monitoring information (deviceId to be monitored).
+     * Stop the monitoring of an agent, providing monitoring information (phoneNumber to be monitored).
      * @param stopMonitoringData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4145,7 +4277,7 @@ public class VoiceApi {
 
     /**
      * Stop the monitoring of an agent. (asynchronously)
-     * Stop the monitoring of an agent, providing monitoring information (deviceId to be monitored).
+     * Stop the monitoring of an agent, providing monitoring information (phoneNumber to be monitored).
      * @param stopMonitoringData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

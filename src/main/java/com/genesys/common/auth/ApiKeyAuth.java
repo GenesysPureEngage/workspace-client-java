@@ -18,7 +18,7 @@ import com.genesys.common.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-11T17:21:32.804Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T13:04:00.614Z")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;

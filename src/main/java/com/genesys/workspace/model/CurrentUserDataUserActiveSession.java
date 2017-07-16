@@ -14,18 +14,24 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
+import com.genesys.workspace.model.Call;
 import com.genesys.workspace.model.CurrentUserDataUserActiveSessionDn;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CurrentUserDataUserActiveSession
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-11T17:21:32.804Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T13:04:00.614Z")
 public class CurrentUserDataUserActiveSession {
   @SerializedName("dn")
   private CurrentUserDataUserActiveSessionDn dn = null;
+
+  @SerializedName("calls")
+  private List<Call> calls = new ArrayList<Call>();
 
   public CurrentUserDataUserActiveSession dn(CurrentUserDataUserActiveSessionDn dn) {
     this.dn = dn;
@@ -45,6 +51,29 @@ public class CurrentUserDataUserActiveSession {
     this.dn = dn;
   }
 
+  public CurrentUserDataUserActiveSession calls(List<Call> calls) {
+    this.calls = calls;
+    return this;
+  }
+
+  public CurrentUserDataUserActiveSession addCallsItem(Call callsItem) {
+    this.calls.add(callsItem);
+    return this;
+  }
+
+   /**
+   * An array containing any active calls.
+   * @return calls
+  **/
+  @ApiModelProperty(example = "null", value = "An array containing any active calls.")
+  public List<Call> getCalls() {
+    return calls;
+  }
+
+  public void setCalls(List<Call> calls) {
+    this.calls = calls;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -55,12 +84,13 @@ public class CurrentUserDataUserActiveSession {
       return false;
     }
     CurrentUserDataUserActiveSession currentUserDataUserActiveSession = (CurrentUserDataUserActiveSession) o;
-    return Objects.equals(this.dn, currentUserDataUserActiveSession.dn);
+    return Objects.equals(this.dn, currentUserDataUserActiveSession.dn) &&
+        Objects.equals(this.calls, currentUserDataUserActiveSession.calls);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dn);
+    return Objects.hash(dn, calls);
   }
 
 
@@ -70,6 +100,7 @@ public class CurrentUserDataUserActiveSession {
     sb.append("class CurrentUserDataUserActiveSession {\n");
     
     sb.append("    dn: ").append(toIndentedString(dn)).append("\n");
+    sb.append("    calls: ").append(toIndentedString(calls)).append("\n");
     sb.append("}");
     return sb.toString();
   }

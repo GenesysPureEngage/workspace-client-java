@@ -22,12 +22,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * VoicecallsidreconnectData
+ * VoicecallsidmergeData
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T13:04:00.614Z")
-public class VoicecallsidreconnectData {
-  @SerializedName("heldConnId")
-  private String heldConnId = null;
+public class VoicecallsidmergeData {
+  @SerializedName("otherConnId")
+  private String otherConnId = null;
 
   @SerializedName("reasons")
   private List<Kvpair> reasons = new ArrayList<Kvpair>();
@@ -35,30 +35,30 @@ public class VoicecallsidreconnectData {
   @SerializedName("extensions")
   private List<Kvpair> extensions = new ArrayList<Kvpair>();
 
-  public VoicecallsidreconnectData heldConnId(String heldConnId) {
-    this.heldConnId = heldConnId;
+  public VoicecallsidmergeData otherConnId(String otherConnId) {
+    this.otherConnId = otherConnId;
     return this;
   }
 
    /**
-   * Connection identifier of the active call from which the telephony object in question should be released.
-   * @return heldConnId
+   * Connection id of the other call to merge with
+   * @return otherConnId
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Connection identifier of the active call from which the telephony object in question should be released.")
-  public String getHeldConnId() {
-    return heldConnId;
+  @ApiModelProperty(example = "null", required = true, value = "Connection id of the other call to merge with")
+  public String getOtherConnId() {
+    return otherConnId;
   }
 
-  public void setHeldConnId(String heldConnId) {
-    this.heldConnId = heldConnId;
+  public void setOtherConnId(String otherConnId) {
+    this.otherConnId = otherConnId;
   }
 
-  public VoicecallsidreconnectData reasons(List<Kvpair> reasons) {
+  public VoicecallsidmergeData reasons(List<Kvpair> reasons) {
     this.reasons = reasons;
     return this;
   }
 
-  public VoicecallsidreconnectData addReasonsItem(Kvpair reasonsItem) {
+  public VoicecallsidmergeData addReasonsItem(Kvpair reasonsItem) {
     this.reasons.add(reasonsItem);
     return this;
   }
@@ -76,12 +76,12 @@ public class VoicecallsidreconnectData {
     this.reasons = reasons;
   }
 
-  public VoicecallsidreconnectData extensions(List<Kvpair> extensions) {
+  public VoicecallsidmergeData extensions(List<Kvpair> extensions) {
     this.extensions = extensions;
     return this;
   }
 
-  public VoicecallsidreconnectData addExtensionsItem(Kvpair extensionsItem) {
+  public VoicecallsidmergeData addExtensionsItem(Kvpair extensionsItem) {
     this.extensions.add(extensionsItem);
     return this;
   }
@@ -108,24 +108,24 @@ public class VoicecallsidreconnectData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VoicecallsidreconnectData voicecallsidreconnectData = (VoicecallsidreconnectData) o;
-    return Objects.equals(this.heldConnId, voicecallsidreconnectData.heldConnId) &&
-        Objects.equals(this.reasons, voicecallsidreconnectData.reasons) &&
-        Objects.equals(this.extensions, voicecallsidreconnectData.extensions);
+    VoicecallsidmergeData voicecallsidmergeData = (VoicecallsidmergeData) o;
+    return Objects.equals(this.otherConnId, voicecallsidmergeData.otherConnId) &&
+        Objects.equals(this.reasons, voicecallsidmergeData.reasons) &&
+        Objects.equals(this.extensions, voicecallsidmergeData.extensions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(heldConnId, reasons, extensions);
+    return Objects.hash(otherConnId, reasons, extensions);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VoicecallsidreconnectData {\n");
+    sb.append("class VoicecallsidmergeData {\n");
     
-    sb.append("    heldConnId: ").append(toIndentedString(heldConnId)).append("\n");
+    sb.append("    otherConnId: ").append(toIndentedString(otherConnId)).append("\n");
     sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
     sb.append("}");

@@ -22,43 +22,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * VoicecallsidreconnectData
+ * VoicereadyData
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T13:04:00.614Z")
-public class VoicecallsidreconnectData {
-  @SerializedName("heldConnId")
-  private String heldConnId = null;
-
+public class VoicereadyData {
   @SerializedName("reasons")
   private List<Kvpair> reasons = new ArrayList<Kvpair>();
 
   @SerializedName("extensions")
   private List<Kvpair> extensions = new ArrayList<Kvpair>();
 
-  public VoicecallsidreconnectData heldConnId(String heldConnId) {
-    this.heldConnId = heldConnId;
-    return this;
-  }
-
-   /**
-   * Connection identifier of the active call from which the telephony object in question should be released.
-   * @return heldConnId
-  **/
-  @ApiModelProperty(example = "null", required = true, value = "Connection identifier of the active call from which the telephony object in question should be released.")
-  public String getHeldConnId() {
-    return heldConnId;
-  }
-
-  public void setHeldConnId(String heldConnId) {
-    this.heldConnId = heldConnId;
-  }
-
-  public VoicecallsidreconnectData reasons(List<Kvpair> reasons) {
+  public VoicereadyData reasons(List<Kvpair> reasons) {
     this.reasons = reasons;
     return this;
   }
 
-  public VoicecallsidreconnectData addReasonsItem(Kvpair reasonsItem) {
+  public VoicereadyData addReasonsItem(Kvpair reasonsItem) {
     this.reasons.add(reasonsItem);
     return this;
   }
@@ -76,12 +55,12 @@ public class VoicecallsidreconnectData {
     this.reasons = reasons;
   }
 
-  public VoicecallsidreconnectData extensions(List<Kvpair> extensions) {
+  public VoicereadyData extensions(List<Kvpair> extensions) {
     this.extensions = extensions;
     return this;
   }
 
-  public VoicecallsidreconnectData addExtensionsItem(Kvpair extensionsItem) {
+  public VoicereadyData addExtensionsItem(Kvpair extensionsItem) {
     this.extensions.add(extensionsItem);
     return this;
   }
@@ -108,24 +87,22 @@ public class VoicecallsidreconnectData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VoicecallsidreconnectData voicecallsidreconnectData = (VoicecallsidreconnectData) o;
-    return Objects.equals(this.heldConnId, voicecallsidreconnectData.heldConnId) &&
-        Objects.equals(this.reasons, voicecallsidreconnectData.reasons) &&
-        Objects.equals(this.extensions, voicecallsidreconnectData.extensions);
+    VoicereadyData voicereadyData = (VoicereadyData) o;
+    return Objects.equals(this.reasons, voicereadyData.reasons) &&
+        Objects.equals(this.extensions, voicereadyData.extensions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(heldConnId, reasons, extensions);
+    return Objects.hash(reasons, extensions);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VoicecallsidreconnectData {\n");
+    sb.append("class VoicereadyData {\n");
     
-    sb.append("    heldConnId: ").append(toIndentedString(heldConnId)).append("\n");
     sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
     sb.append("}");

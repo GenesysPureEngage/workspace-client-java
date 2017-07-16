@@ -24,13 +24,13 @@ import java.util.List;
 /**
  * SendUserEventDataData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-11T17:21:32.804Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T13:04:00.614Z")
 public class SendUserEventDataData {
   @SerializedName("userData")
   private List<Kvpair> userData = new ArrayList<Kvpair>();
 
-  @SerializedName("callId")
-  private String callId = null;
+  @SerializedName("callUuid")
+  private String callUuid = null;
 
   public SendUserEventDataData userData(List<Kvpair> userData) {
     this.userData = userData;
@@ -55,22 +55,22 @@ public class SendUserEventDataData {
     this.userData = userData;
   }
 
-  public SendUserEventDataData callId(String callId) {
-    this.callId = callId;
+  public SendUserEventDataData callUuid(String callUuid) {
+    this.callUuid = callUuid;
     return this;
   }
 
    /**
-   * Get callId
-   * @return callId
+   * Get callUuid
+   * @return callUuid
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getCallId() {
-    return callId;
+  public String getCallUuid() {
+    return callUuid;
   }
 
-  public void setCallId(String callId) {
-    this.callId = callId;
+  public void setCallUuid(String callUuid) {
+    this.callUuid = callUuid;
   }
 
 
@@ -84,12 +84,12 @@ public class SendUserEventDataData {
     }
     SendUserEventDataData sendUserEventDataData = (SendUserEventDataData) o;
     return Objects.equals(this.userData, sendUserEventDataData.userData) &&
-        Objects.equals(this.callId, sendUserEventDataData.callId);
+        Objects.equals(this.callUuid, sendUserEventDataData.callUuid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userData, callId);
+    return Objects.hash(userData, callUuid);
   }
 
 
@@ -99,7 +99,7 @@ public class SendUserEventDataData {
     sb.append("class SendUserEventDataData {\n");
     
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
-    sb.append("    callId: ").append(toIndentedString(callId)).append("\n");
+    sb.append("    callUuid: ").append(toIndentedString(callUuid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

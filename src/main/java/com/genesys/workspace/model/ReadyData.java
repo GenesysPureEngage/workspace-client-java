@@ -14,20 +14,20 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.genesys.workspace.model.UcsgetcontactsData;
+import com.genesys.workspace.model.VoicereadyData;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * GetContactsData
+ * ReadyData
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T13:04:00.614Z")
-public class GetContactsData {
+public class ReadyData {
   @SerializedName("data")
-  private UcsgetcontactsData data = null;
+  private VoicereadyData data = null;
 
-  public GetContactsData data(UcsgetcontactsData data) {
+  public ReadyData data(VoicereadyData data) {
     this.data = data;
     return this;
   }
@@ -37,11 +37,11 @@ public class GetContactsData {
    * @return data
   **/
   @ApiModelProperty(example = "null", value = "")
-  public UcsgetcontactsData getData() {
+  public VoicereadyData getData() {
     return data;
   }
 
-  public void setData(UcsgetcontactsData data) {
+  public void setData(VoicereadyData data) {
     this.data = data;
   }
 
@@ -54,8 +54,8 @@ public class GetContactsData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetContactsData getContactsData = (GetContactsData) o;
-    return Objects.equals(this.data, getContactsData.data);
+    ReadyData readyData = (ReadyData) o;
+    return Objects.equals(this.data, readyData.data);
   }
 
   @Override
@@ -67,7 +67,7 @@ public class GetContactsData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetContactsData {\n");
+    sb.append("class ReadyData {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");

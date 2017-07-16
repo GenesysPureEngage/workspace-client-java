@@ -286,7 +286,7 @@ public class TargetsApi {
         return call;
     }
     /* Build call for get */
-    private com.squareup.okhttp.Call getCall(String searchTerm, String filterName, String types, String sort, BigDecimal limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getCall(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -303,6 +303,8 @@ public class TargetsApi {
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
         if (limit != null)
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+        if (matchType != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "matchType", matchType));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -337,7 +339,7 @@ public class TargetsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getValidateBeforeCall(String searchTerm, String filterName, String types, String sort, BigDecimal limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getValidateBeforeCall(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'searchTerm' is set
         if (searchTerm == null) {
@@ -345,7 +347,7 @@ public class TargetsApi {
         }
         
         
-        com.squareup.okhttp.Call call = getCall(searchTerm, filterName, types, sort, limit, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getCall(searchTerm, filterName, types, sort, limit, matchType, progressListener, progressRequestListener);
         return call;
 
         
@@ -359,14 +361,15 @@ public class TargetsApi {
      * 
      * @param searchTerm The text to search for (required)
      * @param filterName The filter to specify on which fields the search is applied (optional)
-     * @param types Comma separated list of types to include in the search (optional)
+     * @param types Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
      * @param sort Desired sort order (asc or desc). asc if not specified (optional)
      * @param limit Number of results. 100 if not specified. (optional)
+     * @param matchType Type of behavior for the field matching (exact for exact match search). (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse get(String searchTerm, String filterName, String types, String sort, BigDecimal limit) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = getWithHttpInfo(searchTerm, filterName, types, sort, limit);
+    public ApiSuccessResponse get(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = getWithHttpInfo(searchTerm, filterName, types, sort, limit, matchType);
         return resp.getData();
     }
 
@@ -375,14 +378,15 @@ public class TargetsApi {
      * 
      * @param searchTerm The text to search for (required)
      * @param filterName The filter to specify on which fields the search is applied (optional)
-     * @param types Comma separated list of types to include in the search (optional)
+     * @param types Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
      * @param sort Desired sort order (asc or desc). asc if not specified (optional)
      * @param limit Number of results. 100 if not specified. (optional)
+     * @param matchType Type of behavior for the field matching (exact for exact match search). (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> getWithHttpInfo(String searchTerm, String filterName, String types, String sort, BigDecimal limit) throws ApiException {
-        com.squareup.okhttp.Call call = getValidateBeforeCall(searchTerm, filterName, types, sort, limit, null, null);
+    public ApiResponse<ApiSuccessResponse> getWithHttpInfo(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType) throws ApiException {
+        com.squareup.okhttp.Call call = getValidateBeforeCall(searchTerm, filterName, types, sort, limit, matchType, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -392,14 +396,15 @@ public class TargetsApi {
      * 
      * @param searchTerm The text to search for (required)
      * @param filterName The filter to specify on which fields the search is applied (optional)
-     * @param types Comma separated list of types to include in the search (optional)
+     * @param types Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
      * @param sort Desired sort order (asc or desc). asc if not specified (optional)
      * @param limit Number of results. 100 if not specified. (optional)
+     * @param matchType Type of behavior for the field matching (exact for exact match search). (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAsync(String searchTerm, String filterName, String types, String sort, BigDecimal limit, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAsync(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -420,7 +425,7 @@ public class TargetsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getValidateBeforeCall(searchTerm, filterName, types, sort, limit, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getValidateBeforeCall(searchTerm, filterName, types, sort, limit, matchType, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

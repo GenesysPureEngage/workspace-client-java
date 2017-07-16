@@ -24,10 +24,10 @@ import java.util.List;
 /**
  * VoicecallsidalternateData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-11T17:21:32.804Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T13:04:00.614Z")
 public class VoicecallsidalternateData {
-  @SerializedName("currentConnId")
-  private String currentConnId = null;
+  @SerializedName("heldConnId")
+  private String heldConnId = null;
 
   @SerializedName("reasons")
   private List<Kvpair> reasons = new ArrayList<Kvpair>();
@@ -35,22 +35,22 @@ public class VoicecallsidalternateData {
   @SerializedName("extensions")
   private List<Kvpair> extensions = new ArrayList<Kvpair>();
 
-  public VoicecallsidalternateData currentConnId(String currentConnId) {
-    this.currentConnId = currentConnId;
+  public VoicecallsidalternateData heldConnId(String heldConnId) {
+    this.heldConnId = heldConnId;
     return this;
   }
 
    /**
    * Connection identifier of the active call that is requested to be placed on hold. This parameter can be either a dn or a party_id, where party_id is the party identifier given by the switch.
-   * @return currentConnId
+   * @return heldConnId
   **/
   @ApiModelProperty(example = "null", required = true, value = "Connection identifier of the active call that is requested to be placed on hold. This parameter can be either a dn or a party_id, where party_id is the party identifier given by the switch.")
-  public String getCurrentConnId() {
-    return currentConnId;
+  public String getHeldConnId() {
+    return heldConnId;
   }
 
-  public void setCurrentConnId(String currentConnId) {
-    this.currentConnId = currentConnId;
+  public void setHeldConnId(String heldConnId) {
+    this.heldConnId = heldConnId;
   }
 
   public VoicecallsidalternateData reasons(List<Kvpair> reasons) {
@@ -109,14 +109,14 @@ public class VoicecallsidalternateData {
       return false;
     }
     VoicecallsidalternateData voicecallsidalternateData = (VoicecallsidalternateData) o;
-    return Objects.equals(this.currentConnId, voicecallsidalternateData.currentConnId) &&
+    return Objects.equals(this.heldConnId, voicecallsidalternateData.heldConnId) &&
         Objects.equals(this.reasons, voicecallsidalternateData.reasons) &&
         Objects.equals(this.extensions, voicecallsidalternateData.extensions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currentConnId, reasons, extensions);
+    return Objects.hash(heldConnId, reasons, extensions);
   }
 
 
@@ -125,7 +125,7 @@ public class VoicecallsidalternateData {
     StringBuilder sb = new StringBuilder();
     sb.append("class VoicecallsidalternateData {\n");
     
-    sb.append("    currentConnId: ").append(toIndentedString(currentConnId)).append("\n");
+    sb.append("    heldConnId: ").append(toIndentedString(heldConnId)).append("\n");
     sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
     sb.append("}");
