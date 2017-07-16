@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * RedirectData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T14:56:01.421Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T15:07:53.738Z")
 public class RedirectData {
   @SerializedName("data")
   private VoicecallsidredirectData data = null;
