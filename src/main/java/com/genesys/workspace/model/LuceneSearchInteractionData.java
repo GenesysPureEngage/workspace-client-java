@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * LuceneSearchInteractionData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T13:04:00.614Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T13:14:58.883Z")
 public class LuceneSearchInteractionData {
   @SerializedName("data")
   private UcslucenesearchinteractionData data = null;
