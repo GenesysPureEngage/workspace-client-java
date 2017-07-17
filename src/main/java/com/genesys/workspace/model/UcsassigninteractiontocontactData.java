@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * UcsassigninteractiontocontactData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-17T16:23:02.314Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-17T16:44:46.387Z")
 public class UcsassigninteractiontocontactData {
   @SerializedName("interactionId")
   private String interactionId = null;
