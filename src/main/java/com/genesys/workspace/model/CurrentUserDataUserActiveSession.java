@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * CurrentUserDataUserActiveSession
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-17T16:44:46.387Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-17T18:45:58.061Z")
 public class CurrentUserDataUserActiveSession {
   @SerializedName("dn")
   private CurrentUserDataUserActiveSessionDn dn = null;

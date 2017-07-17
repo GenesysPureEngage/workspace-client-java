@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * CurrentUserDataUserActiveSessionDn
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-17T16:44:46.387Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-17T18:45:58.061Z")
 public class CurrentUserDataUserActiveSessionDn {
   @SerializedName("number")
   private String number = null;
