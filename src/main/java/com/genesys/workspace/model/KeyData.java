@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * KeyData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-16T15:15:30.675Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-17T13:23:02.540Z")
 public class KeyData {
   @SerializedName("data")
   private VoicecallsiddeleteuserdatapairData data = null;
