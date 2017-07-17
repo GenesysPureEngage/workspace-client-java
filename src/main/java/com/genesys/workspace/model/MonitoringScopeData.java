@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * MonitoringScopeData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-17T15:23:03.042Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-17T16:23:02.314Z")
 public class MonitoringScopeData {
   @SerializedName("data")
   private MonitoringScopeDataData data = null;
