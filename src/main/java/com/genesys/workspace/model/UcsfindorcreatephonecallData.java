@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * UcsfindorcreatephonecallData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-18T10:23:02.465Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-18T12:16:14.468Z")
 public class UcsfindorcreatephonecallData {
   @SerializedName("callId")
   private String callId = null;
