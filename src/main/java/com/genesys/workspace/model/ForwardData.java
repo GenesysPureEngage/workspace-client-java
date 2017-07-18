@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ForwardData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-18T07:54:55.844Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-18T10:23:02.465Z")
 public class ForwardData {
   @SerializedName("data")
   private VoicesetforwardData data = null;
