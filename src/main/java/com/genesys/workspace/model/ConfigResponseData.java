@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * ConfigResponseData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-18T14:22:59.322Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-18T15:22:59.061Z")
 public class ConfigResponseData {
   @SerializedName("actionCodes")
   private List<ConfigResponseDataActionCodes> actionCodes = new ArrayList<ConfigResponseDataActionCodes>();

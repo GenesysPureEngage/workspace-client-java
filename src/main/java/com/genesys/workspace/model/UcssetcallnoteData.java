@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * UcssetcallnoteData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-18T14:22:59.322Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-18T15:22:59.061Z")
 public class UcssetcallnoteData {
   @SerializedName("interactionId")
   private String interactionId = null;
