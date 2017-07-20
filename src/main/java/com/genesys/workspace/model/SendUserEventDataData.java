@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * SendUserEventDataData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-20T22:43:49.455Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-20T22:49:12.391Z")
 public class SendUserEventDataData {
   @SerializedName("userData")
   private List<Kvpair> userData = new ArrayList<Kvpair>();
