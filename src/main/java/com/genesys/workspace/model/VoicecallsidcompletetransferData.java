@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * VoicecallsidcompletetransferData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-20T22:49:12.391Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-20T23:02:55.937Z")
 public class VoicecallsidcompletetransferData {
   @SerializedName("parentConnId")
   private String parentConnId = null;

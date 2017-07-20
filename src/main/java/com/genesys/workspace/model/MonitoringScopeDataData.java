@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * MonitoringScopeDataData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-20T22:49:12.391Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-20T23:02:55.937Z")
 public class MonitoringScopeDataData {
   /**
    * The monitoring scope (Call/Agent).
