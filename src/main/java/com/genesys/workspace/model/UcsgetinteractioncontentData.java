@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * UcsgetinteractioncontentData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T17:23:01.218Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T18:23:01.731Z")
 public class UcsgetinteractioncontentData {
   @SerializedName("interactionId")
   private String interactionId = null;
