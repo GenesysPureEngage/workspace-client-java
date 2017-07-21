@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * DeleteFromConferenceData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T01:23:02.183Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T01:46:40.246Z")
 public class DeleteFromConferenceData {
   @SerializedName("data")
   private VoicecallsiddeletefromconferenceData data = null;
