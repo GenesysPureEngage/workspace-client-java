@@ -15,7 +15,7 @@ package com.genesys.workspace.model;
 
 import java.util.Objects;
 import com.genesys.workspace.model.Call;
-import com.genesys.workspace.model.CurrentUserDataUserActiveSessionDn;
+import com.genesys.workspace.model.CurrentSessionDataUserActiveSessionDn;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -23,17 +23,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * CurrentUserDataUserActiveSession
+ * CurrentSessionDataUserActiveSession
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T18:23:01.731Z")
-public class CurrentUserDataUserActiveSession {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T21:01:52.922Z")
+public class CurrentSessionDataUserActiveSession {
   @SerializedName("dn")
-  private CurrentUserDataUserActiveSessionDn dn = null;
+  private CurrentSessionDataUserActiveSessionDn dn = null;
 
   @SerializedName("calls")
   private List<Call> calls = new ArrayList<Call>();
 
-  public CurrentUserDataUserActiveSession dn(CurrentUserDataUserActiveSessionDn dn) {
+  public CurrentSessionDataUserActiveSession dn(CurrentSessionDataUserActiveSessionDn dn) {
     this.dn = dn;
     return this;
   }
@@ -43,20 +43,20 @@ public class CurrentUserDataUserActiveSession {
    * @return dn
   **/
   @ApiModelProperty(example = "null", value = "")
-  public CurrentUserDataUserActiveSessionDn getDn() {
+  public CurrentSessionDataUserActiveSessionDn getDn() {
     return dn;
   }
 
-  public void setDn(CurrentUserDataUserActiveSessionDn dn) {
+  public void setDn(CurrentSessionDataUserActiveSessionDn dn) {
     this.dn = dn;
   }
 
-  public CurrentUserDataUserActiveSession calls(List<Call> calls) {
+  public CurrentSessionDataUserActiveSession calls(List<Call> calls) {
     this.calls = calls;
     return this;
   }
 
-  public CurrentUserDataUserActiveSession addCallsItem(Call callsItem) {
+  public CurrentSessionDataUserActiveSession addCallsItem(Call callsItem) {
     this.calls.add(callsItem);
     return this;
   }
@@ -83,9 +83,9 @@ public class CurrentUserDataUserActiveSession {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CurrentUserDataUserActiveSession currentUserDataUserActiveSession = (CurrentUserDataUserActiveSession) o;
-    return Objects.equals(this.dn, currentUserDataUserActiveSession.dn) &&
-        Objects.equals(this.calls, currentUserDataUserActiveSession.calls);
+    CurrentSessionDataUserActiveSession currentSessionDataUserActiveSession = (CurrentSessionDataUserActiveSession) o;
+    return Objects.equals(this.dn, currentSessionDataUserActiveSession.dn) &&
+        Objects.equals(this.calls, currentSessionDataUserActiveSession.calls);
   }
 
   @Override
@@ -97,7 +97,7 @@ public class CurrentUserDataUserActiveSession {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CurrentUserDataUserActiveSession {\n");
+    sb.append("class CurrentSessionDataUserActiveSession {\n");
     
     sb.append("    dn: ").append(toIndentedString(dn)).append("\n");
     sb.append("    calls: ").append(toIndentedString(calls)).append("\n");

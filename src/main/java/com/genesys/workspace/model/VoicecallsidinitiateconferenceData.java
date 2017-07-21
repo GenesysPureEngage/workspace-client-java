@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * VoicecallsidinitiateconferenceData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T18:23:01.731Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T21:01:52.922Z")
 public class VoicecallsidinitiateconferenceData {
   @SerializedName("destination")
   private String destination = null;
@@ -50,10 +50,10 @@ public class VoicecallsidinitiateconferenceData {
   }
 
    /**
-   * Directory number of the party to be dialed.
+   * The number to be dialed
    * @return destination
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Directory number of the party to be dialed.")
+  @ApiModelProperty(example = "null", required = true, value = "The number to be dialed")
   public String getDestination() {
     return destination;
   }

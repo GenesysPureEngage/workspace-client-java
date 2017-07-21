@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.genesys.workspace.model.ApiRequestData;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -55,8 +54,8 @@ public class NotificationsApi {
     }
 
     /* Build call for notifications */
-    private com.squareup.okhttp.Call notificationsCall(ApiRequestData notificationsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = notificationsData;
+    private com.squareup.okhttp.Call notificationsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
         
         // create path and map variables
         String localVarPath = "/notifications".replaceAll("\\{format\\}","json");
@@ -96,10 +95,10 @@ public class NotificationsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call notificationsValidateBeforeCall(ApiRequestData notificationsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call notificationsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = notificationsCall(notificationsData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = notificationsCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -111,34 +110,31 @@ public class NotificationsApi {
     /**
      * Enables subscription to CometD notification API
      * Enables subscription to CometD notification API
-     * @param notificationsData  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void notifications(ApiRequestData notificationsData) throws ApiException {
-        notificationsWithHttpInfo(notificationsData);
+    public void notifications() throws ApiException {
+        notificationsWithHttpInfo();
     }
 
     /**
      * Enables subscription to CometD notification API
      * Enables subscription to CometD notification API
-     * @param notificationsData  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> notificationsWithHttpInfo(ApiRequestData notificationsData) throws ApiException {
-        com.squareup.okhttp.Call call = notificationsValidateBeforeCall(notificationsData, null, null);
+    public ApiResponse<Void> notificationsWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = notificationsValidateBeforeCall(null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Enables subscription to CometD notification API (asynchronously)
      * Enables subscription to CometD notification API
-     * @param notificationsData  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call notificationsAsync(ApiRequestData notificationsData, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call notificationsAsync(final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -159,13 +155,13 @@ public class NotificationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = notificationsValidateBeforeCall(notificationsData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = notificationsValidateBeforeCall(progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /* Build call for notificationsConnect */
-    private com.squareup.okhttp.Call notificationsConnectCall(ApiRequestData notificationsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = notificationsData;
+    private com.squareup.okhttp.Call notificationsConnectCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
         
         // create path and map variables
         String localVarPath = "/notifications/connect".replaceAll("\\{format\\}","json");
@@ -205,10 +201,10 @@ public class NotificationsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call notificationsConnectValidateBeforeCall(ApiRequestData notificationsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call notificationsConnectValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = notificationsConnectCall(notificationsData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = notificationsConnectCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -220,34 +216,31 @@ public class NotificationsApi {
     /**
      * Subscribes to CometD notifications
      * Subscribes to CometD notifications
-     * @param notificationsData  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void notificationsConnect(ApiRequestData notificationsData) throws ApiException {
-        notificationsConnectWithHttpInfo(notificationsData);
+    public void notificationsConnect() throws ApiException {
+        notificationsConnectWithHttpInfo();
     }
 
     /**
      * Subscribes to CometD notifications
      * Subscribes to CometD notifications
-     * @param notificationsData  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> notificationsConnectWithHttpInfo(ApiRequestData notificationsData) throws ApiException {
-        com.squareup.okhttp.Call call = notificationsConnectValidateBeforeCall(notificationsData, null, null);
+    public ApiResponse<Void> notificationsConnectWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = notificationsConnectValidateBeforeCall(null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Subscribes to CometD notifications (asynchronously)
      * Subscribes to CometD notifications
-     * @param notificationsData  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call notificationsConnectAsync(ApiRequestData notificationsData, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call notificationsConnectAsync(final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -268,13 +261,13 @@ public class NotificationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = notificationsConnectValidateBeforeCall(notificationsData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = notificationsConnectValidateBeforeCall(progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /* Build call for notificationsDisconnect */
-    private com.squareup.okhttp.Call notificationsDisconnectCall(ApiRequestData notificationsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = notificationsData;
+    private com.squareup.okhttp.Call notificationsDisconnectCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
         
         // create path and map variables
         String localVarPath = "/notifications/disconnect".replaceAll("\\{format\\}","json");
@@ -314,10 +307,10 @@ public class NotificationsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call notificationsDisconnectValidateBeforeCall(ApiRequestData notificationsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call notificationsDisconnectValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = notificationsDisconnectCall(notificationsData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = notificationsDisconnectCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -329,34 +322,31 @@ public class NotificationsApi {
     /**
      * Close CometD notification subscriptions
      * Close CometD notification subscriptions
-     * @param notificationsData  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void notificationsDisconnect(ApiRequestData notificationsData) throws ApiException {
-        notificationsDisconnectWithHttpInfo(notificationsData);
+    public void notificationsDisconnect() throws ApiException {
+        notificationsDisconnectWithHttpInfo();
     }
 
     /**
      * Close CometD notification subscriptions
      * Close CometD notification subscriptions
-     * @param notificationsData  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> notificationsDisconnectWithHttpInfo(ApiRequestData notificationsData) throws ApiException {
-        com.squareup.okhttp.Call call = notificationsDisconnectValidateBeforeCall(notificationsData, null, null);
+    public ApiResponse<Void> notificationsDisconnectWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = notificationsDisconnectValidateBeforeCall(null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Close CometD notification subscriptions (asynchronously)
      * Close CometD notification subscriptions
-     * @param notificationsData  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call notificationsDisconnectAsync(ApiRequestData notificationsData, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call notificationsDisconnectAsync(final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -377,13 +367,13 @@ public class NotificationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = notificationsDisconnectValidateBeforeCall(notificationsData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = notificationsDisconnectValidateBeforeCall(progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /* Build call for notificationsHandshake */
-    private com.squareup.okhttp.Call notificationsHandshakeCall(ApiRequestData notificationsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = notificationsData;
+    private com.squareup.okhttp.Call notificationsHandshakeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
         
         // create path and map variables
         String localVarPath = "/notifications/handshake".replaceAll("\\{format\\}","json");
@@ -423,10 +413,10 @@ public class NotificationsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call notificationsHandshakeValidateBeforeCall(ApiRequestData notificationsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call notificationsHandshakeValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = notificationsHandshakeCall(notificationsData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = notificationsHandshakeCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -438,34 +428,31 @@ public class NotificationsApi {
     /**
      * Subscribes to CometD notifications
      * Subscribes to CometD notifications
-     * @param notificationsData  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void notificationsHandshake(ApiRequestData notificationsData) throws ApiException {
-        notificationsHandshakeWithHttpInfo(notificationsData);
+    public void notificationsHandshake() throws ApiException {
+        notificationsHandshakeWithHttpInfo();
     }
 
     /**
      * Subscribes to CometD notifications
      * Subscribes to CometD notifications
-     * @param notificationsData  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> notificationsHandshakeWithHttpInfo(ApiRequestData notificationsData) throws ApiException {
-        com.squareup.okhttp.Call call = notificationsHandshakeValidateBeforeCall(notificationsData, null, null);
+    public ApiResponse<Void> notificationsHandshakeWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = notificationsHandshakeValidateBeforeCall(null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Subscribes to CometD notifications (asynchronously)
      * Subscribes to CometD notifications
-     * @param notificationsData  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call notificationsHandshakeAsync(ApiRequestData notificationsData, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call notificationsHandshakeAsync(final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -486,13 +473,225 @@ public class NotificationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = notificationsHandshakeValidateBeforeCall(notificationsData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = notificationsHandshakeValidateBeforeCall(progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /* Build call for notificationsSubscribe */
+    private com.squareup.okhttp.Call notificationsSubscribeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/notifications/subscribe".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call notificationsSubscribeValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        
+        com.squareup.okhttp.Call call = notificationsSubscribeCall(progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Subscribes CometD channel notification
+     * Subscribes CometD channel notification
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void notificationsSubscribe() throws ApiException {
+        notificationsSubscribeWithHttpInfo();
+    }
+
+    /**
+     * Subscribes CometD channel notification
+     * Subscribes CometD channel notification
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> notificationsSubscribeWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = notificationsSubscribeValidateBeforeCall(null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Subscribes CometD channel notification (asynchronously)
+     * Subscribes CometD channel notification
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call notificationsSubscribeAsync(final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = notificationsSubscribeValidateBeforeCall(progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /* Build call for notificationsUnsubscribe */
+    private com.squareup.okhttp.Call notificationsUnsubscribeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/notifications/unsubscribe".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call notificationsUnsubscribeValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        
+        com.squareup.okhttp.Call call = notificationsUnsubscribeCall(progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Unsubscribes CometD channel notification
+     * Unsubscribes CometD channel notification
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void notificationsUnsubscribe() throws ApiException {
+        notificationsUnsubscribeWithHttpInfo();
+    }
+
+    /**
+     * Unsubscribes CometD channel notification
+     * Unsubscribes CometD channel notification
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> notificationsUnsubscribeWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = notificationsUnsubscribeValidateBeforeCall(null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Unsubscribes CometD channel notification (asynchronously)
+     * Unsubscribes CometD channel notification
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call notificationsUnsubscribeAsync(final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = notificationsUnsubscribeValidateBeforeCall(progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /* Build call for socketio */
-    private com.squareup.okhttp.Call socketioCall(ApiRequestData socketIOData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = socketIOData;
+    private com.squareup.okhttp.Call socketioCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
         
         // create path and map variables
         String localVarPath = "/socket.io".replaceAll("\\{format\\}","json");
@@ -532,10 +731,10 @@ public class NotificationsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call socketioValidateBeforeCall(ApiRequestData socketIOData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call socketioValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = socketioCall(socketIOData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = socketioCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -547,34 +746,31 @@ public class NotificationsApi {
     /**
      * Enables subscription to SocketIO notifications
      * Enables subscription to SocketIO notifications
-     * @param socketIOData  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void socketio(ApiRequestData socketIOData) throws ApiException {
-        socketioWithHttpInfo(socketIOData);
+    public void socketio() throws ApiException {
+        socketioWithHttpInfo();
     }
 
     /**
      * Enables subscription to SocketIO notifications
      * Enables subscription to SocketIO notifications
-     * @param socketIOData  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> socketioWithHttpInfo(ApiRequestData socketIOData) throws ApiException {
-        com.squareup.okhttp.Call call = socketioValidateBeforeCall(socketIOData, null, null);
+    public ApiResponse<Void> socketioWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = socketioValidateBeforeCall(null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Enables subscription to SocketIO notifications (asynchronously)
      * Enables subscription to SocketIO notifications
-     * @param socketIOData  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call socketioAsync(ApiRequestData socketIOData, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call socketioAsync(final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -595,7 +791,7 @@ public class NotificationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = socketioValidateBeforeCall(socketIOData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = socketioValidateBeforeCall(progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

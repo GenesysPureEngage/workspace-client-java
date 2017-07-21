@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * VoicecallsidreconnectData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T18:23:01.731Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T21:01:52.922Z")
 public class VoicecallsidreconnectData {
   @SerializedName("heldConnId")
   private String heldConnId = null;
@@ -41,10 +41,10 @@ public class VoicecallsidreconnectData {
   }
 
    /**
-   * Connection identifier of the active call from which the telephony object in question should be released.
+   * The id of the held call that should be retrieved
    * @return heldConnId
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Connection identifier of the active call from which the telephony object in question should be released.")
+  @ApiModelProperty(example = "null", required = true, value = "The id of the held call that should be retrieved")
   public String getHeldConnId() {
     return heldConnId;
   }

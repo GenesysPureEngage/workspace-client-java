@@ -14,20 +14,42 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.genesys.workspace.model.StatisticsDataData;
+import com.genesys.workspace.model.CurrentSessionData;
+import com.genesys.workspace.model.CurrentSessionStatus;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * StatisticsData
+ * CurrentSession
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T18:23:01.731Z")
-public class StatisticsData {
-  @SerializedName("data")
-  private StatisticsDataData data = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T21:01:52.922Z")
+public class CurrentSession {
+  @SerializedName("status")
+  private CurrentSessionStatus status = null;
 
-  public StatisticsData data(StatisticsDataData data) {
+  @SerializedName("data")
+  private CurrentSessionData data = null;
+
+  public CurrentSession status(CurrentSessionStatus status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public CurrentSessionStatus getStatus() {
+    return status;
+  }
+
+  public void setStatus(CurrentSessionStatus status) {
+    this.status = status;
+  }
+
+  public CurrentSession data(CurrentSessionData data) {
     this.data = data;
     return this;
   }
@@ -37,11 +59,11 @@ public class StatisticsData {
    * @return data
   **/
   @ApiModelProperty(example = "null", value = "")
-  public StatisticsDataData getData() {
+  public CurrentSessionData getData() {
     return data;
   }
 
-  public void setData(StatisticsDataData data) {
+  public void setData(CurrentSessionData data) {
     this.data = data;
   }
 
@@ -54,21 +76,23 @@ public class StatisticsData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatisticsData statisticsData = (StatisticsData) o;
-    return Objects.equals(this.data, statisticsData.data);
+    CurrentSession currentSession = (CurrentSession) o;
+    return Objects.equals(this.status, currentSession.status) &&
+        Objects.equals(this.data, currentSession.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(status, data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatisticsData {\n");
+    sb.append("class CurrentSession {\n");
     
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();

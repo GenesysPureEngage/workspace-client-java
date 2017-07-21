@@ -113,7 +113,7 @@ public class TargetsApi {
 
     /**
      * Ack the missed calls in recent target
-     * 
+     * Ack the missed calls in recent target
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -124,7 +124,7 @@ public class TargetsApi {
 
     /**
      * Ack the missed calls in recent target
-     * 
+     * Ack the missed calls in recent target
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -136,7 +136,7 @@ public class TargetsApi {
 
     /**
      * Ack the missed calls in recent target (asynchronously)
-     * 
+     * Ack the missed calls in recent target
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -228,7 +228,7 @@ public class TargetsApi {
 
     /**
      * Add a recent target
-     * 
+     * Add a recent target
      * @param recentTargetData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -240,7 +240,7 @@ public class TargetsApi {
 
     /**
      * Add a recent target
-     * 
+     * Add a recent target
      * @param recentTargetData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -253,7 +253,7 @@ public class TargetsApi {
 
     /**
      * Add a recent target (asynchronously)
-     * 
+     * Add a recent target
      * @param recentTargetData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -358,7 +358,7 @@ public class TargetsApi {
 
     /**
      * Search for targets
-     * 
+     * Search for targets
      * @param searchTerm The text to search for (required)
      * @param filterName The filter to specify on which fields the search is applied (optional)
      * @param types Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
@@ -375,7 +375,7 @@ public class TargetsApi {
 
     /**
      * Search for targets
-     * 
+     * Search for targets
      * @param searchTerm The text to search for (required)
      * @param filterName The filter to specify on which fields the search is applied (optional)
      * @param types Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
@@ -393,7 +393,7 @@ public class TargetsApi {
 
     /**
      * Search for targets (asynchronously)
-     * 
+     * Search for targets
      * @param searchTerm The text to search for (required)
      * @param filterName The filter to specify on which fields the search is applied (optional)
      * @param types Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
@@ -488,7 +488,7 @@ public class TargetsApi {
 
     /**
      * Get recent targets
-     * 
+     * Get recent targets
      * @param limit Number of results. 50 if not specified. (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -500,7 +500,7 @@ public class TargetsApi {
 
     /**
      * Get recent targets
-     * 
+     * Get recent targets
      * @param limit Number of results. 50 if not specified. (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -513,7 +513,7 @@ public class TargetsApi {
 
     /**
      * Get recent targets (asynchronously)
-     * 
+     * Get recent targets
      * @param limit Number of results. 50 if not specified. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -613,7 +613,7 @@ public class TargetsApi {
 
     /**
      * Get a target
-     * 
+     * Get a specific target by type and id
      * @param id The id of the target (required)
      * @param type the type of the target (required)
      * @return ApiSuccessResponse
@@ -626,7 +626,7 @@ public class TargetsApi {
 
     /**
      * Get a target
-     * 
+     * Get a specific target by type and id
      * @param id The id of the target (required)
      * @param type the type of the target (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
@@ -640,7 +640,7 @@ public class TargetsApi {
 
     /**
      * Get a target (asynchronously)
-     * 
+     * Get a specific target by type and id
      * @param id The id of the target (required)
      * @param type the type of the target (required)
      * @param callback The callback to be executed when the API call finishes

@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * VoicecallsiddeletefromconferenceData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T18:23:01.731Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T21:01:52.922Z")
 public class VoicecallsiddeletefromconferenceData {
   @SerializedName("dnToDrop")
   private String dnToDrop = null;
@@ -41,10 +41,10 @@ public class VoicecallsiddeletefromconferenceData {
   }
 
    /**
-   * Reference to the telephony object that is requested to be deleted from the conference call. This parameter can be either a dn or a party_id, where party_id is the party identifier given by the switch.
+   * The party to be deleted from the conference
    * @return dnToDrop
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Reference to the telephony object that is requested to be deleted from the conference call. This parameter can be either a dn or a party_id, where party_id is the party identifier given by the switch.")
+  @ApiModelProperty(example = "null", required = true, value = "The party to be deleted from the conference")
   public String getDnToDrop() {
     return dnToDrop;
   }

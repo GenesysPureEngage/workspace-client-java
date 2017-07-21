@@ -14,7 +14,7 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.genesys.workspace.model.CurrentUserDataUserActiveSession;
+import com.genesys.workspace.model.CurrentSessionDataUserActiveSession;
 import com.genesys.workspace.model.Kvpair;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
@@ -23,10 +23,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * CurrentUserDataUser
+ * CurrentSessionDataUser
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T18:23:01.731Z")
-public class CurrentUserDataUser {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T21:01:52.922Z")
+public class CurrentSessionDataUser {
   @SerializedName("dbid")
   private Integer dbid = null;
 
@@ -52,9 +52,9 @@ public class CurrentUserDataUser {
   private List<Kvpair> userProperties = new ArrayList<Kvpair>();
 
   @SerializedName("activeSession")
-  private CurrentUserDataUserActiveSession activeSession = null;
+  private CurrentSessionDataUserActiveSession activeSession = null;
 
-  public CurrentUserDataUser dbid(Integer dbid) {
+  public CurrentSessionDataUser dbid(Integer dbid) {
     this.dbid = dbid;
     return this;
   }
@@ -72,7 +72,7 @@ public class CurrentUserDataUser {
     this.dbid = dbid;
   }
 
-  public CurrentUserDataUser firstName(String firstName) {
+  public CurrentSessionDataUser firstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
@@ -90,7 +90,7 @@ public class CurrentUserDataUser {
     this.firstName = firstName;
   }
 
-  public CurrentUserDataUser lastName(String lastName) {
+  public CurrentSessionDataUser lastName(String lastName) {
     this.lastName = lastName;
     return this;
   }
@@ -108,7 +108,7 @@ public class CurrentUserDataUser {
     this.lastName = lastName;
   }
 
-  public CurrentUserDataUser userName(String userName) {
+  public CurrentSessionDataUser userName(String userName) {
     this.userName = userName;
     return this;
   }
@@ -126,7 +126,7 @@ public class CurrentUserDataUser {
     this.userName = userName;
   }
 
-  public CurrentUserDataUser employeeId(String employeeId) {
+  public CurrentSessionDataUser employeeId(String employeeId) {
     this.employeeId = employeeId;
     return this;
   }
@@ -144,7 +144,7 @@ public class CurrentUserDataUser {
     this.employeeId = employeeId;
   }
 
-  public CurrentUserDataUser defaultPlace(String defaultPlace) {
+  public CurrentSessionDataUser defaultPlace(String defaultPlace) {
     this.defaultPlace = defaultPlace;
     return this;
   }
@@ -162,7 +162,7 @@ public class CurrentUserDataUser {
     this.defaultPlace = defaultPlace;
   }
 
-  public CurrentUserDataUser agentLogin(String agentLogin) {
+  public CurrentSessionDataUser agentLogin(String agentLogin) {
     this.agentLogin = agentLogin;
     return this;
   }
@@ -180,12 +180,12 @@ public class CurrentUserDataUser {
     this.agentLogin = agentLogin;
   }
 
-  public CurrentUserDataUser userProperties(List<Kvpair> userProperties) {
+  public CurrentSessionDataUser userProperties(List<Kvpair> userProperties) {
     this.userProperties = userProperties;
     return this;
   }
 
-  public CurrentUserDataUser addUserPropertiesItem(Kvpair userPropertiesItem) {
+  public CurrentSessionDataUser addUserPropertiesItem(Kvpair userPropertiesItem) {
     this.userProperties.add(userPropertiesItem);
     return this;
   }
@@ -203,7 +203,7 @@ public class CurrentUserDataUser {
     this.userProperties = userProperties;
   }
 
-  public CurrentUserDataUser activeSession(CurrentUserDataUserActiveSession activeSession) {
+  public CurrentSessionDataUser activeSession(CurrentSessionDataUserActiveSession activeSession) {
     this.activeSession = activeSession;
     return this;
   }
@@ -213,11 +213,11 @@ public class CurrentUserDataUser {
    * @return activeSession
   **/
   @ApiModelProperty(example = "null", value = "")
-  public CurrentUserDataUserActiveSession getActiveSession() {
+  public CurrentSessionDataUserActiveSession getActiveSession() {
     return activeSession;
   }
 
-  public void setActiveSession(CurrentUserDataUserActiveSession activeSession) {
+  public void setActiveSession(CurrentSessionDataUserActiveSession activeSession) {
     this.activeSession = activeSession;
   }
 
@@ -230,16 +230,16 @@ public class CurrentUserDataUser {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CurrentUserDataUser currentUserDataUser = (CurrentUserDataUser) o;
-    return Objects.equals(this.dbid, currentUserDataUser.dbid) &&
-        Objects.equals(this.firstName, currentUserDataUser.firstName) &&
-        Objects.equals(this.lastName, currentUserDataUser.lastName) &&
-        Objects.equals(this.userName, currentUserDataUser.userName) &&
-        Objects.equals(this.employeeId, currentUserDataUser.employeeId) &&
-        Objects.equals(this.defaultPlace, currentUserDataUser.defaultPlace) &&
-        Objects.equals(this.agentLogin, currentUserDataUser.agentLogin) &&
-        Objects.equals(this.userProperties, currentUserDataUser.userProperties) &&
-        Objects.equals(this.activeSession, currentUserDataUser.activeSession);
+    CurrentSessionDataUser currentSessionDataUser = (CurrentSessionDataUser) o;
+    return Objects.equals(this.dbid, currentSessionDataUser.dbid) &&
+        Objects.equals(this.firstName, currentSessionDataUser.firstName) &&
+        Objects.equals(this.lastName, currentSessionDataUser.lastName) &&
+        Objects.equals(this.userName, currentSessionDataUser.userName) &&
+        Objects.equals(this.employeeId, currentSessionDataUser.employeeId) &&
+        Objects.equals(this.defaultPlace, currentSessionDataUser.defaultPlace) &&
+        Objects.equals(this.agentLogin, currentSessionDataUser.agentLogin) &&
+        Objects.equals(this.userProperties, currentSessionDataUser.userProperties) &&
+        Objects.equals(this.activeSession, currentSessionDataUser.activeSession);
   }
 
   @Override
@@ -251,7 +251,7 @@ public class CurrentUserDataUser {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CurrentUserDataUser {\n");
+    sb.append("class CurrentSessionDataUser {\n");
     
     sb.append("    dbid: ").append(toIndentedString(dbid)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");

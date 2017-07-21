@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * VoicecallsidsinglestepconferenceData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T18:23:01.731Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T21:01:52.922Z")
 public class VoicecallsidsinglestepconferenceData {
   @SerializedName("destination")
   private String destination = null;
@@ -47,10 +47,10 @@ public class VoicecallsidsinglestepconferenceData {
   }
 
    /**
-   * Directory number of the party to which the call will be conferenced.
+   * Number of the party to conference.
    * @return destination
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Directory number of the party to which the call will be conferenced.")
+  @ApiModelProperty(example = "null", required = true, value = "Number of the party to conference.")
   public String getDestination() {
     return destination;
   }

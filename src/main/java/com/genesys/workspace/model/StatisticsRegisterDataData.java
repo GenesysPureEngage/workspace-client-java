@@ -14,7 +14,6 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.genesys.workspace.model.Kvpair;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -22,34 +21,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * UserDataData
+ * StatisticsRegisterDataData
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T21:01:52.922Z")
-public class UserDataData {
-  @SerializedName("userData")
-  private List<Kvpair> userData = new ArrayList<Kvpair>();
+public class StatisticsRegisterDataData {
+  @SerializedName("statistics")
+  private List<Object> statistics = new ArrayList<Object>();
 
-  public UserDataData userData(List<Kvpair> userData) {
-    this.userData = userData;
+  public StatisticsRegisterDataData statistics(List<Object> statistics) {
+    this.statistics = statistics;
     return this;
   }
 
-  public UserDataData addUserDataItem(Kvpair userDataItem) {
-    this.userData.add(userDataItem);
+  public StatisticsRegisterDataData addStatisticsItem(Object statisticsItem) {
+    this.statistics.add(statisticsItem);
     return this;
   }
 
    /**
-   * Get userData
-   * @return userData
+   * Get statistics
+   * @return statistics
   **/
   @ApiModelProperty(example = "null", required = true, value = "")
-  public List<Kvpair> getUserData() {
-    return userData;
+  public List<Object> getStatistics() {
+    return statistics;
   }
 
-  public void setUserData(List<Kvpair> userData) {
-    this.userData = userData;
+  public void setStatistics(List<Object> statistics) {
+    this.statistics = statistics;
   }
 
 
@@ -61,22 +60,22 @@ public class UserDataData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserDataData userDataData = (UserDataData) o;
-    return Objects.equals(this.userData, userDataData.userData);
+    StatisticsRegisterDataData statisticsRegisterDataData = (StatisticsRegisterDataData) o;
+    return Objects.equals(this.statistics, statisticsRegisterDataData.statistics);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userData);
+    return Objects.hash(statistics);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserDataData {\n");
+    sb.append("class StatisticsRegisterDataData {\n");
     
-    sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
+    sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
     sb.append("}");
     return sb.toString();
   }

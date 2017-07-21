@@ -19,17 +19,17 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * CurrentUserStatus
+ * CurrentSessionStatus
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T18:23:01.731Z")
-public class CurrentUserStatus {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T21:01:52.922Z")
+public class CurrentSessionStatus {
   @SerializedName("code")
   private Integer code = null;
 
   @SerializedName("message")
   private String message = null;
 
-  public CurrentUserStatus code(Integer code) {
+  public CurrentSessionStatus code(Integer code) {
     this.code = code;
     return this;
   }
@@ -47,7 +47,7 @@ public class CurrentUserStatus {
     this.code = code;
   }
 
-  public CurrentUserStatus message(String message) {
+  public CurrentSessionStatus message(String message) {
     this.message = message;
     return this;
   }
@@ -74,9 +74,9 @@ public class CurrentUserStatus {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CurrentUserStatus currentUserStatus = (CurrentUserStatus) o;
-    return Objects.equals(this.code, currentUserStatus.code) &&
-        Objects.equals(this.message, currentUserStatus.message);
+    CurrentSessionStatus currentSessionStatus = (CurrentSessionStatus) o;
+    return Objects.equals(this.code, currentSessionStatus.code) &&
+        Objects.equals(this.message, currentSessionStatus.message);
   }
 
   @Override
@@ -88,7 +88,7 @@ public class CurrentUserStatus {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CurrentUserStatus {\n");
+    sb.append("class CurrentSessionStatus {\n");
     
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");

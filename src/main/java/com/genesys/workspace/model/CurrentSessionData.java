@@ -14,24 +14,24 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.genesys.workspace.model.CurrentUserDataPendingloginasync;
-import com.genesys.workspace.model.CurrentUserDataUser;
+import com.genesys.workspace.model.CurrentSessionDataPendingloginasync;
+import com.genesys.workspace.model.CurrentSessionDataUser;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * CurrentUserData
+ * CurrentSessionData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T18:23:01.731Z")
-public class CurrentUserData {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T21:01:52.922Z")
+public class CurrentSessionData {
   @SerializedName("pending-login-async")
-  private CurrentUserDataPendingloginasync pendingLoginAsync = null;
+  private CurrentSessionDataPendingloginasync pendingLoginAsync = null;
 
   @SerializedName("user")
-  private CurrentUserDataUser user = null;
+  private CurrentSessionDataUser user = null;
 
-  public CurrentUserData pendingLoginAsync(CurrentUserDataPendingloginasync pendingLoginAsync) {
+  public CurrentSessionData pendingLoginAsync(CurrentSessionDataPendingloginasync pendingLoginAsync) {
     this.pendingLoginAsync = pendingLoginAsync;
     return this;
   }
@@ -41,15 +41,15 @@ public class CurrentUserData {
    * @return pendingLoginAsync
   **/
   @ApiModelProperty(example = "null", value = "")
-  public CurrentUserDataPendingloginasync getPendingLoginAsync() {
+  public CurrentSessionDataPendingloginasync getPendingLoginAsync() {
     return pendingLoginAsync;
   }
 
-  public void setPendingLoginAsync(CurrentUserDataPendingloginasync pendingLoginAsync) {
+  public void setPendingLoginAsync(CurrentSessionDataPendingloginasync pendingLoginAsync) {
     this.pendingLoginAsync = pendingLoginAsync;
   }
 
-  public CurrentUserData user(CurrentUserDataUser user) {
+  public CurrentSessionData user(CurrentSessionDataUser user) {
     this.user = user;
     return this;
   }
@@ -59,11 +59,11 @@ public class CurrentUserData {
    * @return user
   **/
   @ApiModelProperty(example = "null", value = "")
-  public CurrentUserDataUser getUser() {
+  public CurrentSessionDataUser getUser() {
     return user;
   }
 
-  public void setUser(CurrentUserDataUser user) {
+  public void setUser(CurrentSessionDataUser user) {
     this.user = user;
   }
 
@@ -76,9 +76,9 @@ public class CurrentUserData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CurrentUserData currentUserData = (CurrentUserData) o;
-    return Objects.equals(this.pendingLoginAsync, currentUserData.pendingLoginAsync) &&
-        Objects.equals(this.user, currentUserData.user);
+    CurrentSessionData currentSessionData = (CurrentSessionData) o;
+    return Objects.equals(this.pendingLoginAsync, currentSessionData.pendingLoginAsync) &&
+        Objects.equals(this.user, currentSessionData.user);
   }
 
   @Override
@@ -90,7 +90,7 @@ public class CurrentUserData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CurrentUserData {\n");
+    sb.append("class CurrentSessionData {\n");
     
     sb.append("    pendingLoginAsync: ").append(toIndentedString(pendingLoginAsync)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");

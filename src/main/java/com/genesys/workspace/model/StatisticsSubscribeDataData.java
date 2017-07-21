@@ -21,17 +21,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * StatisticsDataData
+ * StatisticsSubscribeDataData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T18:23:01.731Z")
-public class StatisticsDataData {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T21:01:52.922Z")
+public class StatisticsSubscribeDataData {
   @SerializedName("connectionId")
   private String connectionId = null;
 
   @SerializedName("statistics")
-  private List<String> statistics = new ArrayList<String>();
+  private List<Object> statistics = new ArrayList<Object>();
 
-  public StatisticsDataData connectionId(String connectionId) {
+  public StatisticsSubscribeDataData connectionId(String connectionId) {
     this.connectionId = connectionId;
     return this;
   }
@@ -49,12 +49,12 @@ public class StatisticsDataData {
     this.connectionId = connectionId;
   }
 
-  public StatisticsDataData statistics(List<String> statistics) {
+  public StatisticsSubscribeDataData statistics(List<Object> statistics) {
     this.statistics = statistics;
     return this;
   }
 
-  public StatisticsDataData addStatisticsItem(String statisticsItem) {
+  public StatisticsSubscribeDataData addStatisticsItem(Object statisticsItem) {
     this.statistics.add(statisticsItem);
     return this;
   }
@@ -64,11 +64,11 @@ public class StatisticsDataData {
    * @return statistics
   **/
   @ApiModelProperty(example = "null", required = true, value = "")
-  public List<String> getStatistics() {
+  public List<Object> getStatistics() {
     return statistics;
   }
 
-  public void setStatistics(List<String> statistics) {
+  public void setStatistics(List<Object> statistics) {
     this.statistics = statistics;
   }
 
@@ -81,9 +81,9 @@ public class StatisticsDataData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatisticsDataData statisticsDataData = (StatisticsDataData) o;
-    return Objects.equals(this.connectionId, statisticsDataData.connectionId) &&
-        Objects.equals(this.statistics, statisticsDataData.statistics);
+    StatisticsSubscribeDataData statisticsSubscribeDataData = (StatisticsSubscribeDataData) o;
+    return Objects.equals(this.connectionId, statisticsSubscribeDataData.connectionId) &&
+        Objects.equals(this.statistics, statisticsSubscribeDataData.statistics);
   }
 
   @Override
@@ -95,7 +95,7 @@ public class StatisticsDataData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatisticsDataData {\n");
+    sb.append("class StatisticsSubscribeDataData {\n");
     
     sb.append("    connectionId: ").append(toIndentedString(connectionId)).append("\n");
     sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");

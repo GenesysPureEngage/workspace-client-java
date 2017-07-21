@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * VoicecallsidalternateData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T18:23:01.731Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T21:01:52.922Z")
 public class VoicecallsidalternateData {
   @SerializedName("heldConnId")
   private String heldConnId = null;
@@ -41,10 +41,10 @@ public class VoicecallsidalternateData {
   }
 
    /**
-   * Connection identifier of the active call that is requested to be placed on hold. This parameter can be either a dn or a party_id, where party_id is the party identifier given by the switch.
+   * ConnId of the held call that should be retrieved.
    * @return heldConnId
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Connection identifier of the active call that is requested to be placed on hold. This parameter can be either a dn or a party_id, where party_id is the party identifier given by the switch.")
+  @ApiModelProperty(example = "null", required = true, value = "ConnId of the held call that should be retrieved.")
   public String getHeldConnId() {
     return heldConnId;
   }

@@ -19,10 +19,10 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * CurrentUserDataPendingloginasync
+ * CurrentSessionDataPendingloginasync
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T18:23:01.731Z")
-public class CurrentUserDataPendingloginasync {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T21:01:52.922Z")
+public class CurrentSessionDataPendingloginasync {
   /**
    * Gets or Sets state
    */
@@ -63,7 +63,7 @@ public class CurrentUserDataPendingloginasync {
   @SerializedName("errors")
   private Object errors = null;
 
-  public CurrentUserDataPendingloginasync state(StateEnum state) {
+  public CurrentSessionDataPendingloginasync state(StateEnum state) {
     this.state = state;
     return this;
   }
@@ -81,7 +81,7 @@ public class CurrentUserDataPendingloginasync {
     this.state = state;
   }
 
-  public CurrentUserDataPendingloginasync actualWaitTime(Integer actualWaitTime) {
+  public CurrentSessionDataPendingloginasync actualWaitTime(Integer actualWaitTime) {
     this.actualWaitTime = actualWaitTime;
     return this;
   }
@@ -99,7 +99,7 @@ public class CurrentUserDataPendingloginasync {
     this.actualWaitTime = actualWaitTime;
   }
 
-  public CurrentUserDataPendingloginasync submittedAt(String submittedAt) {
+  public CurrentSessionDataPendingloginasync submittedAt(String submittedAt) {
     this.submittedAt = submittedAt;
     return this;
   }
@@ -117,7 +117,7 @@ public class CurrentUserDataPendingloginasync {
     this.submittedAt = submittedAt;
   }
 
-  public CurrentUserDataPendingloginasync errors(Object errors) {
+  public CurrentSessionDataPendingloginasync errors(Object errors) {
     this.errors = errors;
     return this;
   }
@@ -144,11 +144,11 @@ public class CurrentUserDataPendingloginasync {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CurrentUserDataPendingloginasync currentUserDataPendingloginasync = (CurrentUserDataPendingloginasync) o;
-    return Objects.equals(this.state, currentUserDataPendingloginasync.state) &&
-        Objects.equals(this.actualWaitTime, currentUserDataPendingloginasync.actualWaitTime) &&
-        Objects.equals(this.submittedAt, currentUserDataPendingloginasync.submittedAt) &&
-        Objects.equals(this.errors, currentUserDataPendingloginasync.errors);
+    CurrentSessionDataPendingloginasync currentSessionDataPendingloginasync = (CurrentSessionDataPendingloginasync) o;
+    return Objects.equals(this.state, currentSessionDataPendingloginasync.state) &&
+        Objects.equals(this.actualWaitTime, currentSessionDataPendingloginasync.actualWaitTime) &&
+        Objects.equals(this.submittedAt, currentSessionDataPendingloginasync.submittedAt) &&
+        Objects.equals(this.errors, currentSessionDataPendingloginasync.errors);
   }
 
   @Override
@@ -160,7 +160,7 @@ public class CurrentUserDataPendingloginasync {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CurrentUserDataPendingloginasync {\n");
+    sb.append("class CurrentSessionDataPendingloginasync {\n");
     
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    actualWaitTime: ").append(toIndentedString(actualWaitTime)).append("\n");

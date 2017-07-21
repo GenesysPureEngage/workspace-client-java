@@ -31,8 +31,7 @@ import com.genesys.workspace.model.ApiErrorResponse;
 import com.genesys.workspace.model.ApiSuccessResponse;
 import com.genesys.workspace.model.ChannelsData;
 import com.genesys.workspace.model.ConfigResponse;
-import com.genesys.workspace.model.CurrentUser;
-import com.genesys.workspace.model.LoginData;
+import com.genesys.workspace.model.CurrentSession;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -239,7 +238,7 @@ public class SessionApi {
 
     /**
      * Get the business attribute hierarchy
-     * 
+     * Get the business attribute hierarchy
      * @param id id of the business attribute (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -251,7 +250,7 @@ public class SessionApi {
 
     /**
      * Get the business attribute hierarchy
-     * 
+     * Get the business attribute hierarchy
      * @param id id of the business attribute (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -264,7 +263,7 @@ public class SessionApi {
 
     /**
      * Get the business attribute hierarchy (asynchronously)
-     * 
+     * Get the business attribute hierarchy
      * @param id id of the business attribute (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -411,12 +410,12 @@ public class SessionApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getCurrentUser */
-    private com.squareup.okhttp.Call getCurrentUserCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getCurrentSession */
+    private com.squareup.okhttp.Call getCurrentSessionCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/current-user".replaceAll("\\{format\\}","json");
+        String localVarPath = "/current-session".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -453,10 +452,10 @@ public class SessionApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getCurrentUserValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getCurrentSessionValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getCurrentUserCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getCurrentSessionCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -468,23 +467,23 @@ public class SessionApi {
     /**
      * Read information about the logged in user including any existing media logins and calls
      * This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session. 
-     * @return CurrentUser
+     * @return CurrentSession
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CurrentUser getCurrentUser() throws ApiException {
-        ApiResponse<CurrentUser> resp = getCurrentUserWithHttpInfo();
+    public CurrentSession getCurrentSession() throws ApiException {
+        ApiResponse<CurrentSession> resp = getCurrentSessionWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Read information about the logged in user including any existing media logins and calls
      * This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session. 
-     * @return ApiResponse&lt;CurrentUser&gt;
+     * @return ApiResponse&lt;CurrentSession&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CurrentUser> getCurrentUserWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getCurrentUserValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<CurrentUser>(){}.getType();
+    public ApiResponse<CurrentSession> getCurrentSessionWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getCurrentSessionValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<CurrentSession>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -495,7 +494,7 @@ public class SessionApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getCurrentUserAsync(final ApiCallback<CurrentUser> callback) throws ApiException {
+    public com.squareup.okhttp.Call getCurrentSessionAsync(final ApiCallback<CurrentSession> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -516,14 +515,14 @@ public class SessionApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getCurrentUserValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CurrentUser>(){}.getType();
+        com.squareup.okhttp.Call call = getCurrentSessionValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CurrentSession>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for login */
-    private com.squareup.okhttp.Call loginCall(LoginData loginData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = loginData;
+    private com.squareup.okhttp.Call loginCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
         
         // create path and map variables
         String localVarPath = "/login".replaceAll("\\{format\\}","json");
@@ -563,15 +562,10 @@ public class SessionApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call loginValidateBeforeCall(LoginData loginData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'loginData' is set
-        if (loginData == null) {
-            throw new ApiException("Missing the required parameter 'loginData' when calling login(Async)");
-        }
+    private com.squareup.okhttp.Call loginValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = loginCall(loginData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = loginCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -582,38 +576,35 @@ public class SessionApi {
 
     /**
      * login the specified user (HTTP session only)
-     * The login request authenticates the user and creates the HTTP session. 
-     * @param loginData Authentication Data (required)
+     * The login request authenticates the user and retrieves the authorization code. 
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse login(LoginData loginData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = loginWithHttpInfo(loginData);
+    public ApiSuccessResponse login() throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = loginWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * login the specified user (HTTP session only)
-     * The login request authenticates the user and creates the HTTP session. 
-     * @param loginData Authentication Data (required)
+     * The login request authenticates the user and retrieves the authorization code. 
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> loginWithHttpInfo(LoginData loginData) throws ApiException {
-        com.squareup.okhttp.Call call = loginValidateBeforeCall(loginData, null, null);
+    public ApiResponse<ApiSuccessResponse> loginWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = loginValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * login the specified user (HTTP session only) (asynchronously)
-     * The login request authenticates the user and creates the HTTP session. 
-     * @param loginData Authentication Data (required)
+     * The login request authenticates the user and retrieves the authorization code. 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call loginAsync(LoginData loginData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call loginAsync(final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -634,7 +625,7 @@ public class SessionApi {
             };
         }
 
-        com.squareup.okhttp.Call call = loginValidateBeforeCall(loginData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = loginValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
