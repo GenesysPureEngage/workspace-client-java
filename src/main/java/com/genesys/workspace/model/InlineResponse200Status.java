@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * InlineResponse200Status
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-21T21:01:52.922Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-23T19:23:03.326Z")
 public class InlineResponse200Status {
   @SerializedName("code")
   private Integer code = null;
