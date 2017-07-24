@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * CurrentSessionData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-24T13:58:21.365Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-24T14:34:37.872Z")
 public class CurrentSessionData {
   @SerializedName("pending-login-async")
   private CurrentSessionDataPendingloginasync pendingLoginAsync = null;
