@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * ConfigResponseDataBusinessAttributes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-25T12:36:01.617Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-25T22:23:10.053Z")
 public class ConfigResponseDataBusinessAttributes {
   @SerializedName("name")
   private String name = null;
