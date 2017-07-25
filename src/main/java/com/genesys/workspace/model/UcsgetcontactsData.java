@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * UcsgetcontactsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-24T20:02:52.448Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-25T12:14:49.310Z")
 public class UcsgetcontactsData {
   @SerializedName("searchCriteria")
   private Object searchCriteria = null;

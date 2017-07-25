@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * SendUserEventData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-24T20:02:52.448Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-25T12:14:49.310Z")
 public class SendUserEventData {
   @SerializedName("data")
   private SendUserEventDataData data = null;
