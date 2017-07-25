@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * UcsgetagenthistoryData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-25T12:14:49.310Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-25T12:36:01.617Z")
 public class UcsgetagenthistoryData {
   @SerializedName("customAttributes")
   private List<String> customAttributes = new ArrayList<String>();
