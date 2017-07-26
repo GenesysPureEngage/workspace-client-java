@@ -521,7 +521,7 @@ public class SessionApi {
         return call;
     }
     /* Build call for initializeWorkspace */
-    private com.squareup.okhttp.Call initializeWorkspaceCall(String code, String redirectUri, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call initializeWorkspaceCall(String code, String redirectUri, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -534,6 +534,8 @@ public class SessionApi {
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "redirect_uri", redirectUri));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (authorization != null)
+        localVarHeaderParams.put("Authorization", apiClient.parameterToString(authorization));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -566,10 +568,10 @@ public class SessionApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call initializeWorkspaceValidateBeforeCall(String code, String redirectUri, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call initializeWorkspaceValidateBeforeCall(String code, String redirectUri, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = initializeWorkspaceCall(code, redirectUri, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = initializeWorkspaceCall(code, redirectUri, authorization, progressListener, progressRequestListener);
         return call;
 
         
@@ -583,11 +585,12 @@ public class SessionApi {
      * The initialize-workspace request retrieves the authorization token using the authorization code.  The token is then registered and the user&#39;s environment is prepared. 
      * @param code the authorization code (optional)
      * @param redirectUri the same redirect_uri used in the initial login step (optional)
+     * @param authorization For OAuth resource owner password credentials grant should contains Bearer authorization. Example: &#39;Authorization: Bearer access_token&#39; (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse initializeWorkspace(String code, String redirectUri) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = initializeWorkspaceWithHttpInfo(code, redirectUri);
+    public ApiSuccessResponse initializeWorkspace(String code, String redirectUri, String authorization) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = initializeWorkspaceWithHttpInfo(code, redirectUri, authorization);
         return resp.getData();
     }
 
@@ -596,11 +599,12 @@ public class SessionApi {
      * The initialize-workspace request retrieves the authorization token using the authorization code.  The token is then registered and the user&#39;s environment is prepared. 
      * @param code the authorization code (optional)
      * @param redirectUri the same redirect_uri used in the initial login step (optional)
+     * @param authorization For OAuth resource owner password credentials grant should contains Bearer authorization. Example: &#39;Authorization: Bearer access_token&#39; (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> initializeWorkspaceWithHttpInfo(String code, String redirectUri) throws ApiException {
-        com.squareup.okhttp.Call call = initializeWorkspaceValidateBeforeCall(code, redirectUri, null, null);
+    public ApiResponse<ApiSuccessResponse> initializeWorkspaceWithHttpInfo(String code, String redirectUri, String authorization) throws ApiException {
+        com.squareup.okhttp.Call call = initializeWorkspaceValidateBeforeCall(code, redirectUri, authorization, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -610,11 +614,12 @@ public class SessionApi {
      * The initialize-workspace request retrieves the authorization token using the authorization code.  The token is then registered and the user&#39;s environment is prepared. 
      * @param code the authorization code (optional)
      * @param redirectUri the same redirect_uri used in the initial login step (optional)
+     * @param authorization For OAuth resource owner password credentials grant should contains Bearer authorization. Example: &#39;Authorization: Bearer access_token&#39; (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call initializeWorkspaceAsync(String code, String redirectUri, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call initializeWorkspaceAsync(String code, String redirectUri, String authorization, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -635,7 +640,7 @@ public class SessionApi {
             };
         }
 
-        com.squareup.okhttp.Call call = initializeWorkspaceValidateBeforeCall(code, redirectUri, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = initializeWorkspaceValidateBeforeCall(code, redirectUri, authorization, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
