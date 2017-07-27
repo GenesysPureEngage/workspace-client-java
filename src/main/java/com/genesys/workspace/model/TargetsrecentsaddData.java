@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * TargetsrecentsaddData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-26T23:32:39.432Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-27T07:23:07.063Z")
 public class TargetsrecentsaddData {
   @SerializedName("target")
   private TargetId target = null;
