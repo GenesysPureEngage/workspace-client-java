@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * VoicecallsiddeletefromconferenceData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-01T19:23:05.437Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-01T20:23:07.784Z")
 public class VoicecallsiddeletefromconferenceData {
   @SerializedName("dnToDrop")
   private String dnToDrop = null;
