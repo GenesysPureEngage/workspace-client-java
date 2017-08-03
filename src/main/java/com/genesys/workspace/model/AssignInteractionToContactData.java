@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * AssignInteractionToContactData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-03T17:12:06.379Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-03T18:39:53.082Z")
 public class AssignInteractionToContactData {
   @SerializedName("data")
   private UcsassigninteractiontocontactData data = null;
