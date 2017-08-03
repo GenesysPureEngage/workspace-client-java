@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * VoicecallsidinitiateconferenceData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-03T11:23:08.588Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-03T17:12:06.379Z")
 public class VoicecallsidinitiateconferenceData {
   @SerializedName("destination")
   private String destination = null;
