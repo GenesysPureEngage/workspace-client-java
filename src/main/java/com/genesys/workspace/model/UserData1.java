@@ -14,42 +14,35 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.genesys.workspace.model.Kvpair;
+import com.genesys.workspace.model.VoicecallsidcompleteData;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * UserDataData
+ * UserData1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-04T16:23:05.853Z")
-public class UserDataData {
-  @SerializedName("userData")
-  private List<Kvpair> userData = new ArrayList<Kvpair>();
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-04T22:54:40.366Z")
+public class UserData1 {
+  @SerializedName("data")
+  private VoicecallsidcompleteData data = null;
 
-  public UserDataData userData(List<Kvpair> userData) {
-    this.userData = userData;
-    return this;
-  }
-
-  public UserDataData addUserDataItem(Kvpair userDataItem) {
-    this.userData.add(userDataItem);
+  public UserData1 data(VoicecallsidcompleteData data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * Get userData
-   * @return userData
+   * Get data
+   * @return data
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
-  public List<Kvpair> getUserData() {
-    return userData;
+  @ApiModelProperty(example = "null", value = "")
+  public VoicecallsidcompleteData getData() {
+    return data;
   }
 
-  public void setUserData(List<Kvpair> userData) {
-    this.userData = userData;
+  public void setData(VoicecallsidcompleteData data) {
+    this.data = data;
   }
 
 
@@ -61,22 +54,22 @@ public class UserDataData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserDataData userDataData = (UserDataData) o;
-    return Objects.equals(this.userData, userDataData.userData);
+    UserData1 userData1 = (UserData1) o;
+    return Objects.equals(this.data, userData1.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userData);
+    return Objects.hash(data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserDataData {\n");
+    sb.append("class UserData1 {\n");
     
-    sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -14,14 +14,17 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
+import com.genesys.workspace.model.Kvpair;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CurrentSessionDataPendingloginasync
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-04T16:23:05.853Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-04T22:54:40.366Z")
 public class CurrentSessionDataPendingloginasync {
   /**
    * Gets or Sets state
@@ -61,7 +64,7 @@ public class CurrentSessionDataPendingloginasync {
   private String submittedAt = null;
 
   @SerializedName("errors")
-  private Object errors = null;
+  private List<Kvpair> errors = new ArrayList<Kvpair>();
 
   public CurrentSessionDataPendingloginasync state(StateEnum state) {
     this.state = state;
@@ -117,8 +120,13 @@ public class CurrentSessionDataPendingloginasync {
     this.submittedAt = submittedAt;
   }
 
-  public CurrentSessionDataPendingloginasync errors(Object errors) {
+  public CurrentSessionDataPendingloginasync errors(List<Kvpair> errors) {
     this.errors = errors;
+    return this;
+  }
+
+  public CurrentSessionDataPendingloginasync addErrorsItem(Kvpair errorsItem) {
+    this.errors.add(errorsItem);
     return this;
   }
 
@@ -127,11 +135,11 @@ public class CurrentSessionDataPendingloginasync {
    * @return errors
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Object getErrors() {
+  public List<Kvpair> getErrors() {
     return errors;
   }
 
-  public void setErrors(Object errors) {
+  public void setErrors(List<Kvpair> errors) {
     this.errors = errors;
   }
 

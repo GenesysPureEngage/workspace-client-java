@@ -14,7 +14,7 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.genesys.workspace.model.UserDataData;
+import com.genesys.workspace.model.VoicecallsidcompleteData;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -22,12 +22,12 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * UserData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-04T16:23:05.853Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-04T22:54:40.366Z")
 public class UserData {
   @SerializedName("data")
-  private UserDataData data = null;
+  private VoicecallsidcompleteData data = null;
 
-  public UserData data(UserDataData data) {
+  public UserData data(VoicecallsidcompleteData data) {
     this.data = data;
     return this;
   }
@@ -37,11 +37,11 @@ public class UserData {
    * @return data
   **/
   @ApiModelProperty(example = "null", value = "")
-  public UserDataData getData() {
+  public VoicecallsidcompleteData getData() {
     return data;
   }
 
-  public void setData(UserDataData data) {
+  public void setData(VoicecallsidcompleteData data) {
     this.data = data;
   }
 

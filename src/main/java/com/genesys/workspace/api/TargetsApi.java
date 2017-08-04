@@ -31,6 +31,7 @@ import com.genesys.workspace.model.ApiErrorResponse;
 import com.genesys.workspace.model.ApiSuccessResponse;
 import java.math.BigDecimal;
 import com.genesys.workspace.model.RecentTargetData;
+import com.genesys.workspace.model.TargetsResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -365,11 +366,11 @@ public class TargetsApi {
      * @param sort Desired sort order (asc or desc). asc if not specified (optional)
      * @param limit Number of results. 100 if not specified. (optional)
      * @param matchType Type of behavior for the field matching (exact for exact match search). (optional)
-     * @return ApiSuccessResponse
+     * @return TargetsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse get(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = getWithHttpInfo(searchTerm, filterName, types, sort, limit, matchType);
+    public TargetsResponse get(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType) throws ApiException {
+        ApiResponse<TargetsResponse> resp = getWithHttpInfo(searchTerm, filterName, types, sort, limit, matchType);
         return resp.getData();
     }
 
@@ -382,12 +383,12 @@ public class TargetsApi {
      * @param sort Desired sort order (asc or desc). asc if not specified (optional)
      * @param limit Number of results. 100 if not specified. (optional)
      * @param matchType Type of behavior for the field matching (exact for exact match search). (optional)
-     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @return ApiResponse&lt;TargetsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> getWithHttpInfo(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType) throws ApiException {
+    public ApiResponse<TargetsResponse> getWithHttpInfo(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType) throws ApiException {
         com.squareup.okhttp.Call call = getValidateBeforeCall(searchTerm, filterName, types, sort, limit, matchType, null, null);
-        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<TargetsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -404,7 +405,7 @@ public class TargetsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAsync(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAsync(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType, final ApiCallback<TargetsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -426,7 +427,7 @@ public class TargetsApi {
         }
 
         com.squareup.okhttp.Call call = getValidateBeforeCall(searchTerm, filterName, types, sort, limit, matchType, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<TargetsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

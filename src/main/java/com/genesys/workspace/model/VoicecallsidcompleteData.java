@@ -14,55 +14,42 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
+import com.genesys.workspace.model.Kvpair;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * CallParticipants
+ * VoicecallsidcompleteData
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-04T22:54:40.366Z")
-public class CallParticipants {
-  @SerializedName("number")
-  private String number = null;
+public class VoicecallsidcompleteData {
+  @SerializedName("userData")
+  private List<Kvpair> userData = new ArrayList<Kvpair>();
 
-  @SerializedName("role")
-  private String role = null;
+  public VoicecallsidcompleteData userData(List<Kvpair> userData) {
+    this.userData = userData;
+    return this;
+  }
 
-  public CallParticipants number(String number) {
-    this.number = number;
+  public VoicecallsidcompleteData addUserDataItem(Kvpair userDataItem) {
+    this.userData.add(userDataItem);
     return this;
   }
 
    /**
-   * Get number
-   * @return number
+   * Get userData
+   * @return userData
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getNumber() {
-    return number;
+  @ApiModelProperty(example = "null", required = true, value = "")
+  public List<Kvpair> getUserData() {
+    return userData;
   }
 
-  public void setNumber(String number) {
-    this.number = number;
-  }
-
-  public CallParticipants role(String role) {
-    this.role = role;
-    return this;
-  }
-
-   /**
-   * Get role
-   * @return role
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getRole() {
-    return role;
-  }
-
-  public void setRole(String role) {
-    this.role = role;
+  public void setUserData(List<Kvpair> userData) {
+    this.userData = userData;
   }
 
 
@@ -74,24 +61,22 @@ public class CallParticipants {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CallParticipants callParticipants = (CallParticipants) o;
-    return Objects.equals(this.number, callParticipants.number) &&
-        Objects.equals(this.role, callParticipants.role);
+    VoicecallsidcompleteData voicecallsidcompleteData = (VoicecallsidcompleteData) o;
+    return Objects.equals(this.userData, voicecallsidcompleteData.userData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(number, role);
+    return Objects.hash(userData);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CallParticipants {\n");
+    sb.append("class VoicecallsidcompleteData {\n");
     
-    sb.append("    number: ").append(toIndentedString(number)).append("\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

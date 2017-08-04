@@ -14,55 +14,57 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
+import com.genesys.workspace.model.InlineResponse200Status;
+import com.genesys.workspace.model.TargetsResponseData;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * CallParticipants
+ * TargetsResponse
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-04T22:54:40.366Z")
-public class CallParticipants {
-  @SerializedName("number")
-  private String number = null;
+public class TargetsResponse {
+  @SerializedName("data")
+  private TargetsResponseData data = null;
 
-  @SerializedName("role")
-  private String role = null;
+  @SerializedName("status")
+  private InlineResponse200Status status = null;
 
-  public CallParticipants number(String number) {
-    this.number = number;
+  public TargetsResponse data(TargetsResponseData data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * Get number
-   * @return number
+   * Get data
+   * @return data
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getNumber() {
-    return number;
+  public TargetsResponseData getData() {
+    return data;
   }
 
-  public void setNumber(String number) {
-    this.number = number;
+  public void setData(TargetsResponseData data) {
+    this.data = data;
   }
 
-  public CallParticipants role(String role) {
-    this.role = role;
+  public TargetsResponse status(InlineResponse200Status status) {
+    this.status = status;
     return this;
   }
 
    /**
-   * Get role
-   * @return role
+   * Get status
+   * @return status
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getRole() {
-    return role;
+  public InlineResponse200Status getStatus() {
+    return status;
   }
 
-  public void setRole(String role) {
-    this.role = role;
+  public void setStatus(InlineResponse200Status status) {
+    this.status = status;
   }
 
 
@@ -74,24 +76,24 @@ public class CallParticipants {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CallParticipants callParticipants = (CallParticipants) o;
-    return Objects.equals(this.number, callParticipants.number) &&
-        Objects.equals(this.role, callParticipants.role);
+    TargetsResponse targetsResponse = (TargetsResponse) o;
+    return Objects.equals(this.data, targetsResponse.data) &&
+        Objects.equals(this.status, targetsResponse.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(number, role);
+    return Objects.hash(data, status);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CallParticipants {\n");
+    sb.append("class TargetsResponse {\n");
     
-    sb.append("    number: ").append(toIndentedString(number)).append("\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }
