@@ -17,25 +17,30 @@ import java.util.Objects;
 import com.genesys.workspace.model.ConfigResponseDataActionCodes;
 import com.genesys.workspace.model.ConfigResponseDataBusinessAttributes;
 import com.genesys.workspace.model.ConfigResponseDataTransactions;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * ConfigResponseData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-08T19:23:05.687Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-09T21:01:53.114Z")
 public class ConfigResponseData {
   @SerializedName("actionCodes")
-  private List<ConfigResponseDataActionCodes> actionCodes = new ArrayList<ConfigResponseDataActionCodes>();
+  private List<ConfigResponseDataActionCodes> actionCodes = null;
 
   @SerializedName("transactions")
-  private List<ConfigResponseDataTransactions> transactions = new ArrayList<ConfigResponseDataTransactions>();
+  private List<ConfigResponseDataTransactions> transactions = null;
 
   @SerializedName("businessAttributes")
-  private List<ConfigResponseDataBusinessAttributes> businessAttributes = new ArrayList<ConfigResponseDataBusinessAttributes>();
+  private List<ConfigResponseDataBusinessAttributes> businessAttributes = null;
 
   public ConfigResponseData actionCodes(List<ConfigResponseDataActionCodes> actionCodes) {
     this.actionCodes = actionCodes;
@@ -43,6 +48,9 @@ public class ConfigResponseData {
   }
 
   public ConfigResponseData addActionCodesItem(ConfigResponseDataActionCodes actionCodesItem) {
+    if (this.actionCodes == null) {
+      this.actionCodes = new ArrayList<ConfigResponseDataActionCodes>();
+    }
     this.actionCodes.add(actionCodesItem);
     return this;
   }
@@ -51,7 +59,7 @@ public class ConfigResponseData {
    * Get actionCodes
    * @return actionCodes
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<ConfigResponseDataActionCodes> getActionCodes() {
     return actionCodes;
   }
@@ -66,6 +74,9 @@ public class ConfigResponseData {
   }
 
   public ConfigResponseData addTransactionsItem(ConfigResponseDataTransactions transactionsItem) {
+    if (this.transactions == null) {
+      this.transactions = new ArrayList<ConfigResponseDataTransactions>();
+    }
     this.transactions.add(transactionsItem);
     return this;
   }
@@ -74,7 +85,7 @@ public class ConfigResponseData {
    * Get transactions
    * @return transactions
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<ConfigResponseDataTransactions> getTransactions() {
     return transactions;
   }
@@ -89,6 +100,9 @@ public class ConfigResponseData {
   }
 
   public ConfigResponseData addBusinessAttributesItem(ConfigResponseDataBusinessAttributes businessAttributesItem) {
+    if (this.businessAttributes == null) {
+      this.businessAttributes = new ArrayList<ConfigResponseDataBusinessAttributes>();
+    }
     this.businessAttributes.add(businessAttributesItem);
     return this;
   }
@@ -97,7 +111,7 @@ public class ConfigResponseData {
    * Get businessAttributes
    * @return businessAttributes
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<ConfigResponseDataBusinessAttributes> getBusinessAttributes() {
     return businessAttributes;
   }

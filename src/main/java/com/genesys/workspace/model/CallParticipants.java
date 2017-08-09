@@ -14,14 +14,19 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * CallParticipants
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-08T19:23:05.687Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-09T21:01:53.114Z")
 public class CallParticipants {
   @SerializedName("number")
   private String number = null;
@@ -38,7 +43,7 @@ public class CallParticipants {
    * Get number
    * @return number
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getNumber() {
     return number;
   }
@@ -56,7 +61,7 @@ public class CallParticipants {
    * Get role
    * @return role
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getRole() {
     return role;
   }

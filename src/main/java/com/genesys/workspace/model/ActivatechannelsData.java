@@ -14,14 +14,19 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * ActivatechannelsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-08T19:23:05.687Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-09T21:01:53.114Z")
 public class ActivatechannelsData {
   @SerializedName("agentId")
   private String agentId = null;
@@ -44,7 +49,7 @@ public class ActivatechannelsData {
    * agentId (switch login code) that should be used to log the agent in
    * @return agentId
   **/
-  @ApiModelProperty(example = "null", value = "agentId (switch login code) that should be used to log the agent in")
+  @ApiModelProperty(value = "agentId (switch login code) that should be used to log the agent in")
   public String getAgentId() {
     return agentId;
   }
@@ -62,7 +67,7 @@ public class ActivatechannelsData {
    * The name of the place that should be used to log the agent in. Either placeName or dn must be provided.
    * @return placeName
   **/
-  @ApiModelProperty(example = "null", value = "The name of the place that should be used to log the agent in. Either placeName or dn must be provided.")
+  @ApiModelProperty(value = "The name of the place that should be used to log the agent in. Either placeName or dn must be provided.")
   public String getPlaceName() {
     return placeName;
   }
@@ -80,7 +85,7 @@ public class ActivatechannelsData {
    * The dn (number) that should be used to login the agent.
    * @return dn
   **/
-  @ApiModelProperty(example = "null", value = "The dn (number) that should be used to login the agent.")
+  @ApiModelProperty(value = "The dn (number) that should be used to login the agent.")
   public String getDn() {
     return dn;
   }
@@ -98,7 +103,7 @@ public class ActivatechannelsData {
    * The queue name that should be used to login the agent.
    * @return queueName
   **/
-  @ApiModelProperty(example = "null", value = "The queue name that should be used to login the agent.")
+  @ApiModelProperty(value = "The queue name that should be used to login the agent.")
   public String getQueueName() {
     return queueName;
   }

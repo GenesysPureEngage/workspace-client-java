@@ -15,31 +15,33 @@ package com.genesys.workspace.model;
 
 import java.util.Objects;
 import com.genesys.workspace.model.Kvpair;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * CurrentSessionDataPendingloginasync
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-08T19:23:05.687Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-09T21:01:53.114Z")
 public class CurrentSessionDataPendingloginasync {
   /**
    * Gets or Sets state
    */
+  @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
-    @SerializedName("NotStarted")
     NOTSTARTED("NotStarted"),
     
-    @SerializedName("Executing")
     EXECUTING("Executing"),
     
-    @SerializedName("Failed")
     FAILED("Failed"),
     
-    @SerializedName("Complete")
     COMPLETE("Complete");
 
     private String value;
@@ -48,9 +50,35 @@ public class CurrentSessionDataPendingloginasync {
       this.value = value;
     }
 
+    public String getValue() {
+      return value;
+    }
+
     @Override
     public String toString() {
       return String.valueOf(value);
+    }
+
+    public static StateEnum fromValue(String text) {
+      for (StateEnum b : StateEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<StateEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StateEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StateEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return StateEnum.fromValue(String.valueOf(value));
+      }
     }
   }
 
@@ -64,7 +92,7 @@ public class CurrentSessionDataPendingloginasync {
   private String submittedAt = null;
 
   @SerializedName("errors")
-  private List<Kvpair> errors = new ArrayList<Kvpair>();
+  private List<Kvpair> errors = null;
 
   public CurrentSessionDataPendingloginasync state(StateEnum state) {
     this.state = state;
@@ -75,7 +103,7 @@ public class CurrentSessionDataPendingloginasync {
    * Get state
    * @return state
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public StateEnum getState() {
     return state;
   }
@@ -93,7 +121,7 @@ public class CurrentSessionDataPendingloginasync {
    * Get actualWaitTime
    * @return actualWaitTime
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public Integer getActualWaitTime() {
     return actualWaitTime;
   }
@@ -111,7 +139,7 @@ public class CurrentSessionDataPendingloginasync {
    * Get submittedAt
    * @return submittedAt
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getSubmittedAt() {
     return submittedAt;
   }
@@ -126,6 +154,9 @@ public class CurrentSessionDataPendingloginasync {
   }
 
   public CurrentSessionDataPendingloginasync addErrorsItem(Kvpair errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<Kvpair>();
+    }
     this.errors.add(errorsItem);
     return this;
   }
@@ -134,7 +165,7 @@ public class CurrentSessionDataPendingloginasync {
    * Get errors
    * @return errors
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<Kvpair> getErrors() {
     return errors;
   }

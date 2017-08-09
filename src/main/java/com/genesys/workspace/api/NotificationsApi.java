@@ -53,12 +53,18 @@ public class NotificationsApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for notifications */
-    private com.squareup.okhttp.Call notificationsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for notifications
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call notificationsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/notifications".replaceAll("\\{format\\}","json");
+        String localVarPath = "/notifications";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -159,12 +165,18 @@ public class NotificationsApi {
         apiClient.executeAsync(call, callback);
         return call;
     }
-    /* Build call for notificationsConnect */
-    private com.squareup.okhttp.Call notificationsConnectCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for notificationsConnect
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call notificationsConnectCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/notifications/connect".replaceAll("\\{format\\}","json");
+        String localVarPath = "/notifications/connect";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -265,12 +277,18 @@ public class NotificationsApi {
         apiClient.executeAsync(call, callback);
         return call;
     }
-    /* Build call for notificationsDisconnect */
-    private com.squareup.okhttp.Call notificationsDisconnectCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for notificationsDisconnect
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call notificationsDisconnectCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/notifications/disconnect".replaceAll("\\{format\\}","json");
+        String localVarPath = "/notifications/disconnect";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -371,12 +389,18 @@ public class NotificationsApi {
         apiClient.executeAsync(call, callback);
         return call;
     }
-    /* Build call for notificationsHandshake */
-    private com.squareup.okhttp.Call notificationsHandshakeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for notificationsHandshake
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call notificationsHandshakeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/notifications/handshake".replaceAll("\\{format\\}","json");
+        String localVarPath = "/notifications/handshake";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -477,12 +501,18 @@ public class NotificationsApi {
         apiClient.executeAsync(call, callback);
         return call;
     }
-    /* Build call for notificationsSubscribe */
-    private com.squareup.okhttp.Call notificationsSubscribeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for notificationsSubscribe
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call notificationsSubscribeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/notifications/subscribe".replaceAll("\\{format\\}","json");
+        String localVarPath = "/notifications/subscribe";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -583,12 +613,18 @@ public class NotificationsApi {
         apiClient.executeAsync(call, callback);
         return call;
     }
-    /* Build call for notificationsUnsubscribe */
-    private com.squareup.okhttp.Call notificationsUnsubscribeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for notificationsUnsubscribe
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call notificationsUnsubscribeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/notifications/unsubscribe".replaceAll("\\{format\\}","json");
+        String localVarPath = "/notifications/unsubscribe";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -689,12 +725,18 @@ public class NotificationsApi {
         apiClient.executeAsync(call, callback);
         return call;
     }
-    /* Build call for socketio */
-    private com.squareup.okhttp.Call socketioCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for socketio
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call socketioCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/socket.io".replaceAll("\\{format\\}","json");
+        String localVarPath = "/socket.io";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 

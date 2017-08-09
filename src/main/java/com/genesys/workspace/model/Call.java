@@ -16,16 +16,21 @@ package com.genesys.workspace.model;
 import java.util.Objects;
 import com.genesys.workspace.model.CallParticipants;
 import com.genesys.workspace.model.Kvpair;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Call
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-08T19:23:05.687Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-09T21:01:53.114Z")
 public class Call {
   @SerializedName("type")
   private String type = null;
@@ -55,10 +60,10 @@ public class Call {
   private String state = null;
 
   @SerializedName("capabilities")
-  private List<String> capabilities = new ArrayList<String>();
+  private List<String> capabilities = null;
 
   @SerializedName("participants")
-  private List<CallParticipants> participants = new ArrayList<CallParticipants>();
+  private List<CallParticipants> participants = null;
 
   @SerializedName("dnis")
   private String dnis = null;
@@ -70,10 +75,10 @@ public class Call {
   private String recordingState = null;
 
   @SerializedName("userData")
-  private List<Kvpair> userData = new ArrayList<Kvpair>();
+  private List<Kvpair> userData = null;
 
   @SerializedName("extensions")
-  private List<Kvpair> extensions = new ArrayList<Kvpair>();
+  private List<Kvpair> extensions = null;
 
   public Call type(String type) {
     this.type = type;
@@ -84,7 +89,7 @@ public class Call {
    * Get type
    * @return type
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getType() {
     return type;
   }
@@ -102,7 +107,7 @@ public class Call {
    * Get id
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getId() {
     return id;
   }
@@ -120,7 +125,7 @@ public class Call {
    * Get previousConnId
    * @return previousConnId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getPreviousConnId() {
     return previousConnId;
   }
@@ -138,7 +143,7 @@ public class Call {
    * Get parentConnId
    * @return parentConnId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getParentConnId() {
     return parentConnId;
   }
@@ -156,7 +161,7 @@ public class Call {
    * Get phoneNumber
    * @return phoneNumber
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getPhoneNumber() {
     return phoneNumber;
   }
@@ -174,7 +179,7 @@ public class Call {
    * Get connId
    * @return connId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getConnId() {
     return connId;
   }
@@ -192,7 +197,7 @@ public class Call {
    * Get callUuid
    * @return callUuid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getCallUuid() {
     return callUuid;
   }
@@ -210,7 +215,7 @@ public class Call {
    * Get callType
    * @return callType
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getCallType() {
     return callType;
   }
@@ -228,7 +233,7 @@ public class Call {
    * Get state
    * @return state
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getState() {
     return state;
   }
@@ -243,6 +248,9 @@ public class Call {
   }
 
   public Call addCapabilitiesItem(String capabilitiesItem) {
+    if (this.capabilities == null) {
+      this.capabilities = new ArrayList<String>();
+    }
     this.capabilities.add(capabilitiesItem);
     return this;
   }
@@ -251,7 +259,7 @@ public class Call {
    * Get capabilities
    * @return capabilities
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<String> getCapabilities() {
     return capabilities;
   }
@@ -266,6 +274,9 @@ public class Call {
   }
 
   public Call addParticipantsItem(CallParticipants participantsItem) {
+    if (this.participants == null) {
+      this.participants = new ArrayList<CallParticipants>();
+    }
     this.participants.add(participantsItem);
     return this;
   }
@@ -274,7 +285,7 @@ public class Call {
    * Get participants
    * @return participants
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<CallParticipants> getParticipants() {
     return participants;
   }
@@ -292,7 +303,7 @@ public class Call {
    * Get dnis
    * @return dnis
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getDnis() {
     return dnis;
   }
@@ -310,7 +321,7 @@ public class Call {
    * Get ani
    * @return ani
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getAni() {
     return ani;
   }
@@ -328,7 +339,7 @@ public class Call {
    * Get recordingState
    * @return recordingState
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getRecordingState() {
     return recordingState;
   }
@@ -343,6 +354,9 @@ public class Call {
   }
 
   public Call addUserDataItem(Kvpair userDataItem) {
+    if (this.userData == null) {
+      this.userData = new ArrayList<Kvpair>();
+    }
     this.userData.add(userDataItem);
     return this;
   }
@@ -351,7 +365,7 @@ public class Call {
    * A key/value pairs list of a data structure that provides additional information associated with this action.
    * @return userData
   **/
-  @ApiModelProperty(example = "null", value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
+  @ApiModelProperty(value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
   public List<Kvpair> getUserData() {
     return userData;
   }
@@ -366,6 +380,9 @@ public class Call {
   }
 
   public Call addExtensionsItem(Kvpair extensionsItem) {
+    if (this.extensions == null) {
+      this.extensions = new ArrayList<Kvpair>();
+    }
     this.extensions.add(extensionsItem);
     return this;
   }
@@ -374,7 +391,7 @@ public class Call {
    * A key/value pairs list of a data structure that provides additional information associated with this action.
    * @return extensions
   **/
-  @ApiModelProperty(example = "null", value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
+  @ApiModelProperty(value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
   public List<Kvpair> getExtensions() {
     return extensions;
   }

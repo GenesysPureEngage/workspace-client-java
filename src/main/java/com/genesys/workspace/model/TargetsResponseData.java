@@ -15,19 +15,24 @@ package com.genesys.workspace.model;
 
 import java.util.Objects;
 import com.genesys.workspace.model.Target;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * TargetsResponseData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-08T19:23:05.687Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-09T21:01:53.114Z")
 public class TargetsResponseData {
   @SerializedName("targets")
-  private List<Target> targets = new ArrayList<Target>();
+  private List<Target> targets = null;
 
   @SerializedName("totalMatches")
   private Integer totalMatches = null;
@@ -38,6 +43,9 @@ public class TargetsResponseData {
   }
 
   public TargetsResponseData addTargetsItem(Target targetsItem) {
+    if (this.targets == null) {
+      this.targets = new ArrayList<Target>();
+    }
     this.targets.add(targetsItem);
     return this;
   }
@@ -46,7 +54,7 @@ public class TargetsResponseData {
    * An array containing target results
    * @return targets
   **/
-  @ApiModelProperty(example = "null", value = "An array containing target results")
+  @ApiModelProperty(value = "An array containing target results")
   public List<Target> getTargets() {
     return targets;
   }
@@ -64,7 +72,7 @@ public class TargetsResponseData {
    * The total number of matches to the query.
    * @return totalMatches
   **/
-  @ApiModelProperty(example = "null", value = "The total number of matches to the query.")
+  @ApiModelProperty(value = "The total number of matches to the query.")
   public Integer getTotalMatches() {
     return totalMatches;
   }

@@ -14,22 +14,27 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * UcsgetcontacthistoryData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-08T19:23:05.687Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-09T21:01:53.114Z")
 public class UcsgetcontacthistoryData {
   @SerializedName("contactId")
   private String contactId = null;
 
   @SerializedName("customAttributes")
-  private List<String> customAttributes = new ArrayList<String>();
+  private List<String> customAttributes = null;
 
   @SerializedName("fromDate")
   private String fromDate = null;
@@ -46,7 +51,7 @@ public class UcsgetcontacthistoryData {
    * The id of the contact
    * @return contactId
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The id of the contact")
+  @ApiModelProperty(required = true, value = "The id of the contact")
   public String getContactId() {
     return contactId;
   }
@@ -61,6 +66,9 @@ public class UcsgetcontacthistoryData {
   }
 
   public UcsgetcontacthistoryData addCustomAttributesItem(String customAttributesItem) {
+    if (this.customAttributes == null) {
+      this.customAttributes = new ArrayList<String>();
+    }
     this.customAttributes.add(customAttributesItem);
     return this;
   }
@@ -69,7 +77,7 @@ public class UcsgetcontacthistoryData {
    * The list of custom contact attributes to be returned for each interaction of the contact
    * @return customAttributes
   **/
-  @ApiModelProperty(example = "null", value = "The list of custom contact attributes to be returned for each interaction of the contact")
+  @ApiModelProperty(value = "The list of custom contact attributes to be returned for each interaction of the contact")
   public List<String> getCustomAttributes() {
     return customAttributes;
   }
@@ -87,7 +95,7 @@ public class UcsgetcontacthistoryData {
    * The date from which the interactions should be retrieved (UCS format)
    * @return fromDate
   **/
-  @ApiModelProperty(example = "null", value = "The date from which the interactions should be retrieved (UCS format)")
+  @ApiModelProperty(value = "The date from which the interactions should be retrieved (UCS format)")
   public String getFromDate() {
     return fromDate;
   }
@@ -105,7 +113,7 @@ public class UcsgetcontacthistoryData {
    * The date to which the interactions should be retrieved (UCS format)
    * @return toDate
   **/
-  @ApiModelProperty(example = "null", value = "The date to which the interactions should be retrieved (UCS format)")
+  @ApiModelProperty(value = "The date to which the interactions should be retrieved (UCS format)")
   public String getToDate() {
     return toDate;
   }

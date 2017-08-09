@@ -14,16 +14,21 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * UcslucenesearchinteractionData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-08T19:23:05.687Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-09T21:01:53.114Z")
 public class UcslucenesearchinteractionData {
   @SerializedName("maxResults")
   private Integer maxResults = null;
@@ -35,7 +40,7 @@ public class UcslucenesearchinteractionData {
   private String query = null;
 
   @SerializedName("contactAttributes")
-  private List<String> contactAttributes = new ArrayList<String>();
+  private List<String> contactAttributes = null;
 
   public UcslucenesearchinteractionData maxResults(Integer maxResults) {
     this.maxResults = maxResults;
@@ -46,7 +51,7 @@ public class UcslucenesearchinteractionData {
    * The maximum number of contacts to be returned
    * @return maxResults
   **/
-  @ApiModelProperty(example = "null", value = "The maximum number of contacts to be returned")
+  @ApiModelProperty(value = "The maximum number of contacts to be returned")
   public Integer getMaxResults() {
     return maxResults;
   }
@@ -64,7 +69,7 @@ public class UcslucenesearchinteractionData {
    * Indicates if the search is performed among the history of interactions of the logged in agent
    * @return searchMyHistory
   **/
-  @ApiModelProperty(example = "null", value = "Indicates if the search is performed among the history of interactions of the logged in agent")
+  @ApiModelProperty(value = "Indicates if the search is performed among the history of interactions of the logged in agent")
   public Boolean getSearchMyHistory() {
     return searchMyHistory;
   }
@@ -82,7 +87,7 @@ public class UcslucenesearchinteractionData {
    * The query to do the lucene search for contacts
    * @return query
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The query to do the lucene search for contacts")
+  @ApiModelProperty(required = true, value = "The query to do the lucene search for contacts")
   public String getQuery() {
     return query;
   }
@@ -97,6 +102,9 @@ public class UcslucenesearchinteractionData {
   }
 
   public UcslucenesearchinteractionData addContactAttributesItem(String contactAttributesItem) {
+    if (this.contactAttributes == null) {
+      this.contactAttributes = new ArrayList<String>();
+    }
     this.contactAttributes.add(contactAttributesItem);
     return this;
   }
@@ -105,7 +113,7 @@ public class UcslucenesearchinteractionData {
    * The list of contact attributes to be returned for each contact in response
    * @return contactAttributes
   **/
-  @ApiModelProperty(example = "null", value = "The list of contact attributes to be returned for each contact in response")
+  @ApiModelProperty(value = "The list of contact attributes to be returned for each contact in response")
   public List<String> getContactAttributes() {
     return contactAttributes;
   }

@@ -15,25 +15,30 @@ package com.genesys.workspace.model;
 
 import java.util.Objects;
 import com.genesys.workspace.model.Kvpair;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * VoicecallsidreconnectData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-08T19:23:05.687Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-09T21:01:53.114Z")
 public class VoicecallsidreconnectData {
   @SerializedName("heldConnId")
   private String heldConnId = null;
 
   @SerializedName("reasons")
-  private List<Kvpair> reasons = new ArrayList<Kvpair>();
+  private List<Kvpair> reasons = null;
 
   @SerializedName("extensions")
-  private List<Kvpair> extensions = new ArrayList<Kvpair>();
+  private List<Kvpair> extensions = null;
 
   public VoicecallsidreconnectData heldConnId(String heldConnId) {
     this.heldConnId = heldConnId;
@@ -44,7 +49,7 @@ public class VoicecallsidreconnectData {
    * The id of the held call that should be retrieved
    * @return heldConnId
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The id of the held call that should be retrieved")
+  @ApiModelProperty(required = true, value = "The id of the held call that should be retrieved")
   public String getHeldConnId() {
     return heldConnId;
   }
@@ -59,6 +64,9 @@ public class VoicecallsidreconnectData {
   }
 
   public VoicecallsidreconnectData addReasonsItem(Kvpair reasonsItem) {
+    if (this.reasons == null) {
+      this.reasons = new ArrayList<Kvpair>();
+    }
     this.reasons.add(reasonsItem);
     return this;
   }
@@ -67,7 +75,7 @@ public class VoicecallsidreconnectData {
    * A key/value pairs list of a data structure that provides additional information associated with this action.
    * @return reasons
   **/
-  @ApiModelProperty(example = "null", value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
+  @ApiModelProperty(value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
   public List<Kvpair> getReasons() {
     return reasons;
   }
@@ -82,6 +90,9 @@ public class VoicecallsidreconnectData {
   }
 
   public VoicecallsidreconnectData addExtensionsItem(Kvpair extensionsItem) {
+    if (this.extensions == null) {
+      this.extensions = new ArrayList<Kvpair>();
+    }
     this.extensions.add(extensionsItem);
     return this;
   }
@@ -90,7 +101,7 @@ public class VoicecallsidreconnectData {
    * A key/value pairs list of additional data.
    * @return extensions
   **/
-  @ApiModelProperty(example = "null", value = "A key/value pairs list of additional data.")
+  @ApiModelProperty(value = "A key/value pairs list of additional data.")
   public List<Kvpair> getExtensions() {
     return extensions;
   }

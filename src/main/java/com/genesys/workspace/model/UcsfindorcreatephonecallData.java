@@ -15,16 +15,21 @@ package com.genesys.workspace.model;
 
 import java.util.Objects;
 import com.genesys.workspace.model.Kvpair;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * UcsfindorcreatephonecallData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-08T19:23:05.687Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-09T21:01:53.114Z")
 public class UcsfindorcreatephonecallData {
   @SerializedName("callId")
   private String callId = null;
@@ -62,7 +67,7 @@ public class UcsfindorcreatephonecallData {
    * The id of the call
    * @return callId
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The id of the call")
+  @ApiModelProperty(required = true, value = "The id of the call")
   public String getCallId() {
     return callId;
   }
@@ -80,7 +85,7 @@ public class UcsfindorcreatephonecallData {
    * The id of the contact
    * @return contactId
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The id of the contact")
+  @ApiModelProperty(required = true, value = "The id of the contact")
   public String getContactId() {
     return contactId;
   }
@@ -98,7 +103,7 @@ public class UcsfindorcreatephonecallData {
    * The type of the call
    * @return type
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The type of the call")
+  @ApiModelProperty(required = true, value = "The type of the call")
   public String getType() {
     return type;
   }
@@ -116,7 +121,7 @@ public class UcsfindorcreatephonecallData {
    * The status of the call
    * @return status
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The status of the call")
+  @ApiModelProperty(required = true, value = "The status of the call")
   public String getStatus() {
     return status;
   }
@@ -134,7 +139,7 @@ public class UcsfindorcreatephonecallData {
    * The phone number of the call
    * @return phoneNumber
   **/
-  @ApiModelProperty(example = "null", value = "The phone number of the call")
+  @ApiModelProperty(value = "The phone number of the call")
   public String getPhoneNumber() {
     return phoneNumber;
   }
@@ -152,7 +157,7 @@ public class UcsfindorcreatephonecallData {
    * The id of the parent interaction
    * @return parentId
   **/
-  @ApiModelProperty(example = "null", value = "The id of the parent interaction")
+  @ApiModelProperty(value = "The id of the parent interaction")
   public String getParentId() {
     return parentId;
   }
@@ -170,7 +175,7 @@ public class UcsfindorcreatephonecallData {
    * The thread id
    * @return threadId
   **/
-  @ApiModelProperty(example = "null", value = "The thread id")
+  @ApiModelProperty(value = "The thread id")
   public String getThreadId() {
     return threadId;
   }
@@ -188,7 +193,7 @@ public class UcsfindorcreatephonecallData {
    * The subject of the call
    * @return subject
   **/
-  @ApiModelProperty(example = "null", value = "The subject of the call")
+  @ApiModelProperty(value = "The subject of the call")
   public String getSubject() {
     return subject;
   }
@@ -211,7 +216,7 @@ public class UcsfindorcreatephonecallData {
    * A key/value pairs list of the user data of the call.
    * @return userData
   **/
-  @ApiModelProperty(example = "null", required = true, value = "A key/value pairs list of the user data of the call.")
+  @ApiModelProperty(required = true, value = "A key/value pairs list of the user data of the call.")
   public List<Kvpair> getUserData() {
     return userData;
   }

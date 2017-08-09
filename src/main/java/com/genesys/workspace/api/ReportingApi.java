@@ -58,13 +58,20 @@ public class ReportingApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for peek */
-    private com.squareup.okhttp.Call peekCall(String subscriptionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for peek
+     * @param subscriptionId id of the subscription (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call peekCall(String subscriptionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/reporting/{subscriptionId}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "subscriptionId" + "\\}", apiClient.escapeString(subscriptionId.toString()));
+        String localVarPath = "/reporting/{subscriptionId}"
+            .replaceAll("\\{" + "subscriptionId" + "\\}", apiClient.escapeString(subscriptionId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -177,12 +184,19 @@ public class ReportingApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for register */
-    private com.squareup.okhttp.Call registerCall(StatisticsRegisterData statisticsRegisterData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for register
+     * @param statisticsRegisterData Requested Statistics (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call registerCall(StatisticsRegisterData statisticsRegisterData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = statisticsRegisterData;
         
         // create path and map variables
-        String localVarPath = "/reporting/register".replaceAll("\\{format\\}","json");
+        String localVarPath = "/reporting/register";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -295,12 +309,19 @@ public class ReportingApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for subscribe */
-    private com.squareup.okhttp.Call subscribeCall(StatisticsSubscribeData statisticsSubscribeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for subscribe
+     * @param statisticsSubscribeData Requested Statistics (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call subscribeCall(StatisticsSubscribeData statisticsSubscribeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = statisticsSubscribeData;
         
         // create path and map variables
-        String localVarPath = "/reporting/subscribe".replaceAll("\\{format\\}","json");
+        String localVarPath = "/reporting/subscribe";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -413,12 +434,19 @@ public class ReportingApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for unsubscribe */
-    private com.squareup.okhttp.Call unsubscribeCall(UnsubscribeData unsubscribeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for unsubscribe
+     * @param unsubscribeData Request parameters. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call unsubscribeCall(UnsubscribeData unsubscribeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = unsubscribeData;
         
         // create path and map variables
-        String localVarPath = "/reporting/unsubscribe".replaceAll("\\{format\\}","json");
+        String localVarPath = "/reporting/unsubscribe";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 

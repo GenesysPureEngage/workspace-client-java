@@ -84,13 +84,21 @@ public class VoiceApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for alternate */
-    private com.squareup.okhttp.Call alternateCall(String id, AlternateData alternateData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for alternate
+     * @param id id of the active call that should be placed on hold (required)
+     * @param alternateData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call alternateCall(String id, AlternateData alternateData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = alternateData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/alternate".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/alternate"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -211,13 +219,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for answer */
-    private com.squareup.okhttp.Call answerCall(String id, AnswerData answerData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for answer
+     * @param id id of the call to answer (required)
+     * @param answerData Request parameters. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call answerCall(String id, AnswerData answerData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = answerData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/answer".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/answer"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -333,13 +349,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for attachUserData */
-    private com.squareup.okhttp.Call attachUserDataCall(String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for attachUserData
+     * @param id id of the call (required)
+     * @param userData An array of key/value pairs to attach. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call attachUserDataCall(String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = userData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/attach-user-data".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/attach-user-data"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -460,12 +484,18 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for cancelForward */
-    private com.squareup.okhttp.Call cancelForwardCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for cancelForward
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call cancelForwardCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/voice/cancel-forward".replaceAll("\\{format\\}","json");
+        String localVarPath = "/voice/cancel-forward";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -570,13 +600,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for clear */
-    private com.squareup.okhttp.Call clearCall(String id, ClearData clearData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for clear
+     * @param id id of the call to be cleared (required)
+     * @param clearData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call clearCall(String id, ClearData clearData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = clearData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/clear".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/clear"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -697,13 +735,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for completeCall */
-    private com.squareup.okhttp.Call completeCallCall(String id, UserData1 userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for completeCall
+     * @param id id of the call (required)
+     * @param userData An array of key/value pairs. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call completeCallCall(String id, UserData1 userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = userData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/complete".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/complete"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -824,13 +870,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for completeConference */
-    private com.squareup.okhttp.Call completeConferenceCall(String id, CompleteConferenceData completeConferenceData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for completeConference
+     * @param id Id of the active call (required)
+     * @param completeConferenceData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call completeConferenceCall(String id, CompleteConferenceData completeConferenceData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = completeConferenceData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/complete-conference".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/complete-conference"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -951,13 +1005,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for completeTransfer */
-    private com.squareup.okhttp.Call completeTransferCall(String id, CompleteTransferData completeTransferData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for completeTransfer
+     * @param id Id of the active call (required)
+     * @param completeTransferData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call completeTransferCall(String id, CompleteTransferData completeTransferData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = completeTransferData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/complete-transfer".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/complete-transfer"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1078,13 +1140,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for deleteFromConference */
-    private com.squareup.okhttp.Call deleteFromConferenceCall(String id, DeleteFromConferenceData deleteFromConferenceData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for deleteFromConference
+     * @param id The id of the conference call (required)
+     * @param deleteFromConferenceData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteFromConferenceCall(String id, DeleteFromConferenceData deleteFromConferenceData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = deleteFromConferenceData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/delete-from-conference".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/delete-from-conference"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1205,13 +1275,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for deleteUserDataPair */
-    private com.squareup.okhttp.Call deleteUserDataPairCall(String id, KeyData keyData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for deleteUserDataPair
+     * @param id id of the call (required)
+     * @param keyData The key of the key/value pairs to delete. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteUserDataPairCall(String id, KeyData keyData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = keyData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/delete-user-data-pair".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/delete-user-data-pair"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1332,12 +1410,19 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for forward */
-    private com.squareup.okhttp.Call forwardCall(ForwardData forwardData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for forward
+     * @param forwardData Request parameters. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call forwardCall(ForwardData forwardData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = forwardData;
         
         // create path and map variables
-        String localVarPath = "/voice/set-forward".replaceAll("\\{format\\}","json");
+        String localVarPath = "/voice/set-forward";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1450,12 +1535,18 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getCalls */
-    private com.squareup.okhttp.Call getCallsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getCalls
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getCallsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/voice/calls".replaceAll("\\{format\\}","json");
+        String localVarPath = "/voice/calls";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1560,13 +1651,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for hold */
-    private com.squareup.okhttp.Call holdCall(String id, HoldData holdData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for hold
+     * @param id id of the call (required)
+     * @param holdData Request parameters. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call holdCall(String id, HoldData holdData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = holdData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/hold".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/hold"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1682,13 +1781,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for initiateConference */
-    private com.squareup.okhttp.Call initiateConferenceCall(String id, InitiateConferenceData initiateConferenceData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for initiateConference
+     * @param id id of the call to initiate the conference from. This call will be placed on hold. (required)
+     * @param initiateConferenceData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call initiateConferenceCall(String id, InitiateConferenceData initiateConferenceData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = initiateConferenceData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/initiate-conference".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/initiate-conference"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1809,13 +1916,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for initiateTransfer */
-    private com.squareup.okhttp.Call initiateTransferCall(String id, InitiateTransferData initiateTransferData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for initiateTransfer
+     * @param id Connection identifier of the call that is requested to be placed on hold. (required)
+     * @param initiateTransferData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call initiateTransferCall(String id, InitiateTransferData initiateTransferData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = initiateTransferData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/initiate-transfer".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/initiate-transfer"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1936,12 +2051,18 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for loginVoice */
-    private com.squareup.okhttp.Call loginVoiceCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for loginVoice
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call loginVoiceCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/voice/login".replaceAll("\\{format\\}","json");
+        String localVarPath = "/voice/login";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -2046,12 +2167,18 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for logoutVoice */
-    private com.squareup.okhttp.Call logoutVoiceCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for logoutVoice
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call logoutVoiceCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/voice/logout".replaceAll("\\{format\\}","json");
+        String localVarPath = "/voice/logout";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -2156,12 +2283,19 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for makeCall */
-    private com.squareup.okhttp.Call makeCallCall(MakeCallData makeCallData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for makeCall
+     * @param makeCallData Request parameters. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call makeCallCall(MakeCallData makeCallData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = makeCallData;
         
         // create path and map variables
-        String localVarPath = "/voice/make-call".replaceAll("\\{format\\}","json");
+        String localVarPath = "/voice/make-call";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -2274,13 +2408,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for merge */
-    private com.squareup.okhttp.Call mergeCall(String id, MergeData mergeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for merge
+     * @param id Connection identifier of the first call to be merged (required)
+     * @param mergeData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call mergeCall(String id, MergeData mergeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = mergeData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/merge".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/merge"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -2401,13 +2543,20 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for pauseRecording */
-    private com.squareup.okhttp.Call pauseRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for pauseRecording
+     * @param id id of the call (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call pauseRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/pause-recording".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/pause-recording"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -2520,13 +2669,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for reconnect */
-    private com.squareup.okhttp.Call reconnectCall(String id, ReconnectData reconnectData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for reconnect
+     * @param id The id of the active call (required)
+     * @param reconnectData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reconnectCall(String id, ReconnectData reconnectData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = reconnectData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/reconnect".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/reconnect"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -2647,13 +2804,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for redirect */
-    private com.squareup.okhttp.Call redirectCall(String id, RedirectData redirectData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for redirect
+     * @param id Connection ID of the current call handled by the DN. (required)
+     * @param redirectData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call redirectCall(String id, RedirectData redirectData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = redirectData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/redirect".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/redirect"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -2774,13 +2939,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for release */
-    private com.squareup.okhttp.Call releaseCall(String id, ReleaseData releaseData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for release
+     * @param id id of the call (required)
+     * @param releaseData Request parameters. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call releaseCall(String id, ReleaseData releaseData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = releaseData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/release".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/release"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -2896,13 +3069,20 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for resumeRecording */
-    private com.squareup.okhttp.Call resumeRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for resumeRecording
+     * @param id id of the call (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call resumeRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/resume-recording".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/resume-recording"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -3015,13 +3195,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for retrieve */
-    private com.squareup.okhttp.Call retrieveCall(String id, RetrieveData retrieveData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for retrieve
+     * @param id id of the call (required)
+     * @param retrieveData Request parameters. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call retrieveCall(String id, RetrieveData retrieveData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = retrieveData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/retrieve".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/retrieve"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -3137,13 +3325,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for sendDTMF */
-    private com.squareup.okhttp.Call sendDTMFCall(String id, SendDTMFData sendDTMFData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for sendDTMF
+     * @param id Id of the cal (required)
+     * @param sendDTMFData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call sendDTMFCall(String id, SendDTMFData sendDTMFData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = sendDTMFData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/send-dtmf".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/send-dtmf"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -3264,12 +3460,19 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for sendUserEvent */
-    private com.squareup.okhttp.Call sendUserEventCall(SendUserEventData userEventData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for sendUserEvent
+     * @param userEventData Data defining the user event to be distributed (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call sendUserEventCall(SendUserEventData userEventData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = userEventData;
         
         // create path and map variables
-        String localVarPath = "/voice/send-user-event".replaceAll("\\{format\\}","json");
+        String localVarPath = "/voice/send-user-event";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -3382,12 +3585,19 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for setAgentStateNotReady */
-    private com.squareup.okhttp.Call setAgentStateNotReadyCall(NotReadyData notReadyData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for setAgentStateNotReady
+     * @param notReadyData  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call setAgentStateNotReadyCall(NotReadyData notReadyData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = notReadyData;
         
         // create path and map variables
-        String localVarPath = "/voice/not-ready".replaceAll("\\{format\\}","json");
+        String localVarPath = "/voice/not-ready";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -3495,12 +3705,19 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for setAgentStateReady */
-    private com.squareup.okhttp.Call setAgentStateReadyCall(ReadyData readyData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for setAgentStateReady
+     * @param readyData  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call setAgentStateReadyCall(ReadyData readyData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = readyData;
         
         // create path and map variables
-        String localVarPath = "/voice/ready".replaceAll("\\{format\\}","json");
+        String localVarPath = "/voice/ready";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -3608,12 +3825,18 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for setDNDOff */
-    private com.squareup.okhttp.Call setDNDOffCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for setDNDOff
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call setDNDOffCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/voice/dnd-off".replaceAll("\\{format\\}","json");
+        String localVarPath = "/voice/dnd-off";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -3718,12 +3941,18 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for setDNDOn */
-    private com.squareup.okhttp.Call setDNDOnCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for setDNDOn
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call setDNDOnCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/voice/dnd-on".replaceAll("\\{format\\}","json");
+        String localVarPath = "/voice/dnd-on";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -3828,13 +4057,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for singleStepConference */
-    private com.squareup.okhttp.Call singleStepConferenceCall(String id, SingleStepConferenceData singleStepConferenceData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for singleStepConference
+     * @param id Connection identifier of the call that is requested to be conferenced. (required)
+     * @param singleStepConferenceData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call singleStepConferenceCall(String id, SingleStepConferenceData singleStepConferenceData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = singleStepConferenceData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/single-step-conference".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/single-step-conference"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -3955,13 +4192,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for singleStepTransfer */
-    private com.squareup.okhttp.Call singleStepTransferCall(String id, SingleStepTransferData singleStepTransferData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for singleStepTransfer
+     * @param id The id of the call to be transferred. (required)
+     * @param singleStepTransferData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call singleStepTransferCall(String id, SingleStepTransferData singleStepTransferData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = singleStepTransferData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/single-step-transfer".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/single-step-transfer"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -4082,12 +4327,19 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for startMonitoring */
-    private com.squareup.okhttp.Call startMonitoringCall(StartMonitoringData startMonitoringData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for startMonitoring
+     * @param startMonitoringData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call startMonitoringCall(StartMonitoringData startMonitoringData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = startMonitoringData;
         
         // create path and map variables
-        String localVarPath = "/voice/start-monitoring".replaceAll("\\{format\\}","json");
+        String localVarPath = "/voice/start-monitoring";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -4200,13 +4452,20 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for startRecording */
-    private com.squareup.okhttp.Call startRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for startRecording
+     * @param id id of the call (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call startRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/start-recording".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/start-recording"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -4319,12 +4578,19 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for stopMonitoring */
-    private com.squareup.okhttp.Call stopMonitoringCall(StopMonitoringData stopMonitoringData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for stopMonitoring
+     * @param stopMonitoringData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call stopMonitoringCall(StopMonitoringData stopMonitoringData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = stopMonitoringData;
         
         // create path and map variables
-        String localVarPath = "/voice/stop-monitoring".replaceAll("\\{format\\}","json");
+        String localVarPath = "/voice/stop-monitoring";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -4437,13 +4703,20 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for stopRecording */
-    private com.squareup.okhttp.Call stopRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for stopRecording
+     * @param id id of the call (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call stopRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/stop-recording".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/stop-recording"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -4556,13 +4829,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for switchToBargeIn */
-    private com.squareup.okhttp.Call switchToBargeInCall(String id, MonitoringScopeData monitoringScopeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for switchToBargeIn
+     * @param id Connection identifier of the call in question. (required)
+     * @param monitoringScopeData  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call switchToBargeInCall(String id, MonitoringScopeData monitoringScopeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = monitoringScopeData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/switch-to-barge-in".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/switch-to-barge-in"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -4678,13 +4959,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for switchToCoaching */
-    private com.squareup.okhttp.Call switchToCoachingCall(String id, MonitoringScopeData monitoringScopeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for switchToCoaching
+     * @param id Connection identifier of the call in question. (required)
+     * @param monitoringScopeData  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call switchToCoachingCall(String id, MonitoringScopeData monitoringScopeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = monitoringScopeData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/switch-to-coaching".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/switch-to-coaching"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -4800,13 +5089,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for switchToListenIn */
-    private com.squareup.okhttp.Call switchToListenInCall(String id, MonitoringScopeData monitoringScopeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for switchToListenIn
+     * @param id Connection identifier of the call in question. (required)
+     * @param monitoringScopeData  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call switchToListenInCall(String id, MonitoringScopeData monitoringScopeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = monitoringScopeData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/switch-to-listen-in".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/switch-to-listen-in"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -4922,13 +5219,21 @@ public class VoiceApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for updateUserData */
-    private com.squareup.okhttp.Call updateUserDataCall(String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for updateUserData
+     * @param id id of the call (required)
+     * @param userData An array of key/value pairs. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateUserDataCall(String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = userData;
         
         // create path and map variables
-        String localVarPath = "/voice/calls/{id}/update-user-data".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/voice/calls/{id}/update-user-data"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 

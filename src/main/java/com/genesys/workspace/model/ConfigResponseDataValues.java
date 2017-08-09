@@ -15,16 +15,21 @@ package com.genesys.workspace.model;
 
 import java.util.Objects;
 import com.genesys.workspace.model.Kvpair;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * ConfigResponseDataValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-08T19:23:05.687Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-09T21:01:53.114Z")
 public class ConfigResponseDataValues {
   @SerializedName("name")
   private String name = null;
@@ -39,7 +44,7 @@ public class ConfigResponseDataValues {
   private Boolean _default = null;
 
   @SerializedName("userProperties")
-  private List<Kvpair> userProperties = new ArrayList<Kvpair>();
+  private List<Kvpair> userProperties = null;
 
   public ConfigResponseDataValues name(String name) {
     this.name = name;
@@ -50,7 +55,7 @@ public class ConfigResponseDataValues {
    * Get name
    * @return name
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getName() {
     return name;
   }
@@ -68,7 +73,7 @@ public class ConfigResponseDataValues {
    * Get displayName
    * @return displayName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getDisplayName() {
     return displayName;
   }
@@ -86,7 +91,7 @@ public class ConfigResponseDataValues {
    * Get description
    * @return description
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getDescription() {
     return description;
   }
@@ -104,7 +109,7 @@ public class ConfigResponseDataValues {
    * Get _default
    * @return _default
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Boolean getDefault() {
     return _default;
   }
@@ -119,6 +124,9 @@ public class ConfigResponseDataValues {
   }
 
   public ConfigResponseDataValues addUserPropertiesItem(Kvpair userPropertiesItem) {
+    if (this.userProperties == null) {
+      this.userProperties = new ArrayList<Kvpair>();
+    }
     this.userProperties.add(userPropertiesItem);
     return this;
   }
@@ -127,7 +135,7 @@ public class ConfigResponseDataValues {
    * Get userProperties
    * @return userProperties
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<Kvpair> getUserProperties() {
     return userProperties;
   }

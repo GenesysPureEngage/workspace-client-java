@@ -58,12 +58,18 @@ public class TargetsApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for ackRecentMissedCalls */
-    private com.squareup.okhttp.Call ackRecentMissedCallsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for ackRecentMissedCalls
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call ackRecentMissedCallsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/targets/recents/ack-missed-calls".replaceAll("\\{format\\}","json");
+        String localVarPath = "/targets/recents/ack-missed-calls";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -168,12 +174,19 @@ public class TargetsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for addRecentTarget */
-    private com.squareup.okhttp.Call addRecentTargetCall(RecentTargetData recentTargetData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for addRecentTarget
+     * @param recentTargetData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call addRecentTargetCall(RecentTargetData recentTargetData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = recentTargetData;
         
         // create path and map variables
-        String localVarPath = "/targets/recents/add".replaceAll("\\{format\\}","json");
+        String localVarPath = "/targets/recents/add";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -286,12 +299,24 @@ public class TargetsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for get */
-    private com.squareup.okhttp.Call getCall(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for get
+     * @param searchTerm The text to search for (required)
+     * @param filterName The filter to specify on which fields the search is applied (optional)
+     * @param types Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
+     * @param sort Desired sort order (asc or desc). asc if not specified (optional)
+     * @param limit Number of results. 100 if not specified. (optional)
+     * @param matchType Type of behavior for the field matching (exact for exact match search). (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getCall(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/targets".replaceAll("\\{format\\}","json");
+        String localVarPath = "/targets";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (searchTerm != null)
@@ -431,12 +456,19 @@ public class TargetsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getRecentTargets */
-    private com.squareup.okhttp.Call getRecentTargetsCall(BigDecimal limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getRecentTargets
+     * @param limit Number of results. 50 if not specified. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getRecentTargetsCall(BigDecimal limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/targets/recents".replaceAll("\\{format\\}","json");
+        String localVarPath = "/targets/recents";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (limit != null)
@@ -546,14 +578,22 @@ public class TargetsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getTarget */
-    private com.squareup.okhttp.Call getTargetCall(BigDecimal id, String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getTarget
+     * @param id The id of the target (required)
+     * @param type the type of the target (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getTargetCall(BigDecimal id, String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/targets/{type}/{id}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-        .replaceAll("\\{" + "type" + "\\}", apiClient.escapeString(type.toString()));
+        String localVarPath = "/targets/{type}/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+            .replaceAll("\\{" + "type" + "\\}", apiClient.escapeString(type.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
