@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * AssignInteractionToContactData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-11T13:04:13.945Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-14T15:04:10.150Z")
 public class AssignInteractionToContactData {
   @SerializedName("data")
   private UcsassigninteractiontocontactData data = null;
