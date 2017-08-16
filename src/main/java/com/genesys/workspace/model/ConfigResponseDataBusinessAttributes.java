@@ -16,53 +16,76 @@ package com.genesys.workspace.model;
 import java.util.Objects;
 import com.genesys.workspace.model.ConfigResponseDataValues;
 import com.genesys.workspace.model.Kvpair;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * ConfigResponseDataBusinessAttributes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class ConfigResponseDataBusinessAttributes {
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("userProperties")
+  private List<Kvpair> userProperties = new ArrayList<Kvpair>();
+
+  @SerializedName("values")
+  private List<ConfigResponseDataValues> values = new ArrayList<ConfigResponseDataValues>();
 
   @SerializedName("displayName")
   private String displayName = null;
 
+  @SerializedName("name")
+  private String name = null;
+
   @SerializedName("description")
   private String description = null;
 
-  @SerializedName("values")
-  private List<ConfigResponseDataValues> values = null;
+  public ConfigResponseDataBusinessAttributes userProperties(List<Kvpair> userProperties) {
+    this.userProperties = userProperties;
+    return this;
+  }
 
-  @SerializedName("userProperties")
-  private List<Kvpair> userProperties = null;
-
-  public ConfigResponseDataBusinessAttributes name(String name) {
-    this.name = name;
+  public ConfigResponseDataBusinessAttributes addUserPropertiesItem(Kvpair userPropertiesItem) {
+    this.userProperties.add(userPropertiesItem);
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get userProperties
+   * @return userProperties
   **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
+  @ApiModelProperty(example = "null", value = "")
+  public List<Kvpair> getUserProperties() {
+    return userProperties;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setUserProperties(List<Kvpair> userProperties) {
+    this.userProperties = userProperties;
+  }
+
+  public ConfigResponseDataBusinessAttributes values(List<ConfigResponseDataValues> values) {
+    this.values = values;
+    return this;
+  }
+
+  public ConfigResponseDataBusinessAttributes addValuesItem(ConfigResponseDataValues valuesItem) {
+    this.values.add(valuesItem);
+    return this;
+  }
+
+   /**
+   * Get values
+   * @return values
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public List<ConfigResponseDataValues> getValues() {
+    return values;
+  }
+
+  public void setValues(List<ConfigResponseDataValues> values) {
+    this.values = values;
   }
 
   public ConfigResponseDataBusinessAttributes displayName(String displayName) {
@@ -74,13 +97,31 @@ public class ConfigResponseDataBusinessAttributes {
    * Get displayName
    * @return displayName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getDisplayName() {
     return displayName;
   }
 
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
+  }
+
+  public ConfigResponseDataBusinessAttributes name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public ConfigResponseDataBusinessAttributes description(String description) {
@@ -92,65 +133,13 @@ public class ConfigResponseDataBusinessAttributes {
    * Get description
    * @return description
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getDescription() {
     return description;
   }
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-  public ConfigResponseDataBusinessAttributes values(List<ConfigResponseDataValues> values) {
-    this.values = values;
-    return this;
-  }
-
-  public ConfigResponseDataBusinessAttributes addValuesItem(ConfigResponseDataValues valuesItem) {
-    if (this.values == null) {
-      this.values = new ArrayList<ConfigResponseDataValues>();
-    }
-    this.values.add(valuesItem);
-    return this;
-  }
-
-   /**
-   * Get values
-   * @return values
-  **/
-  @ApiModelProperty(value = "")
-  public List<ConfigResponseDataValues> getValues() {
-    return values;
-  }
-
-  public void setValues(List<ConfigResponseDataValues> values) {
-    this.values = values;
-  }
-
-  public ConfigResponseDataBusinessAttributes userProperties(List<Kvpair> userProperties) {
-    this.userProperties = userProperties;
-    return this;
-  }
-
-  public ConfigResponseDataBusinessAttributes addUserPropertiesItem(Kvpair userPropertiesItem) {
-    if (this.userProperties == null) {
-      this.userProperties = new ArrayList<Kvpair>();
-    }
-    this.userProperties.add(userPropertiesItem);
-    return this;
-  }
-
-   /**
-   * Get userProperties
-   * @return userProperties
-  **/
-  @ApiModelProperty(value = "")
-  public List<Kvpair> getUserProperties() {
-    return userProperties;
-  }
-
-  public void setUserProperties(List<Kvpair> userProperties) {
-    this.userProperties = userProperties;
   }
 
 
@@ -163,16 +152,16 @@ public class ConfigResponseDataBusinessAttributes {
       return false;
     }
     ConfigResponseDataBusinessAttributes configResponseDataBusinessAttributes = (ConfigResponseDataBusinessAttributes) o;
-    return Objects.equals(this.name, configResponseDataBusinessAttributes.name) &&
-        Objects.equals(this.displayName, configResponseDataBusinessAttributes.displayName) &&
-        Objects.equals(this.description, configResponseDataBusinessAttributes.description) &&
+    return Objects.equals(this.userProperties, configResponseDataBusinessAttributes.userProperties) &&
         Objects.equals(this.values, configResponseDataBusinessAttributes.values) &&
-        Objects.equals(this.userProperties, configResponseDataBusinessAttributes.userProperties);
+        Objects.equals(this.displayName, configResponseDataBusinessAttributes.displayName) &&
+        Objects.equals(this.name, configResponseDataBusinessAttributes.name) &&
+        Objects.equals(this.description, configResponseDataBusinessAttributes.description);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, displayName, description, values, userProperties);
+    return Objects.hash(userProperties, values, displayName, name, description);
   }
 
 
@@ -181,11 +170,11 @@ public class ConfigResponseDataBusinessAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConfigResponseDataBusinessAttributes {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("    userProperties: ").append(toIndentedString(userProperties)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");
     return sb.toString();
   }

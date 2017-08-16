@@ -14,27 +14,23 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * MonitoringScopeDataData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class MonitoringScopeDataData {
   /**
    * The monitoring scope (Call/Agent).
    */
-  @JsonAdapter(MonitoringScopeEnum.Adapter.class)
   public enum MonitoringScopeEnum {
+    @SerializedName("Call")
     CALL("Call"),
     
+    @SerializedName("Agent")
     AGENT("Agent");
 
     private String value;
@@ -43,35 +39,9 @@ public class MonitoringScopeDataData {
       this.value = value;
     }
 
-    public String getValue() {
-      return value;
-    }
-
     @Override
     public String toString() {
       return String.valueOf(value);
-    }
-
-    public static MonitoringScopeEnum fromValue(String text) {
-      for (MonitoringScopeEnum b : MonitoringScopeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<MonitoringScopeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final MonitoringScopeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public MonitoringScopeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return MonitoringScopeEnum.fromValue(String.valueOf(value));
-      }
     }
   }
 
@@ -87,7 +57,7 @@ public class MonitoringScopeDataData {
    * The monitoring scope (Call/Agent).
    * @return monitoringScope
   **/
-  @ApiModelProperty(value = "The monitoring scope (Call/Agent).")
+  @ApiModelProperty(example = "null", value = "The monitoring scope (Call/Agent).")
   public MonitoringScopeEnum getMonitoringScope() {
     return monitoringScope;
   }

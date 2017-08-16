@@ -14,25 +14,20 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.genesys.workspace.model.VoicereadyData;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
+import com.genesys.workspace.model.VoicecallsidholdData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * ReleaseData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class ReleaseData {
   @SerializedName("data")
-  private VoicereadyData data = null;
+  private VoicecallsidholdData data = null;
 
-  public ReleaseData data(VoicereadyData data) {
+  public ReleaseData data(VoicecallsidholdData data) {
     this.data = data;
     return this;
   }
@@ -41,12 +36,12 @@ public class ReleaseData {
    * Get data
    * @return data
   **/
-  @ApiModelProperty(value = "")
-  public VoicereadyData getData() {
+  @ApiModelProperty(example = "null", value = "")
+  public VoicecallsidholdData getData() {
     return data;
   }
 
-  public void setData(VoicereadyData data) {
+  public void setData(VoicecallsidholdData data) {
     this.data = data;
   }
 

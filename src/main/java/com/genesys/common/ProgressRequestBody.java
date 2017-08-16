@@ -34,6 +34,8 @@ public class ProgressRequestBody extends RequestBody {
 
     private final ProgressRequestListener progressListener;
 
+    private BufferedSink bufferedSink;
+
     public ProgressRequestBody(RequestBody requestBody, ProgressRequestListener progressListener) {
         this.requestBody = requestBody;
         this.progressListener = progressListener;
@@ -51,9 +53,13 @@ public class ProgressRequestBody extends RequestBody {
 
     @Override
     public void writeTo(BufferedSink sink) throws IOException {
-        BufferedSink bufferedSink = Okio.buffer(sink(sink));
+        if (bufferedSink == null) {
+            bufferedSink = Okio.buffer(sink(sink));
+        }
+
         requestBody.writeTo(bufferedSink);
         bufferedSink.flush();
+
     }
 
     private Sink sink(Sink sink) {

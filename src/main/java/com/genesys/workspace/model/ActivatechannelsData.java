@@ -14,48 +14,43 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * ActivatechannelsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class ActivatechannelsData {
-  @SerializedName("agentId")
-  private String agentId = null;
+  @SerializedName("dn")
+  private String dn = null;
 
   @SerializedName("placeName")
   private String placeName = null;
 
-  @SerializedName("dn")
-  private String dn = null;
+  @SerializedName("agentId")
+  private String agentId = null;
 
   @SerializedName("queueName")
   private String queueName = null;
 
-  public ActivatechannelsData agentId(String agentId) {
-    this.agentId = agentId;
+  public ActivatechannelsData dn(String dn) {
+    this.dn = dn;
     return this;
   }
 
    /**
-   * agentId (switch login code) that should be used to log the agent in
-   * @return agentId
+   * The dn (number) that should be used to login the agent.
+   * @return dn
   **/
-  @ApiModelProperty(value = "agentId (switch login code) that should be used to log the agent in")
-  public String getAgentId() {
-    return agentId;
+  @ApiModelProperty(example = "null", value = "The dn (number) that should be used to login the agent.")
+  public String getDn() {
+    return dn;
   }
 
-  public void setAgentId(String agentId) {
-    this.agentId = agentId;
+  public void setDn(String dn) {
+    this.dn = dn;
   }
 
   public ActivatechannelsData placeName(String placeName) {
@@ -67,7 +62,7 @@ public class ActivatechannelsData {
    * The name of the place that should be used to log the agent in. Either placeName or dn must be provided.
    * @return placeName
   **/
-  @ApiModelProperty(value = "The name of the place that should be used to log the agent in. Either placeName or dn must be provided.")
+  @ApiModelProperty(example = "null", value = "The name of the place that should be used to log the agent in. Either placeName or dn must be provided.")
   public String getPlaceName() {
     return placeName;
   }
@@ -76,22 +71,22 @@ public class ActivatechannelsData {
     this.placeName = placeName;
   }
 
-  public ActivatechannelsData dn(String dn) {
-    this.dn = dn;
+  public ActivatechannelsData agentId(String agentId) {
+    this.agentId = agentId;
     return this;
   }
 
    /**
-   * The dn (number) that should be used to login the agent.
-   * @return dn
+   * agentId (switch login code) that should be used to log the agent in
+   * @return agentId
   **/
-  @ApiModelProperty(value = "The dn (number) that should be used to login the agent.")
-  public String getDn() {
-    return dn;
+  @ApiModelProperty(example = "null", value = "agentId (switch login code) that should be used to log the agent in")
+  public String getAgentId() {
+    return agentId;
   }
 
-  public void setDn(String dn) {
-    this.dn = dn;
+  public void setAgentId(String agentId) {
+    this.agentId = agentId;
   }
 
   public ActivatechannelsData queueName(String queueName) {
@@ -103,7 +98,7 @@ public class ActivatechannelsData {
    * The queue name that should be used to login the agent.
    * @return queueName
   **/
-  @ApiModelProperty(value = "The queue name that should be used to login the agent.")
+  @ApiModelProperty(example = "null", value = "The queue name that should be used to login the agent.")
   public String getQueueName() {
     return queueName;
   }
@@ -122,15 +117,15 @@ public class ActivatechannelsData {
       return false;
     }
     ActivatechannelsData activatechannelsData = (ActivatechannelsData) o;
-    return Objects.equals(this.agentId, activatechannelsData.agentId) &&
+    return Objects.equals(this.dn, activatechannelsData.dn) &&
         Objects.equals(this.placeName, activatechannelsData.placeName) &&
-        Objects.equals(this.dn, activatechannelsData.dn) &&
+        Objects.equals(this.agentId, activatechannelsData.agentId) &&
         Objects.equals(this.queueName, activatechannelsData.queueName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentId, placeName, dn, queueName);
+    return Objects.hash(dn, placeName, agentId, queueName);
   }
 
 
@@ -139,9 +134,9 @@ public class ActivatechannelsData {
     StringBuilder sb = new StringBuilder();
     sb.append("class ActivatechannelsData {\n");
     
-    sb.append("    agentId: ").append(toIndentedString(agentId)).append("\n");
-    sb.append("    placeName: ").append(toIndentedString(placeName)).append("\n");
     sb.append("    dn: ").append(toIndentedString(dn)).append("\n");
+    sb.append("    placeName: ").append(toIndentedString(placeName)).append("\n");
+    sb.append("    agentId: ").append(toIndentedString(agentId)).append("\n");
     sb.append("    queueName: ").append(toIndentedString(queueName)).append("\n");
     sb.append("}");
     return sb.toString();

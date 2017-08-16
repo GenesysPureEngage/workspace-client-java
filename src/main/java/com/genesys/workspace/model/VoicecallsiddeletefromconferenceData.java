@@ -15,48 +15,25 @@ package com.genesys.workspace.model;
 
 import java.util.Objects;
 import com.genesys.workspace.model.Kvpair;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * VoicecallsiddeletefromconferenceData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class VoicecallsiddeletefromconferenceData {
-  @SerializedName("dnToDrop")
-  private String dnToDrop = null;
-
   @SerializedName("reasons")
-  private List<Kvpair> reasons = null;
+  private List<Kvpair> reasons = new ArrayList<Kvpair>();
 
   @SerializedName("extensions")
-  private List<Kvpair> extensions = null;
+  private List<Kvpair> extensions = new ArrayList<Kvpair>();
 
-  public VoicecallsiddeletefromconferenceData dnToDrop(String dnToDrop) {
-    this.dnToDrop = dnToDrop;
-    return this;
-  }
-
-   /**
-   * The party to be deleted from the conference
-   * @return dnToDrop
-  **/
-  @ApiModelProperty(required = true, value = "The party to be deleted from the conference")
-  public String getDnToDrop() {
-    return dnToDrop;
-  }
-
-  public void setDnToDrop(String dnToDrop) {
-    this.dnToDrop = dnToDrop;
-  }
+  @SerializedName("dnToDrop")
+  private String dnToDrop = null;
 
   public VoicecallsiddeletefromconferenceData reasons(List<Kvpair> reasons) {
     this.reasons = reasons;
@@ -64,9 +41,6 @@ public class VoicecallsiddeletefromconferenceData {
   }
 
   public VoicecallsiddeletefromconferenceData addReasonsItem(Kvpair reasonsItem) {
-    if (this.reasons == null) {
-      this.reasons = new ArrayList<Kvpair>();
-    }
     this.reasons.add(reasonsItem);
     return this;
   }
@@ -75,7 +49,7 @@ public class VoicecallsiddeletefromconferenceData {
    * A key/value pairs list of a data structure that provides additional information associated with this action.
    * @return reasons
   **/
-  @ApiModelProperty(value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
+  @ApiModelProperty(example = "null", value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
   public List<Kvpair> getReasons() {
     return reasons;
   }
@@ -90,9 +64,6 @@ public class VoicecallsiddeletefromconferenceData {
   }
 
   public VoicecallsiddeletefromconferenceData addExtensionsItem(Kvpair extensionsItem) {
-    if (this.extensions == null) {
-      this.extensions = new ArrayList<Kvpair>();
-    }
     this.extensions.add(extensionsItem);
     return this;
   }
@@ -101,13 +72,31 @@ public class VoicecallsiddeletefromconferenceData {
    * A key/value pairs list of additional data.
    * @return extensions
   **/
-  @ApiModelProperty(value = "A key/value pairs list of additional data.")
+  @ApiModelProperty(example = "null", value = "A key/value pairs list of additional data.")
   public List<Kvpair> getExtensions() {
     return extensions;
   }
 
   public void setExtensions(List<Kvpair> extensions) {
     this.extensions = extensions;
+  }
+
+  public VoicecallsiddeletefromconferenceData dnToDrop(String dnToDrop) {
+    this.dnToDrop = dnToDrop;
+    return this;
+  }
+
+   /**
+   * The party to be deleted from the conference
+   * @return dnToDrop
+  **/
+  @ApiModelProperty(example = "null", required = true, value = "The party to be deleted from the conference")
+  public String getDnToDrop() {
+    return dnToDrop;
+  }
+
+  public void setDnToDrop(String dnToDrop) {
+    this.dnToDrop = dnToDrop;
   }
 
 
@@ -120,14 +109,14 @@ public class VoicecallsiddeletefromconferenceData {
       return false;
     }
     VoicecallsiddeletefromconferenceData voicecallsiddeletefromconferenceData = (VoicecallsiddeletefromconferenceData) o;
-    return Objects.equals(this.dnToDrop, voicecallsiddeletefromconferenceData.dnToDrop) &&
-        Objects.equals(this.reasons, voicecallsiddeletefromconferenceData.reasons) &&
-        Objects.equals(this.extensions, voicecallsiddeletefromconferenceData.extensions);
+    return Objects.equals(this.reasons, voicecallsiddeletefromconferenceData.reasons) &&
+        Objects.equals(this.extensions, voicecallsiddeletefromconferenceData.extensions) &&
+        Objects.equals(this.dnToDrop, voicecallsiddeletefromconferenceData.dnToDrop);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dnToDrop, reasons, extensions);
+    return Objects.hash(reasons, extensions, dnToDrop);
   }
 
 
@@ -136,9 +125,9 @@ public class VoicecallsiddeletefromconferenceData {
     StringBuilder sb = new StringBuilder();
     sb.append("class VoicecallsiddeletefromconferenceData {\n");
     
-    sb.append("    dnToDrop: ").append(toIndentedString(dnToDrop)).append("\n");
     sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
+    sb.append("    dnToDrop: ").append(toIndentedString(dnToDrop)).append("\n");
     sb.append("}");
     return sb.toString();
   }

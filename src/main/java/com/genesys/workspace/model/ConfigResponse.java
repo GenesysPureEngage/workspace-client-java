@@ -16,43 +16,20 @@ package com.genesys.workspace.model;
 import java.util.Objects;
 import com.genesys.workspace.model.ConfigResponseData;
 import com.genesys.workspace.model.InlineResponse200Status;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * ConfigResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class ConfigResponse {
-  @SerializedName("data")
-  private ConfigResponseData data = null;
-
   @SerializedName("status")
   private InlineResponse200Status status = null;
 
-  public ConfigResponse data(ConfigResponseData data) {
-    this.data = data;
-    return this;
-  }
-
-   /**
-   * Get data
-   * @return data
-  **/
-  @ApiModelProperty(value = "")
-  public ConfigResponseData getData() {
-    return data;
-  }
-
-  public void setData(ConfigResponseData data) {
-    this.data = data;
-  }
+  @SerializedName("data")
+  private ConfigResponseData data = null;
 
   public ConfigResponse status(InlineResponse200Status status) {
     this.status = status;
@@ -63,13 +40,31 @@ public class ConfigResponse {
    * Get status
    * @return status
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public InlineResponse200Status getStatus() {
     return status;
   }
 
   public void setStatus(InlineResponse200Status status) {
     this.status = status;
+  }
+
+  public ConfigResponse data(ConfigResponseData data) {
+    this.data = data;
+    return this;
+  }
+
+   /**
+   * Get data
+   * @return data
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public ConfigResponseData getData() {
+    return data;
+  }
+
+  public void setData(ConfigResponseData data) {
+    this.data = data;
   }
 
 
@@ -82,13 +77,13 @@ public class ConfigResponse {
       return false;
     }
     ConfigResponse configResponse = (ConfigResponse) o;
-    return Objects.equals(this.data, configResponse.data) &&
-        Objects.equals(this.status, configResponse.status);
+    return Objects.equals(this.status, configResponse.status) &&
+        Objects.equals(this.data, configResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, status);
+    return Objects.hash(status, data);
   }
 
 
@@ -97,8 +92,8 @@ public class ConfigResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConfigResponse {\n");
     
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

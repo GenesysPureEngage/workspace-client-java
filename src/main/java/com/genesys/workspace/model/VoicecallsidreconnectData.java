@@ -15,48 +15,25 @@ package com.genesys.workspace.model;
 
 import java.util.Objects;
 import com.genesys.workspace.model.Kvpair;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * VoicecallsidreconnectData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class VoicecallsidreconnectData {
-  @SerializedName("heldConnId")
-  private String heldConnId = null;
-
   @SerializedName("reasons")
-  private List<Kvpair> reasons = null;
+  private List<Kvpair> reasons = new ArrayList<Kvpair>();
 
   @SerializedName("extensions")
-  private List<Kvpair> extensions = null;
+  private List<Kvpair> extensions = new ArrayList<Kvpair>();
 
-  public VoicecallsidreconnectData heldConnId(String heldConnId) {
-    this.heldConnId = heldConnId;
-    return this;
-  }
-
-   /**
-   * The id of the held call that should be retrieved
-   * @return heldConnId
-  **/
-  @ApiModelProperty(required = true, value = "The id of the held call that should be retrieved")
-  public String getHeldConnId() {
-    return heldConnId;
-  }
-
-  public void setHeldConnId(String heldConnId) {
-    this.heldConnId = heldConnId;
-  }
+  @SerializedName("heldConnId")
+  private String heldConnId = null;
 
   public VoicecallsidreconnectData reasons(List<Kvpair> reasons) {
     this.reasons = reasons;
@@ -64,9 +41,6 @@ public class VoicecallsidreconnectData {
   }
 
   public VoicecallsidreconnectData addReasonsItem(Kvpair reasonsItem) {
-    if (this.reasons == null) {
-      this.reasons = new ArrayList<Kvpair>();
-    }
     this.reasons.add(reasonsItem);
     return this;
   }
@@ -75,7 +49,7 @@ public class VoicecallsidreconnectData {
    * A key/value pairs list of a data structure that provides additional information associated with this action.
    * @return reasons
   **/
-  @ApiModelProperty(value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
+  @ApiModelProperty(example = "null", value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
   public List<Kvpair> getReasons() {
     return reasons;
   }
@@ -90,9 +64,6 @@ public class VoicecallsidreconnectData {
   }
 
   public VoicecallsidreconnectData addExtensionsItem(Kvpair extensionsItem) {
-    if (this.extensions == null) {
-      this.extensions = new ArrayList<Kvpair>();
-    }
     this.extensions.add(extensionsItem);
     return this;
   }
@@ -101,13 +72,31 @@ public class VoicecallsidreconnectData {
    * A key/value pairs list of additional data.
    * @return extensions
   **/
-  @ApiModelProperty(value = "A key/value pairs list of additional data.")
+  @ApiModelProperty(example = "null", value = "A key/value pairs list of additional data.")
   public List<Kvpair> getExtensions() {
     return extensions;
   }
 
   public void setExtensions(List<Kvpair> extensions) {
     this.extensions = extensions;
+  }
+
+  public VoicecallsidreconnectData heldConnId(String heldConnId) {
+    this.heldConnId = heldConnId;
+    return this;
+  }
+
+   /**
+   * The id of the held call that should be retrieved
+   * @return heldConnId
+  **/
+  @ApiModelProperty(example = "null", required = true, value = "The id of the held call that should be retrieved")
+  public String getHeldConnId() {
+    return heldConnId;
+  }
+
+  public void setHeldConnId(String heldConnId) {
+    this.heldConnId = heldConnId;
   }
 
 
@@ -120,14 +109,14 @@ public class VoicecallsidreconnectData {
       return false;
     }
     VoicecallsidreconnectData voicecallsidreconnectData = (VoicecallsidreconnectData) o;
-    return Objects.equals(this.heldConnId, voicecallsidreconnectData.heldConnId) &&
-        Objects.equals(this.reasons, voicecallsidreconnectData.reasons) &&
-        Objects.equals(this.extensions, voicecallsidreconnectData.extensions);
+    return Objects.equals(this.reasons, voicecallsidreconnectData.reasons) &&
+        Objects.equals(this.extensions, voicecallsidreconnectData.extensions) &&
+        Objects.equals(this.heldConnId, voicecallsidreconnectData.heldConnId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(heldConnId, reasons, extensions);
+    return Objects.hash(reasons, extensions, heldConnId);
   }
 
 
@@ -136,9 +125,9 @@ public class VoicecallsidreconnectData {
     StringBuilder sb = new StringBuilder();
     sb.append("class VoicecallsidreconnectData {\n");
     
-    sb.append("    heldConnId: ").append(toIndentedString(heldConnId)).append("\n");
     sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
+    sb.append("    heldConnId: ").append(toIndentedString(heldConnId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

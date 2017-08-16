@@ -14,68 +14,50 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * UcslucenesearchinteractionData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class UcslucenesearchinteractionData {
-  @SerializedName("maxResults")
-  private Integer maxResults = null;
-
-  @SerializedName("searchMyHistory")
-  private Boolean searchMyHistory = null;
+  @SerializedName("contactAttributes")
+  private List<String> contactAttributes = new ArrayList<String>();
 
   @SerializedName("query")
   private String query = null;
 
-  @SerializedName("contactAttributes")
-  private List<String> contactAttributes = null;
+  @SerializedName("searchMyHistory")
+  private Boolean searchMyHistory = null;
 
-  public UcslucenesearchinteractionData maxResults(Integer maxResults) {
-    this.maxResults = maxResults;
+  @SerializedName("maxResults")
+  private Integer maxResults = null;
+
+  public UcslucenesearchinteractionData contactAttributes(List<String> contactAttributes) {
+    this.contactAttributes = contactAttributes;
+    return this;
+  }
+
+  public UcslucenesearchinteractionData addContactAttributesItem(String contactAttributesItem) {
+    this.contactAttributes.add(contactAttributesItem);
     return this;
   }
 
    /**
-   * The maximum number of contacts to be returned
-   * @return maxResults
+   * The list of contact attributes to be returned for each contact in response
+   * @return contactAttributes
   **/
-  @ApiModelProperty(value = "The maximum number of contacts to be returned")
-  public Integer getMaxResults() {
-    return maxResults;
+  @ApiModelProperty(example = "null", value = "The list of contact attributes to be returned for each contact in response")
+  public List<String> getContactAttributes() {
+    return contactAttributes;
   }
 
-  public void setMaxResults(Integer maxResults) {
-    this.maxResults = maxResults;
-  }
-
-  public UcslucenesearchinteractionData searchMyHistory(Boolean searchMyHistory) {
-    this.searchMyHistory = searchMyHistory;
-    return this;
-  }
-
-   /**
-   * Indicates if the search is performed among the history of interactions of the logged in agent
-   * @return searchMyHistory
-  **/
-  @ApiModelProperty(value = "Indicates if the search is performed among the history of interactions of the logged in agent")
-  public Boolean getSearchMyHistory() {
-    return searchMyHistory;
-  }
-
-  public void setSearchMyHistory(Boolean searchMyHistory) {
-    this.searchMyHistory = searchMyHistory;
+  public void setContactAttributes(List<String> contactAttributes) {
+    this.contactAttributes = contactAttributes;
   }
 
   public UcslucenesearchinteractionData query(String query) {
@@ -87,7 +69,7 @@ public class UcslucenesearchinteractionData {
    * The query to do the lucene search for contacts
    * @return query
   **/
-  @ApiModelProperty(required = true, value = "The query to do the lucene search for contacts")
+  @ApiModelProperty(example = "null", required = true, value = "The query to do the lucene search for contacts")
   public String getQuery() {
     return query;
   }
@@ -96,30 +78,40 @@ public class UcslucenesearchinteractionData {
     this.query = query;
   }
 
-  public UcslucenesearchinteractionData contactAttributes(List<String> contactAttributes) {
-    this.contactAttributes = contactAttributes;
-    return this;
-  }
-
-  public UcslucenesearchinteractionData addContactAttributesItem(String contactAttributesItem) {
-    if (this.contactAttributes == null) {
-      this.contactAttributes = new ArrayList<String>();
-    }
-    this.contactAttributes.add(contactAttributesItem);
+  public UcslucenesearchinteractionData searchMyHistory(Boolean searchMyHistory) {
+    this.searchMyHistory = searchMyHistory;
     return this;
   }
 
    /**
-   * The list of contact attributes to be returned for each contact in response
-   * @return contactAttributes
+   * Indicates if the search is performed among the history of interactions of the logged in agent
+   * @return searchMyHistory
   **/
-  @ApiModelProperty(value = "The list of contact attributes to be returned for each contact in response")
-  public List<String> getContactAttributes() {
-    return contactAttributes;
+  @ApiModelProperty(example = "null", value = "Indicates if the search is performed among the history of interactions of the logged in agent")
+  public Boolean getSearchMyHistory() {
+    return searchMyHistory;
   }
 
-  public void setContactAttributes(List<String> contactAttributes) {
-    this.contactAttributes = contactAttributes;
+  public void setSearchMyHistory(Boolean searchMyHistory) {
+    this.searchMyHistory = searchMyHistory;
+  }
+
+  public UcslucenesearchinteractionData maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * The maximum number of contacts to be returned
+   * @return maxResults
+  **/
+  @ApiModelProperty(example = "null", value = "The maximum number of contacts to be returned")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
   }
 
 
@@ -132,15 +124,15 @@ public class UcslucenesearchinteractionData {
       return false;
     }
     UcslucenesearchinteractionData ucslucenesearchinteractionData = (UcslucenesearchinteractionData) o;
-    return Objects.equals(this.maxResults, ucslucenesearchinteractionData.maxResults) &&
-        Objects.equals(this.searchMyHistory, ucslucenesearchinteractionData.searchMyHistory) &&
+    return Objects.equals(this.contactAttributes, ucslucenesearchinteractionData.contactAttributes) &&
         Objects.equals(this.query, ucslucenesearchinteractionData.query) &&
-        Objects.equals(this.contactAttributes, ucslucenesearchinteractionData.contactAttributes);
+        Objects.equals(this.searchMyHistory, ucslucenesearchinteractionData.searchMyHistory) &&
+        Objects.equals(this.maxResults, ucslucenesearchinteractionData.maxResults);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxResults, searchMyHistory, query, contactAttributes);
+    return Objects.hash(contactAttributes, query, searchMyHistory, maxResults);
   }
 
 
@@ -149,10 +141,10 @@ public class UcslucenesearchinteractionData {
     StringBuilder sb = new StringBuilder();
     sb.append("class UcslucenesearchinteractionData {\n");
     
-    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
-    sb.append("    searchMyHistory: ").append(toIndentedString(searchMyHistory)).append("\n");
-    sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    contactAttributes: ").append(toIndentedString(contactAttributes)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    searchMyHistory: ").append(toIndentedString(searchMyHistory)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("}");
     return sb.toString();
   }

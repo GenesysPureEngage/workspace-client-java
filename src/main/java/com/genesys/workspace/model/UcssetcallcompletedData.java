@@ -15,30 +15,48 @@ package com.genesys.workspace.model;
 
 import java.util.Objects;
 import com.genesys.workspace.model.Kvpair;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * UcssetcallcompletedData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class UcssetcallcompletedData {
+  @SerializedName("userData")
+  private List<Kvpair> userData = new ArrayList<Kvpair>();
+
   @SerializedName("interactionId")
   private String interactionId = null;
 
   @SerializedName("callDuration")
   private Integer callDuration = null;
 
-  @SerializedName("userData")
-  private List<Kvpair> userData = new ArrayList<Kvpair>();
+  public UcssetcallcompletedData userData(List<Kvpair> userData) {
+    this.userData = userData;
+    return this;
+  }
+
+  public UcssetcallcompletedData addUserDataItem(Kvpair userDataItem) {
+    this.userData.add(userDataItem);
+    return this;
+  }
+
+   /**
+   * A key/value pairs list of the user data of the call.
+   * @return userData
+  **/
+  @ApiModelProperty(example = "null", required = true, value = "A key/value pairs list of the user data of the call.")
+  public List<Kvpair> getUserData() {
+    return userData;
+  }
+
+  public void setUserData(List<Kvpair> userData) {
+    this.userData = userData;
+  }
 
   public UcssetcallcompletedData interactionId(String interactionId) {
     this.interactionId = interactionId;
@@ -49,7 +67,7 @@ public class UcssetcallcompletedData {
    * The id of the interaction
    * @return interactionId
   **/
-  @ApiModelProperty(required = true, value = "The id of the interaction")
+  @ApiModelProperty(example = "null", required = true, value = "The id of the interaction")
   public String getInteractionId() {
     return interactionId;
   }
@@ -67,36 +85,13 @@ public class UcssetcallcompletedData {
    * The duration of the call
    * @return callDuration
   **/
-  @ApiModelProperty(required = true, value = "The duration of the call")
+  @ApiModelProperty(example = "null", required = true, value = "The duration of the call")
   public Integer getCallDuration() {
     return callDuration;
   }
 
   public void setCallDuration(Integer callDuration) {
     this.callDuration = callDuration;
-  }
-
-  public UcssetcallcompletedData userData(List<Kvpair> userData) {
-    this.userData = userData;
-    return this;
-  }
-
-  public UcssetcallcompletedData addUserDataItem(Kvpair userDataItem) {
-    this.userData.add(userDataItem);
-    return this;
-  }
-
-   /**
-   * A key/value pairs list of the user data of the call.
-   * @return userData
-  **/
-  @ApiModelProperty(required = true, value = "A key/value pairs list of the user data of the call.")
-  public List<Kvpair> getUserData() {
-    return userData;
-  }
-
-  public void setUserData(List<Kvpair> userData) {
-    this.userData = userData;
   }
 
 
@@ -109,14 +104,14 @@ public class UcssetcallcompletedData {
       return false;
     }
     UcssetcallcompletedData ucssetcallcompletedData = (UcssetcallcompletedData) o;
-    return Objects.equals(this.interactionId, ucssetcallcompletedData.interactionId) &&
-        Objects.equals(this.callDuration, ucssetcallcompletedData.callDuration) &&
-        Objects.equals(this.userData, ucssetcallcompletedData.userData);
+    return Objects.equals(this.userData, ucssetcallcompletedData.userData) &&
+        Objects.equals(this.interactionId, ucssetcallcompletedData.interactionId) &&
+        Objects.equals(this.callDuration, ucssetcallcompletedData.callDuration);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(interactionId, callDuration, userData);
+    return Objects.hash(userData, interactionId, callDuration);
   }
 
 
@@ -125,9 +120,9 @@ public class UcssetcallcompletedData {
     StringBuilder sb = new StringBuilder();
     sb.append("class UcssetcallcompletedData {\n");
     
+    sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("    interactionId: ").append(toIndentedString(interactionId)).append("\n");
     sb.append("    callDuration: ").append(toIndentedString(callDuration)).append("\n");
-    sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

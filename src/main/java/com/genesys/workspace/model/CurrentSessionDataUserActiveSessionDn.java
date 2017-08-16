@@ -14,22 +14,17 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * CurrentSessionDataUserActiveSessionDn
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class CurrentSessionDataUserActiveSessionDn {
-  @SerializedName("number")
-  private String number = null;
+  @SerializedName("agentWorkMode")
+  private String agentWorkMode = null;
 
   @SerializedName("agentId")
   private String agentId = null;
@@ -37,25 +32,25 @@ public class CurrentSessionDataUserActiveSessionDn {
   @SerializedName("agentState")
   private String agentState = null;
 
-  @SerializedName("agentWorkMode")
-  private String agentWorkMode = null;
+  @SerializedName("number")
+  private String number = null;
 
-  public CurrentSessionDataUserActiveSessionDn number(String number) {
-    this.number = number;
+  public CurrentSessionDataUserActiveSessionDn agentWorkMode(String agentWorkMode) {
+    this.agentWorkMode = agentWorkMode;
     return this;
   }
 
    /**
-   * Get number
-   * @return number
+   * Get agentWorkMode
+   * @return agentWorkMode
   **/
-  @ApiModelProperty(value = "")
-  public String getNumber() {
-    return number;
+  @ApiModelProperty(example = "null", value = "")
+  public String getAgentWorkMode() {
+    return agentWorkMode;
   }
 
-  public void setNumber(String number) {
-    this.number = number;
+  public void setAgentWorkMode(String agentWorkMode) {
+    this.agentWorkMode = agentWorkMode;
   }
 
   public CurrentSessionDataUserActiveSessionDn agentId(String agentId) {
@@ -67,7 +62,7 @@ public class CurrentSessionDataUserActiveSessionDn {
    * Get agentId
    * @return agentId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getAgentId() {
     return agentId;
   }
@@ -85,7 +80,7 @@ public class CurrentSessionDataUserActiveSessionDn {
    * Get agentState
    * @return agentState
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getAgentState() {
     return agentState;
   }
@@ -94,22 +89,22 @@ public class CurrentSessionDataUserActiveSessionDn {
     this.agentState = agentState;
   }
 
-  public CurrentSessionDataUserActiveSessionDn agentWorkMode(String agentWorkMode) {
-    this.agentWorkMode = agentWorkMode;
+  public CurrentSessionDataUserActiveSessionDn number(String number) {
+    this.number = number;
     return this;
   }
 
    /**
-   * Get agentWorkMode
-   * @return agentWorkMode
+   * Get number
+   * @return number
   **/
-  @ApiModelProperty(value = "")
-  public String getAgentWorkMode() {
-    return agentWorkMode;
+  @ApiModelProperty(example = "null", value = "")
+  public String getNumber() {
+    return number;
   }
 
-  public void setAgentWorkMode(String agentWorkMode) {
-    this.agentWorkMode = agentWorkMode;
+  public void setNumber(String number) {
+    this.number = number;
   }
 
 
@@ -122,15 +117,15 @@ public class CurrentSessionDataUserActiveSessionDn {
       return false;
     }
     CurrentSessionDataUserActiveSessionDn currentSessionDataUserActiveSessionDn = (CurrentSessionDataUserActiveSessionDn) o;
-    return Objects.equals(this.number, currentSessionDataUserActiveSessionDn.number) &&
+    return Objects.equals(this.agentWorkMode, currentSessionDataUserActiveSessionDn.agentWorkMode) &&
         Objects.equals(this.agentId, currentSessionDataUserActiveSessionDn.agentId) &&
         Objects.equals(this.agentState, currentSessionDataUserActiveSessionDn.agentState) &&
-        Objects.equals(this.agentWorkMode, currentSessionDataUserActiveSessionDn.agentWorkMode);
+        Objects.equals(this.number, currentSessionDataUserActiveSessionDn.number);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(number, agentId, agentState, agentWorkMode);
+    return Objects.hash(agentWorkMode, agentId, agentState, number);
   }
 
 
@@ -139,10 +134,10 @@ public class CurrentSessionDataUserActiveSessionDn {
     StringBuilder sb = new StringBuilder();
     sb.append("class CurrentSessionDataUserActiveSessionDn {\n");
     
-    sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    agentWorkMode: ").append(toIndentedString(agentWorkMode)).append("\n");
     sb.append("    agentId: ").append(toIndentedString(agentId)).append("\n");
     sb.append("    agentState: ").append(toIndentedString(agentState)).append("\n");
-    sb.append("    agentWorkMode: ").append(toIndentedString(agentWorkMode)).append("\n");
+    sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("}");
     return sb.toString();
   }

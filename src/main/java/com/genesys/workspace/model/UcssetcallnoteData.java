@@ -14,43 +14,20 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * UcssetcallnoteData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class UcssetcallnoteData {
-  @SerializedName("interactionId")
-  private String interactionId = null;
-
   @SerializedName("note")
   private String note = null;
 
-  public UcssetcallnoteData interactionId(String interactionId) {
-    this.interactionId = interactionId;
-    return this;
-  }
-
-   /**
-   * The id of the interaction
-   * @return interactionId
-  **/
-  @ApiModelProperty(required = true, value = "The id of the interaction")
-  public String getInteractionId() {
-    return interactionId;
-  }
-
-  public void setInteractionId(String interactionId) {
-    this.interactionId = interactionId;
-  }
+  @SerializedName("interactionId")
+  private String interactionId = null;
 
   public UcssetcallnoteData note(String note) {
     this.note = note;
@@ -61,13 +38,31 @@ public class UcssetcallnoteData {
    * The note to be set
    * @return note
   **/
-  @ApiModelProperty(required = true, value = "The note to be set")
+  @ApiModelProperty(example = "null", required = true, value = "The note to be set")
   public String getNote() {
     return note;
   }
 
   public void setNote(String note) {
     this.note = note;
+  }
+
+  public UcssetcallnoteData interactionId(String interactionId) {
+    this.interactionId = interactionId;
+    return this;
+  }
+
+   /**
+   * The id of the interaction
+   * @return interactionId
+  **/
+  @ApiModelProperty(example = "null", required = true, value = "The id of the interaction")
+  public String getInteractionId() {
+    return interactionId;
+  }
+
+  public void setInteractionId(String interactionId) {
+    this.interactionId = interactionId;
   }
 
 
@@ -80,13 +75,13 @@ public class UcssetcallnoteData {
       return false;
     }
     UcssetcallnoteData ucssetcallnoteData = (UcssetcallnoteData) o;
-    return Objects.equals(this.interactionId, ucssetcallnoteData.interactionId) &&
-        Objects.equals(this.note, ucssetcallnoteData.note);
+    return Objects.equals(this.note, ucssetcallnoteData.note) &&
+        Objects.equals(this.interactionId, ucssetcallnoteData.interactionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(interactionId, note);
+    return Objects.hash(note, interactionId);
   }
 
 
@@ -95,8 +90,8 @@ public class UcssetcallnoteData {
     StringBuilder sb = new StringBuilder();
     sb.append("class UcssetcallnoteData {\n");
     
-    sb.append("    interactionId: ").append(toIndentedString(interactionId)).append("\n");
     sb.append("    note: ").append(toIndentedString(note)).append("\n");
+    sb.append("    interactionId: ").append(toIndentedString(interactionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

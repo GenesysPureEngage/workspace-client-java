@@ -30,6 +30,7 @@ import java.io.IOException;
 import com.genesys.workspace.model.ApiErrorResponse;
 import com.genesys.workspace.model.ApiSuccessResponse;
 import java.math.BigDecimal;
+import com.genesys.workspace.model.PersonalFavoriteData;
 import com.genesys.workspace.model.RecentTargetData;
 import com.genesys.workspace.model.TargetsResponse;
 
@@ -58,18 +59,12 @@ public class TargetsApi {
         this.apiClient = apiClient;
     }
 
-    /**
-     * Build call for ackRecentMissedCalls
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call ackRecentMissedCallsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for ackRecentMissedCalls */
+    private com.squareup.okhttp.Call ackRecentMissedCallsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/targets/recents/ack-missed-calls";
+        String localVarPath = "/targets/recents/ack-missed-calls".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -174,19 +169,12 @@ public class TargetsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for addRecentTarget
-     * @param recentTargetData  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call addRecentTargetCall(RecentTargetData recentTargetData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for addRecentTarget */
+    private com.squareup.okhttp.Call addRecentTargetCall(RecentTargetData recentTargetData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = recentTargetData;
         
         // create path and map variables
-        String localVarPath = "/targets/recents/add";
+        String localVarPath = "/targets/recents/add".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -299,24 +287,140 @@ public class TargetsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for get
-     * @param searchTerm The text to search for (required)
-     * @param filterName The filter to specify on which fields the search is applied (optional)
-     * @param types Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
-     * @param sort Desired sort order (asc or desc). asc if not specified (optional)
-     * @param limit Number of results. 100 if not specified. (optional)
-     * @param matchType Type of behavior for the field matching (exact for exact match search). (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call getCall(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for deletePersonalFavorite */
+    private com.squareup.okhttp.Call deletePersonalFavoriteCall(BigDecimal id, String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/targets";
+        String localVarPath = "/targets/personal-favorites/delete/{type}/{id}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+        .replaceAll("\\{" + "type" + "\\}", apiClient.escapeString(type.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deletePersonalFavoriteValidateBeforeCall(BigDecimal id, String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deletePersonalFavorite(Async)");
+        }
+        
+        // verify the required parameter 'type' is set
+        if (type == null) {
+            throw new ApiException("Missing the required parameter 'type' when calling deletePersonalFavorite(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = deletePersonalFavoriteCall(id, type, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * delete a personal favorite
+     * delete a personal favorite by type and id
+     * @param id The id of the target (required)
+     * @param type the type of the target (required)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse deletePersonalFavorite(BigDecimal id, String type) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = deletePersonalFavoriteWithHttpInfo(id, type);
+        return resp.getData();
+    }
+
+    /**
+     * delete a personal favorite
+     * delete a personal favorite by type and id
+     * @param id The id of the target (required)
+     * @param type the type of the target (required)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> deletePersonalFavoriteWithHttpInfo(BigDecimal id, String type) throws ApiException {
+        com.squareup.okhttp.Call call = deletePersonalFavoriteValidateBeforeCall(id, type, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * delete a personal favorite (asynchronously)
+     * delete a personal favorite by type and id
+     * @param id The id of the target (required)
+     * @param type the type of the target (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deletePersonalFavoriteAsync(BigDecimal id, String type, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deletePersonalFavoriteValidateBeforeCall(id, type, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for get */
+    private com.squareup.okhttp.Call getCall(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/targets".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (searchTerm != null)
@@ -456,19 +560,127 @@ public class TargetsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for getRecentTargets
-     * @param limit Number of results. 50 if not specified. (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call getRecentTargetsCall(BigDecimal limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getPersonalFavorites */
+    private com.squareup.okhttp.Call getPersonalFavoritesCall(BigDecimal limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/targets/recents";
+        String localVarPath = "/targets/personal-favorites".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getPersonalFavoritesValidateBeforeCall(BigDecimal limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        
+        com.squareup.okhttp.Call call = getPersonalFavoritesCall(limit, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get personal favorites
+     * Get personal favorites
+     * @param limit Number of results. 50 if not specified. (optional)
+     * @return TargetsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TargetsResponse getPersonalFavorites(BigDecimal limit) throws ApiException {
+        ApiResponse<TargetsResponse> resp = getPersonalFavoritesWithHttpInfo(limit);
+        return resp.getData();
+    }
+
+    /**
+     * Get personal favorites
+     * Get personal favorites
+     * @param limit Number of results. 50 if not specified. (optional)
+     * @return ApiResponse&lt;TargetsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TargetsResponse> getPersonalFavoritesWithHttpInfo(BigDecimal limit) throws ApiException {
+        com.squareup.okhttp.Call call = getPersonalFavoritesValidateBeforeCall(limit, null, null);
+        Type localVarReturnType = new TypeToken<TargetsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get personal favorites (asynchronously)
+     * Get personal favorites
+     * @param limit Number of results. 50 if not specified. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getPersonalFavoritesAsync(BigDecimal limit, final ApiCallback<TargetsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getPersonalFavoritesValidateBeforeCall(limit, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TargetsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for getRecentTargets */
+    private com.squareup.okhttp.Call getRecentTargetsCall(BigDecimal limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/targets/recents".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (limit != null)
@@ -523,11 +735,11 @@ public class TargetsApi {
      * Get recent targets
      * Get recent targets
      * @param limit Number of results. 50 if not specified. (optional)
-     * @return ApiSuccessResponse
+     * @return TargetsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse getRecentTargets(BigDecimal limit) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = getRecentTargetsWithHttpInfo(limit);
+    public TargetsResponse getRecentTargets(BigDecimal limit) throws ApiException {
+        ApiResponse<TargetsResponse> resp = getRecentTargetsWithHttpInfo(limit);
         return resp.getData();
     }
 
@@ -535,12 +747,12 @@ public class TargetsApi {
      * Get recent targets
      * Get recent targets
      * @param limit Number of results. 50 if not specified. (optional)
-     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @return ApiResponse&lt;TargetsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> getRecentTargetsWithHttpInfo(BigDecimal limit) throws ApiException {
+    public ApiResponse<TargetsResponse> getRecentTargetsWithHttpInfo(BigDecimal limit) throws ApiException {
         com.squareup.okhttp.Call call = getRecentTargetsValidateBeforeCall(limit, null, null);
-        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<TargetsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -552,7 +764,7 @@ public class TargetsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getRecentTargetsAsync(BigDecimal limit, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getRecentTargetsAsync(BigDecimal limit, final ApiCallback<TargetsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -574,26 +786,18 @@ public class TargetsApi {
         }
 
         com.squareup.okhttp.Call call = getRecentTargetsValidateBeforeCall(limit, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<TargetsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for getTarget
-     * @param id The id of the target (required)
-     * @param type the type of the target (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call getTargetCall(BigDecimal id, String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getTarget */
+    private com.squareup.okhttp.Call getTargetCall(BigDecimal id, String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/targets/{type}/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{" + "type" + "\\}", apiClient.escapeString(type.toString()));
+        String localVarPath = "/targets/{type}/{id}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+        .replaceAll("\\{" + "type" + "\\}", apiClient.escapeString(type.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -710,6 +914,124 @@ public class TargetsApi {
         }
 
         com.squareup.okhttp.Call call = getTargetValidateBeforeCall(id, type, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for savePersonalFavorite */
+    private com.squareup.okhttp.Call savePersonalFavoriteCall(PersonalFavoriteData personalFavoriteData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = personalFavoriteData;
+        
+        // create path and map variables
+        String localVarPath = "/targets/personal-favorites/save".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call savePersonalFavoriteValidateBeforeCall(PersonalFavoriteData personalFavoriteData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'personalFavoriteData' is set
+        if (personalFavoriteData == null) {
+            throw new ApiException("Missing the required parameter 'personalFavoriteData' when calling savePersonalFavorite(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = savePersonalFavoriteCall(personalFavoriteData, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Save a personal favorite
+     * Save a personal favorite
+     * @param personalFavoriteData  (required)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse savePersonalFavorite(PersonalFavoriteData personalFavoriteData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = savePersonalFavoriteWithHttpInfo(personalFavoriteData);
+        return resp.getData();
+    }
+
+    /**
+     * Save a personal favorite
+     * Save a personal favorite
+     * @param personalFavoriteData  (required)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> savePersonalFavoriteWithHttpInfo(PersonalFavoriteData personalFavoriteData) throws ApiException {
+        com.squareup.okhttp.Call call = savePersonalFavoriteValidateBeforeCall(personalFavoriteData, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Save a personal favorite (asynchronously)
+     * Save a personal favorite
+     * @param personalFavoriteData  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call savePersonalFavoriteAsync(PersonalFavoriteData personalFavoriteData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = savePersonalFavoriteValidateBeforeCall(personalFavoriteData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

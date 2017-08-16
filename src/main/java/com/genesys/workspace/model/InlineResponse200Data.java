@@ -15,21 +15,16 @@ package com.genesys.workspace.model;
 
 import java.util.Objects;
 import com.genesys.workspace.model.Call;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * InlineResponse200Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class InlineResponse200Data {
   @SerializedName("calls")
   private List<Call> calls = new ArrayList<Call>();
@@ -48,7 +43,7 @@ public class InlineResponse200Data {
    * The list of all the calls.
    * @return calls
   **/
-  @ApiModelProperty(required = true, value = "The list of all the calls.")
+  @ApiModelProperty(example = "null", required = true, value = "The list of all the calls.")
   public List<Call> getCalls() {
     return calls;
   }

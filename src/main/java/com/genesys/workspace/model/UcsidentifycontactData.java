@@ -15,90 +15,31 @@ package com.genesys.workspace.model;
 
 import java.util.Objects;
 import com.genesys.workspace.model.Kvpair;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * UcsidentifycontactData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class UcsidentifycontactData {
-  @SerializedName("createContactEnabled")
-  private Boolean createContactEnabled = null;
-
-  @SerializedName("mediaType")
-  private String mediaType = null;
-
-  @SerializedName("phoneNumber")
-  private String phoneNumber = null;
-
   @SerializedName("emailAddress")
   private String emailAddress = null;
 
   @SerializedName("userData")
   private List<Kvpair> userData = new ArrayList<Kvpair>();
 
-  public UcsidentifycontactData createContactEnabled(Boolean createContactEnabled) {
-    this.createContactEnabled = createContactEnabled;
-    return this;
-  }
+  @SerializedName("phoneNumber")
+  private String phoneNumber = null;
 
-   /**
-   * Indicates if a contact should be created if no matching contact found
-   * @return createContactEnabled
-  **/
-  @ApiModelProperty(value = "Indicates if a contact should be created if no matching contact found")
-  public Boolean getCreateContactEnabled() {
-    return createContactEnabled;
-  }
+  @SerializedName("mediaType")
+  private String mediaType = null;
 
-  public void setCreateContactEnabled(Boolean createContactEnabled) {
-    this.createContactEnabled = createContactEnabled;
-  }
-
-  public UcsidentifycontactData mediaType(String mediaType) {
-    this.mediaType = mediaType;
-    return this;
-  }
-
-   /**
-   * The media type of the interaction
-   * @return mediaType
-  **/
-  @ApiModelProperty(required = true, value = "The media type of the interaction")
-  public String getMediaType() {
-    return mediaType;
-  }
-
-  public void setMediaType(String mediaType) {
-    this.mediaType = mediaType;
-  }
-
-  public UcsidentifycontactData phoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
-    return this;
-  }
-
-   /**
-   * The phone number of the interaction, if interaction is a voice call
-   * @return phoneNumber
-  **/
-  @ApiModelProperty(value = "The phone number of the interaction, if interaction is a voice call")
-  public String getPhoneNumber() {
-    return phoneNumber;
-  }
-
-  public void setPhoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
-  }
+  @SerializedName("createContactEnabled")
+  private Boolean createContactEnabled = null;
 
   public UcsidentifycontactData emailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
@@ -109,7 +50,7 @@ public class UcsidentifycontactData {
    * The email address of the interaction, if interaction is an email
    * @return emailAddress
   **/
-  @ApiModelProperty(value = "The email address of the interaction, if interaction is an email")
+  @ApiModelProperty(example = "null", value = "The email address of the interaction, if interaction is an email")
   public String getEmailAddress() {
     return emailAddress;
   }
@@ -132,13 +73,67 @@ public class UcsidentifycontactData {
    * A key/value pairs list of the user data of the call.
    * @return userData
   **/
-  @ApiModelProperty(required = true, value = "A key/value pairs list of the user data of the call.")
+  @ApiModelProperty(example = "null", required = true, value = "A key/value pairs list of the user data of the call.")
   public List<Kvpair> getUserData() {
     return userData;
   }
 
   public void setUserData(List<Kvpair> userData) {
     this.userData = userData;
+  }
+
+  public UcsidentifycontactData phoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+    return this;
+  }
+
+   /**
+   * The phone number of the interaction, if interaction is a voice call
+   * @return phoneNumber
+  **/
+  @ApiModelProperty(example = "null", value = "The phone number of the interaction, if interaction is a voice call")
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+  public UcsidentifycontactData mediaType(String mediaType) {
+    this.mediaType = mediaType;
+    return this;
+  }
+
+   /**
+   * The media type of the interaction
+   * @return mediaType
+  **/
+  @ApiModelProperty(example = "null", required = true, value = "The media type of the interaction")
+  public String getMediaType() {
+    return mediaType;
+  }
+
+  public void setMediaType(String mediaType) {
+    this.mediaType = mediaType;
+  }
+
+  public UcsidentifycontactData createContactEnabled(Boolean createContactEnabled) {
+    this.createContactEnabled = createContactEnabled;
+    return this;
+  }
+
+   /**
+   * Indicates if a contact should be created if no matching contact found
+   * @return createContactEnabled
+  **/
+  @ApiModelProperty(example = "null", value = "Indicates if a contact should be created if no matching contact found")
+  public Boolean getCreateContactEnabled() {
+    return createContactEnabled;
+  }
+
+  public void setCreateContactEnabled(Boolean createContactEnabled) {
+    this.createContactEnabled = createContactEnabled;
   }
 
 
@@ -151,16 +146,16 @@ public class UcsidentifycontactData {
       return false;
     }
     UcsidentifycontactData ucsidentifycontactData = (UcsidentifycontactData) o;
-    return Objects.equals(this.createContactEnabled, ucsidentifycontactData.createContactEnabled) &&
-        Objects.equals(this.mediaType, ucsidentifycontactData.mediaType) &&
+    return Objects.equals(this.emailAddress, ucsidentifycontactData.emailAddress) &&
+        Objects.equals(this.userData, ucsidentifycontactData.userData) &&
         Objects.equals(this.phoneNumber, ucsidentifycontactData.phoneNumber) &&
-        Objects.equals(this.emailAddress, ucsidentifycontactData.emailAddress) &&
-        Objects.equals(this.userData, ucsidentifycontactData.userData);
+        Objects.equals(this.mediaType, ucsidentifycontactData.mediaType) &&
+        Objects.equals(this.createContactEnabled, ucsidentifycontactData.createContactEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createContactEnabled, mediaType, phoneNumber, emailAddress, userData);
+    return Objects.hash(emailAddress, userData, phoneNumber, mediaType, createContactEnabled);
   }
 
 
@@ -169,11 +164,11 @@ public class UcsidentifycontactData {
     StringBuilder sb = new StringBuilder();
     sb.append("class UcsidentifycontactData {\n");
     
-    sb.append("    createContactEnabled: ").append(toIndentedString(createContactEnabled)).append("\n");
-    sb.append("    mediaType: ").append(toIndentedString(mediaType)).append("\n");
-    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+    sb.append("    mediaType: ").append(toIndentedString(mediaType)).append("\n");
+    sb.append("    createContactEnabled: ").append(toIndentedString(createContactEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

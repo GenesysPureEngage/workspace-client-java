@@ -14,43 +14,20 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * CallParticipants
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class CallParticipants {
-  @SerializedName("number")
-  private String number = null;
-
   @SerializedName("role")
   private String role = null;
 
-  public CallParticipants number(String number) {
-    this.number = number;
-    return this;
-  }
-
-   /**
-   * Get number
-   * @return number
-  **/
-  @ApiModelProperty(value = "")
-  public String getNumber() {
-    return number;
-  }
-
-  public void setNumber(String number) {
-    this.number = number;
-  }
+  @SerializedName("number")
+  private String number = null;
 
   public CallParticipants role(String role) {
     this.role = role;
@@ -61,13 +38,31 @@ public class CallParticipants {
    * Get role
    * @return role
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getRole() {
     return role;
   }
 
   public void setRole(String role) {
     this.role = role;
+  }
+
+  public CallParticipants number(String number) {
+    this.number = number;
+    return this;
+  }
+
+   /**
+   * Get number
+   * @return number
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getNumber() {
+    return number;
+  }
+
+  public void setNumber(String number) {
+    this.number = number;
   }
 
 
@@ -80,13 +75,13 @@ public class CallParticipants {
       return false;
     }
     CallParticipants callParticipants = (CallParticipants) o;
-    return Objects.equals(this.number, callParticipants.number) &&
-        Objects.equals(this.role, callParticipants.role);
+    return Objects.equals(this.role, callParticipants.role) &&
+        Objects.equals(this.number, callParticipants.number);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(number, role);
+    return Objects.hash(role, number);
   }
 
 
@@ -95,8 +90,8 @@ public class CallParticipants {
     StringBuilder sb = new StringBuilder();
     sb.append("class CallParticipants {\n");
     
-    sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("}");
     return sb.toString();
   }

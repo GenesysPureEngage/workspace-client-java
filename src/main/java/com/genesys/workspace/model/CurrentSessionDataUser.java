@@ -16,102 +16,43 @@ package com.genesys.workspace.model;
 import java.util.Objects;
 import com.genesys.workspace.model.CurrentSessionDataUserActiveSession;
 import com.genesys.workspace.model.Kvpair;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * CurrentSessionDataUser
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class CurrentSessionDataUser {
-  @SerializedName("dbid")
-  private Integer dbid = null;
-
-  @SerializedName("firstName")
-  private String firstName = null;
-
-  @SerializedName("lastName")
-  private String lastName = null;
-
   @SerializedName("userName")
   private String userName = null;
+
+  @SerializedName("userProperties")
+  private List<Kvpair> userProperties = new ArrayList<Kvpair>();
 
   @SerializedName("employeeId")
   private String employeeId = null;
 
-  @SerializedName("defaultPlace")
-  private String defaultPlace = null;
+  @SerializedName("firstName")
+  private String firstName = null;
 
-  @SerializedName("agentLogin")
-  private String agentLogin = null;
-
-  @SerializedName("userProperties")
-  private List<Kvpair> userProperties = null;
+  @SerializedName("dbid")
+  private Integer dbid = null;
 
   @SerializedName("activeSession")
   private CurrentSessionDataUserActiveSession activeSession = null;
 
-  public CurrentSessionDataUser dbid(Integer dbid) {
-    this.dbid = dbid;
-    return this;
-  }
+  @SerializedName("defaultPlace")
+  private String defaultPlace = null;
 
-   /**
-   * Get dbid
-   * @return dbid
-  **/
-  @ApiModelProperty(value = "")
-  public Integer getDbid() {
-    return dbid;
-  }
+  @SerializedName("lastName")
+  private String lastName = null;
 
-  public void setDbid(Integer dbid) {
-    this.dbid = dbid;
-  }
-
-  public CurrentSessionDataUser firstName(String firstName) {
-    this.firstName = firstName;
-    return this;
-  }
-
-   /**
-   * Get firstName
-   * @return firstName
-  **/
-  @ApiModelProperty(value = "")
-  public String getFirstName() {
-    return firstName;
-  }
-
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
-
-  public CurrentSessionDataUser lastName(String lastName) {
-    this.lastName = lastName;
-    return this;
-  }
-
-   /**
-   * Get lastName
-   * @return lastName
-  **/
-  @ApiModelProperty(value = "")
-  public String getLastName() {
-    return lastName;
-  }
-
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
-  }
+  @SerializedName("agentLogin")
+  private String agentLogin = null;
 
   public CurrentSessionDataUser userName(String userName) {
     this.userName = userName;
@@ -122,13 +63,36 @@ public class CurrentSessionDataUser {
    * Get userName
    * @return userName
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "")
   public String getUserName() {
     return userName;
   }
 
   public void setUserName(String userName) {
     this.userName = userName;
+  }
+
+  public CurrentSessionDataUser userProperties(List<Kvpair> userProperties) {
+    this.userProperties = userProperties;
+    return this;
+  }
+
+  public CurrentSessionDataUser addUserPropertiesItem(Kvpair userPropertiesItem) {
+    this.userProperties.add(userPropertiesItem);
+    return this;
+  }
+
+   /**
+   * Get userProperties
+   * @return userProperties
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public List<Kvpair> getUserProperties() {
+    return userProperties;
+  }
+
+  public void setUserProperties(List<Kvpair> userProperties) {
+    this.userProperties = userProperties;
   }
 
   public CurrentSessionDataUser employeeId(String employeeId) {
@@ -140,7 +104,7 @@ public class CurrentSessionDataUser {
    * Get employeeId
    * @return employeeId
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "")
   public String getEmployeeId() {
     return employeeId;
   }
@@ -149,66 +113,40 @@ public class CurrentSessionDataUser {
     this.employeeId = employeeId;
   }
 
-  public CurrentSessionDataUser defaultPlace(String defaultPlace) {
-    this.defaultPlace = defaultPlace;
+  public CurrentSessionDataUser firstName(String firstName) {
+    this.firstName = firstName;
     return this;
   }
 
    /**
-   * Get defaultPlace
-   * @return defaultPlace
+   * Get firstName
+   * @return firstName
   **/
-  @ApiModelProperty(value = "")
-  public String getDefaultPlace() {
-    return defaultPlace;
+  @ApiModelProperty(example = "null", value = "")
+  public String getFirstName() {
+    return firstName;
   }
 
-  public void setDefaultPlace(String defaultPlace) {
-    this.defaultPlace = defaultPlace;
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
   }
 
-  public CurrentSessionDataUser agentLogin(String agentLogin) {
-    this.agentLogin = agentLogin;
+  public CurrentSessionDataUser dbid(Integer dbid) {
+    this.dbid = dbid;
     return this;
   }
 
    /**
-   * Get agentLogin
-   * @return agentLogin
+   * Get dbid
+   * @return dbid
   **/
-  @ApiModelProperty(value = "")
-  public String getAgentLogin() {
-    return agentLogin;
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getDbid() {
+    return dbid;
   }
 
-  public void setAgentLogin(String agentLogin) {
-    this.agentLogin = agentLogin;
-  }
-
-  public CurrentSessionDataUser userProperties(List<Kvpair> userProperties) {
-    this.userProperties = userProperties;
-    return this;
-  }
-
-  public CurrentSessionDataUser addUserPropertiesItem(Kvpair userPropertiesItem) {
-    if (this.userProperties == null) {
-      this.userProperties = new ArrayList<Kvpair>();
-    }
-    this.userProperties.add(userPropertiesItem);
-    return this;
-  }
-
-   /**
-   * Get userProperties
-   * @return userProperties
-  **/
-  @ApiModelProperty(value = "")
-  public List<Kvpair> getUserProperties() {
-    return userProperties;
-  }
-
-  public void setUserProperties(List<Kvpair> userProperties) {
-    this.userProperties = userProperties;
+  public void setDbid(Integer dbid) {
+    this.dbid = dbid;
   }
 
   public CurrentSessionDataUser activeSession(CurrentSessionDataUserActiveSession activeSession) {
@@ -220,13 +158,67 @@ public class CurrentSessionDataUser {
    * Get activeSession
    * @return activeSession
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public CurrentSessionDataUserActiveSession getActiveSession() {
     return activeSession;
   }
 
   public void setActiveSession(CurrentSessionDataUserActiveSession activeSession) {
     this.activeSession = activeSession;
+  }
+
+  public CurrentSessionDataUser defaultPlace(String defaultPlace) {
+    this.defaultPlace = defaultPlace;
+    return this;
+  }
+
+   /**
+   * Get defaultPlace
+   * @return defaultPlace
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getDefaultPlace() {
+    return defaultPlace;
+  }
+
+  public void setDefaultPlace(String defaultPlace) {
+    this.defaultPlace = defaultPlace;
+  }
+
+  public CurrentSessionDataUser lastName(String lastName) {
+    this.lastName = lastName;
+    return this;
+  }
+
+   /**
+   * Get lastName
+   * @return lastName
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+  public CurrentSessionDataUser agentLogin(String agentLogin) {
+    this.agentLogin = agentLogin;
+    return this;
+  }
+
+   /**
+   * Get agentLogin
+   * @return agentLogin
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getAgentLogin() {
+    return agentLogin;
+  }
+
+  public void setAgentLogin(String agentLogin) {
+    this.agentLogin = agentLogin;
   }
 
 
@@ -239,20 +231,20 @@ public class CurrentSessionDataUser {
       return false;
     }
     CurrentSessionDataUser currentSessionDataUser = (CurrentSessionDataUser) o;
-    return Objects.equals(this.dbid, currentSessionDataUser.dbid) &&
-        Objects.equals(this.firstName, currentSessionDataUser.firstName) &&
-        Objects.equals(this.lastName, currentSessionDataUser.lastName) &&
-        Objects.equals(this.userName, currentSessionDataUser.userName) &&
-        Objects.equals(this.employeeId, currentSessionDataUser.employeeId) &&
-        Objects.equals(this.defaultPlace, currentSessionDataUser.defaultPlace) &&
-        Objects.equals(this.agentLogin, currentSessionDataUser.agentLogin) &&
+    return Objects.equals(this.userName, currentSessionDataUser.userName) &&
         Objects.equals(this.userProperties, currentSessionDataUser.userProperties) &&
-        Objects.equals(this.activeSession, currentSessionDataUser.activeSession);
+        Objects.equals(this.employeeId, currentSessionDataUser.employeeId) &&
+        Objects.equals(this.firstName, currentSessionDataUser.firstName) &&
+        Objects.equals(this.dbid, currentSessionDataUser.dbid) &&
+        Objects.equals(this.activeSession, currentSessionDataUser.activeSession) &&
+        Objects.equals(this.defaultPlace, currentSessionDataUser.defaultPlace) &&
+        Objects.equals(this.lastName, currentSessionDataUser.lastName) &&
+        Objects.equals(this.agentLogin, currentSessionDataUser.agentLogin);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbid, firstName, lastName, userName, employeeId, defaultPlace, agentLogin, userProperties, activeSession);
+    return Objects.hash(userName, userProperties, employeeId, firstName, dbid, activeSession, defaultPlace, lastName, agentLogin);
   }
 
 
@@ -261,15 +253,15 @@ public class CurrentSessionDataUser {
     StringBuilder sb = new StringBuilder();
     sb.append("class CurrentSessionDataUser {\n");
     
-    sb.append("    dbid: ").append(toIndentedString(dbid)).append("\n");
-    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
-    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
-    sb.append("    employeeId: ").append(toIndentedString(employeeId)).append("\n");
-    sb.append("    defaultPlace: ").append(toIndentedString(defaultPlace)).append("\n");
-    sb.append("    agentLogin: ").append(toIndentedString(agentLogin)).append("\n");
     sb.append("    userProperties: ").append(toIndentedString(userProperties)).append("\n");
+    sb.append("    employeeId: ").append(toIndentedString(employeeId)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    dbid: ").append(toIndentedString(dbid)).append("\n");
     sb.append("    activeSession: ").append(toIndentedString(activeSession)).append("\n");
+    sb.append("    defaultPlace: ").append(toIndentedString(defaultPlace)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    agentLogin: ").append(toIndentedString(agentLogin)).append("\n");
     sb.append("}");
     return sb.toString();
   }

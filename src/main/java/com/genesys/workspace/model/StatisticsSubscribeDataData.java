@@ -14,45 +14,22 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * StatisticsSubscribeDataData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class StatisticsSubscribeDataData {
-  @SerializedName("connectionId")
-  private String connectionId = null;
-
   @SerializedName("statistics")
   private List<Object> statistics = new ArrayList<Object>();
 
-  public StatisticsSubscribeDataData connectionId(String connectionId) {
-    this.connectionId = connectionId;
-    return this;
-  }
-
-   /**
-   * Get connectionId
-   * @return connectionId
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public String getConnectionId() {
-    return connectionId;
-  }
-
-  public void setConnectionId(String connectionId) {
-    this.connectionId = connectionId;
-  }
+  @SerializedName("connectionId")
+  private String connectionId = null;
 
   public StatisticsSubscribeDataData statistics(List<Object> statistics) {
     this.statistics = statistics;
@@ -68,13 +45,31 @@ public class StatisticsSubscribeDataData {
    * Get statistics
    * @return statistics
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "")
   public List<Object> getStatistics() {
     return statistics;
   }
 
   public void setStatistics(List<Object> statistics) {
     this.statistics = statistics;
+  }
+
+  public StatisticsSubscribeDataData connectionId(String connectionId) {
+    this.connectionId = connectionId;
+    return this;
+  }
+
+   /**
+   * Get connectionId
+   * @return connectionId
+  **/
+  @ApiModelProperty(example = "null", required = true, value = "")
+  public String getConnectionId() {
+    return connectionId;
+  }
+
+  public void setConnectionId(String connectionId) {
+    this.connectionId = connectionId;
   }
 
 
@@ -87,13 +82,13 @@ public class StatisticsSubscribeDataData {
       return false;
     }
     StatisticsSubscribeDataData statisticsSubscribeDataData = (StatisticsSubscribeDataData) o;
-    return Objects.equals(this.connectionId, statisticsSubscribeDataData.connectionId) &&
-        Objects.equals(this.statistics, statisticsSubscribeDataData.statistics);
+    return Objects.equals(this.statistics, statisticsSubscribeDataData.statistics) &&
+        Objects.equals(this.connectionId, statisticsSubscribeDataData.connectionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(connectionId, statistics);
+    return Objects.hash(statistics, connectionId);
   }
 
 
@@ -102,8 +97,8 @@ public class StatisticsSubscribeDataData {
     StringBuilder sb = new StringBuilder();
     sb.append("class StatisticsSubscribeDataData {\n");
     
-    sb.append("    connectionId: ").append(toIndentedString(connectionId)).append("\n");
     sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
+    sb.append("    connectionId: ").append(toIndentedString(connectionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

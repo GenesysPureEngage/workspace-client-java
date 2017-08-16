@@ -14,43 +14,20 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * CurrentSessionStatus
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class CurrentSessionStatus {
-  @SerializedName("code")
-  private Integer code = null;
-
   @SerializedName("message")
   private String message = null;
 
-  public CurrentSessionStatus code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Get code
-   * @return code
-  **/
-  @ApiModelProperty(value = "")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
+  @SerializedName("code")
+  private Integer code = null;
 
   public CurrentSessionStatus message(String message) {
     this.message = message;
@@ -61,13 +38,31 @@ public class CurrentSessionStatus {
    * Get message
    * @return message
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getMessage() {
     return message;
   }
 
   public void setMessage(String message) {
     this.message = message;
+  }
+
+  public CurrentSessionStatus code(Integer code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Get code
+   * @return code
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getCode() {
+    return code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
   }
 
 
@@ -80,13 +75,13 @@ public class CurrentSessionStatus {
       return false;
     }
     CurrentSessionStatus currentSessionStatus = (CurrentSessionStatus) o;
-    return Objects.equals(this.code, currentSessionStatus.code) &&
-        Objects.equals(this.message, currentSessionStatus.message);
+    return Objects.equals(this.message, currentSessionStatus.message) &&
+        Objects.equals(this.code, currentSessionStatus.code);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, message);
+    return Objects.hash(message, code);
   }
 
 
@@ -95,8 +90,8 @@ public class CurrentSessionStatus {
     StringBuilder sb = new StringBuilder();
     sb.append("class CurrentSessionStatus {\n");
     
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("}");
     return sb.toString();
   }

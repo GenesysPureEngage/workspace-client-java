@@ -14,20 +14,20 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.genesys.workspace.model.VoicecallsidcompleteData;
+import com.genesys.workspace.model.TargetspersonalfavoritessaveData;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * UserData1
+ * PersonalFavoriteData
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
-public class UserData1 {
+public class PersonalFavoriteData {
   @SerializedName("data")
-  private VoicecallsidcompleteData data = null;
+  private TargetspersonalfavoritessaveData data = null;
 
-  public UserData1 data(VoicecallsidcompleteData data) {
+  public PersonalFavoriteData data(TargetspersonalfavoritessaveData data) {
     this.data = data;
     return this;
   }
@@ -37,11 +37,11 @@ public class UserData1 {
    * @return data
   **/
   @ApiModelProperty(example = "null", value = "")
-  public VoicecallsidcompleteData getData() {
+  public TargetspersonalfavoritessaveData getData() {
     return data;
   }
 
-  public void setData(VoicecallsidcompleteData data) {
+  public void setData(TargetspersonalfavoritessaveData data) {
     this.data = data;
   }
 
@@ -54,8 +54,8 @@ public class UserData1 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserData1 userData1 = (UserData1) o;
-    return Objects.equals(this.data, userData1.data);
+    PersonalFavoriteData personalFavoriteData = (PersonalFavoriteData) o;
+    return Objects.equals(this.data, personalFavoriteData.data);
   }
 
   @Override
@@ -67,7 +67,7 @@ public class UserData1 {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserData1 {\n");
+    sb.append("class PersonalFavoriteData {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");

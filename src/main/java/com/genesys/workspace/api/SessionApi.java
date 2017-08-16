@@ -58,19 +58,12 @@ public class SessionApi {
         this.apiClient = apiClient;
     }
 
-    /**
-     * Build call for activateChannels
-     * @param channelsData  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call activateChannelsCall(ChannelsData channelsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for activateChannels */
+    private com.squareup.okhttp.Call activateChannelsCall(ChannelsData channelsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = channelsData;
         
         // create path and map variables
-        String localVarPath = "/activate-channels";
+        String localVarPath = "/activate-channels".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -183,20 +176,13 @@ public class SessionApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for getBusinessAttributeHierarchy
-     * @param id id of the business attribute (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call getBusinessAttributeHierarchyCall(Integer id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getBusinessAttributeHierarchy */
+    private com.squareup.okhttp.Call getBusinessAttributeHierarchyCall(Integer id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/configuration/business-attribute/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/configuration/business-attribute/{id}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -309,19 +295,12 @@ public class SessionApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for getConfiguration
-     * @param types A comma delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call getConfigurationCall(String types, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getConfiguration */
+    private com.squareup.okhttp.Call getConfigurationCall(String types, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/configuration";
+        String localVarPath = "/configuration".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (types != null)
@@ -431,18 +410,12 @@ public class SessionApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for getCurrentSession
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call getCurrentSessionCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getCurrentSession */
+    private com.squareup.okhttp.Call getCurrentSessionCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/current-session";
+        String localVarPath = "/current-session".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -547,21 +520,12 @@ public class SessionApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for initializeWorkspace
-     * @param code the authorization code (optional)
-     * @param redirectUri the same redirect_uri used in the initial login step (optional)
-     * @param authorization For OAuth resource owner password credentials grant should contains Bearer authorization. Example: &#39;Authorization: Bearer access_token&#39; (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call initializeWorkspaceCall(String code, String redirectUri, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for initializeWorkspace */
+    private com.squareup.okhttp.Call initializeWorkspaceCall(String code, String redirectUri, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/initialize-workspace";
+        String localVarPath = "/initialize-workspace".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (code != null)
@@ -681,19 +645,12 @@ public class SessionApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for login
-     * @param redirectUri this the URI the AUTH service uses to redirect the user after authentication (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call loginCall(String redirectUri, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for login */
+    private com.squareup.okhttp.Call loginCall(String redirectUri, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/login";
+        String localVarPath = "/login".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (redirectUri != null)
@@ -808,18 +765,12 @@ public class SessionApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for logout
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call logoutCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for logout */
+    private com.squareup.okhttp.Call logoutCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/logout";
+        String localVarPath = "/logout".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 

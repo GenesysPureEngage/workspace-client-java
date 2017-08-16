@@ -14,19 +14,14 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * VoicesetforwardData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class VoicesetforwardData {
   @SerializedName("forwardTo")
   private String forwardTo = null;
@@ -40,7 +35,7 @@ public class VoicesetforwardData {
    * Get forwardTo
    * @return forwardTo
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "")
   public String getForwardTo() {
     return forwardTo;
   }

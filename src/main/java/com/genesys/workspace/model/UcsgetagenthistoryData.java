@@ -14,62 +14,31 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * UcsgetagenthistoryData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class UcsgetagenthistoryData {
-  @SerializedName("customAttributes")
-  private List<String> customAttributes = null;
-
   @SerializedName("sort")
   private String sort = null;
-
-  @SerializedName("fromDate")
-  private String fromDate = null;
 
   @SerializedName("toDate")
   private String toDate = null;
 
+  @SerializedName("customAttributes")
+  private List<String> customAttributes = new ArrayList<String>();
+
+  @SerializedName("fromDate")
+  private String fromDate = null;
+
   @SerializedName("userId")
   private String userId = null;
-
-  public UcsgetagenthistoryData customAttributes(List<String> customAttributes) {
-    this.customAttributes = customAttributes;
-    return this;
-  }
-
-  public UcsgetagenthistoryData addCustomAttributesItem(String customAttributesItem) {
-    if (this.customAttributes == null) {
-      this.customAttributes = new ArrayList<String>();
-    }
-    this.customAttributes.add(customAttributesItem);
-    return this;
-  }
-
-   /**
-   * The list of custom contact attributes to be returned for each interaction
-   * @return customAttributes
-  **/
-  @ApiModelProperty(value = "The list of custom contact attributes to be returned for each interaction")
-  public List<String> getCustomAttributes() {
-    return customAttributes;
-  }
-
-  public void setCustomAttributes(List<String> customAttributes) {
-    this.customAttributes = customAttributes;
-  }
 
   public UcsgetagenthistoryData sort(String sort) {
     this.sort = sort;
@@ -80,31 +49,13 @@ public class UcsgetagenthistoryData {
    * The sorting order (desc or asc)
    * @return sort
   **/
-  @ApiModelProperty(value = "The sorting order (desc or asc)")
+  @ApiModelProperty(example = "null", value = "The sorting order (desc or asc)")
   public String getSort() {
     return sort;
   }
 
   public void setSort(String sort) {
     this.sort = sort;
-  }
-
-  public UcsgetagenthistoryData fromDate(String fromDate) {
-    this.fromDate = fromDate;
-    return this;
-  }
-
-   /**
-   * The date from which the interactions should be retrieved (UCS format)
-   * @return fromDate
-  **/
-  @ApiModelProperty(value = "The date from which the interactions should be retrieved (UCS format)")
-  public String getFromDate() {
-    return fromDate;
-  }
-
-  public void setFromDate(String fromDate) {
-    this.fromDate = fromDate;
   }
 
   public UcsgetagenthistoryData toDate(String toDate) {
@@ -116,13 +67,54 @@ public class UcsgetagenthistoryData {
    * The date to which the interactions should be retrieved (UCS format)
    * @return toDate
   **/
-  @ApiModelProperty(value = "The date to which the interactions should be retrieved (UCS format)")
+  @ApiModelProperty(example = "null", value = "The date to which the interactions should be retrieved (UCS format)")
   public String getToDate() {
     return toDate;
   }
 
   public void setToDate(String toDate) {
     this.toDate = toDate;
+  }
+
+  public UcsgetagenthistoryData customAttributes(List<String> customAttributes) {
+    this.customAttributes = customAttributes;
+    return this;
+  }
+
+  public UcsgetagenthistoryData addCustomAttributesItem(String customAttributesItem) {
+    this.customAttributes.add(customAttributesItem);
+    return this;
+  }
+
+   /**
+   * The list of custom contact attributes to be returned for each interaction
+   * @return customAttributes
+  **/
+  @ApiModelProperty(example = "null", value = "The list of custom contact attributes to be returned for each interaction")
+  public List<String> getCustomAttributes() {
+    return customAttributes;
+  }
+
+  public void setCustomAttributes(List<String> customAttributes) {
+    this.customAttributes = customAttributes;
+  }
+
+  public UcsgetagenthistoryData fromDate(String fromDate) {
+    this.fromDate = fromDate;
+    return this;
+  }
+
+   /**
+   * The date from which the interactions should be retrieved (UCS format)
+   * @return fromDate
+  **/
+  @ApiModelProperty(example = "null", value = "The date from which the interactions should be retrieved (UCS format)")
+  public String getFromDate() {
+    return fromDate;
+  }
+
+  public void setFromDate(String fromDate) {
+    this.fromDate = fromDate;
   }
 
   public UcsgetagenthistoryData userId(String userId) {
@@ -134,7 +126,7 @@ public class UcsgetagenthistoryData {
    * The id of the agent for which the interactions should be retrieved (if not set, current user is used)
    * @return userId
   **/
-  @ApiModelProperty(value = "The id of the agent for which the interactions should be retrieved (if not set, current user is used)")
+  @ApiModelProperty(example = "null", value = "The id of the agent for which the interactions should be retrieved (if not set, current user is used)")
   public String getUserId() {
     return userId;
   }
@@ -153,16 +145,16 @@ public class UcsgetagenthistoryData {
       return false;
     }
     UcsgetagenthistoryData ucsgetagenthistoryData = (UcsgetagenthistoryData) o;
-    return Objects.equals(this.customAttributes, ucsgetagenthistoryData.customAttributes) &&
-        Objects.equals(this.sort, ucsgetagenthistoryData.sort) &&
-        Objects.equals(this.fromDate, ucsgetagenthistoryData.fromDate) &&
+    return Objects.equals(this.sort, ucsgetagenthistoryData.sort) &&
         Objects.equals(this.toDate, ucsgetagenthistoryData.toDate) &&
+        Objects.equals(this.customAttributes, ucsgetagenthistoryData.customAttributes) &&
+        Objects.equals(this.fromDate, ucsgetagenthistoryData.fromDate) &&
         Objects.equals(this.userId, ucsgetagenthistoryData.userId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customAttributes, sort, fromDate, toDate, userId);
+    return Objects.hash(sort, toDate, customAttributes, fromDate, userId);
   }
 
 
@@ -171,10 +163,10 @@ public class UcsgetagenthistoryData {
     StringBuilder sb = new StringBuilder();
     sb.append("class UcsgetagenthistoryData {\n");
     
-    sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
-    sb.append("    fromDate: ").append(toIndentedString(fromDate)).append("\n");
     sb.append("    toDate: ").append(toIndentedString(toDate)).append("\n");
+    sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
+    sb.append("    fromDate: ").append(toIndentedString(fromDate)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("}");
     return sb.toString();

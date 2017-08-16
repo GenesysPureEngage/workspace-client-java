@@ -14,51 +14,50 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.genesys.workspace.model.RecentData;
 import com.genesys.workspace.model.TargetInformation;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * TargetsrecentsaddData
+ * TargetspersonalfavoritessaveData
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
-public class TargetsrecentsaddData {
-  @SerializedName("recentInformation")
-  private RecentData recentInformation = null;
+public class TargetspersonalfavoritessaveData {
+  @SerializedName("category")
+  private String category = null;
 
   @SerializedName("target")
   private TargetInformation target = null;
 
-  public TargetsrecentsaddData recentInformation(RecentData recentInformation) {
-    this.recentInformation = recentInformation;
+  public TargetspersonalfavoritessaveData category(String category) {
+    this.category = category;
     return this;
   }
 
    /**
-   * data about recent interaction with the target
-   * @return recentInformation
+   * category of the favorite target
+   * @return category
   **/
-  @ApiModelProperty(example = "null", required = true, value = "data about recent interaction with the target")
-  public RecentData getRecentInformation() {
-    return recentInformation;
+  @ApiModelProperty(example = "null", required = true, value = "category of the favorite target")
+  public String getCategory() {
+    return category;
   }
 
-  public void setRecentInformation(RecentData recentInformation) {
-    this.recentInformation = recentInformation;
+  public void setCategory(String category) {
+    this.category = category;
   }
 
-  public TargetsrecentsaddData target(TargetInformation target) {
+  public TargetspersonalfavoritessaveData target(TargetInformation target) {
     this.target = target;
     return this;
   }
 
    /**
-   * The recent target
+   * The personal favorite target
    * @return target
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The recent target")
+  @ApiModelProperty(example = "null", required = true, value = "The personal favorite target")
   public TargetInformation getTarget() {
     return target;
   }
@@ -76,23 +75,23 @@ public class TargetsrecentsaddData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TargetsrecentsaddData targetsrecentsaddData = (TargetsrecentsaddData) o;
-    return Objects.equals(this.recentInformation, targetsrecentsaddData.recentInformation) &&
-        Objects.equals(this.target, targetsrecentsaddData.target);
+    TargetspersonalfavoritessaveData targetspersonalfavoritessaveData = (TargetspersonalfavoritessaveData) o;
+    return Objects.equals(this.category, targetspersonalfavoritessaveData.category) &&
+        Objects.equals(this.target, targetspersonalfavoritessaveData.target);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(recentInformation, target);
+    return Objects.hash(category, target);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TargetsrecentsaddData {\n");
+    sb.append("class TargetspersonalfavoritessaveData {\n");
     
-    sb.append("    recentInformation: ").append(toIndentedString(recentInformation)).append("\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("}");
     return sb.toString();

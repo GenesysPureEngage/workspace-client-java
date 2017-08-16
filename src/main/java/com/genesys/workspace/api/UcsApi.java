@@ -70,19 +70,12 @@ public class UcsApi {
         this.apiClient = apiClient;
     }
 
-    /**
-     * Build call for assignInteractionToContact
-     * @param assignInteractionToContactData  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call assignInteractionToContactCall(AssignInteractionToContactData assignInteractionToContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for assignInteractionToContact */
+    private com.squareup.okhttp.Call assignInteractionToContactCall(AssignInteractionToContactData assignInteractionToContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = assignInteractionToContactData;
         
         // create path and map variables
-        String localVarPath = "/ucs/assign-interaction-to-contact";
+        String localVarPath = "/ucs/assign-interaction-to-contact".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -195,18 +188,12 @@ public class UcsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for createContact
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call createContactCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for createContact */
+    private com.squareup.okhttp.Call createContactCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/ucs/create-contact";
+        String localVarPath = "/ucs/create-contact".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -311,19 +298,12 @@ public class UcsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for deleteContact
-     * @param deleteContactData  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call deleteContactCall(DeleteContactData deleteContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for deleteContact */
+    private com.squareup.okhttp.Call deleteContactCall(DeleteContactData deleteContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = deleteContactData;
         
         // create path and map variables
-        String localVarPath = "/ucs/delete-contact";
+        String localVarPath = "/ucs/delete-contact".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -436,19 +416,12 @@ public class UcsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for findOrCreatePhoneCall
-     * @param phoneCallData  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call findOrCreatePhoneCallCall(PhoneCallData phoneCallData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for findOrCreatePhoneCall */
+    private com.squareup.okhttp.Call findOrCreatePhoneCallCall(PhoneCallData phoneCallData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = phoneCallData;
         
         // create path and map variables
-        String localVarPath = "/ucs/find-or-create-phone-call";
+        String localVarPath = "/ucs/find-or-create-phone-call".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -561,19 +534,12 @@ public class UcsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for getAgentHistory
-     * @param agentHistoryData  (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call getAgentHistoryCall(AgentHistoryData agentHistoryData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getAgentHistory */
+    private com.squareup.okhttp.Call getAgentHistoryCall(AgentHistoryData agentHistoryData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = agentHistoryData;
         
         // create path and map variables
-        String localVarPath = "/ucs/get-agent-history";
+        String localVarPath = "/ucs/get-agent-history".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -681,19 +647,12 @@ public class UcsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for getContactDetails
-     * @param contactDetailsData  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call getContactDetailsCall(ContactDetailsData contactDetailsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getContactDetails */
+    private com.squareup.okhttp.Call getContactDetailsCall(ContactDetailsData contactDetailsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = contactDetailsData;
         
         // create path and map variables
-        String localVarPath = "/ucs/get-contact-details";
+        String localVarPath = "/ucs/get-contact-details".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -806,19 +765,12 @@ public class UcsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for getContactHistory
-     * @param contactHistoryData  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call getContactHistoryCall(ContactHistoryData contactHistoryData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getContactHistory */
+    private com.squareup.okhttp.Call getContactHistoryCall(ContactHistoryData contactHistoryData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = contactHistoryData;
         
         // create path and map variables
-        String localVarPath = "/ucs/get-contact-history";
+        String localVarPath = "/ucs/get-contact-history".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -931,19 +883,12 @@ public class UcsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for getContacts
-     * @param getContactsData  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call getContactsCall(GetContactsData getContactsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getContacts */
+    private com.squareup.okhttp.Call getContactsCall(GetContactsData getContactsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = getContactsData;
         
         // create path and map variables
-        String localVarPath = "/ucs/get-contacts";
+        String localVarPath = "/ucs/get-contacts".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1056,18 +1001,12 @@ public class UcsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for getIndexProperties
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call getIndexPropertiesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getIndexProperties */
+    private com.squareup.okhttp.Call getIndexPropertiesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/ucs/get-index-properties";
+        String localVarPath = "/ucs/get-index-properties".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1172,19 +1111,12 @@ public class UcsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for getInteractionContent
-     * @param interactionContentData  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call getInteractionContentCall(InteractionContentData interactionContentData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getInteractionContent */
+    private com.squareup.okhttp.Call getInteractionContentCall(InteractionContentData interactionContentData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = interactionContentData;
         
         // create path and map variables
-        String localVarPath = "/ucs/get-interaction-content";
+        String localVarPath = "/ucs/get-interaction-content".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1297,19 +1229,12 @@ public class UcsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for identifyContact
-     * @param identifyContactData  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call identifyContactCall(IdentifyContactData identifyContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for identifyContact */
+    private com.squareup.okhttp.Call identifyContactCall(IdentifyContactData identifyContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = identifyContactData;
         
         // create path and map variables
-        String localVarPath = "/ucs/identify-contact";
+        String localVarPath = "/ucs/identify-contact".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1422,19 +1347,12 @@ public class UcsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for luceneSearch
-     * @param luceneSearchData  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call luceneSearchCall(LuceneSearchData luceneSearchData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for luceneSearch */
+    private com.squareup.okhttp.Call luceneSearchCall(LuceneSearchData luceneSearchData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = luceneSearchData;
         
         // create path and map variables
-        String localVarPath = "/ucs/lucene-search";
+        String localVarPath = "/ucs/lucene-search".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1547,19 +1465,12 @@ public class UcsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for luceneSearchInteraction
-     * @param luceneSearchInteractionData  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call luceneSearchInteractionCall(LuceneSearchInteractionData luceneSearchInteractionData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for luceneSearchInteraction */
+    private com.squareup.okhttp.Call luceneSearchInteractionCall(LuceneSearchInteractionData luceneSearchInteractionData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = luceneSearchInteractionData;
         
         // create path and map variables
-        String localVarPath = "/ucs/lucene-search-interaction";
+        String localVarPath = "/ucs/lucene-search-interaction".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1672,19 +1583,12 @@ public class UcsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for setCallCompleted
-     * @param callCompletedData  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call setCallCompletedCall(CallCompletedData callCompletedData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for setCallCompleted */
+    private com.squareup.okhttp.Call setCallCompletedCall(CallCompletedData callCompletedData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = callCompletedData;
         
         // create path and map variables
-        String localVarPath = "/ucs/set-call-completed";
+        String localVarPath = "/ucs/set-call-completed".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1797,19 +1701,12 @@ public class UcsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for setCallNote
-     * @param callNoteData  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call setCallNoteCall(CallNoteData callNoteData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for setCallNote */
+    private com.squareup.okhttp.Call setCallNoteCall(CallNoteData callNoteData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = callNoteData;
         
         // create path and map variables
-        String localVarPath = "/ucs/set-call-note";
+        String localVarPath = "/ucs/set-call-note".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1922,19 +1819,12 @@ public class UcsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /**
-     * Build call for updateContact
-     * @param updateContactData  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call updateContactCall(UpdateContactData updateContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for updateContact */
+    private com.squareup.okhttp.Call updateContactCall(UpdateContactData updateContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = updateContactData;
         
         // create path and map variables
-        String localVarPath = "/ucs/update-contact";
+        String localVarPath = "/ucs/update-contact".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 

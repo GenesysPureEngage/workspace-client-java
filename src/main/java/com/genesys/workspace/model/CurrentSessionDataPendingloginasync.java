@@ -15,33 +15,34 @@ package com.genesys.workspace.model;
 
 import java.util.Objects;
 import com.genesys.workspace.model.Kvpair;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * CurrentSessionDataPendingloginasync
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class CurrentSessionDataPendingloginasync {
+  @SerializedName("actualWaitTime")
+  private Integer actualWaitTime = null;
+
   /**
    * Gets or Sets state
    */
-  @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
+    @SerializedName("NotStarted")
     NOTSTARTED("NotStarted"),
     
+    @SerializedName("Executing")
     EXECUTING("Executing"),
     
+    @SerializedName("Failed")
     FAILED("Failed"),
     
+    @SerializedName("Complete")
     COMPLETE("Complete");
 
     private String value;
@@ -50,67 +51,20 @@ public class CurrentSessionDataPendingloginasync {
       this.value = value;
     }
 
-    public String getValue() {
-      return value;
-    }
-
     @Override
     public String toString() {
       return String.valueOf(value);
-    }
-
-    public static StateEnum fromValue(String text) {
-      for (StateEnum b : StateEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<StateEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StateEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StateEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return StateEnum.fromValue(String.valueOf(value));
-      }
     }
   }
 
   @SerializedName("state")
   private StateEnum state = null;
 
-  @SerializedName("actualWaitTime")
-  private Integer actualWaitTime = null;
-
   @SerializedName("submittedAt")
   private String submittedAt = null;
 
   @SerializedName("errors")
-  private List<Kvpair> errors = null;
-
-  public CurrentSessionDataPendingloginasync state(StateEnum state) {
-    this.state = state;
-    return this;
-  }
-
-   /**
-   * Get state
-   * @return state
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public StateEnum getState() {
-    return state;
-  }
-
-  public void setState(StateEnum state) {
-    this.state = state;
-  }
+  private List<Kvpair> errors = new ArrayList<Kvpair>();
 
   public CurrentSessionDataPendingloginasync actualWaitTime(Integer actualWaitTime) {
     this.actualWaitTime = actualWaitTime;
@@ -121,13 +75,31 @@ public class CurrentSessionDataPendingloginasync {
    * Get actualWaitTime
    * @return actualWaitTime
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "")
   public Integer getActualWaitTime() {
     return actualWaitTime;
   }
 
   public void setActualWaitTime(Integer actualWaitTime) {
     this.actualWaitTime = actualWaitTime;
+  }
+
+  public CurrentSessionDataPendingloginasync state(StateEnum state) {
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @ApiModelProperty(example = "null", required = true, value = "")
+  public StateEnum getState() {
+    return state;
+  }
+
+  public void setState(StateEnum state) {
+    this.state = state;
   }
 
   public CurrentSessionDataPendingloginasync submittedAt(String submittedAt) {
@@ -139,7 +111,7 @@ public class CurrentSessionDataPendingloginasync {
    * Get submittedAt
    * @return submittedAt
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "")
   public String getSubmittedAt() {
     return submittedAt;
   }
@@ -154,9 +126,6 @@ public class CurrentSessionDataPendingloginasync {
   }
 
   public CurrentSessionDataPendingloginasync addErrorsItem(Kvpair errorsItem) {
-    if (this.errors == null) {
-      this.errors = new ArrayList<Kvpair>();
-    }
     this.errors.add(errorsItem);
     return this;
   }
@@ -165,7 +134,7 @@ public class CurrentSessionDataPendingloginasync {
    * Get errors
    * @return errors
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<Kvpair> getErrors() {
     return errors;
   }
@@ -184,15 +153,15 @@ public class CurrentSessionDataPendingloginasync {
       return false;
     }
     CurrentSessionDataPendingloginasync currentSessionDataPendingloginasync = (CurrentSessionDataPendingloginasync) o;
-    return Objects.equals(this.state, currentSessionDataPendingloginasync.state) &&
-        Objects.equals(this.actualWaitTime, currentSessionDataPendingloginasync.actualWaitTime) &&
+    return Objects.equals(this.actualWaitTime, currentSessionDataPendingloginasync.actualWaitTime) &&
+        Objects.equals(this.state, currentSessionDataPendingloginasync.state) &&
         Objects.equals(this.submittedAt, currentSessionDataPendingloginasync.submittedAt) &&
         Objects.equals(this.errors, currentSessionDataPendingloginasync.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(state, actualWaitTime, submittedAt, errors);
+    return Objects.hash(actualWaitTime, state, submittedAt, errors);
   }
 
 
@@ -201,8 +170,8 @@ public class CurrentSessionDataPendingloginasync {
     StringBuilder sb = new StringBuilder();
     sb.append("class CurrentSessionDataPendingloginasync {\n");
     
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    actualWaitTime: ").append(toIndentedString(actualWaitTime)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    submittedAt: ").append(toIndentedString(submittedAt)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");

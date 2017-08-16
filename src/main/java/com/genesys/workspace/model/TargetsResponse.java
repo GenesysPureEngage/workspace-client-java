@@ -16,43 +16,20 @@ package com.genesys.workspace.model;
 import java.util.Objects;
 import com.genesys.workspace.model.InlineResponse200Status;
 import com.genesys.workspace.model.TargetsResponseData;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * TargetsResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class TargetsResponse {
-  @SerializedName("data")
-  private TargetsResponseData data = null;
-
   @SerializedName("status")
   private InlineResponse200Status status = null;
 
-  public TargetsResponse data(TargetsResponseData data) {
-    this.data = data;
-    return this;
-  }
-
-   /**
-   * Get data
-   * @return data
-  **/
-  @ApiModelProperty(value = "")
-  public TargetsResponseData getData() {
-    return data;
-  }
-
-  public void setData(TargetsResponseData data) {
-    this.data = data;
-  }
+  @SerializedName("data")
+  private TargetsResponseData data = null;
 
   public TargetsResponse status(InlineResponse200Status status) {
     this.status = status;
@@ -63,13 +40,31 @@ public class TargetsResponse {
    * Get status
    * @return status
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public InlineResponse200Status getStatus() {
     return status;
   }
 
   public void setStatus(InlineResponse200Status status) {
     this.status = status;
+  }
+
+  public TargetsResponse data(TargetsResponseData data) {
+    this.data = data;
+    return this;
+  }
+
+   /**
+   * Get data
+   * @return data
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public TargetsResponseData getData() {
+    return data;
+  }
+
+  public void setData(TargetsResponseData data) {
+    this.data = data;
   }
 
 
@@ -82,13 +77,13 @@ public class TargetsResponse {
       return false;
     }
     TargetsResponse targetsResponse = (TargetsResponse) o;
-    return Objects.equals(this.data, targetsResponse.data) &&
-        Objects.equals(this.status, targetsResponse.status);
+    return Objects.equals(this.status, targetsResponse.status) &&
+        Objects.equals(this.data, targetsResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, status);
+    return Objects.hash(status, data);
   }
 
 
@@ -97,8 +92,8 @@ public class TargetsResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetsResponse {\n");
     
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

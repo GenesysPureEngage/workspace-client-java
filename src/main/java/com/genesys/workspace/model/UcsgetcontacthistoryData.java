@@ -14,33 +14,46 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * UcsgetcontacthistoryData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class UcsgetcontacthistoryData {
+  @SerializedName("toDate")
+  private String toDate = null;
+
   @SerializedName("contactId")
   private String contactId = null;
-
-  @SerializedName("customAttributes")
-  private List<String> customAttributes = null;
 
   @SerializedName("fromDate")
   private String fromDate = null;
 
-  @SerializedName("toDate")
-  private String toDate = null;
+  @SerializedName("customAttributes")
+  private List<String> customAttributes = new ArrayList<String>();
+
+  public UcsgetcontacthistoryData toDate(String toDate) {
+    this.toDate = toDate;
+    return this;
+  }
+
+   /**
+   * The date to which the interactions should be retrieved (UCS format)
+   * @return toDate
+  **/
+  @ApiModelProperty(example = "null", value = "The date to which the interactions should be retrieved (UCS format)")
+  public String getToDate() {
+    return toDate;
+  }
+
+  public void setToDate(String toDate) {
+    this.toDate = toDate;
+  }
 
   public UcsgetcontacthistoryData contactId(String contactId) {
     this.contactId = contactId;
@@ -51,39 +64,13 @@ public class UcsgetcontacthistoryData {
    * The id of the contact
    * @return contactId
   **/
-  @ApiModelProperty(required = true, value = "The id of the contact")
+  @ApiModelProperty(example = "null", required = true, value = "The id of the contact")
   public String getContactId() {
     return contactId;
   }
 
   public void setContactId(String contactId) {
     this.contactId = contactId;
-  }
-
-  public UcsgetcontacthistoryData customAttributes(List<String> customAttributes) {
-    this.customAttributes = customAttributes;
-    return this;
-  }
-
-  public UcsgetcontacthistoryData addCustomAttributesItem(String customAttributesItem) {
-    if (this.customAttributes == null) {
-      this.customAttributes = new ArrayList<String>();
-    }
-    this.customAttributes.add(customAttributesItem);
-    return this;
-  }
-
-   /**
-   * The list of custom contact attributes to be returned for each interaction of the contact
-   * @return customAttributes
-  **/
-  @ApiModelProperty(value = "The list of custom contact attributes to be returned for each interaction of the contact")
-  public List<String> getCustomAttributes() {
-    return customAttributes;
-  }
-
-  public void setCustomAttributes(List<String> customAttributes) {
-    this.customAttributes = customAttributes;
   }
 
   public UcsgetcontacthistoryData fromDate(String fromDate) {
@@ -95,7 +82,7 @@ public class UcsgetcontacthistoryData {
    * The date from which the interactions should be retrieved (UCS format)
    * @return fromDate
   **/
-  @ApiModelProperty(value = "The date from which the interactions should be retrieved (UCS format)")
+  @ApiModelProperty(example = "null", value = "The date from which the interactions should be retrieved (UCS format)")
   public String getFromDate() {
     return fromDate;
   }
@@ -104,22 +91,27 @@ public class UcsgetcontacthistoryData {
     this.fromDate = fromDate;
   }
 
-  public UcsgetcontacthistoryData toDate(String toDate) {
-    this.toDate = toDate;
+  public UcsgetcontacthistoryData customAttributes(List<String> customAttributes) {
+    this.customAttributes = customAttributes;
+    return this;
+  }
+
+  public UcsgetcontacthistoryData addCustomAttributesItem(String customAttributesItem) {
+    this.customAttributes.add(customAttributesItem);
     return this;
   }
 
    /**
-   * The date to which the interactions should be retrieved (UCS format)
-   * @return toDate
+   * The list of custom contact attributes to be returned for each interaction of the contact
+   * @return customAttributes
   **/
-  @ApiModelProperty(value = "The date to which the interactions should be retrieved (UCS format)")
-  public String getToDate() {
-    return toDate;
+  @ApiModelProperty(example = "null", value = "The list of custom contact attributes to be returned for each interaction of the contact")
+  public List<String> getCustomAttributes() {
+    return customAttributes;
   }
 
-  public void setToDate(String toDate) {
-    this.toDate = toDate;
+  public void setCustomAttributes(List<String> customAttributes) {
+    this.customAttributes = customAttributes;
   }
 
 
@@ -132,15 +124,15 @@ public class UcsgetcontacthistoryData {
       return false;
     }
     UcsgetcontacthistoryData ucsgetcontacthistoryData = (UcsgetcontacthistoryData) o;
-    return Objects.equals(this.contactId, ucsgetcontacthistoryData.contactId) &&
-        Objects.equals(this.customAttributes, ucsgetcontacthistoryData.customAttributes) &&
+    return Objects.equals(this.toDate, ucsgetcontacthistoryData.toDate) &&
+        Objects.equals(this.contactId, ucsgetcontacthistoryData.contactId) &&
         Objects.equals(this.fromDate, ucsgetcontacthistoryData.fromDate) &&
-        Objects.equals(this.toDate, ucsgetcontacthistoryData.toDate);
+        Objects.equals(this.customAttributes, ucsgetcontacthistoryData.customAttributes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contactId, customAttributes, fromDate, toDate);
+    return Objects.hash(toDate, contactId, fromDate, customAttributes);
   }
 
 
@@ -149,10 +141,10 @@ public class UcsgetcontacthistoryData {
     StringBuilder sb = new StringBuilder();
     sb.append("class UcsgetcontacthistoryData {\n");
     
-    sb.append("    contactId: ").append(toIndentedString(contactId)).append("\n");
-    sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
-    sb.append("    fromDate: ").append(toIndentedString(fromDate)).append("\n");
     sb.append("    toDate: ").append(toIndentedString(toDate)).append("\n");
+    sb.append("    contactId: ").append(toIndentedString(contactId)).append("\n");
+    sb.append("    fromDate: ").append(toIndentedString(fromDate)).append("\n");
+    sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -15,47 +15,47 @@ package com.genesys.workspace.model;
 
 import java.util.Objects;
 import com.genesys.workspace.model.Kvpair;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * ConfigResponseDataActionCodes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class ConfigResponseDataActionCodes {
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("userProperties")
+  private List<Kvpair> userProperties = new ArrayList<Kvpair>();
 
   @SerializedName("code")
   private String code = null;
 
-  @SerializedName("userProperties")
-  private List<Kvpair> userProperties = null;
+  @SerializedName("name")
+  private String name = null;
 
-  public ConfigResponseDataActionCodes name(String name) {
-    this.name = name;
+  public ConfigResponseDataActionCodes userProperties(List<Kvpair> userProperties) {
+    this.userProperties = userProperties;
+    return this;
+  }
+
+  public ConfigResponseDataActionCodes addUserPropertiesItem(Kvpair userPropertiesItem) {
+    this.userProperties.add(userPropertiesItem);
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get userProperties
+   * @return userProperties
   **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
+  @ApiModelProperty(example = "null", value = "")
+  public List<Kvpair> getUserProperties() {
+    return userProperties;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setUserProperties(List<Kvpair> userProperties) {
+    this.userProperties = userProperties;
   }
 
   public ConfigResponseDataActionCodes code(String code) {
@@ -67,7 +67,7 @@ public class ConfigResponseDataActionCodes {
    * Get code
    * @return code
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getCode() {
     return code;
   }
@@ -76,30 +76,22 @@ public class ConfigResponseDataActionCodes {
     this.code = code;
   }
 
-  public ConfigResponseDataActionCodes userProperties(List<Kvpair> userProperties) {
-    this.userProperties = userProperties;
-    return this;
-  }
-
-  public ConfigResponseDataActionCodes addUserPropertiesItem(Kvpair userPropertiesItem) {
-    if (this.userProperties == null) {
-      this.userProperties = new ArrayList<Kvpair>();
-    }
-    this.userProperties.add(userPropertiesItem);
+  public ConfigResponseDataActionCodes name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get userProperties
-   * @return userProperties
+   * Get name
+   * @return name
   **/
-  @ApiModelProperty(value = "")
-  public List<Kvpair> getUserProperties() {
-    return userProperties;
+  @ApiModelProperty(example = "null", value = "")
+  public String getName() {
+    return name;
   }
 
-  public void setUserProperties(List<Kvpair> userProperties) {
-    this.userProperties = userProperties;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -112,14 +104,14 @@ public class ConfigResponseDataActionCodes {
       return false;
     }
     ConfigResponseDataActionCodes configResponseDataActionCodes = (ConfigResponseDataActionCodes) o;
-    return Objects.equals(this.name, configResponseDataActionCodes.name) &&
+    return Objects.equals(this.userProperties, configResponseDataActionCodes.userProperties) &&
         Objects.equals(this.code, configResponseDataActionCodes.code) &&
-        Objects.equals(this.userProperties, configResponseDataActionCodes.userProperties);
+        Objects.equals(this.name, configResponseDataActionCodes.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, code, userProperties);
+    return Objects.hash(userProperties, code, name);
   }
 
 
@@ -128,9 +120,9 @@ public class ConfigResponseDataActionCodes {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConfigResponseDataActionCodes {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    userProperties: ").append(toIndentedString(userProperties)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

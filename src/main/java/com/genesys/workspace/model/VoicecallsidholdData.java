@@ -15,37 +15,29 @@ package com.genesys.workspace.model;
 
 import java.util.Objects;
 import com.genesys.workspace.model.Kvpair;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * VoicereadyData
+ * VoicecallsidholdData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
-public class VoicereadyData {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
+public class VoicecallsidholdData {
   @SerializedName("reasons")
-  private List<Kvpair> reasons = null;
+  private List<Kvpair> reasons = new ArrayList<Kvpair>();
 
   @SerializedName("extensions")
-  private List<Kvpair> extensions = null;
+  private List<Kvpair> extensions = new ArrayList<Kvpair>();
 
-  public VoicereadyData reasons(List<Kvpair> reasons) {
+  public VoicecallsidholdData reasons(List<Kvpair> reasons) {
     this.reasons = reasons;
     return this;
   }
 
-  public VoicereadyData addReasonsItem(Kvpair reasonsItem) {
-    if (this.reasons == null) {
-      this.reasons = new ArrayList<Kvpair>();
-    }
+  public VoicecallsidholdData addReasonsItem(Kvpair reasonsItem) {
     this.reasons.add(reasonsItem);
     return this;
   }
@@ -54,7 +46,7 @@ public class VoicereadyData {
    * A key/value pairs list of a data structure that provides additional information associated with this action.
    * @return reasons
   **/
-  @ApiModelProperty(value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
+  @ApiModelProperty(example = "null", value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
   public List<Kvpair> getReasons() {
     return reasons;
   }
@@ -63,15 +55,12 @@ public class VoicereadyData {
     this.reasons = reasons;
   }
 
-  public VoicereadyData extensions(List<Kvpair> extensions) {
+  public VoicecallsidholdData extensions(List<Kvpair> extensions) {
     this.extensions = extensions;
     return this;
   }
 
-  public VoicereadyData addExtensionsItem(Kvpair extensionsItem) {
-    if (this.extensions == null) {
-      this.extensions = new ArrayList<Kvpair>();
-    }
+  public VoicecallsidholdData addExtensionsItem(Kvpair extensionsItem) {
     this.extensions.add(extensionsItem);
     return this;
   }
@@ -80,7 +69,7 @@ public class VoicereadyData {
    * A key/value pairs list of additional data.
    * @return extensions
   **/
-  @ApiModelProperty(value = "A key/value pairs list of additional data.")
+  @ApiModelProperty(example = "null", value = "A key/value pairs list of additional data.")
   public List<Kvpair> getExtensions() {
     return extensions;
   }
@@ -98,9 +87,9 @@ public class VoicereadyData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VoicereadyData voicereadyData = (VoicereadyData) o;
-    return Objects.equals(this.reasons, voicereadyData.reasons) &&
-        Objects.equals(this.extensions, voicereadyData.extensions);
+    VoicecallsidholdData voicecallsidholdData = (VoicecallsidholdData) o;
+    return Objects.equals(this.reasons, voicecallsidholdData.reasons) &&
+        Objects.equals(this.extensions, voicecallsidholdData.extensions);
   }
 
   @Override
@@ -112,7 +101,7 @@ public class VoicereadyData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VoicereadyData {\n");
+    sb.append("class VoicecallsidholdData {\n");
     
     sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");

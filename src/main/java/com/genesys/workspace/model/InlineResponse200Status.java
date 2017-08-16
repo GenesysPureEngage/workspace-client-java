@@ -14,43 +14,20 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * InlineResponse200Status
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-15T19:04:10.225Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
 public class InlineResponse200Status {
-  @SerializedName("code")
-  private Integer code = null;
-
   @SerializedName("message")
   private String message = null;
 
-  public InlineResponse200Status code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * On error will provide a code that can be used to get more detail about the error.
-   * @return code
-  **/
-  @ApiModelProperty(value = "On error will provide a code that can be used to get more detail about the error.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
+  @SerializedName("code")
+  private Integer code = null;
 
   public InlineResponse200Status message(String message) {
     this.message = message;
@@ -61,13 +38,31 @@ public class InlineResponse200Status {
    * On error will provide a message with more detail about the error. Keep in mind that the error message will be fairly general and internal details are not exposed.
    * @return message
   **/
-  @ApiModelProperty(value = "On error will provide a message with more detail about the error. Keep in mind that the error message will be fairly general and internal details are not exposed.")
+  @ApiModelProperty(example = "null", value = "On error will provide a message with more detail about the error. Keep in mind that the error message will be fairly general and internal details are not exposed.")
   public String getMessage() {
     return message;
   }
 
   public void setMessage(String message) {
     this.message = message;
+  }
+
+  public InlineResponse200Status code(Integer code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * On error will provide a code that can be used to get more detail about the error.
+   * @return code
+  **/
+  @ApiModelProperty(example = "null", value = "On error will provide a code that can be used to get more detail about the error.")
+  public Integer getCode() {
+    return code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
   }
 
 
@@ -80,13 +75,13 @@ public class InlineResponse200Status {
       return false;
     }
     InlineResponse200Status inlineResponse200Status = (InlineResponse200Status) o;
-    return Objects.equals(this.code, inlineResponse200Status.code) &&
-        Objects.equals(this.message, inlineResponse200Status.message);
+    return Objects.equals(this.message, inlineResponse200Status.message) &&
+        Objects.equals(this.code, inlineResponse200Status.code);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, message);
+    return Objects.hash(message, code);
   }
 
 
@@ -95,8 +90,8 @@ public class InlineResponse200Status {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse200Status {\n");
     
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("}");
     return sb.toString();
   }
