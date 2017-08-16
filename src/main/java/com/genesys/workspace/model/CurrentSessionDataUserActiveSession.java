@@ -16,22 +16,27 @@ package com.genesys.workspace.model;
 import java.util.Objects;
 import com.genesys.workspace.model.Call;
 import com.genesys.workspace.model.CurrentSessionDataUserActiveSessionDn;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * CurrentSessionDataUserActiveSession
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T22:58:42.161Z")
 public class CurrentSessionDataUserActiveSession {
   @SerializedName("dn")
   private CurrentSessionDataUserActiveSessionDn dn = null;
 
   @SerializedName("calls")
-  private List<Call> calls = new ArrayList<Call>();
+  private List<Call> calls = null;
 
   public CurrentSessionDataUserActiveSession dn(CurrentSessionDataUserActiveSessionDn dn) {
     this.dn = dn;
@@ -42,7 +47,7 @@ public class CurrentSessionDataUserActiveSession {
    * Get dn
    * @return dn
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public CurrentSessionDataUserActiveSessionDn getDn() {
     return dn;
   }
@@ -57,6 +62,9 @@ public class CurrentSessionDataUserActiveSession {
   }
 
   public CurrentSessionDataUserActiveSession addCallsItem(Call callsItem) {
+    if (this.calls == null) {
+      this.calls = new ArrayList<Call>();
+    }
     this.calls.add(callsItem);
     return this;
   }
@@ -65,7 +73,7 @@ public class CurrentSessionDataUserActiveSession {
    * An array containing any active calls.
    * @return calls
   **/
-  @ApiModelProperty(example = "null", value = "An array containing any active calls.")
+  @ApiModelProperty(value = "An array containing any active calls.")
   public List<Call> getCalls() {
     return calls;
   }

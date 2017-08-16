@@ -14,14 +14,19 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Target
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T22:58:42.161Z")
 public class Target {
   @SerializedName("userName")
   private String userName = null;
@@ -47,23 +52,18 @@ public class Target {
   /**
    * The type of the target - agent, agent-group, acd-queue, route-point, skill or custom-contact.
    */
+  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    @SerializedName("agent")
     AGENT("agent"),
     
-    @SerializedName("agent-group")
     AGENT_GROUP("agent-group"),
     
-    @SerializedName("acd-queue")
     ACD_QUEUE("acd-queue"),
     
-    @SerializedName("route-point")
     ROUTE_POINT("route-point"),
     
-    @SerializedName("skill")
     SKILL("skill"),
     
-    @SerializedName("custom-contact")
     CUSTOM_CONTACT("custom-contact");
 
     private String value;
@@ -72,9 +72,35 @@ public class Target {
       this.value = value;
     }
 
+    public String getValue() {
+      return value;
+    }
+
     @Override
     public String toString() {
       return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String text) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TypeEnum.fromValue(String.valueOf(value));
+      }
     }
   }
 
@@ -96,7 +122,7 @@ public class Target {
    * Username - only applicable to agents.
    * @return userName
   **/
-  @ApiModelProperty(example = "null", value = "Username - only applicable to agents.")
+  @ApiModelProperty(value = "Username - only applicable to agents.")
   public String getUserName() {
     return userName;
   }
@@ -114,7 +140,7 @@ public class Target {
    * Employee id - only applicable to agents.
    * @return employeeID
   **/
-  @ApiModelProperty(example = "null", value = "Employee id - only applicable to agents.")
+  @ApiModelProperty(value = "Employee id - only applicable to agents.")
   public String getEmployeeID() {
     return employeeID;
   }
@@ -132,7 +158,7 @@ public class Target {
    * First name - only applicable to agents.
    * @return firstName
   **/
-  @ApiModelProperty(example = "null", value = "First name - only applicable to agents.")
+  @ApiModelProperty(value = "First name - only applicable to agents.")
   public String getFirstName() {
     return firstName;
   }
@@ -150,7 +176,7 @@ public class Target {
    * DBID of the object
    * @return DBID
   **/
-  @ApiModelProperty(example = "null", value = "DBID of the object")
+  @ApiModelProperty(value = "DBID of the object")
   public Integer getDBID() {
     return DBID;
   }
@@ -168,7 +194,7 @@ public class Target {
    * Only applicable to acd-queue and route-point
    * @return switchName
   **/
-  @ApiModelProperty(example = "null", value = "Only applicable to acd-queue and route-point")
+  @ApiModelProperty(value = "Only applicable to acd-queue and route-point")
   public String getSwitchName() {
     return switchName;
   }
@@ -186,7 +212,7 @@ public class Target {
    * Only applicable to acd-queue and route-point
    * @return number
   **/
-  @ApiModelProperty(example = "null", value = "Only applicable to acd-queue and route-point")
+  @ApiModelProperty(value = "Only applicable to acd-queue and route-point")
   public String getNumber() {
     return number;
   }
@@ -204,7 +230,7 @@ public class Target {
    * Last name - only applicable to agents.
    * @return lastName
   **/
-  @ApiModelProperty(example = "null", value = "Last name - only applicable to agents.")
+  @ApiModelProperty(value = "Last name - only applicable to agents.")
   public String getLastName() {
     return lastName;
   }
@@ -222,7 +248,7 @@ public class Target {
    * The type of the target - agent, agent-group, acd-queue, route-point, skill or custom-contact.
    * @return type
   **/
-  @ApiModelProperty(example = "null", value = "The type of the target - agent, agent-group, acd-queue, route-point, skill or custom-contact.")
+  @ApiModelProperty(value = "The type of the target - agent, agent-group, acd-queue, route-point, skill or custom-contact.")
   public TypeEnum getType() {
     return type;
   }
@@ -240,7 +266,7 @@ public class Target {
    * The structure depends on the target type. For agents, availability includes channel details. For acd-queues and route-points, waiting calls. For agent-groups, the number of ready agents.
    * @return availability
   **/
-  @ApiModelProperty(example = "null", value = "The structure depends on the target type. For agents, availability includes channel details. For acd-queues and route-points, waiting calls. For agent-groups, the number of ready agents.")
+  @ApiModelProperty(value = "The structure depends on the target type. For agents, availability includes channel details. For acd-queues and route-points, waiting calls. For agent-groups, the number of ready agents.")
   public Object getAvailability() {
     return availability;
   }
@@ -258,7 +284,7 @@ public class Target {
    * For agents firstname and lastname (or username if neither is defined), for other types the name field is used.
    * @return name
   **/
-  @ApiModelProperty(example = "null", value = "For agents firstname and lastname (or username if neither is defined), for other types the name field is used.")
+  @ApiModelProperty(value = "For agents firstname and lastname (or username if neither is defined), for other types the name field is used.")
   public String getName() {
     return name;
   }

@@ -15,22 +15,27 @@ package com.genesys.workspace.model;
 
 import java.util.Objects;
 import com.genesys.workspace.model.Kvpair;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * VoicecallsidalternateData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T22:58:42.161Z")
 public class VoicecallsidalternateData {
   @SerializedName("reasons")
-  private List<Kvpair> reasons = new ArrayList<Kvpair>();
+  private List<Kvpair> reasons = null;
 
   @SerializedName("extensions")
-  private List<Kvpair> extensions = new ArrayList<Kvpair>();
+  private List<Kvpair> extensions = null;
 
   @SerializedName("heldConnId")
   private String heldConnId = null;
@@ -41,6 +46,9 @@ public class VoicecallsidalternateData {
   }
 
   public VoicecallsidalternateData addReasonsItem(Kvpair reasonsItem) {
+    if (this.reasons == null) {
+      this.reasons = new ArrayList<Kvpair>();
+    }
     this.reasons.add(reasonsItem);
     return this;
   }
@@ -49,7 +57,7 @@ public class VoicecallsidalternateData {
    * A key/value pairs list of a data structure that provides additional information associated with this action.
    * @return reasons
   **/
-  @ApiModelProperty(example = "null", value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
+  @ApiModelProperty(value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
   public List<Kvpair> getReasons() {
     return reasons;
   }
@@ -64,6 +72,9 @@ public class VoicecallsidalternateData {
   }
 
   public VoicecallsidalternateData addExtensionsItem(Kvpair extensionsItem) {
+    if (this.extensions == null) {
+      this.extensions = new ArrayList<Kvpair>();
+    }
     this.extensions.add(extensionsItem);
     return this;
   }
@@ -72,7 +83,7 @@ public class VoicecallsidalternateData {
    * A key/value pairs list of additional data.
    * @return extensions
   **/
-  @ApiModelProperty(example = "null", value = "A key/value pairs list of additional data.")
+  @ApiModelProperty(value = "A key/value pairs list of additional data.")
   public List<Kvpair> getExtensions() {
     return extensions;
   }
@@ -90,7 +101,7 @@ public class VoicecallsidalternateData {
    * ConnId of the held call that should be retrieved.
    * @return heldConnId
   **/
-  @ApiModelProperty(example = "null", required = true, value = "ConnId of the held call that should be retrieved.")
+  @ApiModelProperty(required = true, value = "ConnId of the held call that should be retrieved.")
   public String getHeldConnId() {
     return heldConnId;
   }

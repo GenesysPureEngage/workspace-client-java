@@ -15,14 +15,19 @@ package com.genesys.workspace.model;
 
 import java.util.Objects;
 import com.genesys.workspace.model.TargetInformation;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * TargetspersonalfavoritessaveData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T22:58:42.161Z")
 public class TargetspersonalfavoritessaveData {
   @SerializedName("category")
   private String category = null;
@@ -39,7 +44,7 @@ public class TargetspersonalfavoritessaveData {
    * category of the favorite target
    * @return category
   **/
-  @ApiModelProperty(example = "null", required = true, value = "category of the favorite target")
+  @ApiModelProperty(required = true, value = "category of the favorite target")
   public String getCategory() {
     return category;
   }
@@ -57,7 +62,7 @@ public class TargetspersonalfavoritessaveData {
    * The personal favorite target
    * @return target
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The personal favorite target")
+  @ApiModelProperty(required = true, value = "The personal favorite target")
   public TargetInformation getTarget() {
     return target;
   }

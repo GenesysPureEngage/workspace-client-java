@@ -16,22 +16,27 @@ package com.genesys.workspace.model;
 import java.util.Objects;
 import com.genesys.workspace.model.CurrentSessionDataUserActiveSession;
 import com.genesys.workspace.model.Kvpair;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * CurrentSessionDataUser
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T22:58:42.161Z")
 public class CurrentSessionDataUser {
   @SerializedName("userName")
   private String userName = null;
 
   @SerializedName("userProperties")
-  private List<Kvpair> userProperties = new ArrayList<Kvpair>();
+  private List<Kvpair> userProperties = null;
 
   @SerializedName("employeeId")
   private String employeeId = null;
@@ -63,7 +68,7 @@ public class CurrentSessionDataUser {
    * Get userName
    * @return userName
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getUserName() {
     return userName;
   }
@@ -78,6 +83,9 @@ public class CurrentSessionDataUser {
   }
 
   public CurrentSessionDataUser addUserPropertiesItem(Kvpair userPropertiesItem) {
+    if (this.userProperties == null) {
+      this.userProperties = new ArrayList<Kvpair>();
+    }
     this.userProperties.add(userPropertiesItem);
     return this;
   }
@@ -86,7 +94,7 @@ public class CurrentSessionDataUser {
    * Get userProperties
    * @return userProperties
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<Kvpair> getUserProperties() {
     return userProperties;
   }
@@ -104,7 +112,7 @@ public class CurrentSessionDataUser {
    * Get employeeId
    * @return employeeId
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getEmployeeId() {
     return employeeId;
   }
@@ -122,7 +130,7 @@ public class CurrentSessionDataUser {
    * Get firstName
    * @return firstName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getFirstName() {
     return firstName;
   }
@@ -140,7 +148,7 @@ public class CurrentSessionDataUser {
    * Get dbid
    * @return dbid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Integer getDbid() {
     return dbid;
   }
@@ -158,7 +166,7 @@ public class CurrentSessionDataUser {
    * Get activeSession
    * @return activeSession
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public CurrentSessionDataUserActiveSession getActiveSession() {
     return activeSession;
   }
@@ -176,7 +184,7 @@ public class CurrentSessionDataUser {
    * Get defaultPlace
    * @return defaultPlace
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getDefaultPlace() {
     return defaultPlace;
   }
@@ -194,7 +202,7 @@ public class CurrentSessionDataUser {
    * Get lastName
    * @return lastName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getLastName() {
     return lastName;
   }
@@ -212,7 +220,7 @@ public class CurrentSessionDataUser {
    * Get agentLogin
    * @return agentLogin
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getAgentLogin() {
     return agentLogin;
   }

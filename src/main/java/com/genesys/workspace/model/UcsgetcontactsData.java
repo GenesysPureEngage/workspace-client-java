@@ -14,19 +14,24 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * UcsgetcontactsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T22:58:42.161Z")
 public class UcsgetcontactsData {
   @SerializedName("sortCriteria")
-  private List<Object> sortCriteria = new ArrayList<Object>();
+  private List<Object> sortCriteria = null;
 
   @SerializedName("startIndex")
   private Integer startIndex = null;
@@ -46,6 +51,9 @@ public class UcsgetcontactsData {
   }
 
   public UcsgetcontactsData addSortCriteriaItem(Object sortCriteriaItem) {
+    if (this.sortCriteria == null) {
+      this.sortCriteria = new ArrayList<Object>();
+    }
     this.sortCriteria.add(sortCriteriaItem);
     return this;
   }
@@ -54,7 +62,7 @@ public class UcsgetcontactsData {
    * The sorting criteria
    * @return sortCriteria
   **/
-  @ApiModelProperty(example = "null", value = "The sorting criteria")
+  @ApiModelProperty(value = "The sorting criteria")
   public List<Object> getSortCriteria() {
     return sortCriteria;
   }
@@ -72,7 +80,7 @@ public class UcsgetcontactsData {
    * The start index
    * @return startIndex
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The start index")
+  @ApiModelProperty(required = true, value = "The start index")
   public Integer getStartIndex() {
     return startIndex;
   }
@@ -90,7 +98,7 @@ public class UcsgetcontactsData {
    * The maximum number of contacts to be returned
    * @return maxCount
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The maximum number of contacts to be returned")
+  @ApiModelProperty(required = true, value = "The maximum number of contacts to be returned")
   public Integer getMaxCount() {
     return maxCount;
   }
@@ -108,7 +116,7 @@ public class UcsgetcontactsData {
    * The search criteria
    * @return searchCriteria
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The search criteria")
+  @ApiModelProperty(required = true, value = "The search criteria")
   public Object getSearchCriteria() {
     return searchCriteria;
   }
@@ -131,7 +139,7 @@ public class UcsgetcontactsData {
    * The list of contact attributes to be returned for each contact in response
    * @return attributeList
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The list of contact attributes to be returned for each contact in response")
+  @ApiModelProperty(required = true, value = "The list of contact attributes to be returned for each contact in response")
   public List<String> getAttributeList() {
     return attributeList;
   }

@@ -14,14 +14,19 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * UcssetcallnoteData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T22:58:42.161Z")
 public class UcssetcallnoteData {
   @SerializedName("note")
   private String note = null;
@@ -38,7 +43,7 @@ public class UcssetcallnoteData {
    * The note to be set
    * @return note
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The note to be set")
+  @ApiModelProperty(required = true, value = "The note to be set")
   public String getNote() {
     return note;
   }
@@ -56,7 +61,7 @@ public class UcssetcallnoteData {
    * The id of the interaction
    * @return interactionId
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The id of the interaction")
+  @ApiModelProperty(required = true, value = "The id of the interaction")
   public String getInteractionId() {
     return interactionId;
   }

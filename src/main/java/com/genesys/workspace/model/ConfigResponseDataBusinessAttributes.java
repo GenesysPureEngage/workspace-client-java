@@ -16,22 +16,27 @@ package com.genesys.workspace.model;
 import java.util.Objects;
 import com.genesys.workspace.model.ConfigResponseDataValues;
 import com.genesys.workspace.model.Kvpair;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * ConfigResponseDataBusinessAttributes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T22:58:42.161Z")
 public class ConfigResponseDataBusinessAttributes {
   @SerializedName("userProperties")
-  private List<Kvpair> userProperties = new ArrayList<Kvpair>();
+  private List<Kvpair> userProperties = null;
 
   @SerializedName("values")
-  private List<ConfigResponseDataValues> values = new ArrayList<ConfigResponseDataValues>();
+  private List<ConfigResponseDataValues> values = null;
 
   @SerializedName("displayName")
   private String displayName = null;
@@ -48,6 +53,9 @@ public class ConfigResponseDataBusinessAttributes {
   }
 
   public ConfigResponseDataBusinessAttributes addUserPropertiesItem(Kvpair userPropertiesItem) {
+    if (this.userProperties == null) {
+      this.userProperties = new ArrayList<Kvpair>();
+    }
     this.userProperties.add(userPropertiesItem);
     return this;
   }
@@ -56,7 +64,7 @@ public class ConfigResponseDataBusinessAttributes {
    * Get userProperties
    * @return userProperties
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<Kvpair> getUserProperties() {
     return userProperties;
   }
@@ -71,6 +79,9 @@ public class ConfigResponseDataBusinessAttributes {
   }
 
   public ConfigResponseDataBusinessAttributes addValuesItem(ConfigResponseDataValues valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<ConfigResponseDataValues>();
+    }
     this.values.add(valuesItem);
     return this;
   }
@@ -79,7 +90,7 @@ public class ConfigResponseDataBusinessAttributes {
    * Get values
    * @return values
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<ConfigResponseDataValues> getValues() {
     return values;
   }
@@ -97,7 +108,7 @@ public class ConfigResponseDataBusinessAttributes {
    * Get displayName
    * @return displayName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getDisplayName() {
     return displayName;
   }
@@ -115,7 +126,7 @@ public class ConfigResponseDataBusinessAttributes {
    * Get name
    * @return name
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getName() {
     return name;
   }
@@ -133,7 +144,7 @@ public class ConfigResponseDataBusinessAttributes {
    * Get description
    * @return description
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getDescription() {
     return description;
   }

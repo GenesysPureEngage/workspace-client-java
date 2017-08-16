@@ -15,22 +15,27 @@ package com.genesys.workspace.model;
 
 import java.util.Objects;
 import com.genesys.workspace.model.Kvpair;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * VoicecallsidinitiateconferenceData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T22:58:42.161Z")
 public class VoicecallsidinitiateconferenceData {
   @SerializedName("userData")
-  private List<Kvpair> userData = new ArrayList<Kvpair>();
+  private List<Kvpair> userData = null;
 
   @SerializedName("reasons")
-  private List<Kvpair> reasons = new ArrayList<Kvpair>();
+  private List<Kvpair> reasons = null;
 
   @SerializedName("outboundCallerId")
   private String outboundCallerId = null;
@@ -39,7 +44,7 @@ public class VoicecallsidinitiateconferenceData {
   private String destination = null;
 
   @SerializedName("extensions")
-  private List<Kvpair> extensions = new ArrayList<Kvpair>();
+  private List<Kvpair> extensions = null;
 
   @SerializedName("location")
   private String location = null;
@@ -50,6 +55,9 @@ public class VoicecallsidinitiateconferenceData {
   }
 
   public VoicecallsidinitiateconferenceData addUserDataItem(Kvpair userDataItem) {
+    if (this.userData == null) {
+      this.userData = new ArrayList<Kvpair>();
+    }
     this.userData.add(userDataItem);
     return this;
   }
@@ -58,7 +66,7 @@ public class VoicecallsidinitiateconferenceData {
    * A key/value pairs list of the user data that should be attached to the call.
    * @return userData
   **/
-  @ApiModelProperty(example = "null", value = "A key/value pairs list of the user data that should be attached to the call.")
+  @ApiModelProperty(value = "A key/value pairs list of the user data that should be attached to the call.")
   public List<Kvpair> getUserData() {
     return userData;
   }
@@ -73,6 +81,9 @@ public class VoicecallsidinitiateconferenceData {
   }
 
   public VoicecallsidinitiateconferenceData addReasonsItem(Kvpair reasonsItem) {
+    if (this.reasons == null) {
+      this.reasons = new ArrayList<Kvpair>();
+    }
     this.reasons.add(reasonsItem);
     return this;
   }
@@ -81,7 +92,7 @@ public class VoicecallsidinitiateconferenceData {
    * A key/value pairs list of a data structure that provides additional information associated with this action.
    * @return reasons
   **/
-  @ApiModelProperty(example = "null", value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
+  @ApiModelProperty(value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
   public List<Kvpair> getReasons() {
     return reasons;
   }
@@ -99,7 +110,7 @@ public class VoicecallsidinitiateconferenceData {
    * value to be set as CPN_DIGITS.
    * @return outboundCallerId
   **/
-  @ApiModelProperty(example = "null", value = "value to be set as CPN_DIGITS.")
+  @ApiModelProperty(value = "value to be set as CPN_DIGITS.")
   public String getOutboundCallerId() {
     return outboundCallerId;
   }
@@ -117,7 +128,7 @@ public class VoicecallsidinitiateconferenceData {
    * The number to be dialed
    * @return destination
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The number to be dialed")
+  @ApiModelProperty(required = true, value = "The number to be dialed")
   public String getDestination() {
     return destination;
   }
@@ -132,6 +143,9 @@ public class VoicecallsidinitiateconferenceData {
   }
 
   public VoicecallsidinitiateconferenceData addExtensionsItem(Kvpair extensionsItem) {
+    if (this.extensions == null) {
+      this.extensions = new ArrayList<Kvpair>();
+    }
     this.extensions.add(extensionsItem);
     return this;
   }
@@ -140,7 +154,7 @@ public class VoicecallsidinitiateconferenceData {
    * A key/value pairs list of additional data.
    * @return extensions
   **/
-  @ApiModelProperty(example = "null", value = "A key/value pairs list of additional data.")
+  @ApiModelProperty(value = "A key/value pairs list of additional data.")
   public List<Kvpair> getExtensions() {
     return extensions;
   }
@@ -155,10 +169,10 @@ public class VoicecallsidinitiateconferenceData {
   }
 
    /**
-   * Name of the remote location in the form of <SwitchName> or <T-ServerApplicationName>@<SwitchName>. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
+   * Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
    * @return location
   **/
-  @ApiModelProperty(example = "null", value = "Name of the remote location in the form of <SwitchName> or <T-ServerApplicationName>@<SwitchName>. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.")
+  @ApiModelProperty(value = "Name of the remote location in the form of <SwitchName> or <T-ServerApplicationName>@<SwitchName>. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.")
   public String getLocation() {
     return location;
   }

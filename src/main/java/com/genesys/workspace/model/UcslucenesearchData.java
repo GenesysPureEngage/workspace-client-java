@@ -14,22 +14,27 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * UcslucenesearchData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T22:58:42.161Z")
 public class UcslucenesearchData {
   @SerializedName("query")
   private String query = null;
 
   @SerializedName("customAttributes")
-  private List<String> customAttributes = new ArrayList<String>();
+  private List<String> customAttributes = null;
 
   @SerializedName("maxResults")
   private Integer maxResults = null;
@@ -43,7 +48,7 @@ public class UcslucenesearchData {
    * The query to do the lucene search for contacts
    * @return query
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The query to do the lucene search for contacts")
+  @ApiModelProperty(required = true, value = "The query to do the lucene search for contacts")
   public String getQuery() {
     return query;
   }
@@ -58,6 +63,9 @@ public class UcslucenesearchData {
   }
 
   public UcslucenesearchData addCustomAttributesItem(String customAttributesItem) {
+    if (this.customAttributes == null) {
+      this.customAttributes = new ArrayList<String>();
+    }
     this.customAttributes.add(customAttributesItem);
     return this;
   }
@@ -66,7 +74,7 @@ public class UcslucenesearchData {
    * The list of custom contact attributes to be returned for each contact in response
    * @return customAttributes
   **/
-  @ApiModelProperty(example = "null", value = "The list of custom contact attributes to be returned for each contact in response")
+  @ApiModelProperty(value = "The list of custom contact attributes to be returned for each contact in response")
   public List<String> getCustomAttributes() {
     return customAttributes;
   }
@@ -84,7 +92,7 @@ public class UcslucenesearchData {
    * The maximum number of contacts to be returned
    * @return maxResults
   **/
-  @ApiModelProperty(example = "null", value = "The maximum number of contacts to be returned")
+  @ApiModelProperty(value = "The maximum number of contacts to be returned")
   public Integer getMaxResults() {
     return maxResults;
   }

@@ -15,16 +15,21 @@ package com.genesys.workspace.model;
 
 import java.util.Objects;
 import com.genesys.workspace.model.Kvpair;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * UcssetcallcompletedData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T22:58:42.161Z")
 public class UcssetcallcompletedData {
   @SerializedName("userData")
   private List<Kvpair> userData = new ArrayList<Kvpair>();
@@ -49,7 +54,7 @@ public class UcssetcallcompletedData {
    * A key/value pairs list of the user data of the call.
    * @return userData
   **/
-  @ApiModelProperty(example = "null", required = true, value = "A key/value pairs list of the user data of the call.")
+  @ApiModelProperty(required = true, value = "A key/value pairs list of the user data of the call.")
   public List<Kvpair> getUserData() {
     return userData;
   }
@@ -67,7 +72,7 @@ public class UcssetcallcompletedData {
    * The id of the interaction
    * @return interactionId
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The id of the interaction")
+  @ApiModelProperty(required = true, value = "The id of the interaction")
   public String getInteractionId() {
     return interactionId;
   }
@@ -85,7 +90,7 @@ public class UcssetcallcompletedData {
    * The duration of the call
    * @return callDuration
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The duration of the call")
+  @ApiModelProperty(required = true, value = "The duration of the call")
   public Integer getCallDuration() {
     return callDuration;
   }

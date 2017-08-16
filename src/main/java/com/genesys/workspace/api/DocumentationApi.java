@@ -53,12 +53,18 @@ public class DocumentationApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for swaggerDoc */
-    private com.squareup.okhttp.Call swaggerDocCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for swaggerDoc
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call swaggerDocCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/doc".replaceAll("\\{format\\}","json");
+        String localVarPath = "/doc";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 

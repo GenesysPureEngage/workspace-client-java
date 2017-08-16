@@ -15,16 +15,21 @@ package com.genesys.workspace.model;
 
 import java.util.Objects;
 import com.genesys.workspace.model.Kvpair;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * UcsidentifycontactData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T22:58:42.161Z")
 public class UcsidentifycontactData {
   @SerializedName("emailAddress")
   private String emailAddress = null;
@@ -50,7 +55,7 @@ public class UcsidentifycontactData {
    * The email address of the interaction, if interaction is an email
    * @return emailAddress
   **/
-  @ApiModelProperty(example = "null", value = "The email address of the interaction, if interaction is an email")
+  @ApiModelProperty(value = "The email address of the interaction, if interaction is an email")
   public String getEmailAddress() {
     return emailAddress;
   }
@@ -73,7 +78,7 @@ public class UcsidentifycontactData {
    * A key/value pairs list of the user data of the call.
    * @return userData
   **/
-  @ApiModelProperty(example = "null", required = true, value = "A key/value pairs list of the user data of the call.")
+  @ApiModelProperty(required = true, value = "A key/value pairs list of the user data of the call.")
   public List<Kvpair> getUserData() {
     return userData;
   }
@@ -91,7 +96,7 @@ public class UcsidentifycontactData {
    * The phone number of the interaction, if interaction is a voice call
    * @return phoneNumber
   **/
-  @ApiModelProperty(example = "null", value = "The phone number of the interaction, if interaction is a voice call")
+  @ApiModelProperty(value = "The phone number of the interaction, if interaction is a voice call")
   public String getPhoneNumber() {
     return phoneNumber;
   }
@@ -109,7 +114,7 @@ public class UcsidentifycontactData {
    * The media type of the interaction
    * @return mediaType
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The media type of the interaction")
+  @ApiModelProperty(required = true, value = "The media type of the interaction")
   public String getMediaType() {
     return mediaType;
   }
@@ -127,7 +132,7 @@ public class UcsidentifycontactData {
    * Indicates if a contact should be created if no matching contact found
    * @return createContactEnabled
   **/
-  @ApiModelProperty(example = "null", value = "Indicates if a contact should be created if no matching contact found")
+  @ApiModelProperty(value = "Indicates if a contact should be created if no matching contact found")
   public Boolean getCreateContactEnabled() {
     return createContactEnabled;
   }

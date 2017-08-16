@@ -14,14 +14,19 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * CurrentSessionDataUserActiveSessionDn
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T22:58:42.161Z")
 public class CurrentSessionDataUserActiveSessionDn {
   @SerializedName("agentWorkMode")
   private String agentWorkMode = null;
@@ -44,7 +49,7 @@ public class CurrentSessionDataUserActiveSessionDn {
    * Get agentWorkMode
    * @return agentWorkMode
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getAgentWorkMode() {
     return agentWorkMode;
   }
@@ -62,7 +67,7 @@ public class CurrentSessionDataUserActiveSessionDn {
    * Get agentId
    * @return agentId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getAgentId() {
     return agentId;
   }
@@ -80,7 +85,7 @@ public class CurrentSessionDataUserActiveSessionDn {
    * Get agentState
    * @return agentState
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getAgentState() {
     return agentState;
   }
@@ -98,7 +103,7 @@ public class CurrentSessionDataUserActiveSessionDn {
    * Get number
    * @return number
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getNumber() {
     return number;
   }

@@ -14,16 +14,21 @@
 package com.genesys.workspace.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * TargetInformation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T15:04:10.045Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T22:58:42.161Z")
 public class TargetInformation {
   @SerializedName("firstName")
   private String firstName = null;
@@ -32,10 +37,10 @@ public class TargetInformation {
   private String lastName = null;
 
   @SerializedName("numbers")
-  private List<String> numbers = new ArrayList<String>();
+  private List<String> numbers = null;
 
   @SerializedName("emailAddresses")
-  private List<String> emailAddresses = new ArrayList<String>();
+  private List<String> emailAddresses = null;
 
   @SerializedName("type")
   private String type = null;
@@ -52,7 +57,7 @@ public class TargetInformation {
    * Get firstName
    * @return firstName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getFirstName() {
     return firstName;
   }
@@ -70,7 +75,7 @@ public class TargetInformation {
    * Get lastName
    * @return lastName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getLastName() {
     return lastName;
   }
@@ -85,6 +90,9 @@ public class TargetInformation {
   }
 
   public TargetInformation addNumbersItem(String numbersItem) {
+    if (this.numbers == null) {
+      this.numbers = new ArrayList<String>();
+    }
     this.numbers.add(numbersItem);
     return this;
   }
@@ -93,7 +101,7 @@ public class TargetInformation {
    * Get numbers
    * @return numbers
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<String> getNumbers() {
     return numbers;
   }
@@ -108,6 +116,9 @@ public class TargetInformation {
   }
 
   public TargetInformation addEmailAddressesItem(String emailAddressesItem) {
+    if (this.emailAddresses == null) {
+      this.emailAddresses = new ArrayList<String>();
+    }
     this.emailAddresses.add(emailAddressesItem);
     return this;
   }
@@ -116,7 +127,7 @@ public class TargetInformation {
    * Get emailAddresses
    * @return emailAddresses
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<String> getEmailAddresses() {
     return emailAddresses;
   }
@@ -134,7 +145,7 @@ public class TargetInformation {
    * Get type
    * @return type
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getType() {
     return type;
   }
@@ -152,7 +163,7 @@ public class TargetInformation {
    * Get id
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getId() {
     return id;
   }
