@@ -10,6 +10,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.List;
 import java.util.Set;
 import java.util.Optional;
 
@@ -440,7 +441,7 @@ public class WorkspaceApi {
             if(response.getStatus().getCode() != 0) {
                 throw new WorkspaceApiException(
                         "activateChannels failed with code: " +
-                        response.getStatus().getCode());
+                                response.getStatus().getCode());
             }
         } catch (ApiException e) {
             throw new WorkspaceApiException("activateChannels failed.", e);
@@ -629,6 +630,281 @@ public class WorkspaceApi {
             throwIfNotOk("alternateCalls", response);
         } catch (ApiException e) {
             throw new WorkspaceApiException("alternateCalls failed.", e);
+        }
+    }
+
+    public void deleteFromConference(String connId, String dnToDrop) throws WorkspaceApiException {
+        try {
+            VoicecallsiddeletefromconferenceData deleteData =
+                    new VoicecallsiddeletefromconferenceData();
+            deleteData.setDnToDrop(dnToDrop);
+            DeleteFromConferenceData data = new DeleteFromConferenceData();
+            data.data(deleteData);
+            ApiSuccessResponse response = this.voiceApi.deleteFromConference(connId, data);
+            throwIfNotOk("deleteFromConference", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("deleteFromConference failed", e);
+        }
+    }
+
+    public void singleStepTransfer(String connId, String destination) throws WorkspaceApiException {
+        try {
+            VoicecallsidsinglesteptransferData transferData =
+                    new VoicecallsidsinglesteptransferData();
+            transferData.setDestination(destination);
+            SingleStepTransferData data = new SingleStepTransferData();
+            data.data(transferData);
+
+            ApiSuccessResponse response = this.voiceApi.singleStepTransfer(connId, data);
+            throwIfNotOk("singleStepTransfer", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("singleStepTransfer failed", e);
+        }
+    }
+
+    public void singleStepConference(String connId, String destination) throws WorkspaceApiException {
+        try {
+            VoicecallsidsinglestepconferenceData confData =
+                    new VoicecallsidsinglestepconferenceData();
+            confData.setDestination(destination);
+            SingleStepConferenceData data = new SingleStepConferenceData();
+            data.data(confData);
+
+            ApiSuccessResponse response = this.voiceApi.singleStepConference(connId, data);
+            throwIfNotOk("singleStepConference", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("singleStepConference failed", e);
+        }
+    }
+
+    public void dndOn() throws WorkspaceApiException {
+        try {
+            ApiSuccessResponse response = this.voiceApi.setDNDOn();
+            throwIfNotOk("dndOn", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("dndOn failed.", e);
+        }
+    }
+
+    public void dndOff() throws WorkspaceApiException {
+        try {
+            ApiSuccessResponse response = this.voiceApi.setDNDOff();
+            throwIfNotOk("dndOff", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("dndOff failed.", e);
+        }
+    }
+
+    public void voiceLogin(String connId) throws WorkspaceApiException {
+        try {
+            ApiSuccessResponse response = this.voiceApi.loginVoice();
+            throwIfNotOk("voiceLogin", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("voiceLogin failed", e);
+        }
+    }
+
+    public void voiceLogout(String connId) throws WorkspaceApiException {
+        try {
+            ApiSuccessResponse response = this.voiceApi.logoutVoice();
+            throwIfNotOk("voiceLogout", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("voiceLogout failed", e);
+        }
+    }
+
+    public void setForward(String destination) throws WorkspaceApiException {
+        try {
+            VoicesetforwardData forwardData = new VoicesetforwardData();
+            forwardData.setForwardTo(destination);
+
+            ForwardData data = new ForwardData();
+            data.data(forwardData);
+
+            ApiSuccessResponse response = this.voiceApi.forward(data);
+            throwIfNotOk("setForward", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("setForward failed.", e);
+        }
+    }
+
+    public void cancelForward() throws WorkspaceApiException {
+        try {
+            ApiSuccessResponse response = this.voiceApi.cancelForward();
+            throwIfNotOk("cancelForward", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("cancelForward failed.", e);
+        }
+    }
+
+    public void attachUserData(String connId, List<Kvpair> userData) throws WorkspaceApiException {
+        try {
+            VoicecallsidcompleteData completeData = new VoicecallsidcompleteData();
+            completeData.setUserData(userData);
+            UserData data = new UserData();
+            data.data(completeData);
+
+            ApiSuccessResponse response = this.voiceApi.attachUserData(connId, data);
+            throwIfNotOk("attachUserData", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("attachUserData failed.", e);
+        }
+    }
+
+    public void updateUserData(String connId, List<Kvpair> userData) throws WorkspaceApiException {
+        try {
+            VoicecallsidcompleteData completeData = new VoicecallsidcompleteData();
+            completeData.setUserData(userData);
+            UserData data = new UserData();
+            data.data(completeData);
+
+            ApiSuccessResponse response = this.voiceApi.updateUserData(connId, data);
+            throwIfNotOk("updateUserData", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("updateUserData failed.", e);
+        }
+    }
+
+    public void deleteUserDataPair(String connId, String key) throws WorkspaceApiException {
+        try {
+            VoicecallsiddeleteuserdatapairData deletePairData =
+                    new VoicecallsiddeleteuserdatapairData();
+            deletePairData.setKey(key);
+            KeyData data = new KeyData();
+            data.data(deletePairData);
+
+            ApiSuccessResponse response = this.voiceApi.deleteUserDataPair(connId, data);
+            throwIfNotOk("deleteUserDataPair", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("deleteUserDataPair failed.", e);
+        }
+    }
+
+    public void sendDtmf(String connId, String digits) throws WorkspaceApiException {
+        try {
+            VoicecallsidsenddtmfData dtmfData = new VoicecallsidsenddtmfData();
+            dtmfData.setDtmfDigits(digits);
+            SendDTMFData data = new SendDTMFData();
+            data.data(dtmfData);
+
+            ApiSuccessResponse response = this.voiceApi.sendDTMF(connId, data);
+            throwIfNotOk("sendDtmf", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("sendDtmf failed", e);
+        }
+    }
+
+    public void sendUserEvent(List<Kvpair> userData) throws WorkspaceApiException {
+        this.sendUserEvent(userData, null);
+    }
+
+    public void sendUserEvent(List<Kvpair> userData, String callUuid) throws WorkspaceApiException {
+        try {
+            SendUserEventDataData sendUserEventData = new SendUserEventDataData();
+            sendUserEventData.setUserData(userData);
+            sendUserEventData.setCallUuid(callUuid);
+
+            SendUserEventData data = new SendUserEventData();
+            data.data(sendUserEventData);
+
+            ApiSuccessResponse response = this.voiceApi.sendUserEvent(data);
+            throwIfNotOk("sendUserEvent", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("sendUserEvent failed.", e);
+        }
+    }
+
+    public void redirectCall(String connId, String destination) throws WorkspaceApiException {
+        try {
+            VoicecallsidredirectData redirectData = new VoicecallsidredirectData();
+            redirectData.setDestination(destination);
+            RedirectData data = new RedirectData();
+            data.data(redirectData);
+
+            ApiSuccessResponse response = this.voiceApi.redirect(connId, data);
+            throwIfNotOk("redirectCall", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("redirectCall failed.", e);
+        }
+    }
+
+    public void mergeCalls(String connId, String otherConnId) throws WorkspaceApiException {
+        try {
+            VoicecallsidmergeData mergeData = new VoicecallsidmergeData();
+            mergeData.setOtherConnId(otherConnId);
+
+            MergeData data = new MergeData();
+            data.data(mergeData);
+
+            ApiSuccessResponse response = this.voiceApi.merge(connId, data);
+            throwIfNotOk("mergeCalls", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("mergeCalls failed.", e);
+        }
+    }
+
+    public void reconnectCall(String connId, String heldConnId) throws WorkspaceApiException {
+        try {
+            VoicecallsidreconnectData reconnectData = new VoicecallsidreconnectData();
+            reconnectData.setHeldConnId(heldConnId);
+
+            ReconnectData data = new ReconnectData();
+            data.data(reconnectData);
+
+            ApiSuccessResponse response = this.voiceApi.reconnect(connId, data);
+            throwIfNotOk("reconnectCall", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("reconnectCall failed.", e);
+        }
+    }
+
+    public void clearCall(String connId) throws WorkspaceApiException {
+        try {
+            VoicecallsidholdData clearData = new VoicecallsidholdData();
+
+            ClearData data = new ClearData();
+            data.data(clearData);
+
+            ApiSuccessResponse response = this.voiceApi.clear(connId, data);
+            throwIfNotOk("clearCall", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("clearCall failed.", e);
+        }
+    }
+
+    public void startRecording(String connId) throws WorkspaceApiException {
+        try {
+            ApiSuccessResponse response = this.voiceApi.startRecording(connId);
+            throwIfNotOk("startRecording", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("startRecording failed.", e);
+        }
+    }
+
+    public void pauseRecording(String connId) throws WorkspaceApiException {
+        try {
+            ApiSuccessResponse response = this.voiceApi.pauseRecording(connId);
+            throwIfNotOk("pauseRecording", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("pauseRecording failed.", e);
+        }
+    }
+
+    public void resumeRecording(String connId) throws WorkspaceApiException {
+        try {
+            ApiSuccessResponse response = this.voiceApi.resumeRecording(connId);
+            throwIfNotOk("resumeRecording", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("resumeRecording failed.", e);
+        }
+    }
+
+    public void stopRecording(String connId) throws WorkspaceApiException {
+        try {
+            ApiSuccessResponse response = this.voiceApi.stopRecording(connId);
+            throwIfNotOk("stopRecording", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("stopRecording failed.", e);
         }
     }
 
