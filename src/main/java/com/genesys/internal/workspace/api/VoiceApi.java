@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import com.genesys.internal.workspace.model.AlternateData;
 import com.genesys.internal.workspace.model.AnswerData;
+import com.genesys.internal.workspace.model.ApiErrorResponse;
 import com.genesys.internal.workspace.model.ApiSuccessResponse;
 import com.genesys.internal.workspace.model.ClearData;
 import com.genesys.internal.workspace.model.CompleteConferenceData;

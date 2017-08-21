@@ -22,9 +22,13 @@ import com.genesys.internal.common.Pair;
 import com.genesys.internal.common.ProgressRequestBody;
 import com.genesys.internal.common.ProgressResponseBody;
 
+import com.google.gson.reflect.TypeToken;
+
 import java.io.IOException;
 
 
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

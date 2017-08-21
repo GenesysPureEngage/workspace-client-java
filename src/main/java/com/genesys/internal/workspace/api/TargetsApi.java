@@ -22,16 +22,17 @@ import com.genesys.internal.common.Pair;
 import com.genesys.internal.common.ProgressRequestBody;
 import com.genesys.internal.common.ProgressResponseBody;
 
-import com.genesys.internal.workspace.model.ApiSuccessResponse;
-import com.genesys.internal.workspace.model.RecentTargetData;
-import com.genesys.internal.workspace.model.TargetsResponse;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
 
+import com.genesys.internal.workspace.model.ApiErrorResponse;
+import com.genesys.internal.workspace.model.ApiSuccessResponse;
 import java.math.BigDecimal;
 import com.genesys.internal.workspace.model.PersonalFavoriteData;
+import com.genesys.internal.workspace.model.RecentTargetData;
+import com.genesys.internal.workspace.model.TargetsResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

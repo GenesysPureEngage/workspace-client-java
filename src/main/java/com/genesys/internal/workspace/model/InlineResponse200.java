@@ -14,14 +14,21 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-
+import com.genesys.internal.workspace.model.InlineResponse200Data;
+import com.genesys.internal.workspace.model.InlineResponse200Status;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * InlineResponse200
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-17T19:01:40.686Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-21T21:33:03.337Z")
 public class InlineResponse200 {
   @SerializedName("status")
   private InlineResponse200Status status = null;

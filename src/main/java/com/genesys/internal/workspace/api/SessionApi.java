@@ -22,14 +22,15 @@ import com.genesys.internal.common.Pair;
 import com.genesys.internal.common.ProgressRequestBody;
 import com.genesys.internal.common.ProgressResponseBody;
 
-import com.genesys.internal.workspace.model.ApiSuccessResponse;
-import com.genesys.internal.workspace.model.ChannelsData;
-import com.genesys.internal.workspace.model.ConfigResponse;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
 
+import com.genesys.internal.workspace.model.ApiErrorResponse;
+import com.genesys.internal.workspace.model.ApiSuccessResponse;
+import com.genesys.internal.workspace.model.ChannelsData;
+import com.genesys.internal.workspace.model.ConfigResponse;
 import com.genesys.internal.workspace.model.CurrentSession;
 
 import java.lang.reflect.Type;

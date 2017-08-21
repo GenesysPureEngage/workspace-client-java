@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import com.genesys.internal.workspace.model.AgentHistoryData;
+import com.genesys.internal.workspace.model.ApiErrorResponse;
 import com.genesys.internal.workspace.model.ApiSuccessResponse;
 import com.genesys.internal.workspace.model.AssignInteractionToContactData;
 import com.genesys.internal.workspace.model.CallCompletedData;
