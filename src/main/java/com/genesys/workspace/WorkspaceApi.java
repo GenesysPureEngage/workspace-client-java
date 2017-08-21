@@ -695,7 +695,7 @@ public class WorkspaceApi {
         }
     }
 
-    public void voiceLogin(String connId) throws WorkspaceApiException {
+    public void voiceLogin() throws WorkspaceApiException {
         try {
             ApiSuccessResponse response = this.voiceApi.loginVoice();
             throwIfNotOk("voiceLogin", response);
@@ -704,7 +704,7 @@ public class WorkspaceApi {
         }
     }
 
-    public void voiceLogout(String connId) throws WorkspaceApiException {
+    public void voiceLogout() throws WorkspaceApiException {
         try {
             ApiSuccessResponse response = this.voiceApi.logoutVoice();
             throwIfNotOk("voiceLogout", response);
