@@ -1,6 +1,22 @@
 # workspace-client-java
 A Java library to interface with the Workspace API 
 
+# Examples
+There are several examples available for Java:
+
+* [Changing agent state](https://github.com/GenesysPureEngage/tutorials/tree/master/voice-ready-workspace-java)
+* [Basic call control](https://github.com/GenesysPureEngage/tutorials/tree/master/basic-call-control-workspace-java)
+* [Conferences](https://github.com/GenesysPureEngage/tutorials/tree/master/conference-call-workspace-java)
+* [Transfers](https://github.com/GenesysPureEngage/tutorials/tree/master/transfer-call-workspace-java)
+* [Alternating calls](https://github.com/GenesysPureEngage/tutorials/tree/master/alternate-calls-workspace-java)
+
+There is also a [Console Sample](https://github.com/GenesysPureEngage/console-agent-app-java) that provides a command line to test and play with the API.
+
+# Related Links
+* [Provisioning API for Java](https://github.com/GenesysPureEngage/provisioning-client-java)
+* [Authorization API for Java](https://github.com/GenesysPureEngage/authorization-client-java)
+
+
 # Quick Start
 
 ## Initialization
@@ -63,7 +79,6 @@ api.setAgentNotReady();
 ## Basic Call Control
 
 ```java
-  
 // Make a new call to DN 5001. This will result in a CallStateChange message
 // being published.
 api.makeCall("5001");
