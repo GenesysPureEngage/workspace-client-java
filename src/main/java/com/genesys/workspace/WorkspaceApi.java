@@ -4,7 +4,6 @@ import java.net.URI;
 import java.net.HttpCookie;
 import java.net.CookieManager;
 
-import java.util.Base64;
 import java.util.Collection;
 import java.util.concurrent.CompletableFuture;
 import java.util.HashMap;
@@ -17,8 +16,6 @@ import java.util.Optional;
 import com.genesys.internal.common.ApiClient;
 import com.genesys.internal.common.ApiResponse;
 import com.genesys.internal.common.ApiException;
-import com.genesys.internal.authorization.api.AuthenticationApi;
-import com.genesys.internal.authorization.model.DefaultOAuth2AccessToken;
 
 import com.genesys.workspace.common.StatusCode;
 import com.genesys.workspace.common.WorkspaceApiException;
@@ -41,21 +38,14 @@ import org.eclipse.jetty.util.ssl.SslContextFactory;
 
 public class WorkspaceApi {
     private String apiKey;
-    private String clientId;
-    private String clientSecret;
     private String baseUrl;
-    private String username;
-    private String password;
     private boolean debugEnabled;
     private String workspaceUrl;
-    private ApiClient authClient;
     private ApiClient workspaceClient;
     private HttpClient cometdHttpClient;
     private BayeuxClient cometdClient;
-    private AuthenticationApi authApi;
     private SessionApi sessionApi;
     private VoiceApi voiceApi;
-    private DefaultOAuth2AccessToken accessToken;
     private String sessionCookie;
     private String workspaceSessionId;
     private CompletableFuture<User> initFuture;
@@ -69,19 +59,11 @@ public class WorkspaceApi {
 
     public WorkspaceApi(
             String apiKey,
-            String clientId,
-            String clientSecret,
             String baseUrl,
-            String username,
-            String password,
             boolean debugEnabled
     ) {
         this.apiKey = apiKey;
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
         this.baseUrl = baseUrl;
-        this.username = username;
-        this.password = password;
         this.debugEnabled = debugEnabled;
         this.workspaceUrl = this.baseUrl + "/workspace/v3";
 
@@ -149,17 +131,6 @@ public class WorkspaceApi {
 
     public void removeErrorEventListener(ErrorEventListener listener) {
         this.errorEventListeners.remove(listener);
-    }
-
-    private void getAccessToken() throws ApiException {
-        this.debug("Getting access token...");
-        byte[] bytes = (this.clientId + ":" + this.clientSecret).getBytes();
-        byte[] encoded = Base64.getEncoder().encode(bytes);
-        String authorization = "Basic " + new String(encoded);
-
-        this.accessToken = this.authApi.retrieveToken(
-                "password", "webshop", authorization, null, this.clientId, this.username, this.password);
-        this.debug("Access token is " + this.accessToken.getAccessToken());
     }
 
     private void extractSessionCookie(ApiResponse<ApiSuccessResponse> response) throws WorkspaceApiException {
@@ -381,7 +352,15 @@ public class WorkspaceApi {
         }
     }
 
-    public CompletableFuture<User> initialize() throws WorkspaceApiException {
+    public CompletableFuture<User> initialize(String authCode, String redirectUri) throws WorkspaceApiException {
+        return this.initialize(authCode, redirectUri, null);
+    }
+
+    public CompletableFuture<User> initialize(String token) throws WorkspaceApiException {
+        return this.initialize(null, null, token);
+    }
+
+    private CompletableFuture<User> initialize(String authCode, String redirectUri, String token) throws WorkspaceApiException {
         try {
             this.initFuture = new CompletableFuture<>();
 
@@ -392,17 +371,9 @@ public class WorkspaceApi {
             this.sessionApi = new SessionApi(this.workspaceClient);
             this.voiceApi = new VoiceApi(this.workspaceClient);
 
-            this.authClient = new ApiClient();
-            this.authClient.setBasePath(this.baseUrl);
-            this.authClient.addDefaultHeader("x-api-key", this.apiKey);
-
-            this.authApi = new AuthenticationApi(this.authClient);
-
-            this.getAccessToken();
-
-            String authorization = "Bearer " + this.accessToken.getAccessToken();
+            String authorization = token != null ? "Bearer " + token : null;
             final ApiResponse<ApiSuccessResponse> response =
-                    this.sessionApi.initializeWorkspaceWithHttpInfo("", "", authorization);
+                    this.sessionApi.initializeWorkspaceWithHttpInfo(authCode, redirectUri, authorization);
             this.extractSessionCookie(response);
 
             this.initializeCometd();
