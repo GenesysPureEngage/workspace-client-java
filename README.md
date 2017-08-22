@@ -26,13 +26,13 @@ There is also a [Console Sample](https://github.com/GenesysPureEngage/console-ag
 WorkspaceApi api = new WorkspaceApi(apiKey, baseUrl, debugEnabled);
 
 // Register handlers to run on DN and call related events
-this.api.addCallEventListener(msg -> {
+api.addCallEventListener(msg -> {
     System.out.println("CallStateChanged! [" + msg.getCall().getState() + "]");
 });
-this.api.addDnEventListener(msg -> {
+api.addDnEventListener(msg -> {
     System.out.println("DnStateChanged! [" + msg.getDn().getAgentState() + "]");
 });
-this.api.addErrorEventListener(msg -> {
+api.addErrorEventListener(msg -> {
     System.out.println("EventError: " + msg.getMessage() + " - code [" + msg.getCode() + "]");
 });
 
