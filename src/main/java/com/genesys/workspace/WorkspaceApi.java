@@ -57,6 +57,12 @@ public class WorkspaceApi {
     private Set<CallEventListener> callEventListeners;
     private Set<ErrorEventListener> errorEventListeners;
 
+    /**
+     * Constructor 
+     * @param apiKey The API key to be used.
+     * @param baseUrl base URL for the workpace API
+     * @param debugEnabled enable debug (or not) 
+    */
     public WorkspaceApi(
             String apiKey,
             String baseUrl,
@@ -109,26 +115,50 @@ public class WorkspaceApi {
         });
     }
 
+    /**
+     * Adds a listener for CallStateChanged events.
+     * @param listener the listener to be added.
+     */
     public void addCallEventListener(CallEventListener listener) {
         this.callEventListeners.add(listener);
     }
 
+    /**
+     * Removes a previously added CallStateChanged listener.
+     * @param listener the listener to be removed
+     */
     public void removeCallEventListener(CallEventListener listener) {
         this.callEventListeners.remove(listener);
     }
 
+    /**
+     * Add a listener for DnStateChanged events.
+     * @param listener the listener to be added.
+     */
     public void addDnEventListener(DnEventListener listener) {
         this.dnEventListeners.add(listener);
     }
 
+    /**
+     * Remove a previously added DnStateChanged listener.
+     * @param listener the listener to be removed.
+     */
     public void removeDnEventListener(DnEventListener listener) {
         this.dnEventListeners.remove(listener);
     }
 
+    /**
+     * Add a listener for EventError
+     * @param listener the listener to be added.
+     */
     public void addErrorEventListener(ErrorEventListener listener) {
         this.errorEventListeners.add(listener);
     }
 
+    /**
+     * Remove a previously added EventError listener.
+     * @param listener the listener to be removed.
+     */
     public void removeErrorEventListener(ErrorEventListener listener) {
         this.errorEventListeners.remove(listener);
     }
@@ -352,10 +382,20 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Initializes the API using the provided authCode and redirectUri. This is the preferred means of init.
+     * @param authCode the auth code to be used for initialization
+     * @param redirectUri the redirectUri to be used for initialization. Since this is not being sent by the UI, this just
+     * needs to match the redirectUri that was sent when obtaining the authCode.
+     */
     public CompletableFuture<User> initialize(String authCode, String redirectUri) throws WorkspaceApiException {
         return this.initialize(authCode, redirectUri, null);
     }
 
+    /**
+     * Initializes the API using the provided auth token.
+     * @param token The auth token to use for initialization.
+     */
     public CompletableFuture<User> initialize(String token) throws WorkspaceApiException {
         return this.initialize(null, null, token);
     }
@@ -384,6 +424,9 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Logout the agent and cleanup resources.
+     */
     public void destroy() throws WorkspaceApiException {
         try {
             if (this.workspaceInitialized) {
@@ -398,6 +441,11 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Initializes the voice channel using the specified resources.
+     * @param agentId - AgentId to be used for login
+     * @param dn - DN to be used for login
+     */
     public void activateChannels(String agentId, String dn) throws WorkspaceApiException {
         try {
             this.debug("Activating channels with agentId [" + agentId + "] and Dn [" + dn + "]...");
@@ -423,14 +471,25 @@ public class WorkspaceApi {
         return this.dn;
     }
 
+    /** 
+      * Gets the list of active calls.
+      * @return list of active calls
+      */
     public Collection<Call> getCalls() {
         return this.calls.values();
     }
 
+    /**
+      * Returns the current user.
+      * @return the current user.
+      */
     public User getUser() {
         return this.user;
     }
 
+    /**
+     * Set the agent state to ready.
+     */
     public void setAgentReady() throws WorkspaceApiException {
         try {
             ReadyData data = new ReadyData();
@@ -442,10 +501,18 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Set the agent state to not ready.
+     */
     public void setAgentNotReady() throws WorkspaceApiException {
         this.setAgentNotReady(null, null);
     }
 
+    /**
+     * Set the agent state to not ready.
+     * @param workMode - optional workMode to use in the request.
+     * @param reasonCode - optional reasonCode to use in the request.
+     */
     public void setAgentNotReady(String workMode, String reasonCode) throws WorkspaceApiException{
         try {
             NotReadyData data = new NotReadyData();
@@ -471,6 +538,10 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Make a new call to the specified destination.
+     * @param destination The destination to call
+     */
     public void makeCall(String destination) throws WorkspaceApiException {
         try {
             VoicemakecallData data = new VoicemakecallData();
@@ -485,6 +556,10 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Answer call.
+     * @param connId The connId of the call to answer.
+     */
     public void answerCall(String connId) throws WorkspaceApiException {
         try {
             AnswerData data = new AnswerData();
@@ -497,6 +572,10 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Place call on hold.
+     * @param connId The connId of the call to place on hold. 
+     */
     public void holdCall(String connId) throws WorkspaceApiException {
         try {
             HoldData data = new HoldData();
@@ -509,6 +588,10 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Retrieve call from hold.
+     * @param connId The connId of the call to retrieve. 
+     */
     public void retrieveCall(String connId) throws WorkspaceApiException {
         try {
             RetrieveData data = new RetrieveData();
@@ -521,6 +604,10 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Release call.
+     * @param connId The connId of the call to release 
+     */
     public void releaseCall(String connId) throws WorkspaceApiException {
         try {
             ReleaseData data = new ReleaseData();
@@ -533,6 +620,11 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Initiate a conference to the specified destination.
+     * @param connId The connId of the call to start the conference from.
+     * @param destination The destination
+     */
     public void initiateConference(String connId, String destination) throws WorkspaceApiException {
         try {
             VoicecallsidinitiateconferenceData initData = new VoicecallsidinitiateconferenceData();
@@ -548,6 +640,11 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Complete a previously initiated conference identified by the provided ids.
+     * @param connId The id of the consule call (established)
+     * @param parentConnId The id of the parent call (held).
+     */
     public void completeConference(String connId, String parentConnId) throws WorkspaceApiException {
         try {
             VoicecallsidcompletetransferData completeData = new VoicecallsidcompletetransferData();
@@ -562,6 +659,11 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Initiate a transfer to the specified destination.
+     * @param connId The connId of the call to be transfered.
+     * @param destination The destination of the transfer.
+     */
     public void initiateTransfer(String connId, String destination) throws WorkspaceApiException {
         try {
             VoicecallsidinitiatetransferData data = new VoicecallsidinitiatetransferData();
@@ -576,6 +678,11 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Complete a previously initiated transfer using the provided ids.
+     * @param connId The id of the consult call (established)
+     * @param parentConnId The id of the parent call (held)
+     */
     public void completeTransfer(String connId, String parentConnId) throws WorkspaceApiException {
         try {
             VoicecallsidcompletetransferData completeData = new VoicecallsidcompletetransferData();
@@ -590,6 +697,12 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Alternate two calls retrieving the held call and placing the established call on hold. This is a 
+     * shortcut for doing hold and retrieve separately.
+     * @param connId The id of the established call.
+     * @param heldConnId The id of the held call.
+     */
     public void alternateCalls(String connId, String heldConnId) throws WorkspaceApiException {
         try {
             VoicecallsidalternateData alternateData = new VoicecallsidalternateData();
@@ -604,6 +717,11 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Delete a dn from a conference call
+     * @param connId The connId of the conference
+     * @param dnToDrop The dn number to drop from the conference.
+     */
     public void deleteFromConference(String connId, String dnToDrop) throws WorkspaceApiException {
         try {
             VoicecallsiddeletefromconferenceData deleteData =
@@ -618,6 +736,11 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Perform a single-step transfer to the specified destination.
+     * @param connId The id of the call to transfer.
+     * @param destination The destination to transfer the call to.
+     */
     public void singleStepTransfer(String connId, String destination) throws WorkspaceApiException {
         try {
             VoicecallsidsinglesteptransferData transferData =
@@ -633,6 +756,12 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Perform a single-step conference to the specififed destination. This will effectively add the
+     * destination to the existing call, creating a conference if necessary.
+     * @param connId The id of the call to conference.
+     * @param destination The destination to be added to the call.
+     */
     public void singleStepConference(String connId, String destination) throws WorkspaceApiException {
         try {
             VoicecallsidsinglestepconferenceData confData =
@@ -648,6 +777,9 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Set do-not-disturb on for voice.
+     */
     public void dndOn() throws WorkspaceApiException {
         try {
             ApiSuccessResponse response = this.voiceApi.setDNDOn();
@@ -657,6 +789,9 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Set do-not-disturb off for voice.
+     */
     public void dndOff() throws WorkspaceApiException {
         try {
             ApiSuccessResponse response = this.voiceApi.setDNDOff();
@@ -666,6 +801,9 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Login the voice channel.
+     */
     public void voiceLogin() throws WorkspaceApiException {
         try {
             ApiSuccessResponse response = this.voiceApi.loginVoice();
@@ -675,6 +813,9 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Logout the voice channel.
+     */
     public void voiceLogout() throws WorkspaceApiException {
         try {
             ApiSuccessResponse response = this.voiceApi.logoutVoice();
@@ -684,6 +825,10 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Set call forwarding to the specififed destination.
+     * @param forwardTo - destination to forward calls to.
+     */
     public void setForward(String destination) throws WorkspaceApiException {
         try {
             VoicesetforwardData forwardData = new VoicesetforwardData();
@@ -699,6 +844,9 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Cancel call forwarding.
+     */
     public void cancelForward() throws WorkspaceApiException {
         try {
             ApiSuccessResponse response = this.voiceApi.cancelForward();
@@ -708,6 +856,12 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Attach the provided data to the call. This adds the data to the call even if data already exists 
+     * with the provided keys.
+     * @param connId The id of the call to attach data to.
+     * @param userData The data to attach to the call. This is an array of objects with the properties key, type, and value.
+     */
     public void attachUserData(String connId, List<Kvpair> userData) throws WorkspaceApiException {
         try {
             VoicecallsidcompleteData completeData = new VoicecallsidcompleteData();
@@ -722,6 +876,11 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Update call data with the provided key/value pairs. This will replace any existing kvpairs with the same keys.
+     * @param connId The id of the call to update data for.
+     * @param userData The data to update. This is an array of objecvts with the properties key, type, and value.
+     */
     public void updateUserData(String connId, List<Kvpair> userData) throws WorkspaceApiException {
         try {
             VoicecallsidcompleteData completeData = new VoicecallsidcompleteData();
@@ -736,6 +895,11 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Delete data with the specified key from the call.
+     * @param connId The call to remove data from.
+     * @param key The key to remove.
+     */
     public void deleteUserDataPair(String connId, String key) throws WorkspaceApiException {
         try {
             VoicecallsiddeleteuserdatapairData deletePairData =
@@ -751,6 +915,11 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Send DTMF digits to the specififed call.
+     * @param connId The call to send DTMF digits to.
+     * @param digits The DTMF digits to send.
+     */
     public void sendDtmf(String connId, String digits) throws WorkspaceApiException {
         try {
             VoicecallsidsenddtmfData dtmfData = new VoicecallsidsenddtmfData();
@@ -765,10 +934,19 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Send EventUserEvent with the provided data. 
+     * @param data The data to be sent. This is an array of objects with the properties key, type, and value.
+     */
     public void sendUserEvent(List<Kvpair> userData) throws WorkspaceApiException {
         this.sendUserEvent(userData, null);
     }
 
+    /**
+     * Send EventUserEvent with the provided data. 
+     * @param data The data to be sent. This is an array of objects with the properties key, type, and value.
+     * @param callUuid The callUuid that the event will be associated with.
+     */
     public void sendUserEvent(List<Kvpair> userData, String callUuid) throws WorkspaceApiException {
         try {
             SendUserEventDataData sendUserEventData = new SendUserEventDataData();
@@ -785,6 +963,11 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Redirect call to the specified destination
+     * @param connId The connId of the call to redirect.
+     * @param destination The destination to redirect the call to.
+     */
     public void redirectCall(String connId, String destination) throws WorkspaceApiException {
         try {
             VoicecallsidredirectData redirectData = new VoicecallsidredirectData();
@@ -799,6 +982,11 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Merge the two specified calls.
+     * @param connId The id of the first call to be merged.
+     * @param otherConnId The id of the second call to be merged.
+     */
     public void mergeCalls(String connId, String otherConnId) throws WorkspaceApiException {
         try {
             VoicecallsidmergeData mergeData = new VoicecallsidmergeData();
@@ -814,6 +1002,12 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Reconnect the specified call. Reconnect releases the established call and retrieves the held call
+     * in one step.
+     * @param connId The id of the established call (will be released)
+     * @param heldConnId The id of the held call (will be retrieved)
+     */
     public void reconnectCall(String connId, String heldConnId) throws WorkspaceApiException {
         try {
             VoicecallsidreconnectData reconnectData = new VoicecallsidreconnectData();
@@ -829,6 +1023,10 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Clear call.
+     * @param connId The connId of the call to clear 
+     */
     public void clearCall(String connId) throws WorkspaceApiException {
         try {
             VoicecallsidholdData clearData = new VoicecallsidholdData();
@@ -843,6 +1041,10 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Start call recording
+     * @param connId The id of the call to start recording. 
+     */
     public void startRecording(String connId) throws WorkspaceApiException {
         try {
             ApiSuccessResponse response = this.voiceApi.startRecording(connId);
@@ -852,6 +1054,10 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Pause call recording.
+     * @param connId The id of the call to pause recording on. 
+     */
     public void pauseRecording(String connId) throws WorkspaceApiException {
         try {
             ApiSuccessResponse response = this.voiceApi.pauseRecording(connId);
@@ -861,6 +1067,10 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Resume call recording.
+     * @param connId The id of the call to resume recording.
+     */
     public void resumeRecording(String connId) throws WorkspaceApiException {
         try {
             ApiSuccessResponse response = this.voiceApi.resumeRecording(connId);
@@ -870,6 +1080,10 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Stop call recording
+     * @param connId The id of the call to stop recording.
+     */
     public void stopRecording(String connId) throws WorkspaceApiException {
         try {
             ApiSuccessResponse response = this.voiceApi.stopRecording(connId);
