@@ -3,8 +3,10 @@ package com.genesys.workspace.models;
 public class Dn {
     private String number;
     private String agentId;
-    private String agentState;
-    private String workMode;
+    private AgentState agentState;
+    private AgentWorkMode workMode;
+    private String forwardTo;
+    private boolean dnd;
 
     public Dn() {}
 
@@ -16,15 +18,23 @@ public class Dn {
         return this.number;
     }
 
-    public String getAgentState() {
+    public AgentState getAgentState() {
         return this.agentState;
     }
 
-    public String getWorkMode() {
+    public AgentWorkMode getWorkMode() {
         return this.workMode;
     }
 
-    public void setAgentState(String agentState) {
+    public String getForwardTo() {
+        return this.forwardTo;
+    }
+
+    public boolean isDND() {
+        return this.dnd;
+    }
+
+    public void setAgentState(AgentState agentState) {
         this.agentState = agentState;
     }
 
@@ -36,7 +46,15 @@ public class Dn {
         this.number = number;
     }
 
-    public void setWorkMode(String workMode) {
+    public void setWorkMode(AgentWorkMode workMode) {
         this.workMode = workMode;
+    }
+
+    public void setForwardTo(String forwardTo) {
+        this.forwardTo = forwardTo;
+    }
+
+    public void setDND(boolean dnd) {
+        this.dnd = dnd;
     }
 }

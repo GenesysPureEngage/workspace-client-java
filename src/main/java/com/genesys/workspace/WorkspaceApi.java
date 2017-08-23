@@ -9,24 +9,21 @@ import java.util.concurrent.CompletableFuture;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.List;
 import java.util.Set;
 import java.util.Optional;
 
-import com.genesys.internal.common.ApiClient;
-import com.genesys.internal.common.ApiResponse;
-import com.genesys.internal.common.ApiException;
-
+import com.genesys._internal.workspace.model.*;
+import com.genesys._internal.workspace.ApiClient;
+import com.genesys._internal.workspace.ApiException;
+import com.genesys._internal.workspace.ApiResponse;
 import com.genesys.workspace.common.StatusCode;
 import com.genesys.workspace.common.WorkspaceApiException;
 import com.genesys.workspace.events.*;
-import com.genesys.workspace.models.Dn;
-import com.genesys.workspace.models.Call;
-import com.genesys.workspace.models.User;
-import com.genesys.internal.workspace.api.SessionApi;
-import com.genesys.internal.workspace.api.VoiceApi;
-import com.genesys.internal.workspace.model.*;
+import com.genesys.workspace.models.*;
+import com.genesys._internal.workspace.api.SessionApi;
+import com.genesys._internal.workspace.api.VoiceApi;
 
+import com.genesys.workspace.models.Call;
 import org.cometd.bayeux.Message;
 import org.cometd.bayeux.client.ClientSessionChannel;
 import org.cometd.client.BayeuxClient;
@@ -214,6 +211,61 @@ public class WorkspaceApi {
         }
     }
 
+
+    private AgentState parseAgentState(String input) {
+        AgentState state = AgentState.UNKNOWN;
+        if (input != null) {
+            switch (input) {
+                case "LoggedOut":
+                    state = AgentState.LOGGED_OUT;
+                    break;
+
+                case "LoggedIn":
+                    state = AgentState.LOGGED_IN;
+                    break;
+
+                case "Ready":
+                    state = AgentState.READY;
+                    break;
+
+                case "NotReady":
+                    state = AgentState.NOT_READY;
+                    break;
+
+                case "OutOfService":
+                    state = AgentState.OUT_OF_SERVICE;
+                    break;
+            }
+        }
+
+        return state;
+    }
+
+    private AgentWorkMode parseAgentWorkMode(String input) {
+        AgentWorkMode workMode = AgentWorkMode.UNKNOWN;
+        if (input != null) {
+            switch (input) {
+                case "AuxWork":
+                    workMode = AgentWorkMode.AUX_WORK;
+                    break;
+
+                case "AfterCallWork":
+                    workMode = AgentWorkMode.AFTER_CALL_WORK;
+                    break;
+
+                case "AutoIn":
+                    workMode = AgentWorkMode.AUTO_IN;
+                    break;
+
+                case "ManualIn":
+                    workMode = AgentWorkMode.MANUAL_IN;
+                    break;
+            }
+        }
+
+        return workMode;
+    }
+
     private void onDnStateChanged(Map<String, Object> data) {
         if (this.dn == null) {
             this.dn = new Dn();
@@ -223,16 +275,47 @@ public class WorkspaceApi {
 
         String number = (String)dnData.get("number");
         String agentId = (String)dnData.get("agentId");
-        String agentState = (String)dnData.get("agentState");
-        String workMode = (String)dnData.get("agentWorkMode");
+        AgentState agentState = this.parseAgentState((String)dnData.get("agentState"));
+        AgentWorkMode workMode = this.parseAgentWorkMode((String)dnData.get("agentWorkMode"));
+        String forwardTo = (String)dnData.get("forwardTo");
+        String dnd = (String)dnData.get("dnd");
 
         this.dn.setAgentId(agentId);
         this.dn.setNumber(number);
         this.dn.setAgentState(agentState);
         this.dn.setWorkMode(workMode);
+        this.dn.setForwardTo(forwardTo);
+        this.dn.setDND(dnd != null && "on".equals(dnd));
 
         this.debug("Dn updated: state [" + agentState + "] workMode [" + workMode + "]...");
         this.publishDnStateChanged(new DnStateChanged(this.dn));
+    }
+
+    private void extractUserData(KeyValueCollection userData, Object[] data) {
+        if (data == null) {
+            return;
+        }
+
+        for(int i=0; i < data.length; i++) {
+            Map<String, Object> pair = (Map<String, Object>)data[i];
+            String key = (String)pair.get("key");
+            String type = (String)pair.get("type");
+
+            switch (type) {
+                case "str":
+                    userData.addString(key, (String)pair.get("value"));
+                    break;
+
+                case "int":
+                    userData.addInt(key, (Integer)pair.get("value"));
+
+                case "kvlist":
+                    KeyValueCollection list = new KeyValueCollection();
+                    this.extractUserData(list, (Object[])pair.get("value"));
+                    userData.addList(key, list);
+                    break;
+            }
+        }
     }
 
     private String[] extractParticipants(Object[] data) {
@@ -246,21 +329,97 @@ public class WorkspaceApi {
         return participants;
     }
 
+    private CallState parseCallState(String input) {
+        CallState state = CallState.UNKNOWN;
+        if (input != null) {
+            switch (input) {
+                case "Ringing":
+                    state = CallState.RINGING;
+                    break;
+
+                case "Dialing":
+                    state = CallState.DIALING;
+                    break;
+
+                case "Established":
+                    state = CallState.ESTABLISHED;
+                    break;
+
+                case "Held":
+                    state = CallState.HELD;
+                    break;
+
+                case "Released":
+                    state = CallState.RELEASED;
+                    break;
+
+                case "Completed":
+                    state = CallState.COMPLETED;
+                    break;
+            }
+        }
+
+        return state;
+    }
+
+    private NotificationType parseNotificationType(String input) {
+        NotificationType type = NotificationType.UNKNOWN;
+        if (input != null) {
+            switch (input) {
+                case "StateChange":
+                    type = NotificationType.STATE_CHANGE;
+                    break;
+
+                case "ParticipantsUpdated":
+                    type = NotificationType.PARTICIPANTS_UPDATED;
+                    break;
+
+                case "AttachedDataChanged":
+                    type = NotificationType.ATTACHED_DATA_CHANGED;
+                    break;
+
+                case "CallRecovered":
+                    type = NotificationType.CALL_RECOVERED;
+                    break;
+            }
+        }
+
+        return type;
+    }
+
     private void onCallStateChanged(Map<String, Object> data) {
         Map<String, Object> callData = (Map<String, Object>)data.get("call");
+        NotificationType notificationType = this.parseNotificationType((String)data.get("notificationType"));
 
         String id = (String)callData.get("id");
-        String state = (String)callData.get("state");
+        String callUuid = (String)callData.get("callUuid");
+        CallState state = this.parseCallState((String)callData.get("state"));
         String parentConnId = (String)callData.get("parentConnId");
         String previousConnId = (String)callData.get("previousConnId");
+        String ani = (String)callData.get("ani");
+        String dnis = (String)callData.get("dnis");
+
         Object[] participantData = (Object[])callData.get("participants");
+        KeyValueCollection userData = new KeyValueCollection();
+        this.extractUserData(userData, (Object[])callData.get("userData"));
 
         String[] participants = this.extractParticipants(participantData);
 
         boolean connIdChanged = false;
         String callType = (String)callData.get("callType");
 
-        Call call;
+        Call call = this.calls.get(id);
+        if (call == null) {
+            call = new Call();
+            call.setId(id);
+            call.setCallType(callType);
+            if (parentConnId != null) {
+                call.setParentConnId(parentConnId);
+            }
+
+            this.calls.put(id, call);
+            debug("Added call " + id + " (" + state + ")");
+        }
 
         if (previousConnId != null && this.calls.containsKey(previousConnId)) {
             call = this.calls.remove(previousConnId);
@@ -268,37 +427,20 @@ public class WorkspaceApi {
             call.setPreviousConnId(previousConnId);
             this.calls.put(id, call);
             connIdChanged = true;
-        } else {
-            switch (state) {
-                case "Ringing":
-                case "Dialing":
-                    call = new Call();
-                    call.setId(id);
-                    call.setCallType(callType);
-                    if (parentConnId != null) {
-                        call.setParentConnId(parentConnId);
-                    }
-
-                    this.calls.put(id, call);
-                    debug("Added call " + id + " (" + state + ")");
-                    break;
-
-                case "Released":
-                    call = this.calls.remove(id);
-                    debug("Removed call " + id + "(" + state + ")");
-                    break;
-
-                default:
-                    call = this.calls.get(id);
-                    break;
-
-            }
+        } else if (state == CallState.RELEASED) {
+            this.calls.remove(id);
+            debug("Removed call " + id + "(" + state + ")");
         }
 
         if (call != null) {
             call.setState(state);
+            call.setANI(ani);
+            call.setDNIS(dnis);
+            call.setCallUuid(callUuid);
             call.setParticipants(participants);
-            this.publishCallStateChanged(new CallStateChanged(call, connIdChanged ? previousConnId : null));
+            call.setUserData(userData);
+
+            this.publishCallStateChanged(new CallStateChanged(call, notificationType, connIdChanged ? previousConnId : null));
         } else {
             debug("Call " + id + " was not found...");
         }
@@ -443,19 +585,51 @@ public class WorkspaceApi {
 
     /**
      * Initializes the voice channel using the specified resources.
-     * @param agentId - AgentId to be used for login
-     * @param dn - DN to be used for login
+     * @param agentId agentId to be used for login
+     * @param placeName name of the place to use for login
      */
-    public void activateChannels(String agentId, String dn) throws WorkspaceApiException {
+    public void activateChannels(
+            String agentId,
+            String placeName
+    ) throws WorkspaceApiException {
+        this.activateChannels(agentId, null, placeName, null);
+    }
+
+    /**
+     * Initializes the voice channel using the specified resources.
+     * @param agentId agentId to be used for login
+     * @param dn DN to be used for login. Provide only one of dn or placeName
+     * @param placeName name of the place to use for login. Provide only one of placeName or dn
+     * @param queueName name of the queue to be used for login. (optional)
+     */
+    public void activateChannels(
+            String agentId,
+            String dn,
+            String placeName,
+            String queueName
+    ) throws WorkspaceApiException {
         try {
-            this.debug("Activating channels with agentId [" + agentId + "] and Dn [" + dn + "]...");
+            String msg = "Activating channels with agentId [" + agentId + "] ";
             ActivatechannelsData data = new ActivatechannelsData();
             data.setAgentId(agentId);
-            data.setDn(dn);
+
+            if (placeName != null) {
+                data.setPlaceName(placeName);
+                msg += "place [" + placeName + "]";
+            } else {
+                data.setDn(dn);
+                msg += "dn [" + dn + "]";
+            }
+
+            if (queueName != null) {
+                data.setQueueName(queueName);
+                msg += " queueName [" + queueName + "]";
+            }
 
             ChannelsData channelsData = new ChannelsData();
             channelsData.data(data);
 
+            this.debug(msg + "...");
             ApiSuccessResponse response = this.sessionApi.activateChannels(channelsData);
             if(response.getStatus().getCode() != 0) {
                 throw new WorkspaceApiException(
@@ -491,8 +665,24 @@ public class WorkspaceApi {
      * Set the agent state to ready.
      */
     public void setAgentReady() throws WorkspaceApiException {
+        this.setAgentReady(null, null);
+    }
+
+    /**
+     * Set the agent state to ready.
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void setAgentReady(
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+    ) throws WorkspaceApiException {
         try {
+            VoicecallsidholdData readyData = new VoicecallsidholdData();
+            readyData.setReasons(reasons);
+            readyData.setExtensions(extensions);
             ReadyData data = new ReadyData();
+            data.data(readyData);
 
             ApiSuccessResponse response = this.voiceApi.setAgentStateReady(data);
             throwIfNotOk("setAgentReady", response);
@@ -505,275 +695,49 @@ public class WorkspaceApi {
      * Set the agent state to not ready.
      */
     public void setAgentNotReady() throws WorkspaceApiException {
-        this.setAgentNotReady(null, null);
+        this.setAgentNotReady(null, null, null, null);
     }
 
     /**
      * Set the agent state to not ready.
-     * @param workMode - optional workMode to use in the request.
-     * @param reasonCode - optional reasonCode to use in the request.
+     * @param workMode optional workMode to use in the request.
+     * @param reasonCode optional reasonCode to use in the request.
      */
-    public void setAgentNotReady(String workMode, String reasonCode) throws WorkspaceApiException{
+    public void setAgentNotReady(String workMode, String reasonCode) throws WorkspaceApiException {
+        this.setAgentNotReady(workMode, reasonCode, null, null);
+    }
+
+    /**
+     * Set the agent state to not ready.
+     * @param workMode optional workMode to use in the request.
+     * @param reasonCode optional reasonCode to use in the request.
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void setAgentNotReady(
+            String workMode,
+            String reasonCode,
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+    ) throws WorkspaceApiException {
         try {
             NotReadyData data = new NotReadyData();
 
-            if (workMode != null || reasonCode != null) {
-                VoicenotreadyData notReadyData = new VoicenotreadyData();
-                data.data(notReadyData);
+            VoicenotreadyData notReadyData = new VoicenotreadyData();
+            notReadyData.setReasonCode(reasonCode);
+            notReadyData.setReasons(reasons);
+            notReadyData.setExtensions(extensions);
 
-                if (workMode != null) {
-                    notReadyData.setAgentWorkMode(VoicenotreadyData.AgentWorkModeEnum.fromValue(workMode));
-                }
-
-                if (reasonCode != null) {
-                    notReadyData.setReasonCode(reasonCode);
-                }
-
+            if (workMode != null) {
+                notReadyData.setAgentWorkMode(VoicenotreadyData.AgentWorkModeEnum.fromValue(workMode));
             }
+
+            data.data(notReadyData);
 
             ApiSuccessResponse response = this.voiceApi.setAgentStateNotReady(data);
             throwIfNotOk("setAgentNotReady", response);
         } catch (ApiException e) {
             throw new WorkspaceApiException("setAgentReady failed.", e);
-        }
-    }
-
-    /**
-     * Make a new call to the specified destination.
-     * @param destination The destination to call
-     */
-    public void makeCall(String destination) throws WorkspaceApiException {
-        try {
-            VoicemakecallData data = new VoicemakecallData();
-            data.destination(destination);
-            MakeCallData makeCallData = new MakeCallData().data(data);
-
-            ApiSuccessResponse response = this.voiceApi.makeCall(makeCallData);
-            throwIfNotOk("makeCall", response);
-
-        } catch (ApiException e) {
-            throw new WorkspaceApiException("makeCall failed.", e);
-        }
-    }
-
-    /**
-     * Answer call.
-     * @param connId The connId of the call to answer.
-     */
-    public void answerCall(String connId) throws WorkspaceApiException {
-        try {
-            AnswerData data = new AnswerData();
-
-            ApiSuccessResponse response = this.voiceApi.answer(connId, data);
-            throwIfNotOk("answerCall", response);
-
-        } catch (ApiException e) {
-            throw new WorkspaceApiException("answerCall failed.", e);
-        }
-    }
-
-    /**
-     * Place call on hold.
-     * @param connId The connId of the call to place on hold. 
-     */
-    public void holdCall(String connId) throws WorkspaceApiException {
-        try {
-            HoldData data = new HoldData();
-
-            ApiSuccessResponse response = this.voiceApi.hold(connId, data);
-            throwIfNotOk("holdCall", response);
-
-        } catch (ApiException e) {
-            throw new WorkspaceApiException("holdCall failed.", e);
-        }
-    }
-
-    /**
-     * Retrieve call from hold.
-     * @param connId The connId of the call to retrieve. 
-     */
-    public void retrieveCall(String connId) throws WorkspaceApiException {
-        try {
-            RetrieveData data = new RetrieveData();
-
-            ApiSuccessResponse response = this.voiceApi.retrieve(connId, data);
-            throwIfNotOk("retrieveCall", response);
-
-        } catch (ApiException e) {
-            throw new WorkspaceApiException("retrieveCall failed.", e);
-        }
-    }
-
-    /**
-     * Release call.
-     * @param connId The connId of the call to release 
-     */
-    public void releaseCall(String connId) throws WorkspaceApiException {
-        try {
-            ReleaseData data = new ReleaseData();
-
-            ApiSuccessResponse response = this.voiceApi.release(connId, data);
-            throwIfNotOk("releaseCall", response);
-
-        } catch (ApiException e) {
-            throw new WorkspaceApiException("releaseCall failed.", e);
-        }
-    }
-
-    /**
-     * Initiate a conference to the specified destination.
-     * @param connId The connId of the call to start the conference from.
-     * @param destination The destination
-     */
-    public void initiateConference(String connId, String destination) throws WorkspaceApiException {
-        try {
-            VoicecallsidinitiateconferenceData initData = new VoicecallsidinitiateconferenceData();
-            initData.setDestination(destination);
-            InitiateConferenceData data = new InitiateConferenceData();
-            data.data(initData);
-
-            ApiSuccessResponse response = this.voiceApi.initiateConference(connId, data);
-            throwIfNotOk("initiateConference", response);
-
-        } catch (ApiException e) {
-            throw new WorkspaceApiException("initiateConference failed.", e);
-        }
-    }
-
-    /**
-     * Complete a previously initiated conference identified by the provided ids.
-     * @param connId The id of the consule call (established)
-     * @param parentConnId The id of the parent call (held).
-     */
-    public void completeConference(String connId, String parentConnId) throws WorkspaceApiException {
-        try {
-            VoicecallsidcompletetransferData completeData = new VoicecallsidcompletetransferData();
-            completeData.setParentConnId(parentConnId);
-            CompleteConferenceData data = new CompleteConferenceData();
-            data.data(completeData);
-
-            ApiSuccessResponse response = this.voiceApi.completeConference(connId, data);
-            throwIfNotOk("completeConference", response);
-        } catch (ApiException e) {
-            throw new WorkspaceApiException("completeConference failed.", e);
-        }
-    }
-
-    /**
-     * Initiate a transfer to the specified destination.
-     * @param connId The connId of the call to be transfered.
-     * @param destination The destination of the transfer.
-     */
-    public void initiateTransfer(String connId, String destination) throws WorkspaceApiException {
-        try {
-            VoicecallsidinitiatetransferData data = new VoicecallsidinitiatetransferData();
-            data.setDestination(destination);
-            InitiateTransferData initData = new InitiateTransferData();
-            initData.data(data);
-
-            ApiSuccessResponse response = this.voiceApi.initiateTransfer(connId, initData);
-            throwIfNotOk("initiateTransfer", response);
-        } catch (ApiException e) {
-            throw new WorkspaceApiException("initiateTransfer failed.", e);
-        }
-    }
-
-    /**
-     * Complete a previously initiated transfer using the provided ids.
-     * @param connId The id of the consult call (established)
-     * @param parentConnId The id of the parent call (held)
-     */
-    public void completeTransfer(String connId, String parentConnId) throws WorkspaceApiException {
-        try {
-            VoicecallsidcompletetransferData completeData = new VoicecallsidcompletetransferData();
-            completeData.setParentConnId(parentConnId);
-            CompleteTransferData data = new CompleteTransferData();
-            data.data(completeData);
-
-            ApiSuccessResponse response = this.voiceApi.completeTransfer(connId, data);
-            throwIfNotOk("completeTransfer", response);
-        } catch (ApiException e) {
-            throw new WorkspaceApiException("completeTransfer failed.", e);
-        }
-    }
-
-    /**
-     * Alternate two calls retrieving the held call and placing the established call on hold. This is a 
-     * shortcut for doing hold and retrieve separately.
-     * @param connId The id of the established call.
-     * @param heldConnId The id of the held call.
-     */
-    public void alternateCalls(String connId, String heldConnId) throws WorkspaceApiException {
-        try {
-            VoicecallsidalternateData alternateData = new VoicecallsidalternateData();
-            alternateData.setHeldConnId(heldConnId);
-            AlternateData data = new AlternateData();
-            data.data(alternateData);
-
-            ApiSuccessResponse response = this.voiceApi.alternate(connId, data);
-            throwIfNotOk("alternateCalls", response);
-        } catch (ApiException e) {
-            throw new WorkspaceApiException("alternateCalls failed.", e);
-        }
-    }
-
-    /**
-     * Delete a dn from a conference call
-     * @param connId The connId of the conference
-     * @param dnToDrop The dn number to drop from the conference.
-     */
-    public void deleteFromConference(String connId, String dnToDrop) throws WorkspaceApiException {
-        try {
-            VoicecallsiddeletefromconferenceData deleteData =
-                    new VoicecallsiddeletefromconferenceData();
-            deleteData.setDnToDrop(dnToDrop);
-            DeleteFromConferenceData data = new DeleteFromConferenceData();
-            data.data(deleteData);
-            ApiSuccessResponse response = this.voiceApi.deleteFromConference(connId, data);
-            throwIfNotOk("deleteFromConference", response);
-        } catch (ApiException e) {
-            throw new WorkspaceApiException("deleteFromConference failed", e);
-        }
-    }
-
-    /**
-     * Perform a single-step transfer to the specified destination.
-     * @param connId The id of the call to transfer.
-     * @param destination The destination to transfer the call to.
-     */
-    public void singleStepTransfer(String connId, String destination) throws WorkspaceApiException {
-        try {
-            VoicecallsidsinglesteptransferData transferData =
-                    new VoicecallsidsinglesteptransferData();
-            transferData.setDestination(destination);
-            SingleStepTransferData data = new SingleStepTransferData();
-            data.data(transferData);
-
-            ApiSuccessResponse response = this.voiceApi.singleStepTransfer(connId, data);
-            throwIfNotOk("singleStepTransfer", response);
-        } catch (ApiException e) {
-            throw new WorkspaceApiException("singleStepTransfer failed", e);
-        }
-    }
-
-    /**
-     * Perform a single-step conference to the specififed destination. This will effectively add the
-     * destination to the existing call, creating a conference if necessary.
-     * @param connId The id of the call to conference.
-     * @param destination The destination to be added to the call.
-     */
-    public void singleStepConference(String connId, String destination) throws WorkspaceApiException {
-        try {
-            VoicecallsidsinglestepconferenceData confData =
-                    new VoicecallsidsinglestepconferenceData();
-            confData.setDestination(destination);
-            SingleStepConferenceData data = new SingleStepConferenceData();
-            data.data(confData);
-
-            ApiSuccessResponse response = this.voiceApi.singleStepConference(connId, data);
-            throwIfNotOk("singleStepConference", response);
-        } catch (ApiException e) {
-            throw new WorkspaceApiException("singleStepConference failed", e);
         }
     }
 
@@ -806,7 +770,7 @@ public class WorkspaceApi {
      */
     public void voiceLogin() throws WorkspaceApiException {
         try {
-            ApiSuccessResponse response = this.voiceApi.loginVoice();
+            ApiSuccessResponse response = this.voiceApi.logoutVoice();
             throwIfNotOk("voiceLogin", response);
         } catch (ApiException e) {
             throw new WorkspaceApiException("voiceLogin failed", e);
@@ -827,7 +791,7 @@ public class WorkspaceApi {
 
     /**
      * Set call forwarding to the specififed destination.
-     * @param forwardTo - destination to forward calls to.
+     * @param destination - destination to forward calls to.
      */
     public void setForward(String destination) throws WorkspaceApiException {
         try {
@@ -857,12 +821,591 @@ public class WorkspaceApi {
     }
 
     /**
+     * Make a new call to the specified destination.
+     * @param destination The destination to call
+     */
+    public void makeCall(String destination) throws WorkspaceApiException {
+        this.makeCall(destination, null, null, null);
+    }
+
+    /**
+     * Make a new call to the specified destination.
+     * @param destination The destination to call
+     * @param userData userData to be included with the new call
+     */
+    public void makeCall(
+            String destination,
+            KeyValueCollection userData
+    ) throws WorkspaceApiException {
+        this.makeCall(destination, userData, null, null);
+    }
+
+    /**
+     * Make a new call to the specified destination.
+     * @param destination The destination to call
+     * @param userData userData to be included with the new call
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void makeCall(
+            String destination,
+            KeyValueCollection userData,
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+        ) throws WorkspaceApiException {
+        try {
+            VoicemakecallData data = new VoicemakecallData();
+            data.destination(destination);
+            data.setUserData(userData);
+            data.setExtensions(extensions);
+            data.setReasons(reasons);
+            MakeCallData makeCallData = new MakeCallData().data(data);
+
+            ApiSuccessResponse response = this.voiceApi.makeCall(makeCallData);
+            throwIfNotOk("makeCall", response);
+
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("makeCall failed.", e);
+        }
+    }
+
+    /**
+     * Answer call.
+     * @param connId The connId of the call to answer.
+     */
+    public void answerCall(String connId) throws WorkspaceApiException {
+        this.answerCall(connId, null, null);
+    }
+
+    /**
+     * Answer call.
+     * @param connId The connId of the call to answer.
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void answerCall(
+            String connId,
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+    ) throws WorkspaceApiException {
+        try {
+            VoicecallsidholdData answerData = new VoicecallsidholdData();
+            answerData.setReasons(reasons);
+            answerData.setExtensions(extensions);
+            AnswerData data = new AnswerData();
+            data.setData(answerData);
+
+            ApiSuccessResponse response = this.voiceApi.answer(connId, data);
+            throwIfNotOk("answerCall", response);
+
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("answerCall failed.", e);
+        }
+    }
+
+    /**
+     * Place call on hold.
+     * @param connId The connId of the call to place on hold.
+     */
+    public void holdCall(String connId) throws WorkspaceApiException {
+        this.holdCall(connId, null, null);
+    }
+
+    /**
+     * Place call on hold.
+     * @param connId The connId of the call to place on hold.
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void holdCall(
+            String connId,
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+    ) throws WorkspaceApiException {
+        try {
+            VoicecallsidholdData holdData = new VoicecallsidholdData();
+            holdData.setReasons(reasons);
+            holdData.setExtensions(extensions);
+            HoldData data = new HoldData();
+            data.data(holdData);
+
+            ApiSuccessResponse response = this.voiceApi.hold(connId, data);
+            throwIfNotOk("holdCall", response);
+
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("holdCall failed.", e);
+        }
+    }
+
+    /**
+     * Retrieve call from hold.
+     * @param connId The connId of the call to retrieve.
+     */
+    public void retrieveCall(String connId) throws WorkspaceApiException {
+        this.retrieveCall(connId, null, null);
+    }
+
+    /**
+     * Retrieve call from hold.
+     * @param connId The connId of the call to retrieve.
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void retrieveCall(
+            String connId,
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+    ) throws WorkspaceApiException {
+        try {
+            VoicecallsidholdData retrieveData = new VoicecallsidholdData();
+            retrieveData.setReasons(reasons);
+            retrieveData.setExtensions(extensions);
+            RetrieveData data = new RetrieveData();
+            data.data(retrieveData);
+
+            ApiSuccessResponse response = this.voiceApi.retrieve(connId, data);
+            throwIfNotOk("retrieveCall", response);
+
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("retrieveCall failed.", e);
+        }
+    }
+
+    /**
+     * Release call.
+     * @param connId The connId of the call to release
+     */
+    public void releaseCall(String connId) throws WorkspaceApiException {
+        this.releaseCall(connId, null, null);
+    }
+
+    /**
+     * Release call.
+     * @param connId The connId of the call to release
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void releaseCall(
+            String connId,
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+    ) throws WorkspaceApiException {
+
+        try {
+            VoicecallsidholdData releaseData = new VoicecallsidholdData();
+            releaseData.setReasons(reasons);
+            releaseData.setExtensions(extensions);
+            ReleaseData data = new ReleaseData();
+            data.data(releaseData);
+
+            ApiSuccessResponse response = this.voiceApi.release(connId, data);
+            throwIfNotOk("releaseCall", response);
+
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("releaseCall failed.", e);
+        }
+    }
+
+    /**
+     * Initiate a conference to the specified destination.
+     * @param connId The connId of the call to start the conference from.
+     * @param destination The destination
+     */
+    public void initiateConference(String connId, String destination) throws WorkspaceApiException {
+        this.initiateConference(connId, destination, null, null, null, null, null);
+    }
+
+    /**
+     * Initiate a conference to the specified destination.
+     * @param connId The connId of the call to start the conference from.
+     * @param destination The destination
+     * @param userData userdata to be used for the new consult call.
+     */
+    public void initiateConference(
+            String connId,
+            String destination,
+            KeyValueCollection userData
+    ) throws WorkspaceApiException {
+        this.initiateConference(connId, destination, null, null, userData, null, null);
+    }
+
+    /**
+     * Initiate a conference to the specified destination.
+     * @param connId The connId of the call to start the conference from.
+     * @param destination The destination
+     * @param location
+     * @param outboundCallerId
+     * @param userData userdata to be used for the new consult call.
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void initiateConference(
+            String connId,
+            String destination,
+            String location,
+            String outboundCallerId,
+            KeyValueCollection userData,
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+    ) throws WorkspaceApiException {
+        try {
+            VoicecallsidinitiateconferenceData initData = new VoicecallsidinitiateconferenceData();
+            initData.setDestination(destination);
+            initData.setLocation(location);
+            initData.setOutboundCallerId(outboundCallerId);
+            initData.setUserData(userData);
+            initData.setReasons(reasons);
+            initData.setExtensions(extensions);
+            InitiateConferenceData data = new InitiateConferenceData();
+            data.data(initData);
+
+            ApiSuccessResponse response = this.voiceApi.initiateConference(connId, data);
+            throwIfNotOk("initiateConference", response);
+
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("initiateConference failed.", e);
+        }
+    }
+
+    /**
+     * Complete a previously initiated conference identified by the provided ids.
+     * @param connId The id of the consule call (established)
+     * @param parentConnId The id of the parent call (held).
+     */
+    public void completeConference(String connId, String parentConnId) throws WorkspaceApiException {
+        this.completeConference(connId, parentConnId, null, null);
+    }
+
+    /**
+     * Complete a previously initiated conference identified by the provided ids.
+     * @param connId The id of the consule call (established)
+     * @param parentConnId The id of the parent call (held).
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void completeConference(
+            String connId,
+            String parentConnId,
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+    ) throws WorkspaceApiException {
+        try {
+            VoicecallsidcompletetransferData completeData = new VoicecallsidcompletetransferData();
+            completeData.setParentConnId(parentConnId);
+            completeData.setReasons(reasons);
+            completeData.setExtensions(extensions);
+            CompleteConferenceData data = new CompleteConferenceData();
+            data.data(completeData);
+
+            ApiSuccessResponse response = this.voiceApi.completeConference(connId, data);
+            throwIfNotOk("completeConference", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("completeConference failed.", e);
+        }
+    }
+
+    /**
+     * Initiate a transfer to the specified destination.
+     * @param connId The connId of the call to be transferred.
+     * @param destination The destination of the transfer.
+     */
+    public void initiateTransfer(String connId, String destination) throws WorkspaceApiException {
+        this.initiateTransfer(connId, destination, null, null, null, null, null);
+    }
+
+    /**
+     * Initiate a transfer to the specified destination.
+     * @param connId The connId of the call to be transferred.
+     * @param destination The destination of the transfer.
+     * @param userData userdata to be included with the new consult call
+     */
+    public void initiateTransfer(
+            String connId,
+            String destination,
+            KeyValueCollection userData
+    ) throws WorkspaceApiException {
+        this.initiateTransfer(connId, destination, null, null, userData, null, null);
+    }
+
+    /**
+     * Initiate a transfer to the specified destination.
+     * @param connId  The connId of the call to be transferred.
+     * @param destination The destination
+     * @param location
+     * @param outboundCallerId
+     * @param userData userdata to be used for the new consult call.
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void initiateTransfer(
+            String connId,
+            String destination,
+            String location,
+            String outboundCallerId,
+            KeyValueCollection userData,
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+    ) throws WorkspaceApiException {
+        try {
+            VoicecallsidinitiatetransferData data = new VoicecallsidinitiatetransferData();
+            data.setDestination(destination);
+            data.setLocation(location);
+            data.setOutboundCallerId(outboundCallerId);
+            data.setUserData(userData);
+            data.setReasons(reasons);
+            data.setExtensions(extensions);
+            InitiateTransferData initData = new InitiateTransferData();
+            initData.data(data);
+
+            ApiSuccessResponse response = this.voiceApi.initiateTransfer(connId, initData);
+            throwIfNotOk("initiateTransfer", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("initiateTransfer failed.", e);
+        }
+    }
+
+    /**
+     * Complete a previously initiated transfer using the provided ids.
+     * @param connId The id of the consult call (established)
+     * @param parentConnId The id of the parent call (held)
+     */
+    public void completeTransfer(String connId, String parentConnId) throws WorkspaceApiException {
+        this.completeConference(connId, parentConnId, null, null);
+    }
+
+    /**
+     * Complete a previously initiated transfer using the provided ids.
+     * @param connId The id of the consult call (established)
+     * @param parentConnId The id of the parent call (held)
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void completeTransfer(
+            String connId,
+            String parentConnId,
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+    ) throws WorkspaceApiException {
+        try {
+            VoicecallsidcompletetransferData completeData = new VoicecallsidcompletetransferData();
+            completeData.setParentConnId(parentConnId);
+            completeData.setReasons(reasons);
+            completeData.setExtensions(extensions);
+            CompleteTransferData data = new CompleteTransferData();
+            data.data(completeData);
+
+            ApiSuccessResponse response = this.voiceApi.completeTransfer(connId, data);
+            throwIfNotOk("completeTransfer", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("completeTransfer failed.", e);
+        }
+    }
+
+    /**
+     * Alternate two calls retrieving the held call and placing the established call on hold. This is a
+     * shortcut for doing hold and retrieve separately.
+     * @param connId The id of the established call.
+     * @param heldConnId The id of the held call.
+     */
+    public void alternateCalls(String connId, String heldConnId) throws WorkspaceApiException {
+        this.alternateCalls(connId, heldConnId, null, null);
+    }
+
+    /**
+     * Alternate two calls retrieving the held call and placing the established call on hold. This is a 
+     * shortcut for doing hold and retrieve separately.
+     * @param connId The id of the established call.
+     * @param heldConnId The id of the held call.
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void alternateCalls(
+            String connId,
+            String heldConnId,
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+    ) throws WorkspaceApiException {
+        try {
+            VoicecallsidalternateData alternateData = new VoicecallsidalternateData();
+            alternateData.setHeldConnId(heldConnId);
+            alternateData.setReasons(reasons);
+            alternateData.setExtensions(extensions);
+            AlternateData data = new AlternateData();
+            data.data(alternateData);
+
+            ApiSuccessResponse response = this.voiceApi.alternate(connId, data);
+            throwIfNotOk("alternateCalls", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("alternateCalls failed.", e);
+        }
+    }
+
+    /**
+     * Delete a dn from a conference call
+     * @param connId The connId of the conference
+     * @param dnToDrop The dn number to drop from the conference.
+     */
+    public void deleteFromConference(String connId, String dnToDrop) throws WorkspaceApiException {
+        this.deleteFromConference(connId, dnToDrop, null, null);
+    }
+
+    /**
+     * Delete a dn from a conference call
+     * @param connId The connId of the conference
+     * @param dnToDrop The dn number to drop from the conference.
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void deleteFromConference(
+            String connId,
+            String dnToDrop,
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+    ) throws WorkspaceApiException {
+        try {
+            VoicecallsiddeletefromconferenceData deleteData =
+                    new VoicecallsiddeletefromconferenceData();
+            deleteData.setDnToDrop(dnToDrop);
+            deleteData.setReasons(reasons);
+            deleteData.setExtensions(extensions);
+
+            DeleteFromConferenceData data = new DeleteFromConferenceData();
+            data.data(deleteData);
+            ApiSuccessResponse response = this.voiceApi.deleteFromConference(connId, data);
+            throwIfNotOk("deleteFromConference", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("deleteFromConference failed", e);
+        }
+    }
+
+    /**
+     * Perform a single-step transfer to the specified destination.
+     * @param connId The id of the call to transfer.
+     * @param destination The destination to transfer the call to.
+     */
+    public void singleStepTransfer(String connId, String destination) throws WorkspaceApiException {
+        this.singleStepTransfer(connId, destination, null, null, null, null);
+    }
+
+    /**
+     * Perform a single-step transfer to the specified destination.
+     * @param connId The id of the call to transfer.
+     * @param destination The destination to transfer the call to.
+     * @param userData userdata to be included on the transfer
+     */
+    public void singleStepTransfer(
+            String connId,
+            String destination,
+            KeyValueCollection userData
+    ) throws WorkspaceApiException {
+        this.singleStepTransfer(connId, destination, null, userData, null, null);
+    }
+
+    /**
+     * Perform a single-step transfer to the specified destination.
+     * @param connId The id of the call to transfer.
+     * @param destination The destination to transfer the call to.
+     * @param location
+     * @param userData userdata to be used for the new consult call.
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void singleStepTransfer(
+            String connId,
+            String destination,
+            String location,
+            KeyValueCollection userData,
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+    ) throws WorkspaceApiException {
+        try {
+            VoicecallsidsinglesteptransferData transferData =
+                    new VoicecallsidsinglesteptransferData();
+            transferData.setDestination(destination);
+            transferData.setLocation(location);
+            transferData.setUserData(userData);
+            transferData.setReasons(reasons);
+            transferData.setExtensions(extensions);
+            SingleStepTransferData data = new SingleStepTransferData();
+            data.data(transferData);
+
+            ApiSuccessResponse response = this.voiceApi.singleStepTransfer(connId, data);
+            throwIfNotOk("singleStepTransfer", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("singleStepTransfer failed", e);
+        }
+    }
+
+    /**
+     * Perform a single-step conference to the specififed destination. This will effectively add the
+     * destination to the existing call, creating a conference if necessary.
+     * @param connId The id of the call to conference.
+     * @param destination The destination to be added to the call.
+     */
+    public void singleStepConference(String connId, String destination) throws WorkspaceApiException {
+        this.singleStepConference(connId, destination, null, null, null, null);
+
+    }
+
+    /**
+     * Perform a single-step conference to the specififed destination. This will effectively add the
+     * destination to the existing call, creating a conference if necessary.
+     * @param connId The id of the call to conference.
+     * @param destination The destination to be added to the call.
+     * @param userData userdata to be included with the request
+     *
+     */
+    public void singleStepConference(
+            String connId,
+            String destination,
+            KeyValueCollection userData
+    ) throws WorkspaceApiException {
+        this.singleStepConference(connId, destination, null, userData, null, null);
+    }
+
+    /**
+     * Perform a single-step conference to the specififed destination. This will effectively add the
+     * destination to the existing call, creating a conference if necessary.
+     * @param connId The id of the call to conference.
+     * @param destination The destination to be added to the call.
+     * @param location
+     * @param userData userdata to be included with the request
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void singleStepConference(
+            String connId,
+            String destination,
+            String location,
+            KeyValueCollection userData,
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+    ) throws WorkspaceApiException {
+        try {
+            VoicecallsidsinglestepconferenceData confData =
+                    new VoicecallsidsinglestepconferenceData();
+            confData.setDestination(destination);
+            confData.setLocation(location);
+            confData.setUserData(userData);
+            confData.setReasons(reasons);
+            confData.setExtensions(extensions);
+            SingleStepConferenceData data = new SingleStepConferenceData();
+            data.data(confData);
+
+            ApiSuccessResponse response = this.voiceApi.singleStepConference(connId, data);
+            throwIfNotOk("singleStepConference", response);
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("singleStepConference failed", e);
+        }
+    }
+
+    /**
      * Attach the provided data to the call. This adds the data to the call even if data already exists 
      * with the provided keys.
      * @param connId The id of the call to attach data to.
      * @param userData The data to attach to the call. This is an array of objects with the properties key, type, and value.
      */
-    public void attachUserData(String connId, List<Kvpair> userData) throws WorkspaceApiException {
+    public void attachUserData(String connId,KeyValueCollection userData) throws WorkspaceApiException {
         try {
             VoicecallsidcompleteData completeData = new VoicecallsidcompleteData();
             completeData.setUserData(userData);
@@ -881,7 +1424,7 @@ public class WorkspaceApi {
      * @param connId The id of the call to update data for.
      * @param userData The data to update. This is an array of objecvts with the properties key, type, and value.
      */
-    public void updateUserData(String connId, List<Kvpair> userData) throws WorkspaceApiException {
+    public void updateUserData(String connId, KeyValueCollection userData) throws WorkspaceApiException {
         try {
             VoicecallsidcompleteData completeData = new VoicecallsidcompleteData();
             completeData.setUserData(userData);
@@ -920,34 +1463,52 @@ public class WorkspaceApi {
      * @param connId The call to send DTMF digits to.
      * @param digits The DTMF digits to send.
      */
-    public void sendDtmf(String connId, String digits) throws WorkspaceApiException {
+    public void sendDTMF(String connId, String digits) throws WorkspaceApiException {
+        this.sendDTMF(connId, digits, null, null);
+    }
+
+    /**
+     * Send DTMF digits to the specififed call.
+     * @param connId The call to send DTMF digits to.
+     * @param digits The DTMF digits to send.
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void sendDTMF(
+            String connId,
+            String digits,
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+    ) throws WorkspaceApiException {
         try {
             VoicecallsidsenddtmfData dtmfData = new VoicecallsidsenddtmfData();
             dtmfData.setDtmfDigits(digits);
+            dtmfData.setReasons(reasons);
+            dtmfData.setExtensions(extensions);
             SendDTMFData data = new SendDTMFData();
             data.data(dtmfData);
 
             ApiSuccessResponse response = this.voiceApi.sendDTMF(connId, data);
-            throwIfNotOk("sendDtmf", response);
+            throwIfNotOk("sendDTMF", response);
         } catch (ApiException e) {
-            throw new WorkspaceApiException("sendDtmf failed", e);
+            throw new WorkspaceApiException("sendDTMF failed", e);
         }
     }
 
     /**
      * Send EventUserEvent with the provided data. 
-     * @param data The data to be sent. This is an array of objects with the properties key, type, and value.
+     * @param userData The data to be sent. This is an array of objects with the properties key, type, and value.
      */
-    public void sendUserEvent(List<Kvpair> userData) throws WorkspaceApiException {
+    public void sendUserEvent(KeyValueCollection userData) throws WorkspaceApiException {
         this.sendUserEvent(userData, null);
     }
 
     /**
      * Send EventUserEvent with the provided data. 
-     * @param data The data to be sent. This is an array of objects with the properties key, type, and value.
+     * @param userData The data to be sent. This is an array of objects with the properties key, type, and value.
      * @param callUuid The callUuid that the event will be associated with.
      */
-    public void sendUserEvent(List<Kvpair> userData, String callUuid) throws WorkspaceApiException {
+    public void sendUserEvent(KeyValueCollection userData, String callUuid) throws WorkspaceApiException {
         try {
             SendUserEventDataData sendUserEventData = new SendUserEventDataData();
             sendUserEventData.setUserData(userData);
@@ -969,9 +1530,27 @@ public class WorkspaceApi {
      * @param destination The destination to redirect the call to.
      */
     public void redirectCall(String connId, String destination) throws WorkspaceApiException {
+        this.redirectCall(connId, destination, null, null);
+    }
+
+    /**
+     * Redirect call to the specified destination
+     * @param connId The connId of the call to redirect.
+     * @param destination The destination to redirect the call to.
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void redirectCall(
+            String connId,
+            String destination,
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+    ) throws WorkspaceApiException {
         try {
             VoicecallsidredirectData redirectData = new VoicecallsidredirectData();
             redirectData.setDestination(destination);
+            redirectData.setReasons(reasons);
+            redirectData.setExtensions(extensions);
             RedirectData data = new RedirectData();
             data.data(redirectData);
 
@@ -988,9 +1567,27 @@ public class WorkspaceApi {
      * @param otherConnId The id of the second call to be merged.
      */
     public void mergeCalls(String connId, String otherConnId) throws WorkspaceApiException {
+        this.mergeCalls(connId, otherConnId, null, null);
+    }
+
+    /**
+     * Merge the two specified calls.
+     * @param connId The id of the first call to be merged.
+     * @param otherConnId The id of the second call to be merged.
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void mergeCalls(
+            String connId,
+            String otherConnId,
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+    ) throws WorkspaceApiException {
         try {
             VoicecallsidmergeData mergeData = new VoicecallsidmergeData();
             mergeData.setOtherConnId(otherConnId);
+            mergeData.setReasons(reasons);
+            mergeData.setExtensions(extensions);
 
             MergeData data = new MergeData();
             data.data(mergeData);
@@ -1009,9 +1606,28 @@ public class WorkspaceApi {
      * @param heldConnId The id of the held call (will be retrieved)
      */
     public void reconnectCall(String connId, String heldConnId) throws WorkspaceApiException {
+        this.reconnectCall(connId, heldConnId, null, null);
+    }
+
+    /**
+     * Reconnect the specified call. Reconnect releases the established call and retrieves the held call
+     * in one step.
+     * @param connId The id of the established call (will be released)
+     * @param heldConnId The id of the held call (will be retrieved)
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void reconnectCall(
+            String connId,
+            String heldConnId,
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+    ) throws WorkspaceApiException {
         try {
             VoicecallsidreconnectData reconnectData = new VoicecallsidreconnectData();
             reconnectData.setHeldConnId(heldConnId);
+            reconnectData.setReasons(reasons);
+            reconnectData.setExtensions(extensions);
 
             ReconnectData data = new ReconnectData();
             data.data(reconnectData);
@@ -1025,11 +1641,27 @@ public class WorkspaceApi {
 
     /**
      * Clear call.
-     * @param connId The connId of the call to clear 
+     * @param connId The connId of the call to clear
      */
     public void clearCall(String connId) throws WorkspaceApiException {
+        this.clearCall(connId, null, null);
+    }
+
+    /**
+     * Clear call.
+     * @param connId The connId of the call to clear
+     * @param reasons reasons
+     * @param extensions extensions
+     */
+    public void clearCall(
+            String connId,
+            KeyValueCollection reasons,
+            KeyValueCollection extensions
+    ) throws WorkspaceApiException {
         try {
             VoicecallsidholdData clearData = new VoicecallsidholdData();
+            clearData.setReasons(reasons);
+            clearData.setExtensions(extensions);
 
             ClearData data = new ClearData();
             data.data(clearData);
@@ -1093,12 +1725,19 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Returns the debug flag
+      * @return debug flag
+     */
     public boolean debugEnabled() {
         return this.debugEnabled;
     }
 
+    /**
+     * Sets the debug flag
+     * @param debugEnabled debug flag
+     */
     public void setDebugEnabled(boolean debugEnabled) {
         this.debugEnabled = debugEnabled;
     }
-
 }

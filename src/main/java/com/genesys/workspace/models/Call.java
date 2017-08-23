@@ -2,11 +2,16 @@ package com.genesys.workspace.models;
 
 public class Call {
     private String id;
-    private String state;
+    private String callUuid;
+    private CallState state;
     private String parentConnId;
     private String previousConnId;
     private String callType;
+    private String ani;
+    private String dnis;
+    private String recordingState;
     private String[] participants;
+    private KeyValueCollection userData;
 
     public Call() {}
 
@@ -14,7 +19,11 @@ public class Call {
         return this.id;
     }
 
-    public String getState() {
+    public String getCallUuid() {
+        return this.callUuid;
+    }
+
+    public CallState getState() {
         return this.state;
     }
 
@@ -28,15 +37,35 @@ public class Call {
         return this.callType;
     }
 
+    public String getANI() {
+        return this.ani;
+    }
+
+    public String getDNIS() {
+        return this.dnis;
+    }
+
+    public String getRecordingState() {
+        return this.recordingState;
+    }
+
     public String[] getParticipants() {
         return this.participants;
+    }
+
+    public KeyValueCollection getUserData() {
+        return this.userData;
     }
 
     public void setId(String id) {
         this.id = id;
     }
 
-    public void setState(String state) {
+    public void setCallUuid(String callUuid) {
+        this.callUuid = callUuid;
+    }
+
+    public void setState(CallState state) {
         this.state = state;
     }
 
@@ -52,7 +81,23 @@ public class Call {
         this.callType = callType;
     }
 
+    public void setANI(String ani) {
+        this.ani = ani;
+    }
+
+    public void setDNIS(String dnis) {
+        this.dnis = dnis;
+    }
+
+    public void setRecordingState(String recordingState) {
+        this.recordingState = recordingState;
+    }
+
     public void setParticipants(String[] participants) {
         this.participants = participants;
+    }
+
+    public void setUserData(KeyValueCollection userData) {
+        this.userData = userData;
     }
 }
