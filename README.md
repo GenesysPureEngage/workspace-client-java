@@ -154,3 +154,26 @@ api.pauseRecording(connId);
 api.resumeRecording(connId);
 
 ```
+
+# OAuth2
+
+The workspace API uses OAuth2 for authentication and authorization. When initializing the API, you can provide either an authorization code and redirect uri or an access token.
+
+The recommended flow for web based agent applications is the authorization code grant type. For web apps that include a server side, the UI should redirect the agent to:
+
+```
+https://<host>/auth/v3/oauth/authorize?response_type=code&client_id=<client_id>&redirect_uri=http://<agent ui location>
+```
+
+The host and client id are provided by Genesys and the agent ui location should point back to the requesting application.
+
+The Genesys auth service will redirect the agent to the login page to enter credentials. Upon completion and authentication, the auth service will redirect the agent back to the provided uri and include the auth code as a url parameter (ex. http://my-agent-desktop/index.html?code=12345). This code can then be provided to your server side and passed on to the initialize() method of the workspace api. 
+
+Note that the redirect uri provided to /authorize and to the workspace api initialize() method must match or an error will be returned.
+
+### Samples
+
+Non-UI samples implement the code grant flow by including a basic authentication header with the username and password which results in a code being returned without going through the login pages. This is convenient for demonstration purposes but should not be used in production and does not support environments where saml is configured. 
+
+For more details on OAuth2 and the authorization code grant flow refer to the [RFC](https://tools.ietf.org/html/rfc6749#section-4.1).
+
