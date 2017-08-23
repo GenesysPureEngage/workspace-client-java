@@ -36,8 +36,7 @@ api.addErrorEventListener(msg -> {
     System.out.println("EventError: " + msg.getMessage() + " - code [" + msg.getCode() + "]");
 });
 
-// Initialize the API providing authCode. How to obtain an auth code
-// is explained separately.
+// Initialize the API providing authCode. See the OAuth2 section for more details.
 CompletableFuture<User> future = api.initialize(authCode, redirectUri);
 
 // After the API is initialized, user details are available.
