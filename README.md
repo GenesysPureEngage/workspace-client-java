@@ -65,82 +65,92 @@ api.activateChannels(agentId, dn);
 ## Agent State
 
 ```java
-  // Ready
-  api.ready();
-  
-  // NotReady with optional workmode and reason
-  api.notReady();
-  api.notReady(workMode, reasonCode);
-  
-  // DND
-  api.dndOn();
-  api.dndOff();
+// Ready
+api.ready();
+
+// NotReady with optional workmode and reason
+api.notReady();
+api.notReady(workMode, reasonCode);
+
+// DND
+api.dndOn();
+api.dndOff();
 ```
 
 
 ## Basic Call Control
 
 ```java
-  // Make a new call
-  api.makeCall(destination);
-  
-  // Answer
-  api.answerCall(connId);
-  
-  // Hold and retrieve
-  api.holdCall(connId);
-  api.retrieveCall(connId);
-  
-  // Release
-  api.releaseCall(connId);
-  
-  // Send DTMF tones
-  api.sendDTMF(connId, digits);
+// Make a new call
+api.makeCall(destination);
+
+// Answer
+api.answerCall(connId);
+
+// Hold and retrieve
+api.holdCall(connId);
+api.retrieveCall(connId);
+
+// Release
+api.releaseCall(connId);
+
+// Send DTMF tones
+api.sendDTMF(connId, digits);
 ```
 
 ## Conference and Transfers
 
 ```java
-  // Two-step transfer
-  api.initiateTransfer(connId, destination);
-  api.completerTransfer(connId, parentConnId);
-  
-  // Two-step conference
-  api.initiateConference(connId, destination);
-  api.completeConference(connId, parentConnId);
-  
-  // Delete a participant
-  api.deleteFromConference(connId, dnToDrop);
-  
-  // Single-step versions
-  api.singleStepTransfer(connId, destination);
-  api.singleStepConference(connId, destination);
+// Two-step transfer
+api.initiateTransfer(connId, destination);
+api.completerTransfer(connId, parentConnId);
+
+// Two-step conference
+api.initiateConference(connId, destination);
+api.completeConference(connId, parentConnId);
+
+// Delete a participant
+api.deleteFromConference(connId, dnToDrop);
+
+// Single-step versions
+api.singleStepTransfer(connId, destination);
+api.singleStepConference(connId, destination);
 ```
 
 ## UserData
 
 ```java
-  // Attach
-  api.attachUserData(connId, userData);
-  
-  // Update
-  api.updateUserData(connId, userData);
-  
-  // Delete a key
-  api.deleteUserDataPair(connId, key);
+
+// Creating
+KeyValueCollection userData = new KeyValueCollection();
+userData.addString("firstName", "value");
+userData.addInt("points", 100);
+
+KeyValueCollection address = new KeyValueCollection();
+address.addString("city", "San Francisco");
+address.addString("state", "CA");
+
+userData.addList("address", address);
+      
+// Attach
+api.attachUserData(connId, userData);
+
+// Update
+api.updateUserData(connId, userData);
+
+// Delete a key
+api.deleteUserDataPair(connId, key);
 ```
 
 ## Call Recording
 
 ```java
-  // Start and stop
-  api.startRecording(connId);
-  api.stopRecording(connId);
-  
-  // Pause and resume
-  api.pauseRecording(connId);
-  api.resumeRecording(connId);
+// Start and stop
+api.startRecording(connId);
+api.stopRecording(connId);
+
+// Pause and resume
+api.pauseRecording(connId);
+api.resumeRecording(connId);
 
 ```
-
-
