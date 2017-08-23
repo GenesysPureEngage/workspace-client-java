@@ -71,6 +71,7 @@ api.ready();
 // NotReady with optional workmode and reason
 api.notReady();
 api.notReady(workMode, reasonCode);
+api.notReady(workMode, reasonCode, reasons, extensions);
 
 // DND
 api.dndOn();
@@ -83,6 +84,7 @@ api.dndOff();
 ```java
 // Make a new call
 api.makeCall(destination);
+api.makeCall(destination, userData);
 
 // Answer
 api.answerCall(connId);
