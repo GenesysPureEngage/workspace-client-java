@@ -1,5 +1,5 @@
 # workspace-client-java
-A Java library to interface with the Workspace API 
+A Workspace API client library for Java.
 
 # Examples
 There are several examples available for Java:
