@@ -31,6 +31,6 @@ public class AgentGroup {
 
     @Override
     public String toString() {
-        return "DBID [" + this.dbid + " name [" + this.name + "] userProperties [" + this.userProperties + "]";
+        return "DBID [" + this.dbid + "] name [" + this.name + "] userProperties [" + this.userProperties + "]";
     }
 }

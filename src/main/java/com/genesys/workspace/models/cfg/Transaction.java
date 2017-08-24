@@ -31,6 +31,6 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return "name [" + this.name + " alias [" + this.alias + "] userProperties " + this.userProperties;
+        return "name [" + this.name + "] alias [" + this.alias + "] userProperties " + this.userProperties;
     }
 }

@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Optional;
 
+import com.genesys._internal.workspace.api.TargetsApi;
 import com.genesys._internal.workspace.model.*;
 import com.genesys._internal.workspace.ApiClient;
 import com.genesys._internal.workspace.ApiException;
@@ -28,6 +29,8 @@ import com.genesys._internal.workspace.api.VoiceApi;
 
 import com.genesys.workspace.models.Call;
 import com.genesys.workspace.models.cfg.BusinessAttribute;
+import com.genesys.workspace.models.targets.Target;
+import com.genesys.workspace.models.targets.TargetSearchResult;
 import org.cometd.bayeux.Message;
 import org.cometd.bayeux.client.ClientSessionChannel;
 import org.cometd.client.BayeuxClient;
@@ -47,6 +50,7 @@ public class WorkspaceApi {
     private BayeuxClient cometdClient;
     private SessionApi sessionApi;
     private VoiceApi voiceApi;
+    private TargetsApi targetsApi;
     private String sessionCookie;
     private String workspaceSessionId;
     private CompletableFuture<User> initFuture;
@@ -227,6 +231,70 @@ public class WorkspaceApi {
         }
     }
 
+    private ActionCodeType parseActionCodeType(String input) {
+
+        ActionCodeType type = ActionCodeType.UNKNOWN;
+        if (input == null) {
+            return type;
+        }
+
+        switch (input) {
+            case "Login":
+                type = ActionCodeType.LOGIN;
+                break;
+
+            case "Logout":
+                type = ActionCodeType.LOGOUT;
+                break;
+
+            case "Ready":
+                type = ActionCodeType.READY;
+                break;
+
+            case "NotReady":
+                type = ActionCodeType.NOT_READY;
+                break;
+
+            case "BusyOn":
+                type = ActionCodeType.BUSY_ON;
+                break;
+
+            case "BusyOff":
+                type = ActionCodeType.BUSY_OFF;
+                break;
+
+            case "ForwardOn":
+                type = ActionCodeType.FORWARD_ON;
+                break;
+
+            case "Forwardoff":
+                type = ActionCodeType.FORWARD_OFF;
+                break;
+
+            case "InternalCall":
+                type = ActionCodeType.INTERNAL_CALL;
+                break;
+
+            case "InboundCall":
+                type = ActionCodeType.INBOUND_CALL;
+                break;
+
+            case "OutboundCall":
+                type = ActionCodeType.OUTBOUND_CALL;
+                break;
+
+            case "Conference":
+                type = ActionCodeType.CONFERENCE;
+                break;
+
+            case "Transfer":
+                type = ActionCodeType.TRANSFER;
+                break;
+        }
+
+        return type;
+    }
+
     private void extractConfiguration(Map<String, Object> configData) {
         Object[] actionCodesData = (Object[])configData.get("actionCodes");
         this.actionCodes = new ArrayList<>();
@@ -235,8 +303,24 @@ public class WorkspaceApi {
                 Map<String, Object> actionCodeData = (Map<String, Object>)actionCodesData[i];
                 String name = (String)actionCodeData.get("name");
                 String code = (String)actionCodeData.get("code");
+                ActionCodeType type = this.parseActionCodeType((String)actionCodeData.get("type"));
+                Object[] userPropertyData = (Object[])actionCodeData.get("userProperties");
+                KeyValueCollection userProperties = new KeyValueCollection();
+                this.extractKeyValueData(userProperties, userPropertyData);
 
-                this.actionCodes.add(new ActionCode(name, code));
+                Object[] subCodesData = (Object[])actionCodeData.get("subCodes");
+                List<SubCode> subCodes = new ArrayList<>();
+                if (subCodesData != null) {
+                    for (int j = 0; j < subCodesData.length; j++) {
+                        Map<String, Object> subCodeData = (Map<String, Object>)subCodesData[j];
+                        String subCodeName = (String)subCodeData.get("name");
+                        String subCodeCode = (String)subCodeData.get("code");
+
+                        subCodes.add(new SubCode(subCodeName, subCodeCode));
+                    }
+                }
+
+                this.actionCodes.add(new ActionCode(name, code, type, subCodes, userProperties));
             }
         }
 
@@ -297,8 +381,27 @@ public class WorkspaceApi {
                 Map<String, Object> agentGroupData = (Map<String, Object>)agentGroupsData[i];
                 Long dbid = (Long)agentGroupData.get("DBID");
                 String name = (String)agentGroupData.get("name");
-                // TODO - CM: User properties
-                this.agentGroups.add(new AgentGroup(name, dbid, null));
+
+                KeyValueCollection userProperties = new KeyValueCollection();
+                Map<String, Object> agentGroupSettingsData = (Map<String, Object>)agentGroupData.get("settings");
+                if (agentGroupSettingsData != null && !agentGroupSettingsData.isEmpty()) {
+                    // Top level will be sections
+                    for (Map.Entry<String, Object> entry : agentGroupSettingsData.entrySet()) {
+
+                        String sectionName = entry.getKey();
+                        Map<String, Object> sectionData = (Map<String, Object>)entry.getValue();
+                        KeyValueCollection section = new KeyValueCollection();
+                        if (sectionData != null && !sectionData.isEmpty()) {
+                            for (Map.Entry<String, Object> option : sectionData.entrySet()) {
+                                section.addString(option.getKey(), (String)option.getValue());
+                            }
+                        }
+
+                        userProperties.addList(entry.getKey(), section);
+                    }
+                }
+
+                this.agentGroups.add(new AgentGroup(name, dbid, userProperties));
             }
         }
     }
@@ -644,6 +747,7 @@ public class WorkspaceApi {
 
             this.sessionApi = new SessionApi(this.workspaceClient);
             this.voiceApi = new VoiceApi(this.workspaceClient);
+            this.targetsApi = new TargetsApi(this.workspaceClient);
 
             String authorization = token != null ? "Bearer " + token : null;
             final ApiResponse<ApiSuccessResponse> response =
@@ -1282,7 +1386,7 @@ public class WorkspaceApi {
      * @param parentConnId The id of the parent call (held)
      */
     public void completeTransfer(String connId, String parentConnId) throws WorkspaceApiException {
-        this.completeConference(connId, parentConnId, null, null);
+        this.completeTransfer(connId, parentConnId, null, null);
     }
 
     /**
@@ -1834,6 +1938,27 @@ public class WorkspaceApi {
             throwIfNotOk("stopRecording", response);
         } catch (ApiException e) {
             throw new WorkspaceApiException("stopRecording failed.", e);
+        }
+    }
+
+
+    public TargetSearchResult searchTargets(String searchTerm) throws WorkspaceApiException {
+        try {
+            TargetsResponse response = this.targetsApi.get(
+                    searchTerm, null, null, null, null, null);
+
+            TargetsResponseData data = response.getData();
+
+            List<Target> targets = new ArrayList<>();
+            if (data.getTargets() != null) {
+                for (com.genesys._internal.workspace.model.Target t : data.getTargets()) {
+                    targets.add(new Target(t));
+                }
+            }
+            return new TargetSearchResult(data.getTotalMatches(), targets);
+
+        } catch (ApiException e) {
+            throw new WorkspaceApiException("searchTargets failed.", e);
         }
     }
 
