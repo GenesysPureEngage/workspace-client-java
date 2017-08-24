@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * ActivatechannelsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T14:04:07.633Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T15:04:06.845Z")
 public class ActivatechannelsData {
   @SerializedName("agentId")
   private String agentId = null;
