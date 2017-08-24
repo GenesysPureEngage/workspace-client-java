@@ -13,8 +13,8 @@ There are several examples available for Java:
 There is also a [Console Sample](https://github.com/GenesysPureEngage/console-agent-app-java) that provides a command line to test and play with the API.
 
 # Related Links
-* [Provisioning API for Java](https://github.com/GenesysPureEngage/provisioning-client-java)
-* [Authorization API for Java](https://github.com/GenesysPureEngage/authorization-client-java)
+* [Provisioning API client library for Java](https://github.com/GenesysPureEngage/provisioning-client-java)
+* [Authorization API client library for Java](https://github.com/GenesysPureEngage/authorization-client-java)
 
 
 # Quick Start
