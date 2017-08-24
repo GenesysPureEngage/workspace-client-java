@@ -16,4 +16,9 @@ public class ActionCode {
     public String getCode() {
         return this.code;
     }
+
+    @Override
+    public String toString() {
+        return "name [" + this.name + "] code [" + this.code + "]";
+    }
 }

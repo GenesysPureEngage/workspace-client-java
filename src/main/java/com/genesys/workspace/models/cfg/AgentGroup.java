@@ -28,4 +28,9 @@ public class AgentGroup {
     public KeyValueCollection getUserProperties() {
         return this.userProperties;
     }
+
+    @Override
+    public String toString() {
+        return "DBID [" + this.dbid + " name [" + this.name + "] userProperties [" + this.userProperties + "]";
+    }
 }

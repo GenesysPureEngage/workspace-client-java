@@ -28,4 +28,9 @@ public class Transaction {
     public KeyValueCollection getUserProperties() {
         return this.userProperties;
     }
+
+    @Override
+    public String toString() {
+        return "name [" + this.name + " alias [" + this.alias + "] userProperties " + this.userProperties;
+    }
 }

@@ -42,4 +42,16 @@ public class BusinessAttribute {
     public Collection<BusinessAttributeValue> getValues() {
         return this.values;
     }
+
+    @Override
+    public String toString() {
+        String str = "DBID [" + this.dbid + "] name [" + this.name + "] displayName [" + this.displayName + "] description ["
+                + this.description + "] values [\n";
+        for (BusinessAttributeValue value : this.values) {
+            str += "  DBID [" + value.getDBID() + "]name [" + value.getName() + "] displayName [" + value.getDisplayName() + "] description ["
+                    + value.getDescription() + "] default [" + value.getDefaultValue() + "]\n";
+        }
+        str += "]";
+        return str;
+    }
 }

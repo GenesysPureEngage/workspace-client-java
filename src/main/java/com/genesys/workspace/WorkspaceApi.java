@@ -761,6 +761,10 @@ public class WorkspaceApi {
         return this.actionCodes;
     }
 
+    public Collection<AgentGroup> getAgentGroups() {
+        return this.agentGroups;
+    }
+
     public Collection<BusinessAttribute> getBusinessAttributes() {
         return this.businessAttributes;
     }
