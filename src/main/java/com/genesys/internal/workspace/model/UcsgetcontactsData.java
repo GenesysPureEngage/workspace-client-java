@@ -28,10 +28,13 @@ import java.util.List;
 /**
  * UcsgetcontactsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class UcsgetcontactsData {
-  @SerializedName("sortCriteria")
-  private List<Object> sortCriteria = null;
+  @SerializedName("searchCriteria")
+  private Object searchCriteria = null;
+
+  @SerializedName("attributeList")
+  private List<String> attributeList = new ArrayList<String>();
 
   @SerializedName("startIndex")
   private Integer startIndex = null;
@@ -39,73 +42,8 @@ public class UcsgetcontactsData {
   @SerializedName("maxCount")
   private Integer maxCount = null;
 
-  @SerializedName("searchCriteria")
-  private Object searchCriteria = null;
-
-  @SerializedName("attributeList")
-  private List<String> attributeList = new ArrayList<String>();
-
-  public UcsgetcontactsData sortCriteria(List<Object> sortCriteria) {
-    this.sortCriteria = sortCriteria;
-    return this;
-  }
-
-  public UcsgetcontactsData addSortCriteriaItem(Object sortCriteriaItem) {
-    if (this.sortCriteria == null) {
-      this.sortCriteria = new ArrayList<Object>();
-    }
-    this.sortCriteria.add(sortCriteriaItem);
-    return this;
-  }
-
-   /**
-   * The sorting criteria
-   * @return sortCriteria
-  **/
-  @ApiModelProperty(value = "The sorting criteria")
-  public List<Object> getSortCriteria() {
-    return sortCriteria;
-  }
-
-  public void setSortCriteria(List<Object> sortCriteria) {
-    this.sortCriteria = sortCriteria;
-  }
-
-  public UcsgetcontactsData startIndex(Integer startIndex) {
-    this.startIndex = startIndex;
-    return this;
-  }
-
-   /**
-   * The start index
-   * @return startIndex
-  **/
-  @ApiModelProperty(required = true, value = "The start index")
-  public Integer getStartIndex() {
-    return startIndex;
-  }
-
-  public void setStartIndex(Integer startIndex) {
-    this.startIndex = startIndex;
-  }
-
-  public UcsgetcontactsData maxCount(Integer maxCount) {
-    this.maxCount = maxCount;
-    return this;
-  }
-
-   /**
-   * The maximum number of contacts to be returned
-   * @return maxCount
-  **/
-  @ApiModelProperty(required = true, value = "The maximum number of contacts to be returned")
-  public Integer getMaxCount() {
-    return maxCount;
-  }
-
-  public void setMaxCount(Integer maxCount) {
-    this.maxCount = maxCount;
-  }
+  @SerializedName("sortCriteria")
+  private List<Object> sortCriteria = null;
 
   public UcsgetcontactsData searchCriteria(Object searchCriteria) {
     this.searchCriteria = searchCriteria;
@@ -148,6 +86,68 @@ public class UcsgetcontactsData {
     this.attributeList = attributeList;
   }
 
+  public UcsgetcontactsData startIndex(Integer startIndex) {
+    this.startIndex = startIndex;
+    return this;
+  }
+
+   /**
+   * The start index
+   * @return startIndex
+  **/
+  @ApiModelProperty(required = true, value = "The start index")
+  public Integer getStartIndex() {
+    return startIndex;
+  }
+
+  public void setStartIndex(Integer startIndex) {
+    this.startIndex = startIndex;
+  }
+
+  public UcsgetcontactsData maxCount(Integer maxCount) {
+    this.maxCount = maxCount;
+    return this;
+  }
+
+   /**
+   * The maximum number of contacts to be returned
+   * @return maxCount
+  **/
+  @ApiModelProperty(required = true, value = "The maximum number of contacts to be returned")
+  public Integer getMaxCount() {
+    return maxCount;
+  }
+
+  public void setMaxCount(Integer maxCount) {
+    this.maxCount = maxCount;
+  }
+
+  public UcsgetcontactsData sortCriteria(List<Object> sortCriteria) {
+    this.sortCriteria = sortCriteria;
+    return this;
+  }
+
+  public UcsgetcontactsData addSortCriteriaItem(Object sortCriteriaItem) {
+    if (this.sortCriteria == null) {
+      this.sortCriteria = new ArrayList<Object>();
+    }
+    this.sortCriteria.add(sortCriteriaItem);
+    return this;
+  }
+
+   /**
+   * The sorting criteria
+   * @return sortCriteria
+  **/
+  @ApiModelProperty(value = "The sorting criteria")
+  public List<Object> getSortCriteria() {
+    return sortCriteria;
+  }
+
+  public void setSortCriteria(List<Object> sortCriteria) {
+    this.sortCriteria = sortCriteria;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -158,16 +158,16 @@ public class UcsgetcontactsData {
       return false;
     }
     UcsgetcontactsData ucsgetcontactsData = (UcsgetcontactsData) o;
-    return Objects.equals(this.sortCriteria, ucsgetcontactsData.sortCriteria) &&
+    return Objects.equals(this.searchCriteria, ucsgetcontactsData.searchCriteria) &&
+        Objects.equals(this.attributeList, ucsgetcontactsData.attributeList) &&
         Objects.equals(this.startIndex, ucsgetcontactsData.startIndex) &&
         Objects.equals(this.maxCount, ucsgetcontactsData.maxCount) &&
-        Objects.equals(this.searchCriteria, ucsgetcontactsData.searchCriteria) &&
-        Objects.equals(this.attributeList, ucsgetcontactsData.attributeList);
+        Objects.equals(this.sortCriteria, ucsgetcontactsData.sortCriteria);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sortCriteria, startIndex, maxCount, searchCriteria, attributeList);
+    return Objects.hash(searchCriteria, attributeList, startIndex, maxCount, sortCriteria);
   }
 
 
@@ -176,11 +176,11 @@ public class UcsgetcontactsData {
     StringBuilder sb = new StringBuilder();
     sb.append("class UcsgetcontactsData {\n");
     
-    sb.append("    sortCriteria: ").append(toIndentedString(sortCriteria)).append("\n");
-    sb.append("    startIndex: ").append(toIndentedString(startIndex)).append("\n");
-    sb.append("    maxCount: ").append(toIndentedString(maxCount)).append("\n");
     sb.append("    searchCriteria: ").append(toIndentedString(searchCriteria)).append("\n");
     sb.append("    attributeList: ").append(toIndentedString(attributeList)).append("\n");
+    sb.append("    startIndex: ").append(toIndentedString(startIndex)).append("\n");
+    sb.append("    maxCount: ").append(toIndentedString(maxCount)).append("\n");
+    sb.append("    sortCriteria: ").append(toIndentedString(sortCriteria)).append("\n");
     sb.append("}");
     return sb.toString();
   }

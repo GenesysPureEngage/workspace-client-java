@@ -28,19 +28,73 @@ import java.util.List;
 /**
  * UcslucenesearchinteractionData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class UcslucenesearchinteractionData {
-  @SerializedName("contactAttributes")
-  private List<String> contactAttributes = null;
-
-  @SerializedName("query")
-  private String query = null;
+  @SerializedName("maxResults")
+  private Integer maxResults = null;
 
   @SerializedName("searchMyHistory")
   private Boolean searchMyHistory = null;
 
-  @SerializedName("maxResults")
-  private Integer maxResults = null;
+  @SerializedName("query")
+  private String query = null;
+
+  @SerializedName("contactAttributes")
+  private List<String> contactAttributes = null;
+
+  public UcslucenesearchinteractionData maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * The maximum number of contacts to be returned
+   * @return maxResults
+  **/
+  @ApiModelProperty(value = "The maximum number of contacts to be returned")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+  }
+
+  public UcslucenesearchinteractionData searchMyHistory(Boolean searchMyHistory) {
+    this.searchMyHistory = searchMyHistory;
+    return this;
+  }
+
+   /**
+   * Indicates if the search is performed among the history of interactions of the logged in agent
+   * @return searchMyHistory
+  **/
+  @ApiModelProperty(value = "Indicates if the search is performed among the history of interactions of the logged in agent")
+  public Boolean getSearchMyHistory() {
+    return searchMyHistory;
+  }
+
+  public void setSearchMyHistory(Boolean searchMyHistory) {
+    this.searchMyHistory = searchMyHistory;
+  }
+
+  public UcslucenesearchinteractionData query(String query) {
+    this.query = query;
+    return this;
+  }
+
+   /**
+   * The query to do the lucene search for contacts
+   * @return query
+  **/
+  @ApiModelProperty(required = true, value = "The query to do the lucene search for contacts")
+  public String getQuery() {
+    return query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
 
   public UcslucenesearchinteractionData contactAttributes(List<String> contactAttributes) {
     this.contactAttributes = contactAttributes;
@@ -68,60 +122,6 @@ public class UcslucenesearchinteractionData {
     this.contactAttributes = contactAttributes;
   }
 
-  public UcslucenesearchinteractionData query(String query) {
-    this.query = query;
-    return this;
-  }
-
-   /**
-   * The query to do the lucene search for contacts
-   * @return query
-  **/
-  @ApiModelProperty(required = true, value = "The query to do the lucene search for contacts")
-  public String getQuery() {
-    return query;
-  }
-
-  public void setQuery(String query) {
-    this.query = query;
-  }
-
-  public UcslucenesearchinteractionData searchMyHistory(Boolean searchMyHistory) {
-    this.searchMyHistory = searchMyHistory;
-    return this;
-  }
-
-   /**
-   * Indicates if the search is performed among the history of interactions of the logged in agent
-   * @return searchMyHistory
-  **/
-  @ApiModelProperty(value = "Indicates if the search is performed among the history of interactions of the logged in agent")
-  public Boolean getSearchMyHistory() {
-    return searchMyHistory;
-  }
-
-  public void setSearchMyHistory(Boolean searchMyHistory) {
-    this.searchMyHistory = searchMyHistory;
-  }
-
-  public UcslucenesearchinteractionData maxResults(Integer maxResults) {
-    this.maxResults = maxResults;
-    return this;
-  }
-
-   /**
-   * The maximum number of contacts to be returned
-   * @return maxResults
-  **/
-  @ApiModelProperty(value = "The maximum number of contacts to be returned")
-  public Integer getMaxResults() {
-    return maxResults;
-  }
-
-  public void setMaxResults(Integer maxResults) {
-    this.maxResults = maxResults;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -132,15 +132,15 @@ public class UcslucenesearchinteractionData {
       return false;
     }
     UcslucenesearchinteractionData ucslucenesearchinteractionData = (UcslucenesearchinteractionData) o;
-    return Objects.equals(this.contactAttributes, ucslucenesearchinteractionData.contactAttributes) &&
-        Objects.equals(this.query, ucslucenesearchinteractionData.query) &&
+    return Objects.equals(this.maxResults, ucslucenesearchinteractionData.maxResults) &&
         Objects.equals(this.searchMyHistory, ucslucenesearchinteractionData.searchMyHistory) &&
-        Objects.equals(this.maxResults, ucslucenesearchinteractionData.maxResults);
+        Objects.equals(this.query, ucslucenesearchinteractionData.query) &&
+        Objects.equals(this.contactAttributes, ucslucenesearchinteractionData.contactAttributes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contactAttributes, query, searchMyHistory, maxResults);
+    return Objects.hash(maxResults, searchMyHistory, query, contactAttributes);
   }
 
 
@@ -149,10 +149,10 @@ public class UcslucenesearchinteractionData {
     StringBuilder sb = new StringBuilder();
     sb.append("class UcslucenesearchinteractionData {\n");
     
-    sb.append("    contactAttributes: ").append(toIndentedString(contactAttributes)).append("\n");
-    sb.append("    query: ").append(toIndentedString(query)).append("\n");
-    sb.append("    searchMyHistory: ").append(toIndentedString(searchMyHistory)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
+    sb.append("    searchMyHistory: ").append(toIndentedString(searchMyHistory)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    contactAttributes: ").append(toIndentedString(contactAttributes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

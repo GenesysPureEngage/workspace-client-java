@@ -26,31 +26,13 @@ import java.io.IOException;
 /**
  * Kvpair
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class Kvpair {
-  @SerializedName("type")
-  private String type = null;
-
   @SerializedName("key")
   private String key = null;
 
-  public Kvpair type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @ApiModelProperty(value = "")
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
+  @SerializedName("type")
+  private String type = null;
 
   public Kvpair key(String key) {
     this.key = key;
@@ -70,6 +52,24 @@ public class Kvpair {
     this.key = key;
   }
 
+  public Kvpair type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(value = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,13 +80,13 @@ public class Kvpair {
       return false;
     }
     Kvpair kvpair = (Kvpair) o;
-    return Objects.equals(this.type, kvpair.type) &&
-        Objects.equals(this.key, kvpair.key);
+    return Objects.equals(this.key, kvpair.key) &&
+        Objects.equals(this.type, kvpair.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, key);
+    return Objects.hash(key, type);
   }
 
 
@@ -95,8 +95,8 @@ public class Kvpair {
     StringBuilder sb = new StringBuilder();
     sb.append("class Kvpair {\n");
     
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

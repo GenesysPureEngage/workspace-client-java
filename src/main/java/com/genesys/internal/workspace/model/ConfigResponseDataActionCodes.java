@@ -29,16 +29,52 @@ import java.util.List;
 /**
  * ConfigResponseDataActionCodes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class ConfigResponseDataActionCodes {
-  @SerializedName("userProperties")
-  private List<Kvpair> userProperties = null;
+  @SerializedName("name")
+  private String name = null;
 
   @SerializedName("code")
   private String code = null;
 
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("userProperties")
+  private List<Kvpair> userProperties = null;
+
+  public ConfigResponseDataActionCodes name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public ConfigResponseDataActionCodes code(String code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Get code
+   * @return code
+  **/
+  @ApiModelProperty(value = "")
+  public String getCode() {
+    return code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
 
   public ConfigResponseDataActionCodes userProperties(List<Kvpair> userProperties) {
     this.userProperties = userProperties;
@@ -66,42 +102,6 @@ public class ConfigResponseDataActionCodes {
     this.userProperties = userProperties;
   }
 
-  public ConfigResponseDataActionCodes code(String code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Get code
-   * @return code
-  **/
-  @ApiModelProperty(value = "")
-  public String getCode() {
-    return code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public ConfigResponseDataActionCodes name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -112,14 +112,14 @@ public class ConfigResponseDataActionCodes {
       return false;
     }
     ConfigResponseDataActionCodes configResponseDataActionCodes = (ConfigResponseDataActionCodes) o;
-    return Objects.equals(this.userProperties, configResponseDataActionCodes.userProperties) &&
+    return Objects.equals(this.name, configResponseDataActionCodes.name) &&
         Objects.equals(this.code, configResponseDataActionCodes.code) &&
-        Objects.equals(this.name, configResponseDataActionCodes.name);
+        Objects.equals(this.userProperties, configResponseDataActionCodes.userProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userProperties, code, name);
+    return Objects.hash(name, code, userProperties);
   }
 
 
@@ -128,9 +128,9 @@ public class ConfigResponseDataActionCodes {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConfigResponseDataActionCodes {\n");
     
-    sb.append("    userProperties: ").append(toIndentedString(userProperties)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    userProperties: ").append(toIndentedString(userProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,37 +28,19 @@ import java.util.List;
 /**
  * UcsgetcontacthistoryData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class UcsgetcontacthistoryData {
-  @SerializedName("toDate")
-  private String toDate = null;
-
   @SerializedName("contactId")
   private String contactId = null;
-
-  @SerializedName("fromDate")
-  private String fromDate = null;
 
   @SerializedName("customAttributes")
   private List<String> customAttributes = null;
 
-  public UcsgetcontacthistoryData toDate(String toDate) {
-    this.toDate = toDate;
-    return this;
-  }
+  @SerializedName("fromDate")
+  private String fromDate = null;
 
-   /**
-   * The date to which the interactions should be retrieved (UCS format)
-   * @return toDate
-  **/
-  @ApiModelProperty(value = "The date to which the interactions should be retrieved (UCS format)")
-  public String getToDate() {
-    return toDate;
-  }
-
-  public void setToDate(String toDate) {
-    this.toDate = toDate;
-  }
+  @SerializedName("toDate")
+  private String toDate = null;
 
   public UcsgetcontacthistoryData contactId(String contactId) {
     this.contactId = contactId;
@@ -76,24 +58,6 @@ public class UcsgetcontacthistoryData {
 
   public void setContactId(String contactId) {
     this.contactId = contactId;
-  }
-
-  public UcsgetcontacthistoryData fromDate(String fromDate) {
-    this.fromDate = fromDate;
-    return this;
-  }
-
-   /**
-   * The date from which the interactions should be retrieved (UCS format)
-   * @return fromDate
-  **/
-  @ApiModelProperty(value = "The date from which the interactions should be retrieved (UCS format)")
-  public String getFromDate() {
-    return fromDate;
-  }
-
-  public void setFromDate(String fromDate) {
-    this.fromDate = fromDate;
   }
 
   public UcsgetcontacthistoryData customAttributes(List<String> customAttributes) {
@@ -122,6 +86,42 @@ public class UcsgetcontacthistoryData {
     this.customAttributes = customAttributes;
   }
 
+  public UcsgetcontacthistoryData fromDate(String fromDate) {
+    this.fromDate = fromDate;
+    return this;
+  }
+
+   /**
+   * The date from which the interactions should be retrieved (UCS format)
+   * @return fromDate
+  **/
+  @ApiModelProperty(value = "The date from which the interactions should be retrieved (UCS format)")
+  public String getFromDate() {
+    return fromDate;
+  }
+
+  public void setFromDate(String fromDate) {
+    this.fromDate = fromDate;
+  }
+
+  public UcsgetcontacthistoryData toDate(String toDate) {
+    this.toDate = toDate;
+    return this;
+  }
+
+   /**
+   * The date to which the interactions should be retrieved (UCS format)
+   * @return toDate
+  **/
+  @ApiModelProperty(value = "The date to which the interactions should be retrieved (UCS format)")
+  public String getToDate() {
+    return toDate;
+  }
+
+  public void setToDate(String toDate) {
+    this.toDate = toDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -132,15 +132,15 @@ public class UcsgetcontacthistoryData {
       return false;
     }
     UcsgetcontacthistoryData ucsgetcontacthistoryData = (UcsgetcontacthistoryData) o;
-    return Objects.equals(this.toDate, ucsgetcontacthistoryData.toDate) &&
-        Objects.equals(this.contactId, ucsgetcontacthistoryData.contactId) &&
+    return Objects.equals(this.contactId, ucsgetcontacthistoryData.contactId) &&
+        Objects.equals(this.customAttributes, ucsgetcontacthistoryData.customAttributes) &&
         Objects.equals(this.fromDate, ucsgetcontacthistoryData.fromDate) &&
-        Objects.equals(this.customAttributes, ucsgetcontacthistoryData.customAttributes);
+        Objects.equals(this.toDate, ucsgetcontacthistoryData.toDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(toDate, contactId, fromDate, customAttributes);
+    return Objects.hash(contactId, customAttributes, fromDate, toDate);
   }
 
 
@@ -149,10 +149,10 @@ public class UcsgetcontacthistoryData {
     StringBuilder sb = new StringBuilder();
     sb.append("class UcsgetcontacthistoryData {\n");
     
-    sb.append("    toDate: ").append(toIndentedString(toDate)).append("\n");
     sb.append("    contactId: ").append(toIndentedString(contactId)).append("\n");
-    sb.append("    fromDate: ").append(toIndentedString(fromDate)).append("\n");
     sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
+    sb.append("    fromDate: ").append(toIndentedString(fromDate)).append("\n");
+    sb.append("    toDate: ").append(toIndentedString(toDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

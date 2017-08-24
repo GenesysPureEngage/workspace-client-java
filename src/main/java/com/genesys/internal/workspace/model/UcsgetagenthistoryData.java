@@ -28,58 +28,22 @@ import java.util.List;
 /**
  * UcsgetagenthistoryData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class UcsgetagenthistoryData {
-  @SerializedName("sort")
-  private String sort = null;
-
-  @SerializedName("toDate")
-  private String toDate = null;
-
   @SerializedName("customAttributes")
   private List<String> customAttributes = null;
+
+  @SerializedName("sort")
+  private String sort = null;
 
   @SerializedName("fromDate")
   private String fromDate = null;
 
+  @SerializedName("toDate")
+  private String toDate = null;
+
   @SerializedName("userId")
   private String userId = null;
-
-  public UcsgetagenthistoryData sort(String sort) {
-    this.sort = sort;
-    return this;
-  }
-
-   /**
-   * The sorting order (desc or asc)
-   * @return sort
-  **/
-  @ApiModelProperty(value = "The sorting order (desc or asc)")
-  public String getSort() {
-    return sort;
-  }
-
-  public void setSort(String sort) {
-    this.sort = sort;
-  }
-
-  public UcsgetagenthistoryData toDate(String toDate) {
-    this.toDate = toDate;
-    return this;
-  }
-
-   /**
-   * The date to which the interactions should be retrieved (UCS format)
-   * @return toDate
-  **/
-  @ApiModelProperty(value = "The date to which the interactions should be retrieved (UCS format)")
-  public String getToDate() {
-    return toDate;
-  }
-
-  public void setToDate(String toDate) {
-    this.toDate = toDate;
-  }
 
   public UcsgetagenthistoryData customAttributes(List<String> customAttributes) {
     this.customAttributes = customAttributes;
@@ -107,6 +71,24 @@ public class UcsgetagenthistoryData {
     this.customAttributes = customAttributes;
   }
 
+  public UcsgetagenthistoryData sort(String sort) {
+    this.sort = sort;
+    return this;
+  }
+
+   /**
+   * The sorting order (desc or asc)
+   * @return sort
+  **/
+  @ApiModelProperty(value = "The sorting order (desc or asc)")
+  public String getSort() {
+    return sort;
+  }
+
+  public void setSort(String sort) {
+    this.sort = sort;
+  }
+
   public UcsgetagenthistoryData fromDate(String fromDate) {
     this.fromDate = fromDate;
     return this;
@@ -123,6 +105,24 @@ public class UcsgetagenthistoryData {
 
   public void setFromDate(String fromDate) {
     this.fromDate = fromDate;
+  }
+
+  public UcsgetagenthistoryData toDate(String toDate) {
+    this.toDate = toDate;
+    return this;
+  }
+
+   /**
+   * The date to which the interactions should be retrieved (UCS format)
+   * @return toDate
+  **/
+  @ApiModelProperty(value = "The date to which the interactions should be retrieved (UCS format)")
+  public String getToDate() {
+    return toDate;
+  }
+
+  public void setToDate(String toDate) {
+    this.toDate = toDate;
   }
 
   public UcsgetagenthistoryData userId(String userId) {
@@ -153,16 +153,16 @@ public class UcsgetagenthistoryData {
       return false;
     }
     UcsgetagenthistoryData ucsgetagenthistoryData = (UcsgetagenthistoryData) o;
-    return Objects.equals(this.sort, ucsgetagenthistoryData.sort) &&
-        Objects.equals(this.toDate, ucsgetagenthistoryData.toDate) &&
-        Objects.equals(this.customAttributes, ucsgetagenthistoryData.customAttributes) &&
+    return Objects.equals(this.customAttributes, ucsgetagenthistoryData.customAttributes) &&
+        Objects.equals(this.sort, ucsgetagenthistoryData.sort) &&
         Objects.equals(this.fromDate, ucsgetagenthistoryData.fromDate) &&
+        Objects.equals(this.toDate, ucsgetagenthistoryData.toDate) &&
         Objects.equals(this.userId, ucsgetagenthistoryData.userId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sort, toDate, customAttributes, fromDate, userId);
+    return Objects.hash(customAttributes, sort, fromDate, toDate, userId);
   }
 
 
@@ -171,10 +171,10 @@ public class UcsgetagenthistoryData {
     StringBuilder sb = new StringBuilder();
     sb.append("class UcsgetagenthistoryData {\n");
     
-    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
-    sb.append("    toDate: ").append(toIndentedString(toDate)).append("\n");
     sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
+    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    fromDate: ").append(toIndentedString(fromDate)).append("\n");
+    sb.append("    toDate: ").append(toIndentedString(toDate)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -26,28 +26,13 @@ import java.io.IOException;
 /**
  * Target
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class Target {
-  @SerializedName("userName")
-  private String userName = null;
-
-  @SerializedName("employeeID")
-  private String employeeID = null;
-
-  @SerializedName("firstName")
-  private String firstName = null;
-
   @SerializedName("DBID")
   private Integer DBID = null;
 
-  @SerializedName("switchName")
-  private String switchName = null;
-
-  @SerializedName("number")
-  private String number = null;
-
-  @SerializedName("lastName")
-  private String lastName = null;
+  @SerializedName("name")
+  private String name = null;
 
   /**
    * The type of the target - agent, agent-group, acd-queue, route-point, skill or custom-contact.
@@ -107,65 +92,26 @@ public class Target {
   @SerializedName("type")
   private TypeEnum type = null;
 
+  @SerializedName("firstName")
+  private String firstName = null;
+
+  @SerializedName("lastName")
+  private String lastName = null;
+
+  @SerializedName("employeeID")
+  private String employeeID = null;
+
+  @SerializedName("userName")
+  private String userName = null;
+
+  @SerializedName("number")
+  private String number = null;
+
+  @SerializedName("switchName")
+  private String switchName = null;
+
   @SerializedName("availability")
   private Object availability = null;
-
-  @SerializedName("name")
-  private String name = null;
-
-  public Target userName(String userName) {
-    this.userName = userName;
-    return this;
-  }
-
-   /**
-   * Username - only applicable to agents.
-   * @return userName
-  **/
-  @ApiModelProperty(value = "Username - only applicable to agents.")
-  public String getUserName() {
-    return userName;
-  }
-
-  public void setUserName(String userName) {
-    this.userName = userName;
-  }
-
-  public Target employeeID(String employeeID) {
-    this.employeeID = employeeID;
-    return this;
-  }
-
-   /**
-   * Employee id - only applicable to agents.
-   * @return employeeID
-  **/
-  @ApiModelProperty(value = "Employee id - only applicable to agents.")
-  public String getEmployeeID() {
-    return employeeID;
-  }
-
-  public void setEmployeeID(String employeeID) {
-    this.employeeID = employeeID;
-  }
-
-  public Target firstName(String firstName) {
-    this.firstName = firstName;
-    return this;
-  }
-
-   /**
-   * First name - only applicable to agents.
-   * @return firstName
-  **/
-  @ApiModelProperty(value = "First name - only applicable to agents.")
-  public String getFirstName() {
-    return firstName;
-  }
-
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
 
   public Target DBID(Integer DBID) {
     this.DBID = DBID;
@@ -183,96 +129,6 @@ public class Target {
 
   public void setDBID(Integer DBID) {
     this.DBID = DBID;
-  }
-
-  public Target switchName(String switchName) {
-    this.switchName = switchName;
-    return this;
-  }
-
-   /**
-   * Only applicable to acd-queue and route-point
-   * @return switchName
-  **/
-  @ApiModelProperty(value = "Only applicable to acd-queue and route-point")
-  public String getSwitchName() {
-    return switchName;
-  }
-
-  public void setSwitchName(String switchName) {
-    this.switchName = switchName;
-  }
-
-  public Target number(String number) {
-    this.number = number;
-    return this;
-  }
-
-   /**
-   * Only applicable to acd-queue and route-point
-   * @return number
-  **/
-  @ApiModelProperty(value = "Only applicable to acd-queue and route-point")
-  public String getNumber() {
-    return number;
-  }
-
-  public void setNumber(String number) {
-    this.number = number;
-  }
-
-  public Target lastName(String lastName) {
-    this.lastName = lastName;
-    return this;
-  }
-
-   /**
-   * Last name - only applicable to agents.
-   * @return lastName
-  **/
-  @ApiModelProperty(value = "Last name - only applicable to agents.")
-  public String getLastName() {
-    return lastName;
-  }
-
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
-  }
-
-  public Target type(TypeEnum type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * The type of the target - agent, agent-group, acd-queue, route-point, skill or custom-contact.
-   * @return type
-  **/
-  @ApiModelProperty(value = "The type of the target - agent, agent-group, acd-queue, route-point, skill or custom-contact.")
-  public TypeEnum getType() {
-    return type;
-  }
-
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
-  public Target availability(Object availability) {
-    this.availability = availability;
-    return this;
-  }
-
-   /**
-   * The structure depends on the target type. For agents, availability includes channel details. For acd-queues and route-points, waiting calls. For agent-groups, the number of ready agents.
-   * @return availability
-  **/
-  @ApiModelProperty(value = "The structure depends on the target type. For agents, availability includes channel details. For acd-queues and route-points, waiting calls. For agent-groups, the number of ready agents.")
-  public Object getAvailability() {
-    return availability;
-  }
-
-  public void setAvailability(Object availability) {
-    this.availability = availability;
   }
 
   public Target name(String name) {
@@ -293,6 +149,150 @@ public class Target {
     this.name = name;
   }
 
+  public Target type(TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * The type of the target - agent, agent-group, acd-queue, route-point, skill or custom-contact.
+   * @return type
+  **/
+  @ApiModelProperty(value = "The type of the target - agent, agent-group, acd-queue, route-point, skill or custom-contact.")
+  public TypeEnum getType() {
+    return type;
+  }
+
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
+  public Target firstName(String firstName) {
+    this.firstName = firstName;
+    return this;
+  }
+
+   /**
+   * First name - only applicable to agents.
+   * @return firstName
+  **/
+  @ApiModelProperty(value = "First name - only applicable to agents.")
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public Target lastName(String lastName) {
+    this.lastName = lastName;
+    return this;
+  }
+
+   /**
+   * Last name - only applicable to agents.
+   * @return lastName
+  **/
+  @ApiModelProperty(value = "Last name - only applicable to agents.")
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+  public Target employeeID(String employeeID) {
+    this.employeeID = employeeID;
+    return this;
+  }
+
+   /**
+   * Employee id - only applicable to agents.
+   * @return employeeID
+  **/
+  @ApiModelProperty(value = "Employee id - only applicable to agents.")
+  public String getEmployeeID() {
+    return employeeID;
+  }
+
+  public void setEmployeeID(String employeeID) {
+    this.employeeID = employeeID;
+  }
+
+  public Target userName(String userName) {
+    this.userName = userName;
+    return this;
+  }
+
+   /**
+   * Username - only applicable to agents.
+   * @return userName
+  **/
+  @ApiModelProperty(value = "Username - only applicable to agents.")
+  public String getUserName() {
+    return userName;
+  }
+
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
+
+  public Target number(String number) {
+    this.number = number;
+    return this;
+  }
+
+   /**
+   * Only applicable to acd-queue and route-point
+   * @return number
+  **/
+  @ApiModelProperty(value = "Only applicable to acd-queue and route-point")
+  public String getNumber() {
+    return number;
+  }
+
+  public void setNumber(String number) {
+    this.number = number;
+  }
+
+  public Target switchName(String switchName) {
+    this.switchName = switchName;
+    return this;
+  }
+
+   /**
+   * Only applicable to acd-queue and route-point
+   * @return switchName
+  **/
+  @ApiModelProperty(value = "Only applicable to acd-queue and route-point")
+  public String getSwitchName() {
+    return switchName;
+  }
+
+  public void setSwitchName(String switchName) {
+    this.switchName = switchName;
+  }
+
+  public Target availability(Object availability) {
+    this.availability = availability;
+    return this;
+  }
+
+   /**
+   * The structure depends on the target type. For agents, availability includes channel details. For acd-queues and route-points, waiting calls. For agent-groups, the number of ready agents.
+   * @return availability
+  **/
+  @ApiModelProperty(value = "The structure depends on the target type. For agents, availability includes channel details. For acd-queues and route-points, waiting calls. For agent-groups, the number of ready agents.")
+  public Object getAvailability() {
+    return availability;
+  }
+
+  public void setAvailability(Object availability) {
+    this.availability = availability;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -303,21 +303,21 @@ public class Target {
       return false;
     }
     Target target = (Target) o;
-    return Objects.equals(this.userName, target.userName) &&
-        Objects.equals(this.employeeID, target.employeeID) &&
-        Objects.equals(this.firstName, target.firstName) &&
-        Objects.equals(this.DBID, target.DBID) &&
-        Objects.equals(this.switchName, target.switchName) &&
-        Objects.equals(this.number, target.number) &&
-        Objects.equals(this.lastName, target.lastName) &&
+    return Objects.equals(this.DBID, target.DBID) &&
+        Objects.equals(this.name, target.name) &&
         Objects.equals(this.type, target.type) &&
-        Objects.equals(this.availability, target.availability) &&
-        Objects.equals(this.name, target.name);
+        Objects.equals(this.firstName, target.firstName) &&
+        Objects.equals(this.lastName, target.lastName) &&
+        Objects.equals(this.employeeID, target.employeeID) &&
+        Objects.equals(this.userName, target.userName) &&
+        Objects.equals(this.number, target.number) &&
+        Objects.equals(this.switchName, target.switchName) &&
+        Objects.equals(this.availability, target.availability);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userName, employeeID, firstName, DBID, switchName, number, lastName, type, availability, name);
+    return Objects.hash(DBID, name, type, firstName, lastName, employeeID, userName, number, switchName, availability);
   }
 
 
@@ -326,16 +326,16 @@ public class Target {
     StringBuilder sb = new StringBuilder();
     sb.append("class Target {\n");
     
-    sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
-    sb.append("    employeeID: ").append(toIndentedString(employeeID)).append("\n");
-    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    DBID: ").append(toIndentedString(DBID)).append("\n");
-    sb.append("    switchName: ").append(toIndentedString(switchName)).append("\n");
-    sb.append("    number: ").append(toIndentedString(number)).append("\n");
-    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    availability: ").append(toIndentedString(availability)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    employeeID: ").append(toIndentedString(employeeID)).append("\n");
+    sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
+    sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    switchName: ").append(toIndentedString(switchName)).append("\n");
+    sb.append("    availability: ").append(toIndentedString(availability)).append("\n");
     sb.append("}");
     return sb.toString();
   }

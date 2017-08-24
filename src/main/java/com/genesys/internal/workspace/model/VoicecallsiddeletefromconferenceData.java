@@ -29,16 +29,34 @@ import java.util.List;
 /**
  * VoicecallsiddeletefromconferenceData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class VoicecallsiddeletefromconferenceData {
+  @SerializedName("dnToDrop")
+  private String dnToDrop = null;
+
   @SerializedName("reasons")
   private List<Kvpair> reasons = null;
 
   @SerializedName("extensions")
   private List<Kvpair> extensions = null;
 
-  @SerializedName("dnToDrop")
-  private String dnToDrop = null;
+  public VoicecallsiddeletefromconferenceData dnToDrop(String dnToDrop) {
+    this.dnToDrop = dnToDrop;
+    return this;
+  }
+
+   /**
+   * The party to be deleted from the conference
+   * @return dnToDrop
+  **/
+  @ApiModelProperty(required = true, value = "The party to be deleted from the conference")
+  public String getDnToDrop() {
+    return dnToDrop;
+  }
+
+  public void setDnToDrop(String dnToDrop) {
+    this.dnToDrop = dnToDrop;
+  }
 
   public VoicecallsiddeletefromconferenceData reasons(List<Kvpair> reasons) {
     this.reasons = reasons;
@@ -92,24 +110,6 @@ public class VoicecallsiddeletefromconferenceData {
     this.extensions = extensions;
   }
 
-  public VoicecallsiddeletefromconferenceData dnToDrop(String dnToDrop) {
-    this.dnToDrop = dnToDrop;
-    return this;
-  }
-
-   /**
-   * The party to be deleted from the conference
-   * @return dnToDrop
-  **/
-  @ApiModelProperty(required = true, value = "The party to be deleted from the conference")
-  public String getDnToDrop() {
-    return dnToDrop;
-  }
-
-  public void setDnToDrop(String dnToDrop) {
-    this.dnToDrop = dnToDrop;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,14 +120,14 @@ public class VoicecallsiddeletefromconferenceData {
       return false;
     }
     VoicecallsiddeletefromconferenceData voicecallsiddeletefromconferenceData = (VoicecallsiddeletefromconferenceData) o;
-    return Objects.equals(this.reasons, voicecallsiddeletefromconferenceData.reasons) &&
-        Objects.equals(this.extensions, voicecallsiddeletefromconferenceData.extensions) &&
-        Objects.equals(this.dnToDrop, voicecallsiddeletefromconferenceData.dnToDrop);
+    return Objects.equals(this.dnToDrop, voicecallsiddeletefromconferenceData.dnToDrop) &&
+        Objects.equals(this.reasons, voicecallsiddeletefromconferenceData.reasons) &&
+        Objects.equals(this.extensions, voicecallsiddeletefromconferenceData.extensions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reasons, extensions, dnToDrop);
+    return Objects.hash(dnToDrop, reasons, extensions);
   }
 
 
@@ -136,9 +136,9 @@ public class VoicecallsiddeletefromconferenceData {
     StringBuilder sb = new StringBuilder();
     sb.append("class VoicecallsiddeletefromconferenceData {\n");
     
+    sb.append("    dnToDrop: ").append(toIndentedString(dnToDrop)).append("\n");
     sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
-    sb.append("    dnToDrop: ").append(toIndentedString(dnToDrop)).append("\n");
     sb.append("}");
     return sb.toString();
   }

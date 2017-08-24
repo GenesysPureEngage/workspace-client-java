@@ -26,31 +26,13 @@ import java.io.IOException;
 /**
  * CurrentSessionStatus
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class CurrentSessionStatus {
-  @SerializedName("message")
-  private String message = null;
-
   @SerializedName("code")
   private Integer code = null;
 
-  public CurrentSessionStatus message(String message) {
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * Get message
-   * @return message
-  **/
-  @ApiModelProperty(value = "")
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
+  @SerializedName("message")
+  private String message = null;
 
   public CurrentSessionStatus code(Integer code) {
     this.code = code;
@@ -70,6 +52,24 @@ public class CurrentSessionStatus {
     this.code = code;
   }
 
+  public CurrentSessionStatus message(String message) {
+    this.message = message;
+    return this;
+  }
+
+   /**
+   * Get message
+   * @return message
+  **/
+  @ApiModelProperty(value = "")
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,13 +80,13 @@ public class CurrentSessionStatus {
       return false;
     }
     CurrentSessionStatus currentSessionStatus = (CurrentSessionStatus) o;
-    return Objects.equals(this.message, currentSessionStatus.message) &&
-        Objects.equals(this.code, currentSessionStatus.code);
+    return Objects.equals(this.code, currentSessionStatus.code) &&
+        Objects.equals(this.message, currentSessionStatus.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, code);
+    return Objects.hash(code, message);
   }
 
 
@@ -95,8 +95,8 @@ public class CurrentSessionStatus {
     StringBuilder sb = new StringBuilder();
     sb.append("class CurrentSessionStatus {\n");
     
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }

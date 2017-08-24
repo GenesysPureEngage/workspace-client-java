@@ -29,16 +29,34 @@ import java.util.List;
 /**
  * VoicecallsidreconnectData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class VoicecallsidreconnectData {
+  @SerializedName("heldConnId")
+  private String heldConnId = null;
+
   @SerializedName("reasons")
   private List<Kvpair> reasons = null;
 
   @SerializedName("extensions")
   private List<Kvpair> extensions = null;
 
-  @SerializedName("heldConnId")
-  private String heldConnId = null;
+  public VoicecallsidreconnectData heldConnId(String heldConnId) {
+    this.heldConnId = heldConnId;
+    return this;
+  }
+
+   /**
+   * The id of the held call that should be retrieved
+   * @return heldConnId
+  **/
+  @ApiModelProperty(required = true, value = "The id of the held call that should be retrieved")
+  public String getHeldConnId() {
+    return heldConnId;
+  }
+
+  public void setHeldConnId(String heldConnId) {
+    this.heldConnId = heldConnId;
+  }
 
   public VoicecallsidreconnectData reasons(List<Kvpair> reasons) {
     this.reasons = reasons;
@@ -92,24 +110,6 @@ public class VoicecallsidreconnectData {
     this.extensions = extensions;
   }
 
-  public VoicecallsidreconnectData heldConnId(String heldConnId) {
-    this.heldConnId = heldConnId;
-    return this;
-  }
-
-   /**
-   * The id of the held call that should be retrieved
-   * @return heldConnId
-  **/
-  @ApiModelProperty(required = true, value = "The id of the held call that should be retrieved")
-  public String getHeldConnId() {
-    return heldConnId;
-  }
-
-  public void setHeldConnId(String heldConnId) {
-    this.heldConnId = heldConnId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,14 +120,14 @@ public class VoicecallsidreconnectData {
       return false;
     }
     VoicecallsidreconnectData voicecallsidreconnectData = (VoicecallsidreconnectData) o;
-    return Objects.equals(this.reasons, voicecallsidreconnectData.reasons) &&
-        Objects.equals(this.extensions, voicecallsidreconnectData.extensions) &&
-        Objects.equals(this.heldConnId, voicecallsidreconnectData.heldConnId);
+    return Objects.equals(this.heldConnId, voicecallsidreconnectData.heldConnId) &&
+        Objects.equals(this.reasons, voicecallsidreconnectData.reasons) &&
+        Objects.equals(this.extensions, voicecallsidreconnectData.extensions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reasons, extensions, heldConnId);
+    return Objects.hash(heldConnId, reasons, extensions);
   }
 
 
@@ -136,9 +136,9 @@ public class VoicecallsidreconnectData {
     StringBuilder sb = new StringBuilder();
     sb.append("class VoicecallsidreconnectData {\n");
     
+    sb.append("    heldConnId: ").append(toIndentedString(heldConnId)).append("\n");
     sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
-    sb.append("    heldConnId: ").append(toIndentedString(heldConnId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

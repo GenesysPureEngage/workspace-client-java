@@ -29,47 +29,57 @@ import java.util.List;
 /**
  * VoicecallsidsinglesteptransferData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class VoicecallsidsinglesteptransferData {
-  @SerializedName("reasons")
-  private List<Kvpair> reasons = null;
-
-  @SerializedName("userData")
-  private List<Kvpair> userData = null;
-
   @SerializedName("destination")
   private String destination = null;
-
-  @SerializedName("extensions")
-  private List<Kvpair> extensions = null;
 
   @SerializedName("location")
   private String location = null;
 
-  public VoicecallsidsinglesteptransferData reasons(List<Kvpair> reasons) {
-    this.reasons = reasons;
-    return this;
-  }
+  @SerializedName("userData")
+  private List<Kvpair> userData = null;
 
-  public VoicecallsidsinglesteptransferData addReasonsItem(Kvpair reasonsItem) {
-    if (this.reasons == null) {
-      this.reasons = new ArrayList<Kvpair>();
-    }
-    this.reasons.add(reasonsItem);
+  @SerializedName("reasons")
+  private List<Kvpair> reasons = null;
+
+  @SerializedName("extensions")
+  private List<Kvpair> extensions = null;
+
+  public VoicecallsidsinglesteptransferData destination(String destination) {
+    this.destination = destination;
     return this;
   }
 
    /**
-   * A key/value pairs list of a data structure that provides additional information associated with this action.
-   * @return reasons
+   * The number to transfer the call to.
+   * @return destination
   **/
-  @ApiModelProperty(value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
-  public List<Kvpair> getReasons() {
-    return reasons;
+  @ApiModelProperty(required = true, value = "The number to transfer the call to.")
+  public String getDestination() {
+    return destination;
   }
 
-  public void setReasons(List<Kvpair> reasons) {
-    this.reasons = reasons;
+  public void setDestination(String destination) {
+    this.destination = destination;
+  }
+
+  public VoicecallsidsinglesteptransferData location(String location) {
+    this.location = location;
+    return this;
+  }
+
+   /**
+   * Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
+   * @return location
+  **/
+  @ApiModelProperty(value = "Name of the remote location in the form of <SwitchName> or <T-ServerApplicationName>@<SwitchName>. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.")
+  public String getLocation() {
+    return location;
+  }
+
+  public void setLocation(String location) {
+    this.location = location;
   }
 
   public VoicecallsidsinglesteptransferData userData(List<Kvpair> userData) {
@@ -98,22 +108,30 @@ public class VoicecallsidsinglesteptransferData {
     this.userData = userData;
   }
 
-  public VoicecallsidsinglesteptransferData destination(String destination) {
-    this.destination = destination;
+  public VoicecallsidsinglesteptransferData reasons(List<Kvpair> reasons) {
+    this.reasons = reasons;
+    return this;
+  }
+
+  public VoicecallsidsinglesteptransferData addReasonsItem(Kvpair reasonsItem) {
+    if (this.reasons == null) {
+      this.reasons = new ArrayList<Kvpair>();
+    }
+    this.reasons.add(reasonsItem);
     return this;
   }
 
    /**
-   * The number to transfer the call to.
-   * @return destination
+   * A key/value pairs list of a data structure that provides additional information associated with this action.
+   * @return reasons
   **/
-  @ApiModelProperty(required = true, value = "The number to transfer the call to.")
-  public String getDestination() {
-    return destination;
+  @ApiModelProperty(value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
+  public List<Kvpair> getReasons() {
+    return reasons;
   }
 
-  public void setDestination(String destination) {
-    this.destination = destination;
+  public void setReasons(List<Kvpair> reasons) {
+    this.reasons = reasons;
   }
 
   public VoicecallsidsinglesteptransferData extensions(List<Kvpair> extensions) {
@@ -142,24 +160,6 @@ public class VoicecallsidsinglesteptransferData {
     this.extensions = extensions;
   }
 
-  public VoicecallsidsinglesteptransferData location(String location) {
-    this.location = location;
-    return this;
-  }
-
-   /**
-   * Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
-   * @return location
-  **/
-  @ApiModelProperty(value = "Name of the remote location in the form of <SwitchName> or <T-ServerApplicationName>@<SwitchName>. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.")
-  public String getLocation() {
-    return location;
-  }
-
-  public void setLocation(String location) {
-    this.location = location;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -170,16 +170,16 @@ public class VoicecallsidsinglesteptransferData {
       return false;
     }
     VoicecallsidsinglesteptransferData voicecallsidsinglesteptransferData = (VoicecallsidsinglesteptransferData) o;
-    return Objects.equals(this.reasons, voicecallsidsinglesteptransferData.reasons) &&
+    return Objects.equals(this.destination, voicecallsidsinglesteptransferData.destination) &&
+        Objects.equals(this.location, voicecallsidsinglesteptransferData.location) &&
         Objects.equals(this.userData, voicecallsidsinglesteptransferData.userData) &&
-        Objects.equals(this.destination, voicecallsidsinglesteptransferData.destination) &&
-        Objects.equals(this.extensions, voicecallsidsinglesteptransferData.extensions) &&
-        Objects.equals(this.location, voicecallsidsinglesteptransferData.location);
+        Objects.equals(this.reasons, voicecallsidsinglesteptransferData.reasons) &&
+        Objects.equals(this.extensions, voicecallsidsinglesteptransferData.extensions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reasons, userData, destination, extensions, location);
+    return Objects.hash(destination, location, userData, reasons, extensions);
   }
 
 
@@ -188,11 +188,11 @@ public class VoicecallsidsinglesteptransferData {
     StringBuilder sb = new StringBuilder();
     sb.append("class VoicecallsidsinglesteptransferData {\n");
     
-    sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
-    sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
-    sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
+    sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
+    sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

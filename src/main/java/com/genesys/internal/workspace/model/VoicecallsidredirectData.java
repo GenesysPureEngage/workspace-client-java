@@ -29,16 +29,34 @@ import java.util.List;
 /**
  * VoicecallsidredirectData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class VoicecallsidredirectData {
-  @SerializedName("reasons")
-  private List<Kvpair> reasons = null;
-
   @SerializedName("destination")
   private String destination = null;
 
+  @SerializedName("reasons")
+  private List<Kvpair> reasons = null;
+
   @SerializedName("extensions")
   private List<Kvpair> extensions = null;
+
+  public VoicecallsidredirectData destination(String destination) {
+    this.destination = destination;
+    return this;
+  }
+
+   /**
+   * The other main Directory Number (which your application did not register) involved in this request or event. For instance, the DN of the main party of the call.
+   * @return destination
+  **/
+  @ApiModelProperty(required = true, value = "The other main Directory Number (which your application did not register) involved in this request or event. For instance, the DN of the main party of the call.")
+  public String getDestination() {
+    return destination;
+  }
+
+  public void setDestination(String destination) {
+    this.destination = destination;
+  }
 
   public VoicecallsidredirectData reasons(List<Kvpair> reasons) {
     this.reasons = reasons;
@@ -64,24 +82,6 @@ public class VoicecallsidredirectData {
 
   public void setReasons(List<Kvpair> reasons) {
     this.reasons = reasons;
-  }
-
-  public VoicecallsidredirectData destination(String destination) {
-    this.destination = destination;
-    return this;
-  }
-
-   /**
-   * The other main Directory Number (which your application did not register) involved in this request or event. For instance, the DN of the main party of the call.
-   * @return destination
-  **/
-  @ApiModelProperty(required = true, value = "The other main Directory Number (which your application did not register) involved in this request or event. For instance, the DN of the main party of the call.")
-  public String getDestination() {
-    return destination;
-  }
-
-  public void setDestination(String destination) {
-    this.destination = destination;
   }
 
   public VoicecallsidredirectData extensions(List<Kvpair> extensions) {
@@ -120,14 +120,14 @@ public class VoicecallsidredirectData {
       return false;
     }
     VoicecallsidredirectData voicecallsidredirectData = (VoicecallsidredirectData) o;
-    return Objects.equals(this.reasons, voicecallsidredirectData.reasons) &&
-        Objects.equals(this.destination, voicecallsidredirectData.destination) &&
+    return Objects.equals(this.destination, voicecallsidredirectData.destination) &&
+        Objects.equals(this.reasons, voicecallsidredirectData.reasons) &&
         Objects.equals(this.extensions, voicecallsidredirectData.extensions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reasons, destination, extensions);
+    return Objects.hash(destination, reasons, extensions);
   }
 
 
@@ -136,8 +136,8 @@ public class VoicecallsidredirectData {
     StringBuilder sb = new StringBuilder();
     sb.append("class VoicecallsidredirectData {\n");
     
-    sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+    sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
     sb.append("}");
     return sb.toString();

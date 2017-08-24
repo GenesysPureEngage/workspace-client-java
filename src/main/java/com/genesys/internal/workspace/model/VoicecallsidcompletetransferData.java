@@ -29,16 +29,34 @@ import java.util.List;
 /**
  * VoicecallsidcompletetransferData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class VoicecallsidcompletetransferData {
+  @SerializedName("parentConnId")
+  private String parentConnId = null;
+
   @SerializedName("reasons")
   private List<Kvpair> reasons = null;
 
   @SerializedName("extensions")
   private List<Kvpair> extensions = null;
 
-  @SerializedName("parentConnId")
-  private String parentConnId = null;
+  public VoicecallsidcompletetransferData parentConnId(String parentConnId) {
+    this.parentConnId = parentConnId;
+    return this;
+  }
+
+   /**
+   * The connId of the parent call can optionally be specified. In most cases this is not required.
+   * @return parentConnId
+  **/
+  @ApiModelProperty(value = "The connId of the parent call can optionally be specified. In most cases this is not required.")
+  public String getParentConnId() {
+    return parentConnId;
+  }
+
+  public void setParentConnId(String parentConnId) {
+    this.parentConnId = parentConnId;
+  }
 
   public VoicecallsidcompletetransferData reasons(List<Kvpair> reasons) {
     this.reasons = reasons;
@@ -92,24 +110,6 @@ public class VoicecallsidcompletetransferData {
     this.extensions = extensions;
   }
 
-  public VoicecallsidcompletetransferData parentConnId(String parentConnId) {
-    this.parentConnId = parentConnId;
-    return this;
-  }
-
-   /**
-   * The connId of the parent call can optionally be specified. In most cases this is not required.
-   * @return parentConnId
-  **/
-  @ApiModelProperty(value = "The connId of the parent call can optionally be specified. In most cases this is not required.")
-  public String getParentConnId() {
-    return parentConnId;
-  }
-
-  public void setParentConnId(String parentConnId) {
-    this.parentConnId = parentConnId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,14 +120,14 @@ public class VoicecallsidcompletetransferData {
       return false;
     }
     VoicecallsidcompletetransferData voicecallsidcompletetransferData = (VoicecallsidcompletetransferData) o;
-    return Objects.equals(this.reasons, voicecallsidcompletetransferData.reasons) &&
-        Objects.equals(this.extensions, voicecallsidcompletetransferData.extensions) &&
-        Objects.equals(this.parentConnId, voicecallsidcompletetransferData.parentConnId);
+    return Objects.equals(this.parentConnId, voicecallsidcompletetransferData.parentConnId) &&
+        Objects.equals(this.reasons, voicecallsidcompletetransferData.reasons) &&
+        Objects.equals(this.extensions, voicecallsidcompletetransferData.extensions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reasons, extensions, parentConnId);
+    return Objects.hash(parentConnId, reasons, extensions);
   }
 
 
@@ -136,9 +136,9 @@ public class VoicecallsidcompletetransferData {
     StringBuilder sb = new StringBuilder();
     sb.append("class VoicecallsidcompletetransferData {\n");
     
+    sb.append("    parentConnId: ").append(toIndentedString(parentConnId)).append("\n");
     sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
-    sb.append("    parentConnId: ").append(toIndentedString(parentConnId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -31,16 +31,42 @@ import java.util.List;
 /**
  * ConfigResponseData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class ConfigResponseData {
+  @SerializedName("actionCodes")
+  private List<ConfigResponseDataActionCodes> actionCodes = null;
+
   @SerializedName("transactions")
   private List<ConfigResponseDataTransactions> transactions = null;
 
   @SerializedName("businessAttributes")
   private List<ConfigResponseDataBusinessAttributes> businessAttributes = null;
 
-  @SerializedName("actionCodes")
-  private List<ConfigResponseDataActionCodes> actionCodes = null;
+  public ConfigResponseData actionCodes(List<ConfigResponseDataActionCodes> actionCodes) {
+    this.actionCodes = actionCodes;
+    return this;
+  }
+
+  public ConfigResponseData addActionCodesItem(ConfigResponseDataActionCodes actionCodesItem) {
+    if (this.actionCodes == null) {
+      this.actionCodes = new ArrayList<ConfigResponseDataActionCodes>();
+    }
+    this.actionCodes.add(actionCodesItem);
+    return this;
+  }
+
+   /**
+   * Get actionCodes
+   * @return actionCodes
+  **/
+  @ApiModelProperty(value = "")
+  public List<ConfigResponseDataActionCodes> getActionCodes() {
+    return actionCodes;
+  }
+
+  public void setActionCodes(List<ConfigResponseDataActionCodes> actionCodes) {
+    this.actionCodes = actionCodes;
+  }
 
   public ConfigResponseData transactions(List<ConfigResponseDataTransactions> transactions) {
     this.transactions = transactions;
@@ -94,32 +120,6 @@ public class ConfigResponseData {
     this.businessAttributes = businessAttributes;
   }
 
-  public ConfigResponseData actionCodes(List<ConfigResponseDataActionCodes> actionCodes) {
-    this.actionCodes = actionCodes;
-    return this;
-  }
-
-  public ConfigResponseData addActionCodesItem(ConfigResponseDataActionCodes actionCodesItem) {
-    if (this.actionCodes == null) {
-      this.actionCodes = new ArrayList<ConfigResponseDataActionCodes>();
-    }
-    this.actionCodes.add(actionCodesItem);
-    return this;
-  }
-
-   /**
-   * Get actionCodes
-   * @return actionCodes
-  **/
-  @ApiModelProperty(value = "")
-  public List<ConfigResponseDataActionCodes> getActionCodes() {
-    return actionCodes;
-  }
-
-  public void setActionCodes(List<ConfigResponseDataActionCodes> actionCodes) {
-    this.actionCodes = actionCodes;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -130,14 +130,14 @@ public class ConfigResponseData {
       return false;
     }
     ConfigResponseData configResponseData = (ConfigResponseData) o;
-    return Objects.equals(this.transactions, configResponseData.transactions) &&
-        Objects.equals(this.businessAttributes, configResponseData.businessAttributes) &&
-        Objects.equals(this.actionCodes, configResponseData.actionCodes);
+    return Objects.equals(this.actionCodes, configResponseData.actionCodes) &&
+        Objects.equals(this.transactions, configResponseData.transactions) &&
+        Objects.equals(this.businessAttributes, configResponseData.businessAttributes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transactions, businessAttributes, actionCodes);
+    return Objects.hash(actionCodes, transactions, businessAttributes);
   }
 
 
@@ -146,9 +146,9 @@ public class ConfigResponseData {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConfigResponseData {\n");
     
+    sb.append("    actionCodes: ").append(toIndentedString(actionCodes)).append("\n");
     sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
     sb.append("    businessAttributes: ").append(toIndentedString(businessAttributes)).append("\n");
-    sb.append("    actionCodes: ").append(toIndentedString(actionCodes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

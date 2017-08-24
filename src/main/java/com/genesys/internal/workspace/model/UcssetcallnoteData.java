@@ -26,31 +26,13 @@ import java.io.IOException;
 /**
  * UcssetcallnoteData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class UcssetcallnoteData {
-  @SerializedName("note")
-  private String note = null;
-
   @SerializedName("interactionId")
   private String interactionId = null;
 
-  public UcssetcallnoteData note(String note) {
-    this.note = note;
-    return this;
-  }
-
-   /**
-   * The note to be set
-   * @return note
-  **/
-  @ApiModelProperty(required = true, value = "The note to be set")
-  public String getNote() {
-    return note;
-  }
-
-  public void setNote(String note) {
-    this.note = note;
-  }
+  @SerializedName("note")
+  private String note = null;
 
   public UcssetcallnoteData interactionId(String interactionId) {
     this.interactionId = interactionId;
@@ -70,6 +52,24 @@ public class UcssetcallnoteData {
     this.interactionId = interactionId;
   }
 
+  public UcssetcallnoteData note(String note) {
+    this.note = note;
+    return this;
+  }
+
+   /**
+   * The note to be set
+   * @return note
+  **/
+  @ApiModelProperty(required = true, value = "The note to be set")
+  public String getNote() {
+    return note;
+  }
+
+  public void setNote(String note) {
+    this.note = note;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,13 +80,13 @@ public class UcssetcallnoteData {
       return false;
     }
     UcssetcallnoteData ucssetcallnoteData = (UcssetcallnoteData) o;
-    return Objects.equals(this.note, ucssetcallnoteData.note) &&
-        Objects.equals(this.interactionId, ucssetcallnoteData.interactionId);
+    return Objects.equals(this.interactionId, ucssetcallnoteData.interactionId) &&
+        Objects.equals(this.note, ucssetcallnoteData.note);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(note, interactionId);
+    return Objects.hash(interactionId, note);
   }
 
 
@@ -95,8 +95,8 @@ public class UcssetcallnoteData {
     StringBuilder sb = new StringBuilder();
     sb.append("class UcssetcallnoteData {\n");
     
-    sb.append("    note: ").append(toIndentedString(note)).append("\n");
     sb.append("    interactionId: ").append(toIndentedString(interactionId)).append("\n");
+    sb.append("    note: ").append(toIndentedString(note)).append("\n");
     sb.append("}");
     return sb.toString();
   }

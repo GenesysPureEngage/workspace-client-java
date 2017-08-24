@@ -29,39 +29,16 @@ import java.util.List;
 /**
  * UcssetcallcompletedData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class UcssetcallcompletedData {
-  @SerializedName("userData")
-  private List<Kvpair> userData = new ArrayList<Kvpair>();
-
   @SerializedName("interactionId")
   private String interactionId = null;
 
   @SerializedName("callDuration")
   private Integer callDuration = null;
 
-  public UcssetcallcompletedData userData(List<Kvpair> userData) {
-    this.userData = userData;
-    return this;
-  }
-
-  public UcssetcallcompletedData addUserDataItem(Kvpair userDataItem) {
-    this.userData.add(userDataItem);
-    return this;
-  }
-
-   /**
-   * A key/value pairs list of the user data of the call.
-   * @return userData
-  **/
-  @ApiModelProperty(required = true, value = "A key/value pairs list of the user data of the call.")
-  public List<Kvpair> getUserData() {
-    return userData;
-  }
-
-  public void setUserData(List<Kvpair> userData) {
-    this.userData = userData;
-  }
+  @SerializedName("userData")
+  private List<Kvpair> userData = new ArrayList<Kvpair>();
 
   public UcssetcallcompletedData interactionId(String interactionId) {
     this.interactionId = interactionId;
@@ -99,6 +76,29 @@ public class UcssetcallcompletedData {
     this.callDuration = callDuration;
   }
 
+  public UcssetcallcompletedData userData(List<Kvpair> userData) {
+    this.userData = userData;
+    return this;
+  }
+
+  public UcssetcallcompletedData addUserDataItem(Kvpair userDataItem) {
+    this.userData.add(userDataItem);
+    return this;
+  }
+
+   /**
+   * A key/value pairs list of the user data of the call.
+   * @return userData
+  **/
+  @ApiModelProperty(required = true, value = "A key/value pairs list of the user data of the call.")
+  public List<Kvpair> getUserData() {
+    return userData;
+  }
+
+  public void setUserData(List<Kvpair> userData) {
+    this.userData = userData;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -109,14 +109,14 @@ public class UcssetcallcompletedData {
       return false;
     }
     UcssetcallcompletedData ucssetcallcompletedData = (UcssetcallcompletedData) o;
-    return Objects.equals(this.userData, ucssetcallcompletedData.userData) &&
-        Objects.equals(this.interactionId, ucssetcallcompletedData.interactionId) &&
-        Objects.equals(this.callDuration, ucssetcallcompletedData.callDuration);
+    return Objects.equals(this.interactionId, ucssetcallcompletedData.interactionId) &&
+        Objects.equals(this.callDuration, ucssetcallcompletedData.callDuration) &&
+        Objects.equals(this.userData, ucssetcallcompletedData.userData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userData, interactionId, callDuration);
+    return Objects.hash(interactionId, callDuration, userData);
   }
 
 
@@ -125,9 +125,9 @@ public class UcssetcallcompletedData {
     StringBuilder sb = new StringBuilder();
     sb.append("class UcssetcallcompletedData {\n");
     
-    sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("    interactionId: ").append(toIndentedString(interactionId)).append("\n");
     sb.append("    callDuration: ").append(toIndentedString(callDuration)).append("\n");
+    sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

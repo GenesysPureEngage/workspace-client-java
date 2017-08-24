@@ -29,11 +29,8 @@ import java.util.List;
 /**
  * CurrentSessionDataPendingloginasync
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class CurrentSessionDataPendingloginasync {
-  @SerializedName("actualWaitTime")
-  private Integer actualWaitTime = null;
-
   /**
    * Gets or Sets state
    */
@@ -88,29 +85,14 @@ public class CurrentSessionDataPendingloginasync {
   @SerializedName("state")
   private StateEnum state = null;
 
+  @SerializedName("actualWaitTime")
+  private Integer actualWaitTime = null;
+
   @SerializedName("submittedAt")
   private String submittedAt = null;
 
   @SerializedName("errors")
   private List<Kvpair> errors = null;
-
-  public CurrentSessionDataPendingloginasync actualWaitTime(Integer actualWaitTime) {
-    this.actualWaitTime = actualWaitTime;
-    return this;
-  }
-
-   /**
-   * Get actualWaitTime
-   * @return actualWaitTime
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public Integer getActualWaitTime() {
-    return actualWaitTime;
-  }
-
-  public void setActualWaitTime(Integer actualWaitTime) {
-    this.actualWaitTime = actualWaitTime;
-  }
 
   public CurrentSessionDataPendingloginasync state(StateEnum state) {
     this.state = state;
@@ -128,6 +110,24 @@ public class CurrentSessionDataPendingloginasync {
 
   public void setState(StateEnum state) {
     this.state = state;
+  }
+
+  public CurrentSessionDataPendingloginasync actualWaitTime(Integer actualWaitTime) {
+    this.actualWaitTime = actualWaitTime;
+    return this;
+  }
+
+   /**
+   * Get actualWaitTime
+   * @return actualWaitTime
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public Integer getActualWaitTime() {
+    return actualWaitTime;
+  }
+
+  public void setActualWaitTime(Integer actualWaitTime) {
+    this.actualWaitTime = actualWaitTime;
   }
 
   public CurrentSessionDataPendingloginasync submittedAt(String submittedAt) {
@@ -184,15 +184,15 @@ public class CurrentSessionDataPendingloginasync {
       return false;
     }
     CurrentSessionDataPendingloginasync currentSessionDataPendingloginasync = (CurrentSessionDataPendingloginasync) o;
-    return Objects.equals(this.actualWaitTime, currentSessionDataPendingloginasync.actualWaitTime) &&
-        Objects.equals(this.state, currentSessionDataPendingloginasync.state) &&
+    return Objects.equals(this.state, currentSessionDataPendingloginasync.state) &&
+        Objects.equals(this.actualWaitTime, currentSessionDataPendingloginasync.actualWaitTime) &&
         Objects.equals(this.submittedAt, currentSessionDataPendingloginasync.submittedAt) &&
         Objects.equals(this.errors, currentSessionDataPendingloginasync.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(actualWaitTime, state, submittedAt, errors);
+    return Objects.hash(state, actualWaitTime, submittedAt, errors);
   }
 
 
@@ -201,8 +201,8 @@ public class CurrentSessionDataPendingloginasync {
     StringBuilder sb = new StringBuilder();
     sb.append("class CurrentSessionDataPendingloginasync {\n");
     
-    sb.append("    actualWaitTime: ").append(toIndentedString(actualWaitTime)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    actualWaitTime: ").append(toIndentedString(actualWaitTime)).append("\n");
     sb.append("    submittedAt: ").append(toIndentedString(submittedAt)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");

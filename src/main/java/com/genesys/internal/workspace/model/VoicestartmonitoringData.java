@@ -26,63 +26,10 @@ import java.io.IOException;
 /**
  * VoicestartmonitoringData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class VoicestartmonitoringData {
-  @SerializedName("location")
-  private String location = null;
-
   @SerializedName("phoneNumberToMonitor")
   private String phoneNumberToMonitor = null;
-
-  /**
-   * The monitoring call type (NextCall/AllCalls).
-   */
-  @JsonAdapter(MonitoringNextCallTypeEnum.Adapter.class)
-  public enum MonitoringNextCallTypeEnum {
-    ONECALL("OneCall"),
-    
-    ALLCALLS("AllCalls");
-
-    private String value;
-
-    MonitoringNextCallTypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static MonitoringNextCallTypeEnum fromValue(String text) {
-      for (MonitoringNextCallTypeEnum b : MonitoringNextCallTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<MonitoringNextCallTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final MonitoringNextCallTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public MonitoringNextCallTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return MonitoringNextCallTypeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("monitoringNextCallType")
-  private MonitoringNextCallTypeEnum monitoringNextCallType = null;
 
   /**
    * The monitoring mode (Mute,Coach)
@@ -135,6 +82,56 @@ public class VoicestartmonitoringData {
   private MonitoringModeEnum monitoringMode = null;
 
   /**
+   * The monitoring call type (NextCall/AllCalls).
+   */
+  @JsonAdapter(MonitoringNextCallTypeEnum.Adapter.class)
+  public enum MonitoringNextCallTypeEnum {
+    ONECALL("OneCall"),
+    
+    ALLCALLS("AllCalls");
+
+    private String value;
+
+    MonitoringNextCallTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static MonitoringNextCallTypeEnum fromValue(String text) {
+      for (MonitoringNextCallTypeEnum b : MonitoringNextCallTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<MonitoringNextCallTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MonitoringNextCallTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public MonitoringNextCallTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return MonitoringNextCallTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("monitoringNextCallType")
+  private MonitoringNextCallTypeEnum monitoringNextCallType = null;
+
+  /**
    * The monitoring scope (Call/Agent).
    */
   @JsonAdapter(MonitoringScopeEnum.Adapter.class)
@@ -184,23 +181,8 @@ public class VoicestartmonitoringData {
   @SerializedName("monitoringScope")
   private MonitoringScopeEnum monitoringScope = null;
 
-  public VoicestartmonitoringData location(String location) {
-    this.location = location;
-    return this;
-  }
-
-   /**
-   * The switch name where the phone number to be monitored is located (optional)
-   * @return location
-  **/
-  @ApiModelProperty(value = "The switch name where the phone number to be monitored is located (optional)")
-  public String getLocation() {
-    return location;
-  }
-
-  public void setLocation(String location) {
-    this.location = location;
-  }
+  @SerializedName("location")
+  private String location = null;
 
   public VoicestartmonitoringData phoneNumberToMonitor(String phoneNumberToMonitor) {
     this.phoneNumberToMonitor = phoneNumberToMonitor;
@@ -218,24 +200,6 @@ public class VoicestartmonitoringData {
 
   public void setPhoneNumberToMonitor(String phoneNumberToMonitor) {
     this.phoneNumberToMonitor = phoneNumberToMonitor;
-  }
-
-  public VoicestartmonitoringData monitoringNextCallType(MonitoringNextCallTypeEnum monitoringNextCallType) {
-    this.monitoringNextCallType = monitoringNextCallType;
-    return this;
-  }
-
-   /**
-   * The monitoring call type (NextCall/AllCalls).
-   * @return monitoringNextCallType
-  **/
-  @ApiModelProperty(value = "The monitoring call type (NextCall/AllCalls).")
-  public MonitoringNextCallTypeEnum getMonitoringNextCallType() {
-    return monitoringNextCallType;
-  }
-
-  public void setMonitoringNextCallType(MonitoringNextCallTypeEnum monitoringNextCallType) {
-    this.monitoringNextCallType = monitoringNextCallType;
   }
 
   public VoicestartmonitoringData monitoringMode(MonitoringModeEnum monitoringMode) {
@@ -256,6 +220,24 @@ public class VoicestartmonitoringData {
     this.monitoringMode = monitoringMode;
   }
 
+  public VoicestartmonitoringData monitoringNextCallType(MonitoringNextCallTypeEnum monitoringNextCallType) {
+    this.monitoringNextCallType = monitoringNextCallType;
+    return this;
+  }
+
+   /**
+   * The monitoring call type (NextCall/AllCalls).
+   * @return monitoringNextCallType
+  **/
+  @ApiModelProperty(value = "The monitoring call type (NextCall/AllCalls).")
+  public MonitoringNextCallTypeEnum getMonitoringNextCallType() {
+    return monitoringNextCallType;
+  }
+
+  public void setMonitoringNextCallType(MonitoringNextCallTypeEnum monitoringNextCallType) {
+    this.monitoringNextCallType = monitoringNextCallType;
+  }
+
   public VoicestartmonitoringData monitoringScope(MonitoringScopeEnum monitoringScope) {
     this.monitoringScope = monitoringScope;
     return this;
@@ -274,6 +256,24 @@ public class VoicestartmonitoringData {
     this.monitoringScope = monitoringScope;
   }
 
+  public VoicestartmonitoringData location(String location) {
+    this.location = location;
+    return this;
+  }
+
+   /**
+   * The switch name where the phone number to be monitored is located (optional)
+   * @return location
+  **/
+  @ApiModelProperty(value = "The switch name where the phone number to be monitored is located (optional)")
+  public String getLocation() {
+    return location;
+  }
+
+  public void setLocation(String location) {
+    this.location = location;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -284,16 +284,16 @@ public class VoicestartmonitoringData {
       return false;
     }
     VoicestartmonitoringData voicestartmonitoringData = (VoicestartmonitoringData) o;
-    return Objects.equals(this.location, voicestartmonitoringData.location) &&
-        Objects.equals(this.phoneNumberToMonitor, voicestartmonitoringData.phoneNumberToMonitor) &&
-        Objects.equals(this.monitoringNextCallType, voicestartmonitoringData.monitoringNextCallType) &&
+    return Objects.equals(this.phoneNumberToMonitor, voicestartmonitoringData.phoneNumberToMonitor) &&
         Objects.equals(this.monitoringMode, voicestartmonitoringData.monitoringMode) &&
-        Objects.equals(this.monitoringScope, voicestartmonitoringData.monitoringScope);
+        Objects.equals(this.monitoringNextCallType, voicestartmonitoringData.monitoringNextCallType) &&
+        Objects.equals(this.monitoringScope, voicestartmonitoringData.monitoringScope) &&
+        Objects.equals(this.location, voicestartmonitoringData.location);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(location, phoneNumberToMonitor, monitoringNextCallType, monitoringMode, monitoringScope);
+    return Objects.hash(phoneNumberToMonitor, monitoringMode, monitoringNextCallType, monitoringScope, location);
   }
 
 
@@ -302,11 +302,11 @@ public class VoicestartmonitoringData {
     StringBuilder sb = new StringBuilder();
     sb.append("class VoicestartmonitoringData {\n");
     
-    sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    phoneNumberToMonitor: ").append(toIndentedString(phoneNumberToMonitor)).append("\n");
-    sb.append("    monitoringNextCallType: ").append(toIndentedString(monitoringNextCallType)).append("\n");
     sb.append("    monitoringMode: ").append(toIndentedString(monitoringMode)).append("\n");
+    sb.append("    monitoringNextCallType: ").append(toIndentedString(monitoringNextCallType)).append("\n");
     sb.append("    monitoringScope: ").append(toIndentedString(monitoringScope)).append("\n");
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("}");
     return sb.toString();
   }

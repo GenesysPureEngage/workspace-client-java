@@ -29,22 +29,76 @@ import java.util.List;
 /**
  * ConfigResponseDataValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class ConfigResponseDataValues {
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("displayName")
+  private String displayName = null;
+
+  @SerializedName("description")
+  private String description = null;
+
   @SerializedName("default")
   private Boolean _default = null;
 
   @SerializedName("userProperties")
   private List<Kvpair> userProperties = null;
 
-  @SerializedName("displayName")
-  private String displayName = null;
+  public ConfigResponseDataValues name(String name) {
+    this.name = name;
+    return this;
+  }
 
-  @SerializedName("name")
-  private String name = null;
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
 
-  @SerializedName("description")
-  private String description = null;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public ConfigResponseDataValues displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+   /**
+   * Get displayName
+   * @return displayName
+  **/
+  @ApiModelProperty(value = "")
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
+  }
+
+  public ConfigResponseDataValues description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @ApiModelProperty(value = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
   public ConfigResponseDataValues _default(Boolean _default) {
     this._default = _default;
@@ -90,60 +144,6 @@ public class ConfigResponseDataValues {
     this.userProperties = userProperties;
   }
 
-  public ConfigResponseDataValues displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
-
-   /**
-   * Get displayName
-   * @return displayName
-  **/
-  @ApiModelProperty(value = "")
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
-  public ConfigResponseDataValues name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public ConfigResponseDataValues description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Get description
-   * @return description
-  **/
-  @ApiModelProperty(value = "")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -154,16 +154,16 @@ public class ConfigResponseDataValues {
       return false;
     }
     ConfigResponseDataValues configResponseDataValues = (ConfigResponseDataValues) o;
-    return Objects.equals(this._default, configResponseDataValues._default) &&
-        Objects.equals(this.userProperties, configResponseDataValues.userProperties) &&
+    return Objects.equals(this.name, configResponseDataValues.name) &&
         Objects.equals(this.displayName, configResponseDataValues.displayName) &&
-        Objects.equals(this.name, configResponseDataValues.name) &&
-        Objects.equals(this.description, configResponseDataValues.description);
+        Objects.equals(this.description, configResponseDataValues.description) &&
+        Objects.equals(this._default, configResponseDataValues._default) &&
+        Objects.equals(this.userProperties, configResponseDataValues.userProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(_default, userProperties, displayName, name, description);
+    return Objects.hash(name, displayName, description, _default, userProperties);
   }
 
 
@@ -172,11 +172,11 @@ public class ConfigResponseDataValues {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConfigResponseDataValues {\n");
     
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
     sb.append("    userProperties: ").append(toIndentedString(userProperties)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");
     return sb.toString();
   }

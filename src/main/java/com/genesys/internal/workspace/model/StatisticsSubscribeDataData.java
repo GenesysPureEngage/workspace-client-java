@@ -28,13 +28,31 @@ import java.util.List;
 /**
  * StatisticsSubscribeDataData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class StatisticsSubscribeDataData {
+  @SerializedName("connectionId")
+  private String connectionId = null;
+
   @SerializedName("statistics")
   private List<Object> statistics = new ArrayList<Object>();
 
-  @SerializedName("connectionId")
-  private String connectionId = null;
+  public StatisticsSubscribeDataData connectionId(String connectionId) {
+    this.connectionId = connectionId;
+    return this;
+  }
+
+   /**
+   * Get connectionId
+   * @return connectionId
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getConnectionId() {
+    return connectionId;
+  }
+
+  public void setConnectionId(String connectionId) {
+    this.connectionId = connectionId;
+  }
 
   public StatisticsSubscribeDataData statistics(List<Object> statistics) {
     this.statistics = statistics;
@@ -59,24 +77,6 @@ public class StatisticsSubscribeDataData {
     this.statistics = statistics;
   }
 
-  public StatisticsSubscribeDataData connectionId(String connectionId) {
-    this.connectionId = connectionId;
-    return this;
-  }
-
-   /**
-   * Get connectionId
-   * @return connectionId
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public String getConnectionId() {
-    return connectionId;
-  }
-
-  public void setConnectionId(String connectionId) {
-    this.connectionId = connectionId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -87,13 +87,13 @@ public class StatisticsSubscribeDataData {
       return false;
     }
     StatisticsSubscribeDataData statisticsSubscribeDataData = (StatisticsSubscribeDataData) o;
-    return Objects.equals(this.statistics, statisticsSubscribeDataData.statistics) &&
-        Objects.equals(this.connectionId, statisticsSubscribeDataData.connectionId);
+    return Objects.equals(this.connectionId, statisticsSubscribeDataData.connectionId) &&
+        Objects.equals(this.statistics, statisticsSubscribeDataData.statistics);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(statistics, connectionId);
+    return Objects.hash(connectionId, statistics);
   }
 
 
@@ -102,8 +102,8 @@ public class StatisticsSubscribeDataData {
     StringBuilder sb = new StringBuilder();
     sb.append("class StatisticsSubscribeDataData {\n");
     
-    sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
     sb.append("    connectionId: ").append(toIndentedString(connectionId)).append("\n");
+    sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
     sb.append("}");
     return sb.toString();
   }

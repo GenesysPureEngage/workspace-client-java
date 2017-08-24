@@ -26,31 +26,13 @@ import java.io.IOException;
 /**
  * CallParticipants
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class CallParticipants {
-  @SerializedName("role")
-  private String role = null;
-
   @SerializedName("number")
   private String number = null;
 
-  public CallParticipants role(String role) {
-    this.role = role;
-    return this;
-  }
-
-   /**
-   * Get role
-   * @return role
-  **/
-  @ApiModelProperty(value = "")
-  public String getRole() {
-    return role;
-  }
-
-  public void setRole(String role) {
-    this.role = role;
-  }
+  @SerializedName("role")
+  private String role = null;
 
   public CallParticipants number(String number) {
     this.number = number;
@@ -70,6 +52,24 @@ public class CallParticipants {
     this.number = number;
   }
 
+  public CallParticipants role(String role) {
+    this.role = role;
+    return this;
+  }
+
+   /**
+   * Get role
+   * @return role
+  **/
+  @ApiModelProperty(value = "")
+  public String getRole() {
+    return role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,13 +80,13 @@ public class CallParticipants {
       return false;
     }
     CallParticipants callParticipants = (CallParticipants) o;
-    return Objects.equals(this.role, callParticipants.role) &&
-        Objects.equals(this.number, callParticipants.number);
+    return Objects.equals(this.number, callParticipants.number) &&
+        Objects.equals(this.role, callParticipants.role);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(role, number);
+    return Objects.hash(number, role);
   }
 
 
@@ -95,8 +95,8 @@ public class CallParticipants {
     StringBuilder sb = new StringBuilder();
     sb.append("class CallParticipants {\n");
     
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("}");
     return sb.toString();
   }

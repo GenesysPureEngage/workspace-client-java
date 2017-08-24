@@ -29,22 +29,19 @@ import java.util.List;
 /**
  * UcsfindorcreatephonecallData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class UcsfindorcreatephonecallData {
-  @SerializedName("status")
-  private String status = null;
-
-  @SerializedName("userData")
-  private List<Kvpair> userData = new ArrayList<Kvpair>();
-
   @SerializedName("callId")
   private String callId = null;
 
-  @SerializedName("threadId")
-  private String threadId = null;
-
   @SerializedName("contactId")
   private String contactId = null;
+
+  @SerializedName("type")
+  private String type = null;
+
+  @SerializedName("status")
+  private String status = null;
 
   @SerializedName("phoneNumber")
   private String phoneNumber = null;
@@ -52,52 +49,14 @@ public class UcsfindorcreatephonecallData {
   @SerializedName("parentId")
   private String parentId = null;
 
-  @SerializedName("type")
-  private String type = null;
+  @SerializedName("threadId")
+  private String threadId = null;
 
   @SerializedName("subject")
   private String subject = null;
 
-  public UcsfindorcreatephonecallData status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * The status of the call
-   * @return status
-  **/
-  @ApiModelProperty(required = true, value = "The status of the call")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  public UcsfindorcreatephonecallData userData(List<Kvpair> userData) {
-    this.userData = userData;
-    return this;
-  }
-
-  public UcsfindorcreatephonecallData addUserDataItem(Kvpair userDataItem) {
-    this.userData.add(userDataItem);
-    return this;
-  }
-
-   /**
-   * A key/value pairs list of the user data of the call.
-   * @return userData
-  **/
-  @ApiModelProperty(required = true, value = "A key/value pairs list of the user data of the call.")
-  public List<Kvpair> getUserData() {
-    return userData;
-  }
-
-  public void setUserData(List<Kvpair> userData) {
-    this.userData = userData;
-  }
+  @SerializedName("userData")
+  private List<Kvpair> userData = new ArrayList<Kvpair>();
 
   public UcsfindorcreatephonecallData callId(String callId) {
     this.callId = callId;
@@ -117,24 +76,6 @@ public class UcsfindorcreatephonecallData {
     this.callId = callId;
   }
 
-  public UcsfindorcreatephonecallData threadId(String threadId) {
-    this.threadId = threadId;
-    return this;
-  }
-
-   /**
-   * The thread id
-   * @return threadId
-  **/
-  @ApiModelProperty(value = "The thread id")
-  public String getThreadId() {
-    return threadId;
-  }
-
-  public void setThreadId(String threadId) {
-    this.threadId = threadId;
-  }
-
   public UcsfindorcreatephonecallData contactId(String contactId) {
     this.contactId = contactId;
     return this;
@@ -151,6 +92,42 @@ public class UcsfindorcreatephonecallData {
 
   public void setContactId(String contactId) {
     this.contactId = contactId;
+  }
+
+  public UcsfindorcreatephonecallData type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * The type of the call
+   * @return type
+  **/
+  @ApiModelProperty(required = true, value = "The type of the call")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public UcsfindorcreatephonecallData status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * The status of the call
+   * @return status
+  **/
+  @ApiModelProperty(required = true, value = "The status of the call")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
   }
 
   public UcsfindorcreatephonecallData phoneNumber(String phoneNumber) {
@@ -189,22 +166,22 @@ public class UcsfindorcreatephonecallData {
     this.parentId = parentId;
   }
 
-  public UcsfindorcreatephonecallData type(String type) {
-    this.type = type;
+  public UcsfindorcreatephonecallData threadId(String threadId) {
+    this.threadId = threadId;
     return this;
   }
 
    /**
-   * The type of the call
-   * @return type
+   * The thread id
+   * @return threadId
   **/
-  @ApiModelProperty(required = true, value = "The type of the call")
-  public String getType() {
-    return type;
+  @ApiModelProperty(value = "The thread id")
+  public String getThreadId() {
+    return threadId;
   }
 
-  public void setType(String type) {
-    this.type = type;
+  public void setThreadId(String threadId) {
+    this.threadId = threadId;
   }
 
   public UcsfindorcreatephonecallData subject(String subject) {
@@ -225,6 +202,29 @@ public class UcsfindorcreatephonecallData {
     this.subject = subject;
   }
 
+  public UcsfindorcreatephonecallData userData(List<Kvpair> userData) {
+    this.userData = userData;
+    return this;
+  }
+
+  public UcsfindorcreatephonecallData addUserDataItem(Kvpair userDataItem) {
+    this.userData.add(userDataItem);
+    return this;
+  }
+
+   /**
+   * A key/value pairs list of the user data of the call.
+   * @return userData
+  **/
+  @ApiModelProperty(required = true, value = "A key/value pairs list of the user data of the call.")
+  public List<Kvpair> getUserData() {
+    return userData;
+  }
+
+  public void setUserData(List<Kvpair> userData) {
+    this.userData = userData;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -235,20 +235,20 @@ public class UcsfindorcreatephonecallData {
       return false;
     }
     UcsfindorcreatephonecallData ucsfindorcreatephonecallData = (UcsfindorcreatephonecallData) o;
-    return Objects.equals(this.status, ucsfindorcreatephonecallData.status) &&
-        Objects.equals(this.userData, ucsfindorcreatephonecallData.userData) &&
-        Objects.equals(this.callId, ucsfindorcreatephonecallData.callId) &&
-        Objects.equals(this.threadId, ucsfindorcreatephonecallData.threadId) &&
+    return Objects.equals(this.callId, ucsfindorcreatephonecallData.callId) &&
         Objects.equals(this.contactId, ucsfindorcreatephonecallData.contactId) &&
+        Objects.equals(this.type, ucsfindorcreatephonecallData.type) &&
+        Objects.equals(this.status, ucsfindorcreatephonecallData.status) &&
         Objects.equals(this.phoneNumber, ucsfindorcreatephonecallData.phoneNumber) &&
         Objects.equals(this.parentId, ucsfindorcreatephonecallData.parentId) &&
-        Objects.equals(this.type, ucsfindorcreatephonecallData.type) &&
-        Objects.equals(this.subject, ucsfindorcreatephonecallData.subject);
+        Objects.equals(this.threadId, ucsfindorcreatephonecallData.threadId) &&
+        Objects.equals(this.subject, ucsfindorcreatephonecallData.subject) &&
+        Objects.equals(this.userData, ucsfindorcreatephonecallData.userData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, userData, callId, threadId, contactId, phoneNumber, parentId, type, subject);
+    return Objects.hash(callId, contactId, type, status, phoneNumber, parentId, threadId, subject, userData);
   }
 
 
@@ -257,15 +257,15 @@ public class UcsfindorcreatephonecallData {
     StringBuilder sb = new StringBuilder();
     sb.append("class UcsfindorcreatephonecallData {\n");
     
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("    callId: ").append(toIndentedString(callId)).append("\n");
-    sb.append("    threadId: ").append(toIndentedString(threadId)).append("\n");
     sb.append("    contactId: ").append(toIndentedString(contactId)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    threadId: ").append(toIndentedString(threadId)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
+    sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

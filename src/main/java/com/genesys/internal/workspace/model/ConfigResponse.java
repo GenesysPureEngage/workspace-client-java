@@ -28,31 +28,13 @@ import java.io.IOException;
 /**
  * ConfigResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class ConfigResponse {
-  @SerializedName("status")
-  private InlineResponse200Status status = null;
-
   @SerializedName("data")
   private ConfigResponseData data = null;
 
-  public ConfigResponse status(InlineResponse200Status status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @ApiModelProperty(value = "")
-  public InlineResponse200Status getStatus() {
-    return status;
-  }
-
-  public void setStatus(InlineResponse200Status status) {
-    this.status = status;
-  }
+  @SerializedName("status")
+  private InlineResponse200Status status = null;
 
   public ConfigResponse data(ConfigResponseData data) {
     this.data = data;
@@ -72,6 +54,24 @@ public class ConfigResponse {
     this.data = data;
   }
 
+  public ConfigResponse status(InlineResponse200Status status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @ApiModelProperty(value = "")
+  public InlineResponse200Status getStatus() {
+    return status;
+  }
+
+  public void setStatus(InlineResponse200Status status) {
+    this.status = status;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,13 +82,13 @@ public class ConfigResponse {
       return false;
     }
     ConfigResponse configResponse = (ConfigResponse) o;
-    return Objects.equals(this.status, configResponse.status) &&
-        Objects.equals(this.data, configResponse.data);
+    return Objects.equals(this.data, configResponse.data) &&
+        Objects.equals(this.status, configResponse.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, data);
+    return Objects.hash(data, status);
   }
 
 
@@ -97,8 +97,8 @@ public class ConfigResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConfigResponse {\n");
     
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

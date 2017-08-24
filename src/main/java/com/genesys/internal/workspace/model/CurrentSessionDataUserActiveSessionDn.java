@@ -26,10 +26,10 @@ import java.io.IOException;
 /**
  * CurrentSessionDataUserActiveSessionDn
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class CurrentSessionDataUserActiveSessionDn {
-  @SerializedName("agentWorkMode")
-  private String agentWorkMode = null;
+  @SerializedName("number")
+  private String number = null;
 
   @SerializedName("agentId")
   private String agentId = null;
@@ -37,25 +37,25 @@ public class CurrentSessionDataUserActiveSessionDn {
   @SerializedName("agentState")
   private String agentState = null;
 
-  @SerializedName("number")
-  private String number = null;
+  @SerializedName("agentWorkMode")
+  private String agentWorkMode = null;
 
-  public CurrentSessionDataUserActiveSessionDn agentWorkMode(String agentWorkMode) {
-    this.agentWorkMode = agentWorkMode;
+  public CurrentSessionDataUserActiveSessionDn number(String number) {
+    this.number = number;
     return this;
   }
 
    /**
-   * Get agentWorkMode
-   * @return agentWorkMode
+   * Get number
+   * @return number
   **/
   @ApiModelProperty(value = "")
-  public String getAgentWorkMode() {
-    return agentWorkMode;
+  public String getNumber() {
+    return number;
   }
 
-  public void setAgentWorkMode(String agentWorkMode) {
-    this.agentWorkMode = agentWorkMode;
+  public void setNumber(String number) {
+    this.number = number;
   }
 
   public CurrentSessionDataUserActiveSessionDn agentId(String agentId) {
@@ -94,22 +94,22 @@ public class CurrentSessionDataUserActiveSessionDn {
     this.agentState = agentState;
   }
 
-  public CurrentSessionDataUserActiveSessionDn number(String number) {
-    this.number = number;
+  public CurrentSessionDataUserActiveSessionDn agentWorkMode(String agentWorkMode) {
+    this.agentWorkMode = agentWorkMode;
     return this;
   }
 
    /**
-   * Get number
-   * @return number
+   * Get agentWorkMode
+   * @return agentWorkMode
   **/
   @ApiModelProperty(value = "")
-  public String getNumber() {
-    return number;
+  public String getAgentWorkMode() {
+    return agentWorkMode;
   }
 
-  public void setNumber(String number) {
-    this.number = number;
+  public void setAgentWorkMode(String agentWorkMode) {
+    this.agentWorkMode = agentWorkMode;
   }
 
 
@@ -122,15 +122,15 @@ public class CurrentSessionDataUserActiveSessionDn {
       return false;
     }
     CurrentSessionDataUserActiveSessionDn currentSessionDataUserActiveSessionDn = (CurrentSessionDataUserActiveSessionDn) o;
-    return Objects.equals(this.agentWorkMode, currentSessionDataUserActiveSessionDn.agentWorkMode) &&
+    return Objects.equals(this.number, currentSessionDataUserActiveSessionDn.number) &&
         Objects.equals(this.agentId, currentSessionDataUserActiveSessionDn.agentId) &&
         Objects.equals(this.agentState, currentSessionDataUserActiveSessionDn.agentState) &&
-        Objects.equals(this.number, currentSessionDataUserActiveSessionDn.number);
+        Objects.equals(this.agentWorkMode, currentSessionDataUserActiveSessionDn.agentWorkMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentWorkMode, agentId, agentState, number);
+    return Objects.hash(number, agentId, agentState, agentWorkMode);
   }
 
 
@@ -139,10 +139,10 @@ public class CurrentSessionDataUserActiveSessionDn {
     StringBuilder sb = new StringBuilder();
     sb.append("class CurrentSessionDataUserActiveSessionDn {\n");
     
-    sb.append("    agentWorkMode: ").append(toIndentedString(agentWorkMode)).append("\n");
+    sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    agentId: ").append(toIndentedString(agentId)).append("\n");
     sb.append("    agentState: ").append(toIndentedString(agentState)).append("\n");
-    sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    agentWorkMode: ").append(toIndentedString(agentWorkMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

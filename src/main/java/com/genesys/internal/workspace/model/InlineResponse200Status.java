@@ -26,31 +26,13 @@ import java.io.IOException;
 /**
  * InlineResponse200Status
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class InlineResponse200Status {
-  @SerializedName("message")
-  private String message = null;
-
   @SerializedName("code")
   private Integer code = null;
 
-  public InlineResponse200Status message(String message) {
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * On error will provide a message with more detail about the error. Keep in mind that the error message will be fairly general and internal details are not exposed.
-   * @return message
-  **/
-  @ApiModelProperty(value = "On error will provide a message with more detail about the error. Keep in mind that the error message will be fairly general and internal details are not exposed.")
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
+  @SerializedName("message")
+  private String message = null;
 
   public InlineResponse200Status code(Integer code) {
     this.code = code;
@@ -70,6 +52,24 @@ public class InlineResponse200Status {
     this.code = code;
   }
 
+  public InlineResponse200Status message(String message) {
+    this.message = message;
+    return this;
+  }
+
+   /**
+   * On error will provide a message with more detail about the error. Keep in mind that the error message will be fairly general and internal details are not exposed.
+   * @return message
+  **/
+  @ApiModelProperty(value = "On error will provide a message with more detail about the error. Keep in mind that the error message will be fairly general and internal details are not exposed.")
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,13 +80,13 @@ public class InlineResponse200Status {
       return false;
     }
     InlineResponse200Status inlineResponse200Status = (InlineResponse200Status) o;
-    return Objects.equals(this.message, inlineResponse200Status.message) &&
-        Objects.equals(this.code, inlineResponse200Status.code);
+    return Objects.equals(this.code, inlineResponse200Status.code) &&
+        Objects.equals(this.message, inlineResponse200Status.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, code);
+    return Objects.hash(code, message);
   }
 
 
@@ -95,8 +95,8 @@ public class InlineResponse200Status {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse200Status {\n");
     
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }

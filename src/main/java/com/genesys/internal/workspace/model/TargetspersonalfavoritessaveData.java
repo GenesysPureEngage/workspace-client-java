@@ -27,31 +27,13 @@ import java.io.IOException;
 /**
  * TargetspersonalfavoritessaveData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class TargetspersonalfavoritessaveData {
-  @SerializedName("category")
-  private String category = null;
-
   @SerializedName("target")
   private TargetInformation target = null;
 
-  public TargetspersonalfavoritessaveData category(String category) {
-    this.category = category;
-    return this;
-  }
-
-   /**
-   * category of the favorite target
-   * @return category
-  **/
-  @ApiModelProperty(required = true, value = "category of the favorite target")
-  public String getCategory() {
-    return category;
-  }
-
-  public void setCategory(String category) {
-    this.category = category;
-  }
+  @SerializedName("category")
+  private String category = null;
 
   public TargetspersonalfavoritessaveData target(TargetInformation target) {
     this.target = target;
@@ -71,6 +53,24 @@ public class TargetspersonalfavoritessaveData {
     this.target = target;
   }
 
+  public TargetspersonalfavoritessaveData category(String category) {
+    this.category = category;
+    return this;
+  }
+
+   /**
+   * category of the favorite target
+   * @return category
+  **/
+  @ApiModelProperty(required = true, value = "category of the favorite target")
+  public String getCategory() {
+    return category;
+  }
+
+  public void setCategory(String category) {
+    this.category = category;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -81,13 +81,13 @@ public class TargetspersonalfavoritessaveData {
       return false;
     }
     TargetspersonalfavoritessaveData targetspersonalfavoritessaveData = (TargetspersonalfavoritessaveData) o;
-    return Objects.equals(this.category, targetspersonalfavoritessaveData.category) &&
-        Objects.equals(this.target, targetspersonalfavoritessaveData.target);
+    return Objects.equals(this.target, targetspersonalfavoritessaveData.target) &&
+        Objects.equals(this.category, targetspersonalfavoritessaveData.category);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, target);
+    return Objects.hash(target, category);
   }
 
 
@@ -96,8 +96,8 @@ public class TargetspersonalfavoritessaveData {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetspersonalfavoritessaveData {\n");
     
-    sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("}");
     return sb.toString();
   }

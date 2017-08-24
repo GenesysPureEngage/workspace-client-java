@@ -28,42 +28,19 @@ import java.util.List;
 /**
  * UcsupdatecontactData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class UcsupdatecontactData {
-  @SerializedName("changedProperties")
-  private List<Object> changedProperties = new ArrayList<Object>();
-
   @SerializedName("contactId")
   private String contactId = null;
 
   @SerializedName("addedProperties")
   private List<Object> addedProperties = new ArrayList<Object>();
 
+  @SerializedName("changedProperties")
+  private List<Object> changedProperties = new ArrayList<Object>();
+
   @SerializedName("deletedProperties")
   private List<Object> deletedProperties = new ArrayList<Object>();
-
-  public UcsupdatecontactData changedProperties(List<Object> changedProperties) {
-    this.changedProperties = changedProperties;
-    return this;
-  }
-
-  public UcsupdatecontactData addChangedPropertiesItem(Object changedPropertiesItem) {
-    this.changedProperties.add(changedPropertiesItem);
-    return this;
-  }
-
-   /**
-   * The list of contact attributes to be updated for the contact
-   * @return changedProperties
-  **/
-  @ApiModelProperty(required = true, value = "The list of contact attributes to be updated for the contact")
-  public List<Object> getChangedProperties() {
-    return changedProperties;
-  }
-
-  public void setChangedProperties(List<Object> changedProperties) {
-    this.changedProperties = changedProperties;
-  }
 
   public UcsupdatecontactData contactId(String contactId) {
     this.contactId = contactId;
@@ -106,6 +83,29 @@ public class UcsupdatecontactData {
     this.addedProperties = addedProperties;
   }
 
+  public UcsupdatecontactData changedProperties(List<Object> changedProperties) {
+    this.changedProperties = changedProperties;
+    return this;
+  }
+
+  public UcsupdatecontactData addChangedPropertiesItem(Object changedPropertiesItem) {
+    this.changedProperties.add(changedPropertiesItem);
+    return this;
+  }
+
+   /**
+   * The list of contact attributes to be updated for the contact
+   * @return changedProperties
+  **/
+  @ApiModelProperty(required = true, value = "The list of contact attributes to be updated for the contact")
+  public List<Object> getChangedProperties() {
+    return changedProperties;
+  }
+
+  public void setChangedProperties(List<Object> changedProperties) {
+    this.changedProperties = changedProperties;
+  }
+
   public UcsupdatecontactData deletedProperties(List<Object> deletedProperties) {
     this.deletedProperties = deletedProperties;
     return this;
@@ -139,15 +139,15 @@ public class UcsupdatecontactData {
       return false;
     }
     UcsupdatecontactData ucsupdatecontactData = (UcsupdatecontactData) o;
-    return Objects.equals(this.changedProperties, ucsupdatecontactData.changedProperties) &&
-        Objects.equals(this.contactId, ucsupdatecontactData.contactId) &&
+    return Objects.equals(this.contactId, ucsupdatecontactData.contactId) &&
         Objects.equals(this.addedProperties, ucsupdatecontactData.addedProperties) &&
+        Objects.equals(this.changedProperties, ucsupdatecontactData.changedProperties) &&
         Objects.equals(this.deletedProperties, ucsupdatecontactData.deletedProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(changedProperties, contactId, addedProperties, deletedProperties);
+    return Objects.hash(contactId, addedProperties, changedProperties, deletedProperties);
   }
 
 
@@ -156,9 +156,9 @@ public class UcsupdatecontactData {
     StringBuilder sb = new StringBuilder();
     sb.append("class UcsupdatecontactData {\n");
     
-    sb.append("    changedProperties: ").append(toIndentedString(changedProperties)).append("\n");
     sb.append("    contactId: ").append(toIndentedString(contactId)).append("\n");
     sb.append("    addedProperties: ").append(toIndentedString(addedProperties)).append("\n");
+    sb.append("    changedProperties: ").append(toIndentedString(changedProperties)).append("\n");
     sb.append("    deletedProperties: ").append(toIndentedString(deletedProperties)).append("\n");
     sb.append("}");
     return sb.toString();

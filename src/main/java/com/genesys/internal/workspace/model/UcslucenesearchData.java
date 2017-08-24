@@ -28,16 +28,34 @@ import java.util.List;
 /**
  * UcslucenesearchData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class UcslucenesearchData {
+  @SerializedName("maxResults")
+  private Integer maxResults = null;
+
   @SerializedName("query")
   private String query = null;
 
   @SerializedName("customAttributes")
   private List<String> customAttributes = null;
 
-  @SerializedName("maxResults")
-  private Integer maxResults = null;
+  public UcslucenesearchData maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * The maximum number of contacts to be returned
+   * @return maxResults
+  **/
+  @ApiModelProperty(value = "The maximum number of contacts to be returned")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+  }
 
   public UcslucenesearchData query(String query) {
     this.query = query;
@@ -83,24 +101,6 @@ public class UcslucenesearchData {
     this.customAttributes = customAttributes;
   }
 
-  public UcslucenesearchData maxResults(Integer maxResults) {
-    this.maxResults = maxResults;
-    return this;
-  }
-
-   /**
-   * The maximum number of contacts to be returned
-   * @return maxResults
-  **/
-  @ApiModelProperty(value = "The maximum number of contacts to be returned")
-  public Integer getMaxResults() {
-    return maxResults;
-  }
-
-  public void setMaxResults(Integer maxResults) {
-    this.maxResults = maxResults;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -111,14 +111,14 @@ public class UcslucenesearchData {
       return false;
     }
     UcslucenesearchData ucslucenesearchData = (UcslucenesearchData) o;
-    return Objects.equals(this.query, ucslucenesearchData.query) &&
-        Objects.equals(this.customAttributes, ucslucenesearchData.customAttributes) &&
-        Objects.equals(this.maxResults, ucslucenesearchData.maxResults);
+    return Objects.equals(this.maxResults, ucslucenesearchData.maxResults) &&
+        Objects.equals(this.query, ucslucenesearchData.query) &&
+        Objects.equals(this.customAttributes, ucslucenesearchData.customAttributes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(query, customAttributes, maxResults);
+    return Objects.hash(maxResults, query, customAttributes);
   }
 
 
@@ -127,9 +127,9 @@ public class UcslucenesearchData {
     StringBuilder sb = new StringBuilder();
     sb.append("class UcslucenesearchData {\n");
     
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
-    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("}");
     return sb.toString();
   }

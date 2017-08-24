@@ -28,31 +28,13 @@ import java.io.IOException;
 /**
  * TargetsResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class TargetsResponse {
-  @SerializedName("status")
-  private InlineResponse200Status status = null;
-
   @SerializedName("data")
   private TargetsResponseData data = null;
 
-  public TargetsResponse status(InlineResponse200Status status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @ApiModelProperty(value = "")
-  public InlineResponse200Status getStatus() {
-    return status;
-  }
-
-  public void setStatus(InlineResponse200Status status) {
-    this.status = status;
-  }
+  @SerializedName("status")
+  private InlineResponse200Status status = null;
 
   public TargetsResponse data(TargetsResponseData data) {
     this.data = data;
@@ -72,6 +54,24 @@ public class TargetsResponse {
     this.data = data;
   }
 
+  public TargetsResponse status(InlineResponse200Status status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @ApiModelProperty(value = "")
+  public InlineResponse200Status getStatus() {
+    return status;
+  }
+
+  public void setStatus(InlineResponse200Status status) {
+    this.status = status;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,13 +82,13 @@ public class TargetsResponse {
       return false;
     }
     TargetsResponse targetsResponse = (TargetsResponse) o;
-    return Objects.equals(this.status, targetsResponse.status) &&
-        Objects.equals(this.data, targetsResponse.data);
+    return Objects.equals(this.data, targetsResponse.data) &&
+        Objects.equals(this.status, targetsResponse.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, data);
+    return Objects.hash(data, status);
   }
 
 
@@ -97,8 +97,8 @@ public class TargetsResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetsResponse {\n");
     
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

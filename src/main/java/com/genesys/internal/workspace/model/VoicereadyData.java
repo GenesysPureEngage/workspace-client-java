@@ -27,22 +27,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * VoicecallsidholdData
+ * VoicereadyData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
-public class VoicecallsidholdData {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
+public class VoicereadyData {
   @SerializedName("reasons")
   private List<Kvpair> reasons = null;
 
   @SerializedName("extensions")
   private List<Kvpair> extensions = null;
 
-  public VoicecallsidholdData reasons(List<Kvpair> reasons) {
+  public VoicereadyData reasons(List<Kvpair> reasons) {
     this.reasons = reasons;
     return this;
   }
 
-  public VoicecallsidholdData addReasonsItem(Kvpair reasonsItem) {
+  public VoicereadyData addReasonsItem(Kvpair reasonsItem) {
     if (this.reasons == null) {
       this.reasons = new ArrayList<Kvpair>();
     }
@@ -63,12 +63,12 @@ public class VoicecallsidholdData {
     this.reasons = reasons;
   }
 
-  public VoicecallsidholdData extensions(List<Kvpair> extensions) {
+  public VoicereadyData extensions(List<Kvpair> extensions) {
     this.extensions = extensions;
     return this;
   }
 
-  public VoicecallsidholdData addExtensionsItem(Kvpair extensionsItem) {
+  public VoicereadyData addExtensionsItem(Kvpair extensionsItem) {
     if (this.extensions == null) {
       this.extensions = new ArrayList<Kvpair>();
     }
@@ -98,9 +98,9 @@ public class VoicecallsidholdData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VoicecallsidholdData voicecallsidholdData = (VoicecallsidholdData) o;
-    return Objects.equals(this.reasons, voicecallsidholdData.reasons) &&
-        Objects.equals(this.extensions, voicecallsidholdData.extensions);
+    VoicereadyData voicereadyData = (VoicereadyData) o;
+    return Objects.equals(this.reasons, voicereadyData.reasons) &&
+        Objects.equals(this.extensions, voicereadyData.extensions);
   }
 
   @Override
@@ -112,7 +112,7 @@ public class VoicecallsidholdData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VoicecallsidholdData {\n");
+    sb.append("class VoicereadyData {\n");
     
     sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");

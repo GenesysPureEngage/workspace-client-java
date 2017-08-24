@@ -28,31 +28,13 @@ import java.io.IOException;
 /**
  * TargetsrecentsaddData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class TargetsrecentsaddData {
-  @SerializedName("recentInformation")
-  private RecentData recentInformation = null;
-
   @SerializedName("target")
   private TargetInformation target = null;
 
-  public TargetsrecentsaddData recentInformation(RecentData recentInformation) {
-    this.recentInformation = recentInformation;
-    return this;
-  }
-
-   /**
-   * data about recent interaction with the target
-   * @return recentInformation
-  **/
-  @ApiModelProperty(required = true, value = "data about recent interaction with the target")
-  public RecentData getRecentInformation() {
-    return recentInformation;
-  }
-
-  public void setRecentInformation(RecentData recentInformation) {
-    this.recentInformation = recentInformation;
-  }
+  @SerializedName("recentInformation")
+  private RecentData recentInformation = null;
 
   public TargetsrecentsaddData target(TargetInformation target) {
     this.target = target;
@@ -72,6 +54,24 @@ public class TargetsrecentsaddData {
     this.target = target;
   }
 
+  public TargetsrecentsaddData recentInformation(RecentData recentInformation) {
+    this.recentInformation = recentInformation;
+    return this;
+  }
+
+   /**
+   * data about recent interaction with the target
+   * @return recentInformation
+  **/
+  @ApiModelProperty(required = true, value = "data about recent interaction with the target")
+  public RecentData getRecentInformation() {
+    return recentInformation;
+  }
+
+  public void setRecentInformation(RecentData recentInformation) {
+    this.recentInformation = recentInformation;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,13 +82,13 @@ public class TargetsrecentsaddData {
       return false;
     }
     TargetsrecentsaddData targetsrecentsaddData = (TargetsrecentsaddData) o;
-    return Objects.equals(this.recentInformation, targetsrecentsaddData.recentInformation) &&
-        Objects.equals(this.target, targetsrecentsaddData.target);
+    return Objects.equals(this.target, targetsrecentsaddData.target) &&
+        Objects.equals(this.recentInformation, targetsrecentsaddData.recentInformation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(recentInformation, target);
+    return Objects.hash(target, recentInformation);
   }
 
 
@@ -97,8 +97,8 @@ public class TargetsrecentsaddData {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetsrecentsaddData {\n");
     
-    sb.append("    recentInformation: ").append(toIndentedString(recentInformation)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
+    sb.append("    recentInformation: ").append(toIndentedString(recentInformation)).append("\n");
     sb.append("}");
     return sb.toString();
   }

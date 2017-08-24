@@ -29,25 +29,61 @@ import java.util.List;
 /**
  * VoicecallsidinitiatetransferData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class VoicecallsidinitiatetransferData {
+  @SerializedName("destination")
+  private String destination = null;
+
+  @SerializedName("location")
+  private String location = null;
+
   @SerializedName("userData")
   private List<Kvpair> userData = null;
 
   @SerializedName("reasons")
   private List<Kvpair> reasons = null;
 
-  @SerializedName("outboundCallerId")
-  private String outboundCallerId = null;
-
-  @SerializedName("destination")
-  private String destination = null;
-
   @SerializedName("extensions")
   private List<Kvpair> extensions = null;
 
-  @SerializedName("location")
-  private String location = null;
+  @SerializedName("outboundCallerId")
+  private String outboundCallerId = null;
+
+  public VoicecallsidinitiatetransferData destination(String destination) {
+    this.destination = destination;
+    return this;
+  }
+
+   /**
+   * Directory number of the party to be called.
+   * @return destination
+  **/
+  @ApiModelProperty(required = true, value = "Directory number of the party to be called.")
+  public String getDestination() {
+    return destination;
+  }
+
+  public void setDestination(String destination) {
+    this.destination = destination;
+  }
+
+  public VoicecallsidinitiatetransferData location(String location) {
+    this.location = location;
+    return this;
+  }
+
+   /**
+   * Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
+   * @return location
+  **/
+  @ApiModelProperty(value = "Name of the remote location in the form of <SwitchName> or <T-ServerApplicationName>@<SwitchName>. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.")
+  public String getLocation() {
+    return location;
+  }
+
+  public void setLocation(String location) {
+    this.location = location;
+  }
 
   public VoicecallsidinitiatetransferData userData(List<Kvpair> userData) {
     this.userData = userData;
@@ -101,42 +137,6 @@ public class VoicecallsidinitiatetransferData {
     this.reasons = reasons;
   }
 
-  public VoicecallsidinitiatetransferData outboundCallerId(String outboundCallerId) {
-    this.outboundCallerId = outboundCallerId;
-    return this;
-  }
-
-   /**
-   * value to be set as CPN_DIGITS.
-   * @return outboundCallerId
-  **/
-  @ApiModelProperty(value = "value to be set as CPN_DIGITS.")
-  public String getOutboundCallerId() {
-    return outboundCallerId;
-  }
-
-  public void setOutboundCallerId(String outboundCallerId) {
-    this.outboundCallerId = outboundCallerId;
-  }
-
-  public VoicecallsidinitiatetransferData destination(String destination) {
-    this.destination = destination;
-    return this;
-  }
-
-   /**
-   * Directory number of the party to be called.
-   * @return destination
-  **/
-  @ApiModelProperty(required = true, value = "Directory number of the party to be called.")
-  public String getDestination() {
-    return destination;
-  }
-
-  public void setDestination(String destination) {
-    this.destination = destination;
-  }
-
   public VoicecallsidinitiatetransferData extensions(List<Kvpair> extensions) {
     this.extensions = extensions;
     return this;
@@ -163,22 +163,22 @@ public class VoicecallsidinitiatetransferData {
     this.extensions = extensions;
   }
 
-  public VoicecallsidinitiatetransferData location(String location) {
-    this.location = location;
+  public VoicecallsidinitiatetransferData outboundCallerId(String outboundCallerId) {
+    this.outboundCallerId = outboundCallerId;
     return this;
   }
 
    /**
-   * Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
-   * @return location
+   * value to be set as CPN_DIGITS.
+   * @return outboundCallerId
   **/
-  @ApiModelProperty(value = "Name of the remote location in the form of <SwitchName> or <T-ServerApplicationName>@<SwitchName>. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.")
-  public String getLocation() {
-    return location;
+  @ApiModelProperty(value = "value to be set as CPN_DIGITS.")
+  public String getOutboundCallerId() {
+    return outboundCallerId;
   }
 
-  public void setLocation(String location) {
-    this.location = location;
+  public void setOutboundCallerId(String outboundCallerId) {
+    this.outboundCallerId = outboundCallerId;
   }
 
 
@@ -191,17 +191,17 @@ public class VoicecallsidinitiatetransferData {
       return false;
     }
     VoicecallsidinitiatetransferData voicecallsidinitiatetransferData = (VoicecallsidinitiatetransferData) o;
-    return Objects.equals(this.userData, voicecallsidinitiatetransferData.userData) &&
+    return Objects.equals(this.destination, voicecallsidinitiatetransferData.destination) &&
+        Objects.equals(this.location, voicecallsidinitiatetransferData.location) &&
+        Objects.equals(this.userData, voicecallsidinitiatetransferData.userData) &&
         Objects.equals(this.reasons, voicecallsidinitiatetransferData.reasons) &&
-        Objects.equals(this.outboundCallerId, voicecallsidinitiatetransferData.outboundCallerId) &&
-        Objects.equals(this.destination, voicecallsidinitiatetransferData.destination) &&
         Objects.equals(this.extensions, voicecallsidinitiatetransferData.extensions) &&
-        Objects.equals(this.location, voicecallsidinitiatetransferData.location);
+        Objects.equals(this.outboundCallerId, voicecallsidinitiatetransferData.outboundCallerId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userData, reasons, outboundCallerId, destination, extensions, location);
+    return Objects.hash(destination, location, userData, reasons, extensions, outboundCallerId);
   }
 
 
@@ -210,12 +210,12 @@ public class VoicecallsidinitiatetransferData {
     StringBuilder sb = new StringBuilder();
     sb.append("class VoicecallsidinitiatetransferData {\n");
     
+    sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
-    sb.append("    outboundCallerId: ").append(toIndentedString(outboundCallerId)).append("\n");
-    sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
-    sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    outboundCallerId: ").append(toIndentedString(outboundCallerId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

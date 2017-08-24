@@ -29,13 +29,31 @@ import java.util.List;
 /**
  * ConfigResponseDataTransactions
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T16:18:36.606Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-24T12:01:44.531Z")
 public class ConfigResponseDataTransactions {
+  @SerializedName("name")
+  private String name = null;
+
   @SerializedName("userProperties")
   private List<Kvpair> userProperties = null;
 
-  @SerializedName("name")
-  private String name = null;
+  public ConfigResponseDataTransactions name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
 
   public ConfigResponseDataTransactions userProperties(List<Kvpair> userProperties) {
     this.userProperties = userProperties;
@@ -63,24 +81,6 @@ public class ConfigResponseDataTransactions {
     this.userProperties = userProperties;
   }
 
-  public ConfigResponseDataTransactions name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -91,13 +91,13 @@ public class ConfigResponseDataTransactions {
       return false;
     }
     ConfigResponseDataTransactions configResponseDataTransactions = (ConfigResponseDataTransactions) o;
-    return Objects.equals(this.userProperties, configResponseDataTransactions.userProperties) &&
-        Objects.equals(this.name, configResponseDataTransactions.name);
+    return Objects.equals(this.name, configResponseDataTransactions.name) &&
+        Objects.equals(this.userProperties, configResponseDataTransactions.userProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userProperties, name);
+    return Objects.hash(name, userProperties);
   }
 
 
@@ -106,8 +106,8 @@ public class ConfigResponseDataTransactions {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConfigResponseDataTransactions {\n");
     
-    sb.append("    userProperties: ").append(toIndentedString(userProperties)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    userProperties: ").append(toIndentedString(userProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
