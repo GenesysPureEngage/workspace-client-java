@@ -6,6 +6,8 @@ import java.net.CookieManager;
 
 import java.util.Collection;
 import java.util.concurrent.CompletableFuture;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -20,10 +22,12 @@ import com.genesys.workspace.common.StatusCode;
 import com.genesys.workspace.common.WorkspaceApiException;
 import com.genesys.workspace.events.*;
 import com.genesys.workspace.models.*;
+import com.genesys.workspace.models.cfg.*;
 import com.genesys._internal.workspace.api.SessionApi;
 import com.genesys._internal.workspace.api.VoiceApi;
 
 import com.genesys.workspace.models.Call;
+import com.genesys.workspace.models.cfg.BusinessAttribute;
 import org.cometd.bayeux.Message;
 import org.cometd.bayeux.client.ClientSessionChannel;
 import org.cometd.client.BayeuxClient;
@@ -48,6 +52,11 @@ public class WorkspaceApi {
     private CompletableFuture<User> initFuture;
     private boolean workspaceInitialized = false;
     private User user;
+    private KeyValueCollection settings;
+    private List<AgentGroup> agentGroups;
+    private List<BusinessAttribute> businessAttributes;
+    private List<ActionCode> actionCodes;
+    private List<Transaction> transactions;
     private Dn dn;
     private Map<String, Call> calls;
     private Set<DnEventListener> dnEventListeners;
@@ -192,6 +201,10 @@ public class WorkspaceApi {
                 String employeeId = (String)userData.get("employeeId");
                 String defaultPlace = (String)userData.get("defaultPlace");
                 String agentId = (String)userData.get("agentLogin");
+                Object[] annexData = (Object[])userData.get("userProperties");
+                KeyValueCollection userProperties = new KeyValueCollection();
+                this.extractKeyValueData(userProperties, annexData);
+
                 if (this.user == null) {
                     this.user = new User();
                 }
@@ -199,6 +212,9 @@ public class WorkspaceApi {
                 this.user.setEmployeeId(employeeId);
                 this.user.setAgentId(agentId);
                 this.user.setDefaultPlace(defaultPlace);
+                this.user.setUserProperties(userProperties);
+
+                this.extractConfiguration((Map<String, Object>)initData.get("configuration"));
 
                 this.initFuture.complete(this.user);
                 this.workspaceInitialized = true;
@@ -207,6 +223,82 @@ public class WorkspaceApi {
                 this.debug("Workspace initialization failed!");
                 this.initFuture.completeExceptionally(
                         new WorkspaceApiException("initialize workspace failed"));
+            }
+        }
+    }
+
+    private void extractConfiguration(Map<String, Object> configData) {
+        Object[] actionCodesData = (Object[])configData.get("actionCodes");
+        this.actionCodes = new ArrayList<>();
+        if (actionCodesData != null) {
+            for (int i = 0; i < actionCodesData.length; i++) {
+                Map<String, Object> actionCodeData = (Map<String, Object>)actionCodesData[i];
+                String name = (String)actionCodeData.get("name");
+                String code = (String)actionCodeData.get("code");
+
+                this.actionCodes.add(new ActionCode(name, code));
+            }
+        }
+
+        Object[] settingsData = (Object[])configData.get("settings");
+        this.settings = new KeyValueCollection();
+        this.extractKeyValueData(this.settings, settingsData);
+
+        Object[] businessAttributesData = (Object[])configData.get("businessAttributes");
+        if (businessAttributesData != null) {
+            this.businessAttributes = new ArrayList<>();
+            for (int i = 0; i < businessAttributesData.length; i ++) {
+                Map<String, Object> businessAttributeData = (Map<String, Object>)businessAttributesData[i];
+                Long dbid = (Long)businessAttributeData.get("id");
+                String name = (String)businessAttributeData.get("name");
+                String displayName = (String)businessAttributeData.get("displayName");
+                String description = (String)businessAttributeData.get("description");
+                Object[] valuesData = (Object[])businessAttributeData.get("values");
+
+                List<BusinessAttributeValue> values = new ArrayList<>();
+                if (valuesData != null) {
+                    for (int j = 0; j < valuesData.length; j++) {
+                        Map<String, Object> valueData = (Map<String, Object>)valuesData[j];
+                        Long valueDBID = (Long)valueData.get("id");
+                        String valueName = (String)valueData.get("name");
+                        String valueDisplayName = (String)valueData.get("displayName");
+                        String valueDescription = (String)valueData.get("description");
+                        Object valueDefault = valueData.get("default");
+
+                        values.add(new BusinessAttributeValue(
+                                valueDBID, valueName, valueDisplayName,
+                                valueDescription, valueDefault));
+                    }
+                }
+
+                this.businessAttributes.add(new BusinessAttribute(dbid, name, displayName, description, values));
+            }
+        }
+
+        Object[] transactionsData = (Object[])configData.get("transactions");
+        if (transactionsData != null) {
+            this.transactions = new ArrayList<>();
+            for (int i = 0; i < transactionsData.length; i ++) {
+                Map<String, Object> transactionData = (Map<String, Object>)transactionsData[i];
+                String name = (String)transactionData.get("name");
+                String alias = (String)transactionData.get("alias");
+                Object[] userPropertyData = (Object[])transactionData.get("userProperties");
+                KeyValueCollection userProperties = new KeyValueCollection();
+                this.extractKeyValueData(userProperties, userPropertyData);
+
+                this.transactions.add(new Transaction(name, alias, userProperties));
+            }
+        }
+
+        Object[] agentGroupsData = (Object[])configData.get("agentGroups");
+        if (agentGroupsData != null) {
+            this.agentGroups = new ArrayList<>();
+            for (int i = 0; i < agentGroupsData.length; i++) {
+                Map<String, Object> agentGroupData = (Map<String, Object>)agentGroupsData[i];
+                Long dbid = (Long)agentGroupData.get("DBID");
+                String name = (String)agentGroupData.get("name");
+                // TODO - CM: User properties
+                this.agentGroups.add(new AgentGroup(name, dbid, null));
             }
         }
     }
@@ -291,7 +383,7 @@ public class WorkspaceApi {
         this.publishDnStateChanged(new DnStateChanged(this.dn));
     }
 
-    private void extractUserData(KeyValueCollection userData, Object[] data) {
+    private void extractKeyValueData(KeyValueCollection userData, Object[] data) {
         if (data == null) {
             return;
         }
@@ -311,7 +403,7 @@ public class WorkspaceApi {
 
                 case "kvlist":
                     KeyValueCollection list = new KeyValueCollection();
-                    this.extractUserData(list, (Object[])pair.get("value"));
+                    this.extractKeyValueData(list, (Object[])pair.get("value"));
                     userData.addList(key, list);
                     break;
             }
@@ -401,7 +493,7 @@ public class WorkspaceApi {
 
         Object[] participantData = (Object[])callData.get("participants");
         KeyValueCollection userData = new KeyValueCollection();
-        this.extractUserData(userData, (Object[])callData.get("userData"));
+        this.extractKeyValueData(userData, (Object[])callData.get("userData"));
 
         String[] participants = this.extractParticipants(participantData);
 
@@ -659,6 +751,22 @@ public class WorkspaceApi {
       */
     public User getUser() {
         return this.user;
+    }
+
+    public KeyValueCollection getSettings() {
+        return this.settings;
+    }
+
+    public Collection<ActionCode> getActionCodes() {
+        return this.actionCodes;
+    }
+
+    public Collection<BusinessAttribute> getBusinessAttributes() {
+        return this.businessAttributes;
+    }
+
+    public Collection<Transaction> getTransactions() {
+        return this.transactions;
     }
 
     /**
