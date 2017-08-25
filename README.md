@@ -26,13 +26,13 @@ You can also test and play with the API using the  [Console Sample](https://gith
 WorkspaceApi api = new WorkspaceApi(apiKey, baseUrl, debugEnabled);
 
 // Register handlers to run on DN and call-related events
-api.addCallEventListener(msg -> {
+api.voice().addCallEventListener(msg -> {
     System.out.println("CallStateChanged! [" + msg.getCall().getState() + "]");
 });
-api.addDnEventListener(msg -> {
+api.voice().addDnEventListener(msg -> {
     System.out.println("DnStateChanged! [" + msg.getDn().getAgentState() + "]");
 });
-api.addErrorEventListener(msg -> {
+api.voice().addErrorEventListener(msg -> {
     System.out.println("EventError: " + msg.getMessage() + " - code [" + msg.getCode() + "]");
 });
 
@@ -66,16 +66,16 @@ Set the agent's state on the voice channel. The API includes the standard Genesy
 
 ```java
 // Ready
-api.ready();
+api.voice().ready();
 
 // NotReady with optional workmode and reason
-api.notReady();
-api.notReady(workMode, reasonCode);
-api.notReady(workMode, reasonCode, reasons, extensions);
+api.voice().notReady();
+api.voice().notReady(workMode, reasonCode);
+api.voice().notReady(workMode, reasonCode, reasons, extensions);
 
 // DND
-api.dndOn();
-api.dndOff();
+api.voice().dndOn();
+api.voice().dndOff();
 ```
 
 
@@ -85,21 +85,21 @@ The Workspace API offers the typical Genesys call control capabilities.
 
 ```java
 // Make a new call
-api.makeCall(destination);
-api.makeCall(destination, userData);
+api.voice().makeCall(destination);
+api.voice().makeCall(destination, userData);
 
 // Answer
-api.answerCall(connId);
+api.voice().answerCall(connId);
 
 // Hold and retrieve
-api.holdCall(connId);
-api.retrieveCall(connId);
+api.voice().holdCall(connId);
+api.voice().retrieveCall(connId);
 
 // Release
-api.releaseCall(connId);
+api.voice().releaseCall(connId);
 
 // Send DTMF tones
-api.sendDTMF(connId, digits);
+api.voice().sendDTMF(connId, digits);
 ```
 
 ## Conference and Transfers
@@ -108,19 +108,19 @@ The API includes both single-step and two-step conferences and transfers.
 
 ```java
 // Two-step transfer
-api.initiateTransfer(connId, destination);
-api.completerTransfer(connId, parentConnId);
+api.voice().initiateTransfer(connId, destination);
+api.voice().completerTransfer(connId, parentConnId);
 
 // Two-step conference
-api.initiateConference(connId, destination);
-api.completeConference(connId, parentConnId);
+api.voice().initiateConference(connId, destination);
+api.voice().completeConference(connId, parentConnId);
 
 // Delete a participant
-api.deleteFromConference(connId, dnToDrop);
+api.voice().deleteFromConference(connId, dnToDrop);
 
 // Single-step versions
-api.singleStepTransfer(connId, destination);
-api.singleStepConference(connId, destination);
+api.voice().singleStepTransfer(connId, destination);
+api.voice().singleStepConference(connId, destination);
 ```
 
 ## UserData
@@ -141,13 +141,13 @@ address.addString("state", "CA");
 userData.addList("address", address);
       
 // Attach
-api.attachUserData(connId, userData);
+api.voice().attachUserData(connId, userData);
 
 // Update
-api.updateUserData(connId, userData);
+api.voice().updateUserData(connId, userData);
 
 // Delete a key
-api.deleteUserDataPair(connId, key);
+api.voice().deleteUserDataPair(connId, key);
 ```
 
 ## Call Recording
@@ -156,12 +156,12 @@ You can use the API to record voice calls.
 
 ```java
 // Start and stop
-api.startRecording(connId);
-api.stopRecording(connId);
+api.voice().startRecording(connId);
+api.voice().stopRecording(connId);
 
 // Pause and resume
-api.pauseRecording(connId);
-api.resumeRecording(connId);
+api.voice().pauseRecording(connId);
+api.voice().resumeRecording(connId);
 
 ```
 
