@@ -10,7 +10,7 @@ The following Workspace API tutorials demonstrate some ways you can use this cli
 * [Transfers](https://github.com/GenesysPureEngage/tutorials/tree/master/transfer-call-workspace-java)
 * [Alternating calls](https://github.com/GenesysPureEngage/tutorials/tree/master/alternate-calls-workspace-java)
 
-You can also test and play with the API using the  [Console Sample](https://github.com/GenesysPureEngage/console-agent-app-java)..
+You can also test and play with the API using the  [Console Sample](https://github.com/GenesysPureEngage/console-agent-app-java).
 
 # Related Links
 * [Provisioning API client library for Java](https://github.com/GenesysPureEngage/provisioning-client-java)
