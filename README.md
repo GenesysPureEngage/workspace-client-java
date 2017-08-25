@@ -18,6 +18,7 @@ You can also test and play with the API using the  [Console Sample](https://gith
 
 
 # Quick Start
+The examples below give an overview of what the API looks like. For more details see the [API Reference](https://github.com/GenesysPureEngage/workspace-client-java/blob/master/API-Reference.md).
 
 ## Initialization
 
