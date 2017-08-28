@@ -1,9 +1,9 @@
 package com.genesys.workspace;
 
-import com.genesys.workspace.events.DnStateChanged;
 import com.genesys.workspace.events.NotificationType;
 import com.genesys.workspace.models.*;
 import com.genesys.workspace.models.cfg.ActionCodeType;
+import com.genesys.workspace.models.targets.availability.AgentActivity;
 
 import java.util.Map;
 
@@ -126,6 +126,7 @@ public class Util {
         return type;
     }
 
+
     public static void extractKeyValueData(KeyValueCollection userData, Object[] data) {
         if (data == null) {
             return;
@@ -220,6 +221,65 @@ public class Util {
         }
 
         return type;
+    }
+
+    public static AgentActivity parseAgentActivity(String input) {
+        AgentActivity activity = AgentActivity.UNKNOWN;
+        if (input != null) {
+            switch (input) {
+                case "Idle":
+                    activity = AgentActivity.IDLE;
+                    break;
+
+                case "HandlingInboundCall":
+                    activity = AgentActivity.HANDLING_INBOUND_CALL;
+                    break;
+
+                case "HandlingInternalCall":
+                    activity = AgentActivity.HANDLING_INTERNAL_CALL;
+                    break;
+
+                case "HandlingOutboundCall":
+                    activity = AgentActivity.HANDLING_OUTBOUND_CALL;
+                    break;
+
+                case "HandlingConsultCall":
+                    activity = AgentActivity.HANDLING_CONSULT_CALL;
+                    break;
+
+                case "InitiatingCall":
+                    activity = AgentActivity.INITIATING_CALL;
+                    break;
+
+                case "ReceivingCall":
+                    activity = AgentActivity.RECEIVING_CALL;
+                    break;
+
+                case "CallOnHold":
+                    activity = AgentActivity.CALL_ON_HOLD;
+                    break;
+
+                case "HandlingInboundInteraction":
+                    activity = AgentActivity.HANDLING_INBOUND_INTERACTION;
+                    break;
+
+                case "HandlingInternalInteraction":
+                    activity = AgentActivity.HANDLING_INTERNAL_INTERACTION;
+                    break;
+
+                case "HandlingOutboundInteraction":
+                    activity = AgentActivity.HANDLING_OUTBOUND_INTERACTION;
+                    break;
+
+                case "DeliveringInteraction":
+                    activity = AgentActivity.DELIVERING_INTERACTION;
+                    break;
+
+
+            }
+        }
+
+        return activity;
     }
 
 }

@@ -12,7 +12,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import com.genesys._internal.workspace.api.TargetsApi;
 import com.genesys._internal.workspace.model.*;
 import com.genesys._internal.workspace.ApiClient;
 import com.genesys._internal.workspace.ApiException;
@@ -23,8 +22,6 @@ import com.genesys.workspace.models.cfg.*;
 import com.genesys._internal.workspace.api.SessionApi;
 
 import com.genesys.workspace.models.cfg.BusinessAttribute;
-import com.genesys.workspace.models.targets.Target;
-import com.genesys.workspace.models.targets.TargetSearchResult;
 import org.cometd.bayeux.Message;
 import org.cometd.bayeux.client.ClientSessionChannel;
 import org.cometd.client.BayeuxClient;
@@ -72,6 +69,7 @@ public class WorkspaceApi {
         this.debugEnabled = debugEnabled;
         this.workspaceUrl = this.baseUrl + "/workspace/v3";
         this.voiceApi = new VoiceApi(this.debugEnabled);
+        this.targetsApi = new TargetsApi();
     }
 
     private void debug(String msg) {
@@ -320,7 +318,7 @@ public class WorkspaceApi {
 
             this.sessionApi = new SessionApi(this.workspaceClient);
             this.voiceApi.initialize(this.workspaceClient);
-            this.targetsApi = new TargetsApi(this.workspaceClient);
+            this.targetsApi.initialize(this.workspaceClient);
 
             String authorization = token != null ? "Bearer " + token : null;
             final ApiResponse<ApiSuccessResponse> response =
@@ -410,8 +408,20 @@ public class WorkspaceApi {
         }
     }
 
+    /**
+     * Returns the targets API
+     * @return Targets API
+     */
     public VoiceApi voice() {
         return this.voiceApi;
+    }
+
+    /**
+     * Returns the voice API.
+     * @return Voice API
+     */
+    public TargetsApi targets() {
+        return this.targetsApi;
     }
     /**
       * Returns the current user.
@@ -439,26 +449,6 @@ public class WorkspaceApi {
 
     public Collection<Transaction> getTransactions() {
         return this.transactions;
-    }
-
-    public TargetSearchResult searchTargets(String searchTerm) throws WorkspaceApiException {
-        try {
-            TargetsResponse response = this.targetsApi.get(
-                    searchTerm, null, null, null, null, null);
-
-            TargetsResponseData data = response.getData();
-
-            List<Target> targets = new ArrayList<>();
-            if (data.getTargets() != null) {
-                for (com.genesys._internal.workspace.model.Target t : data.getTargets()) {
-                    targets.add(new Target(t));
-                }
-            }
-            return new TargetSearchResult(data.getTotalMatches(), targets);
-
-        } catch (ApiException e) {
-            throw new WorkspaceApiException("searchTargets failed.", e);
-        }
     }
 
     /**

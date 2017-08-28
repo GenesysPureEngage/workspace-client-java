@@ -206,7 +206,11 @@ public class VoiceApi {
     }
 
     private void onEventError(Map<String, Object> data) {
-        // TODO
+        Map<String, Object> errorDetails = (Map<String, Object>)data.get("error");
+        String msg = (String)errorDetails.get("errorMessage");
+        String code = errorDetails.get("errorCode") == null ? "" : errorDetails.get("errorCode").toString();
+
+        this.publishErrorEvent(new EventError(msg, code));
     }
 
     public void onVoiceMessage(Message message) {
