@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * MonitoringScopeData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-31T23:04:38.138Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-31T23:14:57.144Z")
 public class MonitoringScopeData {
   @SerializedName("data")
   private MonitoringScopeDataData data = null;
