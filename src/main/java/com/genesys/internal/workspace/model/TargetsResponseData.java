@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * TargetsResponseData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-01T15:04:12.348Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-01T18:04:09.278Z")
 public class TargetsResponseData {
   @SerializedName("targets")
   private List<Target> targets = null;
