@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * StatisticsSubscribeDataData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-31T23:14:57.144Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-01T11:38:35.095Z")
 public class StatisticsSubscribeDataData {
   @SerializedName("connectionId")
   private String connectionId = null;

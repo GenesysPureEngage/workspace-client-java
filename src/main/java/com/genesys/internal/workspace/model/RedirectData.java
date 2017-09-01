@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * RedirectData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-31T23:14:57.144Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-01T11:38:35.095Z")
 public class RedirectData {
   @SerializedName("data")
   private VoicecallsidredirectData data = null;
