@@ -1,6 +1,6 @@
 /*
  * Workspace API
- * Application API used by Workspace Web Edition
+ * Agent API
  *
  * OpenAPI spec version: 1.0.0
  * 
@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * UcslucenesearchData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-01T18:04:09.278Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-02T08:41:45.268Z")
 public class UcslucenesearchData {
   @SerializedName("maxResults")
   private Integer maxResults = null;

@@ -1,6 +1,6 @@
 /*
  * Workspace API
- * Application API used by Workspace Web Edition
+ * Agent API
  *
  * OpenAPI spec version: 1.0.0
  * 
@@ -115,7 +115,7 @@ public class NotificationsApi {
 
     /**
      * Enables subscription to CometD notification API
-     * Enables subscription to CometD notification API
+     * Receives one of CometD notification events The following events are available &lt;h3&gt;/workspace/v3/initialization&lt;/h3&gt; Field &lt;b&gt;data.state&lt;/b&gt; Value   \&quot;Complete\&quot; Initialization was completed successfully   \&quot;Failed\&quot;   Initialization failed &lt;h3&gt;/workspace/v3/voice&lt;/h3&gt; Field &lt;b&gt;data.messageType&lt;/b&gt; Value   \&quot;CallStateChanged\&quot;  Call status or state changed   \&quot;DnStateChanged\&quot;    DN state changed   \&quot;EventError\&quot;        Error occured &lt;h3&gt;CallStateChanged&lt;/h3&gt; Field &lt;b&gt;data.call.stat&lt;/b&gt; Value   \&quot;Ringing\&quot;   Ringing in progressl   \&quot;Dialing\&quot;   Dialing in progress   \&quot;Released\&quot;  Call released &lt;h3&gt;DnStateChanged&lt;/h3&gt; Field &lt;b&gt;data.dn&lt;/b&gt; Value   message   DN state changed 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void notifications() throws ApiException {
@@ -124,7 +124,7 @@ public class NotificationsApi {
 
     /**
      * Enables subscription to CometD notification API
-     * Enables subscription to CometD notification API
+     * Receives one of CometD notification events The following events are available &lt;h3&gt;/workspace/v3/initialization&lt;/h3&gt; Field &lt;b&gt;data.state&lt;/b&gt; Value   \&quot;Complete\&quot; Initialization was completed successfully   \&quot;Failed\&quot;   Initialization failed &lt;h3&gt;/workspace/v3/voice&lt;/h3&gt; Field &lt;b&gt;data.messageType&lt;/b&gt; Value   \&quot;CallStateChanged\&quot;  Call status or state changed   \&quot;DnStateChanged\&quot;    DN state changed   \&quot;EventError\&quot;        Error occured &lt;h3&gt;CallStateChanged&lt;/h3&gt; Field &lt;b&gt;data.call.stat&lt;/b&gt; Value   \&quot;Ringing\&quot;   Ringing in progressl   \&quot;Dialing\&quot;   Dialing in progress   \&quot;Released\&quot;  Call released &lt;h3&gt;DnStateChanged&lt;/h3&gt; Field &lt;b&gt;data.dn&lt;/b&gt; Value   message   DN state changed 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -135,7 +135,7 @@ public class NotificationsApi {
 
     /**
      * Enables subscription to CometD notification API (asynchronously)
-     * Enables subscription to CometD notification API
+     * Receives one of CometD notification events The following events are available &lt;h3&gt;/workspace/v3/initialization&lt;/h3&gt; Field &lt;b&gt;data.state&lt;/b&gt; Value   \&quot;Complete\&quot; Initialization was completed successfully   \&quot;Failed\&quot;   Initialization failed &lt;h3&gt;/workspace/v3/voice&lt;/h3&gt; Field &lt;b&gt;data.messageType&lt;/b&gt; Value   \&quot;CallStateChanged\&quot;  Call status or state changed   \&quot;DnStateChanged\&quot;    DN state changed   \&quot;EventError\&quot;        Error occured &lt;h3&gt;CallStateChanged&lt;/h3&gt; Field &lt;b&gt;data.call.stat&lt;/b&gt; Value   \&quot;Ringing\&quot;   Ringing in progressl   \&quot;Dialing\&quot;   Dialing in progress   \&quot;Released\&quot;  Call released &lt;h3&gt;DnStateChanged&lt;/h3&gt; Field &lt;b&gt;data.dn&lt;/b&gt; Value   message   DN state changed 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -563,7 +563,7 @@ public class NotificationsApi {
 
     /**
      * Subscribes CometD channel notification
-     * Subscribes CometD channel notification
+     * Subscribes CometD channel notification. The following channels are available right now&lt;br&gt;  &lt;b&gt;/workspace/v3/initialization&lt;/b&gt; Subscribe for initialization (login) event &lt;b&gt;/workspace/v3/voice&lt;/b&gt; Subscribe for call state change notification event 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void notificationsSubscribe() throws ApiException {
@@ -572,7 +572,7 @@ public class NotificationsApi {
 
     /**
      * Subscribes CometD channel notification
-     * Subscribes CometD channel notification
+     * Subscribes CometD channel notification. The following channels are available right now&lt;br&gt;  &lt;b&gt;/workspace/v3/initialization&lt;/b&gt; Subscribe for initialization (login) event &lt;b&gt;/workspace/v3/voice&lt;/b&gt; Subscribe for call state change notification event 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -583,7 +583,7 @@ public class NotificationsApi {
 
     /**
      * Subscribes CometD channel notification (asynchronously)
-     * Subscribes CometD channel notification
+     * Subscribes CometD channel notification. The following channels are available right now&lt;br&gt;  &lt;b&gt;/workspace/v3/initialization&lt;/b&gt; Subscribe for initialization (login) event &lt;b&gt;/workspace/v3/voice&lt;/b&gt; Subscribe for call state change notification event 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

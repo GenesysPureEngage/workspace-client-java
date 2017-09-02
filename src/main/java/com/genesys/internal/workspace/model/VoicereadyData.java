@@ -1,6 +1,6 @@
 /*
  * Workspace API
- * Application API used by Workspace Web Edition
+ * Agent API
  *
  * OpenAPI spec version: 1.0.0
  * 
@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * VoicereadyData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-01T18:04:09.278Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-02T08:41:45.268Z")
 public class VoicereadyData {
   @SerializedName("reasons")
   private List<Kvpair> reasons = null;
