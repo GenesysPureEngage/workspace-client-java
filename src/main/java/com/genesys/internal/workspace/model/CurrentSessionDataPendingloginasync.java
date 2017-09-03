@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * CurrentSessionDataPendingloginasync
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-02T08:41:45.268Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-03T09:04:13.669Z")
 public class CurrentSessionDataPendingloginasync {
   /**
    * Gets or Sets state
