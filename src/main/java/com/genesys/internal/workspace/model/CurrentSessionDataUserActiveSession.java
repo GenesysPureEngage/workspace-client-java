@@ -15,7 +15,7 @@ package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
 import com.genesys.internal.workspace.model.Call;
-import com.genesys.internal.workspace.model.CurrentSessionDataUserActiveSessionDn;
+import com.genesys.internal.workspace.model.Dn;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,15 +30,15 @@ import java.util.List;
 /**
  * CurrentSessionDataUserActiveSession
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-05T19:10:54.553Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-06T18:22:39.065Z")
 public class CurrentSessionDataUserActiveSession {
   @SerializedName("dn")
-  private CurrentSessionDataUserActiveSessionDn dn = null;
+  private Dn dn = null;
 
   @SerializedName("calls")
   private List<Call> calls = null;
 
-  public CurrentSessionDataUserActiveSession dn(CurrentSessionDataUserActiveSessionDn dn) {
+  public CurrentSessionDataUserActiveSession dn(Dn dn) {
     this.dn = dn;
     return this;
   }
@@ -48,11 +48,11 @@ public class CurrentSessionDataUserActiveSession {
    * @return dn
   **/
   @ApiModelProperty(value = "")
-  public CurrentSessionDataUserActiveSessionDn getDn() {
+  public Dn getDn() {
     return dn;
   }
 
-  public void setDn(CurrentSessionDataUserActiveSessionDn dn) {
+  public void setDn(Dn dn) {
     this.dn = dn;
   }
 

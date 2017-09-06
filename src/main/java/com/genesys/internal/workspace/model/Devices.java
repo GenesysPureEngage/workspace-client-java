@@ -14,7 +14,8 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.UcslucenesearchinteractionData;
+import com.genesys.internal.workspace.model.CurrentSessionStatus;
+import com.genesys.internal.workspace.model.DevicesData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,14 +26,35 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * LuceneSearchInteractionData
+ * Devices
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-06T18:22:39.065Z")
-public class LuceneSearchInteractionData {
-  @SerializedName("data")
-  private UcslucenesearchinteractionData data = null;
+public class Devices {
+  @SerializedName("status")
+  private CurrentSessionStatus status = null;
 
-  public LuceneSearchInteractionData data(UcslucenesearchinteractionData data) {
+  @SerializedName("data")
+  private DevicesData data = null;
+
+  public Devices status(CurrentSessionStatus status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @ApiModelProperty(value = "")
+  public CurrentSessionStatus getStatus() {
+    return status;
+  }
+
+  public void setStatus(CurrentSessionStatus status) {
+    this.status = status;
+  }
+
+  public Devices data(DevicesData data) {
     this.data = data;
     return this;
   }
@@ -42,11 +64,11 @@ public class LuceneSearchInteractionData {
    * @return data
   **/
   @ApiModelProperty(value = "")
-  public UcslucenesearchinteractionData getData() {
+  public DevicesData getData() {
     return data;
   }
 
-  public void setData(UcslucenesearchinteractionData data) {
+  public void setData(DevicesData data) {
     this.data = data;
   }
 
@@ -59,21 +81,23 @@ public class LuceneSearchInteractionData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LuceneSearchInteractionData luceneSearchInteractionData = (LuceneSearchInteractionData) o;
-    return Objects.equals(this.data, luceneSearchInteractionData.data);
+    Devices devices = (Devices) o;
+    return Objects.equals(this.status, devices.status) &&
+        Objects.equals(this.data, devices.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(status, data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LuceneSearchInteractionData {\n");
+    sb.append("class Devices {\n");
     
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();

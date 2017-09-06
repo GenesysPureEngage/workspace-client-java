@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.UcslucenesearchinteractionData;
+import com.genesys.internal.workspace.model.Dn;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,31 +23,41 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * LuceneSearchInteractionData
+ * DevicesData
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-06T18:22:39.065Z")
-public class LuceneSearchInteractionData {
-  @SerializedName("data")
-  private UcslucenesearchinteractionData data = null;
+public class DevicesData {
+  @SerializedName("devices")
+  private List<Dn> devices = null;
 
-  public LuceneSearchInteractionData data(UcslucenesearchinteractionData data) {
-    this.data = data;
+  public DevicesData devices(List<Dn> devices) {
+    this.devices = devices;
+    return this;
+  }
+
+  public DevicesData addDevicesItem(Dn devicesItem) {
+    if (this.devices == null) {
+      this.devices = new ArrayList<Dn>();
+    }
+    this.devices.add(devicesItem);
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * An array containing devices.
+   * @return devices
   **/
-  @ApiModelProperty(value = "")
-  public UcslucenesearchinteractionData getData() {
-    return data;
+  @ApiModelProperty(value = "An array containing devices.")
+  public List<Dn> getDevices() {
+    return devices;
   }
 
-  public void setData(UcslucenesearchinteractionData data) {
-    this.data = data;
+  public void setDevices(List<Dn> devices) {
+    this.devices = devices;
   }
 
 
@@ -59,22 +69,22 @@ public class LuceneSearchInteractionData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LuceneSearchInteractionData luceneSearchInteractionData = (LuceneSearchInteractionData) o;
-    return Objects.equals(this.data, luceneSearchInteractionData.data);
+    DevicesData devicesData = (DevicesData) o;
+    return Objects.equals(this.devices, devicesData.devices);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(devices);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LuceneSearchInteractionData {\n");
+    sb.append("class DevicesData {\n");
     
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    devices: ").append(toIndentedString(devices)).append("\n");
     sb.append("}");
     return sb.toString();
   }

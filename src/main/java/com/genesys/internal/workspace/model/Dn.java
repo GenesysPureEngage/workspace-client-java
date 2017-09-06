@@ -24,10 +24,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CurrentSessionDataUserActiveSessionDn
+ * Dn
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-05T19:10:54.553Z")
-public class CurrentSessionDataUserActiveSessionDn {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-06T18:22:39.065Z")
+public class Dn {
   @SerializedName("number")
   private String number = null;
 
@@ -40,7 +40,7 @@ public class CurrentSessionDataUserActiveSessionDn {
   @SerializedName("agentWorkMode")
   private String agentWorkMode = null;
 
-  public CurrentSessionDataUserActiveSessionDn number(String number) {
+  public Dn number(String number) {
     this.number = number;
     return this;
   }
@@ -58,7 +58,7 @@ public class CurrentSessionDataUserActiveSessionDn {
     this.number = number;
   }
 
-  public CurrentSessionDataUserActiveSessionDn agentId(String agentId) {
+  public Dn agentId(String agentId) {
     this.agentId = agentId;
     return this;
   }
@@ -76,7 +76,7 @@ public class CurrentSessionDataUserActiveSessionDn {
     this.agentId = agentId;
   }
 
-  public CurrentSessionDataUserActiveSessionDn agentState(String agentState) {
+  public Dn agentState(String agentState) {
     this.agentState = agentState;
     return this;
   }
@@ -94,7 +94,7 @@ public class CurrentSessionDataUserActiveSessionDn {
     this.agentState = agentState;
   }
 
-  public CurrentSessionDataUserActiveSessionDn agentWorkMode(String agentWorkMode) {
+  public Dn agentWorkMode(String agentWorkMode) {
     this.agentWorkMode = agentWorkMode;
     return this;
   }
@@ -121,11 +121,11 @@ public class CurrentSessionDataUserActiveSessionDn {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CurrentSessionDataUserActiveSessionDn currentSessionDataUserActiveSessionDn = (CurrentSessionDataUserActiveSessionDn) o;
-    return Objects.equals(this.number, currentSessionDataUserActiveSessionDn.number) &&
-        Objects.equals(this.agentId, currentSessionDataUserActiveSessionDn.agentId) &&
-        Objects.equals(this.agentState, currentSessionDataUserActiveSessionDn.agentState) &&
-        Objects.equals(this.agentWorkMode, currentSessionDataUserActiveSessionDn.agentWorkMode);
+    Dn dn = (Dn) o;
+    return Objects.equals(this.number, dn.number) &&
+        Objects.equals(this.agentId, dn.agentId) &&
+        Objects.equals(this.agentState, dn.agentState) &&
+        Objects.equals(this.agentWorkMode, dn.agentWorkMode);
   }
 
   @Override
@@ -137,7 +137,7 @@ public class CurrentSessionDataUserActiveSessionDn {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CurrentSessionDataUserActiveSessionDn {\n");
+    sb.append("class Dn {\n");
     
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    agentId: ").append(toIndentedString(agentId)).append("\n");
