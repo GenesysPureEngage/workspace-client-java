@@ -185,6 +185,133 @@ public class SessionApi {
         return call;
     }
     /**
+     * Build call for deprecatedLogin
+     * @param redirectUri this the URI the AUTH service uses to redirect the user after authentication (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deprecatedLoginCall(String redirectUri, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/login";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (redirectUri != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "redirect_uri", redirectUri));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deprecatedLoginValidateBeforeCall(String redirectUri, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'redirectUri' is set
+        if (redirectUri == null) {
+            throw new ApiException("Missing the required parameter 'redirectUri' when calling deprecatedLogin(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = deprecatedLoginCall(redirectUri, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * DEPRECATED login the specified user (HTTP session only)
+     * The login request authenticates the user and retrieves the authorization code. 
+     * @param redirectUri this the URI the AUTH service uses to redirect the user after authentication (required)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse deprecatedLogin(String redirectUri) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = deprecatedLoginWithHttpInfo(redirectUri);
+        return resp.getData();
+    }
+
+    /**
+     * DEPRECATED login the specified user (HTTP session only)
+     * The login request authenticates the user and retrieves the authorization code. 
+     * @param redirectUri this the URI the AUTH service uses to redirect the user after authentication (required)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> deprecatedLoginWithHttpInfo(String redirectUri) throws ApiException {
+        com.squareup.okhttp.Call call = deprecatedLoginValidateBeforeCall(redirectUri, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * DEPRECATED login the specified user (HTTP session only) (asynchronously)
+     * The login request authenticates the user and retrieves the authorization code. 
+     * @param redirectUri this the URI the AUTH service uses to redirect the user after authentication (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deprecatedLoginAsync(String redirectUri, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deprecatedLoginValidateBeforeCall(redirectUri, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getBusinessAttributeHierarchy
      * @param id id of the business attribute (required)
      * @param progressListener Progress listener
@@ -855,7 +982,7 @@ public class SessionApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")

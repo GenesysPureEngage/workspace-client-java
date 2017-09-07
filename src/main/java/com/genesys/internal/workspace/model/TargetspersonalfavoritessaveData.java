@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * TargetspersonalfavoritessaveData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-07T09:04:14.866Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-07T19:04:12.847Z")
 public class TargetspersonalfavoritessaveData {
   @SerializedName("target")
   private TargetInformation target = null;

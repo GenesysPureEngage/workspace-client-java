@@ -26,19 +26,21 @@ import java.io.IOException;
 /**
  * VoicestartmonitoringData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-07T09:04:14.866Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-07T19:04:12.847Z")
 public class VoicestartmonitoringData {
   @SerializedName("phoneNumberToMonitor")
   private String phoneNumberToMonitor = null;
 
   /**
-   * The monitoring mode (Mute,Coach)
+   * The monitoring mode (Mute,Coach,Connect)
    */
   @JsonAdapter(MonitoringModeEnum.Adapter.class)
   public enum MonitoringModeEnum {
     MUTE("Mute"),
     
-    COACH("Coach");
+    COACH("Coach"),
+    
+    CONNECT("Connect");
 
     private String value;
 
@@ -82,7 +84,7 @@ public class VoicestartmonitoringData {
   private MonitoringModeEnum monitoringMode = null;
 
   /**
-   * The monitoring call type (NextCall/AllCalls).
+   * The monitoring call type (OneCall/AllCalls).
    */
   @JsonAdapter(MonitoringNextCallTypeEnum.Adapter.class)
   public enum MonitoringNextCallTypeEnum {
@@ -208,10 +210,10 @@ public class VoicestartmonitoringData {
   }
 
    /**
-   * The monitoring mode (Mute,Coach)
+   * The monitoring mode (Mute,Coach,Connect)
    * @return monitoringMode
   **/
-  @ApiModelProperty(value = "The monitoring mode (Mute,Coach)")
+  @ApiModelProperty(value = "The monitoring mode (Mute,Coach,Connect)")
   public MonitoringModeEnum getMonitoringMode() {
     return monitoringMode;
   }
@@ -226,10 +228,10 @@ public class VoicestartmonitoringData {
   }
 
    /**
-   * The monitoring call type (NextCall/AllCalls).
+   * The monitoring call type (OneCall/AllCalls).
    * @return monitoringNextCallType
   **/
-  @ApiModelProperty(value = "The monitoring call type (NextCall/AllCalls).")
+  @ApiModelProperty(value = "The monitoring call type (OneCall/AllCalls).")
   public MonitoringNextCallTypeEnum getMonitoringNextCallType() {
     return monitoringNextCallType;
   }

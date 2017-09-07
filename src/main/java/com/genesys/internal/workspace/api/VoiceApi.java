@@ -4395,7 +4395,7 @@ public class VoiceApi {
 
     /**
      * Start the monitoring of an agent.
-     * Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Monitor/Coach), monitoringNextCallType (NextCall/AllCalls), monitoringScope (Agent/Call)).
+     * Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Mute/Coach/Connect), monitoringNextCallType (OneCall/AllCalls), monitoringScope (Agent/Call)).
      * @param startMonitoringData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4407,7 +4407,7 @@ public class VoiceApi {
 
     /**
      * Start the monitoring of an agent.
-     * Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Monitor/Coach), monitoringNextCallType (NextCall/AllCalls), monitoringScope (Agent/Call)).
+     * Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Mute/Coach/Connect), monitoringNextCallType (OneCall/AllCalls), monitoringScope (Agent/Call)).
      * @param startMonitoringData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4420,7 +4420,7 @@ public class VoiceApi {
 
     /**
      * Start the monitoring of an agent. (asynchronously)
-     * Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Monitor/Coach), monitoringNextCallType (NextCall/AllCalls), monitoringScope (Agent/Call)).
+     * Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Mute/Coach/Connect), monitoringNextCallType (OneCall/AllCalls), monitoringScope (Agent/Call)).
      * @param startMonitoringData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
