@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * MergeData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-06T22:04:21.928Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-07T09:04:14.866Z")
 public class MergeData {
   @SerializedName("data")
   private VoicecallsidmergeData data = null;
