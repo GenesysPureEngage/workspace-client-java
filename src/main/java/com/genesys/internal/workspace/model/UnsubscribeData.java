@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UnsubscribeData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-08T18:04:15.878Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-08T22:04:20.268Z")
 public class UnsubscribeData {
   @SerializedName("data")
   private ReportingunsubscribeData data = null;
