@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * InlineResponse200Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-10T21:04:15.400Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-11T13:04:21.448Z")
 public class InlineResponse200Data {
   @SerializedName("calls")
   private List<Call> calls = new ArrayList<Call>();
