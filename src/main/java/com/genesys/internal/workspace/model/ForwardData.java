@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ForwardData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-11T13:04:21.448Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-11T13:59:51.963Z")
 public class ForwardData {
   @SerializedName("data")
   private VoicesetforwardData data = null;
