@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Target
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-14T12:04:12.794Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-14T16:04:10.474Z")
 public class Target {
   @SerializedName("DBID")
   private Integer DBID = null;
