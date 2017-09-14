@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * CurrentSessionData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-14T17:04:10.644Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-14T20:04:12.640Z")
 public class CurrentSessionData {
   @SerializedName("pending-login-async")
   private CurrentSessionDataPendingloginasync pendingLoginAsync = null;
