@@ -4,7 +4,7 @@ apply plugin: 'signing'
 apply plugin: 'maven-publish'
 
 group = 'com.genesys'
-version = '1.0.12'
+version = '1.0.13'
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
@@ -12,7 +12,12 @@ buildscript {
     repositories {
         jcenter()
     }
+	dependencies {
+        classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.5.3"
+    }
 }
+
+apply plugin: 'io.codearte.nexus-staging'
 
 repositories {
     jcenter()
@@ -98,4 +103,9 @@ uploadArchives {
       }
     }
   }
+}
+
+nexusStaging {  
+    username = ossrhUsername
+    password = ossrhPassword
 }
