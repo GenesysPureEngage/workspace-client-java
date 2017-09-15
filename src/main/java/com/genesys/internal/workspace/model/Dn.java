@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Dn
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-14T20:04:12.640Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-15T15:04:23.751Z")
 public class Dn {
   @SerializedName("number")
   private String number = null;
