@@ -88,7 +88,7 @@ public class Target {
             return;
         }
 
-        Integer readyAgents = (Integer)availabilityData.get("readyAgents");
+        Integer readyAgents = ((Double)availabilityData.get("readyAgents")).intValue();
         this.availability = new AgentGroupAvailability(readyAgents);
     }
 
@@ -98,7 +98,7 @@ public class Target {
             return;
         }
 
-        Integer waitingCalls = (Integer)availabilityData.get("waitingCalls");
+        Integer waitingCalls = ((Double)availabilityData.get("waitingCalls")).intValue();
         if (this.type == TargetType.ACD_QUEUE) {
             this.availability = new ACDQueueAvailability(waitingCalls);
         } else {
