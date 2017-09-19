@@ -12,6 +12,7 @@ public class Call {
     private String recordingState;
     private String[] participants;
     private KeyValueCollection userData;
+    private Capability[] capabilities;
 
     public Call() {}
 
@@ -99,5 +100,13 @@ public class Call {
 
     public void setUserData(KeyValueCollection userData) {
         this.userData = userData;
+    }
+
+    public Capability[] getCapabilities() {
+        return capabilities;
+    }
+
+    public void setCapabilities(Capability[] capabilities) {
+        this.capabilities = capabilities;
     }
 }

@@ -157,7 +157,7 @@ public class VoiceApi {
         String previousConnId = (String)callData.get("previousConnId");
         String ani = (String)callData.get("ani");
         String dnis = (String)callData.get("dnis");
-
+        Object[] capabilities = (Object[])callData.getOrDefault("capabilities", new Object[]{});
         Object[] participantData = (Object[])callData.get("participants");
         KeyValueCollection userData = new KeyValueCollection();
         Util.extractKeyValueData(userData, (Object[])callData.get("userData"));
@@ -191,18 +191,15 @@ public class VoiceApi {
             debug("Removed call " + id + "(" + state + ")");
         }
 
-        if (call != null) {
-            call.setState(state);
-            call.setANI(ani);
-            call.setDNIS(dnis);
-            call.setCallUuid(callUuid);
-            call.setParticipants(participants);
-            call.setUserData(userData);
+        call.setState(state);
+        call.setANI(ani);
+        call.setDNIS(dnis);
+        call.setCallUuid(callUuid);
+        call.setParticipants(participants);
+        call.setUserData(userData);
+        call.setCapabilities(Arrays.stream(capabilities).map(v -> Capability.fromString((String)v)).filter(Objects::nonNull).toArray(n -> new Capability[n]));
 
-            this.publishCallStateChanged(new CallStateChanged(call, notificationType, connIdChanged ? previousConnId : null));
-        } else {
-            debug("Call " + id + " was not found...");
-        }
+        this.publishCallStateChanged(new CallStateChanged(call, notificationType, connIdChanged ? previousConnId : null));
     }
 
     private void onEventError(Map<String, Object> data) {
