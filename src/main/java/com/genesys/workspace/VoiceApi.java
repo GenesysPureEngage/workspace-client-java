@@ -11,8 +11,12 @@ import com.genesys.workspace.models.Call;
 import org.cometd.bayeux.Message;
 
 import java.util.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class VoiceApi {
+    private static final Logger logger = LoggerFactory.getLogger(VoiceApi.class);
+    
     private com.genesys._internal.workspace.api.VoiceApi voiceApi;
     private boolean debugEnabled;
     private Dn dn;
@@ -22,11 +26,11 @@ public class VoiceApi {
     private Set<ErrorEventListener> errorEventListeners;
 
     public VoiceApi(boolean debugEnabled) {
-        this.debugEnabled = debugEnabled;
         this.calls = new HashMap<>();
         this.dnEventListeners = new HashSet<>();
         this.callEventListeners = new HashSet<>();
         this.errorEventListeners = new HashSet<>();
+        this.debugEnabled = debugEnabled;
     }
 
     void initialize(ApiClient apiClient) {
@@ -37,10 +41,8 @@ public class VoiceApi {
         this.debugEnabled = debugEnabled;
     }
 
-    private void debug(String msg) {
-        if (this.debugEnabled) {
-            System.out.println(msg);
-        }
+    public boolean isDebugEnabled() {
+        return debugEnabled;
     }
 
     private void publishCallStateChanged(CallStateChanged msg) {
@@ -48,7 +50,7 @@ public class VoiceApi {
             try {
                 listener.handleCallStateChanged(msg);
             } catch (Exception e) {
-                this.debug("Exception in listener" + e);
+                logger.debug("Exception in listener" + e);
             }
         });
     }
@@ -58,7 +60,7 @@ public class VoiceApi {
             try {
                 listener.handleDnStateChanged(msg);
             } catch (Exception e) {
-                this.debug("Exception in listener" + e);
+                logger.debug("Exception in listener" + e);
             }
         });
     }
@@ -68,7 +70,7 @@ public class VoiceApi {
             try {
                 listener.handleEventError(msg);
             } catch (Exception e) {
-                this.debug("Exception in listener" + e);
+                logger.debug("Exception in listener" + e);
             }
         });
     }
@@ -142,7 +144,7 @@ public class VoiceApi {
         this.dn.setForwardTo(forwardTo);
         this.dn.setDND(dnd != null && "on".equals(dnd));
 
-        this.debug("Dn updated: state [" + agentState + "] workMode [" + workMode + "]...");
+        logger.debug("Dn updated: state [" + agentState + "] workMode [" + workMode + "]...");
         this.publishDnStateChanged(new DnStateChanged(this.dn));
     }
 
@@ -177,7 +179,7 @@ public class VoiceApi {
             }
 
             this.calls.put(id, call);
-            debug("Added call " + id + " (" + state + ")");
+            logger.debug("Added call " + id + " (" + state + ")");
         }
 
         if (previousConnId != null && this.calls.containsKey(previousConnId)) {
@@ -188,7 +190,7 @@ public class VoiceApi {
             connIdChanged = true;
         } else if (state == CallState.RELEASED) {
             this.calls.remove(id);
-            debug("Removed call " + id + "(" + state + ")");
+            logger.debug("Removed call " + id + "(" + state + ")");
         }
 
         call.setState(state);
@@ -211,7 +213,7 @@ public class VoiceApi {
     }
 
     public void onVoiceMessage(Message message) {
-        this.debug("Message received for /workspace/v3/voice:\n" + message.toString());
+        logger.debug("Message received for /workspace/v3/voice:\n" + message.toString());
 
         Map<String, Object> data = message.getDataAsMap();
         String messageType = (String)data.get("messageType");
@@ -230,7 +232,7 @@ public class VoiceApi {
                 break;
 
             default:
-                this.debug("Unexpected messageType: " + messageType);
+                logger.debug("Unexpected messageType: " + messageType);
         }
     }
 

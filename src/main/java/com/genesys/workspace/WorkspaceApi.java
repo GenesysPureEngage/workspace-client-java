@@ -22,6 +22,8 @@ import com.genesys.workspace.models.cfg.*;
 import com.genesys._internal.workspace.api.SessionApi;
 
 import com.genesys.workspace.models.cfg.BusinessAttribute;
+import com.squareup.okhttp.Interceptor;
+import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 import org.cometd.bayeux.Message;
 import org.cometd.bayeux.client.ClientSessionChannel;
 import org.cometd.client.BayeuxClient;
@@ -30,8 +32,12 @@ import org.cometd.client.transport.LongPollingTransport;
 import org.eclipse.jetty.client.HttpClient;
 import org.eclipse.jetty.client.api.Request;
 import org.eclipse.jetty.util.ssl.SslContextFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class WorkspaceApi {
+    private static final Logger logger = LoggerFactory.getLogger(WorkspaceApi.class);
+    
     private String apiKey;
     private String baseUrl;
     private boolean debugEnabled;
@@ -66,20 +72,14 @@ public class WorkspaceApi {
     ) {
         this.apiKey = apiKey;
         this.baseUrl = baseUrl;
-        this.debugEnabled = debugEnabled;
         this.workspaceUrl = this.baseUrl + "/workspace/v3";
-        this.voiceApi = new VoiceApi(this.debugEnabled);
+        this.debugEnabled = debugEnabled;
+        this.voiceApi = new VoiceApi(debugEnabled);
         this.targetsApi = new TargetsApi();
     }
 
-    private void debug(String msg) {
-        if (this.debugEnabled) {
-            System.out.println(msg);
-        }
-    }
-
     private void extractSessionCookie(ApiResponse<ApiSuccessResponse> response) throws WorkspaceApiException {
-        this.debug("Extracting session cookie...");
+        logger.debug("Extracting session cookie...");
         Optional<String> cookie = response.getHeaders().get("set-cookie")
                 .stream().filter(v -> v.startsWith("WORKSPACE_SESSIONID")).findFirst();
 
@@ -89,13 +89,13 @@ public class WorkspaceApi {
 
         this.sessionCookie = cookie.get();
         this.workspaceSessionId = this.sessionCookie.split(";")[0].split("=")[1];
-        this.debug("WORKSPACE_SESSIONID is " + this.workspaceSessionId);
+        logger.debug("WORKSPACE_SESSIONID is " + this.workspaceSessionId);
 
         this.workspaceClient.addDefaultHeader("Cookie", this.sessionCookie);
     }
 
     private void onInitMessage(Message message) {
-        this.debug("Message received for /workspace/v3/initialization:\n" + message.toString());
+        logger.debug("Message received for /workspace/v3/initialization:\n" + message.toString());
 
         Map<String, Object> data = message.getDataAsMap();
         String messageType = (String)data.get("messageType");
@@ -129,7 +129,7 @@ public class WorkspaceApi {
                 this.workspaceInitialized = true;
 
             } else if ("Failed".equals(state)) {
-                this.debug("Workspace initialization failed!");
+                logger.debug("Workspace initialization failed!");
                 this.initFuture.completeExceptionally(
                         new WorkspaceApiException("initialize workspace failed"));
             }
@@ -249,22 +249,28 @@ public class WorkspaceApi {
 
     private void onHandshake(Message handshakeMessage) {
         if(!handshakeMessage.isSuccessful()) {
-            this.debug("Cometd handshake failed:\n" + handshakeMessage.toString());
+            logger.debug("Cometd handshake failed:\n" + handshakeMessage.toString());
             return;
         }
 
-        this.debug("Cometd handshake successful.");
-        this.debug("Subscribing to channels...");
+        logger.debug("Cometd handshake successful.");
+        logger.debug("Subscribing to channels...");
         this.cometdClient.getChannel("/workspace/v3/initialization").subscribe(
                 (ClientSessionChannel channel, Message msg) -> this.onInitMessage(msg));
 
-        this.cometdClient.getChannel("/workspace/v3/voice").subscribe(
-                (ClientSessionChannel channel, Message msg) -> this.voiceApi.onVoiceMessage(msg));
+        this.cometdClient.getChannel("/workspace/v3/voice").subscribe((channel, msg) -> {
+            try {
+                this.voiceApi.onVoiceMessage(msg);
+            }
+            catch(Exception ex) {
+                logger.error("", ex);
+            }
+        });
     }
 
     private void initializeCometd() throws WorkspaceApiException {
         try {
-            this.debug("Initializing cometd...");
+            logger.debug("Initializing cometd...");
             SslContextFactory sslContextFactory = new SslContextFactory();
             this.cometdHttpClient = new HttpClient(sslContextFactory);
             cometdHttpClient.start();
@@ -275,14 +281,21 @@ public class WorkspaceApi {
                     new HttpCookie("WORKSPACE_SESSIONID", this.workspaceSessionId));
 
             ClientTransport transport = new LongPollingTransport(new HashMap(), cometdHttpClient) {
+                 final TraceInterceptor interceptor = new TraceInterceptor();
+                
                 @Override
                 protected void customize(Request request) {
                     request.header("x-api-key", apiKey);
+                    request.header(TraceInterceptor.TRACEID_HEADER, interceptor.makeUniqueId());
+                    request.header(TraceInterceptor.SPANID_HEADER, interceptor.makeUniqueId());
+                    
+                    logger.debug(request.toString());
+                    logger.debug(request.getHeaders().toString());
                 }
             };
 
             this.cometdClient = new BayeuxClient(this.workspaceUrl + "/notifications", transport);
-            this.debug("Starting cometd handshake...");
+            logger.debug("Starting cometd handshake...");
             this.cometdClient.handshake((ClientSessionChannel channel, Message msg) -> this.onHandshake(msg));
 
         } catch(Exception e) {
@@ -312,13 +325,22 @@ public class WorkspaceApi {
         try {
             this.initFuture = new CompletableFuture<>();
 
-            this.workspaceClient = new ApiClient();
-            this.workspaceClient.setBasePath(this.workspaceUrl);
-            this.workspaceClient.addDefaultHeader("x-api-key", this.apiKey);
-
-            this.sessionApi = new SessionApi(this.workspaceClient);
-            this.voiceApi.initialize(this.workspaceClient);
-            this.targetsApi.initialize(this.workspaceClient);
+            ApiClient client = new ApiClient();
+            
+            List<Interceptor> interceptors = client.getHttpClient().interceptors();
+            interceptors.add(new TraceInterceptor());
+            
+            final HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(logger::debug);
+            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            interceptors.add(loggingInterceptor);
+            
+            client.setBasePath(this.workspaceUrl);
+            client.addDefaultHeader("x-api-key", this.apiKey);
+            
+            this.workspaceClient = client;
+            this.sessionApi = new SessionApi(client);
+            this.voiceApi.initialize(client);
+            this.targetsApi.initialize(client);
 
             String authorization = token != null ? "Bearer " + token : null;
             final ApiResponse<ApiSuccessResponse> response =
@@ -396,7 +418,7 @@ public class WorkspaceApi {
             ChannelsData channelsData = new ChannelsData();
             channelsData.data(data);
 
-            this.debug(msg + "...");
+            logger.debug(msg + "...");
             ApiSuccessResponse response = this.sessionApi.activateChannels(channelsData);
             if(response.getStatus().getCode() != 0) {
                 throw new WorkspaceApiException(
