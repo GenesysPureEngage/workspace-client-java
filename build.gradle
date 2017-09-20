@@ -46,6 +46,8 @@ dependencies {
     compile 'org.cometd.java:cometd-java-client:3.1.2'
     compile 'org.cometd.java:bayeux-api:3.1.2'
     compile 'org.eclipse.jetty:jetty-client:9.4.6.v20170531'
+    compile 'org.slf4j:slf4j-api:1.7.25'
+    
     testCompile 'junit:junit:4.12'
 }
 
