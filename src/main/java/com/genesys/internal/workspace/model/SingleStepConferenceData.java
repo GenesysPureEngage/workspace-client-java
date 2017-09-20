@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * SingleStepConferenceData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-20T15:17:15.317Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-20T16:38:39.251Z")
 public class SingleStepConferenceData {
   @SerializedName("data")
   private VoicecallsidsinglestepconferenceData data = null;
