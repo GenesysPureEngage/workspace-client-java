@@ -46,6 +46,8 @@ public class Objects {
     public static String TOKEN = "token";
     public static String AUTH_CODE = "authcode";
     public static String REDIRECT_URI = "redirecturi";
+    public static final String SUBSCRIPTION_ID = "subscriptionId";
+    public static final String CONNECTION_ID = "connectionId";
 
     public static Map<String,Object> makeUserData() {
         return new HashMap<>();
