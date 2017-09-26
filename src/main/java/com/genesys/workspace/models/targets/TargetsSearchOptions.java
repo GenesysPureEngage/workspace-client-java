@@ -6,6 +6,33 @@ public class TargetsSearchOptions {
     private boolean desc;
     private int limit;
     private boolean exact;
+    private String[] excludeGroups;
+    private String[] excludeFromGroups;
+    private String[] restrictToGroups;
+
+    public String[] getExcludeGroups() {
+        return excludeGroups;
+    }
+
+    public void setExcludeGroups(String[] excludeGroups) {
+        this.excludeGroups = excludeGroups;
+    }
+
+    public String[] getExcludeFromGroups() {
+        return excludeFromGroups;
+    }
+
+    public void setExcludeFromGroups(String[] excludeFromGroups) {
+        this.excludeFromGroups = excludeFromGroups;
+    }
+
+    public String[] getRestrictToGroups() {
+        return restrictToGroups;
+    }
+
+    public void setRestrictToGroups(String[] restrictToGroups) {
+        this.restrictToGroups = restrictToGroups;
+    }
 
     public String getFilterName() {
         return filterName;

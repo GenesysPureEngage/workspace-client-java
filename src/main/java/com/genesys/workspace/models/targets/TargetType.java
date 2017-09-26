@@ -19,4 +19,15 @@ public enum TargetType {
     public String getValue() {
         return value.getValue();
     }
+    
+    static TargetType fromType(TypeEnum type) {
+        TargetType[] values = TargetType.values();
+        for(TargetType t: values) {
+            if(t.value == type) {
+                return t;
+            }
+        }
+        
+        throw new IllegalArgumentException("No such TargetType: " + type);
+    }
 }

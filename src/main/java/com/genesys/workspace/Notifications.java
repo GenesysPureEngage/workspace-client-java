@@ -3,10 +3,10 @@ package com.genesys.workspace;
 import com.genesys.workspace.common.WorkspaceApiException;
 import java.net.HttpCookie;
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.Collection;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import org.cometd.bayeux.Message;
 import org.cometd.client.BayeuxClient;
 import org.eclipse.jetty.client.HttpClient;
@@ -24,17 +24,16 @@ public class Notifications {
     private BayeuxClient client;
     private HttpClient httpClient;
     
-    final Map<String, List<NotificationListener>> listeners = new HashMap<>();
+    final Map<String, Collection<NotificationListener>> listeners = new ConcurrentHashMap<>();
 
     private void onHandshake(Message msg) {
         if(msg.isSuccessful()) {
-            logger.debug("Cometd handshake successful.");
-            logger.debug("Subscribing to channels...");
+            logger.debug("Handshake successful.");
             
+            logger.debug("Subscribing to channels...");
             listeners.entrySet().forEach((entry) -> {
                 final String name = entry.getKey();
-                final List<NotificationListener> list = entry.getValue();
-
+                final Collection<NotificationListener> list = entry.getValue();
                 client.getChannel(name).subscribe((channel, message) ->  {
                     Map<String, Object> data = message.getDataAsMap();
                     list.forEach(listener -> listener.onNotification(name, data));
@@ -50,8 +49,8 @@ public class Notifications {
             });
         }
         else {
-            logger.error("Cometd handshake failed");
-            logger.error(msg.toString());
+            logger.debug("{}", msg);
+            logger.error("Handshake failed");
         }
     }
     
@@ -62,14 +61,14 @@ public class Notifications {
             client = new BayeuxClient(endpoint, new ClientTransport(apiKey, httpClient));            
             client.getCookieStore().add(new URI(endpoint), new HttpCookie(WorkspaceApi.SESSION_COOKIE, sessionId));
             
-            initialize(endpoint, apiKey, sessionId, client);
+            initialize(client);
         }
         catch(Exception ex) {
             throw new WorkspaceApiException("Cometd initialization failed.", ex);
         }
     }
     
-    void initialize(String endpoint, String apiKey, final String sessionId, BayeuxClient client) {
+    void initialize(BayeuxClient client) {
         this.client = client;
         
         logger.debug("Starting cometd handshake...");
@@ -91,11 +90,6 @@ public class Notifications {
     }
     
     public void subscribe(String channelName, NotificationListener listener) {
-        if(!listeners.containsKey(channelName)) {
-            listeners.put(channelName, new ArrayList<>());
-        }
-        
-        List<NotificationListener> list = listeners.get(channelName);
-        list.add(listener);
+        listeners.computeIfAbsent(channelName, k -> new ConcurrentLinkedQueue<>()).add(listener);
     }
 }

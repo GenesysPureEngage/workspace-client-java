@@ -2,7 +2,7 @@ package com.genesys.workspace.models.targets.availability;
 
 import java.util.Collection;
 
-public class AgentAvailability {
+public class AgentAvailability extends TargetAvailability {
     private Collection<ChannelAvailability> channels;
 
     public AgentAvailability(Collection<ChannelAvailability> channels) {

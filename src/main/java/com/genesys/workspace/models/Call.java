@@ -1,5 +1,7 @@
 package com.genesys.workspace.models;
 
+import java.util.Map;
+
 public class Call {
     private String id;
     private String callUuid;
@@ -11,7 +13,7 @@ public class Call {
     private String dnis;
     private String recordingState;
     private String[] participants;
-    private KeyValueCollection userData;
+    private Map<String,Object> userData;
     private Capability[] capabilities;
 
     public Call() {}
@@ -54,10 +56,6 @@ public class Call {
         return this.participants;
     }
 
-    public KeyValueCollection getUserData() {
-        return this.userData;
-    }
-
     public void setId(String id) {
         this.id = id;
     }
@@ -98,15 +96,19 @@ public class Call {
         this.participants = participants;
     }
 
-    public void setUserData(KeyValueCollection userData) {
-        this.userData = userData;
-    }
-
     public Capability[] getCapabilities() {
         return capabilities;
     }
 
     public void setCapabilities(Capability[] capabilities) {
         this.capabilities = capabilities;
+    }
+
+    public Map<String,Object> getUserData() {
+        return userData;
+    }
+
+    public void setUserData(Map<String,Object> userData) {
+        this.userData = userData;
     }
 }

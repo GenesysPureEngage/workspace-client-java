@@ -22,7 +22,7 @@ public class NotificationsTest {
     
     @Test
     public void initialize() throws WorkspaceApiException {
-        notifications.initialize("http://localhost/notifications", Objects.API_KEY, "test", client);
+        notifications.initialize(client);
     }
     
     @Test

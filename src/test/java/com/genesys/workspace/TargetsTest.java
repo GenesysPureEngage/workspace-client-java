@@ -1,9 +1,10 @@
 package com.genesys.workspace;
 
-import com.genesys._internal.workspace.ApiException;
-import com.genesys._internal.workspace.model.TargetsResponse;
+import com.genesys.internal.common.ApiException;
+import com.genesys.internal.workspace.model.TargetsResponse;
 import com.genesys.workspace.common.WorkspaceApiException;
-import com.genesys.workspace.models.targets.TargetSearchResult;
+import com.genesys.workspace.models.targets.SearchResult;
+import com.genesys.workspace.models.targets.Target;
 import com.genesys.workspace.models.targets.TargetType;
 import com.genesys.workspace.models.targets.TargetsSearchOptions;
 import org.junit.Assert;
@@ -18,7 +19,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 public class TargetsTest {
     
     @Mock
-    com.genesys._internal.workspace.api.TargetsApi internalApi;
+    com.genesys.internal.workspace.api.TargetsApi internalApi;
     
     final TargetsApi api = new TargetsApi();
     
@@ -27,16 +28,16 @@ public class TargetsTest {
         api.setTargetsApi(internalApi);
         
         TargetsResponse response = Objects.makeTargetsResponse(10);
-        Mockito.when(internalApi.get(Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any())).thenReturn(response);
+        Mockito.when(internalApi.get(Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any())).thenReturn(response);
     }
 
     @Test
     public void searchWithTerm() throws WorkspaceApiException {
-        TargetSearchResult result = api.search("test");
+        SearchResult<Target> result = api.search("test");
         
         Assert.assertNotNull(result);
         Assert.assertTrue(result.getTargets().size() > 0);
-        Assert.assertTrue(result.getTotalMatches() > 0);
+        Assert.assertTrue(result.getTotal() > 0);
     }
     
     @Test
@@ -46,11 +47,14 @@ public class TargetsTest {
         options.setExact(false);
         options.setLimit(2);
         options.setTypes(new TargetType[]{ TargetType.AGENT, TargetType.SKILL });
-        TargetSearchResult result = api.search("test", options);
+        options.setExcludeGroups(new String[] {"test1"});
+        options.setExcludeFromGroups(new String[] {"test1"});
+        options.setRestrictToGroups(new String[] {"test2"});
+        SearchResult<Target> result = api.search("test", options);
         
         Assert.assertNotNull(result);
         Assert.assertTrue(result.getTargets().size() > 0);
-        Assert.assertTrue(result.getTotalMatches() > 0);
+        Assert.assertTrue(result.getTotal() > 0);
     }
     
     

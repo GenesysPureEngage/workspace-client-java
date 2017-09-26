@@ -1,15 +1,54 @@
 package com.genesys.workspace;
 
-import com.genesys._internal.workspace.ApiClient;
-import com.genesys._internal.workspace.ApiException;
-import com.genesys._internal.workspace.model.*;
+import com.genesys.internal.common.ApiClient;
+import com.genesys.internal.common.ApiException;
+import com.genesys.internal.workspace.model.AlternateData;
+import com.genesys.internal.workspace.model.AnswerData;
+import com.genesys.internal.workspace.model.ApiSuccessResponse;
+import com.genesys.internal.workspace.model.ClearData;
+import com.genesys.internal.workspace.model.CompleteConferenceData;
+import com.genesys.internal.workspace.model.CompleteTransferData;
+import com.genesys.internal.workspace.model.DeleteFromConferenceData;
+import com.genesys.internal.workspace.model.ForwardData;
+import com.genesys.internal.workspace.model.HoldData;
+import com.genesys.internal.workspace.model.InitiateConferenceData;
+import com.genesys.internal.workspace.model.InitiateTransferData;
+import com.genesys.internal.workspace.model.KeyData;
+import com.genesys.internal.workspace.model.MakeCallData;
+import com.genesys.internal.workspace.model.MergeData;
+import com.genesys.internal.workspace.model.NotReadyData;
+import com.genesys.internal.workspace.model.ReadyData;
+import com.genesys.internal.workspace.model.ReconnectData;
+import com.genesys.internal.workspace.model.RedirectData;
+import com.genesys.internal.workspace.model.ReleaseData;
+import com.genesys.internal.workspace.model.RetrieveData;
+import com.genesys.internal.workspace.model.SendDTMFData;
+import com.genesys.internal.workspace.model.SendUserEventData;
+import com.genesys.internal.workspace.model.SendUserEventDataData;
+import com.genesys.internal.workspace.model.SingleStepConferenceData;
+import com.genesys.internal.workspace.model.SingleStepTransferData;
+import com.genesys.internal.workspace.model.UserData;
+import com.genesys.internal.workspace.model.VoicecallsidalternateData;
+import com.genesys.internal.workspace.model.VoicecallsidcompleteData;
+import com.genesys.internal.workspace.model.VoicecallsidcompletetransferData;
+import com.genesys.internal.workspace.model.VoicecallsiddeletefromconferenceData;
+import com.genesys.internal.workspace.model.VoicecallsiddeleteuserdatapairData;
+import com.genesys.internal.workspace.model.VoicecallsidinitiateconferenceData;
+import com.genesys.internal.workspace.model.VoicecallsidinitiatetransferData;
+import com.genesys.internal.workspace.model.VoicecallsidmergeData;
+import com.genesys.internal.workspace.model.VoicecallsidreconnectData;
+import com.genesys.internal.workspace.model.VoicecallsidredirectData;
+import com.genesys.internal.workspace.model.VoicecallsidsenddtmfData;
+import com.genesys.internal.workspace.model.VoicecallsidsinglestepconferenceData;
+import com.genesys.internal.workspace.model.VoicecallsidsinglesteptransferData;
+import com.genesys.internal.workspace.model.VoicemakecallData;
+import com.genesys.internal.workspace.model.VoicenotreadyData;
+import com.genesys.internal.workspace.model.VoicereadyData;
+import com.genesys.internal.workspace.model.VoicesetforwardData;
 import com.genesys.workspace.common.StatusCode;
 import com.genesys.workspace.common.WorkspaceApiException;
 import com.genesys.workspace.events.*;
 import com.genesys.workspace.models.*;
-import com.genesys.workspace.models.Call;
-import org.cometd.bayeux.Message;
-
 import java.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,8 +56,8 @@ import org.slf4j.LoggerFactory;
 public class VoiceApi {
     private static final Logger logger = LoggerFactory.getLogger(VoiceApi.class);
     
-    private com.genesys._internal.workspace.api.VoiceApi voiceApi;
-    private Dn dn;
+    private com.genesys.internal.workspace.api.VoiceApi voiceApi;
+    private DNumber dn;
     private Map<String, Call> calls;
     private Set<DnEventListener> dnEventListeners;
     private Set<CallEventListener> callEventListeners;
@@ -32,7 +71,7 @@ public class VoiceApi {
     }
 
     void initialize(ApiClient apiClient) {
-        this.voiceApi = new com.genesys._internal.workspace.api.VoiceApi(apiClient);
+        this.voiceApi = new com.genesys.internal.workspace.api.VoiceApi(apiClient);
     }
 
     private void publishCallStateChanged(CallStateChanged msg) {
@@ -115,7 +154,7 @@ public class VoiceApi {
 
     public void onDnStateChanged(Map<String, Object> data) {
         if (this.dn == null) {
-            this.dn = new Dn();
+            this.dn = new DNumber();
         }
 
         Map<String, Object> dnData = (Map<String, Object>)data.get("dn");
@@ -151,8 +190,7 @@ public class VoiceApi {
         String dnis = (String)callData.get("dnis");
         Object[] capabilities = (Object[])callData.getOrDefault("capabilities", new Object[]{});
         Object[] participantData = (Object[])callData.get("participants");
-        KeyValueCollection userData = new KeyValueCollection();
-        Util.extractKeyValueData(userData, (Object[])callData.get("userData"));
+        Map<String,Object> userData = Util.extractKeyValueData((Object[])callData.get("userData"));
 
         String[] participants = Util.extractParticipants(participantData);
 
@@ -230,7 +268,7 @@ public class VoiceApi {
         }
     }
 
-    public Dn getDn() {
+    public DNumber getDn() {
         return this.dn;
     }
 
@@ -254,14 +292,11 @@ public class VoiceApi {
      * @param reasons reasons
      * @param extensions extensions
      */
-    public void setAgentReady(
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
-    ) throws WorkspaceApiException {
+    public void setAgentReady(Map<String,Object> reasons, Map<String,Object> extensions) throws WorkspaceApiException {
         try {
-            VoicecallsidholdData readyData = new VoicecallsidholdData();
-            readyData.setReasons(reasons);
-            readyData.setExtensions(extensions);
+            VoicereadyData readyData = new VoicereadyData();
+            readyData.setReasons(Util.toKVList(reasons));
+            readyData.setExtensions(Util.toKVList(extensions));
             ReadyData data = new ReadyData();
             data.data(readyData);
 
@@ -298,16 +333,16 @@ public class VoiceApi {
     public void setAgentNotReady(
             String workMode,
             String reasonCode,
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
+            Map<String,Object> reasons,
+            Map<String,Object> extensions
     ) throws WorkspaceApiException {
         try {
             NotReadyData data = new NotReadyData();
 
             VoicenotreadyData notReadyData = new VoicenotreadyData();
             notReadyData.setReasonCode(reasonCode);
-            notReadyData.setReasons(reasons);
-            notReadyData.setExtensions(extensions);
+            notReadyData.setReasons(Util.toKVList(reasons));
+            notReadyData.setExtensions(Util.toKVList(extensions));
 
             if (workMode != null) {
                 notReadyData.setAgentWorkMode(VoicenotreadyData.AgentWorkModeEnum.fromValue(workMode));
@@ -416,7 +451,7 @@ public class VoiceApi {
      */
     public void makeCall(
             String destination,
-            KeyValueCollection userData
+            Map<String,Object> userData
     ) throws WorkspaceApiException {
         this.makeCall(destination, userData, null, null);
     }
@@ -430,16 +465,16 @@ public class VoiceApi {
      */
     public void makeCall(
             String destination,
-            KeyValueCollection userData,
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
+            Map<String,Object> userData,
+            Map<String,Object> reasons,
+            Map<String,Object> extensions
     ) throws WorkspaceApiException {
         try {
             VoicemakecallData data = new VoicemakecallData();
             data.destination(destination);
-            data.setUserData(userData);
-            data.setExtensions(extensions);
-            data.setReasons(reasons);
+            data.setUserData(Util.toKVList(userData));
+            data.setExtensions(Util.toKVList(extensions));
+            data.setReasons(Util.toKVList(reasons));
             MakeCallData makeCallData = new MakeCallData().data(data);
 
             ApiSuccessResponse response = this.voiceApi.makeCall(makeCallData);
@@ -466,13 +501,13 @@ public class VoiceApi {
      */
     public void answerCall(
             String connId,
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
+            Map<String,Object> reasons,
+            Map<String,Object> extensions
     ) throws WorkspaceApiException {
         try {
-            VoicecallsidholdData answerData = new VoicecallsidholdData();
-            answerData.setReasons(reasons);
-            answerData.setExtensions(extensions);
+            VoicereadyData answerData = new VoicereadyData();
+            answerData.setReasons(Util.toKVList(reasons));
+            answerData.setExtensions(Util.toKVList(extensions));
             AnswerData data = new AnswerData();
             data.setData(answerData);
 
@@ -500,13 +535,13 @@ public class VoiceApi {
      */
     public void holdCall(
             String connId,
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
+            Map<String,Object> reasons,
+            Map<String,Object> extensions
     ) throws WorkspaceApiException {
         try {
-            VoicecallsidholdData holdData = new VoicecallsidholdData();
-            holdData.setReasons(reasons);
-            holdData.setExtensions(extensions);
+            VoicereadyData holdData = new VoicereadyData();
+            holdData.setReasons(Util.toKVList(reasons));
+            holdData.setExtensions(Util.toKVList(extensions));
             HoldData data = new HoldData();
             data.data(holdData);
 
@@ -534,13 +569,13 @@ public class VoiceApi {
      */
     public void retrieveCall(
             String connId,
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
+            Map<String,Object> reasons,
+            Map<String,Object> extensions
     ) throws WorkspaceApiException {
         try {
-            VoicecallsidholdData retrieveData = new VoicecallsidholdData();
-            retrieveData.setReasons(reasons);
-            retrieveData.setExtensions(extensions);
+            VoicereadyData retrieveData = new VoicereadyData();
+            retrieveData.setReasons(Util.toKVList(reasons));
+            retrieveData.setExtensions(Util.toKVList(extensions));
             RetrieveData data = new RetrieveData();
             data.data(retrieveData);
 
@@ -568,14 +603,14 @@ public class VoiceApi {
      */
     public void releaseCall(
             String connId,
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
+            Map<String,Object> reasons,
+            Map<String,Object> extensions
     ) throws WorkspaceApiException {
 
         try {
-            VoicecallsidholdData releaseData = new VoicecallsidholdData();
-            releaseData.setReasons(reasons);
-            releaseData.setExtensions(extensions);
+            VoicereadyData releaseData = new VoicereadyData();
+            releaseData.setReasons(Util.toKVList(reasons));
+            releaseData.setExtensions(Util.toKVList(extensions));
             ReleaseData data = new ReleaseData();
             data.data(releaseData);
 
@@ -605,7 +640,7 @@ public class VoiceApi {
     public void initiateConference(
             String connId,
             String destination,
-            KeyValueCollection userData
+            Map<String,Object> userData
     ) throws WorkspaceApiException {
         this.initiateConference(connId, destination, null, null, userData, null, null);
     }
@@ -625,18 +660,18 @@ public class VoiceApi {
             String destination,
             String location,
             String outboundCallerId,
-            KeyValueCollection userData,
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
+            Map<String,Object> userData,
+            Map<String,Object> reasons,
+            Map<String,Object> extensions
     ) throws WorkspaceApiException {
         try {
             VoicecallsidinitiateconferenceData initData = new VoicecallsidinitiateconferenceData();
             initData.setDestination(destination);
             initData.setLocation(location);
             initData.setOutboundCallerId(outboundCallerId);
-            initData.setUserData(userData);
-            initData.setReasons(reasons);
-            initData.setExtensions(extensions);
+            initData.setUserData(Util.toKVList(userData));
+            initData.setReasons(Util.toKVList(reasons));
+            initData.setExtensions(Util.toKVList(extensions));
             InitiateConferenceData data = new InitiateConferenceData();
             data.data(initData);
 
@@ -667,14 +702,14 @@ public class VoiceApi {
     public void completeConference(
             String connId,
             String parentConnId,
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
+            Map<String,Object> reasons,
+            Map<String,Object> extensions
     ) throws WorkspaceApiException {
         try {
             VoicecallsidcompletetransferData completeData = new VoicecallsidcompletetransferData();
             completeData.setParentConnId(parentConnId);
-            completeData.setReasons(reasons);
-            completeData.setExtensions(extensions);
+            completeData.setReasons(Util.toKVList(reasons));
+            completeData.setExtensions(Util.toKVList(extensions));
             CompleteConferenceData data = new CompleteConferenceData();
             data.data(completeData);
 
@@ -703,7 +738,7 @@ public class VoiceApi {
     public void initiateTransfer(
             String connId,
             String destination,
-            KeyValueCollection userData
+            Map<String,Object> userData
     ) throws WorkspaceApiException {
         this.initiateTransfer(connId, destination, null, null, userData, null, null);
     }
@@ -723,18 +758,18 @@ public class VoiceApi {
             String destination,
             String location,
             String outboundCallerId,
-            KeyValueCollection userData,
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
+            Map<String,Object> userData,
+            Map<String,Object> reasons,
+            Map<String,Object> extensions
     ) throws WorkspaceApiException {
         try {
             VoicecallsidinitiatetransferData data = new VoicecallsidinitiatetransferData();
             data.setDestination(destination);
             data.setLocation(location);
             data.setOutboundCallerId(outboundCallerId);
-            data.setUserData(userData);
-            data.setReasons(reasons);
-            data.setExtensions(extensions);
+            data.setUserData(Util.toKVList(userData));
+            data.setReasons(Util.toKVList(reasons));
+            data.setExtensions(Util.toKVList(extensions));
             InitiateTransferData initData = new InitiateTransferData();
             initData.data(data);
 
@@ -764,14 +799,14 @@ public class VoiceApi {
     public void completeTransfer(
             String connId,
             String parentConnId,
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
+            Map<String,Object> reasons,
+            Map<String,Object> extensions
     ) throws WorkspaceApiException {
         try {
             VoicecallsidcompletetransferData completeData = new VoicecallsidcompletetransferData();
             completeData.setParentConnId(parentConnId);
-            completeData.setReasons(reasons);
-            completeData.setExtensions(extensions);
+            completeData.setReasons(Util.toKVList(reasons));
+            completeData.setExtensions(Util.toKVList(extensions));
             CompleteTransferData data = new CompleteTransferData();
             data.data(completeData);
 
@@ -803,14 +838,14 @@ public class VoiceApi {
     public void alternateCalls(
             String connId,
             String heldConnId,
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
+            Map<String,Object> reasons,
+            Map<String,Object> extensions
     ) throws WorkspaceApiException {
         try {
             VoicecallsidalternateData alternateData = new VoicecallsidalternateData();
             alternateData.setHeldConnId(heldConnId);
-            alternateData.setReasons(reasons);
-            alternateData.setExtensions(extensions);
+            alternateData.setReasons(Util.toKVList(reasons));
+            alternateData.setExtensions(Util.toKVList(extensions));
             AlternateData data = new AlternateData();
             data.data(alternateData);
 
@@ -840,15 +875,15 @@ public class VoiceApi {
     public void deleteFromConference(
             String connId,
             String dnToDrop,
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
+            Map<String,Object> reasons,
+            Map<String,Object> extensions
     ) throws WorkspaceApiException {
         try {
             VoicecallsiddeletefromconferenceData deleteData =
                     new VoicecallsiddeletefromconferenceData();
             deleteData.setDnToDrop(dnToDrop);
-            deleteData.setReasons(reasons);
-            deleteData.setExtensions(extensions);
+            deleteData.setReasons(Util.toKVList(reasons));
+            deleteData.setExtensions(Util.toKVList(extensions));
 
             DeleteFromConferenceData data = new DeleteFromConferenceData();
             data.data(deleteData);
@@ -877,7 +912,7 @@ public class VoiceApi {
     public void singleStepTransfer(
             String connId,
             String destination,
-            KeyValueCollection userData
+            Map<String,Object> userData
     ) throws WorkspaceApiException {
         this.singleStepTransfer(connId, destination, null, userData, null, null);
     }
@@ -895,18 +930,18 @@ public class VoiceApi {
             String connId,
             String destination,
             String location,
-            KeyValueCollection userData,
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
+            Map<String,Object> userData,
+            Map<String,Object> reasons,
+            Map<String,Object> extensions
     ) throws WorkspaceApiException {
         try {
             VoicecallsidsinglesteptransferData transferData =
                     new VoicecallsidsinglesteptransferData();
             transferData.setDestination(destination);
             transferData.setLocation(location);
-            transferData.setUserData(userData);
-            transferData.setReasons(reasons);
-            transferData.setExtensions(extensions);
+            transferData.setUserData(Util.toKVList(userData));
+            transferData.setReasons(Util.toKVList(reasons));
+            transferData.setExtensions(Util.toKVList(extensions));
             SingleStepTransferData data = new SingleStepTransferData();
             data.data(transferData);
 
@@ -939,7 +974,7 @@ public class VoiceApi {
     public void singleStepConference(
             String connId,
             String destination,
-            KeyValueCollection userData
+            Map<String,Object> userData
     ) throws WorkspaceApiException {
         this.singleStepConference(connId, destination, null, userData, null, null);
     }
@@ -958,18 +993,18 @@ public class VoiceApi {
             String connId,
             String destination,
             String location,
-            KeyValueCollection userData,
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
+            Map<String,Object> userData,
+            Map<String,Object> reasons,
+            Map<String,Object> extensions
     ) throws WorkspaceApiException {
         try {
             VoicecallsidsinglestepconferenceData confData =
                     new VoicecallsidsinglestepconferenceData();
             confData.setDestination(destination);
             confData.setLocation(location);
-            confData.setUserData(userData);
-            confData.setReasons(reasons);
-            confData.setExtensions(extensions);
+            confData.setUserData(Util.toKVList(userData));
+            confData.setReasons(Util.toKVList(reasons));
+            confData.setExtensions(Util.toKVList(extensions));
             SingleStepConferenceData data = new SingleStepConferenceData();
             data.data(confData);
 
@@ -986,10 +1021,10 @@ public class VoiceApi {
      * @param connId The id of the call to attach data to.
      * @param userData The data to attach to the call. This is an array of objects with the properties key, type, and value.
      */
-    public void attachUserData(String connId,KeyValueCollection userData) throws WorkspaceApiException {
+    public void attachUserData(String connId, Map<String,Object> userData) throws WorkspaceApiException {
         try {
             VoicecallsidcompleteData completeData = new VoicecallsidcompleteData();
-            completeData.setUserData(userData);
+            completeData.setUserData(Util.toKVList(userData));
             UserData data = new UserData();
             data.data(completeData);
 
@@ -1005,10 +1040,10 @@ public class VoiceApi {
      * @param connId The id of the call to update data for.
      * @param userData The data to update. This is an array of objecvts with the properties key, type, and value.
      */
-    public void updateUserData(String connId, KeyValueCollection userData) throws WorkspaceApiException {
+    public void updateUserData(String connId, Map<String,Object> userData) throws WorkspaceApiException {
         try {
             VoicecallsidcompleteData completeData = new VoicecallsidcompleteData();
-            completeData.setUserData(userData);
+            completeData.setUserData(Util.toKVList(userData));
             UserData data = new UserData();
             data.data(completeData);
 
@@ -1058,14 +1093,14 @@ public class VoiceApi {
     public void sendDTMF(
             String connId,
             String digits,
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
+            Map<String,Object> reasons,
+            Map<String,Object> extensions
     ) throws WorkspaceApiException {
         try {
             VoicecallsidsenddtmfData dtmfData = new VoicecallsidsenddtmfData();
             dtmfData.setDtmfDigits(digits);
-            dtmfData.setReasons(reasons);
-            dtmfData.setExtensions(extensions);
+            dtmfData.setReasons(Util.toKVList(reasons));
+            dtmfData.setExtensions(Util.toKVList(extensions));
             SendDTMFData data = new SendDTMFData();
             data.data(dtmfData);
 
@@ -1080,7 +1115,7 @@ public class VoiceApi {
      * Send EventUserEvent with the provided data.
      * @param userData The data to be sent. This is an array of objects with the properties key, type, and value.
      */
-    public void sendUserEvent(KeyValueCollection userData) throws WorkspaceApiException {
+    public void sendUserEvent(Map<String,Object> userData) throws WorkspaceApiException {
         this.sendUserEvent(userData, null);
     }
 
@@ -1089,10 +1124,10 @@ public class VoiceApi {
      * @param userData The data to be sent. This is an array of objects with the properties key, type, and value.
      * @param callUuid The callUuid that the event will be associated with.
      */
-    public void sendUserEvent(KeyValueCollection userData, String callUuid) throws WorkspaceApiException {
+    public void sendUserEvent(Map<String,Object> userData, String callUuid) throws WorkspaceApiException {
         try {
             SendUserEventDataData sendUserEventData = new SendUserEventDataData();
-            sendUserEventData.setUserData(userData);
+            sendUserEventData.setUserData(Util.toKVList(userData));
             sendUserEventData.setCallUuid(callUuid);
 
             SendUserEventData data = new SendUserEventData();
@@ -1124,14 +1159,14 @@ public class VoiceApi {
     public void redirectCall(
             String connId,
             String destination,
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
+            Map<String,Object> reasons,
+            Map<String,Object> extensions
     ) throws WorkspaceApiException {
         try {
             VoicecallsidredirectData redirectData = new VoicecallsidredirectData();
             redirectData.setDestination(destination);
-            redirectData.setReasons(reasons);
-            redirectData.setExtensions(extensions);
+            redirectData.setReasons(Util.toKVList(reasons));
+            redirectData.setExtensions(Util.toKVList(extensions));
             RedirectData data = new RedirectData();
             data.data(redirectData);
 
@@ -1161,14 +1196,14 @@ public class VoiceApi {
     public void mergeCalls(
             String connId,
             String otherConnId,
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
+            Map<String,Object> reasons,
+            Map<String,Object> extensions
     ) throws WorkspaceApiException {
         try {
             VoicecallsidmergeData mergeData = new VoicecallsidmergeData();
             mergeData.setOtherConnId(otherConnId);
-            mergeData.setReasons(reasons);
-            mergeData.setExtensions(extensions);
+            mergeData.setReasons(Util.toKVList(reasons));
+            mergeData.setExtensions(Util.toKVList(extensions));
 
             MergeData data = new MergeData();
             data.data(mergeData);
@@ -1201,14 +1236,14 @@ public class VoiceApi {
     public void reconnectCall(
             String connId,
             String heldConnId,
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
+            Map<String,Object> reasons,
+            Map<String,Object> extensions
     ) throws WorkspaceApiException {
         try {
             VoicecallsidreconnectData reconnectData = new VoicecallsidreconnectData();
             reconnectData.setHeldConnId(heldConnId);
-            reconnectData.setReasons(reasons);
-            reconnectData.setExtensions(extensions);
+            reconnectData.setReasons(Util.toKVList(reasons));
+            reconnectData.setExtensions(Util.toKVList(extensions));
 
             ReconnectData data = new ReconnectData();
             data.data(reconnectData);
@@ -1236,13 +1271,13 @@ public class VoiceApi {
      */
     public void clearCall(
             String connId,
-            KeyValueCollection reasons,
-            KeyValueCollection extensions
+            Map<String,Object> reasons,
+            Map<String,Object> extensions
     ) throws WorkspaceApiException {
         try {
-            VoicecallsidholdData clearData = new VoicecallsidholdData();
-            clearData.setReasons(reasons);
-            clearData.setExtensions(extensions);
+            VoicereadyData clearData = new VoicereadyData();
+            clearData.setReasons(Util.toKVList(reasons));
+            clearData.setExtensions(Util.toKVList(extensions));
 
             ClearData data = new ClearData();
             data.data(clearData);
@@ -1306,7 +1341,7 @@ public class VoiceApi {
         }
     }
 
-    void setVoiceApi(com.genesys._internal.workspace.api.VoiceApi api) {
+    void setVoiceApi(com.genesys.internal.workspace.api.VoiceApi api) {
         voiceApi = api;
     }
 }

@@ -1,10 +1,10 @@
 package com.genesys.workspace;
 
-import com.genesys._internal.workspace.ApiException;
-import com.genesys._internal.workspace.model.ApiSuccessResponse;
+import com.genesys.internal.common.ApiException;
+import com.genesys.internal.workspace.model.ApiSuccessResponse;
 import com.genesys.workspace.common.StatusCode;
 import com.genesys.workspace.common.WorkspaceApiException;
-import com.genesys.workspace.models.KeyValueCollection;
+import java.util.HashMap;
 import org.cometd.bayeux.Message;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,7 +17,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 public class VoiceTest {
     
     @Mock
-    com.genesys._internal.workspace.api.VoiceApi internalApi;
+    com.genesys.internal.workspace.api.VoiceApi internalApi;
     
     final VoiceApi api = new VoiceApi();
 
@@ -87,7 +87,7 @@ public class VoiceTest {
     
     @Test
     public void attachUserData() throws WorkspaceApiException {
-        api.attachUserData(Objects.CALL_ID, new KeyValueCollection());
+        api.attachUserData(Objects.CALL_ID, new HashMap<>());
     }
     
     @Test

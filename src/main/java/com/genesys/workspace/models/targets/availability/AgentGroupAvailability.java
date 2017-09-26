@@ -1,6 +1,6 @@
 package com.genesys.workspace.models.targets.availability;
 
-public class AgentGroupAvailability {
+public class AgentGroupAvailability extends TargetAvailability {
     int numberOfReadyAgents;
     public AgentGroupAvailability(int numberOfReadyAgents) {
         this.numberOfReadyAgents = numberOfReadyAgents;

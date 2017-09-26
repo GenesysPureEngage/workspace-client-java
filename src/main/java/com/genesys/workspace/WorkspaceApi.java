@@ -1,25 +1,23 @@
 package com.genesys.workspace;
 
 
-import java.util.Collection;
-import java.util.concurrent.CompletableFuture;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Optional;
-
-import com.genesys._internal.workspace.model.*;
-import com.genesys._internal.workspace.ApiClient;
-import com.genesys._internal.workspace.ApiException;
-import com.genesys._internal.workspace.ApiResponse;
-import com.genesys._internal.workspace.api.SessionApi;
+import com.genesys.internal.common.ApiClient;
+import com.genesys.internal.common.ApiException;
+import com.genesys.internal.common.ApiResponse;
+import com.genesys.internal.workspace.api.SessionApi;
+import com.genesys.internal.workspace.model.*;
 import com.genesys.workspace.common.WorkspaceApiException;
 import com.genesys.workspace.models.*;
 import com.genesys.workspace.models.cfg.*;
-
-import com.genesys.workspace.models.cfg.BusinessAttribute;
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,7 +39,7 @@ public class WorkspaceApi {
     private boolean workspaceInitialized = false;
     
     private User user;
-    private KeyValueCollection settings;
+    private Map<String,Object> settings;
     private List<AgentGroup> agentGroups;
     private List<BusinessAttribute> businessAttributes;
     private List<ActionCode> actionCodes;
@@ -95,8 +93,7 @@ public class WorkspaceApi {
                 String defaultPlace = (String)userData.get("defaultPlace");
                 String agentId = (String)userData.get("agentLogin");
                 Object[] annexData = (Object[])userData.get("userProperties");
-                KeyValueCollection userProperties = new KeyValueCollection();
-                Util.extractKeyValueData(userProperties, annexData);
+                Map<String,Object> userProperties = Util.extractKeyValueData(annexData);
 
                 if (user == null) {
                     user = new User();
@@ -132,8 +129,7 @@ public class WorkspaceApi {
                 String code = (String)actionCodeData.get("code");
                 ActionCodeType type = Util.parseActionCodeType((String)actionCodeData.get("type"));
                 Object[] userPropertyData = (Object[])actionCodeData.get("userProperties");
-                KeyValueCollection userProperties = new KeyValueCollection();
-                Util.extractKeyValueData(userProperties, userPropertyData);
+                Map<String,Object> userProperties = Util.extractKeyValueData(userPropertyData);
 
                 Object[] subCodesData = (Object[])actionCodeData.get("subCodes");
                 List<SubCode> subCodes = new ArrayList<>();
@@ -152,8 +148,7 @@ public class WorkspaceApi {
         }
 
         Object[] settingsData = (Object[])configData.get("settings");
-        this.settings = new KeyValueCollection();
-        Util.extractKeyValueData(this.settings, settingsData);
+        this.settings = Util.extractKeyValueData(settingsData);
 
         Object[] businessAttributesData = (Object[])configData.get("businessAttributes");
         if (businessAttributesData != null) {
@@ -194,8 +189,7 @@ public class WorkspaceApi {
                 String name = (String)transactionData.get("name");
                 String alias = (String)transactionData.get("alias");
                 Object[] userPropertyData = (Object[])transactionData.get("userProperties");
-                KeyValueCollection userProperties = new KeyValueCollection();
-                Util.extractKeyValueData(userProperties, userPropertyData);
+                Map<String,Object> userProperties = Util.extractKeyValueData(userPropertyData);
 
                 this.transactions.add(new Transaction(name, alias, userProperties));
             }
@@ -209,7 +203,7 @@ public class WorkspaceApi {
                 Long dbid = (Long)agentGroupData.get("DBID");
                 String name = (String)agentGroupData.get("name");
 
-                KeyValueCollection userProperties = new KeyValueCollection();
+                Map<String,Object> userProperties = new HashMap<>();
                 Map<String, Object> agentGroupSettingsData = (Map<String, Object>)agentGroupData.get("settings");
                 if (agentGroupSettingsData != null && !agentGroupSettingsData.isEmpty()) {
                     // Top level will be sections
@@ -217,14 +211,14 @@ public class WorkspaceApi {
 
                         String sectionName = entry.getKey();
                         Map<String, Object> sectionData = (Map<String, Object>)entry.getValue();
-                        KeyValueCollection section = new KeyValueCollection();
+                        Map<String,Object> section = new HashMap<>();
                         if (sectionData != null && !sectionData.isEmpty()) {
                             for (Map.Entry<String, Object> option : sectionData.entrySet()) {
-                                section.addString(option.getKey(), (String)option.getValue());
+                                section.put(option.getKey(), (String)option.getValue());
                             }
                         }
 
-                        userProperties.addList(entry.getKey(), section);
+                        userProperties.put(entry.getKey(), section);
                     }
                 }
 
@@ -398,7 +392,7 @@ public class WorkspaceApi {
         return this.user;
     }
 
-    public KeyValueCollection getSettings() {
+    public Map<String,Object> getSettings() {
         return this.settings;
     }
 

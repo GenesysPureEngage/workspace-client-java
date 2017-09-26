@@ -1,9 +1,9 @@
 package com.genesys.workspace;
 
-import com.genesys._internal.workspace.ApiClient;
-import com.genesys._internal.workspace.ApiException;
-import com.genesys._internal.workspace.api.SessionApi;
-import com.genesys._internal.workspace.model.ApiSuccessResponse;
+import com.genesys.internal.common.ApiClient;
+import com.genesys.internal.common.ApiException;
+import com.genesys.internal.workspace.api.SessionApi;
+import com.genesys.internal.workspace.model.ApiSuccessResponse;
 import com.genesys.workspace.common.StatusCode;
 import com.genesys.workspace.common.WorkspaceApiException;
 import com.genesys.workspace.models.User;

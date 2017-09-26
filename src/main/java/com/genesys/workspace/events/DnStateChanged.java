@@ -1,14 +1,14 @@
 package com.genesys.workspace.events;
 
-import com.genesys.workspace.models.Dn;
+import com.genesys.workspace.models.DNumber;
 
 public class DnStateChanged {
-    private Dn dn;
-    public DnStateChanged(Dn dn) {
+    private DNumber dn;
+    public DnStateChanged(DNumber dn) {
         this.dn = dn;
     }
 
-    public Dn getDn() {
+    public DNumber getDn() {
         return this.dn;
     }
 }
