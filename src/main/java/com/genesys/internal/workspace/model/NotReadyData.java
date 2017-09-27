@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * NotReadyData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-27T19:04:21.185Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-27T21:04:21.375Z")
 public class NotReadyData {
   @SerializedName("data")
   private VoicenotreadyData data = null;
