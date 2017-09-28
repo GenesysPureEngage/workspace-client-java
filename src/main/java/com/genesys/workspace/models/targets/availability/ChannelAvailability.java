@@ -34,42 +34,46 @@ public class ChannelAvailability {
     }
 
     public String getChannelName() {
-        return this.channelName;
+        return channelName;
     }
 
     public AgentState getAgentState() {
-        return this.agentState;
+        return agentState;
     }
 
     public AgentWorkMode getAgentWorkMode() {
-        return this.agentWorkMode;
+        return agentWorkMode;
     }
 
     public String getReason() {
-        return this.reason;
+        return reason;
     }
 
     public String getPhoneNumber() {
-        return this.phoneNumber;
+        return phoneNumber;
     }
 
     public String getSwitchName() {
-        return this.getSwitchName();
+        return switchName;
     }
-
+    
     public AgentActivity getActivity() {
         return this.activity;
     }
 
+    public boolean isAvailable() {
+        return available;
+    }
+
     @Override
     public String toString() {
-        String str = "channelName [" + this.channelName +
-                "] available [" + this.available +
-                "] agentState [" + this.agentState +
-                "] agentWorkMode [" + this.agentWorkMode +
-                "] reason [" + this.reason +
-                "] phoneNumber [" + this.phoneNumber +
-                "] activity [" + this.activity + "]";
+        String str = "channelName [" + channelName +
+                "] available [" + available +
+                "] agentState [" + agentState +
+                "] agentWorkMode [" + agentWorkMode +
+                "] reason [" + reason +
+                "] phoneNumber [" + phoneNumber +
+                "] activity [" + activity + "]";
         return str;
     }
 }
