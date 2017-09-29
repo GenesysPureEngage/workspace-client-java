@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * VoicestartmonitoringData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-28T21:04:21.438Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-29T17:04:17.920Z")
 public class VoicestartmonitoringData {
   @SerializedName("phoneNumberToMonitor")
   private String phoneNumberToMonitor = null;
