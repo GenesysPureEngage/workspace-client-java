@@ -1,4 +1,4 @@
-package com.genesys.workspace.tests;
+package com.genesys.workspace;
 
 import com.genesys.workspace.models.Capability;
 import java.util.Arrays;
@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class Call {
+public class CallTest {
     @Test
     public void capabilityFromString() {
         String[] values = {

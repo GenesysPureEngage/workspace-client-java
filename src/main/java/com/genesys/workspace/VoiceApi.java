@@ -18,31 +18,21 @@ public class VoiceApi {
     private static final Logger logger = LoggerFactory.getLogger(VoiceApi.class);
     
     private com.genesys._internal.workspace.api.VoiceApi voiceApi;
-    private boolean debugEnabled;
     private Dn dn;
     private Map<String, Call> calls;
     private Set<DnEventListener> dnEventListeners;
     private Set<CallEventListener> callEventListeners;
     private Set<ErrorEventListener> errorEventListeners;
 
-    public VoiceApi(boolean debugEnabled) {
+    public VoiceApi() {
         this.calls = new HashMap<>();
         this.dnEventListeners = new HashSet<>();
         this.callEventListeners = new HashSet<>();
         this.errorEventListeners = new HashSet<>();
-        this.debugEnabled = debugEnabled;
     }
 
     void initialize(ApiClient apiClient) {
         this.voiceApi = new com.genesys._internal.workspace.api.VoiceApi(apiClient);
-    }
-
-    void setDebugEnabled(boolean debugEnabled) {
-        this.debugEnabled = debugEnabled;
-    }
-
-    public boolean isDebugEnabled() {
-        return debugEnabled;
     }
 
     private void publishCallStateChanged(CallStateChanged msg) {
@@ -212,10 +202,7 @@ public class VoiceApi {
         this.publishErrorEvent(new EventError(msg, code));
     }
 
-    public void onVoiceMessage(Message message) {
-        logger.debug("Message received for /workspace/v3/voice:\n" + message.toString());
-
-        Map<String, Object> data = message.getDataAsMap();
+    public void onVoiceMessage(Map<String, Object> data) {
         String messageType = (String)data.get("messageType");
 
         switch(messageType) {
@@ -1317,5 +1304,9 @@ public class VoiceApi {
         } catch (ApiException e) {
             throw new WorkspaceApiException("stopRecording failed.", e);
         }
+    }
+
+    void setVoiceApi(com.genesys._internal.workspace.api.VoiceApi api) {
+        voiceApi = api;
     }
 }

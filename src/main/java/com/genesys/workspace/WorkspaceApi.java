@@ -1,14 +1,10 @@
 package com.genesys.workspace;
 
-import java.net.URI;
-import java.net.HttpCookie;
-import java.net.CookieManager;
 
 import java.util.Collection;
 import java.util.concurrent.CompletableFuture;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
@@ -16,42 +12,34 @@ import com.genesys._internal.workspace.model.*;
 import com.genesys._internal.workspace.ApiClient;
 import com.genesys._internal.workspace.ApiException;
 import com.genesys._internal.workspace.ApiResponse;
+import com.genesys._internal.workspace.api.SessionApi;
 import com.genesys.workspace.common.WorkspaceApiException;
 import com.genesys.workspace.models.*;
 import com.genesys.workspace.models.cfg.*;
-import com.genesys._internal.workspace.api.SessionApi;
 
 import com.genesys.workspace.models.cfg.BusinessAttribute;
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
-import org.cometd.bayeux.Message;
-import org.cometd.bayeux.client.ClientSessionChannel;
-import org.cometd.client.BayeuxClient;
-import org.cometd.client.transport.ClientTransport;
-import org.cometd.client.transport.LongPollingTransport;
-import org.eclipse.jetty.client.HttpClient;
-import org.eclipse.jetty.client.api.Request;
-import org.eclipse.jetty.util.ssl.SslContextFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class WorkspaceApi {
     private static final Logger logger = LoggerFactory.getLogger(WorkspaceApi.class);
     
+    public static final String SESSION_COOKIE = "WORKSPACE_SESSIONID";
+    
     private String apiKey;
     private String baseUrl;
-    private boolean debugEnabled;
     private String workspaceUrl;
-    private ApiClient workspaceClient;
-    private HttpClient cometdHttpClient;
-    private BayeuxClient cometdClient;
+
+    private Notifications notifications;
     private SessionApi sessionApi;
     private TargetsApi targetsApi;
     private VoiceApi voiceApi;
-    private String sessionCookie;
+    
     private String workspaceSessionId;
-    private CompletableFuture<User> initFuture;
     private boolean workspaceInitialized = false;
+    
     private User user;
     private KeyValueCollection settings;
     private List<AgentGroup> agentGroups;
@@ -63,22 +51,23 @@ public class WorkspaceApi {
      * Constructor 
      * @param apiKey The API key to be used.
      * @param baseUrl base URL for the workpace API
-     * @param debugEnabled enable debug (or not) 
     */
-    public WorkspaceApi(
-            String apiKey,
-            String baseUrl,
-            boolean debugEnabled
-    ) {
+    public WorkspaceApi(String apiKey, String baseUrl) {
+        this(apiKey, baseUrl, new VoiceApi(), new TargetsApi(), new SessionApi(), new Notifications());
+    }
+
+    WorkspaceApi(String apiKey, String baseUrl, VoiceApi voiceApi, TargetsApi targetsApi, SessionApi sessionApi, Notifications notifications) {
         this.apiKey = apiKey;
         this.baseUrl = baseUrl;
         this.workspaceUrl = this.baseUrl + "/workspace/v3";
-        this.debugEnabled = debugEnabled;
-        this.voiceApi = new VoiceApi(debugEnabled);
-        this.targetsApi = new TargetsApi();
-    }
+        
+        this.voiceApi = voiceApi;
+        this.targetsApi = targetsApi;
+        this.sessionApi = sessionApi;
+        this.notifications = notifications;
+    }   
 
-    private void extractSessionCookie(ApiResponse<ApiSuccessResponse> response) throws WorkspaceApiException {
+    private static String extractSessionCookie(ApiResponse<ApiSuccessResponse> response) throws WorkspaceApiException {
         logger.debug("Extracting session cookie...");
         Optional<String> cookie = response.getHeaders().get("set-cookie")
                 .stream().filter(v -> v.startsWith("WORKSPACE_SESSIONID")).findFirst();
@@ -87,24 +76,19 @@ public class WorkspaceApi {
             throw new WorkspaceApiException("Failed to extract workspace session cookie.");
         }
 
-        this.sessionCookie = cookie.get();
-        this.workspaceSessionId = this.sessionCookie.split(";")[0].split("=")[1];
-        logger.debug("WORKSPACE_SESSIONID is " + this.workspaceSessionId);
-
-        this.workspaceClient.addDefaultHeader("Cookie", this.sessionCookie);
+        String value = cookie.get();
+        String sessionId = value.split(";")[0].split("=")[1];
+        logger.debug("WORKSPACE_SESSIONID is " + sessionId);
+        
+        return sessionId;
     }
 
-    private void onInitMessage(Message message) {
-        logger.debug("Message received for /workspace/v3/initialization:\n" + message.toString());
-
-        Map<String, Object> data = message.getDataAsMap();
+    void onInitMessage(Map<String, Object> data, CompletableFuture<User> future) {
         String messageType = (String)data.get("messageType");
 
         if ("WorkspaceInitializationComplete".equals(messageType)) {
             String state = (String)data.get("state");
             if ("Complete".equals(state)) {
-                this.workspaceInitialized = true;
-
                 Map<String, Object> initData = (Map<String, Object>)data.get("data");
                 Map<String, Object> userData = (Map<String, Object>)initData.get("user");
                 String employeeId = (String)userData.get("employeeId");
@@ -114,23 +98,25 @@ public class WorkspaceApi {
                 KeyValueCollection userProperties = new KeyValueCollection();
                 Util.extractKeyValueData(userProperties, annexData);
 
-                if (this.user == null) {
-                    this.user = new User();
+                if (user == null) {
+                    user = new User();
                 }
 
-                this.user.setEmployeeId(employeeId);
-                this.user.setAgentId(agentId);
-                this.user.setDefaultPlace(defaultPlace);
-                this.user.setUserProperties(userProperties);
+                user.setEmployeeId(employeeId);
+                user.setAgentId(agentId);
+                user.setDefaultPlace(defaultPlace);
+                user.setUserProperties(userProperties);
 
-                this.extractConfiguration((Map<String, Object>)initData.get("configuration"));
+                extractConfiguration((Map<String, Object>)initData.get("configuration"));
 
-                this.initFuture.complete(this.user);
                 this.workspaceInitialized = true;
+                logger.debug("Initialization complete");
+                
+                future.complete(user);               
 
             } else if ("Failed".equals(state)) {
                 logger.debug("Workspace initialization failed!");
-                this.initFuture.completeExceptionally(
+                future.completeExceptionally(
                         new WorkspaceApiException("initialize workspace failed"));
             }
         }
@@ -247,61 +233,7 @@ public class WorkspaceApi {
         }
     }
 
-    private void onHandshake(Message handshakeMessage) {
-        if(!handshakeMessage.isSuccessful()) {
-            logger.debug("Cometd handshake failed:\n" + handshakeMessage.toString());
-            return;
-        }
-
-        logger.debug("Cometd handshake successful.");
-        logger.debug("Subscribing to channels...");
-        this.cometdClient.getChannel("/workspace/v3/initialization").subscribe(
-                (ClientSessionChannel channel, Message msg) -> this.onInitMessage(msg));
-
-        this.cometdClient.getChannel("/workspace/v3/voice").subscribe((channel, msg) -> {
-            try {
-                this.voiceApi.onVoiceMessage(msg);
-            }
-            catch(Exception ex) {
-                logger.error("", ex);
-            }
-        });
-    }
-
-    private void initializeCometd() throws WorkspaceApiException {
-        try {
-            logger.debug("Initializing cometd...");
-            SslContextFactory sslContextFactory = new SslContextFactory();
-            this.cometdHttpClient = new HttpClient(sslContextFactory);
-            cometdHttpClient.start();
-
-            CookieManager manager = new CookieManager();
-            cometdHttpClient.setCookieStore(manager.getCookieStore());
-            cometdHttpClient.getCookieStore().add(new URI(workspaceUrl),
-                    new HttpCookie("WORKSPACE_SESSIONID", this.workspaceSessionId));
-
-            ClientTransport transport = new LongPollingTransport(new HashMap(), cometdHttpClient) {
-                 final TraceInterceptor interceptor = new TraceInterceptor();
-                
-                @Override
-                protected void customize(Request request) {
-                    request.header("x-api-key", apiKey);
-                    request.header(TraceInterceptor.TRACEID_HEADER, interceptor.makeUniqueId());
-                    request.header(TraceInterceptor.SPANID_HEADER, interceptor.makeUniqueId());
-                    
-                    logger.debug(request.toString());
-                    logger.debug(request.getHeaders().toString());
-                }
-            };
-
-            this.cometdClient = new BayeuxClient(this.workspaceUrl + "/notifications", transport);
-            logger.debug("Starting cometd handshake...");
-            this.cometdClient.handshake((ClientSessionChannel channel, Message msg) -> this.onHandshake(msg));
-
-        } catch(Exception e) {
-            throw new WorkspaceApiException("Cometd initialization failed.", e);
-        }
-    }
+    
 
     /**
      * Initializes the API using the provided authCode and redirectUri. This is the preferred means of init.
@@ -310,7 +242,7 @@ public class WorkspaceApi {
      * needs to match the redirectUri that was sent when obtaining the authCode.
      */
     public CompletableFuture<User> initialize(String authCode, String redirectUri) throws WorkspaceApiException {
-        return this.initialize(authCode, redirectUri, null);
+        return initialize(authCode, redirectUri, null);
     }
 
     /**
@@ -318,15 +250,12 @@ public class WorkspaceApi {
      * @param token The auth token to use for initialization.
      */
     public CompletableFuture<User> initialize(String token) throws WorkspaceApiException {
-        return this.initialize(null, null, token);
+        return initialize(null, null, token);
     }
 
     private CompletableFuture<User> initialize(String authCode, String redirectUri, String token) throws WorkspaceApiException {
         try {
-            this.initFuture = new CompletableFuture<>();
-
             ApiClient client = new ApiClient();
-            
             List<Interceptor> interceptors = client.getHttpClient().interceptors();
             interceptors.add(new TraceInterceptor());
             
@@ -334,21 +263,25 @@ public class WorkspaceApi {
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             interceptors.add(loggingInterceptor);
             
-            client.setBasePath(this.workspaceUrl);
-            client.addDefaultHeader("x-api-key", this.apiKey);
+            client.setBasePath(workspaceUrl);
+            client.addDefaultHeader("x-api-key", apiKey);
             
-            this.workspaceClient = client;
-            this.sessionApi = new SessionApi(client);
-            this.voiceApi.initialize(client);
-            this.targetsApi.initialize(client);
+            sessionApi.setApiClient(client);
+            voiceApi.initialize(client);
+            targetsApi.initialize(client);
 
             String authorization = token != null ? "Bearer " + token : null;
-            final ApiResponse<ApiSuccessResponse> response =
-                    this.sessionApi.initializeWorkspaceWithHttpInfo(authCode, redirectUri, authorization);
-            this.extractSessionCookie(response);
+            final ApiResponse<ApiSuccessResponse> response = sessionApi.initializeWorkspaceWithHttpInfo(authCode, redirectUri, authorization);
+            workspaceSessionId = extractSessionCookie(response);
+            client.addDefaultHeader("Cookie", String.format("%s=%s", SESSION_COOKIE, workspaceSessionId));
 
-            this.initializeCometd();
-            return initFuture;
+            final CompletableFuture<User> future = new CompletableFuture<>();
+
+            notifications.subscribe("/workspace/v3/initialization", (channel, msg) -> onInitMessage(msg, future));
+            notifications.subscribe("/workspace/v3/voice", (channel, msg) -> voiceApi.onVoiceMessage(msg));
+            notifications.initialize(workspaceUrl + "/notifications", apiKey, workspaceSessionId);
+            
+            return future;
 
         } catch (ApiException e) {
             throw new WorkspaceApiException("initialize failed.", e);
@@ -361,9 +294,8 @@ public class WorkspaceApi {
     public void destroy() throws WorkspaceApiException {
         try {
             if (this.workspaceInitialized) {
-                this.cometdClient.disconnect();
-                this.cometdHttpClient.stop();
-                this.sessionApi.logout();
+                notifications.disconnect();
+                sessionApi.logout();
             }
         } catch (Exception e) {
             throw new WorkspaceApiException("destroy failed.", e);
@@ -471,22 +403,5 @@ public class WorkspaceApi {
 
     public Collection<Transaction> getTransactions() {
         return this.transactions;
-    }
-
-    /**
-     * Returns the debug flag
-      * @return debug flag
-     */
-    public boolean debugEnabled() {
-        return this.debugEnabled;
-    }
-
-    /**
-     * Sets the debug flag
-     * @param debugEnabled debug flag
-     */
-    public void setDebugEnabled(boolean debugEnabled) {
-        this.debugEnabled = debugEnabled;
-        this.voiceApi.setDebugEnabled(debugEnabled);
     }
 }
