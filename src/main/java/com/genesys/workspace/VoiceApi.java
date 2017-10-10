@@ -351,7 +351,7 @@ public class VoiceApi {
      */
     public void login() throws WorkspaceApiException {
         try {
-            ApiSuccessResponse response = this.voiceApi.logoutVoice();
+            ApiSuccessResponse response = this.voiceApi.loginVoice();
             throwIfNotOk("voiceLogin", response);
         } catch (ApiException e) {
             throw new WorkspaceApiException("voiceLogin failed", e);
