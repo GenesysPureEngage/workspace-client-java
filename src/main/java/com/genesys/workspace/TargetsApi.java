@@ -22,6 +22,10 @@ public class TargetsApi {
         this.targetsApi = new com.genesys._internal.workspace.api.TargetsApi(client);
     }
 
+    void setTargetsApi(com.genesys._internal.workspace.api.TargetsApi targetsApi) {
+        this.targetsApi = targetsApi;
+    }
+    
     public TargetSearchResult search(String searchTerm) throws WorkspaceApiException {
         return search(searchTerm, new TargetsSearchOptions());
     }
