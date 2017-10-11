@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ConfigResponseDataBusinessAttributes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-10T23:23:38.646Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-11T00:49:39.505Z")
 public class ConfigResponseDataBusinessAttributes {
   @SerializedName("name")
   private String name = null;
