@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * VoicecallsidsinglestepconferenceData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-13T23:23:50.631Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-15T18:33:21.298Z")
 public class VoicecallsidsinglestepconferenceData {
   @SerializedName("destination")
   private String destination = null;
