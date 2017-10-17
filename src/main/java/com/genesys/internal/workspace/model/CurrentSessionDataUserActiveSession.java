@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * CurrentSessionDataUserActiveSession
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-15T19:04:17.397Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-17T19:04:23.833Z")
 public class CurrentSessionDataUserActiveSession {
   @SerializedName("dn")
   private Dn dn = null;
