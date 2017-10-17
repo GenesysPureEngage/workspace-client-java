@@ -309,7 +309,7 @@ public class TargetsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deletePersonalFavoriteCall(BigDecimal id, String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deletePersonalFavoriteCall(String id, String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -352,7 +352,7 @@ public class TargetsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deletePersonalFavoriteValidateBeforeCall(BigDecimal id, String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deletePersonalFavoriteValidateBeforeCall(String id, String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -382,7 +382,7 @@ public class TargetsApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse deletePersonalFavorite(BigDecimal id, String type) throws ApiException {
+    public ApiSuccessResponse deletePersonalFavorite(String id, String type) throws ApiException {
         ApiResponse<ApiSuccessResponse> resp = deletePersonalFavoriteWithHttpInfo(id, type);
         return resp.getData();
     }
@@ -395,7 +395,7 @@ public class TargetsApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> deletePersonalFavoriteWithHttpInfo(BigDecimal id, String type) throws ApiException {
+    public ApiResponse<ApiSuccessResponse> deletePersonalFavoriteWithHttpInfo(String id, String type) throws ApiException {
         com.squareup.okhttp.Call call = deletePersonalFavoriteValidateBeforeCall(id, type, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -410,7 +410,7 @@ public class TargetsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deletePersonalFavoriteAsync(BigDecimal id, String type, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deletePersonalFavoriteAsync(String id, String type, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -441,6 +441,9 @@ public class TargetsApi {
      * @param searchTerm The text to search for (required)
      * @param filterName The filter to specify on which fields the search is applied (optional)
      * @param types Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
+     * @param excludeGroup Comma separated list of types of groups to exclude agent groups from search. Valid values are any agent group names. (optional)
+     * @param excludeFromGroup Comma separated list of types of groups to exclude agents from search. Valid values are any agent group names. (optional)
+     * @param restrictToGroup Comma separated list of groups to limit the search of agents from. Valid values are any agent group names. (optional)
      * @param sort Desired sort order (asc or desc). asc if not specified (optional)
      * @param limit Number of results. 100 if not specified. (optional)
      * @param matchType Type of behavior for the field matching (exact for exact match search). (optional)
@@ -449,7 +452,7 @@ public class TargetsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getCall(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getCall(String searchTerm, String filterName, String types, String excludeGroup, String excludeFromGroup, String restrictToGroup, String sort, BigDecimal limit, String matchType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -462,6 +465,12 @@ public class TargetsApi {
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterName", filterName));
         if (types != null)
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "types", types));
+        if (excludeGroup != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "excludeGroup", excludeGroup));
+        if (excludeFromGroup != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "excludeFromGroup", excludeFromGroup));
+        if (restrictToGroup != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "restrictToGroup", restrictToGroup));
         if (sort != null)
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
         if (limit != null)
@@ -502,7 +511,7 @@ public class TargetsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getValidateBeforeCall(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getValidateBeforeCall(String searchTerm, String filterName, String types, String excludeGroup, String excludeFromGroup, String restrictToGroup, String sort, BigDecimal limit, String matchType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'searchTerm' is set
         if (searchTerm == null) {
@@ -510,7 +519,7 @@ public class TargetsApi {
         }
         
         
-        com.squareup.okhttp.Call call = getCall(searchTerm, filterName, types, sort, limit, matchType, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getCall(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType, progressListener, progressRequestListener);
         return call;
 
         
@@ -525,14 +534,17 @@ public class TargetsApi {
      * @param searchTerm The text to search for (required)
      * @param filterName The filter to specify on which fields the search is applied (optional)
      * @param types Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
+     * @param excludeGroup Comma separated list of types of groups to exclude agent groups from search. Valid values are any agent group names. (optional)
+     * @param excludeFromGroup Comma separated list of types of groups to exclude agents from search. Valid values are any agent group names. (optional)
+     * @param restrictToGroup Comma separated list of groups to limit the search of agents from. Valid values are any agent group names. (optional)
      * @param sort Desired sort order (asc or desc). asc if not specified (optional)
      * @param limit Number of results. 100 if not specified. (optional)
      * @param matchType Type of behavior for the field matching (exact for exact match search). (optional)
      * @return TargetsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TargetsResponse get(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType) throws ApiException {
-        ApiResponse<TargetsResponse> resp = getWithHttpInfo(searchTerm, filterName, types, sort, limit, matchType);
+    public TargetsResponse get(String searchTerm, String filterName, String types, String excludeGroup, String excludeFromGroup, String restrictToGroup, String sort, BigDecimal limit, String matchType) throws ApiException {
+        ApiResponse<TargetsResponse> resp = getWithHttpInfo(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType);
         return resp.getData();
     }
 
@@ -542,14 +554,17 @@ public class TargetsApi {
      * @param searchTerm The text to search for (required)
      * @param filterName The filter to specify on which fields the search is applied (optional)
      * @param types Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
+     * @param excludeGroup Comma separated list of types of groups to exclude agent groups from search. Valid values are any agent group names. (optional)
+     * @param excludeFromGroup Comma separated list of types of groups to exclude agents from search. Valid values are any agent group names. (optional)
+     * @param restrictToGroup Comma separated list of groups to limit the search of agents from. Valid values are any agent group names. (optional)
      * @param sort Desired sort order (asc or desc). asc if not specified (optional)
      * @param limit Number of results. 100 if not specified. (optional)
      * @param matchType Type of behavior for the field matching (exact for exact match search). (optional)
      * @return ApiResponse&lt;TargetsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<TargetsResponse> getWithHttpInfo(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType) throws ApiException {
-        com.squareup.okhttp.Call call = getValidateBeforeCall(searchTerm, filterName, types, sort, limit, matchType, null, null);
+    public ApiResponse<TargetsResponse> getWithHttpInfo(String searchTerm, String filterName, String types, String excludeGroup, String excludeFromGroup, String restrictToGroup, String sort, BigDecimal limit, String matchType) throws ApiException {
+        com.squareup.okhttp.Call call = getValidateBeforeCall(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType, null, null);
         Type localVarReturnType = new TypeToken<TargetsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -560,6 +575,9 @@ public class TargetsApi {
      * @param searchTerm The text to search for (required)
      * @param filterName The filter to specify on which fields the search is applied (optional)
      * @param types Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
+     * @param excludeGroup Comma separated list of types of groups to exclude agent groups from search. Valid values are any agent group names. (optional)
+     * @param excludeFromGroup Comma separated list of types of groups to exclude agents from search. Valid values are any agent group names. (optional)
+     * @param restrictToGroup Comma separated list of groups to limit the search of agents from. Valid values are any agent group names. (optional)
      * @param sort Desired sort order (asc or desc). asc if not specified (optional)
      * @param limit Number of results. 100 if not specified. (optional)
      * @param matchType Type of behavior for the field matching (exact for exact match search). (optional)
@@ -567,7 +585,7 @@ public class TargetsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAsync(String searchTerm, String filterName, String types, String sort, BigDecimal limit, String matchType, final ApiCallback<TargetsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAsync(String searchTerm, String filterName, String types, String excludeGroup, String excludeFromGroup, String restrictToGroup, String sort, BigDecimal limit, String matchType, final ApiCallback<TargetsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -588,7 +606,7 @@ public class TargetsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getValidateBeforeCall(searchTerm, filterName, types, sort, limit, matchType, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getValidateBeforeCall(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TargetsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -916,11 +934,11 @@ public class TargetsApi {
      * Get a specific target by type and id
      * @param id The id of the target (required)
      * @param type the type of the target (required)
-     * @return ApiSuccessResponse
+     * @return TargetsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse getTarget(BigDecimal id, String type) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = getTargetWithHttpInfo(id, type);
+    public TargetsResponse getTarget(BigDecimal id, String type) throws ApiException {
+        ApiResponse<TargetsResponse> resp = getTargetWithHttpInfo(id, type);
         return resp.getData();
     }
 
@@ -929,12 +947,12 @@ public class TargetsApi {
      * Get a specific target by type and id
      * @param id The id of the target (required)
      * @param type the type of the target (required)
-     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @return ApiResponse&lt;TargetsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> getTargetWithHttpInfo(BigDecimal id, String type) throws ApiException {
+    public ApiResponse<TargetsResponse> getTargetWithHttpInfo(BigDecimal id, String type) throws ApiException {
         com.squareup.okhttp.Call call = getTargetValidateBeforeCall(id, type, null, null);
-        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<TargetsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -947,7 +965,7 @@ public class TargetsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTargetAsync(BigDecimal id, String type, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTargetAsync(BigDecimal id, String type, final ApiCallback<TargetsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -969,7 +987,7 @@ public class TargetsApi {
         }
 
         com.squareup.okhttp.Call call = getTargetValidateBeforeCall(id, type, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<TargetsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

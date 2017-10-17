@@ -16,6 +16,7 @@ package com.genesys.internal.workspace.model;
 import java.util.Objects;
 import com.genesys.internal.workspace.model.Call;
 import com.genesys.internal.workspace.model.Dn;
+import com.genesys.internal.workspace.model.Media;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,13 +31,37 @@ import java.util.List;
 /**
  * CurrentSessionDataUserActiveSession
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-17T20:04:17.733Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-17T20:54:41.843Z")
 public class CurrentSessionDataUserActiveSession {
+  @SerializedName("currentPlace")
+  private String currentPlace = null;
+
   @SerializedName("dn")
   private Dn dn = null;
 
   @SerializedName("calls")
   private List<Call> calls = null;
+
+  @SerializedName("media")
+  private Media media = null;
+
+  public CurrentSessionDataUserActiveSession currentPlace(String currentPlace) {
+    this.currentPlace = currentPlace;
+    return this;
+  }
+
+   /**
+   * Get currentPlace
+   * @return currentPlace
+  **/
+  @ApiModelProperty(value = "")
+  public String getCurrentPlace() {
+    return currentPlace;
+  }
+
+  public void setCurrentPlace(String currentPlace) {
+    this.currentPlace = currentPlace;
+  }
 
   public CurrentSessionDataUserActiveSession dn(Dn dn) {
     this.dn = dn;
@@ -82,6 +107,24 @@ public class CurrentSessionDataUserActiveSession {
     this.calls = calls;
   }
 
+  public CurrentSessionDataUserActiveSession media(Media media) {
+    this.media = media;
+    return this;
+  }
+
+   /**
+   * Get media
+   * @return media
+  **/
+  @ApiModelProperty(value = "")
+  public Media getMedia() {
+    return media;
+  }
+
+  public void setMedia(Media media) {
+    this.media = media;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -92,13 +135,15 @@ public class CurrentSessionDataUserActiveSession {
       return false;
     }
     CurrentSessionDataUserActiveSession currentSessionDataUserActiveSession = (CurrentSessionDataUserActiveSession) o;
-    return Objects.equals(this.dn, currentSessionDataUserActiveSession.dn) &&
-        Objects.equals(this.calls, currentSessionDataUserActiveSession.calls);
+    return Objects.equals(this.currentPlace, currentSessionDataUserActiveSession.currentPlace) &&
+        Objects.equals(this.dn, currentSessionDataUserActiveSession.dn) &&
+        Objects.equals(this.calls, currentSessionDataUserActiveSession.calls) &&
+        Objects.equals(this.media, currentSessionDataUserActiveSession.media);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dn, calls);
+    return Objects.hash(currentPlace, dn, calls, media);
   }
 
 
@@ -107,8 +152,10 @@ public class CurrentSessionDataUserActiveSession {
     StringBuilder sb = new StringBuilder();
     sb.append("class CurrentSessionDataUserActiveSession {\n");
     
+    sb.append("    currentPlace: ").append(toIndentedString(currentPlace)).append("\n");
     sb.append("    dn: ").append(toIndentedString(dn)).append("\n");
     sb.append("    calls: ").append(toIndentedString(calls)).append("\n");
+    sb.append("    media: ").append(toIndentedString(media)).append("\n");
     sb.append("}");
     return sb.toString();
   }

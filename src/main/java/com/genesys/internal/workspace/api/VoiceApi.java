@@ -2744,7 +2744,7 @@ public class VoiceApi {
 
     /**
      * Reconnect a call
-     * Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step. 
+     * Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
      * @param id The id of the active call (required)
      * @param reconnectData  (required)
      * @return ApiSuccessResponse
@@ -2757,7 +2757,7 @@ public class VoiceApi {
 
     /**
      * Reconnect a call
-     * Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step. 
+     * Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
      * @param id The id of the active call (required)
      * @param reconnectData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
@@ -2771,7 +2771,7 @@ public class VoiceApi {
 
     /**
      * Reconnect a call (asynchronously)
-     * Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step. 
+     * Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
      * @param id The id of the active call (required)
      * @param reconnectData  (required)
      * @param callback The callback to be executed when the API call finishes

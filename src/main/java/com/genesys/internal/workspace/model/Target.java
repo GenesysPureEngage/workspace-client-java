@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Target
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-17T20:04:17.733Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-17T20:54:41.843Z")
 public class Target {
   @SerializedName("DBID")
   private Integer DBID = null;
@@ -35,7 +35,7 @@ public class Target {
   private String name = null;
 
   /**
-   * The type of the target - agent, agent-group, acd-queue, route-point, skill or custom-contact.
+   * The type of the target - agent, agent-group, acd-queue, route-point, skill, custom-contact or contact.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -49,7 +49,9 @@ public class Target {
     
     SKILL("skill"),
     
-    CUSTOM_CONTACT("custom-contact");
+    CUSTOM_CONTACT("custom-contact"),
+    
+    CONTACT("contact");
 
     private String value;
 
@@ -155,10 +157,10 @@ public class Target {
   }
 
    /**
-   * The type of the target - agent, agent-group, acd-queue, route-point, skill or custom-contact.
+   * The type of the target - agent, agent-group, acd-queue, route-point, skill, custom-contact or contact.
    * @return type
   **/
-  @ApiModelProperty(value = "The type of the target - agent, agent-group, acd-queue, route-point, skill or custom-contact.")
+  @ApiModelProperty(value = "The type of the target - agent, agent-group, acd-queue, route-point, skill, custom-contact or contact.")
   public TypeEnum getType() {
     return type;
   }
