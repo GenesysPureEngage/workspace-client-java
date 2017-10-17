@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * TargetsrecentsaddData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-17T19:04:23.833Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-17T20:04:17.733Z")
 public class TargetsrecentsaddData {
   @SerializedName("target")
   private TargetInformation target = null;
