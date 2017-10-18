@@ -54,7 +54,7 @@ public class WorkspaceTest {
     
     @Test
     public void activateChannelsWithData() throws WorkspaceApiException {
-        api.activateChannels(Objects.AGENT_ID, Objects.AGENT_DN, Objects.PLACE_NAME, Objects.QUEUE_NAME);
+        api.activateChannels(Objects.AGENT_ID, Objects.AGENT_DN, Objects.PLACE_NAME, Objects.QUEUE_NAME, null);
     }
     
     @Test

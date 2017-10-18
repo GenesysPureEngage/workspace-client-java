@@ -313,7 +313,7 @@ public class WorkspaceApi {
             String agentId,
             String placeName
     ) throws WorkspaceApiException {
-        this.activateChannels(agentId, null, placeName, null);
+        this.activateChannels(agentId, null, placeName, null, null);
     }
 
     /**
@@ -322,12 +322,14 @@ public class WorkspaceApi {
      * @param dn DN to be used for login. Provide only one of dn or placeName
      * @param placeName name of the place to use for login. Provide only one of placeName or dn
      * @param queueName name of the queue to be used for login. (optional)
+     * @param workMode workMode to be used for login (optional) - AUTO_IN or MANUAL_IN
      */
     public void activateChannels(
             String agentId,
             String dn,
             String placeName,
-            String queueName
+            String queueName,
+            AgentWorkMode workMode
     ) throws WorkspaceApiException {
         try {
             String msg = "Activating channels with agentId [" + agentId + "] ";
@@ -345,6 +347,17 @@ public class WorkspaceApi {
             if (queueName != null) {
                 data.setQueueName(queueName);
                 msg += " queueName [" + queueName + "]";
+            }
+
+            if (workMode != null) {
+                if (AgentWorkMode.MANUAL_IN.equals(workMode)) {
+                    data.setAgentWorkMode(ActivatechannelsData.AgentWorkModeEnum.MANUALIN);
+                } else if (AgentWorkMode.AUTO_IN.equals(workMode)) {
+                    data.setAgentWorkMode(ActivatechannelsData.AgentWorkModeEnum.AUTOIN);
+                } else {
+                    throw new WorkspaceApiException(
+                            "only workmode MANUAL_IN or AUTO_IN can be used");
+                }
             }
 
             ChannelsData channelsData = new ChannelsData();
