@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ClearData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-19T09:04:26.360Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-19T14:04:29.079Z")
 public class ClearData {
   @SerializedName("data")
   private VoicereadyData data = null;
