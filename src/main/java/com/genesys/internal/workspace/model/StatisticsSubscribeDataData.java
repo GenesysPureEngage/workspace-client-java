@@ -14,6 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
+import com.genesys.internal.workspace.model.StatisticValueForRegister;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,13 +29,13 @@ import java.util.List;
 /**
  * StatisticsSubscribeDataData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-25T06:04:31.422Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-25T11:12:09.486Z")
 public class StatisticsSubscribeDataData {
   @SerializedName("connectionId")
   private String connectionId = null;
 
   @SerializedName("statistics")
-  private List<Object> statistics = new ArrayList<Object>();
+  private List<StatisticValueForRegister> statistics = new ArrayList<StatisticValueForRegister>();
 
   public StatisticsSubscribeDataData connectionId(String connectionId) {
     this.connectionId = connectionId;
@@ -54,12 +55,12 @@ public class StatisticsSubscribeDataData {
     this.connectionId = connectionId;
   }
 
-  public StatisticsSubscribeDataData statistics(List<Object> statistics) {
+  public StatisticsSubscribeDataData statistics(List<StatisticValueForRegister> statistics) {
     this.statistics = statistics;
     return this;
   }
 
-  public StatisticsSubscribeDataData addStatisticsItem(Object statisticsItem) {
+  public StatisticsSubscribeDataData addStatisticsItem(StatisticValueForRegister statisticsItem) {
     this.statistics.add(statisticsItem);
     return this;
   }
@@ -69,11 +70,11 @@ public class StatisticsSubscribeDataData {
    * @return statistics
   **/
   @ApiModelProperty(required = true, value = "")
-  public List<Object> getStatistics() {
+  public List<StatisticValueForRegister> getStatistics() {
     return statistics;
   }
 
-  public void setStatistics(List<Object> statistics) {
+  public void setStatistics(List<StatisticValueForRegister> statistics) {
     this.statistics = statistics;
   }
 

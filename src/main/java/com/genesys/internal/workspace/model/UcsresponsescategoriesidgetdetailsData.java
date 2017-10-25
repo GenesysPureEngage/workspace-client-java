@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * UcsresponsescategoriesidgetdetailsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-25T06:04:31.422Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-25T11:12:09.486Z")
 public class UcsresponsescategoriesidgetdetailsData {
   @SerializedName("returnChildrenCategories")
   private Boolean returnChildrenCategories = null;

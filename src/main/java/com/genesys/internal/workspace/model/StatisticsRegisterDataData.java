@@ -14,6 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
+import com.genesys.internal.workspace.model.StatisticValueForRegister;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,17 +29,17 @@ import java.util.List;
 /**
  * StatisticsRegisterDataData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-25T06:04:31.422Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-25T11:12:09.486Z")
 public class StatisticsRegisterDataData {
   @SerializedName("statistics")
-  private List<Object> statistics = new ArrayList<Object>();
+  private List<StatisticValueForRegister> statistics = new ArrayList<StatisticValueForRegister>();
 
-  public StatisticsRegisterDataData statistics(List<Object> statistics) {
+  public StatisticsRegisterDataData statistics(List<StatisticValueForRegister> statistics) {
     this.statistics = statistics;
     return this;
   }
 
-  public StatisticsRegisterDataData addStatisticsItem(Object statisticsItem) {
+  public StatisticsRegisterDataData addStatisticsItem(StatisticValueForRegister statisticsItem) {
     this.statistics.add(statisticsItem);
     return this;
   }
@@ -48,11 +49,11 @@ public class StatisticsRegisterDataData {
    * @return statistics
   **/
   @ApiModelProperty(required = true, value = "")
-  public List<Object> getStatistics() {
+  public List<StatisticValueForRegister> getStatistics() {
     return statistics;
   }
 
-  public void setStatistics(List<Object> statistics) {
+  public void setStatistics(List<StatisticValueForRegister> statistics) {
     this.statistics = statistics;
   }
 

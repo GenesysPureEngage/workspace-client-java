@@ -31,8 +31,11 @@ import java.util.List;
 /**
  * CurrentSessionDataUserActiveSession
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-25T06:04:31.422Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-25T11:12:09.486Z")
 public class CurrentSessionDataUserActiveSession {
+  @SerializedName("autoCompleteCall")
+  private Boolean autoCompleteCall = null;
+
   @SerializedName("currentPlace")
   private String currentPlace = null;
 
@@ -44,6 +47,24 @@ public class CurrentSessionDataUserActiveSession {
 
   @SerializedName("media")
   private Media media = null;
+
+  public CurrentSessionDataUserActiveSession autoCompleteCall(Boolean autoCompleteCall) {
+    this.autoCompleteCall = autoCompleteCall;
+    return this;
+  }
+
+   /**
+   * Get autoCompleteCall
+   * @return autoCompleteCall
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean getAutoCompleteCall() {
+    return autoCompleteCall;
+  }
+
+  public void setAutoCompleteCall(Boolean autoCompleteCall) {
+    this.autoCompleteCall = autoCompleteCall;
+  }
 
   public CurrentSessionDataUserActiveSession currentPlace(String currentPlace) {
     this.currentPlace = currentPlace;
@@ -135,7 +156,8 @@ public class CurrentSessionDataUserActiveSession {
       return false;
     }
     CurrentSessionDataUserActiveSession currentSessionDataUserActiveSession = (CurrentSessionDataUserActiveSession) o;
-    return Objects.equals(this.currentPlace, currentSessionDataUserActiveSession.currentPlace) &&
+    return Objects.equals(this.autoCompleteCall, currentSessionDataUserActiveSession.autoCompleteCall) &&
+        Objects.equals(this.currentPlace, currentSessionDataUserActiveSession.currentPlace) &&
         Objects.equals(this.dn, currentSessionDataUserActiveSession.dn) &&
         Objects.equals(this.calls, currentSessionDataUserActiveSession.calls) &&
         Objects.equals(this.media, currentSessionDataUserActiveSession.media);
@@ -143,7 +165,7 @@ public class CurrentSessionDataUserActiveSession {
 
   @Override
   public int hashCode() {
-    return Objects.hash(currentPlace, dn, calls, media);
+    return Objects.hash(autoCompleteCall, currentPlace, dn, calls, media);
   }
 
 
@@ -152,6 +174,7 @@ public class CurrentSessionDataUserActiveSession {
     StringBuilder sb = new StringBuilder();
     sb.append("class CurrentSessionDataUserActiveSession {\n");
     
+    sb.append("    autoCompleteCall: ").append(toIndentedString(autoCompleteCall)).append("\n");
     sb.append("    currentPlace: ").append(toIndentedString(currentPlace)).append("\n");
     sb.append("    dn: ").append(toIndentedString(dn)).append("\n");
     sb.append("    calls: ").append(toIndentedString(calls)).append("\n");

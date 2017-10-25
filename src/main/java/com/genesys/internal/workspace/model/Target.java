@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Target
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-25T06:04:31.422Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-25T11:12:09.486Z")
 public class Target {
   @SerializedName("DBID")
   private Integer DBID = null;
@@ -100,8 +100,8 @@ public class Target {
   @SerializedName("lastName")
   private String lastName = null;
 
-  @SerializedName("employeeID")
-  private String employeeID = null;
+  @SerializedName("employeeId")
+  private String employeeId = null;
 
   @SerializedName("userName")
   private String userName = null;
@@ -205,22 +205,22 @@ public class Target {
     this.lastName = lastName;
   }
 
-  public Target employeeID(String employeeID) {
-    this.employeeID = employeeID;
+  public Target employeeId(String employeeId) {
+    this.employeeId = employeeId;
     return this;
   }
 
    /**
    * Employee id - only applicable to agents.
-   * @return employeeID
+   * @return employeeId
   **/
   @ApiModelProperty(value = "Employee id - only applicable to agents.")
-  public String getEmployeeID() {
-    return employeeID;
+  public String getEmployeeId() {
+    return employeeId;
   }
 
-  public void setEmployeeID(String employeeID) {
-    this.employeeID = employeeID;
+  public void setEmployeeId(String employeeId) {
+    this.employeeId = employeeId;
   }
 
   public Target userName(String userName) {
@@ -310,7 +310,7 @@ public class Target {
         Objects.equals(this.type, target.type) &&
         Objects.equals(this.firstName, target.firstName) &&
         Objects.equals(this.lastName, target.lastName) &&
-        Objects.equals(this.employeeID, target.employeeID) &&
+        Objects.equals(this.employeeId, target.employeeId) &&
         Objects.equals(this.userName, target.userName) &&
         Objects.equals(this.number, target.number) &&
         Objects.equals(this.switchName, target.switchName) &&
@@ -319,7 +319,7 @@ public class Target {
 
   @Override
   public int hashCode() {
-    return Objects.hash(DBID, name, type, firstName, lastName, employeeID, userName, number, switchName, availability);
+    return Objects.hash(DBID, name, type, firstName, lastName, employeeId, userName, number, switchName, availability);
   }
 
 
@@ -333,7 +333,7 @@ public class Target {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    employeeID: ").append(toIndentedString(employeeID)).append("\n");
+    sb.append("    employeeId: ").append(toIndentedString(employeeId)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    switchName: ").append(toIndentedString(switchName)).append("\n");
