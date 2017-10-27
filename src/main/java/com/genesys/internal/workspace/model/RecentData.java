@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * RecentData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-25T18:39:52.981Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-27T11:58:50.931Z")
 public class RecentData {
   @SerializedName("media")
   private String media = null;
