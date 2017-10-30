@@ -14,12 +14,83 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Kvpair
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-30T12:19:06.563Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-30T12:58:43.688Z")
 public class Kvpair {
+  @SerializedName("key")
+  private String key = null;
+
+  @SerializedName("type")
+  private String type = null;
+
+  @SerializedName("value")
+  private Object value = null;
+
+  public Kvpair key(String key) {
+    this.key = key;
+    return this;
+  }
+
+   /**
+   * Get key
+   * @return key
+  **/
+  @ApiModelProperty(value = "")
+  public String getKey() {
+    return key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public Kvpair type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(value = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public Kvpair value(Object value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @ApiModelProperty(value = "")
+  public Object getValue() {
+    return value;
+  }
+
+  public void setValue(Object value) {
+    this.value = value;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -29,12 +100,15 @@ public class Kvpair {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    Kvpair kvpair = (Kvpair) o;
+    return Objects.equals(this.key, kvpair.key) &&
+        Objects.equals(this.type, kvpair.type) &&
+        Objects.equals(this.value, kvpair.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(key, type, value);
   }
 
 
@@ -43,6 +117,9 @@ public class Kvpair {
     StringBuilder sb = new StringBuilder();
     sb.append("class Kvpair {\n");
     
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
