@@ -33,6 +33,7 @@ public class WorkspaceApi {
     private Notifications notifications;
     private SessionApi sessionApi;
     private TargetsApi targetsApi;
+    private ReportingApi reportingApi;
     private VoiceApi voiceApi;
     
     private String workspaceSessionId;
@@ -58,12 +59,12 @@ public class WorkspaceApi {
         this.apiKey = apiKey;
         this.baseUrl = baseUrl;
         this.workspaceUrl = this.baseUrl + "/workspace/v3";
-        
         this.voiceApi = voiceApi;
         this.targetsApi = targetsApi;
         this.sessionApi = sessionApi;
         this.notifications = notifications;
-    }   
+        this.reportingApi = new ReportingApi();
+    }
 
     private static String extractSessionCookie(ApiResponse<ApiSuccessResponse> response) throws WorkspaceApiException {
         logger.debug("Extracting session cookie...");
@@ -263,6 +264,7 @@ public class WorkspaceApi {
             sessionApi.setApiClient(client);
             voiceApi.initialize(client);
             targetsApi.initialize(client);
+            reportingApi.initialize(client);
 
             String authorization = token != null ? "Bearer " + token : null;
             final ApiResponse<ApiSuccessResponse> response = sessionApi.initializeWorkspaceWithHttpInfo(authCode, redirectUri, authorization);
@@ -384,6 +386,16 @@ public class WorkspaceApi {
     public TargetsApi targets() {
         return this.targetsApi;
     }
+    
+    /**
+     * Returns the reporting API
+     * 
+     * @return Reporting API
+     */
+    public ReportingApi getReportingApi() {
+        return reportingApi;
+    }
+    
     /**
       * Returns the current user.
       * @return the current user.
