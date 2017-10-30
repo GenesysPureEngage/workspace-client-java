@@ -14,7 +14,6 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.MediamediatypeinteractionsidplaceinqueueData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,29 +24,29 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * PlaceInQueueData
+ * MediamediatypeinteractionsidaddcontentData
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-30T12:19:06.563Z")
-public class PlaceInQueueData {
-  @SerializedName("data")
-  private MediamediatypeinteractionsidplaceinqueueData data = null;
+public class MediamediatypeinteractionsidaddcontentData {
+  @SerializedName("comment")
+  private String comment = null;
 
-  public PlaceInQueueData data(MediamediatypeinteractionsidplaceinqueueData data) {
-    this.data = data;
+  public MediamediatypeinteractionsidaddcontentData comment(String comment) {
+    this.comment = comment;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * The comment to be set
+   * @return comment
   **/
-  @ApiModelProperty(value = "")
-  public MediamediatypeinteractionsidplaceinqueueData getData() {
-    return data;
+  @ApiModelProperty(value = "The comment to be set")
+  public String getComment() {
+    return comment;
   }
 
-  public void setData(MediamediatypeinteractionsidplaceinqueueData data) {
-    this.data = data;
+  public void setComment(String comment) {
+    this.comment = comment;
   }
 
 
@@ -59,22 +58,22 @@ public class PlaceInQueueData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PlaceInQueueData placeInQueueData = (PlaceInQueueData) o;
-    return Objects.equals(this.data, placeInQueueData.data);
+    MediamediatypeinteractionsidaddcontentData mediamediatypeinteractionsidaddcontentData = (MediamediatypeinteractionsidaddcontentData) o;
+    return Objects.equals(this.comment, mediamediatypeinteractionsidaddcontentData.comment);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(comment);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PlaceInQueueData {\n");
+    sb.append("class MediamediatypeinteractionsidaddcontentData {\n");
     
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("}");
     return sb.toString();
   }

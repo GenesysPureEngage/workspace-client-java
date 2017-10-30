@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.MediamediatypeinteractionsidplaceinqueueData;
+import com.genesys.internal.workspace.model.MediamediatypeinteractionsidaddcommentData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,14 +25,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * PlaceInQueueData
+ * AddCommentData
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-30T12:19:06.563Z")
-public class PlaceInQueueData {
+public class AddCommentData {
   @SerializedName("data")
-  private MediamediatypeinteractionsidplaceinqueueData data = null;
+  private MediamediatypeinteractionsidaddcommentData data = null;
 
-  public PlaceInQueueData data(MediamediatypeinteractionsidplaceinqueueData data) {
+  public AddCommentData data(MediamediatypeinteractionsidaddcommentData data) {
     this.data = data;
     return this;
   }
@@ -42,11 +42,11 @@ public class PlaceInQueueData {
    * @return data
   **/
   @ApiModelProperty(value = "")
-  public MediamediatypeinteractionsidplaceinqueueData getData() {
+  public MediamediatypeinteractionsidaddcommentData getData() {
     return data;
   }
 
-  public void setData(MediamediatypeinteractionsidplaceinqueueData data) {
+  public void setData(MediamediatypeinteractionsidaddcommentData data) {
     this.data = data;
   }
 
@@ -59,8 +59,8 @@ public class PlaceInQueueData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PlaceInQueueData placeInQueueData = (PlaceInQueueData) o;
-    return Objects.equals(this.data, placeInQueueData.data);
+    AddCommentData addCommentData = (AddCommentData) o;
+    return Objects.equals(this.data, addCommentData.data);
   }
 
   @Override
@@ -72,7 +72,7 @@ public class PlaceInQueueData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PlaceInQueueData {\n");
+    sb.append("class AddCommentData {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
