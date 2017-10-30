@@ -1,20 +1,20 @@
 package com.genesys.workspace.models.cfg;
 
-import com.genesys.workspace.models.KeyValueCollection;
+import java.util.Map;
 
 public class Transaction {
     private String name;
     private String alias;
-    private KeyValueCollection userProperties;
+    private Map<String,Object> userProperties;
 
-    public Transaction(
-            String name,
-            String alias,
-            KeyValueCollection userProperties
-    ) {
+    public Transaction(String name, String alias, Map<String,Object> userProperties) {
         this.name = name;
         this.alias = alias;
         this.userProperties = userProperties;
+    }
+
+    public Map<String,Object> getUserProperties() {
+        return userProperties;
     }
 
     public String getName() {
@@ -23,10 +23,6 @@ public class Transaction {
 
     public String getAlias() {
         return this.alias;
-    }
-
-    public KeyValueCollection getUserProperties() {
-        return this.userProperties;
     }
 
     @Override

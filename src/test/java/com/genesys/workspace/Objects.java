@@ -1,17 +1,15 @@
 package com.genesys.workspace;
 
-import com.genesys._internal.workspace.ApiResponse;
-import com.genesys._internal.workspace.model.ApiSuccessResponse;
-import com.genesys._internal.workspace.model.InlineResponse200Status;
-import com.genesys._internal.workspace.model.Target;
-import com.genesys._internal.workspace.model.TargetsResponse;
-import com.genesys._internal.workspace.model.TargetsResponseData;
+import com.genesys.internal.common.ApiResponse;
+import com.genesys.internal.workspace.model.ApiSuccessResponse;
+import com.genesys.internal.workspace.model.InlineResponse200Status;
+import com.genesys.internal.workspace.model.Target;
+import com.genesys.internal.workspace.model.TargetsResponse;
+import com.genesys.internal.workspace.model.TargetsResponseData;
 import com.genesys.workspace.events.NotificationType;
 import com.genesys.workspace.models.AgentState;
 import com.genesys.workspace.models.AgentWorkMode;
 import com.genesys.workspace.models.CallState;
-import com.genesys.workspace.models.KeyValueCollection;
-import com.genesys.workspace.models.User;
 import com.genesys.workspace.models.cfg.ActionCodeType;
 import com.genesys.workspace.models.targets.TargetType;
 import java.util.ArrayList;
@@ -49,16 +47,16 @@ public class Objects {
     public static String AUTH_CODE = "authcode";
     public static String REDIRECT_URI = "redirecturi";
 
-    public static KeyValueCollection makeUserData() {
-        return new KeyValueCollection();
+    public static Map<String,Object> makeUserData() {
+        return new HashMap<>();
     }
     
-    public static KeyValueCollection makeReasons() {
-        return new KeyValueCollection();
+    public static Map<String,Object> makeReasons() {
+        return new HashMap<>();
     }
     
-    public static KeyValueCollection makeExtensions() {
-        return new KeyValueCollection();
+    public static Map<String,Object> makeExtensions() {
+        return new HashMap<>();
     }
     
     public static Target makeTarget(TargetType type) {

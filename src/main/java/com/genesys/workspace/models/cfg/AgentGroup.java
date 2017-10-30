@@ -1,16 +1,16 @@
 package com.genesys.workspace.models.cfg;
 
-import com.genesys.workspace.models.KeyValueCollection;
+import java.util.Map;
 
 public class AgentGroup {
     private String name;
     private long dbid;
-    private KeyValueCollection userProperties;
+    private Map<String,Object> userProperties;
 
     public AgentGroup(
             String name,
             long dbid,
-            KeyValueCollection userProperties
+            Map<String,Object> userProperties
     ) {
         this.name = name;
         this.dbid = dbid;
@@ -25,7 +25,7 @@ public class AgentGroup {
         return this.dbid;
     }
 
-    public KeyValueCollection getUserProperties() {
+    public Map<String,Object> getUserProperties() {
         return this.userProperties;
     }
 

@@ -1,165 +1,108 @@
 package com.genesys.workspace.models.targets;
 
-import com.genesys.workspace.Util;
-import com.genesys.workspace.models.AgentState;
-import com.genesys.workspace.models.AgentWorkMode;
 import com.genesys.workspace.models.targets.availability.*;
 import com.google.gson.internal.LinkedTreeMap;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public class Target {
+public abstract class Target {
+    private long id;
+    private final TargetType type;
     private String name;
     private String number;
-    private TargetType type;
-    private Object availability;
+    private TargetAvailability availability;    
 
-    public Target(com.genesys._internal.workspace.model.Target target) {
-        this.name = target.getName();
-        this.number = target.getNumber();
+    protected Target(TargetType type, String name, String number) {
+        this.type = type;
+        this.name = name;
+        this.number = number;
+    }
 
+    public static Target fromTarget(com.genesys.internal.workspace.model.Target target) {
+        Target inst = null;
+        
+        String name = target.getName();
+        String number = target.getNumber();
+        
         switch (target.getType()) {
             case AGENT:
-                this.type = TargetType.AGENT;
-                this.extractAgentAvailability(target);
+                inst = new AgentTarget(name, number);
                 break;
-
             case ACD_QUEUE:
-                this.type = TargetType.ACD_QUEUE;
-                this.extractDNAvailability(target);
+                inst = new AcdQueueTarget(name, number);
                 break;
-
             case AGENT_GROUP:
-                this.type = TargetType.AGENT_GROUP;
-                this.extractAgentGroupAvailability(target);
+                inst = new AgentGroupTarget(name, number);
                 break;
-
             case ROUTE_POINT:
-                this.type = TargetType.ROUTE_POINT;
-                this.extractDNAvailability(target);
+                inst = new RoutePointTarget(name, number);
                 break;
-
             case SKILL:
-                this.type = TargetType.SKILL;
+                inst = new SkillTarget(name, number);
                 break;
-
             case CUSTOM_CONTACT:
-                this.type = TargetType.CUSTOM_CONTACT;
+                inst = new CustomContractTarget(name, number);
                 break;
         }
-    }
-
-    private void extractAgentAvailability(com.genesys._internal.workspace.model.Target target) {
-        LinkedTreeMap availabilityData = (LinkedTreeMap)target.getAvailability();
-        if (availabilityData == null) {
-            return;
+        
+        if(inst != null) {
+            inst.id = target.getDBID();
+            
+            Object data = target.getAvailability();
+            if(data instanceof LinkedTreeMap) {
+                TargetAvailability availability = inst.extractAvailability((LinkedTreeMap<String,Object>)data);
+                inst.setAvailability(availability);
+            }
         }
-
-        List channelsData = (List)availabilityData.get("channels");
-        List<ChannelAvailability> channels = new ArrayList<>();
-
-        if (channelsData != null && !channelsData.isEmpty()) {
-            channelsData.forEach(o -> {
-                LinkedTreeMap channelData = (LinkedTreeMap)o;
-
-                String channelName = (String)channelData.get("name");
-                boolean available = (Boolean)channelData.get("available");
-                LinkedTreeMap userStateData = (LinkedTreeMap)channelData.get("userState");
-
-                AgentState agentState = Util.parseAgentState((String)userStateData.get("state"));
-                AgentWorkMode workMode = Util.parseAgentWorkMode((String)userStateData.get("workMode"));
-                String reason = (String)userStateData.get("reason");
-
-                String phoneNumber = (String)channelData.get("phoneNumber");
-                String switchName = (String)channelData.get("switchName");
-                AgentActivity activity = Util.parseAgentActivity((String)channelData.get("activity"));
-
-                channels.add(new ChannelAvailability(channelName, available, agentState, workMode, reason, phoneNumber, switchName, activity));
-            });
-        }
-
-        this.availability = new AgentAvailability(channels);
+        
+        return inst;
+    }
+    
+    protected void setAvailability(TargetAvailability availability) {
+        this.availability = availability;        
+    }
+    
+    public TargetAvailability getAvailability() {
+        return availability;
     }
 
-    private void extractAgentGroupAvailability(com.genesys._internal.workspace.model.Target target) {
-        LinkedTreeMap availabilityData = (LinkedTreeMap)target.getAvailability();
-        if (availabilityData == null) {
-            return;
-        }
-
-        Integer readyAgents = ((Double)availabilityData.get("readyAgents")).intValue();
-        this.availability = new AgentGroupAvailability(readyAgents);
+    public long getId() {
+        return id;
     }
-
-    private void extractDNAvailability(com.genesys._internal.workspace.model.Target target) {
-        LinkedTreeMap availabilityData = (LinkedTreeMap)target.getAvailability();
-        if (availabilityData == null) {
-            return;
-        }
-
-        Integer waitingCalls = ((Double)availabilityData.get("waitingCalls")).intValue();
-        if (this.type == TargetType.ACD_QUEUE) {
-            this.availability = new ACDQueueAvailability(waitingCalls);
-        } else {
-            this.availability = new RoutePointAvailability(waitingCalls);
-        }
+    
+    protected TargetAvailability extractAvailability(LinkedTreeMap<String,Object> data) {
+        return new TargetAvailability();
     }
-
-    public AgentAvailability getAgentAvailability() {
-        if (this.type != TargetType.AGENT || this.availability == null) {
-            return null;
-        } else {
-            return (AgentAvailability) this.availability;
-        }
-    }
-
-    public AgentGroupAvailability getAgentGroupAvailability() {
-        if (this.type != TargetType.AGENT_GROUP || this.availability == null) {
-            return null;
-        } else {
-            return (AgentGroupAvailability) this.availability;
-        }
-    }
-
-    public RoutePointAvailability getRoutePointAvailability() {
-        if (this.type != TargetType.ROUTE_POINT || this.availability == null) {
-            return null;
-        } else {
-            return (RoutePointAvailability) this.availability;
-        }
-    }
-
-    public ACDQueueAvailability getACDQueueAvailability() {
-        if (this.type != TargetType.ACD_QUEUE || this.availability == null) {
-            return null;
-        } else {
-            return (ACDQueueAvailability) this.availability;
-        }
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public String getNumber() {
-        return this.number;
-    }
-
+    
     public TargetType getType() {
         return this.type;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
     @Override
     public String toString() {
-        String str = "name [" + this.name + "] type [" + this.type + "]";
+        String str = "name [" + name + "] type [" + type + "]";
 
         if (this.number != null) {
-            str += " number [" + this.number + "]\n";
+            str += " number [" + number + "]\n";
         }
 
         if (this.availability != null) {
-            str += " availability " + this.availability;
+            str += " availability " + availability;
         }
 
         return str;

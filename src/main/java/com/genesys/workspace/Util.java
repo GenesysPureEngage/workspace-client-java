@@ -1,10 +1,17 @@
 package com.genesys.workspace;
 
+import com.genesys.internal.workspace.model.ApiSuccessResponse;
+import com.genesys.internal.workspace.model.InlineResponse200Status;
+import com.genesys.internal.workspace.model.Kvpair;
+import com.genesys.workspace.common.StatusCode;
+import com.genesys.workspace.common.WorkspaceApiException;
 import com.genesys.workspace.events.NotificationType;
 import com.genesys.workspace.models.*;
 import com.genesys.workspace.models.cfg.ActionCodeType;
 import com.genesys.workspace.models.targets.availability.AgentActivity;
-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Util {
@@ -127,31 +134,23 @@ public class Util {
     }
 
 
-    public static void extractKeyValueData(KeyValueCollection userData, Object[] data) {
-        if (data == null) {
-            return;
-        }
-
+    public static Map<String,Object> extractKeyValueData(Object[] data) {
+        
+        Map<String,Object> result = new HashMap<>();
         for(int i=0; i < data.length; i++) {
             Map<String, Object> pair = (Map<String, Object>)data[i];
             String key = (String)pair.get("key");
             String type = (String)pair.get("type");
-
-            switch (type) {
-                case "str":
-                    userData.addString(key, (String)pair.get("value"));
-                    break;
-
-                case "int":
-                    userData.addInt(key, (Integer)pair.get("value"));
-
-                case "kvlist":
-                    KeyValueCollection list = new KeyValueCollection();
-                    Util.extractKeyValueData(list, (Object[])pair.get("value"));
-                    userData.addList(key, list);
-                    break;
+            
+            Object value = pair.get("value");
+            if("kvlist".equals(type)) {
+                value = Util.extractKeyValueData((Object[])pair.get("value"));
             }
+            
+            result.put(key, value);
         }
+        
+        return result;
     }
 
     public static String[] extractParticipants(Object[] data) {
@@ -281,5 +280,43 @@ public class Util {
 
         return activity;
     }
+    
+    public static void throwIfNotOk(ApiSuccessResponse resp) throws WorkspaceApiException {
+        throwIfNotOk(resp.getStatus());
+    }
 
+    public static void throwIfNotOk(InlineResponse200Status status) throws WorkspaceApiException {
+        Integer code = status.getCode();
+        if (code != StatusCode.ASYNC_OK && code != StatusCode.OK) {
+            throw new WorkspaceApiException(String.format("%s (code: %d)", status.getMessage(), code));
+        }
+    }
+
+    public static List<Kvpair> toKVList(Map<String, Object> map) {
+        List<Kvpair> list = new ArrayList<>();
+        if(map != null) {
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                String key = entry.getKey();
+                Object value = entry.getValue();
+                String type = "str";
+
+                if(value instanceof Integer) {
+                    type = "int";
+                }
+                else if(value instanceof Map) {
+                    type = "kvlist";
+                    value = toKVList((Map<String, Object>) value);
+                }
+
+                Kvpair pair = new Kvpair();
+                pair.setKey(key);
+                pair.setType(type);
+                pair.setValue(value);
+
+                list.add(pair);
+            }
+        }        
+        
+        return list;
+    }
 }
