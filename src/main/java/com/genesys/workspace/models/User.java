@@ -1,13 +1,11 @@
 package com.genesys.workspace.models;
 
-import java.util.Map;
-
 public class User {
     private int dbid;
     private String employeeId;
     private String agentId;
     private String defaultPlace;
-    private Map<String,Object> userProperties;
+    private KeyValueCollection userProperties;
 
     public User() {}
 
@@ -42,11 +40,11 @@ public class User {
         this.defaultPlace = defaultPlace;
     }
 
-    public Map<String,Object> getUserProperties() {
+    public KeyValueCollection getUserProperties() {
         return userProperties;
     }
 
-    public void setUserProperties(Map<String,Object> userProperties) {
+    public void setUserProperties(KeyValueCollection userProperties) {
         this.userProperties = userProperties;
     }
 }

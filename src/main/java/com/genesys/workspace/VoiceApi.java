@@ -57,7 +57,7 @@ public class VoiceApi {
     private static final Logger logger = LoggerFactory.getLogger(VoiceApi.class);
     
     private com.genesys.internal.workspace.api.VoiceApi voiceApi;
-    private DNumber dn;
+    private Dn dn;
     private Map<String, Call> calls;
     private Set<DnEventListener> dnEventListeners;
     private Set<CallEventListener> callEventListeners;
@@ -154,7 +154,7 @@ public class VoiceApi {
 
     public void onDnStateChanged(Map<String, Object> data) {
         if (this.dn == null) {
-            this.dn = new DNumber();
+            this.dn = new Dn();
         }
 
         Map<String, Object> dnData = (Map<String, Object>)data.get("dn");
@@ -190,7 +190,7 @@ public class VoiceApi {
         String dnis = (String)callData.get("dnis");
         Object[] capabilities = (Object[])callData.getOrDefault("capabilities", new Object[]{});
         Object[] participantData = (Object[])callData.get("participants");
-        Map<String,Object> userData = Util.extractKeyValueData((Object[])callData.get("userData"));
+        KeyValueCollection userData = Util.extractKeyValueData((Object[])callData.get("userData"));
 
         String[] participants = Util.extractParticipants(participantData);
 
@@ -268,7 +268,7 @@ public class VoiceApi {
         }
     }
 
-    public DNumber getDn() {
+    public Dn getDn() {
         return this.dn;
     }
 

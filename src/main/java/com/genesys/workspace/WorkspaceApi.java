@@ -13,7 +13,6 @@ import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -40,7 +39,7 @@ public class WorkspaceApi {
     private boolean workspaceInitialized = false;
     
     private User user;
-    private Map<String,Object> settings;
+    private KeyValueCollection settings;
     private List<AgentGroup> agentGroups;
     private List<BusinessAttribute> businessAttributes;
     private List<ActionCode> actionCodes;
@@ -94,7 +93,7 @@ public class WorkspaceApi {
                 String defaultPlace = (String)userData.get("defaultPlace");
                 String agentId = (String)userData.get("agentLogin");
                 Object[] annexData = (Object[])userData.get("userProperties");
-                Map<String,Object> userProperties = Util.extractKeyValueData(annexData);
+                KeyValueCollection userProperties = Util.extractKeyValueData(annexData);
 
                 if (user == null) {
                     user = new User();
@@ -130,7 +129,7 @@ public class WorkspaceApi {
                 String code = (String)actionCodeData.get("code");
                 ActionCodeType type = Util.parseActionCodeType((String)actionCodeData.get("type"));
                 Object[] userPropertyData = (Object[])actionCodeData.get("userProperties");
-                Map<String,Object> userProperties = Util.extractKeyValueData(userPropertyData);
+                KeyValueCollection userProperties = Util.extractKeyValueData(userPropertyData);
 
                 Object[] subCodesData = (Object[])actionCodeData.get("subCodes");
                 List<SubCode> subCodes = new ArrayList<>();
@@ -190,7 +189,7 @@ public class WorkspaceApi {
                 String name = (String)transactionData.get("name");
                 String alias = (String)transactionData.get("alias");
                 Object[] userPropertyData = (Object[])transactionData.get("userProperties");
-                Map<String,Object> userProperties = Util.extractKeyValueData(userPropertyData);
+                KeyValueCollection userProperties = Util.extractKeyValueData(userPropertyData);
 
                 this.transactions.add(new Transaction(name, alias, userProperties));
             }
@@ -204,7 +203,7 @@ public class WorkspaceApi {
                 Long dbid = (Long)agentGroupData.get("DBID");
                 String name = (String)agentGroupData.get("name");
 
-                Map<String,Object> userProperties = new HashMap<>();
+                KeyValueCollection userProperties = new KeyValueCollection();
                 Map<String, Object> agentGroupSettingsData = (Map<String, Object>)agentGroupData.get("settings");
                 if (agentGroupSettingsData != null && !agentGroupSettingsData.isEmpty()) {
                     // Top level will be sections
@@ -212,14 +211,14 @@ public class WorkspaceApi {
 
                         String sectionName = entry.getKey();
                         Map<String, Object> sectionData = (Map<String, Object>)entry.getValue();
-                        Map<String,Object> section = new HashMap<>();
+                        KeyValueCollection section = new KeyValueCollection();
                         if (sectionData != null && !sectionData.isEmpty()) {
                             for (Map.Entry<String, Object> option : sectionData.entrySet()) {
-                                section.put(option.getKey(), (String)option.getValue());
+                                section.addString(option.getKey(), (String)option.getValue());
                             }
                         }
 
-                        userProperties.put(entry.getKey(), section);
+                        userProperties.addList(sectionName, section);
                     }
                 }
 
@@ -404,7 +403,7 @@ public class WorkspaceApi {
         return this.user;
     }
 
-    public Map<String,Object> getSettings() {
+    public KeyValueCollection getSettings() {
         return this.settings;
     }
 

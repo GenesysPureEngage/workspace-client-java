@@ -1,21 +1,21 @@
 package com.genesys.workspace.models.cfg;
 
+import com.genesys.workspace.models.KeyValueCollection;
 import java.util.Collection;
-import java.util.Map;
 
 public class ActionCode {
     private String name;
     private String code;
     private ActionCodeType type;
     private Collection<SubCode> subCodes;
-    private Map<String,Object> userProperties;
+    private KeyValueCollection userProperties;
 
     public ActionCode(
             String name,
             String code,
             ActionCodeType type,
             Collection<SubCode> subCodes,
-            Map<String,Object> userProperties) {
+            KeyValueCollection userProperties) {
         this.name = name;
         this.code = code;
         this.type = type;
@@ -39,7 +39,7 @@ public class ActionCode {
         return this.subCodes;
     }
 
-    public Map<String,Object> getUserProperties() {
+    public KeyValueCollection getUserProperties() {
         return userProperties;
     }
     

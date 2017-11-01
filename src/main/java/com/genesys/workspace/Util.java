@@ -10,11 +10,14 @@ import com.genesys.workspace.models.*;
 import com.genesys.workspace.models.cfg.ActionCodeType;
 import com.genesys.workspace.models.targets.availability.AgentActivity;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Util {
+    private static final Logger logger = LoggerFactory.getLogger(Util.class);
+    
     public static AgentState parseAgentState(String input) {
         AgentState state = AgentState.UNKNOWN;
         if (input != null) {
@@ -134,20 +137,30 @@ public class Util {
     }
 
 
-    public static Map<String,Object> extractKeyValueData(Object[] data) {
+    public static KeyValueCollection extractKeyValueData(Object[] data) {
         
-        Map<String,Object> result = new HashMap<>();
+        KeyValueCollection result = new KeyValueCollection();
         for(int i=0; i < data.length; i++) {
             Map<String, Object> pair = (Map<String, Object>)data[i];
             String key = (String)pair.get("key");
             String type = (String)pair.get("type");
             
             Object value = pair.get("value");
-            if("kvlist".equals(type)) {
-                value = Util.extractKeyValueData((Object[])pair.get("value"));
-            }
             
-            result.put(key, value);
+            switch(type) {
+                case "int":
+                    result.addInt(key, (Integer)value);
+                    break;
+                case "str":
+                    result.addString(key, (String)value);
+                    break;
+                case "kvlist":
+                    result.addList(key, Util.extractKeyValueData((Object[])pair.get("value")));
+                    break;
+                default:
+                    logger.error("Invalid type: {}", type);
+                    break;
+            }
         }
         
         return result;
