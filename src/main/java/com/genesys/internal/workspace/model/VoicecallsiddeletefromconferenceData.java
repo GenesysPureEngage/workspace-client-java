@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * VoicecallsiddeletefromconferenceData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T15:04:24.553Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T20:25:48.307Z")
 public class VoicecallsiddeletefromconferenceData {
   @SerializedName("dnToDrop")
   private String dnToDrop = null;
@@ -153,6 +153,6 @@ public class VoicecallsiddeletefromconferenceData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

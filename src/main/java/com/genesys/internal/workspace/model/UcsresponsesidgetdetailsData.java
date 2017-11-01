@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * UcsresponsesidgetdetailsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T15:04:24.553Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T20:25:48.307Z")
 public class UcsresponsesidgetdetailsData {
   @SerializedName("version")
   private BigDecimal version = null;
@@ -63,7 +63,7 @@ public class UcsresponsesidgetdetailsData {
    * @return attachments
   **/
   @ApiModelProperty(value = "true to get attachments")
-  public Boolean getAttachments() {
+  public Boolean isAttachments() {
     return attachments;
   }
 
@@ -112,6 +112,6 @@ public class UcsresponsesidgetdetailsData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

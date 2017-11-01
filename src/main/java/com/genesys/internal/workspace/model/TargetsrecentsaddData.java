@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * TargetsrecentsaddData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T15:04:24.553Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T20:25:48.307Z")
 public class TargetsrecentsaddData {
   @SerializedName("target")
   private TargetInformation target = null;
@@ -113,6 +113,6 @@ public class TargetsrecentsaddData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

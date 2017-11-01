@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * MediamediatypeinteractionsidacceptData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T15:04:24.553Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T20:25:48.307Z")
 public class MediamediatypeinteractionsidacceptData {
   @SerializedName("extension")
   private List<Kvpair> extension = null;
@@ -99,6 +99,6 @@ public class MediamediatypeinteractionsidacceptData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

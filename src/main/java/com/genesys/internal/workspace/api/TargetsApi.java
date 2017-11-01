@@ -73,6 +73,7 @@ public class TargetsApi {
         String localVarPath = "/targets/recents/ack-missed-calls";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -103,7 +104,7 @@ public class TargetsApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -190,6 +191,7 @@ public class TargetsApi {
         String localVarPath = "/targets/recents/add";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -220,7 +222,7 @@ public class TargetsApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -318,6 +320,7 @@ public class TargetsApi {
             .replaceAll("\\{" + "type" + "\\}", apiClient.escapeString(type.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -348,7 +351,7 @@ public class TargetsApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -459,24 +462,25 @@ public class TargetsApi {
         String localVarPath = "/targets";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (searchTerm != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "searchTerm", searchTerm));
+        localVarQueryParams.addAll(apiClient.parameterToPair("searchTerm", searchTerm));
         if (filterName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterName", filterName));
+        localVarQueryParams.addAll(apiClient.parameterToPair("filterName", filterName));
         if (types != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "types", types));
+        localVarQueryParams.addAll(apiClient.parameterToPair("types", types));
         if (excludeGroup != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "excludeGroup", excludeGroup));
+        localVarQueryParams.addAll(apiClient.parameterToPair("excludeGroup", excludeGroup));
         if (excludeFromGroup != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "excludeFromGroup", excludeFromGroup));
+        localVarQueryParams.addAll(apiClient.parameterToPair("excludeFromGroup", excludeFromGroup));
         if (restrictToGroup != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "restrictToGroup", restrictToGroup));
+        localVarQueryParams.addAll(apiClient.parameterToPair("restrictToGroup", restrictToGroup));
         if (sort != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
         if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (matchType != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "matchType", matchType));
+        localVarQueryParams.addAll(apiClient.parameterToPair("matchType", matchType));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -507,7 +511,7 @@ public class TargetsApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -626,8 +630,9 @@ public class TargetsApi {
         String localVarPath = "/targets/personal-favorites";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -658,7 +663,7 @@ public class TargetsApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -748,8 +753,9 @@ public class TargetsApi {
         String localVarPath = "/targets/recents";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -780,7 +786,7 @@ public class TargetsApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -873,6 +879,7 @@ public class TargetsApi {
             .replaceAll("\\{" + "type" + "\\}", apiClient.escapeString(type.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -903,7 +910,7 @@ public class TargetsApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1006,6 +1013,7 @@ public class TargetsApi {
         String localVarPath = "/targets/personal-favorites/save";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1036,7 +1044,7 @@ public class TargetsApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")

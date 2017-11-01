@@ -76,14 +76,15 @@ public class GroupsApi {
             .replaceAll("\\{" + "groupId" + "\\}", apiClient.escapeString(groupId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (searchTerm != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "searchTerm", searchTerm));
+        localVarQueryParams.addAll(apiClient.parameterToPair("searchTerm", searchTerm));
         if (sort != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
         if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (offset != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+        localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -114,7 +115,7 @@ public class GroupsApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")

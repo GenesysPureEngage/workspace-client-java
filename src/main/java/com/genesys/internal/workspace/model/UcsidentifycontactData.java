@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * UcsidentifycontactData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T15:04:24.553Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T20:25:48.307Z")
 public class UcsidentifycontactData {
   @SerializedName("createContactEnabled")
   private Boolean createContactEnabled = null;
@@ -56,7 +56,7 @@ public class UcsidentifycontactData {
    * @return createContactEnabled
   **/
   @ApiModelProperty(value = "Indicates if a contact should be created if no matching contact found")
-  public Boolean getCreateContactEnabled() {
+  public Boolean isCreateContactEnabled() {
     return createContactEnabled;
   }
 
@@ -188,6 +188,6 @@ public class UcsidentifycontactData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

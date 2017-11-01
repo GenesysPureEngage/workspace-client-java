@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * InlineResponse200Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T15:04:24.553Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T20:25:48.307Z")
 public class InlineResponse200Data {
   @SerializedName("calls")
   private List<Call> calls = new ArrayList<Call>();
@@ -96,6 +96,6 @@ public class InlineResponse200Data {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

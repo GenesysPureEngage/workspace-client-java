@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * Devices
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T15:04:24.553Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T20:25:48.307Z")
 public class Devices {
   @SerializedName("status")
   private CurrentSessionStatus status = null;
@@ -113,6 +113,6 @@ public class Devices {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

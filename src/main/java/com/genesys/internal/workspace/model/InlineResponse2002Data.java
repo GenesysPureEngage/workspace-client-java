@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * InlineResponse2002Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T15:04:24.553Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T20:25:48.307Z")
 public class InlineResponse2002Data {
   @SerializedName("subscriptionId")
   private String subscriptionId = null;
@@ -112,6 +112,6 @@ public class InlineResponse2002Data {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

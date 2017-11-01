@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * CurrentSessionDataUserActiveSession
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T15:04:24.553Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T20:25:48.307Z")
 public class CurrentSessionDataUserActiveSession {
   @SerializedName("autoCompleteCall")
   private Boolean autoCompleteCall = null;
@@ -58,7 +58,7 @@ public class CurrentSessionDataUserActiveSession {
    * @return autoCompleteCall
   **/
   @ApiModelProperty(value = "")
-  public Boolean getAutoCompleteCall() {
+  public Boolean isAutoCompleteCall() {
     return autoCompleteCall;
   }
 
@@ -193,6 +193,6 @@ public class CurrentSessionDataUserActiveSession {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 
