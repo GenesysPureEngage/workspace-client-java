@@ -1,19 +1,19 @@
 package com.genesys.workspace.models.cfg;
 
-import java.util.Map;
+import com.genesys.workspace.models.KeyValueCollection;
 
 public class Transaction {
     private String name;
     private String alias;
-    private Map<String,Object> userProperties;
+    private KeyValueCollection userProperties;
 
-    public Transaction(String name, String alias, Map<String,Object> userProperties) {
+    public Transaction(String name, String alias, KeyValueCollection userProperties) {
         this.name = name;
         this.alias = alias;
         this.userProperties = userProperties;
     }
 
-    public Map<String,Object> getUserProperties() {
+    public KeyValueCollection getUserProperties() {
         return userProperties;
     }
 

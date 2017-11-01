@@ -70,7 +70,7 @@ public abstract class Target {
     }
     
     protected TargetAvailability extractAvailability(LinkedTreeMap<String,Object> data) {
-        return new TargetAvailability();
+        return null;
     }
     
     public TargetType getType() {

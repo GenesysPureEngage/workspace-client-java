@@ -1,6 +1,6 @@
 package com.genesys.workspace.models;
 
-public class DNumber {
+public class Dn {
     private String number;
     private String agentId;
     private AgentState agentState;
@@ -8,7 +8,7 @@ public class DNumber {
     private String forwardTo;
     private boolean dnd;
 
-    public DNumber() {}
+    public Dn() {}
 
     public String getAgentId() {
         return this.agentId;
