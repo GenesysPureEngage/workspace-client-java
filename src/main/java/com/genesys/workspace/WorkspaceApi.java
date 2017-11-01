@@ -11,6 +11,8 @@ import com.genesys.workspace.models.*;
 import com.genesys.workspace.models.cfg.*;
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
+import java.net.CookieManager;
+import java.net.CookiePolicy;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -258,6 +260,8 @@ public class WorkspaceApi {
             interceptors.add(loggingInterceptor);
             
             client.setBasePath(workspaceUrl);
+            CookieStoreImpl cookieStore = new CookieStoreImpl();
+            client.getHttpClient().setCookieHandler(new CookieManager(cookieStore, CookiePolicy.ACCEPT_ALL));
             client.addDefaultHeader("x-api-key", apiKey);
             
             sessionApi.setApiClient(client);
@@ -272,9 +276,10 @@ public class WorkspaceApi {
 
             final CompletableFuture<User> future = new CompletableFuture<>();
 
+            notifications.setCookieStore(cookieStore);
             notifications.subscribe("/workspace/v3/initialization", (channel, msg) -> onInitMessage(msg, future));
             notifications.subscribe("/workspace/v3/voice", (channel, msg) -> voiceApi.onVoiceMessage(msg));
-            notifications.initialize(workspaceUrl + "/notifications", apiKey, workspaceSessionId);
+            notifications.initialize(workspaceUrl + "/notifications", apiKey);
             
             return future;
 

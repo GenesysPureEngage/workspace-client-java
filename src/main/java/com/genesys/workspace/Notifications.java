@@ -1,8 +1,8 @@
 package com.genesys.workspace;
 
 import com.genesys.workspace.common.WorkspaceApiException;
-import java.net.HttpCookie;
-import java.net.URI;
+import java.net.CookieManager;
+import java.net.CookieStore;
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -25,6 +25,16 @@ public class Notifications {
     private HttpClient httpClient;
     
     final Map<String, Collection<NotificationListener>> listeners = new ConcurrentHashMap<>();
+
+    private CookieStore cookieStore = new CookieManager().getCookieStore();
+
+    public CookieStore getCookieStore() {
+        return cookieStore;
+    }
+
+    public void setCookieStore(CookieStore cookieStore) {
+        this.cookieStore = cookieStore;
+    }
 
     private void onHandshake(Message msg) {
         if(msg.isSuccessful()) {
@@ -54,13 +64,16 @@ public class Notifications {
         }
     }
     
-    public void initialize(String endpoint, String apiKey, final String sessionId) throws WorkspaceApiException {
+    public void initialize(String endpoint, String apiKey) throws WorkspaceApiException {
         try {
             httpClient = new HttpClient(new SslContextFactory());
             httpClient.start();
-            client = new BayeuxClient(endpoint, new ClientTransport(apiKey, httpClient));            
-            client.getCookieStore().add(new URI(endpoint), new HttpCookie(WorkspaceApi.SESSION_COOKIE, sessionId));
-            
+            client = new BayeuxClient(endpoint, new ClientTransport(apiKey, httpClient) {
+                @Override
+                protected CookieStore getCookieStore() {
+                    return cookieStore;
+                }
+            });
             initialize(client);
         }
         catch(Exception ex) {
