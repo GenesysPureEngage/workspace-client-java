@@ -140,6 +140,10 @@ public class Util {
     public static KeyValueCollection extractKeyValueData(Object[] data) {
         
         KeyValueCollection result = new KeyValueCollection();
+        if (data == null) {
+            return result;
+        }
+        
         for(int i=0; i < data.length; i++) {
             Map<String, Object> pair = (Map<String, Object>)data[i];
             String key = (String)pair.get("key");
