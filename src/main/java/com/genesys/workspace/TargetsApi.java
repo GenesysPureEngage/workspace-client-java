@@ -37,10 +37,21 @@ public class TargetsApi {
         this.targetsApi = targetsApi;
     }
     
+    /**
+     * Search for targets by the specified search term.
+     * @param searchTerm The text to search for in targets.
+     * @return SearchResult<Target>
+     */
     public SearchResult<Target> search(String searchTerm) throws WorkspaceApiException {
         return search(searchTerm, new TargetsSearchOptions());
     }
     
+    /**
+     * Search for targets by the specified search term.
+     * @param searchTerm The text to search for in targets.
+     * @param options Options used to refine the search. (optional)
+     * @return SearchResult<Target>
+     */
     public SearchResult<Target> search(String searchTerm, TargetsSearchOptions options) throws WorkspaceApiException {
         try {
             String types = options.getTypes() !=null? Arrays.stream(options.getTypes()).map(v -> v.getValue()).collect(Collectors.joining(",")): null;
@@ -73,10 +84,22 @@ public class TargetsApi {
         }
     }
     
+    /**
+     * Add a target that was recently used.
+     * @param target The target to add.
+     * @param media The media channel on which the target was used.
+     */
     public void addRecentTarget(Target target, String media) throws WorkspaceApiException {
         addRecentTarget(target, media, Instant.now().toEpochMilli());
     }
 
+    /**
+     * Add a target that was recently used.
+     * @param target The target to add.
+     * @param media The media channel the where the target was recently used. 
+     * @param timestamp The timestamp for when the target was used. This value should be a number representing the 
+     * milliseconds elapsed since the UNIX epoch. (optional)
+     */
     public void addRecentTarget(Target target, String media, long timestamp) throws WorkspaceApiException {
         try {
             TargetsrecentsaddData data = new TargetsrecentsaddData();
@@ -109,10 +132,19 @@ public class TargetsApi {
         return information;
     }
     
+    /**
+     * Get a user's recently used targets.
+     * @return SearchResult<Target>
+     */
     public SearchResult<Target> getRecentTargets() throws WorkspaceApiException {
         return getRecentTargets(0);
     }
 
+    /**
+     * Get a user's recently used targets.
+     * @param limit Specify the number of results to return. The default value is 50. (optional)
+     * @return SearchResult<Target>
+     */
     public SearchResult<Target> getRecentTargets(int limit) throws WorkspaceApiException {
         try {
             TargetsResponse resp = targetsApi.getRecentTargets(limit > 0? new BigDecimal(limit): null);
@@ -139,6 +171,13 @@ public class TargetsApi {
         }
     }
 
+    /**
+     * Get a specific target by ID and type.
+     * @param id The ID for the target.
+     * @param type The type of target to retrieve. The possible values are AGENT, AGENT_GROUP, ACD_QUEUE, 
+     * ROUTE_POINT, SKILL, and CUSTOM_CONTACT.
+     * @return Target
+     */
     public Target getTarget(long id, TargetType type) throws WorkspaceApiException {
         try {
             TargetsResponse resp = targetsApi.getTarget(new BigDecimal(id), type.getValue());
@@ -160,6 +199,10 @@ public class TargetsApi {
         }
     }
     
+    /**
+     * Delete the target from the user's personal favorites.
+     * @param target The target to delete.
+     */
     public void deletePersonalFavorite(Target target) throws WorkspaceApiException {
         try {
             ApiSuccessResponse resp = targetsApi.deletePersonalFavorite(String.valueOf(target.getId()), target.getType().getValue());
@@ -170,10 +213,19 @@ public class TargetsApi {
         }
     }
     
+    /**
+     * Return the user's personal favorites.
+     * @return SearchResult<Target>
+     */
     public SearchResult<Target> getPersonalFavorites() throws WorkspaceApiException {
         return getPersonalFavorites(0);
     }
 
+    /**
+     * Return the user's personal favorites.
+     * @param limit Specify the number of results to return. The default value is 50. (optional)
+     * @return SearchResult<Target>
+     */
     public SearchResult<Target> getPersonalFavorites(int limit) throws WorkspaceApiException {
         try {
             TargetsResponse resp = targetsApi.getPersonalFavorites(limit > 0? new BigDecimal(limit): null);
@@ -199,6 +251,11 @@ public class TargetsApi {
         }
     }
 
+    /**
+     * Save a target to the user's personal favorites in the specified category.
+     * @param target The target to save.
+     * @param category The user's personal favorites category.
+     */
     public void savePersonalFavorite(Target target, String category) throws WorkspaceApiException {
         TargetspersonalfavoritessaveData data = new TargetspersonalfavoritessaveData();
         data.setCategory(category);
@@ -215,6 +272,9 @@ public class TargetsApi {
         }
     }
 
+    /**
+     * Acknowledge missed calls in the list of recent targets.
+     */
     public void ackRecentMissedCalls() throws WorkspaceApiException {
         try {
             ApiSuccessResponse resp = targetsApi.ackRecentMissedCalls();
