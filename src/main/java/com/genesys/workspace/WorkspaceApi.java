@@ -49,8 +49,8 @@ public class WorkspaceApi {
 
     /**
      * Constructor 
-     * @param apiKey The API key to be used.
-     * @param baseUrl base URL for the workpace API
+     * @param apiKey The API key to be included in HTTP requests.
+     * @param baseUrl The base URL of the PureEngage API.
     */
     public WorkspaceApi(String apiKey, String baseUrl) {
         this(apiKey, baseUrl, new VoiceApi(), new TargetsApi(), new SessionApi(), new Notifications());
@@ -232,18 +232,22 @@ public class WorkspaceApi {
     
 
     /**
-     * Initializes the API using the provided authCode and redirectUri. This is the preferred means of init.
-     * @param authCode the auth code to be used for initialization
-     * @param redirectUri the redirectUri to be used for initialization. Since this is not being sent by the UI, this just
-     * needs to match the redirectUri that was sent when obtaining the authCode.
+     * Initializes the API using the provided authorization code and redirect URI. The authorization code comes from using the 
+     * Authorization Code Grant flow to authenticate with the Authentication API. Genesys recommends using this code grant type.
+     * @param authCode The authorization code you received during authentication.
+     * @param redirectUri The redirect URI you used during authentication. Since this is not sent by the UI, it needs to match the redirectUri that you sent 
+     * when using the Authentication API to get the authCode.
+     * @return CompletableFuture<User>
      */
     public CompletableFuture<User> initialize(String authCode, String redirectUri) throws WorkspaceApiException {
         return initialize(authCode, redirectUri, null);
     }
 
     /**
-     * Initializes the API using the provided auth token.
-     * @param token The auth token to use for initialization.
+     * Initializes the API using the provided access token. This token comes from using the Resource Owner Password Credentials Grant 
+     * flow to authenticate with the Authentication API.
+     * @param token The access token you received during authentication. 
+     * @return CompletableFuture<User>
      */
     public CompletableFuture<User> initialize(String token) throws WorkspaceApiException {
         return initialize(null, null, token);
@@ -305,9 +309,9 @@ public class WorkspaceApi {
     }
 
     /**
-     * Initializes the voice channel using the specified resources.
-     * @param agentId agentId to be used for login
-     * @param placeName name of the place to use for login
+     * Initializes the voice channel for the specified agent and DN.
+     * @param agentId The ID of the agent to be used for login.
+     * @param placeName The DN to be used for login.
      */
     public void activateChannels(
             String agentId,
@@ -318,11 +322,11 @@ public class WorkspaceApi {
 
     /**
      * Initializes the voice channel using the specified resources.
-     * @param agentId agentId to be used for login
-     * @param dn DN to be used for login. Provide only one of dn or placeName
-     * @param placeName name of the place to use for login. Provide only one of placeName or dn
-     * @param queueName name of the queue to be used for login. (optional)
-     * @param workMode workMode to be used for login (optional) - AUTO_IN or MANUAL_IN
+     * @param agentId The ID of the agent to be used for login.
+     * @param dn The DN to be used for login. Only provide this if you aren't specifying the place name.
+     * @param placeName The name of the place to use for login. Only provide this if you aren't specifying the DN.
+     * @param queueName The name of the queue to be used for login. (optional)
+     * @param workMode The workMode to be used for login. The possible values are AUTO_IN or MANUAL_IN. (optional)
      */
     public void activateChannels(
             String agentId,
@@ -376,25 +380,25 @@ public class WorkspaceApi {
     }
 
     /**
-     * Returns the targets API
-     * @return Targets API
+     * Returns the Voice API.
+     * @return VoiceApi
      */
     public VoiceApi voice() {
         return this.voiceApi;
     }
 
     /**
-     * Returns the voice API.
-     * @return Voice API
+     * Returns the Targets API.
+     * @return TargetsApi
      */
     public TargetsApi targets() {
         return this.targetsApi;
     }
     
     /**
-     * Returns the reporting API
+     * Returns the Reporting API.
      * 
-     * @return Reporting API
+     * @return ReportingApi
      */
     public ReportingApi getReportingApi() {
         return reportingApi;
@@ -402,28 +406,48 @@ public class WorkspaceApi {
     
     /**
       * Returns the current user.
-      * @return the current user.
+      * @return User
       */
     public User getUser() {
         return this.user;
     }
 
+    /**
+      * Returns application options from Configuration Server.
+      * @return KeyValueCollection
+      */
     public KeyValueCollection getSettings() {
         return this.settings;
     }
 
+    /**
+      * Returns action codes from Configuration Server. 
+      * @return Collection<ActionCode>
+      */
     public Collection<ActionCode> getActionCodes() {
         return this.actionCodes;
     }
 
+    /**
+      * Returns agent groups from Configuration Server.
+      * @return Collection<AgentGroup>
+      */
     public Collection<AgentGroup> getAgentGroups() {
         return this.agentGroups;
     }
 
+    /**
+      * Returns business attributes from Configuration Server.
+      * @return Collection<BusinessAttribute>
+      */
     public Collection<BusinessAttribute> getBusinessAttributes() {
         return this.businessAttributes;
     }
 
+    /**
+      * Returns transactions from Configuration Server.
+      * @return Collection<Transaction>
+      */
     public Collection<Transaction> getTransactions() {
         return this.transactions;
     }

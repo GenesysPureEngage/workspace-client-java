@@ -27,6 +27,10 @@ public class ReportingApi {
         this.api = api;
     }
 
+    /**
+     * Get the statistics for the specified subscription ID.
+     * @param subscriptionId The unique ID of the subscription.
+     */
     public void peek(String subscriptionId) throws WorkspaceApiException {
         try {
             InlineResponse2002 resp = api.peek(subscriptionId);
@@ -37,6 +41,10 @@ public class ReportingApi {
         }        
     }
 
+    /**
+     * Subscribe to a group of statistics. The values are returned when you request them using peek(). 
+     * @param statistics The collection of statistic you want to include in your subscription.
+     */
     public void register(Collection<StatisticValueForRegister> statistics) throws WorkspaceApiException {
         try {
             StatisticsRegisterData statisticsData = new StatisticsRegisterData();
@@ -66,6 +74,10 @@ public class ReportingApi {
         }
     }
 
+    /**
+     * Unsubscribe from the specified group of statistics.
+     * @param subscriptionId The unique ID of the subscription.
+     */
     public void unsubscribe(String subscriptionId) throws WorkspaceApiException {
         try {
             UnsubscribeData unsubscribe = new UnsubscribeData();

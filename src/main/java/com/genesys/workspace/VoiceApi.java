@@ -106,7 +106,7 @@ public class VoiceApi {
 
     /**
      * Adds a listener for CallStateChanged events.
-     * @param listener the listener to be added.
+     * @param listener The listener to be added.
      */
     public void addCallEventListener(CallEventListener listener) {
         this.callEventListeners.add(listener);
@@ -114,7 +114,7 @@ public class VoiceApi {
 
     /**
      * Removes a previously added CallStateChanged listener.
-     * @param listener the listener to be removed
+     * @param listener The listener to be removed
      */
     public void removeCallEventListener(CallEventListener listener) {
         this.callEventListeners.remove(listener);
@@ -122,7 +122,7 @@ public class VoiceApi {
 
     /**
      * Add a listener for DnStateChanged events.
-     * @param listener the listener to be added.
+     * @param listener The listener to be added.
      */
     public void addDnEventListener(DnEventListener listener) {
         this.dnEventListeners.add(listener);
@@ -130,15 +130,15 @@ public class VoiceApi {
 
     /**
      * Remove a previously added DnStateChanged listener.
-     * @param listener the listener to be removed.
+     * @param listener The listener to be removed.
      */
     public void removeDnEventListener(DnEventListener listener) {
         this.dnEventListeners.remove(listener);
     }
 
     /**
-     * Add a listener for EventError
-     * @param listener the listener to be added.
+     * Add a listener for EventError.
+     * @param listener The listener to be added.
      */
     public void addErrorEventListener(ErrorEventListener listener) {
         this.errorEventListeners.add(listener);
@@ -146,7 +146,7 @@ public class VoiceApi {
 
     /**
      * Remove a previously added EventError listener.
-     * @param listener the listener to be removed.
+     * @param listener The listener to be removed.
      */
     public void removeErrorEventListener(ErrorEventListener listener) {
         this.errorEventListeners.remove(listener);
@@ -274,23 +274,23 @@ public class VoiceApi {
 
     /**
      * Gets the list of active calls.
-     * @return list of active calls
+     * @return Collection<Call>
      */
     public Collection<Call> getCalls() {
         return this.calls.values();
     }
 
     /**
-     * Set the agent state to ready.
+     * Set the agent state to Ready.
      */
     public void setAgentReady() throws WorkspaceApiException {
         this.setAgentReady(null, null);
     }
 
     /**
-     * Set the agent state to ready.
-     * @param reasons reasons
-     * @param extensions extensions
+     * Set the agent state to Ready.
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void setAgentReady(Map<String,Object> reasons, Map<String,Object> extensions) throws WorkspaceApiException {
         try {
@@ -308,27 +308,27 @@ public class VoiceApi {
     }
 
     /**
-     * Set the agent state to not ready.
+     * Set the agent state to NotReady.
      */
     public void setAgentNotReady() throws WorkspaceApiException {
         this.setAgentNotReady(null, null, null, null);
     }
 
     /**
-     * Set the agent state to not ready.
-     * @param workMode optional workMode to use in the request.
-     * @param reasonCode optional reasonCode to use in the request.
+     * Set the agent state to NotReady.
+     * @param workMode Possible values are AuxWork and AfterCallWork. (optional)
+     * @param reasonCode The reason code to use in the request. (optional)
      */
     public void setAgentNotReady(String workMode, String reasonCode) throws WorkspaceApiException {
         this.setAgentNotReady(workMode, reasonCode, null, null);
     }
 
     /**
-     * Set the agent state to not ready.
-     * @param workMode optional workMode to use in the request.
-     * @param reasonCode optional reasonCode to use in the request.
-     * @param reasons reasons
-     * @param extensions extensions
+     * Set the agent state to NotReady.
+     * @param workMode Possible values are AuxWork and AfterCallWork. (optional)
+     * @param reasonCode The reason code to use in the request. (optional)
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void setAgentNotReady(
             String workMode,
@@ -358,7 +358,7 @@ public class VoiceApi {
     }
 
     /**
-     * Set do-not-disturb on for voice.
+     * Turn on do-not-disturb for the voice channel.
      */
     public void dndOn() throws WorkspaceApiException {
         try {
@@ -370,7 +370,7 @@ public class VoiceApi {
     }
 
     /**
-     * Set do-not-disturb off for voice.
+     * Turn off do-not-disturb for the voice channel.
      */
     public void dndOff() throws WorkspaceApiException {
         try {
@@ -406,8 +406,8 @@ public class VoiceApi {
     }
 
     /**
-     * Set call forwarding to the specififed destination.
-     * @param destination - destination to forward calls to.
+     * Set call forwarding on the DN to the specified destination.
+     * @param destination The number where Workspace should forward calls.
      */
     public void setForward(String destination) throws WorkspaceApiException {
         try {
@@ -425,7 +425,7 @@ public class VoiceApi {
     }
 
     /**
-     * Cancel call forwarding.
+     * Cancel call forwarding for a DN.
      */
     public void cancelForward() throws WorkspaceApiException {
         try {
@@ -438,7 +438,7 @@ public class VoiceApi {
 
     /**
      * Make a new call to the specified destination.
-     * @param destination The destination to call
+     * @param destination The number to call.
      */
     public void makeCall(String destination) throws WorkspaceApiException {
         this.makeCall(destination, null, null, null);
@@ -446,8 +446,8 @@ public class VoiceApi {
 
     /**
      * Make a new call to the specified destination.
-     * @param destination The destination to call
-     * @param userData userData to be included with the new call
+     * @param destination The number to call.
+     * @param userData The data to attach to the new call. 
      */
     public void makeCall(
             String destination,
@@ -458,10 +458,10 @@ public class VoiceApi {
 
     /**
      * Make a new call to the specified destination.
-     * @param destination The destination to call
-     * @param userData userData to be included with the new call
-     * @param reasons reasons
-     * @param extensions extensions
+     * @param destination The number to call.
+     * @param userData The data to attach to the new call. 
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void makeCall(
             String destination,
@@ -486,18 +486,18 @@ public class VoiceApi {
     }
 
     /**
-     * Answer call.
-     * @param connId The connId of the call to answer.
+     * Answer a call.
+     * @param connId The connection ID of the call. 
      */
     public void answerCall(String connId) throws WorkspaceApiException {
         this.answerCall(connId, null, null);
     }
 
     /**
-     * Answer call.
-     * @param connId The connId of the call to answer.
-     * @param reasons reasons
-     * @param extensions extensions
+     * Answer a call.
+     * @param connId The connection ID of the call. 
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void answerCall(
             String connId,
@@ -520,18 +520,18 @@ public class VoiceApi {
     }
 
     /**
-     * Place call on hold.
-     * @param connId The connId of the call to place on hold.
+     * Place a call on hold.
+     * @param connId The connection ID of the call. 
      */
     public void holdCall(String connId) throws WorkspaceApiException {
         this.holdCall(connId, null, null);
     }
 
     /**
-     * Place call on hold.
-     * @param connId The connId of the call to place on hold.
-     * @param reasons reasons
-     * @param extensions extensions
+     * Place a call on hold.
+     * @param connId The connection ID of the call. 
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void holdCall(
             String connId,
@@ -554,18 +554,18 @@ public class VoiceApi {
     }
 
     /**
-     * Retrieve call from hold.
-     * @param connId The connId of the call to retrieve.
+     * Retrieve a call from hold.
+     * @param connId The connection ID of the call. 
      */
     public void retrieveCall(String connId) throws WorkspaceApiException {
         this.retrieveCall(connId, null, null);
     }
 
     /**
-     * Retrieve call from hold.
-     * @param connId The connId of the call to retrieve.
-     * @param reasons reasons
-     * @param extensions extensions
+     * Retrieve a call from hold.
+     * @param connId The connection ID of the call. 
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void retrieveCall(
             String connId,
@@ -588,18 +588,18 @@ public class VoiceApi {
     }
 
     /**
-     * Release call.
-     * @param connId The connId of the call to release
+     * Release a call.
+     * @param connId The connection ID of the call. 
      */
     public void releaseCall(String connId) throws WorkspaceApiException {
         this.releaseCall(connId, null, null);
     }
 
     /**
-     * Release call.
-     * @param connId The connId of the call to release
-     * @param reasons reasons
-     * @param extensions extensions
+     * Release a call.
+     * @param connId The connection ID of the call. 
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void releaseCall(
             String connId,
@@ -623,19 +623,23 @@ public class VoiceApi {
     }
 
     /**
-     * Initiate a conference to the specified destination.
-     * @param connId The connId of the call to start the conference from.
-     * @param destination The destination
+     * Initiates a two-step conference to the specified destination. This places the existing call on
+     * hold and creates a new call in the dialing state. After initiating the conference you can use 
+     * completeConference to complete the conference and bring all parties into the same call.
+     * @param connId The connection ID of the call to start the conference from.
+     * @param destination The number to be dialed.
      */
     public void initiateConference(String connId, String destination) throws WorkspaceApiException {
         this.initiateConference(connId, destination, null, null, null, null, null);
     }
 
     /**
-     * Initiate a conference to the specified destination.
-     * @param connId The connId of the call to start the conference from.
-     * @param destination The destination
-     * @param userData userdata to be used for the new consult call.
+     * Initiates a two-step conference to the specified destination. This places the existing call on
+     * hold and creates a new call in the dialing state. After initiating the conference you can use 
+     * completeConference to complete the conference and bring all parties into the same call.
+     * @param connId The connection ID of the call to start the conference from.
+     * @param destination The number to be dialed.
+     * @param userData Key/value data to include with the call. (optional)
      */
     public void initiateConference(
             String connId,
@@ -646,14 +650,18 @@ public class VoiceApi {
     }
 
     /**
-     * Initiate a conference to the specified destination.
-     * @param connId The connId of the call to start the conference from.
-     * @param destination The destination
-     * @param location
-     * @param outboundCallerId
-     * @param userData userdata to be used for the new consult call.
-     * @param reasons reasons
-     * @param extensions extensions
+     * Initiates a two-step conference to the specified destination. This places the existing call on
+     * hold and creates a new call in the dialing state. After initiating the conference you can use 
+     * completeConference to complete the conference and bring all parties into the same call.
+     * @param connId The connection ID of the call to start the conference from.
+     * @param destination The number to be dialed.
+     * @param location The name of the remote location in the form of <T-ServerApplicationName>@. This value is used by Workspace to set the location attribute 
+     * for the corresponding T-Server requests. (optional)
+     * @param outboundCallerId The caller ID information to display on the destination party's phone. The value should be set as CPNDigits. For more information about 
+     * caller ID, see the SIP Server Deployment Guide. (optional)
+     * @param userData Key/value data to include with the call. (optional)
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void initiateConference(
             String connId,
@@ -684,20 +692,22 @@ public class VoiceApi {
     }
 
     /**
-     * Complete a previously initiated conference identified by the provided ids.
-     * @param connId The id of the consule call (established)
-     * @param parentConnId The id of the parent call (held).
+     * Complete a previously initiated conference identified by the provided IDs. Once completed, the 
+     * two separate calls are brought together so that all three parties are participating in the same call.
+     * @param connId The ID of the consult call (established).
+     * @param parentConnId The ID of the parent call (held).
      */
     public void completeConference(String connId, String parentConnId) throws WorkspaceApiException {
         this.completeConference(connId, parentConnId, null, null);
     }
 
     /**
-     * Complete a previously initiated conference identified by the provided ids.
-     * @param connId The id of the consule call (established)
-     * @param parentConnId The id of the parent call (held).
-     * @param reasons reasons
-     * @param extensions extensions
+     * Complete a previously initiated conference identified by the provided IDs. Once completed, the 
+     * two separate calls are brought together so that all three parties are participating in the same call.
+     * @param connId The ID of the consult call (established).
+     * @param parentConnId The ID of the parent call (held).
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void completeConference(
             String connId,
@@ -721,7 +731,8 @@ public class VoiceApi {
     }
 
     /**
-     * Initiate a transfer to the specified destination.
+     * Initiates a two-step transfer to the specified destination. After initiating the transfer, you can 
+     * use completeTransfer to complete the transfer.
      * @param connId The connId of the call to be transferred.
      * @param destination The destination of the transfer.
      */
@@ -730,10 +741,11 @@ public class VoiceApi {
     }
 
     /**
-     * Initiate a transfer to the specified destination.
-     * @param connId The connId of the call to be transferred.
-     * @param destination The destination of the transfer.
-     * @param userData userdata to be included with the new consult call
+     * Initiates a two-step transfer to the specified destination. After initiating the transfer, you can 
+     * use completeTransfer to complete the transfer.
+     * @param connId The connection ID of the call to be transferred.
+     * @param destination The number to be dialed.
+     * @param userData Key/value data to include with the call. (optional)
      */
     public void initiateTransfer(
             String connId,
@@ -744,14 +756,17 @@ public class VoiceApi {
     }
 
     /**
-     * Initiate a transfer to the specified destination.
+     * Initiates a two-step transfer to the specified destination. After initiating the transfer, you can 
+     * use completeTransfer to complete the transfer.
      * @param connId  The connId of the call to be transferred.
      * @param destination The destination
-     * @param location
-     * @param outboundCallerId
-     * @param userData userdata to be used for the new consult call.
-     * @param reasons reasons
-     * @param extensions extensions
+     * @param location The name of the remote location in the form of <T-ServerApplicationName>@. This value is used by Workspace to set the location attribute 
+     * for the corresponding T-Server requests. (optional)
+     * @param outboundCallerId The caller ID information to display on the destination party's phone. The value should be set as CPNDigits. For more information about 
+     * caller ID, see the SIP Server Deployment Guide. (optional)
+     * @param userData Key/value data to include with the call. (optional)
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void initiateTransfer(
             String connId,
@@ -781,20 +796,20 @@ public class VoiceApi {
     }
 
     /**
-     * Complete a previously initiated transfer using the provided ids.
-     * @param connId The id of the consult call (established)
-     * @param parentConnId The id of the parent call (held)
+     * Complete a previously initiated transfer using the provided IDs.
+     * @param connId The connection ID of the consult call (established).
+     * @param parentConnId The ID of the parent call (held).
      */
     public void completeTransfer(String connId, String parentConnId) throws WorkspaceApiException {
         this.completeTransfer(connId, parentConnId, null, null);
     }
 
     /**
-     * Complete a previously initiated transfer using the provided ids.
-     * @param connId The id of the consult call (established)
-     * @param parentConnId The id of the parent call (held)
-     * @param reasons reasons
-     * @param extensions extensions
+     * Complete a previously initiated transfer using the provided IDs.
+     * @param connId The connection ID of the consult call (established).
+     * @param parentConnId The ID of the parent call (held).
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void completeTransfer(
             String connId,
@@ -818,22 +833,22 @@ public class VoiceApi {
     }
 
     /**
-     * Alternate two calls retrieving the held call and placing the established call on hold. This is a
-     * shortcut for doing hold and retrieve separately.
-     * @param connId The id of the established call.
-     * @param heldConnId The id of the held call.
+     * Alternate two calls so that you retrieve a call on hold and place the established call on hold instead. 
+     * This is a shortcut for doing hold and retrieve separately.
+     * @param connId The connection ID of the established call.
+     * @param heldConnId The ID of the held call.
      */
     public void alternateCalls(String connId, String heldConnId) throws WorkspaceApiException {
         this.alternateCalls(connId, heldConnId, null, null);
     }
 
     /**
-     * Alternate two calls retrieving the held call and placing the established call on hold. This is a
-     * shortcut for doing hold and retrieve separately.
-     * @param connId The id of the established call.
-     * @param heldConnId The id of the held call.
-     * @param reasons reasons
-     * @param extensions extensions
+     * Alternate two calls so that you retrieve a call on hold and place the established call on hold instead. 
+     * This is a shortcut for doing hold and retrieve separately.
+     * @param connId The connection ID of the established call.
+     * @param heldConnId The ID of the held call.
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void alternateCalls(
             String connId,
@@ -857,20 +872,20 @@ public class VoiceApi {
     }
 
     /**
-     * Delete a dn from a conference call
-     * @param connId The connId of the conference
-     * @param dnToDrop The dn number to drop from the conference.
+     * Delete the specified DN from the conference call. 
+     * @param connId The connection ID of the conference.
+     * @param dnToDrop The DN number to drop from the conference.
      */
     public void deleteFromConference(String connId, String dnToDrop) throws WorkspaceApiException {
         this.deleteFromConference(connId, dnToDrop, null, null);
     }
 
     /**
-     * Delete a dn from a conference call
-     * @param connId The connId of the conference
-     * @param dnToDrop The dn number to drop from the conference.
-     * @param reasons reasons
-     * @param extensions extensions
+     * Delete the specified DN from the conference call. 
+     * @param connId The connection ID of the conference.
+     * @param dnToDrop The DN number to drop from the conference.
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void deleteFromConference(
             String connId,
@@ -896,8 +911,8 @@ public class VoiceApi {
 
     /**
      * Perform a single-step transfer to the specified destination.
-     * @param connId The id of the call to transfer.
-     * @param destination The destination to transfer the call to.
+     * @param connId The connection ID of the call to transfer.
+     * @param destination The number where the call should be transferred.
      */
     public void singleStepTransfer(String connId, String destination) throws WorkspaceApiException {
         this.singleStepTransfer(connId, destination, null, null, null, null);
@@ -905,9 +920,9 @@ public class VoiceApi {
 
     /**
      * Perform a single-step transfer to the specified destination.
-     * @param connId The id of the call to transfer.
-     * @param destination The destination to transfer the call to.
-     * @param userData userdata to be included on the transfer
+     * @param connId The connection ID of the call to transfer.
+     * @param destination The number where the call should be transferred.
+     * @param userData Key/value data to include with the call. (optional)
      */
     public void singleStepTransfer(
             String connId,
@@ -919,12 +934,13 @@ public class VoiceApi {
 
     /**
      * Perform a single-step transfer to the specified destination.
-     * @param connId The id of the call to transfer.
-     * @param destination The destination to transfer the call to.
-     * @param location
-     * @param userData userdata to be used for the new consult call.
-     * @param reasons reasons
-     * @param extensions extensions
+     * @param connId The connection ID of the call to transfer.
+     * @param destination The number where the call should be transferred.
+     * @param location The name of the remote location in the form of <T-ServerApplicationName>@. This value is used by Workspace to set the location attribute 
+     * for the corresponding T-Server requests. (optional)
+     * @param userData Key/value data to include with the call. (optional)
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void singleStepTransfer(
             String connId,
@@ -953,10 +969,10 @@ public class VoiceApi {
     }
 
     /**
-     * Perform a single-step conference to the specififed destination. This will effectively add the
-     * destination to the existing call, creating a conference if necessary.
-     * @param connId The id of the call to conference.
-     * @param destination The destination to be added to the call.
+     * Perform a single-step conference to the specified destination. This adds the destination to the 
+     * existing call, creating a conference if necessary.
+     * @param connId The connection ID of the call to conference.
+     * @param destination The number to be added to the call.
      */
     public void singleStepConference(String connId, String destination) throws WorkspaceApiException {
         this.singleStepConference(connId, destination, null, null, null, null);
@@ -964,11 +980,11 @@ public class VoiceApi {
     }
 
     /**
-     * Perform a single-step conference to the specififed destination. This will effectively add the
-     * destination to the existing call, creating a conference if necessary.
-     * @param connId The id of the call to conference.
-     * @param destination The destination to be added to the call.
-     * @param userData userdata to be included with the request
+     * Perform a single-step conference to the specified destination. This adds the destination to the 
+     * existing call, creating a conference if necessary.
+     * @param connId The connection ID of the call to conference.
+     * @param destination The number to be added to the call.
+     * @param userData Key/value data to include with the call. (optional)
      *
      */
     public void singleStepConference(
@@ -980,14 +996,15 @@ public class VoiceApi {
     }
 
     /**
-     * Perform a single-step conference to the specififed destination. This will effectively add the
-     * destination to the existing call, creating a conference if necessary.
-     * @param connId The id of the call to conference.
-     * @param destination The destination to be added to the call.
-     * @param location
-     * @param userData userdata to be included with the request
-     * @param reasons reasons
-     * @param extensions extensions
+     * Perform a single-step conference to the specified destination. This adds the destination to the 
+     * existing call, creating a conference if necessary.
+     * @param connId The connection ID of the call to conference.
+     * @param destination The number to be added to the call.
+     * @param location The name of the remote location in the form of <T-ServerApplicationName>@. This value is used by Workspace to set the location attribute 
+     * for the corresponding T-Server requests. (optional)
+     * @param userData Key/value data to include with the call. (optional)
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void singleStepConference(
             String connId,
@@ -1016,9 +1033,9 @@ public class VoiceApi {
     }
 
     /**
-     * Attach the provided data to the call. This adds the data to the call even if data already exists
+     * Attach the provided data to the call. This adds the data to the call even if data already exists 
      * with the provided keys.
-     * @param connId The id of the call to attach data to.
+     * @param connId The connection ID of the call.
      * @param userData The data to attach to the call. This is an array of objects with the properties key, type, and value.
      */
     public void attachUserData(String connId, Map<String,Object> userData) throws WorkspaceApiException {
@@ -1036,9 +1053,9 @@ public class VoiceApi {
     }
 
     /**
-     * Update call data with the provided key/value pairs. This will replace any existing kvpairs with the same keys.
-     * @param connId The id of the call to update data for.
-     * @param userData The data to update. This is an array of objecvts with the properties key, type, and value.
+     * Update call data with the provided key/value pairs. This will replace any existing key/value pairs with the same keys.
+     * @param connId The connection ID of the call.
+     * @param userData The data to update. This is an array of objects with the properties key, type, and value.
      */
     public void updateUserData(String connId, Map<String,Object> userData) throws WorkspaceApiException {
         try {
@@ -1056,8 +1073,8 @@ public class VoiceApi {
 
     /**
      * Delete data with the specified key from the call.
-     * @param connId The call to remove data from.
-     * @param key The key to remove.
+     * @param connId The connection ID of the call. 
+     * @param key The key of the data to remove.
      */
     public void deleteUserDataPair(String connId, String key) throws WorkspaceApiException {
         try {
@@ -1075,20 +1092,20 @@ public class VoiceApi {
     }
 
     /**
-     * Send DTMF digits to the specififed call.
-     * @param connId The call to send DTMF digits to.
-     * @param digits The DTMF digits to send.
+     * Send DTMF digits to the specified call. 
+     * @param connId The connection ID of the call.
+     * @param digits The DTMF digits to send to the call.
      */
     public void sendDTMF(String connId, String digits) throws WorkspaceApiException {
         this.sendDTMF(connId, digits, null, null);
     }
 
     /**
-     * Send DTMF digits to the specififed call.
-     * @param connId The call to send DTMF digits to.
-     * @param digits The DTMF digits to send.
-     * @param reasons reasons
-     * @param extensions extensions
+     * Send DTMF digits to the specified call. 
+     * @param connId The connection ID of the call.
+     * @param digits The DTMF digits to send to the call.
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void sendDTMF(
             String connId,
@@ -1112,7 +1129,7 @@ public class VoiceApi {
     }
 
     /**
-     * Send EventUserEvent with the provided data.
+     * Send EventUserEvent with the provided data for the specified call. 
      * @param userData The data to be sent. This is an array of objects with the properties key, type, and value.
      */
     public void sendUserEvent(Map<String,Object> userData) throws WorkspaceApiException {
@@ -1120,9 +1137,9 @@ public class VoiceApi {
     }
 
     /**
-     * Send EventUserEvent with the provided data.
+     * Send EventUserEvent with the provided data for the specified call. 
      * @param userData The data to be sent. This is an array of objects with the properties key, type, and value.
-     * @param callUuid The callUuid that the event will be associated with.
+     * @param callUuid The universally unique identifier for the call that the event will be associated with. (optional)
      */
     public void sendUserEvent(Map<String,Object> userData, String callUuid) throws WorkspaceApiException {
         try {
@@ -1141,9 +1158,9 @@ public class VoiceApi {
     }
 
     /**
-     * Redirect call to the specified destination
-     * @param connId The connId of the call to redirect.
-     * @param destination The destination to redirect the call to.
+     * Redirect a call to the specified destination.
+     * @param connId The connection ID of the call to redirect.
+     * @param destination The number where Workspace should redirect the call.
      */
     public void redirectCall(String connId, String destination) throws WorkspaceApiException {
         this.redirectCall(connId, destination, null, null);
@@ -1151,10 +1168,10 @@ public class VoiceApi {
 
     /**
      * Redirect call to the specified destination
-     * @param connId The connId of the call to redirect.
-     * @param destination The destination to redirect the call to.
-     * @param reasons reasons
-     * @param extensions extensions
+     * @param connId The connection ID of the call to redirect.
+     * @param destination The number where Workspace should redirect the call.
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void redirectCall(
             String connId,
@@ -1178,9 +1195,9 @@ public class VoiceApi {
     }
 
     /**
-     * Merge the two specified calls.
-     * @param connId The id of the first call to be merged.
-     * @param otherConnId The id of the second call to be merged.
+     * Merge the two specified calls. 
+     * @param connId The connection ID of the first call to be merged.
+     * @param otherConnId The connection ID of the second call to be merged.
      */
     public void mergeCalls(String connId, String otherConnId) throws WorkspaceApiException {
         this.mergeCalls(connId, otherConnId, null, null);
@@ -1188,10 +1205,10 @@ public class VoiceApi {
 
     /**
      * Merge the two specified calls.
-     * @param connId The id of the first call to be merged.
-     * @param otherConnId The id of the second call to be merged.
-     * @param reasons reasons
-     * @param extensions extensions
+     * @param connId The connection ID of the first call to be merged.
+     * @param otherConnId The connection ID of the second call to be merged.
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void mergeCalls(
             String connId,
@@ -1216,22 +1233,22 @@ public class VoiceApi {
     }
 
     /**
-     * Reconnect the specified call. Reconnect releases the established call and retrieves the held call
+     * Reconnect the specified call. This releases the established call and retrieves the held call
      * in one step.
-     * @param connId The id of the established call (will be released)
-     * @param heldConnId The id of the held call (will be retrieved)
+     * @param connId The connection ID of the established call (will be released).
+     * @param heldConnId The ID of the held call (will be retrieved).
      */
     public void reconnectCall(String connId, String heldConnId) throws WorkspaceApiException {
         this.reconnectCall(connId, heldConnId, null, null);
     }
 
     /**
-     * Reconnect the specified call. Reconnect releases the established call and retrieves the held call
+     * Reconnect the specified call. This releases the established call and retrieves the held call
      * in one step.
-     * @param connId The id of the established call (will be released)
-     * @param heldConnId The id of the held call (will be retrieved)
-     * @param reasons reasons
-     * @param extensions extensions
+     * @param connId The connection ID of the established call (will be released).
+     * @param heldConnId The ID of the held call (will be retrieved).
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void reconnectCall(
             String connId,
@@ -1256,18 +1273,18 @@ public class VoiceApi {
     }
 
     /**
-     * Clear call.
-     * @param connId The connId of the call to clear
+     * End the conference call for all parties. This can be performed by any agent participating in the conference.
+     * @param connId The connection ID of the call to clear.
      */
     public void clearCall(String connId) throws WorkspaceApiException {
         this.clearCall(connId, null, null);
     }
 
     /**
-     * Clear call.
-     * @param connId The connId of the call to clear
-     * @param reasons reasons
-     * @param extensions extensions
+     * End the conference call for all parties. This can be performed by any agent participating in the conference.
+     * @param connId The connection ID of the call to clear.
+     * @param reasons A collection of key/value pairs. For details about reasons, refer to the Genesys Events and Models Reference Manual. (optional)
+     * @param extensions A collection of key/value pairs. For details about extensions, refer to the Genesys Events and Models Reference Manual. (optional)
      */
     public void clearCall(
             String connId,
@@ -1290,8 +1307,9 @@ public class VoiceApi {
     }
 
     /**
-     * Start call recording
-     * @param connId The id of the call to start recording.
+     * Start recording the specified call. Recording stops when the call is completed or you send stopRecording 
+     * on either the call or the DN.
+     * @param connId The connection ID of the call.
      */
     public void startRecording(String connId) throws WorkspaceApiException {
         try {
@@ -1303,8 +1321,8 @@ public class VoiceApi {
     }
 
     /**
-     * Pause call recording.
-     * @param connId The id of the call to pause recording on.
+     * Pause recording on the specified call.
+     * @param connId The connection ID of the call.
      */
     public void pauseRecording(String connId) throws WorkspaceApiException {
         try {
@@ -1316,8 +1334,8 @@ public class VoiceApi {
     }
 
     /**
-     * Resume call recording.
-     * @param connId The id of the call to resume recording.
+     * Resume recording the specified call.
+     * @param connId The connection ID of the call.
      */
     public void resumeRecording(String connId) throws WorkspaceApiException {
         try {
@@ -1329,8 +1347,8 @@ public class VoiceApi {
     }
 
     /**
-     * Stop call recording
-     * @param connId The id of the call to stop recording.
+     * Stop recording the specified call.
+     * @param connId The connection ID of the call.
      */
     public void stopRecording(String connId) throws WorkspaceApiException {
         try {
