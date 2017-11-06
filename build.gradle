@@ -72,6 +72,14 @@ task incrementBuildNumber {
     }
 }
 
+// Temporary fix for strict JavaDoc comments check in Java 1.8
+if (JavaVersion.current().isJava8Compatible()) {
+    tasks.withType(Javadoc) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+    }
+}
+
+
 task javadocJar(type: Jar) {
     classifier = 'javadoc'
     from javadoc
@@ -89,12 +97,6 @@ artifacts {
 task execute(type:JavaExec) {
    main = System.getProperty('mainClass')
    classpath = sourceSets.main.runtimeClasspath
-}
-
-javadoc {
-    source = sourceSets.main.allJava
-    classpath = configurations.compile
-    options.tags = [ "summary", "title", "servicetag", "statuscode", "responseheader" ]
 }
 
 uploadArchives {
