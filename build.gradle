@@ -91,6 +91,12 @@ task execute(type:JavaExec) {
    classpath = sourceSets.main.runtimeClasspath
 }
 
+javadoc {
+    source = sourceSets.main.allJava
+    classpath = configurations.compile
+    options.tags = [ "summary", "title", "servicetag", "statuscode", "responseheader" ]
+}
+
 uploadArchives {
   repositories {
     mavenDeployer {
