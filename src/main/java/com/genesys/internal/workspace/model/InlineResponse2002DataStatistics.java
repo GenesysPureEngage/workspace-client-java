@@ -28,7 +28,7 @@ import java.io.IOException;
  * The list of all the statitstics in given subscription as kvp.
  */
 @ApiModel(description = "The list of all the statitstics in given subscription as kvp.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T23:36:55.362Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-06T17:40:36.209Z")
 public class InlineResponse2002DataStatistics {
   @SerializedName("statisticId1")
   private StatisticValueForPeekResponse statisticId1 = null;

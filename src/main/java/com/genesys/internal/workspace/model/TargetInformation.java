@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * TargetInformation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T23:36:55.362Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-06T17:40:36.209Z")
 public class TargetInformation {
   @SerializedName("type")
   private String type = null;
