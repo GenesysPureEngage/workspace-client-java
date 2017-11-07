@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * GetContactsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-07T14:00:40.535Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-07T18:52:51.196Z")
 public class GetContactsData {
   @SerializedName("data")
   private UcsgetcontactsData data = null;
