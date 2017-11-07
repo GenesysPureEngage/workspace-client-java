@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * MediamediatypenotreadyData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-07T12:04:31.887Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-07T14:00:40.535Z")
 public class MediamediatypenotreadyData {
   @SerializedName("reasonCode")
   private String reasonCode = null;
