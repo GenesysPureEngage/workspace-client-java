@@ -4,7 +4,6 @@ import com.genesys.internal.common.ApiException;
 import com.genesys.internal.workspace.model.ApiSuccessResponse;
 import com.genesys.workspace.common.StatusCode;
 import com.genesys.workspace.common.WorkspaceApiException;
-import java.util.HashMap;
 import org.cometd.bayeux.Message;
 import org.junit.Before;
 import org.junit.Test;
@@ -87,7 +86,7 @@ public class VoiceTest {
     
     @Test
     public void attachUserData() throws WorkspaceApiException {
-        api.attachUserData(Objects.CALL_ID, new HashMap<>());
+        api.attachUserData(Objects.CALL_ID, Objects.makeUserData());
     }
     
     @Test

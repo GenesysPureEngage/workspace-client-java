@@ -28,10 +28,7 @@ public class KeyValueCollection implements Iterable<KeyValuePair> {
         return pair != null? pair.getStringValue(): null;
     }
 
-    public void getKeyValuePairs() {
-        this.data.values().iterator();
-    }
-
+    @Override
     public Iterator<KeyValuePair> iterator() {
         return this.data.values().iterator();
     }
