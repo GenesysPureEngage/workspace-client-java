@@ -309,30 +309,33 @@ public class Util {
         }
     }
     
-    public static List<Kvpair> toKVList(Map<String, Object> map) {
+    public static List<Kvpair> toKVList(KeyValueCollection collection) {
         List<Kvpair> list = new ArrayList<>();
-        if(map != null) {
-            for (Map.Entry<String, Object> entry : map.entrySet()) {
-                String key = entry.getKey();
-                Object value = entry.getValue();
-                String type = "str";
-
-                if(value instanceof Integer) {
-                    type = "int";
-                }
-                else if(value instanceof Map) {
-                    type = "kvlist";
-                    value = toKVList((Map<String, Object>) value);
+        if(collection != null) {
+            for(KeyValuePair p: collection) {
+                String key = p.getKey();
+                Object value = p.getValue();
+                String type;
+                switch(p.getValueType()) {
+                    case INT: 
+                        type = "int";
+                        break;
+                    case LIST:
+                        type = "kvlist";
+                        value = toKVList((KeyValueCollection)value);
+                        break;
+                    default:
+                        type = "str";
+                        break;
                 }
 
                 Kvpair pair = new Kvpair();
                 pair.setKey(key);
                 pair.setType(type);
                 pair.setValue(value);
-
                 list.add(pair);
             }
-        }        
+        }
         
         return list;
     }
