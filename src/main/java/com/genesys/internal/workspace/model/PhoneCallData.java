@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * PhoneCallData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-06T22:15:30.697Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-07T07:13:24.317Z")
 public class PhoneCallData {
   @SerializedName("data")
   private UcsfindorcreatephonecallData data = null;
