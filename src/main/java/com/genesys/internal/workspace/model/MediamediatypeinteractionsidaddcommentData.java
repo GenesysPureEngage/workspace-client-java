@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * MediamediatypeinteractionsidaddcommentData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-07T10:27:28.937Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-07T12:04:31.887Z")
 public class MediamediatypeinteractionsidaddcommentData {
   @SerializedName("comment")
   private String comment = null;
