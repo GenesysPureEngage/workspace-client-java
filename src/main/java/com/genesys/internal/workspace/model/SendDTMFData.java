@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * SendDTMFData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-08T08:43:05.866Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-09T20:29:21.415Z")
 public class SendDTMFData {
   @SerializedName("data")
   private VoicecallsidsenddtmfData data = null;
