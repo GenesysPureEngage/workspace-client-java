@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CallCompletedData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-10T20:33:31.463Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-10T21:20:09.925Z")
 public class CallCompletedData {
   @SerializedName("data")
   private UcssetcallcompletedData data = null;
