@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * UcsidentifycontactData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-12T07:48:42.288Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-12T09:04:37.293Z")
 public class UcsidentifycontactData {
   @SerializedName("createContactEnabled")
   private Boolean createContactEnabled = null;
