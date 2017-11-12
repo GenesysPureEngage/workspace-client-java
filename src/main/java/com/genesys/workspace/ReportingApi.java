@@ -10,7 +10,6 @@ import com.genesys.internal.workspace.model.InlineResponse2002Data;
 import com.genesys.internal.workspace.model.ReportingunsubscribeData;
 import com.genesys.internal.workspace.model.StatisticValueForPeekResponse;
 import com.genesys.internal.workspace.model.StatisticValueForRegister;
-import com.genesys.internal.workspace.model.StatisticValueForRegisterResponse;
 import com.genesys.internal.workspace.model.StatisticsRegisterData;
 import com.genesys.internal.workspace.model.StatisticsRegisterDataData;
 import com.genesys.internal.workspace.model.StatisticsSubscribeData;
@@ -20,7 +19,6 @@ import com.genesys.workspace.common.WorkspaceApiException;
 import com.genesys.workspace.models.SubscribeData;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 public class ReportingApi {
     private com.genesys.internal.workspace.api.ReportingApi api;
@@ -58,7 +56,7 @@ public class ReportingApi {
      * Subscribe to a group of statistics. The values are returned when you request them using peek(). 
      * @param statistics The collection of statistic you want to include in your subscription.
      */
-    public List<StatisticValueForRegisterResponse> register(Collection<StatisticValueForRegister> statistics) throws WorkspaceApiException {
+    public SubscribeData register(Collection<StatisticValueForRegister> statistics) throws WorkspaceApiException {
         try {
             StatisticsRegisterData statisticsData = new StatisticsRegisterData();
             StatisticsRegisterDataData data = new StatisticsRegisterDataData();
@@ -71,8 +69,11 @@ public class ReportingApi {
             if(respData == null) {
                 throw new WorkspaceApiException("Response data is empty");
             }
-            
-            return respData.getStatistics();
+
+            SubscribeData result = new SubscribeData();
+            result.setSubscriptionId(respData.getSubscriptionId());
+            result.setStatistics(respData.getStatistics());
+            return result;
         }
         catch(ApiException ex) {
             throw new WorkspaceApiException("Cannot register", ex);
