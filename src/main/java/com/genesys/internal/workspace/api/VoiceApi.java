@@ -95,7 +95,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call alternateCall(String id, AlternateData alternateData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = alternateData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/alternate"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -134,7 +134,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call alternateValidateBeforeCall(String id, AlternateData alternateData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -148,14 +148,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'alternateData' when calling alternate(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = alternateCall(id, alternateData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -231,7 +227,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call answerCall(String id, AnswerData answerData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = answerData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/answer"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -270,7 +266,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call answerValidateBeforeCall(String id, AnswerData answerData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -279,14 +275,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'id' when calling answer(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = answerCall(id, answerData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -362,7 +354,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call attachUserDataCall(String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = userData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/attach-user-data"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -401,7 +393,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call attachUserDataValidateBeforeCall(String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -415,14 +407,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'userData' when calling attachUserData(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = attachUserDataCall(id, userData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -496,7 +484,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call cancelForwardCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/voice/cancel-forward";
 
@@ -534,18 +522,14 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call cancelForwardValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = cancelForwardCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -615,7 +599,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call clearCall(String id, ClearData clearData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = clearData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/clear"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -654,7 +638,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call clearValidateBeforeCall(String id, ClearData clearData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -668,14 +652,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'clearData' when calling clear(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = clearCall(id, clearData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -751,7 +731,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call completeCallCall(String id, UserData1 userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = userData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/complete"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -790,7 +770,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call completeCallValidateBeforeCall(String id, UserData1 userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -804,14 +784,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'userData' when calling completeCall(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = completeCallCall(id, userData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -887,7 +863,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call completeConferenceCall(String id, CompleteConferenceData completeConferenceData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = completeConferenceData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/complete-conference"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -926,7 +902,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call completeConferenceValidateBeforeCall(String id, CompleteConferenceData completeConferenceData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -940,14 +916,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'completeConferenceData' when calling completeConference(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = completeConferenceCall(id, completeConferenceData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1023,7 +995,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call completeTransferCall(String id, CompleteTransferData completeTransferData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = completeTransferData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/complete-transfer"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -1062,7 +1034,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call completeTransferValidateBeforeCall(String id, CompleteTransferData completeTransferData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1076,14 +1048,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'completeTransferData' when calling completeTransfer(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = completeTransferCall(id, completeTransferData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1159,7 +1127,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call deleteFromConferenceCall(String id, DeleteFromConferenceData deleteFromConferenceData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = deleteFromConferenceData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/delete-from-conference"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -1198,7 +1166,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteFromConferenceValidateBeforeCall(String id, DeleteFromConferenceData deleteFromConferenceData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1212,14 +1180,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'deleteFromConferenceData' when calling deleteFromConference(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteFromConferenceCall(id, deleteFromConferenceData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1295,7 +1259,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call deleteUserDataPairCall(String id, KeyData keyData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = keyData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/delete-user-data-pair"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -1334,7 +1298,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteUserDataPairValidateBeforeCall(String id, KeyData keyData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1348,14 +1312,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'keyData' when calling deleteUserDataPair(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteUserDataPairCall(id, keyData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1430,7 +1390,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call forwardCall(ForwardData forwardData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = forwardData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/set-forward";
 
@@ -1468,7 +1428,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call forwardValidateBeforeCall(ForwardData forwardData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1477,14 +1437,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'forwardData' when calling forward(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = forwardCall(forwardData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1555,7 +1511,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call getCallsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls";
 
@@ -1593,18 +1549,14 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getCallsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getCallsCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1674,7 +1626,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call holdCall(String id, HoldData holdData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = holdData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/hold"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -1713,7 +1665,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call holdValidateBeforeCall(String id, HoldData holdData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1722,14 +1674,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'id' when calling hold(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = holdCall(id, holdData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1805,7 +1753,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call initiateConferenceCall(String id, InitiateConferenceData initiateConferenceData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = initiateConferenceData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/initiate-conference"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -1844,7 +1792,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call initiateConferenceValidateBeforeCall(String id, InitiateConferenceData initiateConferenceData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1858,14 +1806,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'initiateConferenceData' when calling initiateConference(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = initiateConferenceCall(id, initiateConferenceData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1941,7 +1885,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call initiateTransferCall(String id, InitiateTransferData initiateTransferData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = initiateTransferData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/initiate-transfer"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -1980,7 +1924,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call initiateTransferValidateBeforeCall(String id, InitiateTransferData initiateTransferData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1994,14 +1938,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'initiateTransferData' when calling initiateTransfer(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = initiateTransferCall(id, initiateTransferData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2075,7 +2015,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call loginVoiceCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/voice/login";
 
@@ -2113,18 +2053,14 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call loginVoiceValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = loginVoiceCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2192,7 +2128,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call logoutVoiceCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/voice/logout";
 
@@ -2230,18 +2166,14 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call logoutVoiceValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = logoutVoiceCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2310,7 +2242,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call makeCallCall(MakeCallData makeCallData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = makeCallData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/make-call";
 
@@ -2348,7 +2280,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call makeCallValidateBeforeCall(MakeCallData makeCallData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2357,14 +2289,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'makeCallData' when calling makeCall(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = makeCallCall(makeCallData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2437,7 +2365,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call mergeCall(String id, MergeData mergeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = mergeData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/merge"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -2476,7 +2404,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call mergeValidateBeforeCall(String id, MergeData mergeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2490,14 +2418,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'mergeData' when calling merge(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = mergeCall(id, mergeData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2572,7 +2496,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call pauseRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/pause-recording"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -2611,7 +2535,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call pauseRecordingValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2620,14 +2544,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'id' when calling pauseRecording(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = pauseRecordingCall(id, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2700,7 +2620,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call reconnectCall(String id, ReconnectData reconnectData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = reconnectData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/reconnect"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -2739,7 +2659,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call reconnectValidateBeforeCall(String id, ReconnectData reconnectData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2753,14 +2673,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'reconnectData' when calling reconnect(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = reconnectCall(id, reconnectData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2836,7 +2752,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call redirectCall(String id, RedirectData redirectData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = redirectData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/redirect"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -2875,7 +2791,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call redirectValidateBeforeCall(String id, RedirectData redirectData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2889,14 +2805,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'redirectData' when calling redirect(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = redirectCall(id, redirectData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2972,7 +2884,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call releaseCall(String id, ReleaseData releaseData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = releaseData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/release"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -3011,7 +2923,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call releaseValidateBeforeCall(String id, ReleaseData releaseData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -3020,14 +2932,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'id' when calling release(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = releaseCall(id, releaseData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -3102,7 +3010,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call resumeRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/resume-recording"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -3141,7 +3049,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call resumeRecordingValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -3150,14 +3058,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'id' when calling resumeRecording(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = resumeRecordingCall(id, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -3230,7 +3134,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call retrieveCall(String id, RetrieveData retrieveData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = retrieveData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/retrieve"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -3269,7 +3173,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call retrieveValidateBeforeCall(String id, RetrieveData retrieveData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -3278,14 +3182,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'id' when calling retrieve(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = retrieveCall(id, retrieveData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -3361,7 +3261,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call sendDTMFCall(String id, SendDTMFData sendDTMFData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = sendDTMFData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/send-dtmf"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -3400,7 +3300,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call sendDTMFValidateBeforeCall(String id, SendDTMFData sendDTMFData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -3414,14 +3314,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'sendDTMFData' when calling sendDTMF(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = sendDTMFCall(id, sendDTMFData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -3496,7 +3392,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call sendUserEventCall(SendUserEventData userEventData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = userEventData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/send-user-event";
 
@@ -3534,7 +3430,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call sendUserEventValidateBeforeCall(SendUserEventData userEventData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -3543,14 +3439,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'userEventData' when calling sendUserEvent(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = sendUserEventCall(userEventData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -3622,7 +3514,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call setAgentStateNotReadyCall(NotReadyData notReadyData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = notReadyData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/not-ready";
 
@@ -3660,18 +3552,14 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call setAgentStateNotReadyValidateBeforeCall(NotReadyData notReadyData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = setAgentStateNotReadyCall(notReadyData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -3743,7 +3631,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call setAgentStateReadyCall(ReadyData readyData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = readyData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/ready";
 
@@ -3781,18 +3669,14 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call setAgentStateReadyValidateBeforeCall(ReadyData readyData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = setAgentStateReadyCall(readyData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -3863,7 +3747,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call setDNDOffCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/voice/dnd-off";
 
@@ -3901,18 +3785,14 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call setDNDOffValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = setDNDOffCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -3980,7 +3860,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call setDNDOnCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/voice/dnd-on";
 
@@ -4018,18 +3898,14 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call setDNDOnValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = setDNDOnCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -4099,7 +3975,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call singleStepConferenceCall(String id, SingleStepConferenceData singleStepConferenceData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = singleStepConferenceData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/single-step-conference"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -4138,7 +4014,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call singleStepConferenceValidateBeforeCall(String id, SingleStepConferenceData singleStepConferenceData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -4152,14 +4028,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'singleStepConferenceData' when calling singleStepConference(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = singleStepConferenceCall(id, singleStepConferenceData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -4235,7 +4107,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call singleStepTransferCall(String id, SingleStepTransferData singleStepTransferData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = singleStepTransferData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/single-step-transfer"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -4274,7 +4146,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call singleStepTransferValidateBeforeCall(String id, SingleStepTransferData singleStepTransferData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -4288,14 +4160,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'singleStepTransferData' when calling singleStepTransfer(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = singleStepTransferCall(id, singleStepTransferData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -4370,7 +4238,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call startMonitoringCall(StartMonitoringData startMonitoringData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = startMonitoringData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/start-monitoring";
 
@@ -4408,7 +4276,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call startMonitoringValidateBeforeCall(StartMonitoringData startMonitoringData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -4417,14 +4285,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'startMonitoringData' when calling startMonitoring(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = startMonitoringCall(startMonitoringData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -4496,7 +4360,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call startRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/start-recording"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -4535,7 +4399,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call startRecordingValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -4544,14 +4408,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'id' when calling startRecording(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = startRecordingCall(id, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -4623,7 +4483,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call stopMonitoringCall(StopMonitoringData stopMonitoringData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = stopMonitoringData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/stop-monitoring";
 
@@ -4661,7 +4521,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call stopMonitoringValidateBeforeCall(StopMonitoringData stopMonitoringData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -4670,14 +4530,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'stopMonitoringData' when calling stopMonitoring(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = stopMonitoringCall(stopMonitoringData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -4749,7 +4605,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call stopRecordingCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/stop-recording"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -4788,7 +4644,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call stopRecordingValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -4797,14 +4653,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'id' when calling stopRecording(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = stopRecordingCall(id, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -4877,7 +4729,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call switchToBargeInCall(String id, MonitoringScopeData monitoringScopeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = monitoringScopeData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/switch-to-barge-in"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -4916,7 +4768,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call switchToBargeInValidateBeforeCall(String id, MonitoringScopeData monitoringScopeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -4925,14 +4777,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'id' when calling switchToBargeIn(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = switchToBargeInCall(id, monitoringScopeData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -5008,7 +4856,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call switchToCoachingCall(String id, MonitoringScopeData monitoringScopeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = monitoringScopeData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/switch-to-coaching"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -5047,7 +4895,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call switchToCoachingValidateBeforeCall(String id, MonitoringScopeData monitoringScopeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -5056,14 +4904,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'id' when calling switchToCoaching(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = switchToCoachingCall(id, monitoringScopeData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -5139,7 +4983,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call switchToListenInCall(String id, MonitoringScopeData monitoringScopeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = monitoringScopeData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/switch-to-listen-in"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -5178,7 +5022,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call switchToListenInValidateBeforeCall(String id, MonitoringScopeData monitoringScopeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -5187,14 +5031,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'id' when calling switchToListenIn(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = switchToListenInCall(id, monitoringScopeData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -5270,7 +5110,7 @@ public class VoiceApi {
      */
     public com.squareup.okhttp.Call updateUserDataCall(String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = userData;
-        
+
         // create path and map variables
         String localVarPath = "/voice/calls/{id}/update-user-data"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -5309,7 +5149,7 @@ public class VoiceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateUserDataValidateBeforeCall(String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -5323,14 +5163,10 @@ public class VoiceApi {
             throw new ApiException("Missing the required parameter 'userData' when calling updateUserData(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateUserDataCall(id, userData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

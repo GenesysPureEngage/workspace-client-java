@@ -68,7 +68,7 @@ public class TargetsApi {
      */
     public com.squareup.okhttp.Call ackRecentMissedCallsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/targets/recents/ack-missed-calls";
 
@@ -106,18 +106,14 @@ public class TargetsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call ackRecentMissedCallsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = ackRecentMissedCallsCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -186,7 +182,7 @@ public class TargetsApi {
      */
     public com.squareup.okhttp.Call addRecentTargetCall(RecentTargetData recentTargetData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = recentTargetData;
-        
+
         // create path and map variables
         String localVarPath = "/targets/recents/add";
 
@@ -224,7 +220,7 @@ public class TargetsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call addRecentTargetValidateBeforeCall(RecentTargetData recentTargetData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -233,14 +229,10 @@ public class TargetsApi {
             throw new ApiException("Missing the required parameter 'recentTargetData' when calling addRecentTarget(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = addRecentTargetCall(recentTargetData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -313,7 +305,7 @@ public class TargetsApi {
      */
     public com.squareup.okhttp.Call deletePersonalFavoriteCall(String id, String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/targets/personal-favorites/delete/{type}/{id}"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
@@ -353,7 +345,7 @@ public class TargetsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deletePersonalFavoriteValidateBeforeCall(String id, String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -367,14 +359,10 @@ public class TargetsApi {
             throw new ApiException("Missing the required parameter 'type' when calling deletePersonalFavorite(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deletePersonalFavoriteCall(id, type, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -457,7 +445,7 @@ public class TargetsApi {
      */
     public com.squareup.okhttp.Call getCall(String searchTerm, String filterName, String types, String excludeGroup, String excludeFromGroup, String restrictToGroup, String sort, BigDecimal limit, String matchType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/targets";
 
@@ -513,7 +501,7 @@ public class TargetsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getValidateBeforeCall(String searchTerm, String filterName, String types, String excludeGroup, String excludeFromGroup, String restrictToGroup, String sort, BigDecimal limit, String matchType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -522,14 +510,10 @@ public class TargetsApi {
             throw new ApiException("Missing the required parameter 'searchTerm' when calling get(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getCall(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -625,7 +609,7 @@ public class TargetsApi {
      */
     public com.squareup.okhttp.Call getPersonalFavoritesCall(BigDecimal limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/targets/personal-favorites";
 
@@ -665,18 +649,14 @@ public class TargetsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getPersonalFavoritesValidateBeforeCall(BigDecimal limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getPersonalFavoritesCall(limit, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -748,7 +728,7 @@ public class TargetsApi {
      */
     public com.squareup.okhttp.Call getRecentTargetsCall(BigDecimal limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/targets/recents";
 
@@ -788,18 +768,14 @@ public class TargetsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getRecentTargetsValidateBeforeCall(BigDecimal limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getRecentTargetsCall(limit, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -872,7 +848,7 @@ public class TargetsApi {
      */
     public com.squareup.okhttp.Call getTargetCall(BigDecimal id, String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/targets/{type}/{id}"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
@@ -912,7 +888,7 @@ public class TargetsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTargetValidateBeforeCall(BigDecimal id, String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -926,14 +902,10 @@ public class TargetsApi {
             throw new ApiException("Missing the required parameter 'type' when calling getTarget(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getTargetCall(id, type, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1008,7 +980,7 @@ public class TargetsApi {
      */
     public com.squareup.okhttp.Call savePersonalFavoriteCall(PersonalFavoriteData personalFavoriteData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = personalFavoriteData;
-        
+
         // create path and map variables
         String localVarPath = "/targets/personal-favorites/save";
 
@@ -1046,7 +1018,7 @@ public class TargetsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call savePersonalFavoriteValidateBeforeCall(PersonalFavoriteData personalFavoriteData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1055,14 +1027,10 @@ public class TargetsApi {
             throw new ApiException("Missing the required parameter 'personalFavoriteData' when calling savePersonalFavorite(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = savePersonalFavoriteCall(personalFavoriteData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

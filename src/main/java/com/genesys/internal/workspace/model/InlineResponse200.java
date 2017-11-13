@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * InlineResponse200
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-12T22:04:42.398Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-13T19:20:18.503Z")
 public class InlineResponse200 {
   @SerializedName("status")
   private InlineResponse200Status status = null;
@@ -45,7 +45,7 @@ public class InlineResponse200 {
    * Get status
    * @return status
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public InlineResponse200Status getStatus() {
     return status;
   }

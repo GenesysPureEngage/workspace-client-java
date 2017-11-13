@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * PlaceInQueueData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-12T22:04:42.398Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-13T19:20:18.503Z")
 public class PlaceInQueueData {
   @SerializedName("data")
   private MediamediatypeinteractionsidplaceinqueueData data = null;
@@ -41,7 +41,7 @@ public class PlaceInQueueData {
    * Get data
    * @return data
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public MediamediatypeinteractionsidplaceinqueueData getData() {
     return data;
   }

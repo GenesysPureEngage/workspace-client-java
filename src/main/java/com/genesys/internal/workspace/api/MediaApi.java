@@ -77,7 +77,7 @@ public class MediaApi {
      */
     public com.squareup.okhttp.Call acceptCall(String mediatype, String id, AcceptData acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = acceptData;
-        
+
         // create path and map variables
         String localVarPath = "/media/{mediatype}/interactions/{id}/accept"
             .replaceAll("\\{" + "mediatype" + "\\}", apiClient.escapeString(mediatype.toString()))
@@ -117,7 +117,7 @@ public class MediaApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call acceptValidateBeforeCall(String mediatype, String id, AcceptData acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -131,14 +131,10 @@ public class MediaApi {
             throw new ApiException("Missing the required parameter 'id' when calling accept(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = acceptCall(mediatype, id, acceptData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -218,7 +214,7 @@ public class MediaApi {
      */
     public com.squareup.okhttp.Call addCommentCall(String mediatype, String id, AddCommentData addCommentData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = addCommentData;
-        
+
         // create path and map variables
         String localVarPath = "/media/{mediatype}/interactions/{id}/add-comment"
             .replaceAll("\\{" + "mediatype" + "\\}", apiClient.escapeString(mediatype.toString()))
@@ -258,7 +254,7 @@ public class MediaApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call addCommentValidateBeforeCall(String mediatype, String id, AddCommentData addCommentData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -277,14 +273,10 @@ public class MediaApi {
             throw new ApiException("Missing the required parameter 'addCommentData' when calling addComment(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = addCommentCall(mediatype, id, addCommentData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -364,7 +356,7 @@ public class MediaApi {
      */
     public com.squareup.okhttp.Call addContentCall(String mediatype, String id, AddContentData addContentData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = addContentData;
-        
+
         // create path and map variables
         String localVarPath = "/media/{mediatype}/interactions/{id}/add-content"
             .replaceAll("\\{" + "mediatype" + "\\}", apiClient.escapeString(mediatype.toString()))
@@ -404,7 +396,7 @@ public class MediaApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call addContentValidateBeforeCall(String mediatype, String id, AddContentData addContentData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -418,14 +410,10 @@ public class MediaApi {
             throw new ApiException("Missing the required parameter 'id' when calling addContent(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = addContentCall(mediatype, id, addContentData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -504,7 +492,7 @@ public class MediaApi {
      */
     public com.squareup.okhttp.Call completeCall(String mediatype, String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/media/{mediatype}/interactions/{id}/complete"
             .replaceAll("\\{" + "mediatype" + "\\}", apiClient.escapeString(mediatype.toString()))
@@ -544,7 +532,7 @@ public class MediaApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call completeValidateBeforeCall(String mediatype, String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -558,14 +546,10 @@ public class MediaApi {
             throw new ApiException("Missing the required parameter 'id' when calling complete(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = completeCall(mediatype, id, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -642,7 +626,7 @@ public class MediaApi {
      */
     public com.squareup.okhttp.Call deleteUserDataCall(String mediatype, String id, UserData2 userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = userData;
-        
+
         // create path and map variables
         String localVarPath = "/media/{mediatype}/interactions/{id}/delete-user-data"
             .replaceAll("\\{" + "mediatype" + "\\}", apiClient.escapeString(mediatype.toString()))
@@ -682,7 +666,7 @@ public class MediaApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteUserDataValidateBeforeCall(String mediatype, String id, UserData2 userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -701,14 +685,10 @@ public class MediaApi {
             throw new ApiException("Missing the required parameter 'userData' when calling deleteUserData(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteUserDataCall(mediatype, id, userData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -785,7 +765,7 @@ public class MediaApi {
      */
     public com.squareup.okhttp.Call dndOffCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/media/dnd-off";
 
@@ -823,18 +803,14 @@ public class MediaApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call dndOffValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = dndOffCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -902,7 +878,7 @@ public class MediaApi {
      */
     public com.squareup.okhttp.Call dndOnCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/media/dnd-on";
 
@@ -940,18 +916,14 @@ public class MediaApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call dndOnValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = dndOnCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1019,7 +991,7 @@ public class MediaApi {
      */
     public com.squareup.okhttp.Call logoutAgentStateCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/media/logout";
 
@@ -1057,18 +1029,14 @@ public class MediaApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call logoutAgentStateValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = logoutAgentStateCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1139,7 +1107,7 @@ public class MediaApi {
      */
     public com.squareup.okhttp.Call mediaAttachUserDataCall(String mediatype, String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = userData;
-        
+
         // create path and map variables
         String localVarPath = "/media/{mediatype}/interactions/{id}/attach-user-data"
             .replaceAll("\\{" + "mediatype" + "\\}", apiClient.escapeString(mediatype.toString()))
@@ -1179,7 +1147,7 @@ public class MediaApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call mediaAttachUserDataValidateBeforeCall(String mediatype, String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1198,14 +1166,10 @@ public class MediaApi {
             throw new ApiException("Missing the required parameter 'userData' when calling mediaAttachUserData(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = mediaAttachUserDataCall(mediatype, id, userData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1285,7 +1249,7 @@ public class MediaApi {
      */
     public com.squareup.okhttp.Call mediaUpdateUserDataCall(String mediatype, String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = userData;
-        
+
         // create path and map variables
         String localVarPath = "/media/{mediatype}/interactions/{id}/update-user-data"
             .replaceAll("\\{" + "mediatype" + "\\}", apiClient.escapeString(mediatype.toString()))
@@ -1325,7 +1289,7 @@ public class MediaApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call mediaUpdateUserDataValidateBeforeCall(String mediatype, String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1344,14 +1308,10 @@ public class MediaApi {
             throw new ApiException("Missing the required parameter 'userData' when calling mediaUpdateUserData(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = mediaUpdateUserDataCall(mediatype, id, userData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1428,7 +1388,7 @@ public class MediaApi {
      */
     public com.squareup.okhttp.Call notReadyAgentStateCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/media/not-ready";
 
@@ -1466,18 +1426,14 @@ public class MediaApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call notReadyAgentStateValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = notReadyAgentStateCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1547,7 +1503,7 @@ public class MediaApi {
      */
     public com.squareup.okhttp.Call notReadyForMediaCall(String mediatype, NotReadyForMediaData notReadyForMediaData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = notReadyForMediaData;
-        
+
         // create path and map variables
         String localVarPath = "/media/{mediatype}/not-ready"
             .replaceAll("\\{" + "mediatype" + "\\}", apiClient.escapeString(mediatype.toString()));
@@ -1586,7 +1542,7 @@ public class MediaApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call notReadyForMediaValidateBeforeCall(String mediatype, NotReadyForMediaData notReadyForMediaData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1600,14 +1556,10 @@ public class MediaApi {
             throw new ApiException("Missing the required parameter 'notReadyForMediaData' when calling notReadyForMedia(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = notReadyForMediaCall(mediatype, notReadyForMediaData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1684,7 +1636,7 @@ public class MediaApi {
      */
     public com.squareup.okhttp.Call placeInQueueCall(String mediatype, String id, PlaceInQueueData placeInQueueData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = placeInQueueData;
-        
+
         // create path and map variables
         String localVarPath = "/media/{mediatype}/interactions/{id}/place-in-queue"
             .replaceAll("\\{" + "mediatype" + "\\}", apiClient.escapeString(mediatype.toString()))
@@ -1724,7 +1676,7 @@ public class MediaApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call placeInQueueValidateBeforeCall(String mediatype, String id, PlaceInQueueData placeInQueueData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1743,14 +1695,10 @@ public class MediaApi {
             throw new ApiException("Missing the required parameter 'placeInQueueData' when calling placeInQueue(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = placeInQueueCall(mediatype, id, placeInQueueData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1827,7 +1775,7 @@ public class MediaApi {
      */
     public com.squareup.okhttp.Call readyAgentStateCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/media/ready";
 
@@ -1865,18 +1813,14 @@ public class MediaApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call readyAgentStateValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = readyAgentStateCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1946,7 +1890,7 @@ public class MediaApi {
      */
     public com.squareup.okhttp.Call readyForMediaCall(String mediatype, ReadyForMediaData readyForMediaData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = readyForMediaData;
-        
+
         // create path and map variables
         String localVarPath = "/media/{mediatype}/ready"
             .replaceAll("\\{" + "mediatype" + "\\}", apiClient.escapeString(mediatype.toString()));
@@ -1985,7 +1929,7 @@ public class MediaApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call readyForMediaValidateBeforeCall(String mediatype, ReadyForMediaData readyForMediaData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1994,14 +1938,10 @@ public class MediaApi {
             throw new ApiException("Missing the required parameter 'mediatype' when calling readyForMedia(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = readyForMediaCall(mediatype, readyForMediaData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2078,7 +2018,7 @@ public class MediaApi {
      */
     public com.squareup.okhttp.Call rejectCall(String mediatype, String id, AcceptData1 acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = acceptData;
-        
+
         // create path and map variables
         String localVarPath = "/media/{mediatype}/interactions/{id}/reject"
             .replaceAll("\\{" + "mediatype" + "\\}", apiClient.escapeString(mediatype.toString()))
@@ -2118,7 +2058,7 @@ public class MediaApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call rejectValidateBeforeCall(String mediatype, String id, AcceptData1 acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2132,14 +2072,10 @@ public class MediaApi {
             throw new ApiException("Missing the required parameter 'id' when calling reject(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = rejectCall(mediatype, id, acceptData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2218,7 +2154,7 @@ public class MediaApi {
      */
     public com.squareup.okhttp.Call removeMediaCall(String mediatype, LogoutMediaData logoutMediaData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = logoutMediaData;
-        
+
         // create path and map variables
         String localVarPath = "/media/{mediatype}/logout"
             .replaceAll("\\{" + "mediatype" + "\\}", apiClient.escapeString(mediatype.toString()));
@@ -2257,7 +2193,7 @@ public class MediaApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call removeMediaValidateBeforeCall(String mediatype, LogoutMediaData logoutMediaData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2271,14 +2207,10 @@ public class MediaApi {
             throw new ApiException("Missing the required parameter 'logoutMediaData' when calling removeMedia(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = removeMediaCall(mediatype, logoutMediaData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

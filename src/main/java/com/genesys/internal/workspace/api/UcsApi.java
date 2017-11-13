@@ -82,7 +82,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call addStandardResponseFavoriteCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/responses/{id}/add-to-favorites"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -121,7 +121,7 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call addStandardResponseFavoriteValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -130,14 +130,10 @@ public class UcsApi {
             throw new ApiException("Missing the required parameter 'id' when calling addStandardResponseFavorite(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = addStandardResponseFavoriteCall(id, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -209,7 +205,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call assignInteractionToContactCall(AssignInteractionToContactData assignInteractionToContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = assignInteractionToContactData;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/assign-interaction-to-contact";
 
@@ -247,7 +243,7 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call assignInteractionToContactValidateBeforeCall(AssignInteractionToContactData assignInteractionToContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -256,14 +252,10 @@ public class UcsApi {
             throw new ApiException("Missing the required parameter 'assignInteractionToContactData' when calling assignInteractionToContact(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = assignInteractionToContactCall(assignInteractionToContactData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -334,7 +326,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call createContactCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/create-contact";
 
@@ -372,18 +364,14 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createContactValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = createContactCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -452,7 +440,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call deleteContactCall(DeleteContactData deleteContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = deleteContactData;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/delete-contact";
 
@@ -490,7 +478,7 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteContactValidateBeforeCall(DeleteContactData deleteContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -499,14 +487,10 @@ public class UcsApi {
             throw new ApiException("Missing the required parameter 'deleteContactData' when calling deleteContact(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteContactCall(deleteContactData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -578,7 +562,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call deleteStandardResponseFavoriteCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/responses/{id}/remove-from-favorites"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -617,7 +601,7 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteStandardResponseFavoriteValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -626,14 +610,10 @@ public class UcsApi {
             throw new ApiException("Missing the required parameter 'id' when calling deleteStandardResponseFavorite(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = deleteStandardResponseFavoriteCall(id, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -705,7 +685,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call findOrCreatePhoneCallCall(PhoneCallData phoneCallData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = phoneCallData;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/find-or-create-phone-call";
 
@@ -743,7 +723,7 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call findOrCreatePhoneCallValidateBeforeCall(PhoneCallData phoneCallData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -752,14 +732,10 @@ public class UcsApi {
             throw new ApiException("Missing the required parameter 'phoneCallData' when calling findOrCreatePhoneCall(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = findOrCreatePhoneCallCall(phoneCallData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -831,7 +807,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call getAgentHistoryCall(AgentHistoryData agentHistoryData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = agentHistoryData;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/get-agent-history";
 
@@ -869,18 +845,14 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getAgentHistoryValidateBeforeCall(AgentHistoryData agentHistoryData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getAgentHistoryCall(agentHistoryData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -953,7 +925,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call getCategoryCall(String id, GetCategoryData getCategoryData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = getCategoryData;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/responses/categories/{id}/get-details"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -992,7 +964,7 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getCategoryValidateBeforeCall(String id, GetCategoryData getCategoryData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1006,14 +978,10 @@ public class UcsApi {
             throw new ApiException("Missing the required parameter 'getCategoryData' when calling getCategory(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getCategoryCall(id, getCategoryData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1088,7 +1056,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call getContactDetailsCall(ContactDetailsData contactDetailsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = contactDetailsData;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/get-contact-details";
 
@@ -1126,7 +1094,7 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getContactDetailsValidateBeforeCall(ContactDetailsData contactDetailsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1135,14 +1103,10 @@ public class UcsApi {
             throw new ApiException("Missing the required parameter 'contactDetailsData' when calling getContactDetails(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getContactDetailsCall(contactDetailsData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1214,7 +1178,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call getContactHistoryCall(ContactHistoryData contactHistoryData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = contactHistoryData;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/get-contact-history";
 
@@ -1252,7 +1216,7 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getContactHistoryValidateBeforeCall(ContactHistoryData contactHistoryData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1261,14 +1225,10 @@ public class UcsApi {
             throw new ApiException("Missing the required parameter 'contactHistoryData' when calling getContactHistory(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getContactHistoryCall(contactHistoryData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1340,7 +1300,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call getContactsCall(GetContactsData getContactsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = getContactsData;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/get-contacts";
 
@@ -1378,7 +1338,7 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getContactsValidateBeforeCall(GetContactsData getContactsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1387,14 +1347,10 @@ public class UcsApi {
             throw new ApiException("Missing the required parameter 'getContactsData' when calling getContacts(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getContactsCall(getContactsData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1465,7 +1421,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call getIndexPropertiesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/get-index-properties";
 
@@ -1503,18 +1459,14 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getIndexPropertiesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getIndexPropertiesCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1583,7 +1535,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call getInteractionContentCall(InteractionContentData interactionContentData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = interactionContentData;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/get-interaction-content";
 
@@ -1621,7 +1573,7 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getInteractionContentValidateBeforeCall(InteractionContentData interactionContentData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1630,14 +1582,10 @@ public class UcsApi {
             throw new ApiException("Missing the required parameter 'interactionContentData' when calling getInteractionContent(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getInteractionContentCall(interactionContentData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1708,7 +1656,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call getRootCategoriesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/responses/categories/get-root";
 
@@ -1746,18 +1694,14 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getRootCategoriesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getRootCategoriesCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1827,7 +1771,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call getStandardResponseCall(String id, GetStandardResponseData getStandardResponseData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = getStandardResponseData;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/responses/{id}/get-details"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -1866,7 +1810,7 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getStandardResponseValidateBeforeCall(String id, GetStandardResponseData getStandardResponseData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1880,14 +1824,10 @@ public class UcsApi {
             throw new ApiException("Missing the required parameter 'getStandardResponseData' when calling getStandardResponse(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getStandardResponseCall(id, getStandardResponseData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1961,7 +1901,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call getStandardResponseFavoritesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/responses/get-favorites";
 
@@ -1999,18 +1939,14 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getStandardResponseFavoritesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = getStandardResponseFavoritesCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2079,7 +2015,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call identifyContactCall(IdentifyContactData identifyContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = identifyContactData;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/identify-contact";
 
@@ -2117,7 +2053,7 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call identifyContactValidateBeforeCall(IdentifyContactData identifyContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2126,14 +2062,10 @@ public class UcsApi {
             throw new ApiException("Missing the required parameter 'identifyContactData' when calling identifyContact(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = identifyContactCall(identifyContactData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2205,7 +2137,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call luceneSearchCall(LuceneSearchData luceneSearchData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = luceneSearchData;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/lucene-search";
 
@@ -2243,7 +2175,7 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call luceneSearchValidateBeforeCall(LuceneSearchData luceneSearchData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2252,14 +2184,10 @@ public class UcsApi {
             throw new ApiException("Missing the required parameter 'luceneSearchData' when calling luceneSearch(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = luceneSearchCall(luceneSearchData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2331,7 +2259,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call luceneSearchInteractionCall(LuceneSearchInteractionData luceneSearchInteractionData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = luceneSearchInteractionData;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/lucene-search-interaction";
 
@@ -2369,7 +2297,7 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call luceneSearchInteractionValidateBeforeCall(LuceneSearchInteractionData luceneSearchInteractionData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2378,14 +2306,10 @@ public class UcsApi {
             throw new ApiException("Missing the required parameter 'luceneSearchInteractionData' when calling luceneSearchInteraction(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = luceneSearchInteractionCall(luceneSearchInteractionData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2457,7 +2381,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call setCallCompletedCall(CallCompletedData callCompletedData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = callCompletedData;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/set-call-completed";
 
@@ -2495,7 +2419,7 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call setCallCompletedValidateBeforeCall(CallCompletedData callCompletedData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2504,14 +2428,10 @@ public class UcsApi {
             throw new ApiException("Missing the required parameter 'callCompletedData' when calling setCallCompleted(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = setCallCompletedCall(callCompletedData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2583,7 +2503,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call setCallNoteCall(CallNoteData callNoteData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = callNoteData;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/set-call-note";
 
@@ -2621,7 +2541,7 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call setCallNoteValidateBeforeCall(CallNoteData callNoteData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2630,14 +2550,10 @@ public class UcsApi {
             throw new ApiException("Missing the required parameter 'callNoteData' when calling setCallNote(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = setCallNoteCall(callNoteData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2709,7 +2625,7 @@ public class UcsApi {
      */
     public com.squareup.okhttp.Call updateContactCall(UpdateContactData updateContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = updateContactData;
-        
+
         // create path and map variables
         String localVarPath = "/ucs/update-contact";
 
@@ -2747,7 +2663,7 @@ public class UcsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateContactValidateBeforeCall(UpdateContactData updateContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2756,14 +2672,10 @@ public class UcsApi {
             throw new ApiException("Missing the required parameter 'updateContactData' when calling updateContact(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateContactCall(updateContactData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

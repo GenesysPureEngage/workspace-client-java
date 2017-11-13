@@ -70,7 +70,7 @@ public class ReportingApi {
      */
     public com.squareup.okhttp.Call peekCall(String subscriptionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/reporting/{subscriptionId}"
             .replaceAll("\\{" + "subscriptionId" + "\\}", apiClient.escapeString(subscriptionId.toString()));
@@ -109,7 +109,7 @@ public class ReportingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call peekValidateBeforeCall(String subscriptionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -118,14 +118,10 @@ public class ReportingApi {
             throw new ApiException("Missing the required parameter 'subscriptionId' when calling peek(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = peekCall(subscriptionId, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -197,7 +193,7 @@ public class ReportingApi {
      */
     public com.squareup.okhttp.Call registerCall(StatisticsRegisterData statisticsRegisterData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = statisticsRegisterData;
-        
+
         // create path and map variables
         String localVarPath = "/reporting/register";
 
@@ -235,7 +231,7 @@ public class ReportingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call registerValidateBeforeCall(StatisticsRegisterData statisticsRegisterData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -244,14 +240,10 @@ public class ReportingApi {
             throw new ApiException("Missing the required parameter 'statisticsRegisterData' when calling register(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = registerCall(statisticsRegisterData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -323,7 +315,7 @@ public class ReportingApi {
      */
     public com.squareup.okhttp.Call subscribeCall(StatisticsSubscribeData statisticsSubscribeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = statisticsSubscribeData;
-        
+
         // create path and map variables
         String localVarPath = "/reporting/subscribe";
 
@@ -361,7 +353,7 @@ public class ReportingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call subscribeValidateBeforeCall(StatisticsSubscribeData statisticsSubscribeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -370,14 +362,10 @@ public class ReportingApi {
             throw new ApiException("Missing the required parameter 'statisticsSubscribeData' when calling subscribe(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = subscribeCall(statisticsSubscribeData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -449,7 +437,7 @@ public class ReportingApi {
      */
     public com.squareup.okhttp.Call unsubscribeCall(UnsubscribeData unsubscribeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = unsubscribeData;
-        
+
         // create path and map variables
         String localVarPath = "/reporting/unsubscribe";
 
@@ -487,7 +475,7 @@ public class ReportingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call unsubscribeValidateBeforeCall(UnsubscribeData unsubscribeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -496,14 +484,10 @@ public class ReportingApi {
             throw new ApiException("Missing the required parameter 'unsubscribeData' when calling unsubscribe(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = unsubscribeCall(unsubscribeData, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

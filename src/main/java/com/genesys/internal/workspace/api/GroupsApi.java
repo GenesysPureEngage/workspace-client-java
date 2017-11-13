@@ -70,7 +70,7 @@ public class GroupsApi {
      */
     public com.squareup.okhttp.Call getGroupUsersCall(BigDecimal groupId, String searchTerm, String sort, BigDecimal limit, BigDecimal offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/groups/{groupId}/users"
             .replaceAll("\\{" + "groupId" + "\\}", apiClient.escapeString(groupId.toString()));
@@ -117,7 +117,7 @@ public class GroupsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getGroupUsersValidateBeforeCall(BigDecimal groupId, String searchTerm, String sort, BigDecimal limit, BigDecimal offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -126,14 +126,10 @@ public class GroupsApi {
             throw new ApiException("Missing the required parameter 'groupId' when calling getGroupUsers(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getGroupUsersCall(groupId, searchTerm, sort, limit, offset, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
