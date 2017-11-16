@@ -26,13 +26,16 @@ import java.io.IOException;
 /**
  * Kvpair
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-16T16:04:49.810Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-16T16:48:33.024Z")
 public class Kvpair {
   @SerializedName("key")
   private String key = null;
 
   @SerializedName("type")
   private String type = null;
+
+  @SerializedName("value")
+  private Object value = null;
 
   public Kvpair key(String key) {
     this.key = key;
@@ -70,6 +73,24 @@ public class Kvpair {
     this.type = type;
   }
 
+  public Kvpair value(Object value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @ApiModelProperty(value = "")
+  public Object getValue() {
+    return value;
+  }
+
+  public void setValue(Object value) {
+    this.value = value;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -81,12 +102,13 @@ public class Kvpair {
     }
     Kvpair kvpair = (Kvpair) o;
     return Objects.equals(this.key, kvpair.key) &&
-        Objects.equals(this.type, kvpair.type);
+        Objects.equals(this.type, kvpair.type) &&
+        Objects.equals(this.value, kvpair.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, type);
+    return Objects.hash(key, type, value);
   }
 
 
@@ -97,6 +119,7 @@ public class Kvpair {
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
