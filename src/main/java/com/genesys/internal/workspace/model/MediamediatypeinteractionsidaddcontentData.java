@@ -26,10 +26,19 @@ import java.io.IOException;
 /**
  * MediamediatypeinteractionsidaddcontentData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-15T16:12:35.756Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-16T11:12:43.486Z")
 public class MediamediatypeinteractionsidaddcontentData {
   @SerializedName("comment")
   private String comment = null;
+
+  @SerializedName("threadId")
+  private String threadId = null;
+
+  @SerializedName("parentId")
+  private String parentId = null;
+
+  @SerializedName("contactId")
+  private String contactId = null;
 
   public MediamediatypeinteractionsidaddcontentData comment(String comment) {
     this.comment = comment;
@@ -49,6 +58,60 @@ public class MediamediatypeinteractionsidaddcontentData {
     this.comment = comment;
   }
 
+  public MediamediatypeinteractionsidaddcontentData threadId(String threadId) {
+    this.threadId = threadId;
+    return this;
+  }
+
+   /**
+   * ThreadId
+   * @return threadId
+  **/
+  @ApiModelProperty(value = "ThreadId")
+  public String getThreadId() {
+    return threadId;
+  }
+
+  public void setThreadId(String threadId) {
+    this.threadId = threadId;
+  }
+
+  public MediamediatypeinteractionsidaddcontentData parentId(String parentId) {
+    this.parentId = parentId;
+    return this;
+  }
+
+   /**
+   * UCS id of parent interaction
+   * @return parentId
+  **/
+  @ApiModelProperty(value = "UCS id of parent interaction")
+  public String getParentId() {
+    return parentId;
+  }
+
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
+  }
+
+  public MediamediatypeinteractionsidaddcontentData contactId(String contactId) {
+    this.contactId = contactId;
+    return this;
+  }
+
+   /**
+   * id of contact
+   * @return contactId
+  **/
+  @ApiModelProperty(value = "id of contact")
+  public String getContactId() {
+    return contactId;
+  }
+
+  public void setContactId(String contactId) {
+    this.contactId = contactId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -59,12 +122,15 @@ public class MediamediatypeinteractionsidaddcontentData {
       return false;
     }
     MediamediatypeinteractionsidaddcontentData mediamediatypeinteractionsidaddcontentData = (MediamediatypeinteractionsidaddcontentData) o;
-    return Objects.equals(this.comment, mediamediatypeinteractionsidaddcontentData.comment);
+    return Objects.equals(this.comment, mediamediatypeinteractionsidaddcontentData.comment) &&
+        Objects.equals(this.threadId, mediamediatypeinteractionsidaddcontentData.threadId) &&
+        Objects.equals(this.parentId, mediamediatypeinteractionsidaddcontentData.parentId) &&
+        Objects.equals(this.contactId, mediamediatypeinteractionsidaddcontentData.contactId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment);
+    return Objects.hash(comment, threadId, parentId, contactId);
   }
 
 
@@ -74,6 +140,9 @@ public class MediamediatypeinteractionsidaddcontentData {
     sb.append("class MediamediatypeinteractionsidaddcontentData {\n");
     
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    threadId: ").append(toIndentedString(threadId)).append("\n");
+    sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
+    sb.append("    contactId: ").append(toIndentedString(contactId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

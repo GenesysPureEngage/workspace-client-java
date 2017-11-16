@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * ActivatechannelsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-15T16:12:35.756Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-16T11:12:43.486Z")
 public class ActivatechannelsData {
   @SerializedName("agentId")
   private String agentId = null;

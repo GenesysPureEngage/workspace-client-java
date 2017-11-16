@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * MonitoringScopeDataData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-15T16:12:35.756Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-16T11:12:43.486Z")
 public class MonitoringScopeDataData {
   /**
    * The monitoring scope (Call/Agent).
