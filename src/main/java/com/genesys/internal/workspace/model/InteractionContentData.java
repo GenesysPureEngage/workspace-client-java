@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * InteractionContentData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-16T16:48:33.024Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-16T18:04:52.371Z")
 public class InteractionContentData {
   @SerializedName("data")
   private UcsgetinteractioncontentData data = null;
