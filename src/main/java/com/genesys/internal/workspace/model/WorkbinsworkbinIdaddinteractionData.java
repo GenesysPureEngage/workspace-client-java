@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * WorkbinsworkbinIdaddinteractionData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-16T18:04:52.371Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-16T19:04:42.927Z")
 public class WorkbinsworkbinIdaddinteractionData {
   @SerializedName("ownerId")
   private String ownerId = null;
