@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * UcsdeletecontactData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-20T20:47:16.629Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-21T00:04:46.777Z")
 public class UcsdeletecontactData {
   @SerializedName("contactId")
   private String contactId = null;

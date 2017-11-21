@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * SendUserEventData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-20T20:47:16.629Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-21T00:04:46.777Z")
 public class SendUserEventData {
   @SerializedName("data")
   private SendUserEventDataData data = null;
