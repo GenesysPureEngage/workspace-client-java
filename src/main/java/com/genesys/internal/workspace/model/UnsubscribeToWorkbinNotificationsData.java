@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UnsubscribeToWorkbinNotificationsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-22T14:04:56.234Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-22T15:04:38.586Z")
 public class UnsubscribeToWorkbinNotificationsData {
   @SerializedName("data")
   private WorkbinsworkbinIdsubscribeData data = null;
