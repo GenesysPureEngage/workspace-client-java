@@ -3,7 +3,10 @@ package com.genesys.workspace;
 import com.genesys.internal.common.ApiException;
 import com.genesys.internal.workspace.model.ApiSuccessResponse;
 import com.genesys.internal.workspace.model.InlineResponse2001;
+import com.genesys.internal.workspace.model.InlineResponse2001Data;
 import com.genesys.internal.workspace.model.InlineResponse2002;
+import com.genesys.internal.workspace.model.InlineResponse2002Data;
+import com.genesys.internal.workspace.model.InlineResponse2002DataStatistics;
 import com.genesys.internal.workspace.model.StatisticValueForRegister;
 import com.genesys.workspace.common.WorkspaceApiException;
 import java.util.ArrayList;
@@ -13,7 +16,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-/*
+
 @RunWith(MockitoJUnitRunner.class)
 public class ReportingTest {
     
@@ -30,8 +33,12 @@ public class ReportingTest {
 		
         InlineResponse2002 resp1 = new InlineResponse2002();
         resp1.setStatus(resp.getStatus());
+        InlineResponse2002Data data2002 = new InlineResponse2002Data();
+        data2002.setStatistics(new InlineResponse2002DataStatistics());
+        resp1.setData(data2002);
 		
         InlineResponse2001 resp2 = new InlineResponse2001();
+        resp2.setData(new InlineResponse2001Data());
         resp2.setStatus(resp.getStatus());        
         
         Mockito.when(internalApi.peek(Mockito.any())).thenReturn(resp1);        
@@ -63,4 +70,3 @@ public class ReportingTest {
     }
     
 }
-*/
