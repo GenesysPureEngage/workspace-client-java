@@ -82,42 +82,49 @@ public class WorkspaceApi {
         
         return sessionId;
     }
-
+    
     void onInitMessage(Map<String, Object> data, CompletableFuture<User> future) {
         String messageType = (String)data.get("messageType");
-
         if ("WorkspaceInitializationComplete".equals(messageType)) {
-            String state = (String)data.get("state");
-            if ("Complete".equals(state)) {
-                Map<String, Object> initData = (Map<String, Object>)data.get("data");
-                Map<String, Object> userData = (Map<String, Object>)initData.get("user");
-                String employeeId = (String)userData.get("employeeId");
-                String defaultPlace = (String)userData.get("defaultPlace");
-                String agentId = (String)userData.get("agentLogin");
-                Object[] annexData = (Object[])userData.get("userProperties");
-                KeyValueCollection userProperties = Util.extractKeyValueData(annexData);
+                String state = (String)data.get("state");
+                if ("Complete".equals(state)) {
+                    try {
+                        Map<String, Object> initData = (Map<String, Object>)data.get("data");
+                        Map<String, Object> userData = (Map<String, Object>)initData.get("user");
+                        Integer dbid = (Integer)userData.get("DBID");
+                        String employeeId = (String)userData.get("employeeId");
+                        String defaultPlace = (String)userData.get("defaultPlace");
+                        String agentId = (String)userData.get("agentLogin");
+                        Object[] annexData = (Object[])userData.get("userProperties");
+                        KeyValueCollection userProperties = Util.extractKeyValueData(annexData);
 
-                if (user == null) {
-                    user = new User();
+                        if (user == null) {
+                            user = new User();
+                        }
+
+                        user.setDBID(dbid);
+                        user.setEmployeeId(employeeId);
+                        user.setAgentId(agentId);
+                        user.setDefaultPlace(defaultPlace);
+                        user.setUserProperties(userProperties);
+
+                        extractConfiguration((Map<String, Object>)initData.get("configuration"));
+
+                        this.workspaceInitialized = true;
+                        logger.debug("Initialization complete");
+
+                        future.complete(user);      
+                     }
+                    catch(Exception ex) {
+                        future.completeExceptionally(ex);
+                    }
+                } 
+                else if ("Failed".equals(state)) {
+                    future.completeExceptionally(new WorkspaceApiException("initialize workspace failed"));
                 }
-
-                user.setEmployeeId(employeeId);
-                user.setAgentId(agentId);
-                user.setDefaultPlace(defaultPlace);
-                user.setUserProperties(userProperties);
-
-                extractConfiguration((Map<String, Object>)initData.get("configuration"));
-
-                this.workspaceInitialized = true;
-                logger.debug("Initialization complete");
-                
-                future.complete(user);               
-
-            } else if ("Failed".equals(state)) {
-                logger.debug("Workspace initialization failed!");
-                future.completeExceptionally(
-                        new WorkspaceApiException("initialize workspace failed"));
-            }
+        }
+        else {
+            logger.debug("{}", data);
         }
     }
 
