@@ -1,7 +1,6 @@
 package com.genesys.workspace.models;
 
 public class User {
-    private int dbid;
     private String employeeId;
     private String agentId;
     private String defaultPlace;
@@ -9,9 +8,6 @@ public class User {
 
     public User() {}
 
-    public int getDBID() {
-        return this.dbid;
-    }
     public String getEmployeeId() {
         return this.employeeId;
     }
@@ -22,10 +18,6 @@ public class User {
 
     public String getDefaultPlace() {
         return this.defaultPlace;
-    }
-
-    public void setDBID(int dbid) {
-        this.dbid = dbid;
     }
 
     public void setEmployeeId(String employeeId) {
