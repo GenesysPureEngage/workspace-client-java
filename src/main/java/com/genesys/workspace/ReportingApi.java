@@ -7,6 +7,8 @@ import com.genesys.internal.workspace.model.InlineResponse2001;
 import com.genesys.internal.workspace.model.InlineResponse2001Data;
 import com.genesys.internal.workspace.model.InlineResponse2002;
 import com.genesys.internal.workspace.model.InlineResponse2002Data;
+import com.genesys.internal.workspace.model.InlineResponse2003;
+import com.genesys.internal.workspace.model.InlineResponse2003Data;
 import com.genesys.internal.workspace.model.ReportingunsubscribeData;
 import com.genesys.internal.workspace.model.StatisticValueForPeekResponse;
 import com.genesys.internal.workspace.model.StatisticValueForRegister;
@@ -37,10 +39,10 @@ public class ReportingApi {
      */
     public StatisticValueForPeekResponse peek(String subscriptionId) throws WorkspaceApiException {
         try {
-            InlineResponse2002 resp = api.peek(subscriptionId);
+            InlineResponse2003 resp = api.peek(subscriptionId);
             Util.throwIfNotOk(resp.getStatus());
             
-            InlineResponse2002Data data = resp.getData();
+            InlineResponse2003Data data = resp.getData();
             if(data == null) {
                 throw new WorkspaceApiException("Response data is empty");
             }
@@ -62,10 +64,10 @@ public class ReportingApi {
             StatisticsRegisterDataData data = new StatisticsRegisterDataData();
             data.setStatistics(new ArrayList<>(statistics));
             statisticsData.setData(data);
-            InlineResponse2001 resp = api.register(statisticsData);
+            InlineResponse2002 resp = api.register(statisticsData);
             Util.throwIfNotOk(resp.getStatus());
             
-            InlineResponse2001Data respData = resp.getData();
+            InlineResponse2002Data respData = resp.getData();
             if(respData == null) {
                 throw new WorkspaceApiException("Response data is empty");
             }
