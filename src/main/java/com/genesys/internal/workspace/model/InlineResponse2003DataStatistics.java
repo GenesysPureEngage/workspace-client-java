@@ -25,18 +25,18 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * The list of all the statitstics in given subscription as kvp.
+ * The list of all the statistics in given subscription as key/value pairs.
  */
-@ApiModel(description = "The list of all the statitstics in given subscription as kvp.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T14:04:39.428Z")
-public class InlineResponse2002DataStatistics {
+@ApiModel(description = "The list of all the statistics in given subscription as key/value pairs.")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T16:38:56.370Z")
+public class InlineResponse2003DataStatistics {
   @SerializedName("statisticId1")
   private StatisticValueForPeekResponse statisticId1 = null;
 
   @SerializedName("...")
   private StatisticValueForPeekResponse ___ = null;
 
-  public InlineResponse2002DataStatistics statisticId1(StatisticValueForPeekResponse statisticId1) {
+  public InlineResponse2003DataStatistics statisticId1(StatisticValueForPeekResponse statisticId1) {
     this.statisticId1 = statisticId1;
     return this;
   }
@@ -54,7 +54,7 @@ public class InlineResponse2002DataStatistics {
     this.statisticId1 = statisticId1;
   }
 
-  public InlineResponse2002DataStatistics ___(StatisticValueForPeekResponse ___) {
+  public InlineResponse2003DataStatistics ___(StatisticValueForPeekResponse ___) {
     this.___ = ___;
     return this;
   }
@@ -81,9 +81,9 @@ public class InlineResponse2002DataStatistics {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse2002DataStatistics inlineResponse2002DataStatistics = (InlineResponse2002DataStatistics) o;
-    return Objects.equals(this.statisticId1, inlineResponse2002DataStatistics.statisticId1) &&
-        Objects.equals(this.___, inlineResponse2002DataStatistics.___);
+    InlineResponse2003DataStatistics inlineResponse2003DataStatistics = (InlineResponse2003DataStatistics) o;
+    return Objects.equals(this.statisticId1, inlineResponse2003DataStatistics.statisticId1) &&
+        Objects.equals(this.___, inlineResponse2003DataStatistics.___);
   }
 
   @Override
@@ -95,7 +95,7 @@ public class InlineResponse2002DataStatistics {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse2002DataStatistics {\n");
+    sb.append("class InlineResponse2003DataStatistics {\n");
     
     sb.append("    statisticId1: ").append(toIndentedString(statisticId1)).append("\n");
     sb.append("    ___: ").append(toIndentedString(___)).append("\n");

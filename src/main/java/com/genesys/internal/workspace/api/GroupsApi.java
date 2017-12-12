@@ -58,11 +58,11 @@ public class GroupsApi {
 
     /**
      * Build call for getGroupUsers
-     * @param groupId The id of the group to get users for (required)
-     * @param searchTerm The text to search for (optional)
-     * @param sort Desired sort order (asc or desc). asc if not specified (optional)
-     * @param limit Number of results. 100 if not specified. (optional)
-     * @param offset Offset of page to start from. 0 if not specified. (optional)
+     * @param groupId The ID of the group where the user belongs. (required)
+     * @param searchTerm The text to search for in the group of users. (optional)
+     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
+     * @param limit Number of results to return. The default value is 100. (optional)
+     * @param offset The offset to start from in the results. The default value is 0. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -133,13 +133,13 @@ public class GroupsApi {
     }
 
     /**
-     * Search for users by specific group ID
-     * 
-     * @param groupId The id of the group to get users for (required)
-     * @param searchTerm The text to search for (optional)
-     * @param sort Desired sort order (asc or desc). asc if not specified (optional)
-     * @param limit Number of results. 100 if not specified. (optional)
-     * @param offset Offset of page to start from. 0 if not specified. (optional)
+     * Search for users.
+     * Search for users by the specified group ID.
+     * @param groupId The ID of the group where the user belongs. (required)
+     * @param searchTerm The text to search for in the group of users. (optional)
+     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
+     * @param limit Number of results to return. The default value is 100. (optional)
+     * @param offset The offset to start from in the results. The default value is 0. (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -149,13 +149,13 @@ public class GroupsApi {
     }
 
     /**
-     * Search for users by specific group ID
-     * 
-     * @param groupId The id of the group to get users for (required)
-     * @param searchTerm The text to search for (optional)
-     * @param sort Desired sort order (asc or desc). asc if not specified (optional)
-     * @param limit Number of results. 100 if not specified. (optional)
-     * @param offset Offset of page to start from. 0 if not specified. (optional)
+     * Search for users.
+     * Search for users by the specified group ID.
+     * @param groupId The ID of the group where the user belongs. (required)
+     * @param searchTerm The text to search for in the group of users. (optional)
+     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
+     * @param limit Number of results to return. The default value is 100. (optional)
+     * @param offset The offset to start from in the results. The default value is 0. (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -166,13 +166,13 @@ public class GroupsApi {
     }
 
     /**
-     * Search for users by specific group ID (asynchronously)
-     * 
-     * @param groupId The id of the group to get users for (required)
-     * @param searchTerm The text to search for (optional)
-     * @param sort Desired sort order (asc or desc). asc if not specified (optional)
-     * @param limit Number of results. 100 if not specified. (optional)
-     * @param offset Offset of page to start from. 0 if not specified. (optional)
+     * Search for users. (asynchronously)
+     * Search for users by the specified group ID.
+     * @param groupId The ID of the group where the user belongs. (required)
+     * @param searchTerm The text to search for in the group of users. (optional)
+     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
+     * @param limit Number of results to return. The default value is 100. (optional)
+     * @param offset The offset to start from in the results. The default value is 0. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

@@ -117,8 +117,8 @@ public class TargetsApi {
     }
 
     /**
-     * Ack the missed calls in recent target
-     * Ack the missed calls in recent target
+     * Acknowledge missed calls.
+     * Acknowledge missed calls in the list of recent targets.
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -128,8 +128,8 @@ public class TargetsApi {
     }
 
     /**
-     * Ack the missed calls in recent target
-     * Ack the missed calls in recent target
+     * Acknowledge missed calls.
+     * Acknowledge missed calls in the list of recent targets.
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -140,8 +140,8 @@ public class TargetsApi {
     }
 
     /**
-     * Ack the missed calls in recent target (asynchronously)
-     * Ack the missed calls in recent target
+     * Acknowledge missed calls. (asynchronously)
+     * Acknowledge missed calls in the list of recent targets.
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -236,8 +236,8 @@ public class TargetsApi {
     }
 
     /**
-     * Add a recent target
-     * Add a recent target
+     * Add a target.
+     * Add a target that the agent recently used.
      * @param recentTargetData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -248,8 +248,8 @@ public class TargetsApi {
     }
 
     /**
-     * Add a recent target
-     * Add a recent target
+     * Add a target.
+     * Add a target that the agent recently used.
      * @param recentTargetData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -261,8 +261,8 @@ public class TargetsApi {
     }
 
     /**
-     * Add a recent target (asynchronously)
-     * Add a recent target
+     * Add a target. (asynchronously)
+     * Add a target that the agent recently used.
      * @param recentTargetData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -296,8 +296,8 @@ public class TargetsApi {
     }
     /**
      * Build call for deletePersonalFavorite
-     * @param id The id of the target (required)
-     * @param type the type of the target (required)
+     * @param id The ID of the target. (required)
+     * @param type The type of target. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -366,10 +366,10 @@ public class TargetsApi {
     }
 
     /**
-     * delete a personal favorite
-     * delete a personal favorite by type and id
-     * @param id The id of the target (required)
-     * @param type the type of the target (required)
+     * Delete a target.
+     * Delete the target from the agent&#39;s personal favorites
+     * @param id The ID of the target. (required)
+     * @param type The type of target. (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -379,10 +379,10 @@ public class TargetsApi {
     }
 
     /**
-     * delete a personal favorite
-     * delete a personal favorite by type and id
-     * @param id The id of the target (required)
-     * @param type the type of the target (required)
+     * Delete a target.
+     * Delete the target from the agent&#39;s personal favorites
+     * @param id The ID of the target. (required)
+     * @param type The type of target. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -393,10 +393,10 @@ public class TargetsApi {
     }
 
     /**
-     * delete a personal favorite (asynchronously)
-     * delete a personal favorite by type and id
-     * @param id The id of the target (required)
-     * @param type the type of the target (required)
+     * Delete a target. (asynchronously)
+     * Delete the target from the agent&#39;s personal favorites
+     * @param id The ID of the target. (required)
+     * @param type The type of target. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -429,15 +429,15 @@ public class TargetsApi {
     }
     /**
      * Build call for get
-     * @param searchTerm The text to search for (required)
-     * @param filterName The filter to specify on which fields the search is applied (optional)
-     * @param types Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
-     * @param excludeGroup Comma separated list of types of groups to exclude agent groups from search. Valid values are any agent group names. (optional)
-     * @param excludeFromGroup Comma separated list of types of groups to exclude agents from search. Valid values are any agent group names. (optional)
-     * @param restrictToGroup Comma separated list of groups to limit the search of agents from. Valid values are any agent group names. (optional)
-     * @param sort Desired sort order (asc or desc). asc if not specified (optional)
-     * @param limit Number of results. 100 if not specified. (optional)
-     * @param matchType Type of behavior for the field matching (exact for exact match search). (optional)
+     * @param searchTerm The text to search for in targets. (required)
+     * @param filterName Filter the search based on this field. (optional)
+     * @param types A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
+     * @param excludeGroup A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)
+     * @param excludeFromGroup A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)
+     * @param restrictToGroup A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)
+     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
+     * @param limit The number of results to return. The default value is 50. (optional)
+     * @param matchType Specify whether the search should only return exact matches. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -517,17 +517,17 @@ public class TargetsApi {
     }
 
     /**
-     * Search for targets
-     * Search for targets
-     * @param searchTerm The text to search for (required)
-     * @param filterName The filter to specify on which fields the search is applied (optional)
-     * @param types Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
-     * @param excludeGroup Comma separated list of types of groups to exclude agent groups from search. Valid values are any agent group names. (optional)
-     * @param excludeFromGroup Comma separated list of types of groups to exclude agents from search. Valid values are any agent group names. (optional)
-     * @param restrictToGroup Comma separated list of groups to limit the search of agents from. Valid values are any agent group names. (optional)
-     * @param sort Desired sort order (asc or desc). asc if not specified (optional)
-     * @param limit Number of results. 100 if not specified. (optional)
-     * @param matchType Type of behavior for the field matching (exact for exact match search). (optional)
+     * Search for targets.
+     * Search for targets by the specified search term.
+     * @param searchTerm The text to search for in targets. (required)
+     * @param filterName Filter the search based on this field. (optional)
+     * @param types A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
+     * @param excludeGroup A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)
+     * @param excludeFromGroup A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)
+     * @param restrictToGroup A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)
+     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
+     * @param limit The number of results to return. The default value is 50. (optional)
+     * @param matchType Specify whether the search should only return exact matches. (optional)
      * @return TargetsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -537,17 +537,17 @@ public class TargetsApi {
     }
 
     /**
-     * Search for targets
-     * Search for targets
-     * @param searchTerm The text to search for (required)
-     * @param filterName The filter to specify on which fields the search is applied (optional)
-     * @param types Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
-     * @param excludeGroup Comma separated list of types of groups to exclude agent groups from search. Valid values are any agent group names. (optional)
-     * @param excludeFromGroup Comma separated list of types of groups to exclude agents from search. Valid values are any agent group names. (optional)
-     * @param restrictToGroup Comma separated list of groups to limit the search of agents from. Valid values are any agent group names. (optional)
-     * @param sort Desired sort order (asc or desc). asc if not specified (optional)
-     * @param limit Number of results. 100 if not specified. (optional)
-     * @param matchType Type of behavior for the field matching (exact for exact match search). (optional)
+     * Search for targets.
+     * Search for targets by the specified search term.
+     * @param searchTerm The text to search for in targets. (required)
+     * @param filterName Filter the search based on this field. (optional)
+     * @param types A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
+     * @param excludeGroup A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)
+     * @param excludeFromGroup A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)
+     * @param restrictToGroup A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)
+     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
+     * @param limit The number of results to return. The default value is 50. (optional)
+     * @param matchType Specify whether the search should only return exact matches. (optional)
      * @return ApiResponse&lt;TargetsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -558,17 +558,17 @@ public class TargetsApi {
     }
 
     /**
-     * Search for targets (asynchronously)
-     * Search for targets
-     * @param searchTerm The text to search for (required)
-     * @param filterName The filter to specify on which fields the search is applied (optional)
-     * @param types Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
-     * @param excludeGroup Comma separated list of types of groups to exclude agent groups from search. Valid values are any agent group names. (optional)
-     * @param excludeFromGroup Comma separated list of types of groups to exclude agents from search. Valid values are any agent group names. (optional)
-     * @param restrictToGroup Comma separated list of groups to limit the search of agents from. Valid values are any agent group names. (optional)
-     * @param sort Desired sort order (asc or desc). asc if not specified (optional)
-     * @param limit Number of results. 100 if not specified. (optional)
-     * @param matchType Type of behavior for the field matching (exact for exact match search). (optional)
+     * Search for targets. (asynchronously)
+     * Search for targets by the specified search term.
+     * @param searchTerm The text to search for in targets. (required)
+     * @param filterName Filter the search based on this field. (optional)
+     * @param types A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
+     * @param excludeGroup A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)
+     * @param excludeFromGroup A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)
+     * @param restrictToGroup A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)
+     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
+     * @param limit The number of results to return. The default value is 50. (optional)
+     * @param matchType Specify whether the search should only return exact matches. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -601,7 +601,7 @@ public class TargetsApi {
     }
     /**
      * Build call for getPersonalFavorites
-     * @param limit Number of results. 50 if not specified. (optional)
+     * @param limit Number of results to return. The default value is 50. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -660,9 +660,9 @@ public class TargetsApi {
     }
 
     /**
-     * Get personal favorites
-     * Get personal favorites
-     * @param limit Number of results. 50 if not specified. (optional)
+     * Return personal favorites.
+     * Return the agent&#39;s personal favorites.
+     * @param limit Number of results to return. The default value is 50. (optional)
      * @return TargetsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -672,9 +672,9 @@ public class TargetsApi {
     }
 
     /**
-     * Get personal favorites
-     * Get personal favorites
-     * @param limit Number of results. 50 if not specified. (optional)
+     * Return personal favorites.
+     * Return the agent&#39;s personal favorites.
+     * @param limit Number of results to return. The default value is 50. (optional)
      * @return ApiResponse&lt;TargetsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -685,9 +685,9 @@ public class TargetsApi {
     }
 
     /**
-     * Get personal favorites (asynchronously)
-     * Get personal favorites
-     * @param limit Number of results. 50 if not specified. (optional)
+     * Return personal favorites. (asynchronously)
+     * Return the agent&#39;s personal favorites.
+     * @param limit Number of results to return. The default value is 50. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -720,7 +720,7 @@ public class TargetsApi {
     }
     /**
      * Build call for getRecentTargets
-     * @param limit Number of results. 50 if not specified. (optional)
+     * @param limit The number of results to return. The default value is 50. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -779,9 +779,9 @@ public class TargetsApi {
     }
 
     /**
-     * Get recent targets
-     * Get recent targets
-     * @param limit Number of results. 50 if not specified. (optional)
+     * Get recently used targets.
+     * Get recently used targets for the current agent.
+     * @param limit The number of results to return. The default value is 50. (optional)
      * @return TargetsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -791,9 +791,9 @@ public class TargetsApi {
     }
 
     /**
-     * Get recent targets
-     * Get recent targets
-     * @param limit Number of results. 50 if not specified. (optional)
+     * Get recently used targets.
+     * Get recently used targets for the current agent.
+     * @param limit The number of results to return. The default value is 50. (optional)
      * @return ApiResponse&lt;TargetsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -804,9 +804,9 @@ public class TargetsApi {
     }
 
     /**
-     * Get recent targets (asynchronously)
-     * Get recent targets
-     * @param limit Number of results. 50 if not specified. (optional)
+     * Get recently used targets. (asynchronously)
+     * Get recently used targets for the current agent.
+     * @param limit The number of results to return. The default value is 50. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -839,8 +839,8 @@ public class TargetsApi {
     }
     /**
      * Build call for getTarget
-     * @param id The id of the target (required)
-     * @param type the type of the target (required)
+     * @param id The ID of the target. (required)
+     * @param type The type of target to retrieve. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -909,10 +909,10 @@ public class TargetsApi {
     }
 
     /**
-     * Get a target
-     * Get a specific target by type and id
-     * @param id The id of the target (required)
-     * @param type the type of the target (required)
+     * Get a target.
+     * Get a specific target by type and ID. Targets can be agents, agent groups, queues, route points, skills, and custom contacts.
+     * @param id The ID of the target. (required)
+     * @param type The type of target to retrieve. (required)
      * @return TargetsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -922,10 +922,10 @@ public class TargetsApi {
     }
 
     /**
-     * Get a target
-     * Get a specific target by type and id
-     * @param id The id of the target (required)
-     * @param type the type of the target (required)
+     * Get a target.
+     * Get a specific target by type and ID. Targets can be agents, agent groups, queues, route points, skills, and custom contacts.
+     * @param id The ID of the target. (required)
+     * @param type The type of target to retrieve. (required)
      * @return ApiResponse&lt;TargetsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -936,10 +936,10 @@ public class TargetsApi {
     }
 
     /**
-     * Get a target (asynchronously)
-     * Get a specific target by type and id
-     * @param id The id of the target (required)
-     * @param type the type of the target (required)
+     * Get a target. (asynchronously)
+     * Get a specific target by type and ID. Targets can be agents, agent groups, queues, route points, skills, and custom contacts.
+     * @param id The ID of the target. (required)
+     * @param type The type of target to retrieve. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1034,8 +1034,8 @@ public class TargetsApi {
     }
 
     /**
-     * Save a personal favorite
-     * Save a personal favorite
+     * Save a personal favorite.
+     * Save a target to the agent&#39;s personal favorites in the specified category.
      * @param personalFavoriteData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1046,8 +1046,8 @@ public class TargetsApi {
     }
 
     /**
-     * Save a personal favorite
-     * Save a personal favorite
+     * Save a personal favorite.
+     * Save a target to the agent&#39;s personal favorites in the specified category.
      * @param personalFavoriteData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1059,8 +1059,8 @@ public class TargetsApi {
     }
 
     /**
-     * Save a personal favorite (asynchronously)
-     * Save a personal favorite
+     * Save a personal favorite. (asynchronously)
+     * Save a target to the agent&#39;s personal favorites in the specified category.
      * @param personalFavoriteData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

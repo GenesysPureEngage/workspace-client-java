@@ -29,13 +29,13 @@ import java.util.List;
 /**
  * VoicenotreadyData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T14:04:39.428Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T16:38:56.370Z")
 public class VoicenotreadyData {
   @SerializedName("reasonCode")
   private String reasonCode = null;
 
   /**
-   * the agent workmode.
+   * The agent workmode.
    */
   @JsonAdapter(AgentWorkModeEnum.Adapter.class)
   public enum AgentWorkModeEnum {
@@ -102,10 +102,10 @@ public class VoicenotreadyData {
   }
 
    /**
-   * the reason code
+   * The reason code representing why the agent is not ready. These codes are a business-defined set of categories, such as \&quot;Lunch\&quot; or \&quot;Training\&quot;.
    * @return reasonCode
   **/
-  @ApiModelProperty(value = "the reason code")
+  @ApiModelProperty(value = "The reason code representing why the agent is not ready. These codes are a business-defined set of categories, such as \"Lunch\" or \"Training\".")
   public String getReasonCode() {
     return reasonCode;
   }
@@ -120,10 +120,10 @@ public class VoicenotreadyData {
   }
 
    /**
-   * the agent workmode.
+   * The agent workmode.
    * @return agentWorkMode
   **/
-  @ApiModelProperty(value = "the agent workmode.")
+  @ApiModelProperty(value = "The agent workmode.")
   public AgentWorkModeEnum getAgentWorkMode() {
     return agentWorkMode;
   }
@@ -146,10 +146,10 @@ public class VoicenotreadyData {
   }
 
    /**
-   * A key/value pairs list of a data structure that provides additional information associated with this action.
+   * A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
    * @return reasons
   **/
-  @ApiModelProperty(value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
+  @ApiModelProperty(value = "A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).")
   public List<Kvpair> getReasons() {
     return reasons;
   }
@@ -172,10 +172,10 @@ public class VoicenotreadyData {
   }
 
    /**
-   * A key/value pairs list of additional data.
+   * A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
    * @return extensions
   **/
-  @ApiModelProperty(value = "A key/value pairs list of additional data.")
+  @ApiModelProperty(value = "A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).")
   public List<Kvpair> getExtensions() {
     return extensions;
   }

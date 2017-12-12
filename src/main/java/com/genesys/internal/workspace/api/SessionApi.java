@@ -123,8 +123,8 @@ public class SessionApi {
     }
 
     /**
-     * Activate channels for the user with the specified resources
-     * The activate-channels request is used to activate voice/media for the user by declaring the channels and resources that should be used. If the channels are is successfully activated, additional information about the state of active resources (dns, channels) will be received via events. 
+     * Activate channels for the user with the specified resources.
+     * Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
      * @param channelsData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -135,8 +135,8 @@ public class SessionApi {
     }
 
     /**
-     * Activate channels for the user with the specified resources
-     * The activate-channels request is used to activate voice/media for the user by declaring the channels and resources that should be used. If the channels are is successfully activated, additional information about the state of active resources (dns, channels) will be received via events. 
+     * Activate channels for the user with the specified resources.
+     * Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
      * @param channelsData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -148,8 +148,8 @@ public class SessionApi {
     }
 
     /**
-     * Activate channels for the user with the specified resources (asynchronously)
-     * The activate-channels request is used to activate voice/media for the user by declaring the channels and resources that should be used. If the channels are is successfully activated, additional information about the state of active resources (dns, channels) will be received via events. 
+     * Activate channels for the user with the specified resources. (asynchronously)
+     * Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
      * @param channelsData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -183,7 +183,7 @@ public class SessionApi {
     }
     /**
      * Build call for getBusinessAttributeHierarchy
-     * @param id id of the business attribute (required)
+     * @param id The unique ID of the business attribute. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -246,9 +246,9 @@ public class SessionApi {
     }
 
     /**
-     * Get the business attribute hierarchy
-     * Get the business attribute hierarchy
-     * @param id id of the business attribute (required)
+     * Get the business attribute hierarchy.
+     * Returns the business attribute hierarchy for the specified business attribute.
+     * @param id The unique ID of the business attribute. (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -258,9 +258,9 @@ public class SessionApi {
     }
 
     /**
-     * Get the business attribute hierarchy
-     * Get the business attribute hierarchy
-     * @param id id of the business attribute (required)
+     * Get the business attribute hierarchy.
+     * Returns the business attribute hierarchy for the specified business attribute.
+     * @param id The unique ID of the business attribute. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -271,9 +271,9 @@ public class SessionApi {
     }
 
     /**
-     * Get the business attribute hierarchy (asynchronously)
-     * Get the business attribute hierarchy
-     * @param id id of the business attribute (required)
+     * Get the business attribute hierarchy. (asynchronously)
+     * Returns the business attribute hierarchy for the specified business attribute.
+     * @param id The unique ID of the business attribute. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -306,7 +306,7 @@ public class SessionApi {
     }
     /**
      * Build call for getConfiguration
-     * @param types A comma delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)
+     * @param types A comma delimited list of types used to specify what content should be returned. If not specified the default is &#39;actionCodes, agentGroups,settings&#39;. Valid values are &#x60;actionCodes&#x60;, &#x60;agentGroups&#x60;, &#x60;settings&#x60;, &#x60;workspaceTransactions&#x60;, and &#x60;businessAttributes&#x60;. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -365,9 +365,9 @@ public class SessionApi {
     }
 
     /**
-     * Read settings, action codes, business attributes and other configuration.
-     * This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
-     * @param types A comma delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)
+     * Get settings, action codes, business attributes and other configuration.
+     * Returns all configuration items needed by the user interface. This includes action codes, business attributes, transactions and settings at the moment.
+     * @param types A comma delimited list of types used to specify what content should be returned. If not specified the default is &#39;actionCodes, agentGroups,settings&#39;. Valid values are &#x60;actionCodes&#x60;, &#x60;agentGroups&#x60;, &#x60;settings&#x60;, &#x60;workspaceTransactions&#x60;, and &#x60;businessAttributes&#x60;. (optional)
      * @return ConfigResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -377,9 +377,9 @@ public class SessionApi {
     }
 
     /**
-     * Read settings, action codes, business attributes and other configuration.
-     * This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
-     * @param types A comma delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)
+     * Get settings, action codes, business attributes and other configuration.
+     * Returns all configuration items needed by the user interface. This includes action codes, business attributes, transactions and settings at the moment.
+     * @param types A comma delimited list of types used to specify what content should be returned. If not specified the default is &#39;actionCodes, agentGroups,settings&#39;. Valid values are &#x60;actionCodes&#x60;, &#x60;agentGroups&#x60;, &#x60;settings&#x60;, &#x60;workspaceTransactions&#x60;, and &#x60;businessAttributes&#x60;. (optional)
      * @return ApiResponse&lt;ConfigResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -390,9 +390,9 @@ public class SessionApi {
     }
 
     /**
-     * Read settings, action codes, business attributes and other configuration. (asynchronously)
-     * This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
-     * @param types A comma delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)
+     * Get settings, action codes, business attributes and other configuration. (asynchronously)
+     * Returns all configuration items needed by the user interface. This includes action codes, business attributes, transactions and settings at the moment.
+     * @param types A comma delimited list of types used to specify what content should be returned. If not specified the default is &#39;actionCodes, agentGroups,settings&#39;. Valid values are &#x60;actionCodes&#x60;, &#x60;agentGroups&#x60;, &#x60;settings&#x60;, &#x60;workspaceTransactions&#x60;, and &#x60;businessAttributes&#x60;. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -481,8 +481,8 @@ public class SessionApi {
     }
 
     /**
-     * Read information about the logged in user including any existing media logins and calls
-     * This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session. 
+     * Read information about the logged in user, including any existing media logins and calls.
+     * This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session.
      * @return CurrentSession
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -492,8 +492,8 @@ public class SessionApi {
     }
 
     /**
-     * Read information about the logged in user including any existing media logins and calls
-     * This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session. 
+     * Read information about the logged in user, including any existing media logins and calls.
+     * This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session.
      * @return ApiResponse&lt;CurrentSession&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -504,8 +504,8 @@ public class SessionApi {
     }
 
     /**
-     * Read information about the logged in user including any existing media logins and calls (asynchronously)
-     * This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session. 
+     * Read information about the logged in user, including any existing media logins and calls. (asynchronously)
+     * This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session.
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -538,7 +538,7 @@ public class SessionApi {
     }
     /**
      * Build call for getDevicesForPlace
-     * @param placeName The name of the place (required)
+     * @param placeName The name of the place. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -601,9 +601,9 @@ public class SessionApi {
     }
 
     /**
-     * get devices from place
-     * This request can be used to retrieve information about the devices of a place. The returned devices are the devices attached to the place where the user logs in. 
-     * @param placeName The name of the place (required)
+     * Get DNs for a place.
+     * Returns the DNs attached to the specified place.
+     * @param placeName The name of the place. (required)
      * @return Devices
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -613,9 +613,9 @@ public class SessionApi {
     }
 
     /**
-     * get devices from place
-     * This request can be used to retrieve information about the devices of a place. The returned devices are the devices attached to the place where the user logs in. 
-     * @param placeName The name of the place (required)
+     * Get DNs for a place.
+     * Returns the DNs attached to the specified place.
+     * @param placeName The name of the place. (required)
      * @return ApiResponse&lt;Devices&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -626,9 +626,9 @@ public class SessionApi {
     }
 
     /**
-     * get devices from place (asynchronously)
-     * This request can be used to retrieve information about the devices of a place. The returned devices are the devices attached to the place where the user logs in. 
-     * @param placeName The name of the place (required)
+     * Get DNs for a place. (asynchronously)
+     * Returns the DNs attached to the specified place.
+     * @param placeName The name of the place. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -660,10 +660,123 @@ public class SessionApi {
         return call;
     }
     /**
+     * Build call for getUserInfo
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getUserInfoCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/userinfo";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getUserInfoValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getUserInfoCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve ecrypted data about the current user
+     * This request can be used to retrieve ecrypted data about the user to use with other services
+     * @return CurrentSession
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CurrentSession getUserInfo() throws ApiException {
+        ApiResponse<CurrentSession> resp = getUserInfoWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve ecrypted data about the current user
+     * This request can be used to retrieve ecrypted data about the user to use with other services
+     * @return ApiResponse&lt;CurrentSession&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CurrentSession> getUserInfoWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getUserInfoValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<CurrentSession>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve ecrypted data about the current user (asynchronously)
+     * This request can be used to retrieve ecrypted data about the user to use with other services
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getUserInfoAsync(final ApiCallback<CurrentSession> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getUserInfoValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CurrentSession>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for initializeWorkspace
-     * @param code the authorization code (optional)
-     * @param redirectUri the same redirect_uri used in the initial login step (optional)
-     * @param authorization For OAuth resource owner password credentials grant should contains Bearer authorization. Example: &#39;Authorization: Bearer access_token&#39; (optional)
+     * @param code The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)
+     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)
+     * @param authorization If you use the [Resource Owner Password Credentials Grant](https://developer.genhtcc.com/api/reference/authentication/index.html), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -726,11 +839,11 @@ public class SessionApi {
     }
 
     /**
-     * Retrieves authorization token and registers it
-     * The initialize-workspace request retrieves the authorization token using the authorization code. The token is then registered and the user&#39;s environment is prepared. 
-     * @param code the authorization code (optional)
-     * @param redirectUri the same redirect_uri used in the initial login step (optional)
-     * @param authorization For OAuth resource owner password credentials grant should contains Bearer authorization. Example: &#39;Authorization: Bearer access_token&#39; (optional)
+     * Retrieves and registers an authorization token.
+     * Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
+     * @param code The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)
+     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)
+     * @param authorization If you use the [Resource Owner Password Credentials Grant](https://developer.genhtcc.com/api/reference/authentication/index.html), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -740,11 +853,11 @@ public class SessionApi {
     }
 
     /**
-     * Retrieves authorization token and registers it
-     * The initialize-workspace request retrieves the authorization token using the authorization code. The token is then registered and the user&#39;s environment is prepared. 
-     * @param code the authorization code (optional)
-     * @param redirectUri the same redirect_uri used in the initial login step (optional)
-     * @param authorization For OAuth resource owner password credentials grant should contains Bearer authorization. Example: &#39;Authorization: Bearer access_token&#39; (optional)
+     * Retrieves and registers an authorization token.
+     * Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
+     * @param code The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)
+     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)
+     * @param authorization If you use the [Resource Owner Password Credentials Grant](https://developer.genhtcc.com/api/reference/authentication/index.html), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -755,11 +868,11 @@ public class SessionApi {
     }
 
     /**
-     * Retrieves authorization token and registers it (asynchronously)
-     * The initialize-workspace request retrieves the authorization token using the authorization code. The token is then registered and the user&#39;s environment is prepared. 
-     * @param code the authorization code (optional)
-     * @param redirectUri the same redirect_uri used in the initial login step (optional)
-     * @param authorization For OAuth resource owner password credentials grant should contains Bearer authorization. Example: &#39;Authorization: Bearer access_token&#39; (optional)
+     * Retrieves and registers an authorization token. (asynchronously)
+     * Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
+     * @param code The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)
+     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)
+     * @param authorization If you use the [Resource Owner Password Credentials Grant](https://developer.genhtcc.com/api/reference/authentication/index.html), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -792,7 +905,7 @@ public class SessionApi {
     }
     /**
      * Build call for login
-     * @param redirectUri this the URI the AUTH service uses to redirect the user after authentication (required)
+     * @param redirectUri The URI the Authentication API uses to redirect the user after authentication. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -856,9 +969,9 @@ public class SessionApi {
     }
 
     /**
-     * login the specified user (HTTP session only)
-     * The login request authenticates the user and retrieves the authorization code. 
-     * @param redirectUri this the URI the AUTH service uses to redirect the user after authentication (required)
+     * Login the specified user (HTTP session only).
+     * The login request authenticates the user and retrieves the authorization code.
+     * @param redirectUri The URI the Authentication API uses to redirect the user after authentication. (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -868,9 +981,9 @@ public class SessionApi {
     }
 
     /**
-     * login the specified user (HTTP session only)
-     * The login request authenticates the user and retrieves the authorization code. 
-     * @param redirectUri this the URI the AUTH service uses to redirect the user after authentication (required)
+     * Login the specified user (HTTP session only).
+     * The login request authenticates the user and retrieves the authorization code.
+     * @param redirectUri The URI the Authentication API uses to redirect the user after authentication. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -881,9 +994,9 @@ public class SessionApi {
     }
 
     /**
-     * login the specified user (HTTP session only) (asynchronously)
-     * The login request authenticates the user and retrieves the authorization code. 
-     * @param redirectUri this the URI the AUTH service uses to redirect the user after authentication (required)
+     * Login the specified user (HTTP session only). (asynchronously)
+     * The login request authenticates the user and retrieves the authorization code.
+     * @param redirectUri The URI the Authentication API uses to redirect the user after authentication. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -972,8 +1085,8 @@ public class SessionApi {
     }
 
     /**
-     * Logout of media and end the session
-     * This request is used to end the user session. It will log the agent out for voice/channels, end the HTTP session and clean up related resources. The suggested shutdown sequence is to disconnect socket.io and then make this request. After ending the session the login request is required before making any new calls to the API. 
+     * Logout of activated channels and end the session.
+     * Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -983,8 +1096,8 @@ public class SessionApi {
     }
 
     /**
-     * Logout of media and end the session
-     * This request is used to end the user session. It will log the agent out for voice/channels, end the HTTP session and clean up related resources. The suggested shutdown sequence is to disconnect socket.io and then make this request. After ending the session the login request is required before making any new calls to the API. 
+     * Logout of activated channels and end the session.
+     * Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -995,8 +1108,8 @@ public class SessionApi {
     }
 
     /**
-     * Logout of media and end the session (asynchronously)
-     * This request is used to end the user session. It will log the agent out for voice/channels, end the HTTP session and clean up related resources. The suggested shutdown sequence is to disconnect socket.io and then make this request. After ending the session the login request is required before making any new calls to the API. 
+     * Logout of activated channels and end the session. (asynchronously)
+     * Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

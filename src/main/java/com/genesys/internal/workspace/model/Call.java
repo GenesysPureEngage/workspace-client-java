@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * Call
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T14:04:39.428Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T16:38:56.370Z")
 public class Call {
   @SerializedName("type")
   private String type = null;
@@ -388,10 +388,10 @@ public class Call {
   }
 
    /**
-   * A key/value pairs list of a data structure that provides additional information associated with this action.
+   * A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
    * @return extensions
   **/
-  @ApiModelProperty(value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
+  @ApiModelProperty(value = "A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).")
   public List<Kvpair> getExtensions() {
     return extensions;
   }

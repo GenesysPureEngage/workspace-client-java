@@ -86,7 +86,7 @@ public class VoiceApi {
 
     /**
      * Build call for alternate
-     * @param id id of the active call that should be placed on hold (required)
+     * @param id The connection ID of the established call that should be placed on hold. (required)
      * @param alternateData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -155,9 +155,9 @@ public class VoiceApi {
     }
 
     /**
-     * Alternate between calls
-     * Alternate between two calls when one call is held and the other is established. This is a quick way to put a call on hold and retrieve another held call in one step.
-     * @param id id of the active call that should be placed on hold (required)
+     * Alternate between calls.
+     * Alternate two calls so that you retrieve a call on hold and place the established call on hold instead. This is a shortcut for doing &#x60;/voice/calls/{id}/hold&#x60; and &#x60;/voice/calls/{id}/retrieve&#x60; separately.
+     * @param id The connection ID of the established call that should be placed on hold. (required)
      * @param alternateData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -168,9 +168,9 @@ public class VoiceApi {
     }
 
     /**
-     * Alternate between calls
-     * Alternate between two calls when one call is held and the other is established. This is a quick way to put a call on hold and retrieve another held call in one step.
-     * @param id id of the active call that should be placed on hold (required)
+     * Alternate between calls.
+     * Alternate two calls so that you retrieve a call on hold and place the established call on hold instead. This is a shortcut for doing &#x60;/voice/calls/{id}/hold&#x60; and &#x60;/voice/calls/{id}/retrieve&#x60; separately.
+     * @param id The connection ID of the established call that should be placed on hold. (required)
      * @param alternateData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -182,9 +182,9 @@ public class VoiceApi {
     }
 
     /**
-     * Alternate between calls (asynchronously)
-     * Alternate between two calls when one call is held and the other is established. This is a quick way to put a call on hold and retrieve another held call in one step.
-     * @param id id of the active call that should be placed on hold (required)
+     * Alternate between calls. (asynchronously)
+     * Alternate two calls so that you retrieve a call on hold and place the established call on hold instead. This is a shortcut for doing &#x60;/voice/calls/{id}/hold&#x60; and &#x60;/voice/calls/{id}/retrieve&#x60; separately.
+     * @param id The connection ID of the established call that should be placed on hold. (required)
      * @param alternateData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -218,7 +218,7 @@ public class VoiceApi {
     }
     /**
      * Build call for answer
-     * @param id id of the call to answer (required)
+     * @param id The connection ID of the call. (required)
      * @param answerData Request parameters. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -282,9 +282,9 @@ public class VoiceApi {
     }
 
     /**
-     * Answer a call
-     * Answer the call specified in the id path parameter
-     * @param id id of the call to answer (required)
+     * Answer the specified call.
+     * Answer the specified call.
+     * @param id The connection ID of the call. (required)
      * @param answerData Request parameters. (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -295,9 +295,9 @@ public class VoiceApi {
     }
 
     /**
-     * Answer a call
-     * Answer the call specified in the id path parameter
-     * @param id id of the call to answer (required)
+     * Answer the specified call.
+     * Answer the specified call.
+     * @param id The connection ID of the call. (required)
      * @param answerData Request parameters. (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -309,9 +309,9 @@ public class VoiceApi {
     }
 
     /**
-     * Answer a call (asynchronously)
-     * Answer the call specified in the id path parameter
-     * @param id id of the call to answer (required)
+     * Answer the specified call. (asynchronously)
+     * Answer the specified call.
+     * @param id The connection ID of the call. (required)
      * @param answerData Request parameters. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -345,8 +345,8 @@ public class VoiceApi {
     }
     /**
      * Build call for attachUserData
-     * @param id id of the call (required)
-     * @param userData An array of key/value pairs to attach. (required)
+     * @param id The connection ID of the call. (required)
+     * @param userData The data to attach to the call. This is an array of objects with the properties key, type, and value. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -414,10 +414,10 @@ public class VoiceApi {
     }
 
     /**
-     * Attach user data to a call
-     * Attach the provided key/value pairs to the call.
-     * @param id id of the call (required)
-     * @param userData An array of key/value pairs to attach. (required)
+     * Attach user data to a call.
+     * Attach the provided data to the specified call. This adds the data to the call even if data already exists with the provided keys.
+     * @param id The connection ID of the call. (required)
+     * @param userData The data to attach to the call. This is an array of objects with the properties key, type, and value. (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -427,10 +427,10 @@ public class VoiceApi {
     }
 
     /**
-     * Attach user data to a call
-     * Attach the provided key/value pairs to the call.
-     * @param id id of the call (required)
-     * @param userData An array of key/value pairs to attach. (required)
+     * Attach user data to a call.
+     * Attach the provided data to the specified call. This adds the data to the call even if data already exists with the provided keys.
+     * @param id The connection ID of the call. (required)
+     * @param userData The data to attach to the call. This is an array of objects with the properties key, type, and value. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -441,10 +441,10 @@ public class VoiceApi {
     }
 
     /**
-     * Attach user data to a call (asynchronously)
-     * Attach the provided key/value pairs to the call.
-     * @param id id of the call (required)
-     * @param userData An array of key/value pairs to attach. (required)
+     * Attach user data to a call. (asynchronously)
+     * Attach the provided data to the specified call. This adds the data to the call even if data already exists with the provided keys.
+     * @param id The connection ID of the call. (required)
+     * @param userData The data to attach to the call. This is an array of objects with the properties key, type, and value. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -533,8 +533,8 @@ public class VoiceApi {
     }
 
     /**
-     * Cancel call forwardarding
-     * Cancel call forwardarding
+     * Cancel call forwarding.
+     * Cancel call forwarding for the current agent.
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -544,8 +544,8 @@ public class VoiceApi {
     }
 
     /**
-     * Cancel call forwardarding
-     * Cancel call forwardarding
+     * Cancel call forwarding.
+     * Cancel call forwarding for the current agent.
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -556,8 +556,8 @@ public class VoiceApi {
     }
 
     /**
-     * Cancel call forwardarding (asynchronously)
-     * Cancel call forwardarding
+     * Cancel call forwarding. (asynchronously)
+     * Cancel call forwarding for the current agent.
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -590,7 +590,7 @@ public class VoiceApi {
     }
     /**
      * Build call for clear
-     * @param id id of the call to be cleared (required)
+     * @param id The connection ID of the call to clear. (required)
      * @param clearData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -660,8 +660,8 @@ public class VoiceApi {
 
     /**
      * Clear all the parties in the call.
-     * Deletes all parties from the specified call and releases it.
-     * @param id id of the call to be cleared (required)
+     * End the conference call for all parties. This can be performed by any agent participating in the conference.
+     * @param id The connection ID of the call to clear. (required)
      * @param clearData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -673,8 +673,8 @@ public class VoiceApi {
 
     /**
      * Clear all the parties in the call.
-     * Deletes all parties from the specified call and releases it.
-     * @param id id of the call to be cleared (required)
+     * End the conference call for all parties. This can be performed by any agent participating in the conference.
+     * @param id The connection ID of the call to clear. (required)
      * @param clearData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -687,8 +687,8 @@ public class VoiceApi {
 
     /**
      * Clear all the parties in the call. (asynchronously)
-     * Deletes all parties from the specified call and releases it.
-     * @param id id of the call to be cleared (required)
+     * End the conference call for all parties. This can be performed by any agent participating in the conference.
+     * @param id The connection ID of the call to clear. (required)
      * @param clearData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -722,8 +722,8 @@ public class VoiceApi {
     }
     /**
      * Build call for completeCall
-     * @param id id of the call (required)
-     * @param userData An array of key/value pairs. (required)
+     * @param id The connection ID of the call. (required)
+     * @param userData Key/value data to include with the call. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -791,10 +791,10 @@ public class VoiceApi {
     }
 
     /**
-     * Complete a call
-     * Complete and clean up the telephony object specified by the parameter conn_id. The userData parameter is sent throught the DistributeUserEvent operation.
-     * @param id id of the call (required)
-     * @param userData An array of key/value pairs. (required)
+     * Complete the specified call.
+     * Complete the specified call by adding information to its user data after it has been released. You should make this request on released calls if you set automatic complete to false in &#x60;/activate-channels&#x60;.
+     * @param id The connection ID of the call. (required)
+     * @param userData Key/value data to include with the call. (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -804,10 +804,10 @@ public class VoiceApi {
     }
 
     /**
-     * Complete a call
-     * Complete and clean up the telephony object specified by the parameter conn_id. The userData parameter is sent throught the DistributeUserEvent operation.
-     * @param id id of the call (required)
-     * @param userData An array of key/value pairs. (required)
+     * Complete the specified call.
+     * Complete the specified call by adding information to its user data after it has been released. You should make this request on released calls if you set automatic complete to false in &#x60;/activate-channels&#x60;.
+     * @param id The connection ID of the call. (required)
+     * @param userData Key/value data to include with the call. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -818,10 +818,10 @@ public class VoiceApi {
     }
 
     /**
-     * Complete a call (asynchronously)
-     * Complete and clean up the telephony object specified by the parameter conn_id. The userData parameter is sent throught the DistributeUserEvent operation.
-     * @param id id of the call (required)
-     * @param userData An array of key/value pairs. (required)
+     * Complete the specified call. (asynchronously)
+     * Complete the specified call by adding information to its user data after it has been released. You should make this request on released calls if you set automatic complete to false in &#x60;/activate-channels&#x60;.
+     * @param id The connection ID of the call. (required)
+     * @param userData Key/value data to include with the call. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -854,7 +854,7 @@ public class VoiceApi {
     }
     /**
      * Build call for completeConference
-     * @param id Id of the active call (required)
+     * @param id The connection ID of the consult call (established). (required)
      * @param completeConferenceData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -923,9 +923,9 @@ public class VoiceApi {
     }
 
     /**
-     * Complete a conference
-     * Completes a previously initiated conference. Once completed, the two separate calls  are brought together so that all three parties are participating in the same call.
-     * @param id Id of the active call (required)
+     * Complete a conference.
+     * Complete a previously initiated two-step conference identified by the provided IDs. Once completed, the two separate calls are brought together so that all three parties are participating in the same call.
+     * @param id The connection ID of the consult call (established). (required)
      * @param completeConferenceData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -936,9 +936,9 @@ public class VoiceApi {
     }
 
     /**
-     * Complete a conference
-     * Completes a previously initiated conference. Once completed, the two separate calls  are brought together so that all three parties are participating in the same call.
-     * @param id Id of the active call (required)
+     * Complete a conference.
+     * Complete a previously initiated two-step conference identified by the provided IDs. Once completed, the two separate calls are brought together so that all three parties are participating in the same call.
+     * @param id The connection ID of the consult call (established). (required)
      * @param completeConferenceData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -950,9 +950,9 @@ public class VoiceApi {
     }
 
     /**
-     * Complete a conference (asynchronously)
-     * Completes a previously initiated conference. Once completed, the two separate calls  are brought together so that all three parties are participating in the same call.
-     * @param id Id of the active call (required)
+     * Complete a conference. (asynchronously)
+     * Complete a previously initiated two-step conference identified by the provided IDs. Once completed, the two separate calls are brought together so that all three parties are participating in the same call.
+     * @param id The connection ID of the consult call (established). (required)
      * @param completeConferenceData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -986,7 +986,7 @@ public class VoiceApi {
     }
     /**
      * Build call for completeTransfer
-     * @param id Id of the active call (required)
+     * @param id The connection ID of the consult call (established). (required)
      * @param completeTransferData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -1055,9 +1055,9 @@ public class VoiceApi {
     }
 
     /**
-     * Complete a transfer
-     * Completes a previously initiated two-step transfer.
-     * @param id Id of the active call (required)
+     * Complete a transfer.
+     * Complete a previously initiated two-step transfer using the provided IDs.
+     * @param id The connection ID of the consult call (established). (required)
      * @param completeTransferData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1068,9 +1068,9 @@ public class VoiceApi {
     }
 
     /**
-     * Complete a transfer
-     * Completes a previously initiated two-step transfer.
-     * @param id Id of the active call (required)
+     * Complete a transfer.
+     * Complete a previously initiated two-step transfer using the provided IDs.
+     * @param id The connection ID of the consult call (established). (required)
      * @param completeTransferData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1082,9 +1082,9 @@ public class VoiceApi {
     }
 
     /**
-     * Complete a transfer (asynchronously)
-     * Completes a previously initiated two-step transfer.
-     * @param id Id of the active call (required)
+     * Complete a transfer. (asynchronously)
+     * Complete a previously initiated two-step transfer using the provided IDs.
+     * @param id The connection ID of the consult call (established). (required)
      * @param completeTransferData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1118,7 +1118,7 @@ public class VoiceApi {
     }
     /**
      * Build call for deleteFromConference
-     * @param id The id of the conference call (required)
+     * @param id The connection ID of the conference call. (required)
      * @param deleteFromConferenceData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -1187,9 +1187,9 @@ public class VoiceApi {
     }
 
     /**
-     * Delete a party from a conference call
-     * Removes the specified participant from the conference call. This operation can only be performed  by the owner of the conference call
-     * @param id The id of the conference call (required)
+     * Delete a party from a conference call.
+     * Delete the specified DN from the conference call. This operation can only be performed by the owner of the conference call.
+     * @param id The connection ID of the conference call. (required)
      * @param deleteFromConferenceData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1200,9 +1200,9 @@ public class VoiceApi {
     }
 
     /**
-     * Delete a party from a conference call
-     * Removes the specified participant from the conference call. This operation can only be performed  by the owner of the conference call
-     * @param id The id of the conference call (required)
+     * Delete a party from a conference call.
+     * Delete the specified DN from the conference call. This operation can only be performed by the owner of the conference call.
+     * @param id The connection ID of the conference call. (required)
      * @param deleteFromConferenceData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1214,9 +1214,9 @@ public class VoiceApi {
     }
 
     /**
-     * Delete a party from a conference call (asynchronously)
-     * Removes the specified participant from the conference call. This operation can only be performed  by the owner of the conference call
-     * @param id The id of the conference call (required)
+     * Delete a party from a conference call. (asynchronously)
+     * Delete the specified DN from the conference call. This operation can only be performed by the owner of the conference call.
+     * @param id The connection ID of the conference call. (required)
      * @param deleteFromConferenceData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1250,8 +1250,8 @@ public class VoiceApi {
     }
     /**
      * Build call for deleteUserDataPair
-     * @param id id of the call (required)
-     * @param keyData The key of the key/value pairs to delete. (required)
+     * @param id The connection ID of the call. (required)
+     * @param keyData The key of the data to remove. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1319,10 +1319,10 @@ public class VoiceApi {
     }
 
     /**
-     * Remove key/value pair from user data
-     * Deletes the specified key from the call data.
-     * @param id id of the call (required)
-     * @param keyData The key of the key/value pairs to delete. (required)
+     * Remove a key/value pair from user data.
+     * Delete data with the specified key from the call&#39;s user data.
+     * @param id The connection ID of the call. (required)
+     * @param keyData The key of the data to remove. (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1332,10 +1332,10 @@ public class VoiceApi {
     }
 
     /**
-     * Remove key/value pair from user data
-     * Deletes the specified key from the call data.
-     * @param id id of the call (required)
-     * @param keyData The key of the key/value pairs to delete. (required)
+     * Remove a key/value pair from user data.
+     * Delete data with the specified key from the call&#39;s user data.
+     * @param id The connection ID of the call. (required)
+     * @param keyData The key of the data to remove. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1346,10 +1346,10 @@ public class VoiceApi {
     }
 
     /**
-     * Remove key/value pair from user data (asynchronously)
-     * Deletes the specified key from the call data.
-     * @param id id of the call (required)
-     * @param keyData The key of the key/value pairs to delete. (required)
+     * Remove a key/value pair from user data. (asynchronously)
+     * Delete data with the specified key from the call&#39;s user data.
+     * @param id The connection ID of the call. (required)
+     * @param keyData The key of the data to remove. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1382,7 +1382,7 @@ public class VoiceApi {
     }
     /**
      * Build call for forward
-     * @param forwardData Request parameters. (required)
+     * @param forwardData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1444,9 +1444,9 @@ public class VoiceApi {
     }
 
     /**
-     * Fordward calls
-     * Turn on call forwarding to the specified destination. 
-     * @param forwardData Request parameters. (required)
+     * Forward calls.
+     * Set call forwarding on the current agent&#39;s DN to the specified destination.
+     * @param forwardData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1456,9 +1456,9 @@ public class VoiceApi {
     }
 
     /**
-     * Fordward calls
-     * Turn on call forwarding to the specified destination. 
-     * @param forwardData Request parameters. (required)
+     * Forward calls.
+     * Set call forwarding on the current agent&#39;s DN to the specified destination.
+     * @param forwardData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1469,9 +1469,9 @@ public class VoiceApi {
     }
 
     /**
-     * Fordward calls (asynchronously)
-     * Turn on call forwarding to the specified destination. 
-     * @param forwardData Request parameters. (required)
+     * Forward calls. (asynchronously)
+     * Set call forwarding on the current agent&#39;s DN to the specified destination.
+     * @param forwardData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1560,7 +1560,7 @@ public class VoiceApi {
     }
 
     /**
-     * Get all the calls
+     * Get all calls.
      * Returns an array containing any active calls for the user.
      * @return InlineResponse200
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1571,7 +1571,7 @@ public class VoiceApi {
     }
 
     /**
-     * Get all the calls
+     * Get all calls.
      * Returns an array containing any active calls for the user.
      * @return ApiResponse&lt;InlineResponse200&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1583,7 +1583,7 @@ public class VoiceApi {
     }
 
     /**
-     * Get all the calls (asynchronously)
+     * Get all calls. (asynchronously)
      * Returns an array containing any active calls for the user.
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1617,7 +1617,7 @@ public class VoiceApi {
     }
     /**
      * Build call for hold
-     * @param id id of the call (required)
+     * @param id The connection ID of the call. (required)
      * @param holdData Request parameters. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -1681,9 +1681,9 @@ public class VoiceApi {
     }
 
     /**
-     * Place a call on hold
-     * Place the call specified by the id path parameter on hold.
-     * @param id id of the call (required)
+     * Place the specified call on hold.
+     * Place the specified call on hold.
+     * @param id The connection ID of the call. (required)
      * @param holdData Request parameters. (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1694,9 +1694,9 @@ public class VoiceApi {
     }
 
     /**
-     * Place a call on hold
-     * Place the call specified by the id path parameter on hold.
-     * @param id id of the call (required)
+     * Place the specified call on hold.
+     * Place the specified call on hold.
+     * @param id The connection ID of the call. (required)
      * @param holdData Request parameters. (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1708,9 +1708,9 @@ public class VoiceApi {
     }
 
     /**
-     * Place a call on hold (asynchronously)
-     * Place the call specified by the id path parameter on hold.
-     * @param id id of the call (required)
+     * Place the specified call on hold. (asynchronously)
+     * Place the specified call on hold.
+     * @param id The connection ID of the call. (required)
      * @param holdData Request parameters. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1744,7 +1744,7 @@ public class VoiceApi {
     }
     /**
      * Build call for initiateConference
-     * @param id id of the call to initiate the conference from. This call will be placed on hold. (required)
+     * @param id The connection ID of the call to start the conference from. This call will be placed on hold. (required)
      * @param initiateConferenceData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -1813,9 +1813,9 @@ public class VoiceApi {
     }
 
     /**
-     * Initiate a conference
-     * Initiates a two-step conference to the specified destination. This operation places the existing call on hold  and creates a new call in the dialing state. After initiating the conference you can use /complete-conference  to complete the conference and bring all parties into the same call.
-     * @param id id of the call to initiate the conference from. This call will be placed on hold. (required)
+     * Initiate a conference.
+     * Initiates a two-step conference to the specified destination. This places the existing call on hold and creates a new call in the dialing state (step 1). After initiating the conference you can use &#x60;/voice/calls/{id}/complete-conference&#x60; to complete the conference and bring all parties into the same call (step 2).
+     * @param id The connection ID of the call to start the conference from. This call will be placed on hold. (required)
      * @param initiateConferenceData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1826,9 +1826,9 @@ public class VoiceApi {
     }
 
     /**
-     * Initiate a conference
-     * Initiates a two-step conference to the specified destination. This operation places the existing call on hold  and creates a new call in the dialing state. After initiating the conference you can use /complete-conference  to complete the conference and bring all parties into the same call.
-     * @param id id of the call to initiate the conference from. This call will be placed on hold. (required)
+     * Initiate a conference.
+     * Initiates a two-step conference to the specified destination. This places the existing call on hold and creates a new call in the dialing state (step 1). After initiating the conference you can use &#x60;/voice/calls/{id}/complete-conference&#x60; to complete the conference and bring all parties into the same call (step 2).
+     * @param id The connection ID of the call to start the conference from. This call will be placed on hold. (required)
      * @param initiateConferenceData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1840,9 +1840,9 @@ public class VoiceApi {
     }
 
     /**
-     * Initiate a conference (asynchronously)
-     * Initiates a two-step conference to the specified destination. This operation places the existing call on hold  and creates a new call in the dialing state. After initiating the conference you can use /complete-conference  to complete the conference and bring all parties into the same call.
-     * @param id id of the call to initiate the conference from. This call will be placed on hold. (required)
+     * Initiate a conference. (asynchronously)
+     * Initiates a two-step conference to the specified destination. This places the existing call on hold and creates a new call in the dialing state (step 1). After initiating the conference you can use &#x60;/voice/calls/{id}/complete-conference&#x60; to complete the conference and bring all parties into the same call (step 2).
+     * @param id The connection ID of the call to start the conference from. This call will be placed on hold. (required)
      * @param initiateConferenceData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1876,7 +1876,7 @@ public class VoiceApi {
     }
     /**
      * Build call for initiateTransfer
-     * @param id Connection identifier of the call that is requested to be placed on hold. (required)
+     * @param id The connection ID of the call to be transferred. This call will be placed on hold. (required)
      * @param initiateTransferData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -1945,9 +1945,9 @@ public class VoiceApi {
     }
 
     /**
-     * Initiate a transfer
-     * Initiates a two-step transfer to the specified destination. After initiating the transfer,  you can use complete-transfer to complete the transfer.
-     * @param id Connection identifier of the call that is requested to be placed on hold. (required)
+     * Initiate a transfer.
+     * Initiates a two-step transfer by placing the first call on hold and dialing the destination number (step 1). After initiating the transfer, you can use &#x60;/voice/calls/{id}/complete-transfer&#x60; to complete the transfer (step 2).
+     * @param id The connection ID of the call to be transferred. This call will be placed on hold. (required)
      * @param initiateTransferData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1958,9 +1958,9 @@ public class VoiceApi {
     }
 
     /**
-     * Initiate a transfer
-     * Initiates a two-step transfer to the specified destination. After initiating the transfer,  you can use complete-transfer to complete the transfer.
-     * @param id Connection identifier of the call that is requested to be placed on hold. (required)
+     * Initiate a transfer.
+     * Initiates a two-step transfer by placing the first call on hold and dialing the destination number (step 1). After initiating the transfer, you can use &#x60;/voice/calls/{id}/complete-transfer&#x60; to complete the transfer (step 2).
+     * @param id The connection ID of the call to be transferred. This call will be placed on hold. (required)
      * @param initiateTransferData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1972,9 +1972,9 @@ public class VoiceApi {
     }
 
     /**
-     * Initiate a transfer (asynchronously)
-     * Initiates a two-step transfer to the specified destination. After initiating the transfer,  you can use complete-transfer to complete the transfer.
-     * @param id Connection identifier of the call that is requested to be placed on hold. (required)
+     * Initiate a transfer. (asynchronously)
+     * Initiates a two-step transfer by placing the first call on hold and dialing the destination number (step 1). After initiating the transfer, you can use &#x60;/voice/calls/{id}/complete-transfer&#x60; to complete the transfer (step 2).
+     * @param id The connection ID of the call to be transferred. This call will be placed on hold. (required)
      * @param initiateTransferData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2064,8 +2064,8 @@ public class VoiceApi {
     }
 
     /**
-     * Login the media voice
-     * Login on the voice channel. This can be used to login the voice channel if it is logged out. (ex. after using /voice/logout). Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
+     * Login on the voice channel.
+     * Login the current agent on the voice channel. When you make this request, Workspace uses the parameters you provided in &#x60;/activate-channels&#x60;. For most applications, you don&#39;t need to worry about logging in the agent on the voice channel because it&#39;s handled by the Workspace API when you &#x60;/activate-channels&#x60;. However, if you make a &#x60;/voice/logout&#x60; request, you can then use &#x60;/voice/login&#x60; to login the agent on the voice channel. **Note: This login/logout flow only applies to the voice channel, not to the agent&#39;s session.**
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2075,8 +2075,8 @@ public class VoiceApi {
     }
 
     /**
-     * Login the media voice
-     * Login on the voice channel. This can be used to login the voice channel if it is logged out. (ex. after using /voice/logout). Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
+     * Login on the voice channel.
+     * Login the current agent on the voice channel. When you make this request, Workspace uses the parameters you provided in &#x60;/activate-channels&#x60;. For most applications, you don&#39;t need to worry about logging in the agent on the voice channel because it&#39;s handled by the Workspace API when you &#x60;/activate-channels&#x60;. However, if you make a &#x60;/voice/logout&#x60; request, you can then use &#x60;/voice/login&#x60; to login the agent on the voice channel. **Note: This login/logout flow only applies to the voice channel, not to the agent&#39;s session.**
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2087,8 +2087,8 @@ public class VoiceApi {
     }
 
     /**
-     * Login the media voice (asynchronously)
-     * Login on the voice channel. This can be used to login the voice channel if it is logged out. (ex. after using /voice/logout). Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
+     * Login on the voice channel. (asynchronously)
+     * Login the current agent on the voice channel. When you make this request, Workspace uses the parameters you provided in &#x60;/activate-channels&#x60;. For most applications, you don&#39;t need to worry about logging in the agent on the voice channel because it&#39;s handled by the Workspace API when you &#x60;/activate-channels&#x60;. However, if you make a &#x60;/voice/logout&#x60; request, you can then use &#x60;/voice/login&#x60; to login the agent on the voice channel. **Note: This login/logout flow only applies to the voice channel, not to the agent&#39;s session.**
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2178,7 +2178,7 @@ public class VoiceApi {
 
     /**
      * Logout the media voice
-     * Logout on the voice channel. Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
+     * Logout the current agent on the voice channel. This request is typically paired with &#x60;/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2189,7 +2189,7 @@ public class VoiceApi {
 
     /**
      * Logout the media voice
-     * Logout on the voice channel. Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
+     * Logout the current agent on the voice channel. This request is typically paired with &#x60;/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2201,7 +2201,7 @@ public class VoiceApi {
 
     /**
      * Logout the media voice (asynchronously)
-     * Logout on the voice channel. Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
+     * Logout the current agent on the voice channel. This request is typically paired with &#x60;/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2296,8 +2296,8 @@ public class VoiceApi {
     }
 
     /**
-     * Make a new call to the specified destination
-     * Make a new call to the specified destination
+     * Make a new call.
+     * Make a new call to the specified destination.
      * @param makeCallData Request parameters. (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2308,8 +2308,8 @@ public class VoiceApi {
     }
 
     /**
-     * Make a new call to the specified destination
-     * Make a new call to the specified destination
+     * Make a new call.
+     * Make a new call to the specified destination.
      * @param makeCallData Request parameters. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2321,8 +2321,8 @@ public class VoiceApi {
     }
 
     /**
-     * Make a new call to the specified destination (asynchronously)
-     * Make a new call to the specified destination
+     * Make a new call. (asynchronously)
+     * Make a new call to the specified destination.
      * @param makeCallData Request parameters. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2356,7 +2356,7 @@ public class VoiceApi {
     }
     /**
      * Build call for merge
-     * @param id Connection identifier of the first call to be merged (required)
+     * @param id The connection ID of the first call to be merged. (required)
      * @param mergeData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -2425,9 +2425,9 @@ public class VoiceApi {
     }
 
     /**
-     * Merge two calls
-     * Merge two calls 
-     * @param id Connection identifier of the first call to be merged (required)
+     * Merge the two specified calls.
+     * Merge the two specified calls.
+     * @param id The connection ID of the first call to be merged. (required)
      * @param mergeData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2438,9 +2438,9 @@ public class VoiceApi {
     }
 
     /**
-     * Merge two calls
-     * Merge two calls 
-     * @param id Connection identifier of the first call to be merged (required)
+     * Merge the two specified calls.
+     * Merge the two specified calls.
+     * @param id The connection ID of the first call to be merged. (required)
      * @param mergeData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2452,9 +2452,9 @@ public class VoiceApi {
     }
 
     /**
-     * Merge two calls (asynchronously)
-     * Merge two calls 
-     * @param id Connection identifier of the first call to be merged (required)
+     * Merge the two specified calls. (asynchronously)
+     * Merge the two specified calls.
+     * @param id The connection ID of the first call to be merged. (required)
      * @param mergeData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2488,7 +2488,7 @@ public class VoiceApi {
     }
     /**
      * Build call for pauseRecording
-     * @param id id of the call (required)
+     * @param id The connection ID of the call. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -2551,9 +2551,9 @@ public class VoiceApi {
     }
 
     /**
-     * Pauses call recording.
-     * Pauses call recording.
-     * @param id id of the call (required)
+     * Pause recording on the specified call.
+     * Pause recording on the specified call.
+     * @param id The connection ID of the call. (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2563,9 +2563,9 @@ public class VoiceApi {
     }
 
     /**
-     * Pauses call recording.
-     * Pauses call recording.
-     * @param id id of the call (required)
+     * Pause recording on the specified call.
+     * Pause recording on the specified call.
+     * @param id The connection ID of the call. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2576,9 +2576,9 @@ public class VoiceApi {
     }
 
     /**
-     * Pauses call recording. (asynchronously)
-     * Pauses call recording.
-     * @param id id of the call (required)
+     * Pause recording on the specified call. (asynchronously)
+     * Pause recording on the specified call.
+     * @param id The connection ID of the call. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2611,7 +2611,7 @@ public class VoiceApi {
     }
     /**
      * Build call for reconnect
-     * @param id The id of the active call (required)
+     * @param id The connection ID of the established call (will be released). (required)
      * @param reconnectData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -2680,9 +2680,9 @@ public class VoiceApi {
     }
 
     /**
-     * Reconnect a call
-     * Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
-     * @param id The id of the active call (required)
+     * Reconnect a call.
+     * Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/voice/calls/{id}/release&#x60; and &#x60;/voice/calls/{id}/retrieve&#x60; in one step.
+     * @param id The connection ID of the established call (will be released). (required)
      * @param reconnectData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2693,9 +2693,9 @@ public class VoiceApi {
     }
 
     /**
-     * Reconnect a call
-     * Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
-     * @param id The id of the active call (required)
+     * Reconnect a call.
+     * Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/voice/calls/{id}/release&#x60; and &#x60;/voice/calls/{id}/retrieve&#x60; in one step.
+     * @param id The connection ID of the established call (will be released). (required)
      * @param reconnectData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2707,9 +2707,9 @@ public class VoiceApi {
     }
 
     /**
-     * Reconnect a call (asynchronously)
-     * Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
-     * @param id The id of the active call (required)
+     * Reconnect a call. (asynchronously)
+     * Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/voice/calls/{id}/release&#x60; and &#x60;/voice/calls/{id}/retrieve&#x60; in one step.
+     * @param id The connection ID of the established call (will be released). (required)
      * @param reconnectData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2743,7 +2743,7 @@ public class VoiceApi {
     }
     /**
      * Build call for redirect
-     * @param id Connection ID of the current call handled by the DN. (required)
+     * @param id The connection ID of the current call to redirect. (required)
      * @param redirectData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -2813,8 +2813,8 @@ public class VoiceApi {
 
     /**
      * Redirect the call.
-     * Requests that the call be redirected, without an answer, from the party specified by the parameter dn to the party specified by the parameter dest_dn.
-     * @param id Connection ID of the current call handled by the DN. (required)
+     * Redirect a call to the specified destination.
+     * @param id The connection ID of the current call to redirect. (required)
      * @param redirectData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2826,8 +2826,8 @@ public class VoiceApi {
 
     /**
      * Redirect the call.
-     * Requests that the call be redirected, without an answer, from the party specified by the parameter dn to the party specified by the parameter dest_dn.
-     * @param id Connection ID of the current call handled by the DN. (required)
+     * Redirect a call to the specified destination.
+     * @param id The connection ID of the current call to redirect. (required)
      * @param redirectData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2840,8 +2840,8 @@ public class VoiceApi {
 
     /**
      * Redirect the call. (asynchronously)
-     * Requests that the call be redirected, without an answer, from the party specified by the parameter dn to the party specified by the parameter dest_dn.
-     * @param id Connection ID of the current call handled by the DN. (required)
+     * Redirect a call to the specified destination.
+     * @param id The connection ID of the current call to redirect. (required)
      * @param redirectData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2875,7 +2875,7 @@ public class VoiceApi {
     }
     /**
      * Build call for release
-     * @param id id of the call (required)
+     * @param id The connection ID of the call. (required)
      * @param releaseData Request parameters. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -2939,9 +2939,9 @@ public class VoiceApi {
     }
 
     /**
-     * Release a call
-     * Release the call specified by the id path parameter.
-     * @param id id of the call (required)
+     * Release the specified call.
+     * Release the specified call.
+     * @param id The connection ID of the call. (required)
      * @param releaseData Request parameters. (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2952,9 +2952,9 @@ public class VoiceApi {
     }
 
     /**
-     * Release a call
-     * Release the call specified by the id path parameter.
-     * @param id id of the call (required)
+     * Release the specified call.
+     * Release the specified call.
+     * @param id The connection ID of the call. (required)
      * @param releaseData Request parameters. (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2966,9 +2966,9 @@ public class VoiceApi {
     }
 
     /**
-     * Release a call (asynchronously)
-     * Release the call specified by the id path parameter.
-     * @param id id of the call (required)
+     * Release the specified call. (asynchronously)
+     * Release the specified call.
+     * @param id The connection ID of the call. (required)
      * @param releaseData Request parameters. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3002,7 +3002,7 @@ public class VoiceApi {
     }
     /**
      * Build call for resumeRecording
-     * @param id id of the call (required)
+     * @param id The connection ID of the call. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -3065,9 +3065,9 @@ public class VoiceApi {
     }
 
     /**
-     * Resumes call recording.
-     * Resumes call recording.
-     * @param id id of the call (required)
+     * Resume recording the specified call.
+     * Resume recording the specified call.
+     * @param id The connection ID of the call. (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3077,9 +3077,9 @@ public class VoiceApi {
     }
 
     /**
-     * Resumes call recording.
-     * Resumes call recording.
-     * @param id id of the call (required)
+     * Resume recording the specified call.
+     * Resume recording the specified call.
+     * @param id The connection ID of the call. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3090,9 +3090,9 @@ public class VoiceApi {
     }
 
     /**
-     * Resumes call recording. (asynchronously)
-     * Resumes call recording.
-     * @param id id of the call (required)
+     * Resume recording the specified call. (asynchronously)
+     * Resume recording the specified call.
+     * @param id The connection ID of the call. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3125,7 +3125,7 @@ public class VoiceApi {
     }
     /**
      * Build call for retrieve
-     * @param id id of the call (required)
+     * @param id The connection ID of the call. (required)
      * @param retrieveData Request parameters. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -3189,9 +3189,9 @@ public class VoiceApi {
     }
 
     /**
-     * Retrieve a held call
-     * Retrieve the held call specified by the id path parameter.
-     * @param id id of the call (required)
+     * Retrieve the specified call from hold.
+     * Retrieve the specified call from hold.
+     * @param id The connection ID of the call. (required)
      * @param retrieveData Request parameters. (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3202,9 +3202,9 @@ public class VoiceApi {
     }
 
     /**
-     * Retrieve a held call
-     * Retrieve the held call specified by the id path parameter.
-     * @param id id of the call (required)
+     * Retrieve the specified call from hold.
+     * Retrieve the specified call from hold.
+     * @param id The connection ID of the call. (required)
      * @param retrieveData Request parameters. (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3216,9 +3216,9 @@ public class VoiceApi {
     }
 
     /**
-     * Retrieve a held call (asynchronously)
-     * Retrieve the held call specified by the id path parameter.
-     * @param id id of the call (required)
+     * Retrieve the specified call from hold. (asynchronously)
+     * Retrieve the specified call from hold.
+     * @param id The connection ID of the call. (required)
      * @param retrieveData Request parameters. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3252,7 +3252,7 @@ public class VoiceApi {
     }
     /**
      * Build call for sendDTMF
-     * @param id Id of the cal (required)
+     * @param id The connection ID of the call. (required)
      * @param sendDTMFData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -3322,8 +3322,8 @@ public class VoiceApi {
 
     /**
      * Send digits as DTMF.
-     * Sends the provided DTMF digits. You can send DTMF digits individually with multiple requests  or together with multiple digits in one request.
-     * @param id Id of the cal (required)
+     * Send DTMF digits to the specified call. You can send DTMF digits individually with multiple requests or together with multiple digits in one request.
+     * @param id The connection ID of the call. (required)
      * @param sendDTMFData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3335,8 +3335,8 @@ public class VoiceApi {
 
     /**
      * Send digits as DTMF.
-     * Sends the provided DTMF digits. You can send DTMF digits individually with multiple requests  or together with multiple digits in one request.
-     * @param id Id of the cal (required)
+     * Send DTMF digits to the specified call. You can send DTMF digits individually with multiple requests or together with multiple digits in one request.
+     * @param id The connection ID of the call. (required)
      * @param sendDTMFData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3349,8 +3349,8 @@ public class VoiceApi {
 
     /**
      * Send digits as DTMF. (asynchronously)
-     * Sends the provided DTMF digits. You can send DTMF digits individually with multiple requests  or together with multiple digits in one request.
-     * @param id Id of the cal (required)
+     * Send DTMF digits to the specified call. You can send DTMF digits individually with multiple requests or together with multiple digits in one request.
+     * @param id The connection ID of the call. (required)
      * @param sendDTMFData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3384,7 +3384,7 @@ public class VoiceApi {
     }
     /**
      * Build call for sendUserEvent
-     * @param userEventData Data defining the user event to be distributed (required)
+     * @param userEventData The data to be sent. This is an array of objects with the properties key, type, and value. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -3446,9 +3446,9 @@ public class VoiceApi {
     }
 
     /**
-     * Send a userEvent event to TServer with provided attached data.
-     * Send a userEvent event to TServer with provided attached data.
-     * @param userEventData Data defining the user event to be distributed (required)
+     * Send a userEvent event to T-Server with the provided attached data.
+     * Send a userEvent event to T-Server with the provided attached data.
+     * @param userEventData The data to be sent. This is an array of objects with the properties key, type, and value. (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3458,9 +3458,9 @@ public class VoiceApi {
     }
 
     /**
-     * Send a userEvent event to TServer with provided attached data.
-     * Send a userEvent event to TServer with provided attached data.
-     * @param userEventData Data defining the user event to be distributed (required)
+     * Send a userEvent event to T-Server with the provided attached data.
+     * Send a userEvent event to T-Server with the provided attached data.
+     * @param userEventData The data to be sent. This is an array of objects with the properties key, type, and value. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3471,9 +3471,9 @@ public class VoiceApi {
     }
 
     /**
-     * Send a userEvent event to TServer with provided attached data. (asynchronously)
-     * Send a userEvent event to TServer with provided attached data.
-     * @param userEventData Data defining the user event to be distributed (required)
+     * Send a userEvent event to T-Server with the provided attached data. (asynchronously)
+     * Send a userEvent event to T-Server with the provided attached data.
+     * @param userEventData The data to be sent. This is an array of objects with the properties key, type, and value. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3563,8 +3563,8 @@ public class VoiceApi {
     }
 
     /**
-     * Change to the not ready state for voice
-     * Change to the not ready state for voice
+     * Set the agent state to NotReady.
+     * Set the current agent&#39;s state to NotReady on the voice channel.
      * @param notReadyData  (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3575,8 +3575,8 @@ public class VoiceApi {
     }
 
     /**
-     * Change to the not ready state for voice
-     * Change to the not ready state for voice
+     * Set the agent state to NotReady.
+     * Set the current agent&#39;s state to NotReady on the voice channel.
      * @param notReadyData  (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3588,8 +3588,8 @@ public class VoiceApi {
     }
 
     /**
-     * Change to the not ready state for voice (asynchronously)
-     * Change to the not ready state for voice
+     * Set the agent state to NotReady. (asynchronously)
+     * Set the current agent&#39;s state to NotReady on the voice channel.
      * @param notReadyData  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3680,8 +3680,8 @@ public class VoiceApi {
     }
 
     /**
-     * Change to the ready state for voice
-     * Change to the ready state for voice
+     * Set the agent state to Ready.
+     * Set the current agent&#39;s state to Ready on the voice channel.
      * @param readyData  (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3692,8 +3692,8 @@ public class VoiceApi {
     }
 
     /**
-     * Change to the ready state for voice
-     * Change to the ready state for voice
+     * Set the agent state to Ready.
+     * Set the current agent&#39;s state to Ready on the voice channel.
      * @param readyData  (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3705,8 +3705,8 @@ public class VoiceApi {
     }
 
     /**
-     * Change to the ready state for voice (asynchronously)
-     * Change to the ready state for voice
+     * Set the agent state to Ready. (asynchronously)
+     * Set the current agent&#39;s state to Ready on the voice channel.
      * @param readyData  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3796,8 +3796,8 @@ public class VoiceApi {
     }
 
     /**
-     * Turn off do not disturb for voice
-     * Turn off do not disturb for voice
+     * Turn off do-not-disturb.
+     * Turn off do-not-disturb for the current agent on the voice channel.
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3807,8 +3807,8 @@ public class VoiceApi {
     }
 
     /**
-     * Turn off do not disturb for voice
-     * Turn off do not disturb for voice
+     * Turn off do-not-disturb.
+     * Turn off do-not-disturb for the current agent on the voice channel.
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3819,8 +3819,8 @@ public class VoiceApi {
     }
 
     /**
-     * Turn off do not disturb for voice (asynchronously)
-     * Turn off do not disturb for voice
+     * Turn off do-not-disturb. (asynchronously)
+     * Turn off do-not-disturb for the current agent on the voice channel.
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3909,8 +3909,8 @@ public class VoiceApi {
     }
 
     /**
-     * Turn on do not disturb for voice
-     * Turn on do not disturb for voice
+     * Set the agent state to do-not-disturb.
+     * Set the current agent&#39;s state to do-not-disturb on the voice channel.
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3920,8 +3920,8 @@ public class VoiceApi {
     }
 
     /**
-     * Turn on do not disturb for voice
-     * Turn on do not disturb for voice
+     * Set the agent state to do-not-disturb.
+     * Set the current agent&#39;s state to do-not-disturb on the voice channel.
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3932,8 +3932,8 @@ public class VoiceApi {
     }
 
     /**
-     * Turn on do not disturb for voice (asynchronously)
-     * Turn on do not disturb for voice
+     * Set the agent state to do-not-disturb. (asynchronously)
+     * Set the current agent&#39;s state to do-not-disturb on the voice channel.
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3966,7 +3966,7 @@ public class VoiceApi {
     }
     /**
      * Build call for singleStepConference
-     * @param id Connection identifier of the call that is requested to be conferenced. (required)
+     * @param id The connection ID of the call to conference. (required)
      * @param singleStepConferenceData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -4035,9 +4035,9 @@ public class VoiceApi {
     }
 
     /**
-     * Create a conference in a single step
-     * Performs a single-step conference, adding the specified participant to the call.
-     * @param id Connection identifier of the call that is requested to be conferenced. (required)
+     * Create a conference in a single step.
+     * Perform a single-step conference to the specified destination. This adds the destination to the existing call, creating a conference if necessary.
+     * @param id The connection ID of the call to conference. (required)
      * @param singleStepConferenceData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4048,9 +4048,9 @@ public class VoiceApi {
     }
 
     /**
-     * Create a conference in a single step
-     * Performs a single-step conference, adding the specified participant to the call.
-     * @param id Connection identifier of the call that is requested to be conferenced. (required)
+     * Create a conference in a single step.
+     * Perform a single-step conference to the specified destination. This adds the destination to the existing call, creating a conference if necessary.
+     * @param id The connection ID of the call to conference. (required)
      * @param singleStepConferenceData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4062,9 +4062,9 @@ public class VoiceApi {
     }
 
     /**
-     * Create a conference in a single step (asynchronously)
-     * Performs a single-step conference, adding the specified participant to the call.
-     * @param id Connection identifier of the call that is requested to be conferenced. (required)
+     * Create a conference in a single step. (asynchronously)
+     * Perform a single-step conference to the specified destination. This adds the destination to the existing call, creating a conference if necessary.
+     * @param id The connection ID of the call to conference. (required)
      * @param singleStepConferenceData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4098,7 +4098,7 @@ public class VoiceApi {
     }
     /**
      * Build call for singleStepTransfer
-     * @param id The id of the call to be transferred. (required)
+     * @param id The connection ID of the call to transfer. (required)
      * @param singleStepTransferData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -4167,9 +4167,9 @@ public class VoiceApi {
     }
 
     /**
-     * Transfer a call in a single step
-     * Performs a single-step transfer to the specified destination.
-     * @param id The id of the call to be transferred. (required)
+     * Transfer a call in a single step.
+     * Perform a single-step transfer to the specified destination.
+     * @param id The connection ID of the call to transfer. (required)
      * @param singleStepTransferData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4180,9 +4180,9 @@ public class VoiceApi {
     }
 
     /**
-     * Transfer a call in a single step
-     * Performs a single-step transfer to the specified destination.
-     * @param id The id of the call to be transferred. (required)
+     * Transfer a call in a single step.
+     * Perform a single-step transfer to the specified destination.
+     * @param id The connection ID of the call to transfer. (required)
      * @param singleStepTransferData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4194,9 +4194,9 @@ public class VoiceApi {
     }
 
     /**
-     * Transfer a call in a single step (asynchronously)
-     * Performs a single-step transfer to the specified destination.
-     * @param id The id of the call to be transferred. (required)
+     * Transfer a call in a single step. (asynchronously)
+     * Perform a single-step transfer to the specified destination.
+     * @param id The connection ID of the call to transfer. (required)
      * @param singleStepTransferData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4292,8 +4292,8 @@ public class VoiceApi {
     }
 
     /**
-     * Start the monitoring of an agent.
-     * Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Mute/Coach/Connect), monitoringNextCallType (OneCall/AllCalls), monitoringScope (Agent/Call)).
+     * Start monitoring an agent.
+     * Start supervisor monitoring of an agent. Use the parameters to specify how the monitoring should behave. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/voice/calls/{id}/switch-to-listen-in&#x60; (Mute), &#x60;/voice/calls/{id}/switch-to-coaching&#x60; (Coach), and &#x60;/voice/calls/{id}/switch-to-barge-in&#x60; (Connect).
      * @param startMonitoringData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4304,8 +4304,8 @@ public class VoiceApi {
     }
 
     /**
-     * Start the monitoring of an agent.
-     * Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Mute/Coach/Connect), monitoringNextCallType (OneCall/AllCalls), monitoringScope (Agent/Call)).
+     * Start monitoring an agent.
+     * Start supervisor monitoring of an agent. Use the parameters to specify how the monitoring should behave. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/voice/calls/{id}/switch-to-listen-in&#x60; (Mute), &#x60;/voice/calls/{id}/switch-to-coaching&#x60; (Coach), and &#x60;/voice/calls/{id}/switch-to-barge-in&#x60; (Connect).
      * @param startMonitoringData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4317,8 +4317,8 @@ public class VoiceApi {
     }
 
     /**
-     * Start the monitoring of an agent. (asynchronously)
-     * Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Mute/Coach/Connect), monitoringNextCallType (OneCall/AllCalls), monitoringScope (Agent/Call)).
+     * Start monitoring an agent. (asynchronously)
+     * Start supervisor monitoring of an agent. Use the parameters to specify how the monitoring should behave. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/voice/calls/{id}/switch-to-listen-in&#x60; (Mute), &#x60;/voice/calls/{id}/switch-to-coaching&#x60; (Coach), and &#x60;/voice/calls/{id}/switch-to-barge-in&#x60; (Connect).
      * @param startMonitoringData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4352,7 +4352,7 @@ public class VoiceApi {
     }
     /**
      * Build call for startRecording
-     * @param id id of the call (required)
+     * @param id The connection ID of the call. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -4415,9 +4415,9 @@ public class VoiceApi {
     }
 
     /**
-     * Starts call recording.
-     * Starts call recording.
-     * @param id id of the call (required)
+     * Start recording the specified call.
+     * Start recording the specified call. Recording stops when the call is completed or you send &#x60;/voice/calls/{id}/stop-recording&#x60; on either the call or the DN.
+     * @param id The connection ID of the call. (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -4427,9 +4427,9 @@ public class VoiceApi {
     }
 
     /**
-     * Starts call recording.
-     * Starts call recording.
-     * @param id id of the call (required)
+     * Start recording the specified call.
+     * Start recording the specified call. Recording stops when the call is completed or you send &#x60;/voice/calls/{id}/stop-recording&#x60; on either the call or the DN.
+     * @param id The connection ID of the call. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -4440,9 +4440,9 @@ public class VoiceApi {
     }
 
     /**
-     * Starts call recording. (asynchronously)
-     * Starts call recording.
-     * @param id id of the call (required)
+     * Start recording the specified call. (asynchronously)
+     * Start recording the specified call. Recording stops when the call is completed or you send &#x60;/voice/calls/{id}/stop-recording&#x60; on either the call or the DN.
+     * @param id The connection ID of the call. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4537,8 +4537,8 @@ public class VoiceApi {
     }
 
     /**
-     * Stop the monitoring of an agent.
-     * Stop the monitoring of an agent, providing monitoring information (phoneNumber to be monitored).
+     * Stop monitoring an agent.
+     * Stop monitoring an agent.
      * @param stopMonitoringData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4549,8 +4549,8 @@ public class VoiceApi {
     }
 
     /**
-     * Stop the monitoring of an agent.
-     * Stop the monitoring of an agent, providing monitoring information (phoneNumber to be monitored).
+     * Stop monitoring an agent.
+     * Stop monitoring an agent.
      * @param stopMonitoringData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4562,8 +4562,8 @@ public class VoiceApi {
     }
 
     /**
-     * Stop the monitoring of an agent. (asynchronously)
-     * Stop the monitoring of an agent, providing monitoring information (phoneNumber to be monitored).
+     * Stop monitoring an agent. (asynchronously)
+     * Stop monitoring an agent.
      * @param stopMonitoringData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4597,7 +4597,7 @@ public class VoiceApi {
     }
     /**
      * Build call for stopRecording
-     * @param id id of the call (required)
+     * @param id The connection ID of the call. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -4660,9 +4660,9 @@ public class VoiceApi {
     }
 
     /**
-     * Stops call recording.
-     * Stops call recording.
-     * @param id id of the call (required)
+     * Stop recording the specified call.
+     * Stop recording the specified call.
+     * @param id The connection ID of the call. (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -4672,9 +4672,9 @@ public class VoiceApi {
     }
 
     /**
-     * Stops call recording.
-     * Stops call recording.
-     * @param id id of the call (required)
+     * Stop recording the specified call.
+     * Stop recording the specified call.
+     * @param id The connection ID of the call. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -4685,9 +4685,9 @@ public class VoiceApi {
     }
 
     /**
-     * Stops call recording. (asynchronously)
-     * Stops call recording.
-     * @param id id of the call (required)
+     * Stop recording the specified call. (asynchronously)
+     * Stop recording the specified call.
+     * @param id The connection ID of the call. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4720,7 +4720,7 @@ public class VoiceApi {
     }
     /**
      * Build call for switchToBargeIn
-     * @param id Connection identifier of the call in question. (required)
+     * @param id The connection ID of the call being monitored. (required)
      * @param monitoringScopeData  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -4784,9 +4784,9 @@ public class VoiceApi {
     }
 
     /**
-     * Switch to barge in monitoring mode.
-     * Switch the currently monitored voice interaction to barge in mode
-     * @param id Connection identifier of the call in question. (required)
+     * Switch to the barge in monitoring mode.
+     * Switch to the barge in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
+     * @param id The connection ID of the call being monitored. (required)
      * @param monitoringScopeData  (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4797,9 +4797,9 @@ public class VoiceApi {
     }
 
     /**
-     * Switch to barge in monitoring mode.
-     * Switch the currently monitored voice interaction to barge in mode
-     * @param id Connection identifier of the call in question. (required)
+     * Switch to the barge in monitoring mode.
+     * Switch to the barge in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
+     * @param id The connection ID of the call being monitored. (required)
      * @param monitoringScopeData  (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4811,9 +4811,9 @@ public class VoiceApi {
     }
 
     /**
-     * Switch to barge in monitoring mode. (asynchronously)
-     * Switch the currently monitored voice interaction to barge in mode
-     * @param id Connection identifier of the call in question. (required)
+     * Switch to the barge in monitoring mode. (asynchronously)
+     * Switch to the barge in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
+     * @param id The connection ID of the call being monitored. (required)
      * @param monitoringScopeData  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4847,7 +4847,7 @@ public class VoiceApi {
     }
     /**
      * Build call for switchToCoaching
-     * @param id Connection identifier of the call in question. (required)
+     * @param id The connection ID of the call being monitored. (required)
      * @param monitoringScopeData  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -4911,9 +4911,9 @@ public class VoiceApi {
     }
 
     /**
-     * Switch to coaching monitoring mode.
-     * Switch the currently monitored voice interaction to coaching mode
-     * @param id Connection identifier of the call in question. (required)
+     * Switch to the coaching monitoring mode.
+     * Switch to the coaching monitoring mode. When coaching is enabled and the agent receives a call, the supervisor is brought into the call. Only the agent can hear the supervisor.
+     * @param id The connection ID of the call being monitored. (required)
      * @param monitoringScopeData  (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4924,9 +4924,9 @@ public class VoiceApi {
     }
 
     /**
-     * Switch to coaching monitoring mode.
-     * Switch the currently monitored voice interaction to coaching mode
-     * @param id Connection identifier of the call in question. (required)
+     * Switch to the coaching monitoring mode.
+     * Switch to the coaching monitoring mode. When coaching is enabled and the agent receives a call, the supervisor is brought into the call. Only the agent can hear the supervisor.
+     * @param id The connection ID of the call being monitored. (required)
      * @param monitoringScopeData  (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4938,9 +4938,9 @@ public class VoiceApi {
     }
 
     /**
-     * Switch to coaching monitoring mode. (asynchronously)
-     * Switch the currently monitored voice interaction to coaching mode
-     * @param id Connection identifier of the call in question. (required)
+     * Switch to the coaching monitoring mode. (asynchronously)
+     * Switch to the coaching monitoring mode. When coaching is enabled and the agent receives a call, the supervisor is brought into the call. Only the agent can hear the supervisor.
+     * @param id The connection ID of the call being monitored. (required)
      * @param monitoringScopeData  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4974,7 +4974,7 @@ public class VoiceApi {
     }
     /**
      * Build call for switchToListenIn
-     * @param id Connection identifier of the call in question. (required)
+     * @param id The connection ID of the call being monitored. (required)
      * @param monitoringScopeData  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -5038,9 +5038,9 @@ public class VoiceApi {
     }
 
     /**
-     * Switch to listen in monitoring mode.
-     * Switch the currently monitored voice interaction to listen in mode
-     * @param id Connection identifier of the call in question. (required)
+     * Switch to the listen in monitoring mode.
+     * Switch to the listen in monitoring mode. When listen in is enabled and the agent receives a call, the supervisor is able to listen to the agent and the customer, but they can&#39;t hear the supervisor.
+     * @param id The connection ID of the call being monitored. (required)
      * @param monitoringScopeData  (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5051,9 +5051,9 @@ public class VoiceApi {
     }
 
     /**
-     * Switch to listen in monitoring mode.
-     * Switch the currently monitored voice interaction to listen in mode
-     * @param id Connection identifier of the call in question. (required)
+     * Switch to the listen in monitoring mode.
+     * Switch to the listen in monitoring mode. When listen in is enabled and the agent receives a call, the supervisor is able to listen to the agent and the customer, but they can&#39;t hear the supervisor.
+     * @param id The connection ID of the call being monitored. (required)
      * @param monitoringScopeData  (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5065,9 +5065,9 @@ public class VoiceApi {
     }
 
     /**
-     * Switch to listen in monitoring mode. (asynchronously)
-     * Switch the currently monitored voice interaction to listen in mode
-     * @param id Connection identifier of the call in question. (required)
+     * Switch to the listen in monitoring mode. (asynchronously)
+     * Switch to the listen in monitoring mode. When listen in is enabled and the agent receives a call, the supervisor is able to listen to the agent and the customer, but they can&#39;t hear the supervisor.
+     * @param id The connection ID of the call being monitored. (required)
      * @param monitoringScopeData  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5101,8 +5101,8 @@ public class VoiceApi {
     }
     /**
      * Build call for updateUserData
-     * @param id id of the call (required)
-     * @param userData An array of key/value pairs. (required)
+     * @param id The connection ID of the call. (required)
+     * @param userData The data to update. This is an array of objects with the properties key, type, and value. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -5170,10 +5170,10 @@ public class VoiceApi {
     }
 
     /**
-     * Update user data to a call
-     * Update the call userdata with the provided key/value pairs.
-     * @param id id of the call (required)
-     * @param userData An array of key/value pairs. (required)
+     * Update user data for a call.
+     * Update call data with the provided key/value pairs. This will replace any existing key/value pairs with the same keys.
+     * @param id The connection ID of the call. (required)
+     * @param userData The data to update. This is an array of objects with the properties key, type, and value. (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5183,10 +5183,10 @@ public class VoiceApi {
     }
 
     /**
-     * Update user data to a call
-     * Update the call userdata with the provided key/value pairs.
-     * @param id id of the call (required)
-     * @param userData An array of key/value pairs. (required)
+     * Update user data for a call.
+     * Update call data with the provided key/value pairs. This will replace any existing key/value pairs with the same keys.
+     * @param id The connection ID of the call. (required)
+     * @param userData The data to update. This is an array of objects with the properties key, type, and value. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5197,10 +5197,10 @@ public class VoiceApi {
     }
 
     /**
-     * Update user data to a call (asynchronously)
-     * Update the call userdata with the provided key/value pairs.
-     * @param id id of the call (required)
-     * @param userData An array of key/value pairs. (required)
+     * Update user data for a call. (asynchronously)
+     * Update call data with the provided key/value pairs. This will replace any existing key/value pairs with the same keys.
+     * @param id The connection ID of the call. (required)
+     * @param userData The data to update. This is an array of objects with the properties key, type, and value. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

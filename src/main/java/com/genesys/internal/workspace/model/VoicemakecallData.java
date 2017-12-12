@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * VoicemakecallData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T14:04:39.428Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T16:38:56.370Z")
 public class VoicemakecallData {
   @SerializedName("destination")
   private String destination = null;
@@ -73,10 +73,10 @@ public class VoicemakecallData {
   }
 
    /**
-   * Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
+   * Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. This value is used by Workspace to set the location attribute for the corresponding T-Server requests. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
    * @return location
   **/
-  @ApiModelProperty(value = "Name of the remote location in the form of <SwitchName> or <T-ServerApplicationName>@<SwitchName>. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.")
+  @ApiModelProperty(value = "Name of the remote location in the form of <SwitchName> or <T-ServerApplicationName>@<SwitchName>. This value is used by Workspace to set the location attribute for the corresponding T-Server requests. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.")
   public String getLocation() {
     return location;
   }
@@ -125,10 +125,10 @@ public class VoicemakecallData {
   }
 
    /**
-   * A key/value pairs list of a data structure that provides additional information associated with this action.
+   * A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
    * @return reasons
   **/
-  @ApiModelProperty(value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
+  @ApiModelProperty(value = "A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).")
   public List<Kvpair> getReasons() {
     return reasons;
   }
@@ -151,10 +151,10 @@ public class VoicemakecallData {
   }
 
    /**
-   * A key/value pairs list of additional data.
+   * A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
    * @return extensions
   **/
-  @ApiModelProperty(value = "A key/value pairs list of additional data.")
+  @ApiModelProperty(value = "A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).")
   public List<Kvpair> getExtensions() {
     return extensions;
   }
@@ -169,10 +169,10 @@ public class VoicemakecallData {
   }
 
    /**
-   * value to be set as CPN_DIGITS.
+   * The caller ID information to display on the destination party&#39;s phone. The value should be set as CPNDigits. For more information about caller ID, see the [SIP Server Deployment Guide] (https://docs.genesys.com/Documentation/SIPS).
    * @return outboundCallerId
   **/
-  @ApiModelProperty(value = "value to be set as CPN_DIGITS.")
+  @ApiModelProperty(value = "The caller ID information to display on the destination party's phone. The value should be set as CPNDigits. For more information about caller ID, see the [SIP Server Deployment Guide] (https://docs.genesys.com/Documentation/SIPS).")
   public String getOutboundCallerId() {
     return outboundCallerId;
   }

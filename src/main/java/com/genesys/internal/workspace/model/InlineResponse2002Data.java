@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.InlineResponse2002DataStatistics;
+import com.genesys.internal.workspace.model.StatisticValueForRegisterResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,17 +23,19 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse2002Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T14:04:39.428Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T16:38:56.370Z")
 public class InlineResponse2002Data {
   @SerializedName("subscriptionId")
   private String subscriptionId = null;
 
   @SerializedName("statistics")
-  private InlineResponse2002DataStatistics statistics = null;
+  private List<StatisticValueForRegisterResponse> statistics = new ArrayList<StatisticValueForRegisterResponse>();
 
   public InlineResponse2002Data subscriptionId(String subscriptionId) {
     this.subscriptionId = subscriptionId;
@@ -41,10 +43,10 @@ public class InlineResponse2002Data {
   }
 
    /**
-   * ID of the requested subscription
+   * The ID used to fetch statistics values from &#x60;/reporting/{subscriptionId}&#x60;.
    * @return subscriptionId
   **/
-  @ApiModelProperty(required = true, value = "ID of the requested subscription")
+  @ApiModelProperty(required = true, value = "The ID used to fetch statistics values from `/reporting/{subscriptionId}`.")
   public String getSubscriptionId() {
     return subscriptionId;
   }
@@ -53,21 +55,26 @@ public class InlineResponse2002Data {
     this.subscriptionId = subscriptionId;
   }
 
-  public InlineResponse2002Data statistics(InlineResponse2002DataStatistics statistics) {
+  public InlineResponse2002Data statistics(List<StatisticValueForRegisterResponse> statistics) {
     this.statistics = statistics;
     return this;
   }
 
+  public InlineResponse2002Data addStatisticsItem(StatisticValueForRegisterResponse statisticsItem) {
+    this.statistics.add(statisticsItem);
+    return this;
+  }
+
    /**
-   * Get statistics
+   * The list of all the registered statistics.
    * @return statistics
   **/
-  @ApiModelProperty(required = true, value = "")
-  public InlineResponse2002DataStatistics getStatistics() {
+  @ApiModelProperty(required = true, value = "The list of all the registered statistics.")
+  public List<StatisticValueForRegisterResponse> getStatistics() {
     return statistics;
   }
 
-  public void setStatistics(InlineResponse2002DataStatistics statistics) {
+  public void setStatistics(List<StatisticValueForRegisterResponse> statistics) {
     this.statistics = statistics;
   }
 

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * TargetspersonalfavoritessaveData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T14:04:39.428Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T16:38:56.370Z")
 public class TargetspersonalfavoritessaveData {
   @SerializedName("target")
   private TargetInformation target = null;
@@ -41,10 +41,10 @@ public class TargetspersonalfavoritessaveData {
   }
 
    /**
-   * The personal favorite target
+   * The target to save.
    * @return target
   **/
-  @ApiModelProperty(required = true, value = "The personal favorite target")
+  @ApiModelProperty(required = true, value = "The target to save.")
   public TargetInformation getTarget() {
     return target;
   }
@@ -59,10 +59,10 @@ public class TargetspersonalfavoritessaveData {
   }
 
    /**
-   * category of the favorite target
+   * The agent&#39;s personal favorites category.
    * @return category
   **/
-  @ApiModelProperty(required = true, value = "category of the favorite target")
+  @ApiModelProperty(required = true, value = "The agent's personal favorites category.")
   public String getCategory() {
     return category;
   }

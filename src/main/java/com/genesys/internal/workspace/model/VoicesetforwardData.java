@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * VoicesetforwardData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T14:04:39.428Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T16:38:56.370Z")
 public class VoicesetforwardData {
   @SerializedName("forwardTo")
   private String forwardTo = null;
@@ -37,10 +37,10 @@ public class VoicesetforwardData {
   }
 
    /**
-   * Get forwardTo
+   * The number where Workspace should forward calls.
    * @return forwardTo
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The number where Workspace should forward calls.")
   public String getForwardTo() {
     return forwardTo;
   }

@@ -26,13 +26,13 @@ import java.io.IOException;
 /**
  * VoicestartmonitoringData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T14:04:39.428Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T16:38:56.370Z")
 public class VoicestartmonitoringData {
   @SerializedName("phoneNumberToMonitor")
   private String phoneNumberToMonitor = null;
 
   /**
-   * The monitoring mode (Mute,Coach,Connect)
+   * The monitoring mode.
    */
   @JsonAdapter(MonitoringModeEnum.Adapter.class)
   public enum MonitoringModeEnum {
@@ -84,7 +84,7 @@ public class VoicestartmonitoringData {
   private MonitoringModeEnum monitoringMode = null;
 
   /**
-   * The monitoring call type (OneCall/AllCalls).
+   * The monitoring call type.
    */
   @JsonAdapter(MonitoringNextCallTypeEnum.Adapter.class)
   public enum MonitoringNextCallTypeEnum {
@@ -134,7 +134,7 @@ public class VoicestartmonitoringData {
   private MonitoringNextCallTypeEnum monitoringNextCallType = null;
 
   /**
-   * The monitoring scope (Call/Agent).
+   * The monitoring scope.
    */
   @JsonAdapter(MonitoringScopeEnum.Adapter.class)
   public enum MonitoringScopeEnum {
@@ -192,10 +192,10 @@ public class VoicestartmonitoringData {
   }
 
    /**
-   * The phone number that should be monitored
+   * The phone number that should be monitored.
    * @return phoneNumberToMonitor
   **/
-  @ApiModelProperty(required = true, value = "The phone number that should be monitored")
+  @ApiModelProperty(required = true, value = "The phone number that should be monitored.")
   public String getPhoneNumberToMonitor() {
     return phoneNumberToMonitor;
   }
@@ -210,10 +210,10 @@ public class VoicestartmonitoringData {
   }
 
    /**
-   * The monitoring mode (Mute,Coach,Connect)
+   * The monitoring mode.
    * @return monitoringMode
   **/
-  @ApiModelProperty(value = "The monitoring mode (Mute,Coach,Connect)")
+  @ApiModelProperty(value = "The monitoring mode.")
   public MonitoringModeEnum getMonitoringMode() {
     return monitoringMode;
   }
@@ -228,10 +228,10 @@ public class VoicestartmonitoringData {
   }
 
    /**
-   * The monitoring call type (OneCall/AllCalls).
+   * The monitoring call type.
    * @return monitoringNextCallType
   **/
-  @ApiModelProperty(value = "The monitoring call type (OneCall/AllCalls).")
+  @ApiModelProperty(value = "The monitoring call type.")
   public MonitoringNextCallTypeEnum getMonitoringNextCallType() {
     return monitoringNextCallType;
   }
@@ -246,10 +246,10 @@ public class VoicestartmonitoringData {
   }
 
    /**
-   * The monitoring scope (Call/Agent).
+   * The monitoring scope.
    * @return monitoringScope
   **/
-  @ApiModelProperty(value = "The monitoring scope (Call/Agent).")
+  @ApiModelProperty(value = "The monitoring scope.")
   public MonitoringScopeEnum getMonitoringScope() {
     return monitoringScope;
   }
@@ -264,10 +264,10 @@ public class VoicestartmonitoringData {
   }
 
    /**
-   * The switch name where the phone number to be monitored is located (optional)
+   * Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. This value is used by Workspace to set the location attribute for the corresponding T-Server requests. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
    * @return location
   **/
-  @ApiModelProperty(value = "The switch name where the phone number to be monitored is located (optional)")
+  @ApiModelProperty(value = "Name of the remote location in the form of <SwitchName> or <T-ServerApplicationName>@<SwitchName>. This value is used by Workspace to set the location attribute for the corresponding T-Server requests. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.")
   public String getLocation() {
     return location;
   }

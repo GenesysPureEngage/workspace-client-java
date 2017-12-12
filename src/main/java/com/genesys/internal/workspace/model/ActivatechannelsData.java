@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * ActivatechannelsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T14:04:39.428Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T16:38:56.370Z")
 public class ActivatechannelsData {
   @SerializedName("agentId")
   private String agentId = null;
@@ -43,7 +43,7 @@ public class ActivatechannelsData {
   private String queueName = null;
 
   /**
-   * the agent workmode.
+   * The workmode.
    */
   @JsonAdapter(AgentWorkModeEnum.Adapter.class)
   public enum AgentWorkModeEnum {
@@ -92,6 +92,9 @@ public class ActivatechannelsData {
   @SerializedName("agentWorkMode")
   private AgentWorkModeEnum agentWorkMode = null;
 
+  @SerializedName("dynamicPhoneNumber")
+  private String dynamicPhoneNumber = null;
+
   @SerializedName("channels")
   private List<String> channels = null;
 
@@ -101,10 +104,10 @@ public class ActivatechannelsData {
   }
 
    /**
-   * agentId (switch login code) that should be used to log the agent in
+   * The unique ID of the agent.
    * @return agentId
   **/
-  @ApiModelProperty(value = "agentId (switch login code) that should be used to log the agent in")
+  @ApiModelProperty(value = "The unique ID of the agent.")
   public String getAgentId() {
     return agentId;
   }
@@ -119,10 +122,10 @@ public class ActivatechannelsData {
   }
 
    /**
-   * The name of the place that should be used to log the agent in. Either placeName or dn must be provided.
+   * The name of the place to use for the agent. You must provide either the place name or DN.
    * @return placeName
   **/
-  @ApiModelProperty(value = "The name of the place that should be used to log the agent in. Either placeName or dn must be provided.")
+  @ApiModelProperty(value = "The name of the place to use for the agent. You must provide either the place name or DN.")
   public String getPlaceName() {
     return placeName;
   }
@@ -137,10 +140,10 @@ public class ActivatechannelsData {
   }
 
    /**
-   * The dn (number) that should be used to login the agent.
+   * The DN (number) to use for the agent. You must provide either the place name or DN.
    * @return dn
   **/
-  @ApiModelProperty(value = "The dn (number) that should be used to login the agent.")
+  @ApiModelProperty(value = "The DN (number) to use for the agent. You must provide either the place name or DN.")
   public String getDn() {
     return dn;
   }
@@ -155,10 +158,10 @@ public class ActivatechannelsData {
   }
 
    /**
-   * The queue name that should be used to login the agent.
+   * The queue name.
    * @return queueName
   **/
-  @ApiModelProperty(value = "The queue name that should be used to login the agent.")
+  @ApiModelProperty(value = "The queue name.")
   public String getQueueName() {
     return queueName;
   }
@@ -173,16 +176,34 @@ public class ActivatechannelsData {
   }
 
    /**
-   * the agent workmode.
+   * The workmode.
    * @return agentWorkMode
   **/
-  @ApiModelProperty(value = "the agent workmode.")
+  @ApiModelProperty(value = "The workmode.")
   public AgentWorkModeEnum getAgentWorkMode() {
     return agentWorkMode;
   }
 
   public void setAgentWorkMode(AgentWorkModeEnum agentWorkMode) {
     this.agentWorkMode = agentWorkMode;
+  }
+
+  public ActivatechannelsData dynamicPhoneNumber(String dynamicPhoneNumber) {
+    this.dynamicPhoneNumber = dynamicPhoneNumber;
+    return this;
+  }
+
+   /**
+   * An optional dynamic phone number to use for the agent.
+   * @return dynamicPhoneNumber
+  **/
+  @ApiModelProperty(value = "An optional dynamic phone number to use for the agent.")
+  public String getDynamicPhoneNumber() {
+    return dynamicPhoneNumber;
+  }
+
+  public void setDynamicPhoneNumber(String dynamicPhoneNumber) {
+    this.dynamicPhoneNumber = dynamicPhoneNumber;
   }
 
   public ActivatechannelsData channels(List<String> channels) {
@@ -199,10 +220,10 @@ public class ActivatechannelsData {
   }
 
    /**
-   * array of string that corresponding to the medias to login
+   * An array of strings that correspond to the channels you want to activate.
    * @return channels
   **/
-  @ApiModelProperty(value = "array of string that corresponding to the medias to login")
+  @ApiModelProperty(value = "An array of strings that correspond to the channels you want to activate.")
   public List<String> getChannels() {
     return channels;
   }
@@ -226,12 +247,13 @@ public class ActivatechannelsData {
         Objects.equals(this.dn, activatechannelsData.dn) &&
         Objects.equals(this.queueName, activatechannelsData.queueName) &&
         Objects.equals(this.agentWorkMode, activatechannelsData.agentWorkMode) &&
+        Objects.equals(this.dynamicPhoneNumber, activatechannelsData.dynamicPhoneNumber) &&
         Objects.equals(this.channels, activatechannelsData.channels);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentId, placeName, dn, queueName, agentWorkMode, channels);
+    return Objects.hash(agentId, placeName, dn, queueName, agentWorkMode, dynamicPhoneNumber, channels);
   }
 
 
@@ -245,6 +267,7 @@ public class ActivatechannelsData {
     sb.append("    dn: ").append(toIndentedString(dn)).append("\n");
     sb.append("    queueName: ").append(toIndentedString(queueName)).append("\n");
     sb.append("    agentWorkMode: ").append(toIndentedString(agentWorkMode)).append("\n");
+    sb.append("    dynamicPhoneNumber: ").append(toIndentedString(dynamicPhoneNumber)).append("\n");
     sb.append("    channels: ").append(toIndentedString(channels)).append("\n");
     sb.append("}");
     return sb.toString();

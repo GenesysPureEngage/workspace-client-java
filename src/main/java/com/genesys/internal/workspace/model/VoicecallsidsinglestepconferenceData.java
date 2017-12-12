@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * VoicecallsidsinglestepconferenceData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T14:04:39.428Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T16:38:56.370Z")
 public class VoicecallsidsinglestepconferenceData {
   @SerializedName("destination")
   private String destination = null;
@@ -52,10 +52,10 @@ public class VoicecallsidsinglestepconferenceData {
   }
 
    /**
-   * Number of the party to conference.
+   * The number to be added to the call.
    * @return destination
   **/
-  @ApiModelProperty(required = true, value = "Number of the party to conference.")
+  @ApiModelProperty(required = true, value = "The number to be added to the call.")
   public String getDestination() {
     return destination;
   }
@@ -70,10 +70,10 @@ public class VoicecallsidsinglestepconferenceData {
   }
 
    /**
-   * Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
+   * Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. This value is used by Workspace to set the location attribute for the corresponding T-Server requests. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
    * @return location
   **/
-  @ApiModelProperty(value = "Name of the remote location in the form of <SwitchName> or <T-ServerApplicationName>@<SwitchName>. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.")
+  @ApiModelProperty(value = "Name of the remote location in the form of <SwitchName> or <T-ServerApplicationName>@<SwitchName>. This value is used by Workspace to set the location attribute for the corresponding T-Server requests. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.")
   public String getLocation() {
     return location;
   }
@@ -96,10 +96,10 @@ public class VoicecallsidsinglestepconferenceData {
   }
 
    /**
-   * A key/value pairs list of the user data that should be attached to the call.
+   * Key/value data to include with the call.
    * @return userData
   **/
-  @ApiModelProperty(value = "A key/value pairs list of the user data that should be attached to the call.")
+  @ApiModelProperty(value = "Key/value data to include with the call.")
   public List<Kvpair> getUserData() {
     return userData;
   }
@@ -122,10 +122,10 @@ public class VoicecallsidsinglestepconferenceData {
   }
 
    /**
-   * A key/value pairs list of a data structure that provides additional information associated with this action.
+   * A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
    * @return reasons
   **/
-  @ApiModelProperty(value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
+  @ApiModelProperty(value = "A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).")
   public List<Kvpair> getReasons() {
     return reasons;
   }
@@ -148,10 +148,10 @@ public class VoicecallsidsinglestepconferenceData {
   }
 
    /**
-   * A key/value pairs list of additional data.
+   * A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
    * @return extensions
   **/
-  @ApiModelProperty(value = "A key/value pairs list of additional data.")
+  @ApiModelProperty(value = "A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).")
   public List<Kvpair> getExtensions() {
     return extensions;
   }

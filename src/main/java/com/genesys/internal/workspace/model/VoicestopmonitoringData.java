@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * VoicestopmonitoringData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T14:04:39.428Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T16:38:56.370Z")
 public class VoicestopmonitoringData {
   @SerializedName("phoneNumber")
   private String phoneNumber = null;
@@ -37,10 +37,10 @@ public class VoicestopmonitoringData {
   }
 
    /**
-   * The phone number currently monitored, for which the monitoring should be stopped
+   * The phone number currently being monitored.
    * @return phoneNumber
   **/
-  @ApiModelProperty(required = true, value = "The phone number currently monitored, for which the monitoring should be stopped")
+  @ApiModelProperty(required = true, value = "The phone number currently being monitored.")
   public String getPhoneNumber() {
     return phoneNumber;
   }

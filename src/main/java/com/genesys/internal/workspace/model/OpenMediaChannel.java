@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * OpenMediaChannel
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T14:04:39.428Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T16:38:56.370Z")
 public class OpenMediaChannel {
   @SerializedName("name")
   private String name = null;
@@ -44,7 +44,7 @@ public class OpenMediaChannel {
   private List<Kvpair> reasons = null;
 
   @SerializedName("interactions")
-  private List<String> interactions = null;
+  private List<Object> interactions = null;
 
   @SerializedName("capabilities")
   private List<String> capabilities = null;
@@ -117,10 +117,10 @@ public class OpenMediaChannel {
   }
 
    /**
-   * A key/value pairs list of a data structure that provides additional information associated with the state.
+   * A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
    * @return reasons
   **/
-  @ApiModelProperty(value = "A key/value pairs list of a data structure that provides additional information associated with the state.")
+  @ApiModelProperty(value = "A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).")
   public List<Kvpair> getReasons() {
     return reasons;
   }
@@ -129,14 +129,14 @@ public class OpenMediaChannel {
     this.reasons = reasons;
   }
 
-  public OpenMediaChannel interactions(List<String> interactions) {
+  public OpenMediaChannel interactions(List<Object> interactions) {
     this.interactions = interactions;
     return this;
   }
 
-  public OpenMediaChannel addInteractionsItem(String interactionsItem) {
+  public OpenMediaChannel addInteractionsItem(Object interactionsItem) {
     if (this.interactions == null) {
-      this.interactions = new ArrayList<String>();
+      this.interactions = new ArrayList<Object>();
     }
     this.interactions.add(interactionsItem);
     return this;
@@ -147,11 +147,11 @@ public class OpenMediaChannel {
    * @return interactions
   **/
   @ApiModelProperty(value = "")
-  public List<String> getInteractions() {
+  public List<Object> getInteractions() {
     return interactions;
   }
 
-  public void setInteractions(List<String> interactions) {
+  public void setInteractions(List<Object> interactions) {
     this.interactions = interactions;
   }
 

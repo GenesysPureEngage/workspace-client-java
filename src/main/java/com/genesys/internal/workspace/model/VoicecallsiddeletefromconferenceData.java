@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * VoicecallsiddeletefromconferenceData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T14:04:39.428Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-12T16:38:56.370Z")
 public class VoicecallsiddeletefromconferenceData {
   @SerializedName("dnToDrop")
   private String dnToDrop = null;
@@ -46,10 +46,10 @@ public class VoicecallsiddeletefromconferenceData {
   }
 
    /**
-   * The party to be deleted from the conference
+   * The DN of the party to drop from the conference.
    * @return dnToDrop
   **/
-  @ApiModelProperty(required = true, value = "The party to be deleted from the conference")
+  @ApiModelProperty(required = true, value = "The DN of the party to drop from the conference.")
   public String getDnToDrop() {
     return dnToDrop;
   }
@@ -72,10 +72,10 @@ public class VoicecallsiddeletefromconferenceData {
   }
 
    /**
-   * A key/value pairs list of a data structure that provides additional information associated with this action.
+   * A collection of key/value pairs. For details about reasons,  refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
    * @return reasons
   **/
-  @ApiModelProperty(value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
+  @ApiModelProperty(value = "A collection of key/value pairs. For details about reasons,  refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).")
   public List<Kvpair> getReasons() {
     return reasons;
   }
@@ -98,10 +98,10 @@ public class VoicecallsiddeletefromconferenceData {
   }
 
    /**
-   * A key/value pairs list of additional data.
+   * A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
    * @return extensions
   **/
-  @ApiModelProperty(value = "A key/value pairs list of additional data.")
+  @ApiModelProperty(value = "A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).")
   public List<Kvpair> getExtensions() {
     return extensions;
   }
