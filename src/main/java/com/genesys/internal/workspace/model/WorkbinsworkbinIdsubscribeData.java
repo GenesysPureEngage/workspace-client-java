@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * WorkbinsworkbinIdsubscribeData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-13T10:04:37.699Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-13T11:04:45.898Z")
 public class WorkbinsworkbinIdsubscribeData {
   @SerializedName("ownerId")
   private String ownerId = null;
