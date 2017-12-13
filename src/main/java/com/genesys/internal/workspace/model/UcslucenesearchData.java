@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * UcslucenesearchData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-13T11:04:45.898Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-13T19:04:58.049Z")
 public class UcslucenesearchData {
   @SerializedName("maxResults")
   private Integer maxResults = null;
