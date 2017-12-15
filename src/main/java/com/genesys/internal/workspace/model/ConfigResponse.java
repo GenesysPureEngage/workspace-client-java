@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * ConfigResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-15T13:43:12.699Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-15T16:04:39.818Z")
 public class ConfigResponse {
   @SerializedName("data")
   private ConfigResponseData data = null;

@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * VoicereadyData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-15T13:43:12.699Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-15T16:04:39.818Z")
 public class VoicereadyData {
   @SerializedName("reasons")
   private List<Kvpair> reasons = null;
