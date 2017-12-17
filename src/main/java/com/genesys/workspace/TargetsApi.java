@@ -3,6 +3,7 @@ package com.genesys.workspace;
 import com.genesys.internal.common.ApiClient;
 import com.genesys.internal.common.ApiException;
 import com.genesys.internal.common.ApiResponse;
+import com.genesys.internal.common.StringUtil;
 import com.genesys.workspace.models.targets.TargetsSearchOptions;
 import com.genesys.internal.workspace.model.ApiSuccessResponse;
 import com.genesys.internal.workspace.model.PersonalFavoriteData;
@@ -18,13 +19,11 @@ import com.genesys.workspace.models.targets.AgentTarget;
 import com.genesys.workspace.models.targets.Target;
 import com.genesys.workspace.models.targets.SearchResult;
 import com.genesys.workspace.models.targets.TargetType;
-import java.math.BigDecimal;
-import java.time.Instant;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class TargetsApi {
     private com.genesys.internal.workspace.api.TargetsApi targetsApi;
@@ -54,10 +53,18 @@ public class TargetsApi {
      */
     public SearchResult<Target> search(String searchTerm, TargetsSearchOptions options) throws WorkspaceApiException {
         try {
-            String types = options.getTypes() !=null? Arrays.stream(options.getTypes()).map(v -> v.getValue()).collect(Collectors.joining(",")): null;
-            String excludeGroups = options.getExcludeGroups() !=null? Arrays.stream(options.getExcludeGroups()).collect(Collectors.joining(",")): null;
-            String excludeFromGroups = options.getExcludeFromGroups() !=null? Arrays.stream(options.getExcludeFromGroups()).collect(Collectors.joining(",")): null;
-            String restrictToGroups = options.getRestrictToGroups() !=null? Arrays.stream(options.getRestrictToGroups()).collect(Collectors.joining(",")): null;
+            String types = null;
+            List<String> typesArray = null;
+            if(options.getTypes() != null){
+                typesArray = new ArrayList<>(10);
+                for(TargetType targetType: options.getTypes()){
+                    typesArray.add(targetType.getValue());
+                }
+                types = StringUtil.join(typesArray.toArray(new String[typesArray.size()]),",");
+            }
+            String excludeGroups = options.getExcludeGroups() !=null? StringUtil.join(options.getExcludeGroups(),","):null;
+            String excludeFromGroups = options.getExcludeFromGroups() !=null? StringUtil.join(options.getExcludeFromGroups(),","): null;
+            String restrictToGroups = options.getRestrictToGroups() !=null? StringUtil.join (options.getRestrictToGroups(),","): null;
             TargetsResponse response = this.targetsApi.get(searchTerm, 
                     options.getFilterName(),
                     types,
@@ -90,7 +97,7 @@ public class TargetsApi {
      * @param media The media channel on which the target was used.
      */
     public void addRecentTarget(Target target, String media) throws WorkspaceApiException {
-        addRecentTarget(target, media, Instant.now().toEpochMilli());
+    	addRecentTarget(target,media,System.currentTimeMillis());
     }
 
     /**

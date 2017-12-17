@@ -1,13 +1,16 @@
 package com.genesys.workspace;
 
 import com.genesys.workspace.common.WorkspaceApiException;
+
 import java.net.CookieManager;
 import java.net.CookieStore;
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
+
 import org.cometd.bayeux.Message;
+import org.cometd.bayeux.client.ClientSessionChannel;
 import org.cometd.client.BayeuxClient;
 import org.eclipse.jetty.client.HttpClient;
 import org.eclipse.jetty.util.ssl.SslContextFactory;
@@ -41,22 +44,29 @@ public class Notifications {
             logger.debug("Handshake successful.");
             
             logger.debug("Subscribing to channels...");
-            listeners.entrySet().forEach((entry) -> {
-                final String name = entry.getKey();
-                final Collection<NotificationListener> list = entry.getValue();
-                client.getChannel(name).subscribe((channel, message) ->  {
-                    Map<String, Object> data = message.getDataAsMap();
-                    list.forEach(listener -> listener.onNotification(name, data));
-                }, (channel, message) -> {
-                    String subscription = (String) message.get("subscription");
-                    if(message.isSuccessful()) {
-                        logger.debug("Successfuly subscribed to channel: {}", subscription);
+            
+            for (final String name : this.listeners.keySet()) {
+                final Collection<NotificationListener> list = this.listeners.get(name);
+                client.getChannel(name).subscribe(new ClientSessionChannel.MessageListener() {
+                    @Override
+                    public void onMessage(ClientSessionChannel clientSessionChannel, Message message) {
+                        Map<String, Object> data = message.getDataAsMap();
+                        for (NotificationListener notificationListener : list) {
+                            notificationListener.onNotification(name, data);
+                        }
                     }
-                    else {
-                        logger.error("Cannot subscribe to channel: {}", subscription);
+                }, new ClientSessionChannel.MessageListener() {
+                    @Override
+                    public void onMessage(ClientSessionChannel clientSessionChannel, Message message) {
+                        String subscription = (String) message.get("subscription");
+                        if (message.isSuccessful()) {
+                            logger.debug("Successfuly subscribed to channel: {}", subscription);
+                        } else {
+                            logger.error("Cannot subscribe to channel: {}", subscription);
+                        }
                     }
                 });
-            });
+            }
         }
         else {
             logger.debug("{}", msg);
@@ -83,9 +93,14 @@ public class Notifications {
     
     void initialize(BayeuxClient client) {
         this.client = client;
-        
+
         logger.debug("Starting cometd handshake...");
-        client.handshake((channel, msg) -> onHandshake(msg));
+        client.handshake(new ClientSessionChannel.MessageListener() {
+            @Override
+            public void onMessage(ClientSessionChannel clientSessionChannel, Message message) {
+                onHandshake(message);
+            }
+        });
     }
     
     public void disconnect() throws WorkspaceApiException  {
@@ -103,6 +118,11 @@ public class Notifications {
     }
     
     public void subscribe(String channelName, NotificationListener listener) {
-        listeners.computeIfAbsent(channelName, k -> new ConcurrentLinkedQueue<>()).add(listener);
+        if(listeners.get(channelName) == null){
+            Collection<NotificationListener> notificationListeners = new ConcurrentLinkedQueue<>();
+            notificationListeners.add(listener);
+            this.listeners.put(channelName,notificationListeners);
+
+        }
     }
 }
