@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.StatisticValueForRegister;
+import com.genesys.internal.workspace.model.Statistic;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,38 +29,17 @@ import java.util.List;
 /**
  * StatisticsSubscribeDataData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-26T21:45:10.504Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-28T10:24:34.234Z")
 public class StatisticsSubscribeDataData {
-  @SerializedName("connectionId")
-  private String connectionId = null;
-
   @SerializedName("statistics")
-  private List<StatisticValueForRegister> statistics = new ArrayList<StatisticValueForRegister>();
+  private List<Statistic> statistics = new ArrayList<Statistic>();
 
-  public StatisticsSubscribeDataData connectionId(String connectionId) {
-    this.connectionId = connectionId;
-    return this;
-  }
-
-   /**
-   * Get connectionId
-   * @return connectionId
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public String getConnectionId() {
-    return connectionId;
-  }
-
-  public void setConnectionId(String connectionId) {
-    this.connectionId = connectionId;
-  }
-
-  public StatisticsSubscribeDataData statistics(List<StatisticValueForRegister> statistics) {
+  public StatisticsSubscribeDataData statistics(List<Statistic> statistics) {
     this.statistics = statistics;
     return this;
   }
 
-  public StatisticsSubscribeDataData addStatisticsItem(StatisticValueForRegister statisticsItem) {
+  public StatisticsSubscribeDataData addStatisticsItem(Statistic statisticsItem) {
     this.statistics.add(statisticsItem);
     return this;
   }
@@ -70,11 +49,11 @@ public class StatisticsSubscribeDataData {
    * @return statistics
   **/
   @ApiModelProperty(required = true, value = "")
-  public List<StatisticValueForRegister> getStatistics() {
+  public List<Statistic> getStatistics() {
     return statistics;
   }
 
-  public void setStatistics(List<StatisticValueForRegister> statistics) {
+  public void setStatistics(List<Statistic> statistics) {
     this.statistics = statistics;
   }
 
@@ -88,13 +67,12 @@ public class StatisticsSubscribeDataData {
       return false;
     }
     StatisticsSubscribeDataData statisticsSubscribeDataData = (StatisticsSubscribeDataData) o;
-    return Objects.equals(this.connectionId, statisticsSubscribeDataData.connectionId) &&
-        Objects.equals(this.statistics, statisticsSubscribeDataData.statistics);
+    return Objects.equals(this.statistics, statisticsSubscribeDataData.statistics);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(connectionId, statistics);
+    return Objects.hash(statistics);
   }
 
 
@@ -103,7 +81,6 @@ public class StatisticsSubscribeDataData {
     StringBuilder sb = new StringBuilder();
     sb.append("class StatisticsSubscribeDataData {\n");
     
-    sb.append("    connectionId: ").append(toIndentedString(connectionId)).append("\n");
     sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
     sb.append("}");
     return sb.toString();

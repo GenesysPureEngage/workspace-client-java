@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * GetStandardResponseData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-26T21:45:10.504Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-28T10:24:34.234Z")
 public class GetStandardResponseData {
   @SerializedName("data")
   private UcsresponsesidgetdetailsData data = null;

@@ -124,7 +124,7 @@ public class SessionApi {
 
     /**
      * Activate channels for the user with the specified resources.
-     * Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
+     * Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/workspace/v3/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
      * @param channelsData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -136,7 +136,7 @@ public class SessionApi {
 
     /**
      * Activate channels for the user with the specified resources.
-     * Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
+     * Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/workspace/v3/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
      * @param channelsData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -149,7 +149,7 @@ public class SessionApi {
 
     /**
      * Activate channels for the user with the specified resources. (asynchronously)
-     * Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
+     * Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/workspace/v3/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
      * @param channelsData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -774,9 +774,9 @@ public class SessionApi {
     }
     /**
      * Build call for initializeWorkspace
-     * @param code The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)
-     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)
-     * @param authorization If you use the [Resource Owner Password Credentials Grant](https://developer.genhtcc.com/api/reference/authentication/index.html), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)
+     * @param code The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)
+     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)
+     * @param authorization If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -841,9 +841,9 @@ public class SessionApi {
     /**
      * Retrieves and registers an authorization token.
      * Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
-     * @param code The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)
-     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)
-     * @param authorization If you use the [Resource Owner Password Credentials Grant](https://developer.genhtcc.com/api/reference/authentication/index.html), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)
+     * @param code The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)
+     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)
+     * @param authorization If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -855,9 +855,9 @@ public class SessionApi {
     /**
      * Retrieves and registers an authorization token.
      * Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
-     * @param code The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)
-     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)
-     * @param authorization If you use the [Resource Owner Password Credentials Grant](https://developer.genhtcc.com/api/reference/authentication/index.html), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)
+     * @param code The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)
+     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)
+     * @param authorization If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -870,9 +870,9 @@ public class SessionApi {
     /**
      * Retrieves and registers an authorization token. (asynchronously)
      * Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
-     * @param code The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)
-     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)
-     * @param authorization If you use the [Resource Owner Password Credentials Grant](https://developer.genhtcc.com/api/reference/authentication/index.html), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)
+     * @param code The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)
+     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)
+     * @param authorization If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.StatisticValueForRegister;
+import com.genesys.internal.workspace.model.StatisticValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,19 +27,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * StatisticsRegisterDataData
+ * Subscription
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-26T21:45:10.504Z")
-public class StatisticsRegisterDataData {
-  @SerializedName("statistics")
-  private List<StatisticValueForRegister> statistics = new ArrayList<StatisticValueForRegister>();
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-28T10:24:34.234Z")
+public class Subscription {
+  @SerializedName("subscriptionId")
+  private String subscriptionId = null;
 
-  public StatisticsRegisterDataData statistics(List<StatisticValueForRegister> statistics) {
+  @SerializedName("statistics")
+  private List<StatisticValue> statistics = new ArrayList<StatisticValue>();
+
+  public Subscription subscriptionId(String subscriptionId) {
+    this.subscriptionId = subscriptionId;
+    return this;
+  }
+
+   /**
+   * Get subscriptionId
+   * @return subscriptionId
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getSubscriptionId() {
+    return subscriptionId;
+  }
+
+  public void setSubscriptionId(String subscriptionId) {
+    this.subscriptionId = subscriptionId;
+  }
+
+  public Subscription statistics(List<StatisticValue> statistics) {
     this.statistics = statistics;
     return this;
   }
 
-  public StatisticsRegisterDataData addStatisticsItem(StatisticValueForRegister statisticsItem) {
+  public Subscription addStatisticsItem(StatisticValue statisticsItem) {
     this.statistics.add(statisticsItem);
     return this;
   }
@@ -49,11 +70,11 @@ public class StatisticsRegisterDataData {
    * @return statistics
   **/
   @ApiModelProperty(required = true, value = "")
-  public List<StatisticValueForRegister> getStatistics() {
+  public List<StatisticValue> getStatistics() {
     return statistics;
   }
 
-  public void setStatistics(List<StatisticValueForRegister> statistics) {
+  public void setStatistics(List<StatisticValue> statistics) {
     this.statistics = statistics;
   }
 
@@ -66,21 +87,23 @@ public class StatisticsRegisterDataData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatisticsRegisterDataData statisticsRegisterDataData = (StatisticsRegisterDataData) o;
-    return Objects.equals(this.statistics, statisticsRegisterDataData.statistics);
+    Subscription subscription = (Subscription) o;
+    return Objects.equals(this.subscriptionId, subscription.subscriptionId) &&
+        Objects.equals(this.statistics, subscription.statistics);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(statistics);
+    return Objects.hash(subscriptionId, statistics);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatisticsRegisterDataData {\n");
+    sb.append("class Subscription {\n");
     
+    sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
     sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
     sb.append("}");
     return sb.toString();

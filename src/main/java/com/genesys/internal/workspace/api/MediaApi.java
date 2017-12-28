@@ -2910,7 +2910,7 @@ public class MediaApi {
 
     /**
      * Transfer the interaction to the agent
-     * Place the interaction in queue with modification of properties pairs.
+     * Transfer the interaction to an agent.
      * @param mediatype media-type of interaction (required)
      * @param id id of the interaction (required)
      * @param transferData  (required)
@@ -2924,7 +2924,7 @@ public class MediaApi {
 
     /**
      * Transfer the interaction to the agent
-     * Place the interaction in queue with modification of properties pairs.
+     * Transfer the interaction to an agent.
      * @param mediatype media-type of interaction (required)
      * @param id id of the interaction (required)
      * @param transferData  (required)
@@ -2939,7 +2939,7 @@ public class MediaApi {
 
     /**
      * Transfer the interaction to the agent (asynchronously)
-     * Place the interaction in queue with modification of properties pairs.
+     * Transfer the interaction to an agent.
      * @param mediatype media-type of interaction (required)
      * @param id id of the interaction (required)
      * @param transferData  (required)

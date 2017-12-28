@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.StatisticValueForRegisterResponse;
+import com.genesys.internal.workspace.model.Subscription;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,53 +29,32 @@ import java.util.List;
 /**
  * InlineResponse2001Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-26T21:45:10.504Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-28T10:24:34.234Z")
 public class InlineResponse2001Data {
-  @SerializedName("subscriptionId")
-  private String subscriptionId = null;
+  @SerializedName("subscriptions")
+  private List<Subscription> subscriptions = new ArrayList<Subscription>();
 
-  @SerializedName("statistics")
-  private List<StatisticValueForRegisterResponse> statistics = new ArrayList<StatisticValueForRegisterResponse>();
+  public InlineResponse2001Data subscriptions(List<Subscription> subscriptions) {
+    this.subscriptions = subscriptions;
+    return this;
+  }
 
-  public InlineResponse2001Data subscriptionId(String subscriptionId) {
-    this.subscriptionId = subscriptionId;
+  public InlineResponse2001Data addSubscriptionsItem(Subscription subscriptionsItem) {
+    this.subscriptions.add(subscriptionsItem);
     return this;
   }
 
    /**
-   * ID used to fetch statistics values from /reporting/{subscriptionId}
-   * @return subscriptionId
+   * Get subscriptions
+   * @return subscriptions
   **/
-  @ApiModelProperty(required = true, value = "ID used to fetch statistics values from /reporting/{subscriptionId}")
-  public String getSubscriptionId() {
-    return subscriptionId;
+  @ApiModelProperty(required = true, value = "")
+  public List<Subscription> getSubscriptions() {
+    return subscriptions;
   }
 
-  public void setSubscriptionId(String subscriptionId) {
-    this.subscriptionId = subscriptionId;
-  }
-
-  public InlineResponse2001Data statistics(List<StatisticValueForRegisterResponse> statistics) {
-    this.statistics = statistics;
-    return this;
-  }
-
-  public InlineResponse2001Data addStatisticsItem(StatisticValueForRegisterResponse statisticsItem) {
-    this.statistics.add(statisticsItem);
-    return this;
-  }
-
-   /**
-   * The list of all the registered statitstics.
-   * @return statistics
-  **/
-  @ApiModelProperty(required = true, value = "The list of all the registered statitstics.")
-  public List<StatisticValueForRegisterResponse> getStatistics() {
-    return statistics;
-  }
-
-  public void setStatistics(List<StatisticValueForRegisterResponse> statistics) {
-    this.statistics = statistics;
+  public void setSubscriptions(List<Subscription> subscriptions) {
+    this.subscriptions = subscriptions;
   }
 
 
@@ -88,13 +67,12 @@ public class InlineResponse2001Data {
       return false;
     }
     InlineResponse2001Data inlineResponse2001Data = (InlineResponse2001Data) o;
-    return Objects.equals(this.subscriptionId, inlineResponse2001Data.subscriptionId) &&
-        Objects.equals(this.statistics, inlineResponse2001Data.statistics);
+    return Objects.equals(this.subscriptions, inlineResponse2001Data.subscriptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subscriptionId, statistics);
+    return Objects.hash(subscriptions);
   }
 
 
@@ -103,8 +81,7 @@ public class InlineResponse2001Data {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2001Data {\n");
     
-    sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
-    sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
+    sb.append("    subscriptions: ").append(toIndentedString(subscriptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

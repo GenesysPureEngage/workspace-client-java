@@ -112,7 +112,7 @@ public class NotificationsApi {
 
     /**
      * CometD endpoint.
-     * Enables you to subscribe to the CometD notification API.
+     * Subscribe to the CometD notification API.
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void notifications() throws ApiException {
@@ -121,7 +121,7 @@ public class NotificationsApi {
 
     /**
      * CometD endpoint.
-     * Enables you to subscribe to the CometD notification API.
+     * Subscribe to the CometD notification API.
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -132,7 +132,7 @@ public class NotificationsApi {
 
     /**
      * CometD endpoint. (asynchronously)
-     * Enables you to subscribe to the CometD notification API.
+     * Subscribe to the CometD notification API.
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

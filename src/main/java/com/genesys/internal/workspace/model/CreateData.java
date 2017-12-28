@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.StatisticsRegisterDataData;
+import com.genesys.internal.workspace.model.MediaemailinteractionscreateData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,14 +25,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * StatisticsRegisterData
+ * CreateData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-26T21:45:10.504Z")
-public class StatisticsRegisterData {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-28T10:24:34.234Z")
+public class CreateData {
   @SerializedName("data")
-  private StatisticsRegisterDataData data = null;
+  private MediaemailinteractionscreateData data = null;
 
-  public StatisticsRegisterData data(StatisticsRegisterDataData data) {
+  public CreateData data(MediaemailinteractionscreateData data) {
     this.data = data;
     return this;
   }
@@ -41,12 +41,12 @@ public class StatisticsRegisterData {
    * Get data
    * @return data
   **/
-  @ApiModelProperty(required = true, value = "")
-  public StatisticsRegisterDataData getData() {
+  @ApiModelProperty(value = "")
+  public MediaemailinteractionscreateData getData() {
     return data;
   }
 
-  public void setData(StatisticsRegisterDataData data) {
+  public void setData(MediaemailinteractionscreateData data) {
     this.data = data;
   }
 
@@ -59,8 +59,8 @@ public class StatisticsRegisterData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatisticsRegisterData statisticsRegisterData = (StatisticsRegisterData) o;
-    return Objects.equals(this.data, statisticsRegisterData.data);
+    CreateData createData = (CreateData) o;
+    return Objects.equals(this.data, createData.data);
   }
 
   @Override
@@ -72,7 +72,7 @@ public class StatisticsRegisterData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatisticsRegisterData {\n");
+    sb.append("class CreateData {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");

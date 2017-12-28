@@ -26,13 +26,97 @@ import java.io.IOException;
 /**
  * StatisticValue
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-26T21:45:10.504Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-28T10:24:34.234Z")
 public class StatisticValue {
+  @SerializedName("objectId")
+  private String objectId = null;
+
+  @SerializedName("objectType")
+  private String objectType = null;
+
+  @SerializedName("statisticId")
+  private String statisticId = null;
+
+  @SerializedName("name")
+  private String name = null;
+
   @SerializedName("timestamp")
   private Integer timestamp = null;
 
   @SerializedName("value")
-  private Integer value = null;
+  private Object value = null;
+
+  public StatisticValue objectId(String objectId) {
+    this.objectId = objectId;
+    return this;
+  }
+
+   /**
+   * ID of the object to get the statistic for
+   * @return objectId
+  **/
+  @ApiModelProperty(required = true, value = "ID of the object to get the statistic for")
+  public String getObjectId() {
+    return objectId;
+  }
+
+  public void setObjectId(String objectId) {
+    this.objectId = objectId;
+  }
+
+  public StatisticValue objectType(String objectType) {
+    this.objectType = objectType;
+    return this;
+  }
+
+   /**
+   * Type of the obejct to get the statistic for
+   * @return objectType
+  **/
+  @ApiModelProperty(required = true, value = "Type of the obejct to get the statistic for")
+  public String getObjectType() {
+    return objectType;
+  }
+
+  public void setObjectType(String objectType) {
+    this.objectType = objectType;
+  }
+
+  public StatisticValue statisticId(String statisticId) {
+    this.statisticId = statisticId;
+    return this;
+  }
+
+   /**
+   * Unique id for the statistic
+   * @return statisticId
+  **/
+  @ApiModelProperty(required = true, value = "Unique id for the statistic")
+  public String getStatisticId() {
+    return statisticId;
+  }
+
+  public void setStatisticId(String statisticId) {
+    this.statisticId = statisticId;
+  }
+
+  public StatisticValue name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * The name of the statistic
+   * @return name
+  **/
+  @ApiModelProperty(required = true, value = "The name of the statistic")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
 
   public StatisticValue timestamp(Integer timestamp) {
     this.timestamp = timestamp;
@@ -52,7 +136,7 @@ public class StatisticValue {
     this.timestamp = timestamp;
   }
 
-  public StatisticValue value(Integer value) {
+  public StatisticValue value(Object value) {
     this.value = value;
     return this;
   }
@@ -61,12 +145,12 @@ public class StatisticValue {
    * Value of the statistic
    * @return value
   **/
-  @ApiModelProperty(required = true, value = "Value of the statistic")
-  public Integer getValue() {
+  @ApiModelProperty(value = "Value of the statistic")
+  public Object getValue() {
     return value;
   }
 
-  public void setValue(Integer value) {
+  public void setValue(Object value) {
     this.value = value;
   }
 
@@ -80,13 +164,17 @@ public class StatisticValue {
       return false;
     }
     StatisticValue statisticValue = (StatisticValue) o;
-    return Objects.equals(this.timestamp, statisticValue.timestamp) &&
+    return Objects.equals(this.objectId, statisticValue.objectId) &&
+        Objects.equals(this.objectType, statisticValue.objectType) &&
+        Objects.equals(this.statisticId, statisticValue.statisticId) &&
+        Objects.equals(this.name, statisticValue.name) &&
+        Objects.equals(this.timestamp, statisticValue.timestamp) &&
         Objects.equals(this.value, statisticValue.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(timestamp, value);
+    return Objects.hash(objectId, objectType, statisticId, name, timestamp, value);
   }
 
 
@@ -95,6 +183,10 @@ public class StatisticValue {
     StringBuilder sb = new StringBuilder();
     sb.append("class StatisticValue {\n");
     
+    sb.append("    objectId: ").append(toIndentedString(objectId)).append("\n");
+    sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
+    sb.append("    statisticId: ").append(toIndentedString(statisticId)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");

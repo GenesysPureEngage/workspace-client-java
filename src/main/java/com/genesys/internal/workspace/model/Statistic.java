@@ -24,10 +24,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * StatisticValueForRegister
+ * Statistic
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-26T21:45:10.504Z")
-public class StatisticValueForRegister {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-28T10:24:34.234Z")
+public class Statistic {
   @SerializedName("objectId")
   private String objectId = null;
 
@@ -37,7 +37,7 @@ public class StatisticValueForRegister {
   @SerializedName("name")
   private String name = null;
 
-  public StatisticValueForRegister objectId(String objectId) {
+  public Statistic objectId(String objectId) {
     this.objectId = objectId;
     return this;
   }
@@ -55,7 +55,7 @@ public class StatisticValueForRegister {
     this.objectId = objectId;
   }
 
-  public StatisticValueForRegister objectType(String objectType) {
+  public Statistic objectType(String objectType) {
     this.objectType = objectType;
     return this;
   }
@@ -73,7 +73,7 @@ public class StatisticValueForRegister {
     this.objectType = objectType;
   }
 
-  public StatisticValueForRegister name(String name) {
+  public Statistic name(String name) {
     this.name = name;
     return this;
   }
@@ -100,10 +100,10 @@ public class StatisticValueForRegister {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatisticValueForRegister statisticValueForRegister = (StatisticValueForRegister) o;
-    return Objects.equals(this.objectId, statisticValueForRegister.objectId) &&
-        Objects.equals(this.objectType, statisticValueForRegister.objectType) &&
-        Objects.equals(this.name, statisticValueForRegister.name);
+    Statistic statistic = (Statistic) o;
+    return Objects.equals(this.objectId, statistic.objectId) &&
+        Objects.equals(this.objectType, statistic.objectType) &&
+        Objects.equals(this.name, statistic.name);
   }
 
   @Override
@@ -115,7 +115,7 @@ public class StatisticValueForRegister {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatisticValueForRegister {\n");
+    sb.append("class Statistic {\n");
     
     sb.append("    objectId: ").append(toIndentedString(objectId)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");

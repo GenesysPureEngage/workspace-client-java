@@ -31,10 +31,7 @@ import com.genesys.internal.workspace.model.ApiErrorResponse;
 import com.genesys.internal.workspace.model.ApiSuccessResponse;
 import com.genesys.internal.workspace.model.InlineResponse2001;
 import com.genesys.internal.workspace.model.InlineResponse2002;
-import com.genesys.internal.workspace.model.InlineResponse2003;
-import com.genesys.internal.workspace.model.StatisticsRegisterData;
 import com.genesys.internal.workspace.model.StatisticsSubscribeData;
-import com.genesys.internal.workspace.model.UnsubscribeData;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -73,7 +70,7 @@ public class ReportingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/reporting/{subscriptionId}"
+        String localVarPath = "/reporting/subscriptions/{subscriptionId}"
             .replaceAll("\\{" + "subscriptionId" + "\\}", apiClient.escapeString(subscriptionId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -126,39 +123,39 @@ public class ReportingApi {
     }
 
     /**
-     * Get statistics.
+     * Get statistics for given subscriptionId.
      * Get the statistics for the specified subscription ID.
      * @param subscriptionId The unique ID of the subscription. (required)
-     * @return InlineResponse2003
+     * @return InlineResponse2002
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2003 peek(String subscriptionId) throws ApiException {
-        ApiResponse<InlineResponse2003> resp = peekWithHttpInfo(subscriptionId);
+    public InlineResponse2002 peek(String subscriptionId) throws ApiException {
+        ApiResponse<InlineResponse2002> resp = peekWithHttpInfo(subscriptionId);
         return resp.getData();
     }
 
     /**
-     * Get statistics.
+     * Get statistics for given subscriptionId.
      * Get the statistics for the specified subscription ID.
      * @param subscriptionId The unique ID of the subscription. (required)
-     * @return ApiResponse&lt;InlineResponse2003&gt;
+     * @return ApiResponse&lt;InlineResponse2002&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2003> peekWithHttpInfo(String subscriptionId) throws ApiException {
+    public ApiResponse<InlineResponse2002> peekWithHttpInfo(String subscriptionId) throws ApiException {
         com.squareup.okhttp.Call call = peekValidateBeforeCall(subscriptionId, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2003>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get statistics. (asynchronously)
+     * Get statistics for given subscriptionId. (asynchronously)
      * Get the statistics for the specified subscription ID.
      * @param subscriptionId The unique ID of the subscription. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call peekAsync(String subscriptionId, final ApiCallback<InlineResponse2003> callback) throws ApiException {
+    public com.squareup.okhttp.Call peekAsync(String subscriptionId, final ApiCallback<InlineResponse2002> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -180,26 +177,28 @@ public class ReportingApi {
         }
 
         com.squareup.okhttp.Call call = peekValidateBeforeCall(subscriptionId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2003>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for register
-     * @param statisticsRegisterData The collection of statistics you want to include in your subscription. (required)
+     * Build call for peekMultiple
+     * @param ids IDs of subscriptions to peek statistics for. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call registerCall(StatisticsRegisterData statisticsRegisterData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = statisticsRegisterData;
+    public com.squareup.okhttp.Call peekMultipleCall(String ids, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/reporting/register";
+        String localVarPath = "/reporting/subscriptions";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (ids != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("ids", ids));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -230,57 +229,57 @@ public class ReportingApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call registerValidateBeforeCall(StatisticsRegisterData statisticsRegisterData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call peekMultipleValidateBeforeCall(String ids, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'statisticsRegisterData' is set
-        if (statisticsRegisterData == null) {
-            throw new ApiException("Missing the required parameter 'statisticsRegisterData' when calling register(Async)");
+        // verify the required parameter 'ids' is set
+        if (ids == null) {
+            throw new ApiException("Missing the required parameter 'ids' when calling peekMultiple(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = registerCall(statisticsRegisterData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = peekMultipleCall(ids, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
-     * Subscribe to statistics
-     * Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/{subscriptionId}&#x60;.
-     * @param statisticsRegisterData The collection of statistics you want to include in your subscription. (required)
-     * @return InlineResponse2002
+     * Get statistics for given subscription ids.
+     * Get the statistics for the specified subscription ID.
+     * @param ids IDs of subscriptions to peek statistics for. (required)
+     * @return InlineResponse2001
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2002 register(StatisticsRegisterData statisticsRegisterData) throws ApiException {
-        ApiResponse<InlineResponse2002> resp = registerWithHttpInfo(statisticsRegisterData);
+    public InlineResponse2001 peekMultiple(String ids) throws ApiException {
+        ApiResponse<InlineResponse2001> resp = peekMultipleWithHttpInfo(ids);
         return resp.getData();
     }
 
     /**
-     * Subscribe to statistics
-     * Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/{subscriptionId}&#x60;.
-     * @param statisticsRegisterData The collection of statistics you want to include in your subscription. (required)
-     * @return ApiResponse&lt;InlineResponse2002&gt;
+     * Get statistics for given subscription ids.
+     * Get the statistics for the specified subscription ID.
+     * @param ids IDs of subscriptions to peek statistics for. (required)
+     * @return ApiResponse&lt;InlineResponse2001&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2002> registerWithHttpInfo(StatisticsRegisterData statisticsRegisterData) throws ApiException {
-        com.squareup.okhttp.Call call = registerValidateBeforeCall(statisticsRegisterData, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
+    public ApiResponse<InlineResponse2001> peekMultipleWithHttpInfo(String ids) throws ApiException {
+        com.squareup.okhttp.Call call = peekMultipleValidateBeforeCall(ids, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Subscribe to statistics (asynchronously)
-     * Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/{subscriptionId}&#x60;.
-     * @param statisticsRegisterData The collection of statistics you want to include in your subscription. (required)
+     * Get statistics for given subscription ids. (asynchronously)
+     * Get the statistics for the specified subscription ID.
+     * @param ids IDs of subscriptions to peek statistics for. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call registerAsync(StatisticsRegisterData statisticsRegisterData, final ApiCallback<InlineResponse2002> callback) throws ApiException {
+    public com.squareup.okhttp.Call peekMultipleAsync(String ids, final ApiCallback<InlineResponse2001> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -301,14 +300,14 @@ public class ReportingApi {
             };
         }
 
-        com.squareup.okhttp.Call call = registerValidateBeforeCall(statisticsRegisterData, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
+        com.squareup.okhttp.Call call = peekMultipleValidateBeforeCall(ids, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for subscribe
-     * @param statisticsSubscribeData Requested Statistics (required)
+     * @param statisticsSubscribeData The collection of statistics you want to include in your subscription. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -318,7 +317,7 @@ public class ReportingApi {
         Object localVarPostBody = statisticsSubscribeData;
 
         // create path and map variables
-        String localVarPath = "/reporting/subscribe";
+        String localVarPath = "/reporting/subscriptions";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -370,39 +369,39 @@ public class ReportingApi {
     }
 
     /**
-     * Subscribe to Statistics
-     * 
-     * @param statisticsSubscribeData Requested Statistics (required)
-     * @return InlineResponse2001
+     * Subscribe to statistics
+     * Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
+     * @param statisticsSubscribeData The collection of statistics you want to include in your subscription. (required)
+     * @return InlineResponse2002
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2001 subscribe(StatisticsSubscribeData statisticsSubscribeData) throws ApiException {
-        ApiResponse<InlineResponse2001> resp = subscribeWithHttpInfo(statisticsSubscribeData);
+    public InlineResponse2002 subscribe(StatisticsSubscribeData statisticsSubscribeData) throws ApiException {
+        ApiResponse<InlineResponse2002> resp = subscribeWithHttpInfo(statisticsSubscribeData);
         return resp.getData();
     }
 
     /**
-     * Subscribe to Statistics
-     * 
-     * @param statisticsSubscribeData Requested Statistics (required)
-     * @return ApiResponse&lt;InlineResponse2001&gt;
+     * Subscribe to statistics
+     * Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
+     * @param statisticsSubscribeData The collection of statistics you want to include in your subscription. (required)
+     * @return ApiResponse&lt;InlineResponse2002&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2001> subscribeWithHttpInfo(StatisticsSubscribeData statisticsSubscribeData) throws ApiException {
+    public ApiResponse<InlineResponse2002> subscribeWithHttpInfo(StatisticsSubscribeData statisticsSubscribeData) throws ApiException {
         com.squareup.okhttp.Call call = subscribeValidateBeforeCall(statisticsSubscribeData, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Subscribe to Statistics (asynchronously)
-     * 
-     * @param statisticsSubscribeData Requested Statistics (required)
+     * Subscribe to statistics (asynchronously)
+     * Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
+     * @param statisticsSubscribeData The collection of statistics you want to include in your subscription. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call subscribeAsync(StatisticsSubscribeData statisticsSubscribeData, final ApiCallback<InlineResponse2001> callback) throws ApiException {
+    public com.squareup.okhttp.Call subscribeAsync(StatisticsSubscribeData statisticsSubscribeData, final ApiCallback<InlineResponse2002> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -424,23 +423,24 @@ public class ReportingApi {
         }
 
         com.squareup.okhttp.Call call = subscribeValidateBeforeCall(statisticsSubscribeData, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for unsubscribe
-     * @param unsubscribeData Request parameters. (required)
+     * @param subscriptionId The unique ID of the subscription. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call unsubscribeCall(UnsubscribeData unsubscribeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = unsubscribeData;
+    public com.squareup.okhttp.Call unsubscribeCall(String subscriptionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/reporting/unsubscribe";
+        String localVarPath = "/reporting/subscriptions/{subscriptionId}"
+            .replaceAll("\\{" + "subscriptionId" + "\\}", apiClient.escapeString(subscriptionId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -474,19 +474,19 @@ public class ReportingApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call unsubscribeValidateBeforeCall(UnsubscribeData unsubscribeData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call unsubscribeValidateBeforeCall(String subscriptionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'unsubscribeData' is set
-        if (unsubscribeData == null) {
-            throw new ApiException("Missing the required parameter 'unsubscribeData' when calling unsubscribe(Async)");
+        // verify the required parameter 'subscriptionId' is set
+        if (subscriptionId == null) {
+            throw new ApiException("Missing the required parameter 'subscriptionId' when calling unsubscribe(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = unsubscribeCall(unsubscribeData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = unsubscribeCall(subscriptionId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -494,24 +494,24 @@ public class ReportingApi {
     /**
      * Unsubscribe from statistics.
      * Unsubscribe from the specified group of statistics.
-     * @param unsubscribeData Request parameters. (required)
+     * @param subscriptionId The unique ID of the subscription. (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse unsubscribe(UnsubscribeData unsubscribeData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = unsubscribeWithHttpInfo(unsubscribeData);
+    public ApiSuccessResponse unsubscribe(String subscriptionId) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = unsubscribeWithHttpInfo(subscriptionId);
         return resp.getData();
     }
 
     /**
      * Unsubscribe from statistics.
      * Unsubscribe from the specified group of statistics.
-     * @param unsubscribeData Request parameters. (required)
+     * @param subscriptionId The unique ID of the subscription. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> unsubscribeWithHttpInfo(UnsubscribeData unsubscribeData) throws ApiException {
-        com.squareup.okhttp.Call call = unsubscribeValidateBeforeCall(unsubscribeData, null, null);
+    public ApiResponse<ApiSuccessResponse> unsubscribeWithHttpInfo(String subscriptionId) throws ApiException {
+        com.squareup.okhttp.Call call = unsubscribeValidateBeforeCall(subscriptionId, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -519,12 +519,12 @@ public class ReportingApi {
     /**
      * Unsubscribe from statistics. (asynchronously)
      * Unsubscribe from the specified group of statistics.
-     * @param unsubscribeData Request parameters. (required)
+     * @param subscriptionId The unique ID of the subscription. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call unsubscribeAsync(UnsubscribeData unsubscribeData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call unsubscribeAsync(String subscriptionId, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -545,7 +545,7 @@ public class ReportingApi {
             };
         }
 
-        com.squareup.okhttp.Call call = unsubscribeValidateBeforeCall(unsubscribeData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = unsubscribeValidateBeforeCall(subscriptionId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
