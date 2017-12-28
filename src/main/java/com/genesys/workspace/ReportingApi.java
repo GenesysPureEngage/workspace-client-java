@@ -3,24 +3,17 @@ package com.genesys.workspace;
 import com.genesys.internal.common.ApiClient;
 import com.genesys.internal.common.ApiException;
 import com.genesys.internal.workspace.model.ApiSuccessResponse;
-import com.genesys.internal.workspace.model.InlineResponse2001;
-import com.genesys.internal.workspace.model.InlineResponse2001Data;
 import com.genesys.internal.workspace.model.InlineResponse2002;
 import com.genesys.internal.workspace.model.InlineResponse2002Data;
-import com.genesys.internal.workspace.model.InlineResponse2003;
-import com.genesys.internal.workspace.model.InlineResponse2003Data;
-import com.genesys.internal.workspace.model.ReportingunsubscribeData;
-import com.genesys.internal.workspace.model.StatisticValueForPeekResponse;
-import com.genesys.internal.workspace.model.StatisticValueForRegister;
-import com.genesys.internal.workspace.model.StatisticsRegisterData;
-import com.genesys.internal.workspace.model.StatisticsRegisterDataData;
+import com.genesys.internal.workspace.model.Statistic;
+import com.genesys.internal.workspace.model.StatisticValue;
 import com.genesys.internal.workspace.model.StatisticsSubscribeData;
 import com.genesys.internal.workspace.model.StatisticsSubscribeDataData;
-import com.genesys.internal.workspace.model.UnsubscribeData;
 import com.genesys.workspace.common.WorkspaceApiException;
 import com.genesys.workspace.models.SubscribeData;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class ReportingApi {
     private com.genesys.internal.workspace.api.ReportingApi api;
@@ -37,17 +30,17 @@ public class ReportingApi {
      * Get the statistics for the specified subscription ID.
      * @param subscriptionId The unique ID of the subscription.
      */
-    public StatisticValueForPeekResponse peek(String subscriptionId) throws WorkspaceApiException {
+    public List<StatisticValue> peek(String subscriptionId) throws WorkspaceApiException {
         try {
-            InlineResponse2003 resp = api.peek(subscriptionId);
+            InlineResponse2002 resp = api.peek(subscriptionId);
             Util.throwIfNotOk(resp.getStatus());
             
-            InlineResponse2003Data data = resp.getData();
+            InlineResponse2002Data data = resp.getData();
             if(data == null) {
                 throw new WorkspaceApiException("Response data is empty");
             }
             
-            return data.getStatistics().get_();
+            return data.getStatistics();
         }
         catch(ApiException ex) {
             throw new WorkspaceApiException("Cannot peek", ex);
@@ -55,44 +48,22 @@ public class ReportingApi {
     }
 
     /**
-     * Subscribe to a group of statistics. The values are returned when you request them using peek(). 
-     * @param statistics The collection of statistic you want to include in your subscription.
+     *  Subscribe to a group of statistics.
+     * 
+     * @param statistics The collection of statistics you want to include in your subscription.
+     * @return
+     * @throws WorkspaceApiException 
      */
-    public SubscribeData register(Collection<StatisticValueForRegister> statistics) throws WorkspaceApiException {
-        try {
-            StatisticsRegisterData statisticsData = new StatisticsRegisterData();
-            StatisticsRegisterDataData data = new StatisticsRegisterDataData();
-            data.setStatistics(new ArrayList<>(statistics));
-            statisticsData.setData(data);
-            InlineResponse2002 resp = api.register(statisticsData);
-            Util.throwIfNotOk(resp.getStatus());
-            
-            InlineResponse2002Data respData = resp.getData();
-            if(respData == null) {
-                throw new WorkspaceApiException("Response data is empty");
-            }
-
-            SubscribeData result = new SubscribeData();
-            result.setSubscriptionId(respData.getSubscriptionId());
-            result.setStatistics(respData.getStatistics());
-            return result;
-        }
-        catch(ApiException ex) {
-            throw new WorkspaceApiException("Cannot register", ex);
-        }
-    }
-
-    public SubscribeData subscribe(String connectionId, Collection<StatisticValueForRegister> statistics) throws WorkspaceApiException {
+    public SubscribeData subscribe(Collection<Statistic> statistics) throws WorkspaceApiException {
         try {
             StatisticsSubscribeData subscribeData = new StatisticsSubscribeData();
             StatisticsSubscribeDataData data = new StatisticsSubscribeDataData();
-            data.setConnectionId(connectionId);
             data.setStatistics(new ArrayList<>(statistics));
             subscribeData.setData(data);
-            InlineResponse2001 resp = api.subscribe(subscribeData);
+            InlineResponse2002 resp = api.subscribe(subscribeData);
             Util.throwIfNotOk(resp.getStatus());
             
-            InlineResponse2001Data respData = resp.getData();
+            InlineResponse2002Data respData = resp.getData();
             if(respData == null) {
                 throw new WorkspaceApiException("Response data is empty");
             }
@@ -113,11 +84,7 @@ public class ReportingApi {
      */
     public void unsubscribe(String subscriptionId) throws WorkspaceApiException {
         try {
-            UnsubscribeData unsubscribe = new UnsubscribeData();
-            ReportingunsubscribeData data = new ReportingunsubscribeData();
-            data.setSubscriptionId(subscriptionId);
-            unsubscribe.setData(data);
-            ApiSuccessResponse resp = api.unsubscribe(unsubscribe);
+            ApiSuccessResponse resp = api.unsubscribe(subscriptionId);
             Util.throwIfNotOk(resp);
         }
         catch(ApiException ex) {
