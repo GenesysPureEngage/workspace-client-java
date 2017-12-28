@@ -1,11 +1,11 @@
 package com.genesys.workspace.models;
 
-import com.genesys.internal.workspace.model.StatisticValueForRegisterResponse;
+import com.genesys.internal.workspace.model.StatisticValue;
 import java.util.List;
 
 public class SubscribeData {
     String subscriptionId;
-    private List<StatisticValueForRegisterResponse> statistics;
+    private List<StatisticValue> statistics;
 
     public String getSubscriptionId() {
         return subscriptionId;
@@ -15,11 +15,11 @@ public class SubscribeData {
         this.subscriptionId = subscriptionId;
     }
 
-    public void setStatistics(List<StatisticValueForRegisterResponse> statistics) {
+    public void setStatistics(List<StatisticValue> statistics) {
         this.statistics = statistics;
     }
 
-    public List<StatisticValueForRegisterResponse> getStatistics() {
+    public List<StatisticValue> getStatistics() {
         return statistics;
     }
 }
