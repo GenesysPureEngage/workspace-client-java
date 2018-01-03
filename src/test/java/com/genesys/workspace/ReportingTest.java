@@ -5,6 +5,8 @@ import com.genesys.internal.workspace.model.ApiSuccessResponse;
 import com.genesys.internal.workspace.model.InlineResponse2002;
 import com.genesys.internal.workspace.model.InlineResponse2002Data;
 import com.genesys.internal.workspace.model.Statistic;
+import com.genesys.internal.workspace.model.StatisticValue;
+import com.genesys.internal.workspace.model.StatisticsSubscribeData;
 import com.genesys.workspace.common.WorkspaceApiException;
 import java.util.ArrayList;
 import org.junit.Before;
@@ -31,16 +33,16 @@ public class ReportingTest {
         InlineResponse2002 resp1 = new InlineResponse2002();
         resp1.setStatus(resp.getStatus());
         InlineResponse2002Data data2002 = new InlineResponse2002Data();
-        data2002.setStatistics( new ArrayList<>());
+        data2002.setStatistics( new ArrayList<StatisticValue>());
         resp1.setData(data2002);
 		
         InlineResponse2002 resp2 = new InlineResponse2002();
         resp2.setData(new InlineResponse2002Data());
         resp2.setStatus(resp.getStatus());
 
-        Mockito.when(internalApi.peek(Mockito.any())).thenReturn(resp1);        
-        Mockito.when(internalApi.subscribe(Mockito.any())).thenReturn(resp2);
-        Mockito.when(internalApi.unsubscribe(Mockito.any())).thenReturn(resp);
+        Mockito.when(internalApi.peek((String)Mockito.any())).thenReturn(resp1);        
+        Mockito.when(internalApi.subscribe((StatisticsSubscribeData)Mockito.any())).thenReturn(resp2);
+        Mockito.when(internalApi.unsubscribe((String)Mockito.any())).thenReturn(resp);
     }
     
     @Test

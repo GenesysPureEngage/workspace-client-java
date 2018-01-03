@@ -1,18 +1,5 @@
 package com.genesys.workspace;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.genesys.internal.common.ApiClient;
 import com.genesys.internal.common.ApiException;
 import com.genesys.internal.workspace.model.AlternateData;
@@ -74,6 +61,15 @@ import com.genesys.workspace.models.CallState;
 import com.genesys.workspace.models.Capability;
 import com.genesys.workspace.models.Dn;
 import com.genesys.workspace.models.KeyValueCollection;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
  
 public class VoiceApi {
     private static final Logger logger = LoggerFactory.getLogger(VoiceApi.class);
@@ -256,10 +252,9 @@ public class VoiceApi {
         call.setUserData(userData);
         List<Capability> capabilityList = new ArrayList<>(10);
         for(Object capability: capabilities){
-
+            String capabilityStringValue = (String) capability;
+            Capability capabilityObject = Capability.fromString(capabilityStringValue);
             if(capability != null){
-                String capabilityStringValue = (String) capability;
-                Capability capabilityObject = Capability.fromString(capabilityStringValue);
                 capabilityList.add(capabilityObject);
             }
         }

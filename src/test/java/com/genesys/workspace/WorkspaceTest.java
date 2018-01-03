@@ -4,12 +4,9 @@ import com.genesys.internal.common.ApiClient;
 import com.genesys.internal.common.ApiException;
 import com.genesys.internal.workspace.api.SessionApi;
 import com.genesys.internal.workspace.model.ApiSuccessResponse;
+import com.genesys.internal.workspace.model.ChannelsData;
 import com.genesys.workspace.common.StatusCode;
 import com.genesys.workspace.common.WorkspaceApiException;
-import com.genesys.workspace.models.User;
-import java.util.concurrent.CompletableFuture;
-import org.cometd.bayeux.Message;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -43,8 +40,7 @@ public class WorkspaceTest {
          
         ApiSuccessResponse asyncSuccess = Objects.makeResponse(StatusCode.OK);
          
-        Mockito.when(sessionApi.activateChannels(Mockito.any())).thenReturn(asyncSuccess);
-        Mockito.when(sessionApi.initializeWorkspaceWithHttpInfo(Mockito.any(), Mockito.any(), Mockito.any())).thenReturn(Objects.makeHttpResponse());
+        Mockito.when(sessionApi.activateChannels((ChannelsData)Mockito.any())).thenReturn(asyncSuccess);
     }
     
     @Test
@@ -61,23 +57,4 @@ public class WorkspaceTest {
     public void destroy() throws WorkspaceApiException {
         api.destroy();
     }
-    
-    @Test
-    public void initializeWithToken() throws WorkspaceApiException {
-        api.initialize(Objects.TOKEN);
-    }
-    
-    @Test
-    public void initializeWithAuthCode() throws WorkspaceApiException {
-        api.initialize(Objects.AUTH_CODE, Objects.REDIRECT_URI);
-    }
-    
-    @Test
-    public void onInitMessage() {
-        CompletableFuture<User> future = new CompletableFuture<>();
-        Message msg = Objects.makeMessage(Objects.MessageType.WorkspaceInitializationComplete);
-        api.onInitMessage(msg.getDataAsMap(), future);
-        Assert.assertTrue(future.isDone());
-    }
-
 }
