@@ -31,10 +31,12 @@ public enum Capability {
     Merge;
     
     public static Capability fromString(String s) {
-        s = s.replace("-", "");
-        for(Capability v: Capability.values()) {
-            if(v.name().compareToIgnoreCase(s) == 0) {
-                return v;
+        if(s != null) {
+            s = s.replace("-", "");
+            for(Capability v: Capability.values()) {
+                if(v.name().compareToIgnoreCase(s) == 0) {
+                    return v;
+                }
             }
         }
         

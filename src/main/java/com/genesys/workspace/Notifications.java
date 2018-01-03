@@ -1,14 +1,12 @@
 package com.genesys.workspace;
 
 import com.genesys.workspace.common.WorkspaceApiException;
-
 import java.net.CookieManager;
 import java.net.CookieStore;
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
-
 import org.cometd.bayeux.Message;
 import org.cometd.bayeux.client.ClientSessionChannel;
 import org.cometd.client.BayeuxClient;
@@ -118,11 +116,12 @@ public class Notifications {
     }
     
     public void subscribe(String channelName, NotificationListener listener) {
-        if(listeners.get(channelName) == null){
-            Collection<NotificationListener> notificationListeners = new ConcurrentLinkedQueue<>();
-            notificationListeners.add(listener);
-            this.listeners.put(channelName,notificationListeners);
-
+        synchronized(listeners) {
+            if(!listeners.containsKey(channelName)){
+                listeners.put(channelName, new ConcurrentLinkedQueue<NotificationListener>());
+            }
         }
+        
+        listeners.get(channelName).add(listener);
     }
 }

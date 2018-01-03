@@ -7,6 +7,7 @@ import com.genesys.workspace.models.targets.SearchResult;
 import com.genesys.workspace.models.targets.Target;
 import com.genesys.workspace.models.targets.TargetType;
 import com.genesys.workspace.models.targets.TargetsSearchOptions;
+import java.math.BigDecimal;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,7 +29,15 @@ public class TargetsTest {
         api.setTargetsApi(internalApi);
         
         TargetsResponse response = Objects.makeTargetsResponse(10);
-        Mockito.when(internalApi.get(Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any())).thenReturn(response);
+        Mockito.when(internalApi.get((String)Mockito.any(), 
+                (String)Mockito.any(), 
+                (String)Mockito.any(), 
+                (String)Mockito.any(), 
+                (String)Mockito.any(), 
+                (String)Mockito.any(), 
+                (String)Mockito.any(), 
+                (BigDecimal)Mockito.any(), 
+                (String)Mockito.any())).thenReturn(response);
     }
 
     @Test
