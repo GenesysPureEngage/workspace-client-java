@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * StatisticValue
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-03T10:53:40.387Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-03T14:57:47.753Z")
 public class StatisticValue {
   @SerializedName("objectId")
   private String objectId = null;
@@ -41,7 +41,7 @@ public class StatisticValue {
   private String name = null;
 
   @SerializedName("timestamp")
-  private Integer timestamp = null;
+  private Long timestamp = null;
 
   @SerializedName("value")
   private Object value = null;
@@ -118,7 +118,7 @@ public class StatisticValue {
     this.name = name;
   }
 
-  public StatisticValue timestamp(Integer timestamp) {
+  public StatisticValue timestamp(Long timestamp) {
     this.timestamp = timestamp;
     return this;
   }
@@ -128,11 +128,11 @@ public class StatisticValue {
    * @return timestamp
   **/
   @ApiModelProperty(required = true, value = "Timestamp for given value of the statistic")
-  public Integer getTimestamp() {
+  public Long getTimestamp() {
     return timestamp;
   }
 
-  public void setTimestamp(Integer timestamp) {
+  public void setTimestamp(Long timestamp) {
     this.timestamp = timestamp;
   }
 
