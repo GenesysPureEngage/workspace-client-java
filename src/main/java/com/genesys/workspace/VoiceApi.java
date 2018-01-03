@@ -1,5 +1,18 @@
 package com.genesys.workspace;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.genesys.internal.common.ApiClient;
 import com.genesys.internal.common.ApiException;
 import com.genesys.internal.workspace.model.AlternateData;
@@ -47,12 +60,21 @@ import com.genesys.internal.workspace.model.VoicereadyData;
 import com.genesys.internal.workspace.model.VoicesetforwardData;
 import com.genesys.workspace.common.StatusCode;
 import com.genesys.workspace.common.WorkspaceApiException;
-import com.genesys.workspace.events.*;
-import com.genesys.workspace.models.*;
-import java.util.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import com.genesys.workspace.events.CallEventListener;
+import com.genesys.workspace.events.CallStateChanged;
+import com.genesys.workspace.events.DnEventListener;
+import com.genesys.workspace.events.DnStateChanged;
+import com.genesys.workspace.events.ErrorEventListener;
+import com.genesys.workspace.events.EventError;
+import com.genesys.workspace.events.NotificationType;
+import com.genesys.workspace.models.AgentState;
+import com.genesys.workspace.models.AgentWorkMode;
+import com.genesys.workspace.models.Call;
+import com.genesys.workspace.models.CallState;
+import com.genesys.workspace.models.Capability;
+import com.genesys.workspace.models.Dn;
+import com.genesys.workspace.models.KeyValueCollection;
+ 
 public class VoiceApi {
     private static final Logger logger = LoggerFactory.getLogger(VoiceApi.class);
     
@@ -75,33 +97,33 @@ public class VoiceApi {
     }
 
     private void publishCallStateChanged(CallStateChanged msg) {
-        this.callEventListeners.forEach(listener -> {
+        for (CallEventListener callEventListener : this.callEventListeners) {
             try {
-                listener.handleCallStateChanged(msg);
+                callEventListener.handleCallStateChanged(msg);
             } catch (Exception e) {
                 logger.debug("Exception in listener" + e);
             }
-        });
+        }
     }
 
     private void publishDnStateChanged(DnStateChanged msg) {
-        this.dnEventListeners.forEach(listener -> {
+        for(DnEventListener dnEventListener: this.dnEventListeners) {
             try {
-                listener.handleDnStateChanged(msg);
+                dnEventListener.handleDnStateChanged(msg);
             } catch (Exception e) {
                 logger.debug("Exception in listener" + e);
             }
-        });
+        }
     }
 
     private void publishErrorEvent(EventError msg) {
-        this.errorEventListeners.forEach(listener -> {
+        for (ErrorEventListener errorEventListener : this.errorEventListeners) {
             try {
-                listener.handleEventError(msg);
+                errorEventListener.handleEventError(msg);
             } catch (Exception e) {
                 logger.debug("Exception in listener" + e);
             }
-        });
+        }
     }
 
     /**
@@ -188,7 +210,12 @@ public class VoiceApi {
         String previousConnId = (String)callData.get("previousConnId");
         String ani = (String)callData.get("ani");
         String dnis = (String)callData.get("dnis");
-        Object[] capabilities = (Object[])callData.getOrDefault("capabilities", new Object[]{});
+        Object[] capabilities;
+        if(callData.get("capabilities") ==  null) {
+            capabilities = new Object[]{};
+        } else {
+            capabilities = (Object[]) callData.get("capabilities");
+        }
         Object[] participantData = (Object[])callData.get("participants");
         KeyValueCollection userData = Util.extractKeyValueData((Object[])callData.get("userData"));
 
@@ -227,8 +254,16 @@ public class VoiceApi {
         call.setCallUuid(callUuid);
         call.setParticipants(participants);
         call.setUserData(userData);
-        call.setCapabilities(Arrays.stream(capabilities).map(v -> Capability.fromString((String)v)).filter(Objects::nonNull).toArray(n -> new Capability[n]));
+        List<Capability> capabilityList = new ArrayList<>(10);
+        for(Object capability: capabilities){
 
+            if(capability != null){
+                String capabilityStringValue = (String) capability;
+                Capability capabilityObject = Capability.fromString(capabilityStringValue);
+                capabilityList.add(capabilityObject);
+            }
+        }
+        call.setCapabilities(capabilityList.toArray(new Capability[capabilityList.size()]));
         this.publishCallStateChanged(new CallStateChanged(call, notificationType, connIdChanged ? previousConnId : null));
     }
 

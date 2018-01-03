@@ -17,8 +17,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,7 +44,10 @@ public class WorkspaceApi {
     private List<BusinessAttribute> businessAttributes;
     private List<ActionCode> actionCodes;
     private List<Transaction> transactions;
-
+    
+    private WorkspaceApiException initError;
+	private Object initSignal;
+	
     /**
      * Constructor 
      * @param apiKey The API key to be included in HTTP requests.
@@ -69,21 +70,27 @@ public class WorkspaceApi {
 
     private static String extractSessionCookie(ApiResponse<ApiSuccessResponse> response) throws WorkspaceApiException {
         logger.debug("Extracting session cookie...");
-        Optional<String> cookie = response.getHeaders().get("set-cookie")
-                .stream().filter(v -> v.startsWith("WORKSPACE_SESSIONID")).findFirst();
+        String workspaceSessionCookie = null;
+        List<String> cookies = response.getHeaders().get("set-cookie");
+        for (String cookie : cookies) {
+            if(cookie.startsWith("WORKSPACE_SESSIONID")){
+                workspaceSessionCookie = cookie;
+                break;
+            }
+        }
 
-        if(!cookie.isPresent()) {
+        if(workspaceSessionCookie == null) {
             throw new WorkspaceApiException("Failed to extract workspace session cookie.");
         }
 
-        String value = cookie.get();
+        String value = workspaceSessionCookie;
         String sessionId = value.split(";")[0].split("=")[1];
         logger.debug("WORKSPACE_SESSIONID is " + sessionId);
         
         return sessionId;
     }
     
-    void onInitMessage(Map<String, Object> data, CompletableFuture<User> future) {
+    void onInitMessage(Map<String, Object> data) {
         String messageType = (String)data.get("messageType");
         if ("WorkspaceInitializationComplete".equals(messageType)) {
                 String state = (String)data.get("state");
@@ -110,10 +117,15 @@ public class WorkspaceApi {
                     this.workspaceInitialized = true;
                     logger.debug("Initialization complete");
 
-                    future.complete(user);      
-                } 
-                else if ("Failed".equals(state)) {
-                    future.completeExceptionally(new WorkspaceApiException("initialize workspace failed"));
+                    synchronized (this.initSignal) {
+                        this.initSignal.notifyAll();
+                    }    
+                } else if ("Failed".equals(state)) {
+                    logger.debug("Workspace initialization failed!");
+                    this.initError = new WorkspaceApiException("initialize workspace failed");
+                    synchronized (this.initSignal) {
+                    this.initSignal.notifyAll();
+                    }
                 }
         }
         else {
@@ -239,27 +251,26 @@ public class WorkspaceApi {
      * when using the Authentication API to get the authCode.
      * @return CompletableFuture<User>
      */
-    public CompletableFuture<User> initialize(String authCode, String redirectUri) throws WorkspaceApiException {
+    public User initialize(String authCode, String redirectUri) throws WorkspaceApiException {
         return initialize(authCode, redirectUri, null);
     }
 
     /**
-     * Initializes the API using the provided access token. This token comes from using the Resource Owner Password Credentials Grant 
-     * flow to authenticate with the Authentication API.
-     * @param token The access token you received during authentication. 
-     * @return CompletableFuture<User>
+     * Initializes the API using the provided auth token.
+     * @param token The auth token to use for initialization.
      */
-    public CompletableFuture<User> initialize(String token) throws WorkspaceApiException {
+    public User initialize(String token) throws WorkspaceApiException {
         return initialize(null, null, token);
     }
 
-    private CompletableFuture<User> initialize(String authCode, String redirectUri, String token) throws WorkspaceApiException {
+    private User initialize(String authCode, String redirectUri, String token) throws WorkspaceApiException {
         try {
+        	this.initSignal = new Object();
             ApiClient client = new ApiClient();
             List<Interceptor> interceptors = client.getHttpClient().interceptors();
             interceptors.add(new TraceInterceptor());
             
-            final HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(logger::debug);
+            final HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(HttpLoggingInterceptor.Logger.DEFAULT);
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             interceptors.add(loggingInterceptor);
             
@@ -278,16 +289,40 @@ public class WorkspaceApi {
             workspaceSessionId = extractSessionCookie(response);
             client.addDefaultHeader("Cookie", String.format("%s=%s", SESSION_COOKIE, workspaceSessionId));
 
-            final CompletableFuture<User> future = new CompletableFuture<>();
+//            final CompletableFuture<User> future = new CompletableFuture<>();
 
             notifications.setCookieStore(cookieStore);
-            notifications.subscribe("/workspace/v3/initialization", (channel, msg) -> onInitMessage(msg, future));
-            notifications.subscribe("/workspace/v3/voice", (channel, msg) -> voiceApi.onVoiceMessage(msg));
+            notifications.subscribe("/workspace/v3/initialization", new Notifications.NotificationListener() {
+                @Override
+                public void onNotification(String channel, Map<String, Object> data) {
+                    onInitMessage(data);
+                }
+            });
+            //notifications.subscribe("/workspace/v3/initialization", (channel, msg) -> onInitMessage(msg, future));
+            notifications.subscribe("/workspace/v3/voice", new Notifications.NotificationListener() {
+                @Override
+                public void onNotification(String channel, Map<String, Object> data) {
+                    voiceApi.onVoiceMessage(data);
+                }
+            });
+            //notifications.subscribe("/workspace/v3/voice", (channel, msg) -> voiceApi.onVoiceMessage(msg));
             notifications.initialize(workspaceUrl + "/notifications", apiKey);
             
-            return future;
+        	synchronized(this.initSignal) {
+        		this.initSignal.wait(30000);
+        	}
+        	
+            if (this.initError != null) {
+                WorkspaceApiException e = this.initError;
+                initError = null;
+                throw e;
+            } 
+            else if (user!=null)
+            	return this.user;
+            
+            throw new WorkspaceApiException("timeout");
 
-        } catch (ApiException e) {
+        } catch (InterruptedException | ApiException e) {
             throw new WorkspaceApiException("initialize failed.", e);
         }
     }

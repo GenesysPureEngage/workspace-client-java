@@ -26,8 +26,8 @@ public class AgentTarget extends Target {
         List<ChannelAvailability> channels = new ArrayList<>();
 
         if (channelsData != null && !channelsData.isEmpty()) {
-            channelsData.forEach(o -> {
-                LinkedTreeMap channelData = (LinkedTreeMap)o;
+            for(Object object: channelsData){
+                LinkedTreeMap channelData = (LinkedTreeMap)object;
 
                 String channelName = (String)channelData.get("name");
                 boolean available = (Boolean)channelData.get("available");
@@ -42,7 +42,7 @@ public class AgentTarget extends Target {
                 AgentActivity activity = Util.parseAgentActivity((String)channelData.get("activity"));
 
                 channels.add(new ChannelAvailability(channelName, available, agentState, workMode, reason, phoneNumber, switchName, activity));
-            });
+            }
         }
         
         AgentAvailability availability = new AgentAvailability(channels);
