@@ -6,7 +6,7 @@ The library is hosted on [GitHub](https://github.com/GenesysPureEngage/workspace
 
 ## Install
 
-Genesys recommends that you install the Workspace Client Library JAR file with [Gradle](https://gradle.org/). You should use the latest version available at <https://maven2repo.com/com.genesys/workspace>.
+Genesys recommends that you install the Workspace Client Library JAR file with [Gradle](https://gradle.org/). You should use latest version available in the Maven [repository](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.genesys%22%20AND%20a%3A%22workspace%22).
 
 Add the following line to the **dependencies** block in your **build.gradle** file:
 
