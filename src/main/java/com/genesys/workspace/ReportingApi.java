@@ -48,7 +48,7 @@ public class ReportingApi {
     }
 
     /**
-     *  Subscribe to a group of statistics.
+     *  Subscribe to a group of statistics. The values are returned when you request them using `peek()`.
      * 
      * @param statistics The collection of statistics you want to include in your subscription.
      * @return
@@ -88,7 +88,7 @@ public class ReportingApi {
             Util.throwIfNotOk(resp);
         }
         catch(ApiException ex) {
-            throw new WorkspaceApiException("Cannot unsunscribe", ex);
+            throw new WorkspaceApiException("Cannot unsubscribe", ex);
         }
     }
 }

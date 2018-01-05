@@ -92,7 +92,7 @@ public class TargetsApi {
     }
     
     /**
-     * Add a target that was recently used.
+     * Add a target that the agent recently used.
      * @param target The target to add.
      * @param media The media channel on which the target was used.
      */
@@ -101,11 +101,10 @@ public class TargetsApi {
     }
 
     /**
-     * Add a target that was recently used.
+     * Add a target that the agent recently used.
      * @param target The target to add.
      * @param media The media channel the where the target was recently used. 
-     * @param timestamp The timestamp for when the target was used. This value should be a number representing the 
-     * milliseconds elapsed since the UNIX epoch. (optional)
+     * @param timestamp The timestamp for when the target was used. This value should be a number representing the milliseconds elapsed since the UNIX epoch. (optional)
      */
     public void addRecentTarget(Target target, String media, long timestamp) throws WorkspaceApiException {
         try {
@@ -140,7 +139,7 @@ public class TargetsApi {
     }
     
     /**
-     * Get a user's recently used targets.
+     * Get recently used targets for the current agent.
      * @return SearchResult<Target>
      */
     public SearchResult<Target> getRecentTargets() throws WorkspaceApiException {
@@ -148,8 +147,8 @@ public class TargetsApi {
     }
 
     /**
-     * Get a user's recently used targets.
-     * @param limit Specify the number of results to return. The default value is 50. (optional)
+     * Get recently used targets for the current agent.
+     * @param limit The number of results to return. The default value is 50. (optional)
      * @return SearchResult<Target>
      */
     public SearchResult<Target> getRecentTargets(int limit) throws WorkspaceApiException {
@@ -179,10 +178,9 @@ public class TargetsApi {
     }
 
     /**
-     * Get a specific target by ID and type.
-     * @param id The ID for the target.
-     * @param type The type of target to retrieve. The possible values are AGENT, AGENT_GROUP, ACD_QUEUE, 
-     * ROUTE_POINT, SKILL, and CUSTOM_CONTACT.
+     * Get a specific target by type and ID. Targets can be agents, agent groups, queues, route points, skills, and custom contacts.
+     * @param id The ID of the target.
+     * @param type The type of target to retrieve. The possible values are AGENT, AGENT_GROUP, ACD_QUEUE, ROUTE_POINT, SKILL, and CUSTOM_CONTACT.
      * @return Target
      */
     public Target getTarget(long id, TargetType type) throws WorkspaceApiException {
@@ -207,7 +205,7 @@ public class TargetsApi {
     }
     
     /**
-     * Delete the target from the user's personal favorites.
+     * Delete the target from the agent's personal favorites.
      * @param target The target to delete.
      */
     public void deletePersonalFavorite(Target target) throws WorkspaceApiException {
@@ -221,7 +219,7 @@ public class TargetsApi {
     }
     
     /**
-     * Return the user's personal favorites.
+     * Get the agent's personal favorites.
      * @return SearchResult<Target>
      */
     public SearchResult<Target> getPersonalFavorites() throws WorkspaceApiException {
@@ -229,8 +227,8 @@ public class TargetsApi {
     }
 
     /**
-     * Return the user's personal favorites.
-     * @param limit Specify the number of results to return. The default value is 50. (optional)
+     * Get the agent's personal favorites.
+     * @param limit Number of results to return. The default value is 50. (optional)
      * @return SearchResult<Target>
      */
     public SearchResult<Target> getPersonalFavorites(int limit) throws WorkspaceApiException {
@@ -259,9 +257,9 @@ public class TargetsApi {
     }
 
     /**
-     * Save a target to the user's personal favorites in the specified category.
+     * Save a target to the agent's personal favorites in the specified category.
      * @param target The target to save.
-     * @param category The user's personal favorites category.
+     * @param category The agent's personal favorites category.
      */
     public void savePersonalFavorite(Target target, String category) throws WorkspaceApiException {
         TargetspersonalfavoritessaveData data = new TargetspersonalfavoritessaveData();
