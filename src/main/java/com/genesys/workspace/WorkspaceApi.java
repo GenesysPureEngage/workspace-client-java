@@ -51,7 +51,7 @@ public class WorkspaceApi {
     /**
      * Constructor 
      * @param apiKey The API key to be included in HTTP requests.
-     * @param baseUrl The base URL of the PureEngage API.
+     * @param baseUrl The base URL of the PureEngage Cloud API.
     */
     public WorkspaceApi(String apiKey, String baseUrl) {
         this(apiKey, baseUrl, new VoiceApi(), new TargetsApi(), new SessionApi(), new Notifications());
@@ -244,11 +244,10 @@ public class WorkspaceApi {
     
 
     /**
-     * Initializes the API using the provided authorization code and redirect URI. The authorization code comes from using the 
-     * Authorization Code Grant flow to authenticate with the Authentication API. Genesys recommends using this code grant type.
+     * Initialize the API using the provided authorization code and redirect URI. The authorization code comes from using the 
+     * Authorization Code Grant flow to authenticate with the Authentication API.
      * @param authCode The authorization code you received during authentication.
-     * @param redirectUri The redirect URI you used during authentication. Since this is not sent by the UI, it needs to match the redirectUri that you sent 
-     * when using the Authentication API to get the authCode.
+     * @param redirectUri The redirect URI you used during authentication. Since this is not sent by the UI, it needs to match the redirectUri that you sent when using the Authentication API to get the authCode.
      * @return CompletableFuture<User>
      */
     public User initialize(String authCode, String redirectUri) throws WorkspaceApiException {
@@ -256,8 +255,8 @@ public class WorkspaceApi {
     }
 
     /**
-     * Initializes the API using the provided auth token.
-     * @param token The auth token to use for initialization.
+     * Initialize the API using the provided access token.
+     * @param token The access token to use for initialization.
      */
     public User initialize(String token) throws WorkspaceApiException {
         return initialize(null, null, token);
@@ -328,7 +327,9 @@ public class WorkspaceApi {
     }
 
     /**
-     * Logout the agent and cleanup resources.
+     * Ends the current agent's session. This request logs out the agent on all activated channels, ends the HTTP session, 
+     * and cleans up related resources. After you end the session, you'll need to make a login request before making any 
+     * new calls to the API.
      */
     public void destroy() throws WorkspaceApiException {
         try {
@@ -344,9 +345,11 @@ public class WorkspaceApi {
     }
 
     /**
-     * Initializes the voice channel for the specified agent and DN.
-     * @param agentId The ID of the agent to be used for login.
-     * @param placeName The DN to be used for login.
+     * Activates the voice channel using the provided resources. If the channel is successfully activated, 
+     * Workspace sends additional information about the state of active resources (DNs, channels) via events. The 
+     * resources you provide are associated with the agent for the duration of the session.
+     * @param agentId The unique ID of the agent.
+     * @param placeName The name of the place to use for the agent.
      */
     public void activateChannels(
             String agentId,
@@ -356,12 +359,14 @@ public class WorkspaceApi {
     }
 
     /**
-     * Initializes the voice channel using the specified resources.
-     * @param agentId The ID of the agent to be used for login.
-     * @param dn The DN to be used for login. Only provide this if you aren't specifying the place name.
-     * @param placeName The name of the place to use for login. Only provide this if you aren't specifying the DN.
-     * @param queueName The name of the queue to be used for login. (optional)
-     * @param workMode The workMode to be used for login. The possible values are AUTO_IN or MANUAL_IN. (optional)
+     * Activates the voice channel using the provided resources. If the channel is successfully activated, 
+     * Workspace sends additional information about the state of active resources (DNs, channels) via events. The 
+     * resources you provide are associated with the agent for the duration of the session.
+     * @param agentId The unique ID of the agent.
+     * @param dn The DN (number) to use for the agent. You must provide either the place name or DN.
+     * @param placeName The name of the place to use for the agent. You must provide either the place name or DN.
+     * @param queueName The queue name. (optional)
+     * @param workMode The workmode. The possible values are AUTO_IN or MANUAL_IN. (optional)
      */
     public void activateChannels(
             String agentId,
