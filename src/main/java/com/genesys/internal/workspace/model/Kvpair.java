@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Kvpair
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-10T17:49:47.794Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-10T20:11:40.243Z")
 public class Kvpair {
   @SerializedName("key")
   private String key = null;
