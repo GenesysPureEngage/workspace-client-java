@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * CurrentSessionDataUserActiveSession
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-10T20:11:40.243Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-11T10:04:43.468Z")
 public class CurrentSessionDataUserActiveSession {
   @SerializedName("autoCompleteCall")
   private Boolean autoCompleteCall = null;
