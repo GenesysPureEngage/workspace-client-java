@@ -153,7 +153,7 @@ public class Util {
             
             switch(type) {
                 case "int":
-                    result.addInt(key, (Integer)value);
+                    result.addInt(key, (int)(long)value);
                     break;
                 case "str":
                     result.addString(key, (String)value);
