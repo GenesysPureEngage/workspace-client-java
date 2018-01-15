@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * UcsresponsesidrenderfieldcodesData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-15T13:04:44.798Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-15T14:04:41.487Z")
 public class UcsresponsesidrenderfieldcodesData {
   @SerializedName("interactionId")
   private String interactionId = null;
