@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SupervisorvoiceoperationNameData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-15T18:04:40.538Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-15T20:04:40.653Z")
 public class SupervisorvoiceoperationNameData {
   @SerializedName("userName")
   private String userName = null;
