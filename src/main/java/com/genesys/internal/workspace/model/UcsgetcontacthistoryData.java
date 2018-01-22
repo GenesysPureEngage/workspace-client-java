@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * UcsgetcontacthistoryData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-21T01:04:39.959Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-22T23:23:46.060Z")
 public class UcsgetcontacthistoryData {
   @SerializedName("contactId")
   private String contactId = null;
