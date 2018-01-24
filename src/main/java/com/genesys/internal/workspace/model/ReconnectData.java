@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ReconnectData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-24T01:04:57.134Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-24T19:05:04.144Z")
 public class ReconnectData {
   @SerializedName("data")
   private VoicecallsidreconnectData data = null;
