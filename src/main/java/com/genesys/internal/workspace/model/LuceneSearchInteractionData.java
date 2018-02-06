@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * LuceneSearchInteractionData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-01T16:05:13.592Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-06T23:39:30.458Z")
 public class LuceneSearchInteractionData {
   @SerializedName("data")
   private UcslucenesearchinteractionData data = null;
