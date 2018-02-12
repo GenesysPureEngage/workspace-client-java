@@ -65,7 +65,7 @@ public class TargetsApi {
             String excludeGroups = options.getExcludeGroups() !=null? StringUtil.join(options.getExcludeGroups(),","):null;
             String excludeFromGroups = options.getExcludeFromGroups() !=null? StringUtil.join(options.getExcludeFromGroups(),","): null;
             String restrictToGroups = options.getRestrictToGroups() !=null? StringUtil.join (options.getRestrictToGroups(),","): null;
-            TargetsResponse response = this.targetsApi.get(searchTerm, 
+            TargetsResponse response = this.targetsApi.getTargets(searchTerm,
                     options.getFilterName(),
                     types,
                     excludeGroups,
