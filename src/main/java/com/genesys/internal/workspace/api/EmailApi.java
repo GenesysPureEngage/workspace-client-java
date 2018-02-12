@@ -27,10 +27,13 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.genesys.internal.workspace.model.AcceptData1;
+import com.genesys.internal.workspace.model.AcceptData3;
 import com.genesys.internal.workspace.model.ApiErrorResponse;
 import com.genesys.internal.workspace.model.ApiSuccessResponse;
 import com.genesys.internal.workspace.model.CreateData;
+import com.genesys.internal.workspace.model.ReplyData;
+import com.genesys.internal.workspace.model.SaveData;
+import com.genesys.internal.workspace.model.SendData;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -66,7 +69,7 @@ public class EmailApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call acceptEmailCall(String id, AcceptData1 acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call acceptEmailCall(String id, AcceptData3 acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = acceptData;
 
         // create path and map variables
@@ -109,7 +112,7 @@ public class EmailApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call acceptEmailValidateBeforeCall(String id, AcceptData1 acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call acceptEmailValidateBeforeCall(String id, AcceptData3 acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -130,7 +133,7 @@ public class EmailApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse acceptEmail(String id, AcceptData1 acceptData) throws ApiException {
+    public ApiSuccessResponse acceptEmail(String id, AcceptData3 acceptData) throws ApiException {
         ApiResponse<ApiSuccessResponse> resp = acceptEmailWithHttpInfo(id, acceptData);
         return resp.getData();
     }
@@ -143,7 +146,7 @@ public class EmailApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> acceptEmailWithHttpInfo(String id, AcceptData1 acceptData) throws ApiException {
+    public ApiResponse<ApiSuccessResponse> acceptEmailWithHttpInfo(String id, AcceptData3 acceptData) throws ApiException {
         com.squareup.okhttp.Call call = acceptEmailValidateBeforeCall(id, acceptData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -158,7 +161,7 @@ public class EmailApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call acceptEmailAsync(String id, AcceptData1 acceptData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call acceptEmailAsync(String id, AcceptData3 acceptData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -180,6 +183,129 @@ public class EmailApi {
         }
 
         com.squareup.okhttp.Call call = acceptEmailValidateBeforeCall(id, acceptData, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for cancelEmail
+     * @param id id of interaction to cancel (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call cancelEmailCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/media/email/interactions/{id}/cancel"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call cancelEmailValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling cancelEmail(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = cancelEmailCall(id, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * cancel the outbound email interaction
+     * Cancel the interaction specified in the id path parameter
+     * @param id id of interaction to cancel (required)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse cancelEmail(String id) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = cancelEmailWithHttpInfo(id);
+        return resp.getData();
+    }
+
+    /**
+     * cancel the outbound email interaction
+     * Cancel the interaction specified in the id path parameter
+     * @param id id of interaction to cancel (required)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> cancelEmailWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = cancelEmailValidateBeforeCall(id, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * cancel the outbound email interaction (asynchronously)
+     * Cancel the interaction specified in the id path parameter
+     * @param id id of interaction to cancel (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call cancelEmailAsync(String id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = cancelEmailValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -297,6 +423,387 @@ public class EmailApi {
         }
 
         com.squareup.okhttp.Call call = createEmailValidateBeforeCall(createData, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for reply
+     * @param id id of interaction to reply (required)
+     * @param replyData Request parameters. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call replyCall(String id, ReplyData replyData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = replyData;
+
+        // create path and map variables
+        String localVarPath = "/media/email/interactions/{id}/reply"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call replyValidateBeforeCall(String id, ReplyData replyData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling reply(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = replyCall(id, replyData, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * reply email
+     * Reply to inbound email interaction specified in the id path parameter
+     * @param id id of interaction to reply (required)
+     * @param replyData Request parameters. (optional)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse reply(String id, ReplyData replyData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = replyWithHttpInfo(id, replyData);
+        return resp.getData();
+    }
+
+    /**
+     * reply email
+     * Reply to inbound email interaction specified in the id path parameter
+     * @param id id of interaction to reply (required)
+     * @param replyData Request parameters. (optional)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> replyWithHttpInfo(String id, ReplyData replyData) throws ApiException {
+        com.squareup.okhttp.Call call = replyValidateBeforeCall(id, replyData, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * reply email (asynchronously)
+     * Reply to inbound email interaction specified in the id path parameter
+     * @param id id of interaction to reply (required)
+     * @param replyData Request parameters. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call replyAsync(String id, ReplyData replyData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = replyValidateBeforeCall(id, replyData, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for saveEmail
+     * @param id id of interaction to save (required)
+     * @param saveData Request parameters. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call saveEmailCall(String id, SaveData saveData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = saveData;
+
+        // create path and map variables
+        String localVarPath = "/media/email/interactions/{id}/save"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call saveEmailValidateBeforeCall(String id, SaveData saveData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling saveEmail(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = saveEmailCall(id, saveData, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Save email information to UCS
+     * Save email information of interaction specified in the id path parameter
+     * @param id id of interaction to save (required)
+     * @param saveData Request parameters. (optional)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse saveEmail(String id, SaveData saveData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = saveEmailWithHttpInfo(id, saveData);
+        return resp.getData();
+    }
+
+    /**
+     * Save email information to UCS
+     * Save email information of interaction specified in the id path parameter
+     * @param id id of interaction to save (required)
+     * @param saveData Request parameters. (optional)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> saveEmailWithHttpInfo(String id, SaveData saveData) throws ApiException {
+        com.squareup.okhttp.Call call = saveEmailValidateBeforeCall(id, saveData, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Save email information to UCS (asynchronously)
+     * Save email information of interaction specified in the id path parameter
+     * @param id id of interaction to save (required)
+     * @param saveData Request parameters. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call saveEmailAsync(String id, SaveData saveData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = saveEmailValidateBeforeCall(id, saveData, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for sendEmail
+     * @param id id of interaction to send (required)
+     * @param sendData Request parameters. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call sendEmailCall(String id, SendData sendData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = sendData;
+
+        // create path and map variables
+        String localVarPath = "/media/email/interactions/{id}/send"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call sendEmailValidateBeforeCall(String id, SendData sendData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling sendEmail(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = sendEmailCall(id, sendData, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Send email
+     * Send email interaction specified in the id path parameter
+     * @param id id of interaction to send (required)
+     * @param sendData Request parameters. (optional)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse sendEmail(String id, SendData sendData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = sendEmailWithHttpInfo(id, sendData);
+        return resp.getData();
+    }
+
+    /**
+     * Send email
+     * Send email interaction specified in the id path parameter
+     * @param id id of interaction to send (required)
+     * @param sendData Request parameters. (optional)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> sendEmailWithHttpInfo(String id, SendData sendData) throws ApiException {
+        com.squareup.okhttp.Call call = sendEmailValidateBeforeCall(id, sendData, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Send email (asynchronously)
+     * Send email interaction specified in the id path parameter
+     * @param id id of interaction to send (required)
+     * @param sendData Request parameters. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call sendEmailAsync(String id, SendData sendData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = sendEmailValidateBeforeCall(id, sendData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

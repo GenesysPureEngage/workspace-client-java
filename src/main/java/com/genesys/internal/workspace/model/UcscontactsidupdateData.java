@@ -26,10 +26,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * UcsupdatecontactData
+ * UcscontactsidupdateData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
-public class UcsupdatecontactData {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
+public class UcscontactsidupdateData {
   @SerializedName("contactId")
   private String contactId = null;
 
@@ -40,9 +40,9 @@ public class UcsupdatecontactData {
   private List<Object> changedProperties = new ArrayList<Object>();
 
   @SerializedName("deletedProperties")
-  private List<Object> deletedProperties = new ArrayList<Object>();
+  private List<String> deletedProperties = new ArrayList<String>();
 
-  public UcsupdatecontactData contactId(String contactId) {
+  public UcscontactsidupdateData contactId(String contactId) {
     this.contactId = contactId;
     return this;
   }
@@ -51,7 +51,7 @@ public class UcsupdatecontactData {
    * The id of the contact
    * @return contactId
   **/
-  @ApiModelProperty(required = true, value = "The id of the contact")
+  @ApiModelProperty(value = "The id of the contact")
   public String getContactId() {
     return contactId;
   }
@@ -60,12 +60,12 @@ public class UcsupdatecontactData {
     this.contactId = contactId;
   }
 
-  public UcsupdatecontactData addedProperties(List<Object> addedProperties) {
+  public UcscontactsidupdateData addedProperties(List<Object> addedProperties) {
     this.addedProperties = addedProperties;
     return this;
   }
 
-  public UcsupdatecontactData addAddedPropertiesItem(Object addedPropertiesItem) {
+  public UcscontactsidupdateData addAddedPropertiesItem(Object addedPropertiesItem) {
     this.addedProperties.add(addedPropertiesItem);
     return this;
   }
@@ -83,12 +83,12 @@ public class UcsupdatecontactData {
     this.addedProperties = addedProperties;
   }
 
-  public UcsupdatecontactData changedProperties(List<Object> changedProperties) {
+  public UcscontactsidupdateData changedProperties(List<Object> changedProperties) {
     this.changedProperties = changedProperties;
     return this;
   }
 
-  public UcsupdatecontactData addChangedPropertiesItem(Object changedPropertiesItem) {
+  public UcscontactsidupdateData addChangedPropertiesItem(Object changedPropertiesItem) {
     this.changedProperties.add(changedPropertiesItem);
     return this;
   }
@@ -106,12 +106,12 @@ public class UcsupdatecontactData {
     this.changedProperties = changedProperties;
   }
 
-  public UcsupdatecontactData deletedProperties(List<Object> deletedProperties) {
+  public UcscontactsidupdateData deletedProperties(List<String> deletedProperties) {
     this.deletedProperties = deletedProperties;
     return this;
   }
 
-  public UcsupdatecontactData addDeletedPropertiesItem(Object deletedPropertiesItem) {
+  public UcscontactsidupdateData addDeletedPropertiesItem(String deletedPropertiesItem) {
     this.deletedProperties.add(deletedPropertiesItem);
     return this;
   }
@@ -121,11 +121,11 @@ public class UcsupdatecontactData {
    * @return deletedProperties
   **/
   @ApiModelProperty(required = true, value = "The list of contact attributes to be deleted for the contact")
-  public List<Object> getDeletedProperties() {
+  public List<String> getDeletedProperties() {
     return deletedProperties;
   }
 
-  public void setDeletedProperties(List<Object> deletedProperties) {
+  public void setDeletedProperties(List<String> deletedProperties) {
     this.deletedProperties = deletedProperties;
   }
 
@@ -138,11 +138,11 @@ public class UcsupdatecontactData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UcsupdatecontactData ucsupdatecontactData = (UcsupdatecontactData) o;
-    return Objects.equals(this.contactId, ucsupdatecontactData.contactId) &&
-        Objects.equals(this.addedProperties, ucsupdatecontactData.addedProperties) &&
-        Objects.equals(this.changedProperties, ucsupdatecontactData.changedProperties) &&
-        Objects.equals(this.deletedProperties, ucsupdatecontactData.deletedProperties);
+    UcscontactsidupdateData ucscontactsidupdateData = (UcscontactsidupdateData) o;
+    return Objects.equals(this.contactId, ucscontactsidupdateData.contactId) &&
+        Objects.equals(this.addedProperties, ucscontactsidupdateData.addedProperties) &&
+        Objects.equals(this.changedProperties, ucscontactsidupdateData.changedProperties) &&
+        Objects.equals(this.deletedProperties, ucscontactsidupdateData.deletedProperties);
   }
 
   @Override
@@ -154,7 +154,7 @@ public class UcsupdatecontactData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UcsupdatecontactData {\n");
+    sb.append("class UcscontactsidupdateData {\n");
     
     sb.append("    contactId: ").append(toIndentedString(contactId)).append("\n");
     sb.append("    addedProperties: ").append(toIndentedString(addedProperties)).append("\n");

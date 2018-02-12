@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.UcsfindorcreatephonecallData;
+import com.genesys.internal.workspace.model.UcscontactscreateData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,14 +25,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * PhoneCallData
+ * CreateContactData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
-public class PhoneCallData {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
+public class CreateContactData {
   @SerializedName("data")
-  private UcsfindorcreatephonecallData data = null;
+  private UcscontactscreateData data = null;
 
-  public PhoneCallData data(UcsfindorcreatephonecallData data) {
+  public CreateContactData data(UcscontactscreateData data) {
     this.data = data;
     return this;
   }
@@ -42,11 +42,11 @@ public class PhoneCallData {
    * @return data
   **/
   @ApiModelProperty(required = true, value = "")
-  public UcsfindorcreatephonecallData getData() {
+  public UcscontactscreateData getData() {
     return data;
   }
 
-  public void setData(UcsfindorcreatephonecallData data) {
+  public void setData(UcscontactscreateData data) {
     this.data = data;
   }
 
@@ -59,8 +59,8 @@ public class PhoneCallData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PhoneCallData phoneCallData = (PhoneCallData) o;
-    return Objects.equals(this.data, phoneCallData.data);
+    CreateContactData createContactData = (CreateContactData) o;
+    return Objects.equals(this.data, createContactData.data);
   }
 
   @Override
@@ -72,7 +72,7 @@ public class PhoneCallData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PhoneCallData {\n");
+    sb.append("class CreateContactData {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");

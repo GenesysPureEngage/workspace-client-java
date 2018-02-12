@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * VoicemakecallData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
 public class VoicemakecallData {
   @SerializedName("destination")
   private String destination = null;
@@ -55,10 +55,10 @@ public class VoicemakecallData {
   }
 
    /**
-   * Directory number of the party the call will be transferred to.
+   * The number to call.
    * @return destination
   **/
-  @ApiModelProperty(required = true, value = "Directory number of the party the call will be transferred to.")
+  @ApiModelProperty(required = true, value = "The number to call.")
   public String getDestination() {
     return destination;
   }

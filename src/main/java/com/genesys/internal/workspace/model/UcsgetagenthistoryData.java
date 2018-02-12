@@ -28,10 +28,10 @@ import java.util.List;
 /**
  * UcsgetagenthistoryData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
 public class UcsgetagenthistoryData {
-  @SerializedName("customAttributes")
-  private List<String> customAttributes = null;
+  @SerializedName("returnedAttributes")
+  private List<String> returnedAttributes = null;
 
   @SerializedName("sort")
   private String sort = null;
@@ -45,30 +45,30 @@ public class UcsgetagenthistoryData {
   @SerializedName("userId")
   private String userId = null;
 
-  public UcsgetagenthistoryData customAttributes(List<String> customAttributes) {
-    this.customAttributes = customAttributes;
+  public UcsgetagenthistoryData returnedAttributes(List<String> returnedAttributes) {
+    this.returnedAttributes = returnedAttributes;
     return this;
   }
 
-  public UcsgetagenthistoryData addCustomAttributesItem(String customAttributesItem) {
-    if (this.customAttributes == null) {
-      this.customAttributes = new ArrayList<String>();
+  public UcsgetagenthistoryData addReturnedAttributesItem(String returnedAttributesItem) {
+    if (this.returnedAttributes == null) {
+      this.returnedAttributes = new ArrayList<String>();
     }
-    this.customAttributes.add(customAttributesItem);
+    this.returnedAttributes.add(returnedAttributesItem);
     return this;
   }
 
    /**
    * The list of custom contact attributes to be returned for each interaction
-   * @return customAttributes
+   * @return returnedAttributes
   **/
   @ApiModelProperty(value = "The list of custom contact attributes to be returned for each interaction")
-  public List<String> getCustomAttributes() {
-    return customAttributes;
+  public List<String> getReturnedAttributes() {
+    return returnedAttributes;
   }
 
-  public void setCustomAttributes(List<String> customAttributes) {
-    this.customAttributes = customAttributes;
+  public void setReturnedAttributes(List<String> returnedAttributes) {
+    this.returnedAttributes = returnedAttributes;
   }
 
   public UcsgetagenthistoryData sort(String sort) {
@@ -153,7 +153,7 @@ public class UcsgetagenthistoryData {
       return false;
     }
     UcsgetagenthistoryData ucsgetagenthistoryData = (UcsgetagenthistoryData) o;
-    return Objects.equals(this.customAttributes, ucsgetagenthistoryData.customAttributes) &&
+    return Objects.equals(this.returnedAttributes, ucsgetagenthistoryData.returnedAttributes) &&
         Objects.equals(this.sort, ucsgetagenthistoryData.sort) &&
         Objects.equals(this.fromDate, ucsgetagenthistoryData.fromDate) &&
         Objects.equals(this.toDate, ucsgetagenthistoryData.toDate) &&
@@ -162,7 +162,7 @@ public class UcsgetagenthistoryData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customAttributes, sort, fromDate, toDate, userId);
+    return Objects.hash(returnedAttributes, sort, fromDate, toDate, userId);
   }
 
 
@@ -171,7 +171,7 @@ public class UcsgetagenthistoryData {
     StringBuilder sb = new StringBuilder();
     sb.append("class UcsgetagenthistoryData {\n");
     
-    sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
+    sb.append("    returnedAttributes: ").append(toIndentedString(returnedAttributes)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    fromDate: ").append(toIndentedString(fromDate)).append("\n");
     sb.append("    toDate: ").append(toIndentedString(toDate)).append("\n");

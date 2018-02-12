@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.UcsresponsesidrenderfieldcodesData;
+import com.genesys.internal.workspace.model.MediaemailinteractionsidsaveData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,14 +25,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * RenderFieldCodesData
+ * SaveData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
-public class RenderFieldCodesData {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
+public class SaveData {
   @SerializedName("data")
-  private UcsresponsesidrenderfieldcodesData data = null;
+  private MediaemailinteractionsidsaveData data = null;
 
-  public RenderFieldCodesData data(UcsresponsesidrenderfieldcodesData data) {
+  public SaveData data(MediaemailinteractionsidsaveData data) {
     this.data = data;
     return this;
   }
@@ -41,12 +41,12 @@ public class RenderFieldCodesData {
    * Get data
    * @return data
   **/
-  @ApiModelProperty(required = true, value = "")
-  public UcsresponsesidrenderfieldcodesData getData() {
+  @ApiModelProperty(value = "")
+  public MediaemailinteractionsidsaveData getData() {
     return data;
   }
 
-  public void setData(UcsresponsesidrenderfieldcodesData data) {
+  public void setData(MediaemailinteractionsidsaveData data) {
     this.data = data;
   }
 
@@ -59,8 +59,8 @@ public class RenderFieldCodesData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RenderFieldCodesData renderFieldCodesData = (RenderFieldCodesData) o;
-    return Objects.equals(this.data, renderFieldCodesData.data);
+    SaveData saveData = (SaveData) o;
+    return Objects.equals(this.data, saveData.data);
   }
 
   @Override
@@ -72,7 +72,7 @@ public class RenderFieldCodesData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RenderFieldCodesData {\n");
+    sb.append("class SaveData {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");

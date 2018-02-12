@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.UcsdeletecontactData;
+import com.genesys.internal.workspace.model.MediaemailinteractionsidreplyData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,14 +25,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * DeleteContactData
+ * ReplyData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
-public class DeleteContactData {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
+public class ReplyData {
   @SerializedName("data")
-  private UcsdeletecontactData data = null;
+  private MediaemailinteractionsidreplyData data = null;
 
-  public DeleteContactData data(UcsdeletecontactData data) {
+  public ReplyData data(MediaemailinteractionsidreplyData data) {
     this.data = data;
     return this;
   }
@@ -41,12 +41,12 @@ public class DeleteContactData {
    * Get data
    * @return data
   **/
-  @ApiModelProperty(required = true, value = "")
-  public UcsdeletecontactData getData() {
+  @ApiModelProperty(value = "")
+  public MediaemailinteractionsidreplyData getData() {
     return data;
   }
 
-  public void setData(UcsdeletecontactData data) {
+  public void setData(MediaemailinteractionsidreplyData data) {
     this.data = data;
   }
 
@@ -59,8 +59,8 @@ public class DeleteContactData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteContactData deleteContactData = (DeleteContactData) o;
-    return Objects.equals(this.data, deleteContactData.data);
+    ReplyData replyData = (ReplyData) o;
+    return Objects.equals(this.data, replyData.data);
   }
 
   @Override
@@ -72,7 +72,7 @@ public class DeleteContactData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteContactData {\n");
+    sb.append("class ReplyData {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");

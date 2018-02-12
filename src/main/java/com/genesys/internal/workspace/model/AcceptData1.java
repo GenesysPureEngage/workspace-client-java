@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.MediaemailinteractionsidacceptData;
+import com.genesys.internal.workspace.model.MediachatinteractionsidsendmessageData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,12 +27,12 @@ import java.io.IOException;
 /**
  * AcceptData1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
 public class AcceptData1 {
   @SerializedName("data")
-  private MediaemailinteractionsidacceptData data = null;
+  private MediachatinteractionsidsendmessageData data = null;
 
-  public AcceptData1 data(MediaemailinteractionsidacceptData data) {
+  public AcceptData1 data(MediachatinteractionsidsendmessageData data) {
     this.data = data;
     return this;
   }
@@ -42,11 +42,11 @@ public class AcceptData1 {
    * @return data
   **/
   @ApiModelProperty(value = "")
-  public MediaemailinteractionsidacceptData getData() {
+  public MediachatinteractionsidsendmessageData getData() {
     return data;
   }
 
-  public void setData(MediaemailinteractionsidacceptData data) {
+  public void setData(MediachatinteractionsidsendmessageData data) {
     this.data = data;
   }
 

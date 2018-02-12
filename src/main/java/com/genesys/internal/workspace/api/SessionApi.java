@@ -774,9 +774,9 @@ public class SessionApi {
     }
     /**
      * Build call for initializeWorkspace
-     * @param code The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)
-     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)
-     * @param authorization If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)
+     * @param code The authorization code. You must include this parameter for the [Authorization Code Grant flow] (/reference/authentication/). (optional)
+     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter for the [Authorization Code Grant flow](/reference/authentication/). (optional)
+     * @param authorization Bearer authorization. For example, &#39;Authorization: Bearer access_token&#39;. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -841,9 +841,9 @@ public class SessionApi {
     /**
      * Retrieves and registers an authorization token.
      * Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
-     * @param code The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)
-     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)
-     * @param authorization If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)
+     * @param code The authorization code. You must include this parameter for the [Authorization Code Grant flow] (/reference/authentication/). (optional)
+     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter for the [Authorization Code Grant flow](/reference/authentication/). (optional)
+     * @param authorization Bearer authorization. For example, &#39;Authorization: Bearer access_token&#39;. (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -855,9 +855,9 @@ public class SessionApi {
     /**
      * Retrieves and registers an authorization token.
      * Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
-     * @param code The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)
-     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)
-     * @param authorization If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)
+     * @param code The authorization code. You must include this parameter for the [Authorization Code Grant flow] (/reference/authentication/). (optional)
+     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter for the [Authorization Code Grant flow](/reference/authentication/). (optional)
+     * @param authorization Bearer authorization. For example, &#39;Authorization: Bearer access_token&#39;. (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -870,9 +870,9 @@ public class SessionApi {
     /**
      * Retrieves and registers an authorization token. (asynchronously)
      * Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
-     * @param code The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)
-     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)
-     * @param authorization If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)
+     * @param code The authorization code. You must include this parameter for the [Authorization Code Grant flow] (/reference/authentication/). (optional)
+     * @param redirectUri The same redirect URI you used in the initial login step. You must include this parameter for the [Authorization Code Grant flow](/reference/authentication/). (optional)
+     * @param authorization Bearer authorization. For example, &#39;Authorization: Bearer access_token&#39;. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -972,25 +972,22 @@ public class SessionApi {
      * Login the specified user (HTTP session only).
      * The login request authenticates the user and retrieves the authorization code.
      * @param redirectUri The URI the Authentication API uses to redirect the user after authentication. (required)
-     * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse login(String redirectUri) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = loginWithHttpInfo(redirectUri);
-        return resp.getData();
+    public void login(String redirectUri) throws ApiException {
+        loginWithHttpInfo(redirectUri);
     }
 
     /**
      * Login the specified user (HTTP session only).
      * The login request authenticates the user and retrieves the authorization code.
      * @param redirectUri The URI the Authentication API uses to redirect the user after authentication. (required)
-     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> loginWithHttpInfo(String redirectUri) throws ApiException {
+    public ApiResponse<Void> loginWithHttpInfo(String redirectUri) throws ApiException {
         com.squareup.okhttp.Call call = loginValidateBeforeCall(redirectUri, null, null);
-        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
@@ -1001,7 +998,7 @@ public class SessionApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call loginAsync(String redirectUri, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call loginAsync(String redirectUri, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1023,8 +1020,7 @@ public class SessionApi {
         }
 
         com.squareup.okhttp.Call call = loginValidateBeforeCall(redirectUri, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**

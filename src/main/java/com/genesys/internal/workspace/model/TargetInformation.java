@@ -26,9 +26,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TargetInformation
+ * The target to add/save.
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
+@ApiModel(description = "The target to add/save.")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
 public class TargetInformation {
   @SerializedName("type")
   private String type = null;

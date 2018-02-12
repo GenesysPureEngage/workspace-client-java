@@ -14,6 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
+import com.genesys.internal.workspace.model.MediaemailinteractionsidsendData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,29 +25,29 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UcsgetinteractioncontentData
+ * SendData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
-public class UcsgetinteractioncontentData {
-  @SerializedName("interactionId")
-  private String interactionId = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
+public class SendData {
+  @SerializedName("data")
+  private MediaemailinteractionsidsendData data = null;
 
-  public UcsgetinteractioncontentData interactionId(String interactionId) {
-    this.interactionId = interactionId;
+  public SendData data(MediaemailinteractionsidsendData data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * The id of the interaction
-   * @return interactionId
+   * Get data
+   * @return data
   **/
-  @ApiModelProperty(required = true, value = "The id of the interaction")
-  public String getInteractionId() {
-    return interactionId;
+  @ApiModelProperty(value = "")
+  public MediaemailinteractionsidsendData getData() {
+    return data;
   }
 
-  public void setInteractionId(String interactionId) {
-    this.interactionId = interactionId;
+  public void setData(MediaemailinteractionsidsendData data) {
+    this.data = data;
   }
 
 
@@ -58,22 +59,22 @@ public class UcsgetinteractioncontentData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UcsgetinteractioncontentData ucsgetinteractioncontentData = (UcsgetinteractioncontentData) o;
-    return Objects.equals(this.interactionId, ucsgetinteractioncontentData.interactionId);
+    SendData sendData = (SendData) o;
+    return Objects.equals(this.data, sendData.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(interactionId);
+    return Objects.hash(data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UcsgetinteractioncontentData {\n");
+    sb.append("class SendData {\n");
     
-    sb.append("    interactionId: ").append(toIndentedString(interactionId)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

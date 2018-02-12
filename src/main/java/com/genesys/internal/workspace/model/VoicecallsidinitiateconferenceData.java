@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * VoicecallsidinitiateconferenceData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
 public class VoicecallsidinitiateconferenceData {
   @SerializedName("destination")
   private String destination = null;
@@ -169,10 +169,10 @@ public class VoicecallsidinitiateconferenceData {
   }
 
    /**
-   * value to be set as CPN_DIGITS.
+   * The caller ID information to display on the destination party&#39;s phone. The value should be set as CPNDigits.  For more information about caller ID, see the SIP Server Deployment Guide.
    * @return outboundCallerId
   **/
-  @ApiModelProperty(value = "value to be set as CPN_DIGITS.")
+  @ApiModelProperty(value = "The caller ID information to display on the destination party's phone. The value should be set as CPNDigits.  For more information about caller ID, see the SIP Server Deployment Guide.")
   public String getOutboundCallerId() {
     return outboundCallerId;
   }

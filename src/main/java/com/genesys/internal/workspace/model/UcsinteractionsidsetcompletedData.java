@@ -27,38 +27,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * UcssetcallcompletedData
+ * UcsinteractionsidsetcompletedData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
-public class UcssetcallcompletedData {
-  @SerializedName("interactionId")
-  private String interactionId = null;
-
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
+public class UcsinteractionsidsetcompletedData {
   @SerializedName("callDuration")
   private Integer callDuration = null;
 
   @SerializedName("userData")
   private List<Kvpair> userData = new ArrayList<Kvpair>();
 
-  public UcssetcallcompletedData interactionId(String interactionId) {
-    this.interactionId = interactionId;
-    return this;
-  }
-
-   /**
-   * The id of the interaction
-   * @return interactionId
-  **/
-  @ApiModelProperty(required = true, value = "The id of the interaction")
-  public String getInteractionId() {
-    return interactionId;
-  }
-
-  public void setInteractionId(String interactionId) {
-    this.interactionId = interactionId;
-  }
-
-  public UcssetcallcompletedData callDuration(Integer callDuration) {
+  public UcsinteractionsidsetcompletedData callDuration(Integer callDuration) {
     this.callDuration = callDuration;
     return this;
   }
@@ -76,12 +55,12 @@ public class UcssetcallcompletedData {
     this.callDuration = callDuration;
   }
 
-  public UcssetcallcompletedData userData(List<Kvpair> userData) {
+  public UcsinteractionsidsetcompletedData userData(List<Kvpair> userData) {
     this.userData = userData;
     return this;
   }
 
-  public UcssetcallcompletedData addUserDataItem(Kvpair userDataItem) {
+  public UcsinteractionsidsetcompletedData addUserDataItem(Kvpair userDataItem) {
     this.userData.add(userDataItem);
     return this;
   }
@@ -108,24 +87,22 @@ public class UcssetcallcompletedData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UcssetcallcompletedData ucssetcallcompletedData = (UcssetcallcompletedData) o;
-    return Objects.equals(this.interactionId, ucssetcallcompletedData.interactionId) &&
-        Objects.equals(this.callDuration, ucssetcallcompletedData.callDuration) &&
-        Objects.equals(this.userData, ucssetcallcompletedData.userData);
+    UcsinteractionsidsetcompletedData ucsinteractionsidsetcompletedData = (UcsinteractionsidsetcompletedData) o;
+    return Objects.equals(this.callDuration, ucsinteractionsidsetcompletedData.callDuration) &&
+        Objects.equals(this.userData, ucsinteractionsidsetcompletedData.userData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(interactionId, callDuration, userData);
+    return Objects.hash(callDuration, userData);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UcssetcallcompletedData {\n");
+    sb.append("class UcsinteractionsidsetcompletedData {\n");
     
-    sb.append("    interactionId: ").append(toIndentedString(interactionId)).append("\n");
     sb.append("    callDuration: ").append(toIndentedString(callDuration)).append("\n");
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("}");

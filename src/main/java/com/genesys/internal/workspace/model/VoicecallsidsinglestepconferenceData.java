@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * VoicecallsidsinglestepconferenceData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
 public class VoicecallsidsinglestepconferenceData {
   @SerializedName("destination")
   private String destination = null;
@@ -52,10 +52,10 @@ public class VoicecallsidsinglestepconferenceData {
   }
 
    /**
-   * The number to be added to the call.
+   * The number to add to the call.
    * @return destination
   **/
-  @ApiModelProperty(required = true, value = "The number to be added to the call.")
+  @ApiModelProperty(required = true, value = "The number to add to the call.")
   public String getDestination() {
     return destination;
   }

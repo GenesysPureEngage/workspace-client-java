@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * ActivatechannelsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
 public class ActivatechannelsData {
   @SerializedName("agentId")
   private String agentId = null;
@@ -94,6 +94,9 @@ public class ActivatechannelsData {
 
   @SerializedName("dynamicPhoneNumber")
   private String dynamicPhoneNumber = null;
+
+  @SerializedName("autoCompleteCall")
+  private Boolean autoCompleteCall = null;
 
   @SerializedName("channels")
   private List<String> channels = null;
@@ -206,6 +209,24 @@ public class ActivatechannelsData {
     this.dynamicPhoneNumber = dynamicPhoneNumber;
   }
 
+  public ActivatechannelsData autoCompleteCall(Boolean autoCompleteCall) {
+    this.autoCompleteCall = autoCompleteCall;
+    return this;
+  }
+
+   /**
+   * Flag denoting whether or not calls should automatically be completed for the session. Defaults to true if not provided.
+   * @return autoCompleteCall
+  **/
+  @ApiModelProperty(value = "Flag denoting whether or not calls should automatically be completed for the session. Defaults to true if not provided.")
+  public Boolean isAutoCompleteCall() {
+    return autoCompleteCall;
+  }
+
+  public void setAutoCompleteCall(Boolean autoCompleteCall) {
+    this.autoCompleteCall = autoCompleteCall;
+  }
+
   public ActivatechannelsData channels(List<String> channels) {
     this.channels = channels;
     return this;
@@ -248,12 +269,13 @@ public class ActivatechannelsData {
         Objects.equals(this.queueName, activatechannelsData.queueName) &&
         Objects.equals(this.agentWorkMode, activatechannelsData.agentWorkMode) &&
         Objects.equals(this.dynamicPhoneNumber, activatechannelsData.dynamicPhoneNumber) &&
+        Objects.equals(this.autoCompleteCall, activatechannelsData.autoCompleteCall) &&
         Objects.equals(this.channels, activatechannelsData.channels);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentId, placeName, dn, queueName, agentWorkMode, dynamicPhoneNumber, channels);
+    return Objects.hash(agentId, placeName, dn, queueName, agentWorkMode, dynamicPhoneNumber, autoCompleteCall, channels);
   }
 
 
@@ -268,6 +290,7 @@ public class ActivatechannelsData {
     sb.append("    queueName: ").append(toIndentedString(queueName)).append("\n");
     sb.append("    agentWorkMode: ").append(toIndentedString(agentWorkMode)).append("\n");
     sb.append("    dynamicPhoneNumber: ").append(toIndentedString(dynamicPhoneNumber)).append("\n");
+    sb.append("    autoCompleteCall: ").append(toIndentedString(autoCompleteCall)).append("\n");
     sb.append("    channels: ").append(toIndentedString(channels)).append("\n");
     sb.append("}");
     return sb.toString();

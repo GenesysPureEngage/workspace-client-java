@@ -28,7 +28,9 @@ import java.io.IOException;
 
 
 import com.genesys.internal.workspace.model.AcceptData;
+import com.genesys.internal.workspace.model.AcceptData1;
 import com.genesys.internal.workspace.model.AcceptData2;
+import com.genesys.internal.workspace.model.AcceptData4;
 import com.genesys.internal.workspace.model.AddCommentData;
 import com.genesys.internal.workspace.model.AddContentData;
 import com.genesys.internal.workspace.model.ApiErrorResponse;
@@ -78,7 +80,7 @@ public class MediaApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call acceptCall(String mediatype, String id, AcceptData2 acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call acceptCall(String mediatype, String id, AcceptData4 acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = acceptData;
 
         // create path and map variables
@@ -122,7 +124,7 @@ public class MediaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call acceptValidateBeforeCall(String mediatype, String id, AcceptData2 acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call acceptValidateBeforeCall(String mediatype, String id, AcceptData4 acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'mediatype' is set
         if (mediatype == null) {
@@ -149,7 +151,7 @@ public class MediaApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse accept(String mediatype, String id, AcceptData2 acceptData) throws ApiException {
+    public ApiSuccessResponse accept(String mediatype, String id, AcceptData4 acceptData) throws ApiException {
         ApiResponse<ApiSuccessResponse> resp = acceptWithHttpInfo(mediatype, id, acceptData);
         return resp.getData();
     }
@@ -163,7 +165,7 @@ public class MediaApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> acceptWithHttpInfo(String mediatype, String id, AcceptData2 acceptData) throws ApiException {
+    public ApiResponse<ApiSuccessResponse> acceptWithHttpInfo(String mediatype, String id, AcceptData4 acceptData) throws ApiException {
         com.squareup.okhttp.Call call = acceptValidateBeforeCall(mediatype, id, acceptData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -179,7 +181,7 @@ public class MediaApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call acceptAsync(String mediatype, String id, AcceptData2 acceptData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call acceptAsync(String mediatype, String id, AcceptData4 acceptData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -201,6 +203,133 @@ public class MediaApi {
         }
 
         com.squareup.okhttp.Call call = acceptValidateBeforeCall(mediatype, id, acceptData, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for acceptChat
+     * @param id id of interaction (required)
+     * @param acceptData Request parameters. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call acceptChatCall(String id, AcceptData acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = acceptData;
+
+        // create path and map variables
+        String localVarPath = "/media/chat/interactions/{id}/accept"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call acceptChatValidateBeforeCall(String id, AcceptData acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling acceptChat(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = acceptChatCall(id, acceptData, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Accept a chat interaction
+     * Accept the interaction specified in the id path parameter
+     * @param id id of interaction (required)
+     * @param acceptData Request parameters. (optional)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse acceptChat(String id, AcceptData acceptData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = acceptChatWithHttpInfo(id, acceptData);
+        return resp.getData();
+    }
+
+    /**
+     * Accept a chat interaction
+     * Accept the interaction specified in the id path parameter
+     * @param id id of interaction (required)
+     * @param acceptData Request parameters. (optional)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> acceptChatWithHttpInfo(String id, AcceptData acceptData) throws ApiException {
+        com.squareup.okhttp.Call call = acceptChatValidateBeforeCall(id, acceptData, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Accept a chat interaction (asynchronously)
+     * Accept the interaction specified in the id path parameter
+     * @param id id of interaction (required)
+     * @param acceptData Request parameters. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call acceptChatAsync(String id, AcceptData acceptData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = acceptChatValidateBeforeCall(id, acceptData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -767,7 +896,7 @@ public class MediaApi {
         return call;
     }
     /**
-     * Build call for attachUserData
+     * Build call for attachMediaUserData
      * @param mediatype media-type of interaction (required)
      * @param id id of the interaction (required)
      * @param userData An array of key/value pairs. (required)
@@ -776,7 +905,7 @@ public class MediaApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call attachUserDataCall(String mediatype, String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call attachMediaUserDataCall(String mediatype, String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = userData;
 
         // create path and map variables
@@ -820,25 +949,25 @@ public class MediaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call attachUserDataValidateBeforeCall(String mediatype, String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call attachMediaUserDataValidateBeforeCall(String mediatype, String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'mediatype' is set
         if (mediatype == null) {
-            throw new ApiException("Missing the required parameter 'mediatype' when calling attachUserData(Async)");
+            throw new ApiException("Missing the required parameter 'mediatype' when calling attachMediaUserData(Async)");
         }
         
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling attachUserData(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling attachMediaUserData(Async)");
         }
         
         // verify the required parameter 'userData' is set
         if (userData == null) {
-            throw new ApiException("Missing the required parameter 'userData' when calling attachUserData(Async)");
+            throw new ApiException("Missing the required parameter 'userData' when calling attachMediaUserData(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = attachUserDataCall(mediatype, id, userData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = attachMediaUserDataCall(mediatype, id, userData, progressListener, progressRequestListener);
         return call;
 
     }
@@ -852,8 +981,8 @@ public class MediaApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse attachUserData(String mediatype, String id, UserData userData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = attachUserDataWithHttpInfo(mediatype, id, userData);
+    public ApiSuccessResponse attachMediaUserData(String mediatype, String id, UserData userData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = attachMediaUserDataWithHttpInfo(mediatype, id, userData);
         return resp.getData();
     }
 
@@ -866,8 +995,8 @@ public class MediaApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> attachUserDataWithHttpInfo(String mediatype, String id, UserData userData) throws ApiException {
-        com.squareup.okhttp.Call call = attachUserDataValidateBeforeCall(mediatype, id, userData, null, null);
+    public ApiResponse<ApiSuccessResponse> attachMediaUserDataWithHttpInfo(String mediatype, String id, UserData userData) throws ApiException {
+        com.squareup.okhttp.Call call = attachMediaUserDataValidateBeforeCall(mediatype, id, userData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -882,7 +1011,7 @@ public class MediaApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call attachUserDataAsync(String mediatype, String id, UserData userData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call attachMediaUserDataAsync(String mediatype, String id, UserData userData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -903,7 +1032,7 @@ public class MediaApi {
             };
         }
 
-        com.squareup.okhttp.Call call = attachUserDataValidateBeforeCall(mediatype, id, userData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = attachMediaUserDataValidateBeforeCall(mediatype, id, userData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1185,7 +1314,7 @@ public class MediaApi {
         return call;
     }
     /**
-     * Build call for deleteUserData
+     * Build call for deleteMediaUserData
      * @param mediatype media-type of interaction (required)
      * @param id id of the interaction (required)
      * @param userData The keys of the key/value pairs to delete. (required)
@@ -1194,7 +1323,7 @@ public class MediaApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteUserDataCall(String mediatype, String id, UserData2 userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteMediaUserDataCall(String mediatype, String id, UserData2 userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = userData;
 
         // create path and map variables
@@ -1238,25 +1367,25 @@ public class MediaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteUserDataValidateBeforeCall(String mediatype, String id, UserData2 userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteMediaUserDataValidateBeforeCall(String mediatype, String id, UserData2 userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'mediatype' is set
         if (mediatype == null) {
-            throw new ApiException("Missing the required parameter 'mediatype' when calling deleteUserData(Async)");
+            throw new ApiException("Missing the required parameter 'mediatype' when calling deleteMediaUserData(Async)");
         }
         
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling deleteUserData(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling deleteMediaUserData(Async)");
         }
         
         // verify the required parameter 'userData' is set
         if (userData == null) {
-            throw new ApiException("Missing the required parameter 'userData' when calling deleteUserData(Async)");
+            throw new ApiException("Missing the required parameter 'userData' when calling deleteMediaUserData(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = deleteUserDataCall(mediatype, id, userData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteMediaUserDataCall(mediatype, id, userData, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1270,8 +1399,8 @@ public class MediaApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse deleteUserData(String mediatype, String id, UserData2 userData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = deleteUserDataWithHttpInfo(mediatype, id, userData);
+    public ApiSuccessResponse deleteMediaUserData(String mediatype, String id, UserData2 userData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = deleteMediaUserDataWithHttpInfo(mediatype, id, userData);
         return resp.getData();
     }
 
@@ -1284,8 +1413,8 @@ public class MediaApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> deleteUserDataWithHttpInfo(String mediatype, String id, UserData2 userData) throws ApiException {
-        com.squareup.okhttp.Call call = deleteUserDataValidateBeforeCall(mediatype, id, userData, null, null);
+    public ApiResponse<ApiSuccessResponse> deleteMediaUserDataWithHttpInfo(String mediatype, String id, UserData2 userData) throws ApiException {
+        com.squareup.okhttp.Call call = deleteMediaUserDataValidateBeforeCall(mediatype, id, userData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1300,7 +1429,7 @@ public class MediaApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteUserDataAsync(String mediatype, String id, UserData2 userData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteMediaUserDataAsync(String mediatype, String id, UserData2 userData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1321,7 +1450,7 @@ public class MediaApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteUserDataValidateBeforeCall(mediatype, id, userData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteMediaUserDataValidateBeforeCall(mediatype, id, userData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1548,6 +1677,129 @@ public class MediaApi {
         }
 
         com.squareup.okhttp.Call call = dndOnValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for leaveChat
+     * @param id id of interaction (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call leaveChatCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/media/chat/interactions/{id}/leave"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call leaveChatValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling leaveChat(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = leaveChatCall(id, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Leave a chat interaction
+     * Leave the interaction specified in the id path parameter
+     * @param id id of interaction (required)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse leaveChat(String id) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = leaveChatWithHttpInfo(id);
+        return resp.getData();
+    }
+
+    /**
+     * Leave a chat interaction
+     * Leave the interaction specified in the id path parameter
+     * @param id id of interaction (required)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> leaveChatWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = leaveChatValidateBeforeCall(id, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Leave a chat interaction (asynchronously)
+     * Leave the interaction specified in the id path parameter
+     * @param id id of interaction (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call leaveChatAsync(String id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = leaveChatValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2713,7 +2965,7 @@ public class MediaApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call sendMessageCall(String id, AcceptData acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call sendMessageCall(String id, AcceptData1 acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = acceptData;
 
         // create path and map variables
@@ -2756,7 +3008,7 @@ public class MediaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call sendMessageValidateBeforeCall(String id, AcceptData acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call sendMessageValidateBeforeCall(String id, AcceptData1 acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -2777,7 +3029,7 @@ public class MediaApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse sendMessage(String id, AcceptData acceptData) throws ApiException {
+    public ApiSuccessResponse sendMessage(String id, AcceptData1 acceptData) throws ApiException {
         ApiResponse<ApiSuccessResponse> resp = sendMessageWithHttpInfo(id, acceptData);
         return resp.getData();
     }
@@ -2790,7 +3042,7 @@ public class MediaApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> sendMessageWithHttpInfo(String id, AcceptData acceptData) throws ApiException {
+    public ApiResponse<ApiSuccessResponse> sendMessageWithHttpInfo(String id, AcceptData1 acceptData) throws ApiException {
         com.squareup.okhttp.Call call = sendMessageValidateBeforeCall(id, acceptData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2805,7 +3057,7 @@ public class MediaApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call sendMessageAsync(String id, AcceptData acceptData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call sendMessageAsync(String id, AcceptData1 acceptData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2827,6 +3079,379 @@ public class MediaApi {
         }
 
         com.squareup.okhttp.Call call = sendMessageValidateBeforeCall(id, acceptData, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for sendTypingStarted
+     * @param id id of interaction (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call sendTypingStartedCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/media/chat/interactions/{id}/send-typing-started"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call sendTypingStartedValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling sendTypingStarted(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = sendTypingStartedCall(id, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Send notification that typing started to the specified chat
+     * Send notification that typing started to the specified chat
+     * @param id id of interaction (required)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse sendTypingStarted(String id) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = sendTypingStartedWithHttpInfo(id);
+        return resp.getData();
+    }
+
+    /**
+     * Send notification that typing started to the specified chat
+     * Send notification that typing started to the specified chat
+     * @param id id of interaction (required)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> sendTypingStartedWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = sendTypingStartedValidateBeforeCall(id, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Send notification that typing started to the specified chat (asynchronously)
+     * Send notification that typing started to the specified chat
+     * @param id id of interaction (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call sendTypingStartedAsync(String id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = sendTypingStartedValidateBeforeCall(id, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for sendTypingStopped
+     * @param id id of interaction (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call sendTypingStoppedCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/media/chat/interactions/{id}/send-typing-stopped"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call sendTypingStoppedValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling sendTypingStopped(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = sendTypingStoppedCall(id, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Send notification that typing stopped to the specified chat
+     * Send notification that typing stoppped to the specified chat
+     * @param id id of interaction (required)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse sendTypingStopped(String id) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = sendTypingStoppedWithHttpInfo(id);
+        return resp.getData();
+    }
+
+    /**
+     * Send notification that typing stopped to the specified chat
+     * Send notification that typing stoppped to the specified chat
+     * @param id id of interaction (required)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> sendTypingStoppedWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = sendTypingStoppedValidateBeforeCall(id, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Send notification that typing stopped to the specified chat (asynchronously)
+     * Send notification that typing stoppped to the specified chat
+     * @param id id of interaction (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call sendTypingStoppedAsync(String id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = sendTypingStoppedValidateBeforeCall(id, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for sendUrlData
+     * @param id id of interaction to send a url to (required)
+     * @param acceptData Request parameters. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call sendUrlDataCall(String id, AcceptData2 acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = acceptData;
+
+        // create path and map variables
+        String localVarPath = "/media/chat/interactions/{id}/send-url"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call sendUrlDataValidateBeforeCall(String id, AcceptData2 acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling sendUrlData(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = sendUrlDataCall(id, acceptData, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Send a url to the specified chat
+     * Send a url to the specified chat
+     * @param id id of interaction to send a url to (required)
+     * @param acceptData Request parameters. (optional)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse sendUrlData(String id, AcceptData2 acceptData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = sendUrlDataWithHttpInfo(id, acceptData);
+        return resp.getData();
+    }
+
+    /**
+     * Send a url to the specified chat
+     * Send a url to the specified chat
+     * @param id id of interaction to send a url to (required)
+     * @param acceptData Request parameters. (optional)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> sendUrlDataWithHttpInfo(String id, AcceptData2 acceptData) throws ApiException {
+        com.squareup.okhttp.Call call = sendUrlDataValidateBeforeCall(id, acceptData, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Send a url to the specified chat (asynchronously)
+     * Send a url to the specified chat
+     * @param id id of interaction to send a url to (required)
+     * @param acceptData Request parameters. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call sendUrlDataAsync(String id, AcceptData2 acceptData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = sendUrlDataValidateBeforeCall(id, acceptData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2974,7 +3599,7 @@ public class MediaApi {
         return call;
     }
     /**
-     * Build call for updateUserData
+     * Build call for updateMediaUserData
      * @param mediatype media-type of interaction (required)
      * @param id id of the interaction (required)
      * @param userData An array of key/value pairs. (required)
@@ -2983,7 +3608,7 @@ public class MediaApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateUserDataCall(String mediatype, String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateMediaUserDataCall(String mediatype, String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = userData;
 
         // create path and map variables
@@ -3027,25 +3652,25 @@ public class MediaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateUserDataValidateBeforeCall(String mediatype, String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateMediaUserDataValidateBeforeCall(String mediatype, String id, UserData userData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'mediatype' is set
         if (mediatype == null) {
-            throw new ApiException("Missing the required parameter 'mediatype' when calling updateUserData(Async)");
+            throw new ApiException("Missing the required parameter 'mediatype' when calling updateMediaUserData(Async)");
         }
         
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling updateUserData(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling updateMediaUserData(Async)");
         }
         
         // verify the required parameter 'userData' is set
         if (userData == null) {
-            throw new ApiException("Missing the required parameter 'userData' when calling updateUserData(Async)");
+            throw new ApiException("Missing the required parameter 'userData' when calling updateMediaUserData(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = updateUserDataCall(mediatype, id, userData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateMediaUserDataCall(mediatype, id, userData, progressListener, progressRequestListener);
         return call;
 
     }
@@ -3059,8 +3684,8 @@ public class MediaApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse updateUserData(String mediatype, String id, UserData userData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = updateUserDataWithHttpInfo(mediatype, id, userData);
+    public ApiSuccessResponse updateMediaUserData(String mediatype, String id, UserData userData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = updateMediaUserDataWithHttpInfo(mediatype, id, userData);
         return resp.getData();
     }
 
@@ -3073,8 +3698,8 @@ public class MediaApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> updateUserDataWithHttpInfo(String mediatype, String id, UserData userData) throws ApiException {
-        com.squareup.okhttp.Call call = updateUserDataValidateBeforeCall(mediatype, id, userData, null, null);
+    public ApiResponse<ApiSuccessResponse> updateMediaUserDataWithHttpInfo(String mediatype, String id, UserData userData) throws ApiException {
+        com.squareup.okhttp.Call call = updateMediaUserDataValidateBeforeCall(mediatype, id, userData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -3089,7 +3714,7 @@ public class MediaApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateUserDataAsync(String mediatype, String id, UserData userData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateMediaUserDataAsync(String mediatype, String id, UserData userData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3110,7 +3735,7 @@ public class MediaApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateUserDataValidateBeforeCall(mediatype, id, userData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateMediaUserDataValidateBeforeCall(mediatype, id, userData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

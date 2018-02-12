@@ -25,9 +25,10 @@ import java.io.IOException;
 import java.math.BigDecimal;
 
 /**
- * RecentData
+ * This includes the media channel where the target was recently used and the timestamp for when the target was used.
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
+@ApiModel(description = "This includes the media channel where the target was recently used and the timestamp for when the target was used.")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
 public class RecentData {
   @SerializedName("media")
   private String media = null;

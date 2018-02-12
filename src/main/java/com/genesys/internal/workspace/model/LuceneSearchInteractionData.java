@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.UcslucenesearchinteractionData;
+import com.genesys.internal.workspace.model.UcsixnsearchData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,12 +27,12 @@ import java.io.IOException;
 /**
  * LuceneSearchInteractionData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
 public class LuceneSearchInteractionData {
   @SerializedName("data")
-  private UcslucenesearchinteractionData data = null;
+  private UcsixnsearchData data = null;
 
-  public LuceneSearchInteractionData data(UcslucenesearchinteractionData data) {
+  public LuceneSearchInteractionData data(UcsixnsearchData data) {
     this.data = data;
     return this;
   }
@@ -42,11 +42,11 @@ public class LuceneSearchInteractionData {
    * @return data
   **/
   @ApiModelProperty(required = true, value = "")
-  public UcslucenesearchinteractionData getData() {
+  public UcsixnsearchData getData() {
     return data;
   }
 
-  public void setData(UcslucenesearchinteractionData data) {
+  public void setData(UcsixnsearchData data) {
     this.data = data;
   }
 

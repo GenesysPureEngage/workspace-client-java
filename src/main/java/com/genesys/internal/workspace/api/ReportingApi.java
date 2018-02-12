@@ -183,7 +183,7 @@ public class ReportingApi {
     }
     /**
      * Build call for peekMultiple
-     * @param ids IDs of subscriptions to peek statistics for. (required)
+     * @param ids The IDs of the subscriptions. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -247,9 +247,9 @@ public class ReportingApi {
     }
 
     /**
-     * Get statistics for given subscription ids.
-     * Get the statistics for the specified subscription ID.
-     * @param ids IDs of subscriptions to peek statistics for. (required)
+     * Get statistics.
+     * Get the statistics for the specified subscription IDs.
+     * @param ids The IDs of the subscriptions. (required)
      * @return InlineResponse2001
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -259,9 +259,9 @@ public class ReportingApi {
     }
 
     /**
-     * Get statistics for given subscription ids.
-     * Get the statistics for the specified subscription ID.
-     * @param ids IDs of subscriptions to peek statistics for. (required)
+     * Get statistics.
+     * Get the statistics for the specified subscription IDs.
+     * @param ids The IDs of the subscriptions. (required)
      * @return ApiResponse&lt;InlineResponse2001&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -272,9 +272,9 @@ public class ReportingApi {
     }
 
     /**
-     * Get statistics for given subscription ids. (asynchronously)
-     * Get the statistics for the specified subscription ID.
-     * @param ids IDs of subscriptions to peek statistics for. (required)
+     * Get statistics. (asynchronously)
+     * Get the statistics for the specified subscription IDs.
+     * @param ids The IDs of the subscriptions. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.UcsidentifycontactData;
+import com.genesys.internal.workspace.model.UcsinteractionsididentifycontactData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,12 +27,12 @@ import java.io.IOException;
 /**
  * IdentifyContactData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
 public class IdentifyContactData {
   @SerializedName("data")
-  private UcsidentifycontactData data = null;
+  private UcsinteractionsididentifycontactData data = null;
 
-  public IdentifyContactData data(UcsidentifycontactData data) {
+  public IdentifyContactData data(UcsinteractionsididentifycontactData data) {
     this.data = data;
     return this;
   }
@@ -42,11 +42,11 @@ public class IdentifyContactData {
    * @return data
   **/
   @ApiModelProperty(required = true, value = "")
-  public UcsidentifycontactData getData() {
+  public UcsinteractionsididentifycontactData getData() {
     return data;
   }
 
-  public void setData(UcsidentifycontactData data) {
+  public void setData(UcsinteractionsididentifycontactData data) {
     this.data = data;
   }
 

@@ -26,15 +26,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * UcsgetcontacthistoryData
+ * UcscontactsidgethistoryData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
-public class UcsgetcontacthistoryData {
-  @SerializedName("contactId")
-  private String contactId = null;
-
-  @SerializedName("customAttributes")
-  private List<String> customAttributes = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
+public class UcscontactsidgethistoryData {
+  @SerializedName("returnedAttributes")
+  private List<String> returnedAttributes = new ArrayList<String>();
 
   @SerializedName("fromDate")
   private String fromDate = null;
@@ -42,51 +39,30 @@ public class UcsgetcontacthistoryData {
   @SerializedName("toDate")
   private String toDate = null;
 
-  public UcsgetcontacthistoryData contactId(String contactId) {
-    this.contactId = contactId;
+  public UcscontactsidgethistoryData returnedAttributes(List<String> returnedAttributes) {
+    this.returnedAttributes = returnedAttributes;
     return this;
   }
 
-   /**
-   * The id of the contact
-   * @return contactId
-  **/
-  @ApiModelProperty(required = true, value = "The id of the contact")
-  public String getContactId() {
-    return contactId;
-  }
-
-  public void setContactId(String contactId) {
-    this.contactId = contactId;
-  }
-
-  public UcsgetcontacthistoryData customAttributes(List<String> customAttributes) {
-    this.customAttributes = customAttributes;
-    return this;
-  }
-
-  public UcsgetcontacthistoryData addCustomAttributesItem(String customAttributesItem) {
-    if (this.customAttributes == null) {
-      this.customAttributes = new ArrayList<String>();
-    }
-    this.customAttributes.add(customAttributesItem);
+  public UcscontactsidgethistoryData addReturnedAttributesItem(String returnedAttributesItem) {
+    this.returnedAttributes.add(returnedAttributesItem);
     return this;
   }
 
    /**
    * The list of custom contact attributes to be returned for each interaction of the contact
-   * @return customAttributes
+   * @return returnedAttributes
   **/
-  @ApiModelProperty(value = "The list of custom contact attributes to be returned for each interaction of the contact")
-  public List<String> getCustomAttributes() {
-    return customAttributes;
+  @ApiModelProperty(required = true, value = "The list of custom contact attributes to be returned for each interaction of the contact")
+  public List<String> getReturnedAttributes() {
+    return returnedAttributes;
   }
 
-  public void setCustomAttributes(List<String> customAttributes) {
-    this.customAttributes = customAttributes;
+  public void setReturnedAttributes(List<String> returnedAttributes) {
+    this.returnedAttributes = returnedAttributes;
   }
 
-  public UcsgetcontacthistoryData fromDate(String fromDate) {
+  public UcscontactsidgethistoryData fromDate(String fromDate) {
     this.fromDate = fromDate;
     return this;
   }
@@ -104,7 +80,7 @@ public class UcsgetcontacthistoryData {
     this.fromDate = fromDate;
   }
 
-  public UcsgetcontacthistoryData toDate(String toDate) {
+  public UcscontactsidgethistoryData toDate(String toDate) {
     this.toDate = toDate;
     return this;
   }
@@ -131,26 +107,24 @@ public class UcsgetcontacthistoryData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UcsgetcontacthistoryData ucsgetcontacthistoryData = (UcsgetcontacthistoryData) o;
-    return Objects.equals(this.contactId, ucsgetcontacthistoryData.contactId) &&
-        Objects.equals(this.customAttributes, ucsgetcontacthistoryData.customAttributes) &&
-        Objects.equals(this.fromDate, ucsgetcontacthistoryData.fromDate) &&
-        Objects.equals(this.toDate, ucsgetcontacthistoryData.toDate);
+    UcscontactsidgethistoryData ucscontactsidgethistoryData = (UcscontactsidgethistoryData) o;
+    return Objects.equals(this.returnedAttributes, ucscontactsidgethistoryData.returnedAttributes) &&
+        Objects.equals(this.fromDate, ucscontactsidgethistoryData.fromDate) &&
+        Objects.equals(this.toDate, ucscontactsidgethistoryData.toDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contactId, customAttributes, fromDate, toDate);
+    return Objects.hash(returnedAttributes, fromDate, toDate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UcsgetcontacthistoryData {\n");
+    sb.append("class UcscontactsidgethistoryData {\n");
     
-    sb.append("    contactId: ").append(toIndentedString(contactId)).append("\n");
-    sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
+    sb.append("    returnedAttributes: ").append(toIndentedString(returnedAttributes)).append("\n");
     sb.append("    fromDate: ").append(toIndentedString(fromDate)).append("\n");
     sb.append("    toDate: ").append(toIndentedString(toDate)).append("\n");
     sb.append("}");

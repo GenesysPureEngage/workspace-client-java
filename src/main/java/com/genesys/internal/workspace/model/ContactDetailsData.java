@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.UcsgetcontactdetailsData;
+import com.genesys.internal.workspace.model.UcscontactsidgetdetailsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,12 +27,12 @@ import java.io.IOException;
 /**
  * ContactDetailsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
 public class ContactDetailsData {
   @SerializedName("data")
-  private UcsgetcontactdetailsData data = null;
+  private UcscontactsidgetdetailsData data = null;
 
-  public ContactDetailsData data(UcsgetcontactdetailsData data) {
+  public ContactDetailsData data(UcscontactsidgetdetailsData data) {
     this.data = data;
     return this;
   }
@@ -42,11 +42,11 @@ public class ContactDetailsData {
    * @return data
   **/
   @ApiModelProperty(required = true, value = "")
-  public UcsgetcontactdetailsData getData() {
+  public UcscontactsidgetdetailsData getData() {
     return data;
   }
 
-  public void setData(UcsgetcontactdetailsData data) {
+  public void setData(UcscontactsidgetdetailsData data) {
     this.data = data;
   }
 

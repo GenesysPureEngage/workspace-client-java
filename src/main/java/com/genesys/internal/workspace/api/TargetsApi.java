@@ -367,7 +367,7 @@ public class TargetsApi {
 
     /**
      * Delete a target.
-     * Delete the target from the agent&#39;s personal favorites
+     * Delete the target from the agent&#39;s personal favorites.
      * @param id The ID of the target. (required)
      * @param type The type of target. (required)
      * @return ApiSuccessResponse
@@ -380,7 +380,7 @@ public class TargetsApi {
 
     /**
      * Delete a target.
-     * Delete the target from the agent&#39;s personal favorites
+     * Delete the target from the agent&#39;s personal favorites.
      * @param id The ID of the target. (required)
      * @param type The type of target. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
@@ -394,7 +394,7 @@ public class TargetsApi {
 
     /**
      * Delete a target. (asynchronously)
-     * Delete the target from the agent&#39;s personal favorites
+     * Delete the target from the agent&#39;s personal favorites.
      * @param id The ID of the target. (required)
      * @param type The type of target. (required)
      * @param callback The callback to be executed when the API call finishes
@@ -424,178 +424,6 @@ public class TargetsApi {
 
         com.squareup.okhttp.Call call = deletePersonalFavoriteValidateBeforeCall(id, type, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for get
-     * @param searchTerm The text to search for in targets. (required)
-     * @param filterName Filter the search based on this field. (optional)
-     * @param types A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
-     * @param excludeGroup A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)
-     * @param excludeFromGroup A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)
-     * @param restrictToGroup A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)
-     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
-     * @param limit The number of results to return. The default value is 50. (optional)
-     * @param matchType Specify whether the search should only return exact matches. (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call getCall(String searchTerm, String filterName, String types, String excludeGroup, String excludeFromGroup, String restrictToGroup, String sort, BigDecimal limit, String matchType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/targets";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (searchTerm != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("searchTerm", searchTerm));
-        if (filterName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("filterName", filterName));
-        if (types != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("types", types));
-        if (excludeGroup != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("excludeGroup", excludeGroup));
-        if (excludeFromGroup != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("excludeFromGroup", excludeFromGroup));
-        if (restrictToGroup != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("restrictToGroup", restrictToGroup));
-        if (sort != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
-        if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
-        if (matchType != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("matchType", matchType));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getValidateBeforeCall(String searchTerm, String filterName, String types, String excludeGroup, String excludeFromGroup, String restrictToGroup, String sort, BigDecimal limit, String matchType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'searchTerm' is set
-        if (searchTerm == null) {
-            throw new ApiException("Missing the required parameter 'searchTerm' when calling get(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = getCall(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Search for targets.
-     * Search for targets by the specified search term.
-     * @param searchTerm The text to search for in targets. (required)
-     * @param filterName Filter the search based on this field. (optional)
-     * @param types A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
-     * @param excludeGroup A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)
-     * @param excludeFromGroup A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)
-     * @param restrictToGroup A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)
-     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
-     * @param limit The number of results to return. The default value is 50. (optional)
-     * @param matchType Specify whether the search should only return exact matches. (optional)
-     * @return TargetsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public TargetsResponse get(String searchTerm, String filterName, String types, String excludeGroup, String excludeFromGroup, String restrictToGroup, String sort, BigDecimal limit, String matchType) throws ApiException {
-        ApiResponse<TargetsResponse> resp = getWithHttpInfo(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType);
-        return resp.getData();
-    }
-
-    /**
-     * Search for targets.
-     * Search for targets by the specified search term.
-     * @param searchTerm The text to search for in targets. (required)
-     * @param filterName Filter the search based on this field. (optional)
-     * @param types A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
-     * @param excludeGroup A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)
-     * @param excludeFromGroup A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)
-     * @param restrictToGroup A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)
-     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
-     * @param limit The number of results to return. The default value is 50. (optional)
-     * @param matchType Specify whether the search should only return exact matches. (optional)
-     * @return ApiResponse&lt;TargetsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<TargetsResponse> getWithHttpInfo(String searchTerm, String filterName, String types, String excludeGroup, String excludeFromGroup, String restrictToGroup, String sort, BigDecimal limit, String matchType) throws ApiException {
-        com.squareup.okhttp.Call call = getValidateBeforeCall(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType, null, null);
-        Type localVarReturnType = new TypeToken<TargetsResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Search for targets. (asynchronously)
-     * Search for targets by the specified search term.
-     * @param searchTerm The text to search for in targets. (required)
-     * @param filterName Filter the search based on this field. (optional)
-     * @param types A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
-     * @param excludeGroup A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)
-     * @param excludeFromGroup A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)
-     * @param restrictToGroup A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)
-     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
-     * @param limit The number of results to return. The default value is 50. (optional)
-     * @param matchType Specify whether the search should only return exact matches. (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getAsync(String searchTerm, String filterName, String types, String excludeGroup, String excludeFromGroup, String restrictToGroup, String sort, BigDecimal limit, String matchType, final ApiCallback<TargetsResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getValidateBeforeCall(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TargetsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -660,8 +488,8 @@ public class TargetsApi {
     }
 
     /**
-     * Return personal favorites.
-     * Return the agent&#39;s personal favorites.
+     * Get personal favorites.
+     * Get the agent&#39;s personal favorites.
      * @param limit Number of results to return. The default value is 50. (optional)
      * @return TargetsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -672,8 +500,8 @@ public class TargetsApi {
     }
 
     /**
-     * Return personal favorites.
-     * Return the agent&#39;s personal favorites.
+     * Get personal favorites.
+     * Get the agent&#39;s personal favorites.
      * @param limit Number of results to return. The default value is 50. (optional)
      * @return ApiResponse&lt;TargetsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -685,8 +513,8 @@ public class TargetsApi {
     }
 
     /**
-     * Return personal favorites. (asynchronously)
-     * Return the agent&#39;s personal favorites.
+     * Get personal favorites. (asynchronously)
+     * Get the agent&#39;s personal favorites.
      * @param limit Number of results to return. The default value is 50. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -966,6 +794,178 @@ public class TargetsApi {
         }
 
         com.squareup.okhttp.Call call = getTargetValidateBeforeCall(id, type, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TargetsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getTargets
+     * @param searchTerm The text to search for in targets. (required)
+     * @param filterName Filter the search based on this field. (optional)
+     * @param types A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
+     * @param excludeGroup A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)
+     * @param excludeFromGroup A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)
+     * @param restrictToGroup A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)
+     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
+     * @param limit The number of results to return. The default value is 50. (optional)
+     * @param matchType Specify whether the search should only return exact matches. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getTargetsCall(String searchTerm, String filterName, String types, String excludeGroup, String excludeFromGroup, String restrictToGroup, String sort, BigDecimal limit, String matchType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/targets";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (searchTerm != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("searchTerm", searchTerm));
+        if (filterName != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("filterName", filterName));
+        if (types != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("types", types));
+        if (excludeGroup != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("excludeGroup", excludeGroup));
+        if (excludeFromGroup != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("excludeFromGroup", excludeFromGroup));
+        if (restrictToGroup != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("restrictToGroup", restrictToGroup));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        if (matchType != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("matchType", matchType));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTargetsValidateBeforeCall(String searchTerm, String filterName, String types, String excludeGroup, String excludeFromGroup, String restrictToGroup, String sort, BigDecimal limit, String matchType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'searchTerm' is set
+        if (searchTerm == null) {
+            throw new ApiException("Missing the required parameter 'searchTerm' when calling getTargets(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getTargetsCall(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Search for targets.
+     * Search for targets by the specified search term.
+     * @param searchTerm The text to search for in targets. (required)
+     * @param filterName Filter the search based on this field. (optional)
+     * @param types A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
+     * @param excludeGroup A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)
+     * @param excludeFromGroup A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)
+     * @param restrictToGroup A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)
+     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
+     * @param limit The number of results to return. The default value is 50. (optional)
+     * @param matchType Specify whether the search should only return exact matches. (optional)
+     * @return TargetsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TargetsResponse getTargets(String searchTerm, String filterName, String types, String excludeGroup, String excludeFromGroup, String restrictToGroup, String sort, BigDecimal limit, String matchType) throws ApiException {
+        ApiResponse<TargetsResponse> resp = getTargetsWithHttpInfo(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType);
+        return resp.getData();
+    }
+
+    /**
+     * Search for targets.
+     * Search for targets by the specified search term.
+     * @param searchTerm The text to search for in targets. (required)
+     * @param filterName Filter the search based on this field. (optional)
+     * @param types A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
+     * @param excludeGroup A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)
+     * @param excludeFromGroup A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)
+     * @param restrictToGroup A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)
+     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
+     * @param limit The number of results to return. The default value is 50. (optional)
+     * @param matchType Specify whether the search should only return exact matches. (optional)
+     * @return ApiResponse&lt;TargetsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TargetsResponse> getTargetsWithHttpInfo(String searchTerm, String filterName, String types, String excludeGroup, String excludeFromGroup, String restrictToGroup, String sort, BigDecimal limit, String matchType) throws ApiException {
+        com.squareup.okhttp.Call call = getTargetsValidateBeforeCall(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType, null, null);
+        Type localVarReturnType = new TypeToken<TargetsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Search for targets. (asynchronously)
+     * Search for targets by the specified search term.
+     * @param searchTerm The text to search for in targets. (required)
+     * @param filterName Filter the search based on this field. (optional)
+     * @param types A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
+     * @param excludeGroup A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)
+     * @param excludeFromGroup A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)
+     * @param restrictToGroup A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)
+     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
+     * @param limit The number of results to return. The default value is 50. (optional)
+     * @param matchType Specify whether the search should only return exact matches. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getTargetsAsync(String searchTerm, String filterName, String types, String excludeGroup, String excludeFromGroup, String restrictToGroup, String sort, BigDecimal limit, String matchType, final ApiCallback<TargetsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getTargetsValidateBeforeCall(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TargetsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

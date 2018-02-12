@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * MediaemailinteractionscreateData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
 public class MediaemailinteractionscreateData {
   @SerializedName("queue")
   private String queue = null;
@@ -39,6 +39,9 @@ public class MediaemailinteractionscreateData {
 
   @SerializedName("contactId")
   private String contactId = null;
+
+  @SerializedName("to")
+  private String to = null;
 
   @SerializedName("userData")
   private List<Kvpair> userData = null;
@@ -67,10 +70,10 @@ public class MediaemailinteractionscreateData {
   }
 
    /**
-   * Blalala
+   * specify the ThreadId of UCS interaction
    * @return threadId
   **/
-  @ApiModelProperty(value = "Blalala")
+  @ApiModelProperty(value = "specify the ThreadId of UCS interaction")
   public String getThreadId() {
     return threadId;
   }
@@ -95,6 +98,24 @@ public class MediaemailinteractionscreateData {
 
   public void setContactId(String contactId) {
     this.contactId = contactId;
+  }
+
+  public MediaemailinteractionscreateData to(String to) {
+    this.to = to;
+    return this;
+  }
+
+   /**
+   * the address mail of to
+   * @return to
+  **/
+  @ApiModelProperty(value = "the address mail of to")
+  public String getTo() {
+    return to;
+  }
+
+  public void setTo(String to) {
+    this.to = to;
   }
 
   public MediaemailinteractionscreateData userData(List<Kvpair> userData) {
@@ -136,12 +157,13 @@ public class MediaemailinteractionscreateData {
     return Objects.equals(this.queue, mediaemailinteractionscreateData.queue) &&
         Objects.equals(this.threadId, mediaemailinteractionscreateData.threadId) &&
         Objects.equals(this.contactId, mediaemailinteractionscreateData.contactId) &&
+        Objects.equals(this.to, mediaemailinteractionscreateData.to) &&
         Objects.equals(this.userData, mediaemailinteractionscreateData.userData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(queue, threadId, contactId, userData);
+    return Objects.hash(queue, threadId, contactId, to, userData);
   }
 
 
@@ -153,6 +175,7 @@ public class MediaemailinteractionscreateData {
     sb.append("    queue: ").append(toIndentedString(queue)).append("\n");
     sb.append("    threadId: ").append(toIndentedString(threadId)).append("\n");
     sb.append("    contactId: ").append(toIndentedString(contactId)).append("\n");
+    sb.append("    to: ").append(toIndentedString(to)).append("\n");
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("}");
     return sb.toString();

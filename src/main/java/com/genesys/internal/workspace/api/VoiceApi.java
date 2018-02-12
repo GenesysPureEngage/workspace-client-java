@@ -2681,7 +2681,7 @@ public class VoiceApi {
 
     /**
      * Reconnect a call.
-     * Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60; in one step.
+     * Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60;.
      * @param id The connection ID of the established call (will be released). (required)
      * @param reconnectData  (required)
      * @return ApiSuccessResponse
@@ -2694,7 +2694,7 @@ public class VoiceApi {
 
     /**
      * Reconnect a call.
-     * Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60; in one step.
+     * Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60;.
      * @param id The connection ID of the established call (will be released). (required)
      * @param reconnectData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
@@ -2708,7 +2708,7 @@ public class VoiceApi {
 
     /**
      * Reconnect a call. (asynchronously)
-     * Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60; in one step.
+     * Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60;.
      * @param id The connection ID of the established call (will be released). (required)
      * @param reconnectData  (required)
      * @param callback The callback to be executed when the API call finishes
@@ -3384,7 +3384,7 @@ public class VoiceApi {
     }
     /**
      * Build call for sendUserEvent
-     * @param userEventData The data to be sent. This is an array of objects with the properties key, type, and value. (required)
+     * @param userEventData The data to send. This is an array of objects with the properties key, type, and value. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -3447,8 +3447,8 @@ public class VoiceApi {
 
     /**
      * Send a userEvent event to T-Server with the provided attached data.
-     * Send a userEvent event to T-Server with the provided attached data.
-     * @param userEventData The data to be sent. This is an array of objects with the properties key, type, and value. (required)
+     * Send EventUserEvent to T-Server with the provided attached data. For details about EventUserEvent, refer to the  [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
+     * @param userEventData The data to send. This is an array of objects with the properties key, type, and value. (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3459,8 +3459,8 @@ public class VoiceApi {
 
     /**
      * Send a userEvent event to T-Server with the provided attached data.
-     * Send a userEvent event to T-Server with the provided attached data.
-     * @param userEventData The data to be sent. This is an array of objects with the properties key, type, and value. (required)
+     * Send EventUserEvent to T-Server with the provided attached data. For details about EventUserEvent, refer to the  [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
+     * @param userEventData The data to send. This is an array of objects with the properties key, type, and value. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3472,8 +3472,8 @@ public class VoiceApi {
 
     /**
      * Send a userEvent event to T-Server with the provided attached data. (asynchronously)
-     * Send a userEvent event to T-Server with the provided attached data.
-     * @param userEventData The data to be sent. This is an array of objects with the properties key, type, and value. (required)
+     * Send EventUserEvent to T-Server with the provided attached data. For details about EventUserEvent, refer to the  [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
+     * @param userEventData The data to send. This is an array of objects with the properties key, type, and value. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5171,7 +5171,7 @@ public class VoiceApi {
 
     /**
      * Update user data for a call.
-     * Update call data with the provided key/value pairs. This will replace any existing key/value pairs with the same keys.
+     * Update call data with the provided key/value pairs. This replaces any existing key/value pairs with the same keys.
      * @param id The connection ID of the call. (required)
      * @param userData The data to update. This is an array of objects with the properties key, type, and value. (required)
      * @return ApiSuccessResponse
@@ -5184,7 +5184,7 @@ public class VoiceApi {
 
     /**
      * Update user data for a call.
-     * Update call data with the provided key/value pairs. This will replace any existing key/value pairs with the same keys.
+     * Update call data with the provided key/value pairs. This replaces any existing key/value pairs with the same keys.
      * @param id The connection ID of the call. (required)
      * @param userData The data to update. This is an array of objects with the properties key, type, and value. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
@@ -5198,7 +5198,7 @@ public class VoiceApi {
 
     /**
      * Update user data for a call. (asynchronously)
-     * Update call data with the provided key/value pairs. This will replace any existing key/value pairs with the same keys.
+     * Update call data with the provided key/value pairs. This replaces any existing key/value pairs with the same keys.
      * @param id The connection ID of the call. (required)
      * @param userData The data to update. This is an array of objects with the properties key, type, and value. (required)
      * @param callback The callback to be executed when the API call finishes

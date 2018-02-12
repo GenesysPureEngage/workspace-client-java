@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * TargetsrecentsaddData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
 public class TargetsrecentsaddData {
   @SerializedName("target")
   private TargetInformation target = null;
@@ -42,10 +42,10 @@ public class TargetsrecentsaddData {
   }
 
    /**
-   * The target to add.
+   * Get target
    * @return target
   **/
-  @ApiModelProperty(required = true, value = "The target to add.")
+  @ApiModelProperty(required = true, value = "")
   public TargetInformation getTarget() {
     return target;
   }
@@ -60,10 +60,10 @@ public class TargetsrecentsaddData {
   }
 
    /**
-   * This includes the media channel where the target was recently used and the timestamp for when the target was used.
+   * Get recentInformation
    * @return recentInformation
   **/
-  @ApiModelProperty(required = true, value = "This includes the media channel where the target was recently used and the timestamp for when the target was used.")
+  @ApiModelProperty(required = true, value = "")
   public RecentData getRecentInformation() {
     return recentInformation;
   }

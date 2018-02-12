@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.UcssetcallcompletedData;
+import com.genesys.internal.workspace.model.UcsinteractionsidsetcompletedData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,12 +27,12 @@ import java.io.IOException;
 /**
  * CallCompletedData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
 public class CallCompletedData {
   @SerializedName("data")
-  private UcssetcallcompletedData data = null;
+  private UcsinteractionsidsetcompletedData data = null;
 
-  public CallCompletedData data(UcssetcallcompletedData data) {
+  public CallCompletedData data(UcsinteractionsidsetcompletedData data) {
     this.data = data;
     return this;
   }
@@ -42,11 +42,11 @@ public class CallCompletedData {
    * @return data
   **/
   @ApiModelProperty(required = true, value = "")
-  public UcssetcallcompletedData getData() {
+  public UcsinteractionsidsetcompletedData getData() {
     return data;
   }
 
-  public void setData(UcssetcallcompletedData data) {
+  public void setData(UcsinteractionsidsetcompletedData data) {
     this.data = data;
   }
 

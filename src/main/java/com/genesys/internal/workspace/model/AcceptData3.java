@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.UcsgetinteractioncontentData;
+import com.genesys.internal.workspace.model.MediaemailinteractionsidacceptData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,14 +25,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * InteractionContentData
+ * AcceptData3
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
-public class InteractionContentData {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
+public class AcceptData3 {
   @SerializedName("data")
-  private UcsgetinteractioncontentData data = null;
+  private MediaemailinteractionsidacceptData data = null;
 
-  public InteractionContentData data(UcsgetinteractioncontentData data) {
+  public AcceptData3 data(MediaemailinteractionsidacceptData data) {
     this.data = data;
     return this;
   }
@@ -41,12 +41,12 @@ public class InteractionContentData {
    * Get data
    * @return data
   **/
-  @ApiModelProperty(required = true, value = "")
-  public UcsgetinteractioncontentData getData() {
+  @ApiModelProperty(value = "")
+  public MediaemailinteractionsidacceptData getData() {
     return data;
   }
 
-  public void setData(UcsgetinteractioncontentData data) {
+  public void setData(MediaemailinteractionsidacceptData data) {
     this.data = data;
   }
 
@@ -59,8 +59,8 @@ public class InteractionContentData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InteractionContentData interactionContentData = (InteractionContentData) o;
-    return Objects.equals(this.data, interactionContentData.data);
+    AcceptData3 acceptData3 = (AcceptData3) o;
+    return Objects.equals(this.data, acceptData3.data);
   }
 
   @Override
@@ -72,7 +72,7 @@ public class InteractionContentData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InteractionContentData {\n");
+    sb.append("class AcceptData3 {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");

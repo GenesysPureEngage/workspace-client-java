@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.UcssetcallnoteData;
+import com.genesys.internal.workspace.model.UcsinteractionsidsetnoteData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,12 +27,12 @@ import java.io.IOException;
 /**
  * CallNoteData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
 public class CallNoteData {
   @SerializedName("data")
-  private UcssetcallnoteData data = null;
+  private UcsinteractionsidsetnoteData data = null;
 
-  public CallNoteData data(UcssetcallnoteData data) {
+  public CallNoteData data(UcsinteractionsidsetnoteData data) {
     this.data = data;
     return this;
   }
@@ -42,11 +42,11 @@ public class CallNoteData {
    * @return data
   **/
   @ApiModelProperty(required = true, value = "")
-  public UcssetcallnoteData getData() {
+  public UcsinteractionsidsetnoteData getData() {
     return data;
   }
 
-  public void setData(UcssetcallnoteData data) {
+  public void setData(UcsinteractionsidsetnoteData data) {
     this.data = data;
   }
 

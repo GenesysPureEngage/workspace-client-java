@@ -24,35 +24,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UcssetcallnoteData
+ * UcsinteractionsidsetnoteData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
-public class UcssetcallnoteData {
-  @SerializedName("interactionId")
-  private String interactionId = null;
-
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
+public class UcsinteractionsidsetnoteData {
   @SerializedName("note")
   private String note = null;
 
-  public UcssetcallnoteData interactionId(String interactionId) {
-    this.interactionId = interactionId;
-    return this;
-  }
-
-   /**
-   * The id of the interaction
-   * @return interactionId
-  **/
-  @ApiModelProperty(required = true, value = "The id of the interaction")
-  public String getInteractionId() {
-    return interactionId;
-  }
-
-  public void setInteractionId(String interactionId) {
-    this.interactionId = interactionId;
-  }
-
-  public UcssetcallnoteData note(String note) {
+  public UcsinteractionsidsetnoteData note(String note) {
     this.note = note;
     return this;
   }
@@ -79,23 +58,21 @@ public class UcssetcallnoteData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UcssetcallnoteData ucssetcallnoteData = (UcssetcallnoteData) o;
-    return Objects.equals(this.interactionId, ucssetcallnoteData.interactionId) &&
-        Objects.equals(this.note, ucssetcallnoteData.note);
+    UcsinteractionsidsetnoteData ucsinteractionsidsetnoteData = (UcsinteractionsidsetnoteData) o;
+    return Objects.equals(this.note, ucsinteractionsidsetnoteData.note);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(interactionId, note);
+    return Objects.hash(note);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UcssetcallnoteData {\n");
+    sb.append("class UcsinteractionsidsetnoteData {\n");
     
-    sb.append("    interactionId: ").append(toIndentedString(interactionId)).append("\n");
     sb.append("    note: ").append(toIndentedString(note)).append("\n");
     sb.append("}");
     return sb.toString();

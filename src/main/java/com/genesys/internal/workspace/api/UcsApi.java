@@ -36,13 +36,10 @@ import com.genesys.internal.workspace.model.CallNoteData;
 import com.genesys.internal.workspace.model.ConfigResponse;
 import com.genesys.internal.workspace.model.ContactDetailsData;
 import com.genesys.internal.workspace.model.ContactHistoryData;
-import com.genesys.internal.workspace.model.DeleteContactData;
-import com.genesys.internal.workspace.model.GetContactsData;
+import com.genesys.internal.workspace.model.CreateContactData;
 import com.genesys.internal.workspace.model.IdentifyContactData;
-import com.genesys.internal.workspace.model.InteractionContentData;
 import com.genesys.internal.workspace.model.LuceneSearchData;
 import com.genesys.internal.workspace.model.LuceneSearchInteractionData;
-import com.genesys.internal.workspace.model.PhoneCallData;
 import com.genesys.internal.workspace.model.UpdateContactData;
 
 import java.lang.reflect.Type;
@@ -72,17 +69,19 @@ public class UcsApi {
 
     /**
      * Build call for assignInteractionToContact
+     * @param id id of the Interaction (required)
      * @param assignInteractionToContactData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call assignInteractionToContactCall(AssignInteractionToContactData assignInteractionToContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call assignInteractionToContactCall(String id, AssignInteractionToContactData assignInteractionToContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = assignInteractionToContactData;
 
         // create path and map variables
-        String localVarPath = "/ucs/assign-interaction-to-contact";
+        String localVarPath = "/ucs/interactions/{id}/assign-contact"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -120,7 +119,12 @@ public class UcsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call assignInteractionToContactValidateBeforeCall(AssignInteractionToContactData assignInteractionToContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call assignInteractionToContactValidateBeforeCall(String id, AssignInteractionToContactData assignInteractionToContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling assignInteractionToContact(Async)");
+        }
         
         // verify the required parameter 'assignInteractionToContactData' is set
         if (assignInteractionToContactData == null) {
@@ -128,7 +132,7 @@ public class UcsApi {
         }
         
 
-        com.squareup.okhttp.Call call = assignInteractionToContactCall(assignInteractionToContactData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = assignInteractionToContactCall(id, assignInteractionToContactData, progressListener, progressRequestListener);
         return call;
 
     }
@@ -136,24 +140,26 @@ public class UcsApi {
     /**
      * Assign the interaction to a contact
      * 
+     * @param id id of the Interaction (required)
      * @param assignInteractionToContactData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse assignInteractionToContact(AssignInteractionToContactData assignInteractionToContactData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = assignInteractionToContactWithHttpInfo(assignInteractionToContactData);
+    public ApiSuccessResponse assignInteractionToContact(String id, AssignInteractionToContactData assignInteractionToContactData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = assignInteractionToContactWithHttpInfo(id, assignInteractionToContactData);
         return resp.getData();
     }
 
     /**
      * Assign the interaction to a contact
      * 
+     * @param id id of the Interaction (required)
      * @param assignInteractionToContactData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> assignInteractionToContactWithHttpInfo(AssignInteractionToContactData assignInteractionToContactData) throws ApiException {
-        com.squareup.okhttp.Call call = assignInteractionToContactValidateBeforeCall(assignInteractionToContactData, null, null);
+    public ApiResponse<ApiSuccessResponse> assignInteractionToContactWithHttpInfo(String id, AssignInteractionToContactData assignInteractionToContactData) throws ApiException {
+        com.squareup.okhttp.Call call = assignInteractionToContactValidateBeforeCall(id, assignInteractionToContactData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -161,12 +167,13 @@ public class UcsApi {
     /**
      * Assign the interaction to a contact (asynchronously)
      * 
+     * @param id id of the Interaction (required)
      * @param assignInteractionToContactData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call assignInteractionToContactAsync(AssignInteractionToContactData assignInteractionToContactData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call assignInteractionToContactAsync(String id, AssignInteractionToContactData assignInteractionToContactData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -187,23 +194,24 @@ public class UcsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = assignInteractionToContactValidateBeforeCall(assignInteractionToContactData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = assignInteractionToContactValidateBeforeCall(id, assignInteractionToContactData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for createContact
+     * @param createContactData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createContactCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    public com.squareup.okhttp.Call createContactCall(CreateContactData createContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = createContactData;
 
         // create path and map variables
-        String localVarPath = "/ucs/create-contact";
+        String localVarPath = "/ucs/contacts/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -241,10 +249,15 @@ public class UcsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createContactValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createContactValidateBeforeCall(CreateContactData createContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'createContactData' is set
+        if (createContactData == null) {
+            throw new ApiException("Missing the required parameter 'createContactData' when calling createContact(Async)");
+        }
         
 
-        com.squareup.okhttp.Call call = createContactCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createContactCall(createContactData, progressListener, progressRequestListener);
         return call;
 
     }
@@ -252,22 +265,24 @@ public class UcsApi {
     /**
      * Create a new contact
      * 
+     * @param createContactData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse createContact() throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = createContactWithHttpInfo();
+    public ApiSuccessResponse createContact(CreateContactData createContactData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = createContactWithHttpInfo(createContactData);
         return resp.getData();
     }
 
     /**
      * Create a new contact
      * 
+     * @param createContactData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> createContactWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = createContactValidateBeforeCall(null, null);
+    public ApiResponse<ApiSuccessResponse> createContactWithHttpInfo(CreateContactData createContactData) throws ApiException {
+        com.squareup.okhttp.Call call = createContactValidateBeforeCall(createContactData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -275,11 +290,12 @@ public class UcsApi {
     /**
      * Create a new contact (asynchronously)
      * 
+     * @param createContactData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createContactAsync(final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call createContactAsync(CreateContactData createContactData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -300,24 +316,25 @@ public class UcsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createContactValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createContactValidateBeforeCall(createContactData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for deleteContact
-     * @param deleteContactData  (required)
+     * @param id id of the Contact (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteContactCall(DeleteContactData deleteContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = deleteContactData;
+    public com.squareup.okhttp.Call deleteContactCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/ucs/delete-contact";
+        String localVarPath = "/ucs/contacts/{id}/delete"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -355,15 +372,15 @@ public class UcsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteContactValidateBeforeCall(DeleteContactData deleteContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteContactValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'deleteContactData' is set
-        if (deleteContactData == null) {
-            throw new ApiException("Missing the required parameter 'deleteContactData' when calling deleteContact(Async)");
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteContact(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = deleteContactCall(deleteContactData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteContactCall(id, progressListener, progressRequestListener);
         return call;
 
     }
@@ -371,24 +388,24 @@ public class UcsApi {
     /**
      * Delete an existing contact
      * 
-     * @param deleteContactData  (required)
+     * @param id id of the Contact (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse deleteContact(DeleteContactData deleteContactData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = deleteContactWithHttpInfo(deleteContactData);
+    public ApiSuccessResponse deleteContact(String id) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = deleteContactWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
      * Delete an existing contact
      * 
-     * @param deleteContactData  (required)
+     * @param id id of the Contact (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> deleteContactWithHttpInfo(DeleteContactData deleteContactData) throws ApiException {
-        com.squareup.okhttp.Call call = deleteContactValidateBeforeCall(deleteContactData, null, null);
+    public ApiResponse<ApiSuccessResponse> deleteContactWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = deleteContactValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -396,12 +413,12 @@ public class UcsApi {
     /**
      * Delete an existing contact (asynchronously)
      * 
-     * @param deleteContactData  (required)
+     * @param id id of the Contact (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteContactAsync(DeleteContactData deleteContactData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteContactAsync(String id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -422,24 +439,25 @@ public class UcsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteContactValidateBeforeCall(deleteContactData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteContactValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for findOrCreatePhoneCall
-     * @param phoneCallData  (required)
+     * @param id id of the Voice Interaction (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call findOrCreatePhoneCallCall(PhoneCallData phoneCallData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = phoneCallData;
+    public com.squareup.okhttp.Call findOrCreatePhoneCallCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/ucs/find-or-create-phone-call";
+        String localVarPath = "/ucs/voice/{id}/find-or-create"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -477,15 +495,15 @@ public class UcsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call findOrCreatePhoneCallValidateBeforeCall(PhoneCallData phoneCallData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call findOrCreatePhoneCallValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'phoneCallData' is set
-        if (phoneCallData == null) {
-            throw new ApiException("Missing the required parameter 'phoneCallData' when calling findOrCreatePhoneCall(Async)");
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling findOrCreatePhoneCall(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = findOrCreatePhoneCallCall(phoneCallData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = findOrCreatePhoneCallCall(id, progressListener, progressRequestListener);
         return call;
 
     }
@@ -493,24 +511,24 @@ public class UcsApi {
     /**
      * Find or create phone call in UCS
      * 
-     * @param phoneCallData  (required)
+     * @param id id of the Voice Interaction (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse findOrCreatePhoneCall(PhoneCallData phoneCallData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = findOrCreatePhoneCallWithHttpInfo(phoneCallData);
+    public ApiSuccessResponse findOrCreatePhoneCall(String id) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = findOrCreatePhoneCallWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
      * Find or create phone call in UCS
      * 
-     * @param phoneCallData  (required)
+     * @param id id of the Voice Interaction (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> findOrCreatePhoneCallWithHttpInfo(PhoneCallData phoneCallData) throws ApiException {
-        com.squareup.okhttp.Call call = findOrCreatePhoneCallValidateBeforeCall(phoneCallData, null, null);
+    public ApiResponse<ApiSuccessResponse> findOrCreatePhoneCallWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = findOrCreatePhoneCallValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -518,12 +536,12 @@ public class UcsApi {
     /**
      * Find or create phone call in UCS (asynchronously)
      * 
-     * @param phoneCallData  (required)
+     * @param id id of the Voice Interaction (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call findOrCreatePhoneCallAsync(PhoneCallData phoneCallData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call findOrCreatePhoneCallAsync(String id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -544,7 +562,7 @@ public class UcsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = findOrCreatePhoneCallValidateBeforeCall(phoneCallData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = findOrCreatePhoneCallValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -668,17 +686,19 @@ public class UcsApi {
     }
     /**
      * Build call for getContactDetails
+     * @param id id of the Contact (required)
      * @param contactDetailsData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getContactDetailsCall(ContactDetailsData contactDetailsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getContactDetailsCall(String id, ContactDetailsData contactDetailsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = contactDetailsData;
 
         // create path and map variables
-        String localVarPath = "/ucs/get-contact-details";
+        String localVarPath = "/ucs/contacts/{id}/get-details"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -716,7 +736,12 @@ public class UcsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getContactDetailsValidateBeforeCall(ContactDetailsData contactDetailsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getContactDetailsValidateBeforeCall(String id, ContactDetailsData contactDetailsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getContactDetails(Async)");
+        }
         
         // verify the required parameter 'contactDetailsData' is set
         if (contactDetailsData == null) {
@@ -724,7 +749,7 @@ public class UcsApi {
         }
         
 
-        com.squareup.okhttp.Call call = getContactDetailsCall(contactDetailsData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getContactDetailsCall(id, contactDetailsData, progressListener, progressRequestListener);
         return call;
 
     }
@@ -732,24 +757,26 @@ public class UcsApi {
     /**
      * Get the details of a contact
      * 
+     * @param id id of the Contact (required)
      * @param contactDetailsData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse getContactDetails(ContactDetailsData contactDetailsData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = getContactDetailsWithHttpInfo(contactDetailsData);
+    public ApiSuccessResponse getContactDetails(String id, ContactDetailsData contactDetailsData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = getContactDetailsWithHttpInfo(id, contactDetailsData);
         return resp.getData();
     }
 
     /**
      * Get the details of a contact
      * 
+     * @param id id of the Contact (required)
      * @param contactDetailsData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> getContactDetailsWithHttpInfo(ContactDetailsData contactDetailsData) throws ApiException {
-        com.squareup.okhttp.Call call = getContactDetailsValidateBeforeCall(contactDetailsData, null, null);
+    public ApiResponse<ApiSuccessResponse> getContactDetailsWithHttpInfo(String id, ContactDetailsData contactDetailsData) throws ApiException {
+        com.squareup.okhttp.Call call = getContactDetailsValidateBeforeCall(id, contactDetailsData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -757,12 +784,13 @@ public class UcsApi {
     /**
      * Get the details of a contact (asynchronously)
      * 
+     * @param id id of the Contact (required)
      * @param contactDetailsData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getContactDetailsAsync(ContactDetailsData contactDetailsData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getContactDetailsAsync(String id, ContactDetailsData contactDetailsData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -783,24 +811,26 @@ public class UcsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getContactDetailsValidateBeforeCall(contactDetailsData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getContactDetailsValidateBeforeCall(id, contactDetailsData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getContactHistory
+     * @param id id of the Contact (required)
      * @param contactHistoryData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getContactHistoryCall(ContactHistoryData contactHistoryData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getContactHistoryCall(String id, ContactHistoryData contactHistoryData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = contactHistoryData;
 
         // create path and map variables
-        String localVarPath = "/ucs/get-contact-history";
+        String localVarPath = "/ucs/contacts/{id}/get-history"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -838,7 +868,12 @@ public class UcsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getContactHistoryValidateBeforeCall(ContactHistoryData contactHistoryData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getContactHistoryValidateBeforeCall(String id, ContactHistoryData contactHistoryData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getContactHistory(Async)");
+        }
         
         // verify the required parameter 'contactHistoryData' is set
         if (contactHistoryData == null) {
@@ -846,7 +881,7 @@ public class UcsApi {
         }
         
 
-        com.squareup.okhttp.Call call = getContactHistoryCall(contactHistoryData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getContactHistoryCall(id, contactHistoryData, progressListener, progressRequestListener);
         return call;
 
     }
@@ -854,24 +889,26 @@ public class UcsApi {
     /**
      * Get the history of interactions for a contact
      * 
+     * @param id id of the Contact (required)
      * @param contactHistoryData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse getContactHistory(ContactHistoryData contactHistoryData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = getContactHistoryWithHttpInfo(contactHistoryData);
+    public ApiSuccessResponse getContactHistory(String id, ContactHistoryData contactHistoryData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = getContactHistoryWithHttpInfo(id, contactHistoryData);
         return resp.getData();
     }
 
     /**
      * Get the history of interactions for a contact
      * 
+     * @param id id of the Contact (required)
      * @param contactHistoryData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> getContactHistoryWithHttpInfo(ContactHistoryData contactHistoryData) throws ApiException {
-        com.squareup.okhttp.Call call = getContactHistoryValidateBeforeCall(contactHistoryData, null, null);
+    public ApiResponse<ApiSuccessResponse> getContactHistoryWithHttpInfo(String id, ContactHistoryData contactHistoryData) throws ApiException {
+        com.squareup.okhttp.Call call = getContactHistoryValidateBeforeCall(id, contactHistoryData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -879,12 +916,13 @@ public class UcsApi {
     /**
      * Get the history of interactions for a contact (asynchronously)
      * 
+     * @param id id of the Contact (required)
      * @param contactHistoryData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getContactHistoryAsync(ContactHistoryData contactHistoryData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getContactHistoryAsync(String id, ContactHistoryData contactHistoryData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -905,24 +943,25 @@ public class UcsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getContactHistoryValidateBeforeCall(contactHistoryData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getContactHistoryValidateBeforeCall(id, contactHistoryData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for getContacts
-     * @param getContactsData  (required)
+     * Build call for getInteractionDetails
+     * @param id id of the Interaction (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getContactsCall(GetContactsData getContactsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = getContactsData;
+    public com.squareup.okhttp.Call getInteractionDetailsCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/ucs/get-contacts";
+        String localVarPath = "/ucs/interactions/{id}/get-details"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -960,53 +999,53 @@ public class UcsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getContactsValidateBeforeCall(GetContactsData getContactsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getInteractionDetailsValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'getContactsData' is set
-        if (getContactsData == null) {
-            throw new ApiException("Missing the required parameter 'getContactsData' when calling getContacts(Async)");
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getInteractionDetails(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = getContactsCall(getContactsData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getInteractionDetailsCall(id, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
-     * Get contacts based on search criteria.
+     * Get the content of the interaction
      * 
-     * @param getContactsData  (required)
+     * @param id id of the Interaction (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse getContacts(GetContactsData getContactsData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = getContactsWithHttpInfo(getContactsData);
+    public ApiSuccessResponse getInteractionDetails(String id) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = getInteractionDetailsWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
-     * Get contacts based on search criteria.
+     * Get the content of the interaction
      * 
-     * @param getContactsData  (required)
+     * @param id id of the Interaction (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> getContactsWithHttpInfo(GetContactsData getContactsData) throws ApiException {
-        com.squareup.okhttp.Call call = getContactsValidateBeforeCall(getContactsData, null, null);
+    public ApiResponse<ApiSuccessResponse> getInteractionDetailsWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = getInteractionDetailsValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get contacts based on search criteria. (asynchronously)
+     * Get the content of the interaction (asynchronously)
      * 
-     * @param getContactsData  (required)
+     * @param id id of the Interaction (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getContactsAsync(GetContactsData getContactsData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getInteractionDetailsAsync(String id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1027,23 +1066,23 @@ public class UcsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getContactsValidateBeforeCall(getContactsData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getInteractionDetailsValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for getIndexProperties
+     * Build call for getLuceneIndexes
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getIndexPropertiesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getLuceneIndexesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/ucs/get-index-properties";
+        String localVarPath = "/ucs/get-lucene-indexes";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1081,10 +1120,10 @@ public class UcsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getIndexPropertiesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getLuceneIndexesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getIndexPropertiesCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getLuceneIndexesCall(progressListener, progressRequestListener);
         return call;
 
     }
@@ -1095,8 +1134,8 @@ public class UcsApi {
      * @return ConfigResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ConfigResponse getIndexProperties() throws ApiException {
-        ApiResponse<ConfigResponse> resp = getIndexPropertiesWithHttpInfo();
+    public ConfigResponse getLuceneIndexes() throws ApiException {
+        ApiResponse<ConfigResponse> resp = getLuceneIndexesWithHttpInfo();
         return resp.getData();
     }
 
@@ -1106,8 +1145,8 @@ public class UcsApi {
      * @return ApiResponse&lt;ConfigResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ConfigResponse> getIndexPropertiesWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getIndexPropertiesValidateBeforeCall(null, null);
+    public ApiResponse<ConfigResponse> getLuceneIndexesWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getLuceneIndexesValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<ConfigResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1119,7 +1158,7 @@ public class UcsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getIndexPropertiesAsync(final ApiCallback<ConfigResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getLuceneIndexesAsync(final ApiCallback<ConfigResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1140,146 +1179,26 @@ public class UcsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getIndexPropertiesValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getLuceneIndexesValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConfigResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for getInteractionContent
-     * @param interactionContentData  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call getInteractionContentCall(InteractionContentData interactionContentData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = interactionContentData;
-
-        // create path and map variables
-        String localVarPath = "/ucs/get-interaction-content";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getInteractionContentValidateBeforeCall(InteractionContentData interactionContentData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'interactionContentData' is set
-        if (interactionContentData == null) {
-            throw new ApiException("Missing the required parameter 'interactionContentData' when calling getInteractionContent(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = getInteractionContentCall(interactionContentData, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Get the content of the interaction
-     * 
-     * @param interactionContentData  (required)
-     * @return ApiSuccessResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiSuccessResponse getInteractionContent(InteractionContentData interactionContentData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = getInteractionContentWithHttpInfo(interactionContentData);
-        return resp.getData();
-    }
-
-    /**
-     * Get the content of the interaction
-     * 
-     * @param interactionContentData  (required)
-     * @return ApiResponse&lt;ApiSuccessResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ApiSuccessResponse> getInteractionContentWithHttpInfo(InteractionContentData interactionContentData) throws ApiException {
-        com.squareup.okhttp.Call call = getInteractionContentValidateBeforeCall(interactionContentData, null, null);
-        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Get the content of the interaction (asynchronously)
-     * 
-     * @param interactionContentData  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getInteractionContentAsync(InteractionContentData interactionContentData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getInteractionContentValidateBeforeCall(interactionContentData, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for identifyContact
+     * @param id id of the Interaction (required)
      * @param identifyContactData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call identifyContactCall(IdentifyContactData identifyContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call identifyContactCall(String id, IdentifyContactData identifyContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = identifyContactData;
 
         // create path and map variables
-        String localVarPath = "/ucs/identify-contact";
+        String localVarPath = "/ucs/interactions/{id}/identify-contact"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1317,7 +1236,12 @@ public class UcsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call identifyContactValidateBeforeCall(IdentifyContactData identifyContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call identifyContactValidateBeforeCall(String id, IdentifyContactData identifyContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling identifyContact(Async)");
+        }
         
         // verify the required parameter 'identifyContactData' is set
         if (identifyContactData == null) {
@@ -1325,7 +1249,7 @@ public class UcsApi {
         }
         
 
-        com.squareup.okhttp.Call call = identifyContactCall(identifyContactData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = identifyContactCall(id, identifyContactData, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1333,24 +1257,26 @@ public class UcsApi {
     /**
      * Identify the contact for the interaction
      * 
+     * @param id id of the Interaction (required)
      * @param identifyContactData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse identifyContact(IdentifyContactData identifyContactData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = identifyContactWithHttpInfo(identifyContactData);
+    public ApiSuccessResponse identifyContact(String id, IdentifyContactData identifyContactData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = identifyContactWithHttpInfo(id, identifyContactData);
         return resp.getData();
     }
 
     /**
      * Identify the contact for the interaction
      * 
+     * @param id id of the Interaction (required)
      * @param identifyContactData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> identifyContactWithHttpInfo(IdentifyContactData identifyContactData) throws ApiException {
-        com.squareup.okhttp.Call call = identifyContactValidateBeforeCall(identifyContactData, null, null);
+    public ApiResponse<ApiSuccessResponse> identifyContactWithHttpInfo(String id, IdentifyContactData identifyContactData) throws ApiException {
+        com.squareup.okhttp.Call call = identifyContactValidateBeforeCall(id, identifyContactData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1358,12 +1284,13 @@ public class UcsApi {
     /**
      * Identify the contact for the interaction (asynchronously)
      * 
+     * @param id id of the Interaction (required)
      * @param identifyContactData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call identifyContactAsync(IdentifyContactData identifyContactData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call identifyContactAsync(String id, IdentifyContactData identifyContactData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1384,24 +1311,24 @@ public class UcsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = identifyContactValidateBeforeCall(identifyContactData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = identifyContactValidateBeforeCall(id, identifyContactData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for luceneSearch
+     * Build call for searchContacts
      * @param luceneSearchData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call luceneSearchCall(LuceneSearchData luceneSearchData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call searchContactsCall(LuceneSearchData luceneSearchData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = luceneSearchData;
 
         // create path and map variables
-        String localVarPath = "/ucs/lucene-search";
+        String localVarPath = "/ucs/contacts/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1439,53 +1366,53 @@ public class UcsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call luceneSearchValidateBeforeCall(LuceneSearchData luceneSearchData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call searchContactsValidateBeforeCall(LuceneSearchData luceneSearchData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'luceneSearchData' is set
         if (luceneSearchData == null) {
-            throw new ApiException("Missing the required parameter 'luceneSearchData' when calling luceneSearch(Async)");
+            throw new ApiException("Missing the required parameter 'luceneSearchData' when calling searchContacts(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = luceneSearchCall(luceneSearchData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = searchContactsCall(luceneSearchData, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
-     * Search for contacts based on search query, using lucene search
+     * Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene
      * 
      * @param luceneSearchData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse luceneSearch(LuceneSearchData luceneSearchData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = luceneSearchWithHttpInfo(luceneSearchData);
+    public ApiSuccessResponse searchContacts(LuceneSearchData luceneSearchData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = searchContactsWithHttpInfo(luceneSearchData);
         return resp.getData();
     }
 
     /**
-     * Search for contacts based on search query, using lucene search
+     * Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene
      * 
      * @param luceneSearchData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> luceneSearchWithHttpInfo(LuceneSearchData luceneSearchData) throws ApiException {
-        com.squareup.okhttp.Call call = luceneSearchValidateBeforeCall(luceneSearchData, null, null);
+    public ApiResponse<ApiSuccessResponse> searchContactsWithHttpInfo(LuceneSearchData luceneSearchData) throws ApiException {
+        com.squareup.okhttp.Call call = searchContactsValidateBeforeCall(luceneSearchData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Search for contacts based on search query, using lucene search (asynchronously)
+     * Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene (asynchronously)
      * 
      * @param luceneSearchData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call luceneSearchAsync(LuceneSearchData luceneSearchData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call searchContactsAsync(LuceneSearchData luceneSearchData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1506,24 +1433,24 @@ public class UcsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = luceneSearchValidateBeforeCall(luceneSearchData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = searchContactsValidateBeforeCall(luceneSearchData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for luceneSearchInteraction
+     * Build call for searchInteractions
      * @param luceneSearchInteractionData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call luceneSearchInteractionCall(LuceneSearchInteractionData luceneSearchInteractionData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call searchInteractionsCall(LuceneSearchInteractionData luceneSearchInteractionData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = luceneSearchInteractionData;
 
         // create path and map variables
-        String localVarPath = "/ucs/lucene-search-interaction";
+        String localVarPath = "/ucs/ixn/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1561,15 +1488,15 @@ public class UcsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call luceneSearchInteractionValidateBeforeCall(LuceneSearchInteractionData luceneSearchInteractionData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call searchInteractionsValidateBeforeCall(LuceneSearchInteractionData luceneSearchInteractionData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'luceneSearchInteractionData' is set
         if (luceneSearchInteractionData == null) {
-            throw new ApiException("Missing the required parameter 'luceneSearchInteractionData' when calling luceneSearchInteraction(Async)");
+            throw new ApiException("Missing the required parameter 'luceneSearchInteractionData' when calling searchInteractions(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = luceneSearchInteractionCall(luceneSearchInteractionData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = searchInteractionsCall(luceneSearchInteractionData, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1581,8 +1508,8 @@ public class UcsApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse luceneSearchInteraction(LuceneSearchInteractionData luceneSearchInteractionData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = luceneSearchInteractionWithHttpInfo(luceneSearchInteractionData);
+    public ApiSuccessResponse searchInteractions(LuceneSearchInteractionData luceneSearchInteractionData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = searchInteractionsWithHttpInfo(luceneSearchInteractionData);
         return resp.getData();
     }
 
@@ -1593,8 +1520,8 @@ public class UcsApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> luceneSearchInteractionWithHttpInfo(LuceneSearchInteractionData luceneSearchInteractionData) throws ApiException {
-        com.squareup.okhttp.Call call = luceneSearchInteractionValidateBeforeCall(luceneSearchInteractionData, null, null);
+    public ApiResponse<ApiSuccessResponse> searchInteractionsWithHttpInfo(LuceneSearchInteractionData luceneSearchInteractionData) throws ApiException {
+        com.squareup.okhttp.Call call = searchInteractionsValidateBeforeCall(luceneSearchInteractionData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1607,7 +1534,7 @@ public class UcsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call luceneSearchInteractionAsync(LuceneSearchInteractionData luceneSearchInteractionData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call searchInteractionsAsync(LuceneSearchInteractionData luceneSearchInteractionData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1628,24 +1555,26 @@ public class UcsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = luceneSearchInteractionValidateBeforeCall(luceneSearchInteractionData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = searchInteractionsValidateBeforeCall(luceneSearchInteractionData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for setCallCompleted
+     * @param id id of the Interaction (required)
      * @param callCompletedData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call setCallCompletedCall(CallCompletedData callCompletedData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call setCallCompletedCall(String id, CallCompletedData callCompletedData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = callCompletedData;
 
         // create path and map variables
-        String localVarPath = "/ucs/set-call-completed";
+        String localVarPath = "/ucs/interactions/{id}/set-completed"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1683,7 +1612,12 @@ public class UcsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call setCallCompletedValidateBeforeCall(CallCompletedData callCompletedData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call setCallCompletedValidateBeforeCall(String id, CallCompletedData callCompletedData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling setCallCompleted(Async)");
+        }
         
         // verify the required parameter 'callCompletedData' is set
         if (callCompletedData == null) {
@@ -1691,7 +1625,7 @@ public class UcsApi {
         }
         
 
-        com.squareup.okhttp.Call call = setCallCompletedCall(callCompletedData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = setCallCompletedCall(id, callCompletedData, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1699,24 +1633,26 @@ public class UcsApi {
     /**
      * Set the call as being completed
      * 
+     * @param id id of the Interaction (required)
      * @param callCompletedData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse setCallCompleted(CallCompletedData callCompletedData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = setCallCompletedWithHttpInfo(callCompletedData);
+    public ApiSuccessResponse setCallCompleted(String id, CallCompletedData callCompletedData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = setCallCompletedWithHttpInfo(id, callCompletedData);
         return resp.getData();
     }
 
     /**
      * Set the call as being completed
      * 
+     * @param id id of the Interaction (required)
      * @param callCompletedData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> setCallCompletedWithHttpInfo(CallCompletedData callCompletedData) throws ApiException {
-        com.squareup.okhttp.Call call = setCallCompletedValidateBeforeCall(callCompletedData, null, null);
+    public ApiResponse<ApiSuccessResponse> setCallCompletedWithHttpInfo(String id, CallCompletedData callCompletedData) throws ApiException {
+        com.squareup.okhttp.Call call = setCallCompletedValidateBeforeCall(id, callCompletedData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1724,12 +1660,13 @@ public class UcsApi {
     /**
      * Set the call as being completed (asynchronously)
      * 
+     * @param id id of the Interaction (required)
      * @param callCompletedData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call setCallCompletedAsync(CallCompletedData callCompletedData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call setCallCompletedAsync(String id, CallCompletedData callCompletedData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1750,24 +1687,26 @@ public class UcsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = setCallCompletedValidateBeforeCall(callCompletedData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = setCallCompletedValidateBeforeCall(id, callCompletedData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for setCallNote
+     * @param id id of the Interaction (required)
      * @param callNoteData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call setCallNoteCall(CallNoteData callNoteData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call setCallNoteCall(String id, CallNoteData callNoteData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = callNoteData;
 
         // create path and map variables
-        String localVarPath = "/ucs/set-call-note";
+        String localVarPath = "/ucs/interactions/{id}/set-note"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1805,7 +1744,12 @@ public class UcsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call setCallNoteValidateBeforeCall(CallNoteData callNoteData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call setCallNoteValidateBeforeCall(String id, CallNoteData callNoteData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling setCallNote(Async)");
+        }
         
         // verify the required parameter 'callNoteData' is set
         if (callNoteData == null) {
@@ -1813,7 +1757,7 @@ public class UcsApi {
         }
         
 
-        com.squareup.okhttp.Call call = setCallNoteCall(callNoteData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = setCallNoteCall(id, callNoteData, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1821,24 +1765,26 @@ public class UcsApi {
     /**
      * Set the note for the call
      * 
+     * @param id id of the Interaction (required)
      * @param callNoteData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse setCallNote(CallNoteData callNoteData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = setCallNoteWithHttpInfo(callNoteData);
+    public ApiSuccessResponse setCallNote(String id, CallNoteData callNoteData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = setCallNoteWithHttpInfo(id, callNoteData);
         return resp.getData();
     }
 
     /**
      * Set the note for the call
      * 
+     * @param id id of the Interaction (required)
      * @param callNoteData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> setCallNoteWithHttpInfo(CallNoteData callNoteData) throws ApiException {
-        com.squareup.okhttp.Call call = setCallNoteValidateBeforeCall(callNoteData, null, null);
+    public ApiResponse<ApiSuccessResponse> setCallNoteWithHttpInfo(String id, CallNoteData callNoteData) throws ApiException {
+        com.squareup.okhttp.Call call = setCallNoteValidateBeforeCall(id, callNoteData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1846,12 +1792,13 @@ public class UcsApi {
     /**
      * Set the note for the call (asynchronously)
      * 
+     * @param id id of the Interaction (required)
      * @param callNoteData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call setCallNoteAsync(CallNoteData callNoteData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call setCallNoteAsync(String id, CallNoteData callNoteData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1872,24 +1819,26 @@ public class UcsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = setCallNoteValidateBeforeCall(callNoteData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = setCallNoteValidateBeforeCall(id, callNoteData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for updateContact
+     * @param id id of the Contact (required)
      * @param updateContactData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateContactCall(UpdateContactData updateContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateContactCall(String id, UpdateContactData updateContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = updateContactData;
 
         // create path and map variables
-        String localVarPath = "/ucs/update-contact";
+        String localVarPath = "/ucs/contacts/{id}/update"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1927,7 +1876,12 @@ public class UcsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateContactValidateBeforeCall(UpdateContactData updateContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateContactValidateBeforeCall(String id, UpdateContactData updateContactData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling updateContact(Async)");
+        }
         
         // verify the required parameter 'updateContactData' is set
         if (updateContactData == null) {
@@ -1935,7 +1889,7 @@ public class UcsApi {
         }
         
 
-        com.squareup.okhttp.Call call = updateContactCall(updateContactData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateContactCall(id, updateContactData, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1943,24 +1897,26 @@ public class UcsApi {
     /**
      * Update attributes of an existing contact
      * 
+     * @param id id of the Contact (required)
      * @param updateContactData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse updateContact(UpdateContactData updateContactData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = updateContactWithHttpInfo(updateContactData);
+    public ApiSuccessResponse updateContact(String id, UpdateContactData updateContactData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = updateContactWithHttpInfo(id, updateContactData);
         return resp.getData();
     }
 
     /**
      * Update attributes of an existing contact
      * 
+     * @param id id of the Contact (required)
      * @param updateContactData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> updateContactWithHttpInfo(UpdateContactData updateContactData) throws ApiException {
-        com.squareup.okhttp.Call call = updateContactValidateBeforeCall(updateContactData, null, null);
+    public ApiResponse<ApiSuccessResponse> updateContactWithHttpInfo(String id, UpdateContactData updateContactData) throws ApiException {
+        com.squareup.okhttp.Call call = updateContactValidateBeforeCall(id, updateContactData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1968,12 +1924,13 @@ public class UcsApi {
     /**
      * Update attributes of an existing contact (asynchronously)
      * 
+     * @param id id of the Contact (required)
      * @param updateContactData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateContactAsync(UpdateContactData updateContactData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateContactAsync(String id, UpdateContactData updateContactData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1994,7 +1951,7 @@ public class UcsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateContactValidateBeforeCall(updateContactData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateContactValidateBeforeCall(id, updateContactData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

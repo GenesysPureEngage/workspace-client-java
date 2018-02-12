@@ -31,7 +31,8 @@ import com.genesys.internal.workspace.model.ApiErrorResponse;
 import com.genesys.internal.workspace.model.ApiSuccessResponse;
 import com.genesys.internal.workspace.model.GetCategoryData;
 import com.genesys.internal.workspace.model.GetStandardResponseData;
-import com.genesys.internal.workspace.model.RenderFieldCodesData;
+import com.genesys.internal.workspace.model.RenderStandardResponseFieldCodesData;
+import com.genesys.internal.workspace.model.ReportStandareResponseUsageData;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -182,6 +183,119 @@ public class StandardResponsesApi {
         return call;
     }
     /**
+     * Build call for deleteAllStandardResponseFavorites
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteAllStandardResponseFavoritesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/ucs/responses/remove-all-favorites";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteAllStandardResponseFavoritesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = deleteAllStandardResponseFavoritesCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Remove all Standard Response Favorites
+     * 
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse deleteAllStandardResponseFavorites() throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = deleteAllStandardResponseFavoritesWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Remove all Standard Response Favorites
+     * 
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> deleteAllStandardResponseFavoritesWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = deleteAllStandardResponseFavoritesValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Remove all Standard Response Favorites (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteAllStandardResponseFavoritesAsync(final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteAllStandardResponseFavoritesValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for deleteStandardResponseFavorite
      * @param id id of the Standard Response to remove from Favorites (required)
      * @param progressListener Progress listener
@@ -305,7 +419,7 @@ public class StandardResponsesApi {
         return call;
     }
     /**
-     * Build call for getCategory
+     * Build call for getCategoryDetails
      * @param id id of the Category (required)
      * @param getCategoryData  (required)
      * @param progressListener Progress listener
@@ -313,7 +427,7 @@ public class StandardResponsesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getCategoryCall(String id, GetCategoryData getCategoryData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getCategoryDetailsCall(String id, GetCategoryData getCategoryData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = getCategoryData;
 
         // create path and map variables
@@ -356,20 +470,20 @@ public class StandardResponsesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getCategoryValidateBeforeCall(String id, GetCategoryData getCategoryData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getCategoryDetailsValidateBeforeCall(String id, GetCategoryData getCategoryData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling getCategory(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling getCategoryDetails(Async)");
         }
         
         // verify the required parameter 'getCategoryData' is set
         if (getCategoryData == null) {
-            throw new ApiException("Missing the required parameter 'getCategoryData' when calling getCategory(Async)");
+            throw new ApiException("Missing the required parameter 'getCategoryData' when calling getCategoryDetails(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = getCategoryCall(id, getCategoryData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getCategoryDetailsCall(id, getCategoryData, progressListener, progressRequestListener);
         return call;
 
     }
@@ -382,8 +496,8 @@ public class StandardResponsesApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse getCategory(String id, GetCategoryData getCategoryData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = getCategoryWithHttpInfo(id, getCategoryData);
+    public ApiSuccessResponse getCategoryDetails(String id, GetCategoryData getCategoryData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = getCategoryDetailsWithHttpInfo(id, getCategoryData);
         return resp.getData();
     }
 
@@ -395,8 +509,8 @@ public class StandardResponsesApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> getCategoryWithHttpInfo(String id, GetCategoryData getCategoryData) throws ApiException {
-        com.squareup.okhttp.Call call = getCategoryValidateBeforeCall(id, getCategoryData, null, null);
+    public ApiResponse<ApiSuccessResponse> getCategoryDetailsWithHttpInfo(String id, GetCategoryData getCategoryData) throws ApiException {
+        com.squareup.okhttp.Call call = getCategoryDetailsValidateBeforeCall(id, getCategoryData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -410,7 +524,7 @@ public class StandardResponsesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getCategoryAsync(String id, GetCategoryData getCategoryData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getCategoryDetailsAsync(String id, GetCategoryData getCategoryData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -431,7 +545,7 @@ public class StandardResponsesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getCategoryValidateBeforeCall(id, getCategoryData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getCategoryDetailsValidateBeforeCall(id, getCategoryData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -928,16 +1042,16 @@ public class StandardResponsesApi {
         return call;
     }
     /**
-     * Build call for renderFieldCodes
+     * Build call for renderStandardResponseFieldCodes
      * @param id id of the Standard Response (required)
-     * @param renderFieldCodesData  (required)
+     * @param renderStandardResponseFieldCodesData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call renderFieldCodesCall(String id, RenderFieldCodesData renderFieldCodesData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = renderFieldCodesData;
+    public com.squareup.okhttp.Call renderStandardResponseFieldCodesCall(String id, RenderStandardResponseFieldCodesData renderStandardResponseFieldCodesData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = renderStandardResponseFieldCodesData;
 
         // create path and map variables
         String localVarPath = "/ucs/responses/{id}/render-field-codes"
@@ -979,20 +1093,20 @@ public class StandardResponsesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call renderFieldCodesValidateBeforeCall(String id, RenderFieldCodesData renderFieldCodesData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call renderStandardResponseFieldCodesValidateBeforeCall(String id, RenderStandardResponseFieldCodesData renderStandardResponseFieldCodesData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling renderFieldCodes(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling renderStandardResponseFieldCodes(Async)");
         }
         
-        // verify the required parameter 'renderFieldCodesData' is set
-        if (renderFieldCodesData == null) {
-            throw new ApiException("Missing the required parameter 'renderFieldCodesData' when calling renderFieldCodes(Async)");
+        // verify the required parameter 'renderStandardResponseFieldCodesData' is set
+        if (renderStandardResponseFieldCodesData == null) {
+            throw new ApiException("Missing the required parameter 'renderStandardResponseFieldCodesData' when calling renderStandardResponseFieldCodes(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = renderFieldCodesCall(id, renderFieldCodesData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = renderStandardResponseFieldCodesCall(id, renderStandardResponseFieldCodesData, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1001,12 +1115,12 @@ public class StandardResponsesApi {
      * Replaces generic field codes of the Standard Response content with their actual values.
      * 
      * @param id id of the Standard Response (required)
-     * @param renderFieldCodesData  (required)
+     * @param renderStandardResponseFieldCodesData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse renderFieldCodes(String id, RenderFieldCodesData renderFieldCodesData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = renderFieldCodesWithHttpInfo(id, renderFieldCodesData);
+    public ApiSuccessResponse renderStandardResponseFieldCodes(String id, RenderStandardResponseFieldCodesData renderStandardResponseFieldCodesData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = renderStandardResponseFieldCodesWithHttpInfo(id, renderStandardResponseFieldCodesData);
         return resp.getData();
     }
 
@@ -1014,12 +1128,12 @@ public class StandardResponsesApi {
      * Replaces generic field codes of the Standard Response content with their actual values.
      * 
      * @param id id of the Standard Response (required)
-     * @param renderFieldCodesData  (required)
+     * @param renderStandardResponseFieldCodesData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> renderFieldCodesWithHttpInfo(String id, RenderFieldCodesData renderFieldCodesData) throws ApiException {
-        com.squareup.okhttp.Call call = renderFieldCodesValidateBeforeCall(id, renderFieldCodesData, null, null);
+    public ApiResponse<ApiSuccessResponse> renderStandardResponseFieldCodesWithHttpInfo(String id, RenderStandardResponseFieldCodesData renderStandardResponseFieldCodesData) throws ApiException {
+        com.squareup.okhttp.Call call = renderStandardResponseFieldCodesValidateBeforeCall(id, renderStandardResponseFieldCodesData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1028,12 +1142,12 @@ public class StandardResponsesApi {
      * Replaces generic field codes of the Standard Response content with their actual values. (asynchronously)
      * 
      * @param id id of the Standard Response (required)
-     * @param renderFieldCodesData  (required)
+     * @param renderStandardResponseFieldCodesData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call renderFieldCodesAsync(String id, RenderFieldCodesData renderFieldCodesData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call renderStandardResponseFieldCodesAsync(String id, RenderStandardResponseFieldCodesData renderStandardResponseFieldCodesData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1054,7 +1168,139 @@ public class StandardResponsesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = renderFieldCodesValidateBeforeCall(id, renderFieldCodesData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = renderStandardResponseFieldCodesValidateBeforeCall(id, renderStandardResponseFieldCodesData, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for reportStandareResponseUsage
+     * @param id id of the Standard Response (required)
+     * @param reportStandareResponseUsageData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reportStandareResponseUsageCall(String id, ReportStandareResponseUsageData reportStandareResponseUsageData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = reportStandareResponseUsageData;
+
+        // create path and map variables
+        String localVarPath = "/ucs/responses/{id}/report-usage"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reportStandareResponseUsageValidateBeforeCall(String id, ReportStandareResponseUsageData reportStandareResponseUsageData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling reportStandareResponseUsage(Async)");
+        }
+        
+        // verify the required parameter 'reportStandareResponseUsageData' is set
+        if (reportStandareResponseUsageData == null) {
+            throw new ApiException("Missing the required parameter 'reportStandareResponseUsageData' when calling reportStandareResponseUsage(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = reportStandareResponseUsageCall(id, reportStandareResponseUsageData, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Specifies Usage of a Standard Response for an interaction.
+     * 
+     * @param id id of the Standard Response (required)
+     * @param reportStandareResponseUsageData  (required)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse reportStandareResponseUsage(String id, ReportStandareResponseUsageData reportStandareResponseUsageData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = reportStandareResponseUsageWithHttpInfo(id, reportStandareResponseUsageData);
+        return resp.getData();
+    }
+
+    /**
+     * Specifies Usage of a Standard Response for an interaction.
+     * 
+     * @param id id of the Standard Response (required)
+     * @param reportStandareResponseUsageData  (required)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> reportStandareResponseUsageWithHttpInfo(String id, ReportStandareResponseUsageData reportStandareResponseUsageData) throws ApiException {
+        com.squareup.okhttp.Call call = reportStandareResponseUsageValidateBeforeCall(id, reportStandareResponseUsageData, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Specifies Usage of a Standard Response for an interaction. (asynchronously)
+     * 
+     * @param id id of the Standard Response (required)
+     * @param reportStandareResponseUsageData  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reportStandareResponseUsageAsync(String id, ReportStandareResponseUsageData reportStandareResponseUsageData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reportStandareResponseUsageValidateBeforeCall(id, reportStandareResponseUsageData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

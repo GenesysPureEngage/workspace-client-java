@@ -14,6 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
+import com.genesys.internal.workspace.model.UcsresponsesidrenderfieldcodesData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,29 +25,29 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UcsdeletecontactData
+ * RenderStandardResponseFieldCodesData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
-public class UcsdeletecontactData {
-  @SerializedName("contactId")
-  private String contactId = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
+public class RenderStandardResponseFieldCodesData {
+  @SerializedName("data")
+  private UcsresponsesidrenderfieldcodesData data = null;
 
-  public UcsdeletecontactData contactId(String contactId) {
-    this.contactId = contactId;
+  public RenderStandardResponseFieldCodesData data(UcsresponsesidrenderfieldcodesData data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * The id of the contact to be deleted
-   * @return contactId
+   * Get data
+   * @return data
   **/
-  @ApiModelProperty(required = true, value = "The id of the contact to be deleted")
-  public String getContactId() {
-    return contactId;
+  @ApiModelProperty(required = true, value = "")
+  public UcsresponsesidrenderfieldcodesData getData() {
+    return data;
   }
 
-  public void setContactId(String contactId) {
-    this.contactId = contactId;
+  public void setData(UcsresponsesidrenderfieldcodesData data) {
+    this.data = data;
   }
 
 
@@ -58,22 +59,22 @@ public class UcsdeletecontactData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UcsdeletecontactData ucsdeletecontactData = (UcsdeletecontactData) o;
-    return Objects.equals(this.contactId, ucsdeletecontactData.contactId);
+    RenderStandardResponseFieldCodesData renderStandardResponseFieldCodesData = (RenderStandardResponseFieldCodesData) o;
+    return Objects.equals(this.data, renderStandardResponseFieldCodesData.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contactId);
+    return Objects.hash(data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UcsdeletecontactData {\n");
+    sb.append("class RenderStandardResponseFieldCodesData {\n");
     
-    sb.append("    contactId: ").append(toIndentedString(contactId)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

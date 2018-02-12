@@ -24,35 +24,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UcsassigninteractiontocontactData
+ * UcsinteractionsidassigncontactData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
-public class UcsassigninteractiontocontactData {
-  @SerializedName("interactionId")
-  private String interactionId = null;
-
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
+public class UcsinteractionsidassigncontactData {
   @SerializedName("contactId")
   private String contactId = null;
 
-  public UcsassigninteractiontocontactData interactionId(String interactionId) {
-    this.interactionId = interactionId;
-    return this;
-  }
-
-   /**
-   * The id of the interaction
-   * @return interactionId
-  **/
-  @ApiModelProperty(required = true, value = "The id of the interaction")
-  public String getInteractionId() {
-    return interactionId;
-  }
-
-  public void setInteractionId(String interactionId) {
-    this.interactionId = interactionId;
-  }
-
-  public UcsassigninteractiontocontactData contactId(String contactId) {
+  public UcsinteractionsidassigncontactData contactId(String contactId) {
     this.contactId = contactId;
     return this;
   }
@@ -79,23 +58,21 @@ public class UcsassigninteractiontocontactData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UcsassigninteractiontocontactData ucsassigninteractiontocontactData = (UcsassigninteractiontocontactData) o;
-    return Objects.equals(this.interactionId, ucsassigninteractiontocontactData.interactionId) &&
-        Objects.equals(this.contactId, ucsassigninteractiontocontactData.contactId);
+    UcsinteractionsidassigncontactData ucsinteractionsidassigncontactData = (UcsinteractionsidassigncontactData) o;
+    return Objects.equals(this.contactId, ucsinteractionsidassigncontactData.contactId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(interactionId, contactId);
+    return Objects.hash(contactId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UcsassigninteractiontocontactData {\n");
+    sb.append("class UcsinteractionsidassigncontactData {\n");
     
-    sb.append("    interactionId: ").append(toIndentedString(interactionId)).append("\n");
     sb.append("    contactId: ").append(toIndentedString(contactId)).append("\n");
     sb.append("}");
     return sb.toString();

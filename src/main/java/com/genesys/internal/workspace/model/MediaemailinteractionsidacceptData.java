@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * MediaemailinteractionsidacceptData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
 public class MediaemailinteractionsidacceptData {
   @SerializedName("useReviewer")
   private Boolean useReviewer = null;
@@ -43,10 +43,10 @@ public class MediaemailinteractionsidacceptData {
   }
 
    /**
-   * Blalala
+   * Indicate the agent is reviewer.
    * @return useReviewer
   **/
-  @ApiModelProperty(value = "Blalala")
+  @ApiModelProperty(value = "Indicate the agent is reviewer.")
   public Boolean isUseReviewer() {
     return useReviewer;
   }

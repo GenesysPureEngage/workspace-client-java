@@ -26,23 +26,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * UcslucenesearchinteractionData
+ * UcsixnsearchData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
-public class UcslucenesearchinteractionData {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
+public class UcsixnsearchData {
   @SerializedName("maxResults")
   private Integer maxResults = null;
 
-  @SerializedName("searchMyHistory")
-  private Boolean searchMyHistory = null;
+  @SerializedName("owner")
+  private List<String> owner = null;
 
   @SerializedName("query")
   private String query = null;
 
-  @SerializedName("contactAttributes")
-  private List<String> contactAttributes = null;
+  @SerializedName("returnedAttributes")
+  private List<String> returnedAttributes = null;
 
-  public UcslucenesearchinteractionData maxResults(Integer maxResults) {
+  public UcsixnsearchData maxResults(Integer maxResults) {
     this.maxResults = maxResults;
     return this;
   }
@@ -60,25 +60,33 @@ public class UcslucenesearchinteractionData {
     this.maxResults = maxResults;
   }
 
-  public UcslucenesearchinteractionData searchMyHistory(Boolean searchMyHistory) {
-    this.searchMyHistory = searchMyHistory;
+  public UcsixnsearchData owner(List<String> owner) {
+    this.owner = owner;
+    return this;
+  }
+
+  public UcsixnsearchData addOwnerItem(String ownerItem) {
+    if (this.owner == null) {
+      this.owner = new ArrayList<String>();
+    }
+    this.owner.add(ownerItem);
     return this;
   }
 
    /**
-   * Indicates if the search is performed among the history of interactions of the logged in agent
-   * @return searchMyHistory
+   * The list of agent username for which the search refers to. 
+   * @return owner
   **/
-  @ApiModelProperty(value = "Indicates if the search is performed among the history of interactions of the logged in agent")
-  public Boolean isSearchMyHistory() {
-    return searchMyHistory;
+  @ApiModelProperty(value = "The list of agent username for which the search refers to. ")
+  public List<String> getOwner() {
+    return owner;
   }
 
-  public void setSearchMyHistory(Boolean searchMyHistory) {
-    this.searchMyHistory = searchMyHistory;
+  public void setOwner(List<String> owner) {
+    this.owner = owner;
   }
 
-  public UcslucenesearchinteractionData query(String query) {
+  public UcsixnsearchData query(String query) {
     this.query = query;
     return this;
   }
@@ -87,7 +95,7 @@ public class UcslucenesearchinteractionData {
    * The query to do the lucene search for contacts
    * @return query
   **/
-  @ApiModelProperty(required = true, value = "The query to do the lucene search for contacts")
+  @ApiModelProperty(value = "The query to do the lucene search for contacts")
   public String getQuery() {
     return query;
   }
@@ -96,30 +104,30 @@ public class UcslucenesearchinteractionData {
     this.query = query;
   }
 
-  public UcslucenesearchinteractionData contactAttributes(List<String> contactAttributes) {
-    this.contactAttributes = contactAttributes;
+  public UcsixnsearchData returnedAttributes(List<String> returnedAttributes) {
+    this.returnedAttributes = returnedAttributes;
     return this;
   }
 
-  public UcslucenesearchinteractionData addContactAttributesItem(String contactAttributesItem) {
-    if (this.contactAttributes == null) {
-      this.contactAttributes = new ArrayList<String>();
+  public UcsixnsearchData addReturnedAttributesItem(String returnedAttributesItem) {
+    if (this.returnedAttributes == null) {
+      this.returnedAttributes = new ArrayList<String>();
     }
-    this.contactAttributes.add(contactAttributesItem);
+    this.returnedAttributes.add(returnedAttributesItem);
     return this;
   }
 
    /**
    * The list of contact attributes to be returned for each contact in response
-   * @return contactAttributes
+   * @return returnedAttributes
   **/
   @ApiModelProperty(value = "The list of contact attributes to be returned for each contact in response")
-  public List<String> getContactAttributes() {
-    return contactAttributes;
+  public List<String> getReturnedAttributes() {
+    return returnedAttributes;
   }
 
-  public void setContactAttributes(List<String> contactAttributes) {
-    this.contactAttributes = contactAttributes;
+  public void setReturnedAttributes(List<String> returnedAttributes) {
+    this.returnedAttributes = returnedAttributes;
   }
 
 
@@ -131,28 +139,28 @@ public class UcslucenesearchinteractionData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UcslucenesearchinteractionData ucslucenesearchinteractionData = (UcslucenesearchinteractionData) o;
-    return Objects.equals(this.maxResults, ucslucenesearchinteractionData.maxResults) &&
-        Objects.equals(this.searchMyHistory, ucslucenesearchinteractionData.searchMyHistory) &&
-        Objects.equals(this.query, ucslucenesearchinteractionData.query) &&
-        Objects.equals(this.contactAttributes, ucslucenesearchinteractionData.contactAttributes);
+    UcsixnsearchData ucsixnsearchData = (UcsixnsearchData) o;
+    return Objects.equals(this.maxResults, ucsixnsearchData.maxResults) &&
+        Objects.equals(this.owner, ucsixnsearchData.owner) &&
+        Objects.equals(this.query, ucsixnsearchData.query) &&
+        Objects.equals(this.returnedAttributes, ucsixnsearchData.returnedAttributes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxResults, searchMyHistory, query, contactAttributes);
+    return Objects.hash(maxResults, owner, query, returnedAttributes);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UcslucenesearchinteractionData {\n");
+    sb.append("class UcsixnsearchData {\n");
     
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
-    sb.append("    searchMyHistory: ").append(toIndentedString(searchMyHistory)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
-    sb.append("    contactAttributes: ").append(toIndentedString(contactAttributes)).append("\n");
+    sb.append("    returnedAttributes: ").append(toIndentedString(returnedAttributes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.UcslucenesearchData;
+import com.genesys.internal.workspace.model.UcscontactssearchData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,12 +27,12 @@ import java.io.IOException;
 /**
  * LuceneSearchData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
 public class LuceneSearchData {
   @SerializedName("data")
-  private UcslucenesearchData data = null;
+  private UcscontactssearchData data = null;
 
-  public LuceneSearchData data(UcslucenesearchData data) {
+  public LuceneSearchData data(UcscontactssearchData data) {
     this.data = data;
     return this;
   }
@@ -42,11 +42,11 @@ public class LuceneSearchData {
    * @return data
   **/
   @ApiModelProperty(required = true, value = "")
-  public UcslucenesearchData getData() {
+  public UcscontactssearchData getData() {
     return data;
   }
 
-  public void setData(UcslucenesearchData data) {
+  public void setData(UcscontactssearchData data) {
     this.data = data;
   }
 

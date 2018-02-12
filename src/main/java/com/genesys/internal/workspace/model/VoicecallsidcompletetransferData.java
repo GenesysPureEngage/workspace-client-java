@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * VoicecallsidcompletetransferData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
 public class VoicecallsidcompletetransferData {
   @SerializedName("parentConnId")
   private String parentConnId = null;
@@ -46,10 +46,10 @@ public class VoicecallsidcompletetransferData {
   }
 
    /**
-   * The ID of the parent call (held). In most cases this is not required.
+   * The connection ID of the parent call (held). In most cases this is not required.
    * @return parentConnId
   **/
-  @ApiModelProperty(value = "The ID of the parent call (held). In most cases this is not required.")
+  @ApiModelProperty(value = "The connection ID of the parent call (held). In most cases this is not required.")
   public String getParentConnId() {
     return parentConnId;
   }

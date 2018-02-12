@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.UcsgetcontactsData;
+import com.genesys.internal.workspace.model.UcsresponsesidreportusageData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,14 +25,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * GetContactsData
+ * ReportStandareResponseUsageData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T20:03:36.660Z")
-public class GetContactsData {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T22:41:35.981Z")
+public class ReportStandareResponseUsageData {
   @SerializedName("data")
-  private UcsgetcontactsData data = null;
+  private UcsresponsesidreportusageData data = null;
 
-  public GetContactsData data(UcsgetcontactsData data) {
+  public ReportStandareResponseUsageData data(UcsresponsesidreportusageData data) {
     this.data = data;
     return this;
   }
@@ -42,11 +42,11 @@ public class GetContactsData {
    * @return data
   **/
   @ApiModelProperty(required = true, value = "")
-  public UcsgetcontactsData getData() {
+  public UcsresponsesidreportusageData getData() {
     return data;
   }
 
-  public void setData(UcsgetcontactsData data) {
+  public void setData(UcsresponsesidreportusageData data) {
     this.data = data;
   }
 
@@ -59,8 +59,8 @@ public class GetContactsData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetContactsData getContactsData = (GetContactsData) o;
-    return Objects.equals(this.data, getContactsData.data);
+    ReportStandareResponseUsageData reportStandareResponseUsageData = (ReportStandareResponseUsageData) o;
+    return Objects.equals(this.data, reportStandareResponseUsageData.data);
   }
 
   @Override
@@ -72,7 +72,7 @@ public class GetContactsData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetContactsData {\n");
+    sb.append("class ReportStandareResponseUsageData {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
