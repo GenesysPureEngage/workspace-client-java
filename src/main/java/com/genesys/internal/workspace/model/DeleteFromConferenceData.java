@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * DeleteFromConferenceData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T23:17:05.476Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-16T21:05:53.220Z")
 public class DeleteFromConferenceData {
   @SerializedName("data")
   private VoicecallsiddeletefromconferenceData data = null;
