@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * MediamediatypeinteractionsiddeleteuserdataData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-20T21:15:24.857Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-20T23:04:44.000Z")
 public class MediamediatypeinteractionsiddeleteuserdataData {
   @SerializedName("keys")
   private List<String> keys = new ArrayList<String>();
