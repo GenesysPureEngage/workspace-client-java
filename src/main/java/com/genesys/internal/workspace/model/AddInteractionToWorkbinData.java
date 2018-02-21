@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * AddInteractionToWorkbinData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-20T23:04:44.000Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-21T22:31:00.788Z")
 public class AddInteractionToWorkbinData {
   @SerializedName("data")
   private WorkbinsworkbinIdaddinteractionData data = null;
