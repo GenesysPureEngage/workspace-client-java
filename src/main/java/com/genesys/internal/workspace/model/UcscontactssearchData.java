@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * UcscontactssearchData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-21T22:31:00.788Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-22T17:05:01.860Z")
 public class UcscontactssearchData {
   @SerializedName("query")
   private String query = null;
