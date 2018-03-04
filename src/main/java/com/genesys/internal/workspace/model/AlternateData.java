@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * AlternateData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-04T19:04:49.253Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-04T20:04:43.681Z")
 public class AlternateData {
   @SerializedName("data")
   private VoicecallsidalternateData data = null;
