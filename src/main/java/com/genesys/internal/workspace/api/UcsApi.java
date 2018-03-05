@@ -1380,7 +1380,7 @@ public class UcsApi {
     }
 
     /**
-     * Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene
+     * Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene
      * 
      * @param luceneSearchData  (required)
      * @return ApiSuccessResponse
@@ -1392,7 +1392,7 @@ public class UcsApi {
     }
 
     /**
-     * Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene
+     * Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene
      * 
      * @param luceneSearchData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
@@ -1405,7 +1405,7 @@ public class UcsApi {
     }
 
     /**
-     * Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene (asynchronously)
+     * Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene (asynchronously)
      * 
      * @param luceneSearchData  (required)
      * @param callback The callback to be executed when the API call finishes

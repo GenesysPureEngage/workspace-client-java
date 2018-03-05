@@ -26,13 +26,16 @@ import java.io.IOException;
 /**
  * UcsresponsescategoriesidgetdetailsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-05T00:04:39.623Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-05T15:28:59.863Z")
 public class UcsresponsescategoriesidgetdetailsData {
   @SerializedName("returnChildrenCategories")
   private Boolean returnChildrenCategories = null;
 
   @SerializedName("returnChildrenSRInfo")
   private Boolean returnChildrenSRInfo = null;
+
+  @SerializedName("approved")
+  private Boolean approved = null;
 
   public UcsresponsescategoriesidgetdetailsData returnChildrenCategories(Boolean returnChildrenCategories) {
     this.returnChildrenCategories = returnChildrenCategories;
@@ -70,6 +73,24 @@ public class UcsresponsescategoriesidgetdetailsData {
     this.returnChildrenSRInfo = returnChildrenSRInfo;
   }
 
+  public UcsresponsescategoriesidgetdetailsData approved(Boolean approved) {
+    this.approved = approved;
+    return this;
+  }
+
+   /**
+   * true to get only approved categories
+   * @return approved
+  **/
+  @ApiModelProperty(value = "true to get only approved categories")
+  public Boolean isApproved() {
+    return approved;
+  }
+
+  public void setApproved(Boolean approved) {
+    this.approved = approved;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -81,12 +102,13 @@ public class UcsresponsescategoriesidgetdetailsData {
     }
     UcsresponsescategoriesidgetdetailsData ucsresponsescategoriesidgetdetailsData = (UcsresponsescategoriesidgetdetailsData) o;
     return Objects.equals(this.returnChildrenCategories, ucsresponsescategoriesidgetdetailsData.returnChildrenCategories) &&
-        Objects.equals(this.returnChildrenSRInfo, ucsresponsescategoriesidgetdetailsData.returnChildrenSRInfo);
+        Objects.equals(this.returnChildrenSRInfo, ucsresponsescategoriesidgetdetailsData.returnChildrenSRInfo) &&
+        Objects.equals(this.approved, ucsresponsescategoriesidgetdetailsData.approved);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(returnChildrenCategories, returnChildrenSRInfo);
+    return Objects.hash(returnChildrenCategories, returnChildrenSRInfo, approved);
   }
 
 
@@ -97,6 +119,7 @@ public class UcsresponsescategoriesidgetdetailsData {
     
     sb.append("    returnChildrenCategories: ").append(toIndentedString(returnChildrenCategories)).append("\n");
     sb.append("    returnChildrenSRInfo: ").append(toIndentedString(returnChildrenSRInfo)).append("\n");
+    sb.append("    approved: ").append(toIndentedString(approved)).append("\n");
     sb.append("}");
     return sb.toString();
   }

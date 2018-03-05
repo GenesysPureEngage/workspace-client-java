@@ -14,7 +14,6 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.Kvpair;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,19 +22,66 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * MediachatinteractionsidsendurlData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-05T00:04:39.623Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-05T15:28:59.863Z")
 public class MediachatinteractionsidsendurlData {
   @SerializedName("url")
   private String url = null;
 
-  @SerializedName("extension")
-  private List<Kvpair> extension = null;
+  /**
+   * visibility of operation
+   */
+  @JsonAdapter(VisibilityEnum.Adapter.class)
+  public enum VisibilityEnum {
+    ALL("All"),
+    
+    AGENT("Agent"),
+    
+    SUPERVISOR("Supervisor");
+
+    private String value;
+
+    VisibilityEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static VisibilityEnum fromValue(String text) {
+      for (VisibilityEnum b : VisibilityEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<VisibilityEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final VisibilityEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public VisibilityEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return VisibilityEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("visibility")
+  private VisibilityEnum visibility = null;
 
   public MediachatinteractionsidsendurlData url(String url) {
     this.url = url;
@@ -55,30 +101,22 @@ public class MediachatinteractionsidsendurlData {
     this.url = url;
   }
 
-  public MediachatinteractionsidsendurlData extension(List<Kvpair> extension) {
-    this.extension = extension;
-    return this;
-  }
-
-  public MediachatinteractionsidsendurlData addExtensionItem(Kvpair extensionItem) {
-    if (this.extension == null) {
-      this.extension = new ArrayList<Kvpair>();
-    }
-    this.extension.add(extensionItem);
+  public MediachatinteractionsidsendurlData visibility(VisibilityEnum visibility) {
+    this.visibility = visibility;
     return this;
   }
 
    /**
-   * A key/value pairs list of additional data.
-   * @return extension
+   * visibility of operation
+   * @return visibility
   **/
-  @ApiModelProperty(value = "A key/value pairs list of additional data.")
-  public List<Kvpair> getExtension() {
-    return extension;
+  @ApiModelProperty(value = "visibility of operation")
+  public VisibilityEnum getVisibility() {
+    return visibility;
   }
 
-  public void setExtension(List<Kvpair> extension) {
-    this.extension = extension;
+  public void setVisibility(VisibilityEnum visibility) {
+    this.visibility = visibility;
   }
 
 
@@ -92,12 +130,12 @@ public class MediachatinteractionsidsendurlData {
     }
     MediachatinteractionsidsendurlData mediachatinteractionsidsendurlData = (MediachatinteractionsidsendurlData) o;
     return Objects.equals(this.url, mediachatinteractionsidsendurlData.url) &&
-        Objects.equals(this.extension, mediachatinteractionsidsendurlData.extension);
+        Objects.equals(this.visibility, mediachatinteractionsidsendurlData.visibility);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, extension);
+    return Objects.hash(url, visibility);
   }
 
 
@@ -107,7 +145,7 @@ public class MediachatinteractionsidsendurlData {
     sb.append("class MediachatinteractionsidsendurlData {\n");
     
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    extension: ").append(toIndentedString(extension)).append("\n");
+    sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
     sb.append("}");
     return sb.toString();
   }

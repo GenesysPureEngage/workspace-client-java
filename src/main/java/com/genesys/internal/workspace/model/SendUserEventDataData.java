@@ -29,13 +29,16 @@ import java.util.List;
 /**
  * SendUserEventDataData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-05T00:04:39.623Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-05T15:28:59.863Z")
 public class SendUserEventDataData {
   @SerializedName("userData")
   private List<Kvpair> userData = new ArrayList<Kvpair>();
 
   @SerializedName("callUuid")
   private String callUuid = null;
+
+  @SerializedName("connId")
+  private String connId = null;
 
   public SendUserEventDataData userData(List<Kvpair> userData) {
     this.userData = userData;
@@ -78,6 +81,24 @@ public class SendUserEventDataData {
     this.callUuid = callUuid;
   }
 
+  public SendUserEventDataData connId(String connId) {
+    this.connId = connId;
+    return this;
+  }
+
+   /**
+   * Get connId
+   * @return connId
+  **/
+  @ApiModelProperty(value = "")
+  public String getConnId() {
+    return connId;
+  }
+
+  public void setConnId(String connId) {
+    this.connId = connId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -89,12 +110,13 @@ public class SendUserEventDataData {
     }
     SendUserEventDataData sendUserEventDataData = (SendUserEventDataData) o;
     return Objects.equals(this.userData, sendUserEventDataData.userData) &&
-        Objects.equals(this.callUuid, sendUserEventDataData.callUuid);
+        Objects.equals(this.callUuid, sendUserEventDataData.callUuid) &&
+        Objects.equals(this.connId, sendUserEventDataData.connId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userData, callUuid);
+    return Objects.hash(userData, callUuid, connId);
   }
 
 
@@ -105,6 +127,7 @@ public class SendUserEventDataData {
     
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("    callUuid: ").append(toIndentedString(callUuid)).append("\n");
+    sb.append("    connId: ").append(toIndentedString(connId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

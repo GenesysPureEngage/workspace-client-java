@@ -26,10 +26,62 @@ import java.io.IOException;
 /**
  * MediachatinteractionsidacceptData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-05T00:04:39.623Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-05T15:28:59.863Z")
 public class MediachatinteractionsidacceptData {
   @SerializedName("nickname")
   private String nickname = null;
+
+  /**
+   * visibility of operation
+   */
+  @JsonAdapter(VisibilityEnum.Adapter.class)
+  public enum VisibilityEnum {
+    ALL("All"),
+    
+    AGENT("Agent"),
+    
+    SUPERVISOR("Supervisor");
+
+    private String value;
+
+    VisibilityEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static VisibilityEnum fromValue(String text) {
+      for (VisibilityEnum b : VisibilityEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<VisibilityEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final VisibilityEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public VisibilityEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return VisibilityEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("visibility")
+  private VisibilityEnum visibility = null;
 
   public MediachatinteractionsidacceptData nickname(String nickname) {
     this.nickname = nickname;
@@ -49,6 +101,24 @@ public class MediachatinteractionsidacceptData {
     this.nickname = nickname;
   }
 
+  public MediachatinteractionsidacceptData visibility(VisibilityEnum visibility) {
+    this.visibility = visibility;
+    return this;
+  }
+
+   /**
+   * visibility of operation
+   * @return visibility
+  **/
+  @ApiModelProperty(value = "visibility of operation")
+  public VisibilityEnum getVisibility() {
+    return visibility;
+  }
+
+  public void setVisibility(VisibilityEnum visibility) {
+    this.visibility = visibility;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -59,12 +129,13 @@ public class MediachatinteractionsidacceptData {
       return false;
     }
     MediachatinteractionsidacceptData mediachatinteractionsidacceptData = (MediachatinteractionsidacceptData) o;
-    return Objects.equals(this.nickname, mediachatinteractionsidacceptData.nickname);
+    return Objects.equals(this.nickname, mediachatinteractionsidacceptData.nickname) &&
+        Objects.equals(this.visibility, mediachatinteractionsidacceptData.visibility);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nickname);
+    return Objects.hash(nickname, visibility);
   }
 
 
@@ -74,6 +145,7 @@ public class MediachatinteractionsidacceptData {
     sb.append("class MediachatinteractionsidacceptData {\n");
     
     sb.append("    nickname: ").append(toIndentedString(nickname)).append("\n");
+    sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -14,7 +14,6 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.Kvpair;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,19 +22,119 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * MediachatinteractionsidsendmessageData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-05T00:04:39.623Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-05T15:28:59.863Z")
 public class MediachatinteractionsidsendmessageData {
   @SerializedName("message")
   private String message = null;
 
-  @SerializedName("extension")
-  private List<Kvpair> extension = null;
+  @SerializedName("messageType")
+  private String messageType = null;
+
+  /**
+   * visibility of operation
+   */
+  @JsonAdapter(VisibilityEnum.Adapter.class)
+  public enum VisibilityEnum {
+    ALL("All"),
+    
+    AGENT("Agent"),
+    
+    SUPERVISOR("Supervisor");
+
+    private String value;
+
+    VisibilityEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static VisibilityEnum fromValue(String text) {
+      for (VisibilityEnum b : VisibilityEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<VisibilityEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final VisibilityEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public VisibilityEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return VisibilityEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("visibility")
+  private VisibilityEnum visibility = null;
+
+  /**
+   * how message should be treated
+   */
+  @JsonAdapter(TreatAsEnum.Adapter.class)
+  public enum TreatAsEnum {
+    NORMAL("Normal"),
+    
+    SYSTEM("System");
+
+    private String value;
+
+    TreatAsEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TreatAsEnum fromValue(String text) {
+      for (TreatAsEnum b : TreatAsEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TreatAsEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TreatAsEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TreatAsEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TreatAsEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("treatAs")
+  private TreatAsEnum treatAs = null;
 
   public MediachatinteractionsidsendmessageData message(String message) {
     this.message = message;
@@ -43,10 +142,10 @@ public class MediachatinteractionsidsendmessageData {
   }
 
    /**
-   * The message to send to the chat
+   * the message to send to the chat
    * @return message
   **/
-  @ApiModelProperty(required = true, value = "The message to send to the chat")
+  @ApiModelProperty(required = true, value = "the message to send to the chat")
   public String getMessage() {
     return message;
   }
@@ -55,30 +154,58 @@ public class MediachatinteractionsidsendmessageData {
     this.message = message;
   }
 
-  public MediachatinteractionsidsendmessageData extension(List<Kvpair> extension) {
-    this.extension = extension;
-    return this;
-  }
-
-  public MediachatinteractionsidsendmessageData addExtensionItem(Kvpair extensionItem) {
-    if (this.extension == null) {
-      this.extension = new ArrayList<Kvpair>();
-    }
-    this.extension.add(extensionItem);
+  public MediachatinteractionsidsendmessageData messageType(String messageType) {
+    this.messageType = messageType;
     return this;
   }
 
    /**
-   * A key/value pairs list of additional data.
-   * @return extension
+   * arbitrary type of message
+   * @return messageType
   **/
-  @ApiModelProperty(value = "A key/value pairs list of additional data.")
-  public List<Kvpair> getExtension() {
-    return extension;
+  @ApiModelProperty(value = "arbitrary type of message")
+  public String getMessageType() {
+    return messageType;
   }
 
-  public void setExtension(List<Kvpair> extension) {
-    this.extension = extension;
+  public void setMessageType(String messageType) {
+    this.messageType = messageType;
+  }
+
+  public MediachatinteractionsidsendmessageData visibility(VisibilityEnum visibility) {
+    this.visibility = visibility;
+    return this;
+  }
+
+   /**
+   * visibility of operation
+   * @return visibility
+  **/
+  @ApiModelProperty(value = "visibility of operation")
+  public VisibilityEnum getVisibility() {
+    return visibility;
+  }
+
+  public void setVisibility(VisibilityEnum visibility) {
+    this.visibility = visibility;
+  }
+
+  public MediachatinteractionsidsendmessageData treatAs(TreatAsEnum treatAs) {
+    this.treatAs = treatAs;
+    return this;
+  }
+
+   /**
+   * how message should be treated
+   * @return treatAs
+  **/
+  @ApiModelProperty(value = "how message should be treated")
+  public TreatAsEnum getTreatAs() {
+    return treatAs;
+  }
+
+  public void setTreatAs(TreatAsEnum treatAs) {
+    this.treatAs = treatAs;
   }
 
 
@@ -92,12 +219,14 @@ public class MediachatinteractionsidsendmessageData {
     }
     MediachatinteractionsidsendmessageData mediachatinteractionsidsendmessageData = (MediachatinteractionsidsendmessageData) o;
     return Objects.equals(this.message, mediachatinteractionsidsendmessageData.message) &&
-        Objects.equals(this.extension, mediachatinteractionsidsendmessageData.extension);
+        Objects.equals(this.messageType, mediachatinteractionsidsendmessageData.messageType) &&
+        Objects.equals(this.visibility, mediachatinteractionsidsendmessageData.visibility) &&
+        Objects.equals(this.treatAs, mediachatinteractionsidsendmessageData.treatAs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, extension);
+    return Objects.hash(message, messageType, visibility, treatAs);
   }
 
 
@@ -107,7 +236,9 @@ public class MediachatinteractionsidsendmessageData {
     sb.append("class MediachatinteractionsidsendmessageData {\n");
     
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    extension: ").append(toIndentedString(extension)).append("\n");
+    sb.append("    messageType: ").append(toIndentedString(messageType)).append("\n");
+    sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
+    sb.append("    treatAs: ").append(toIndentedString(treatAs)).append("\n");
     sb.append("}");
     return sb.toString();
   }

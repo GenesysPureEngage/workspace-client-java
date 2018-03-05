@@ -30,6 +30,7 @@ import java.io.IOException;
 import com.genesys.internal.workspace.model.ApiErrorResponse;
 import com.genesys.internal.workspace.model.ApiSuccessResponse;
 import com.genesys.internal.workspace.model.GetCategoryData;
+import com.genesys.internal.workspace.model.GetRootCategoriesData;
 import com.genesys.internal.workspace.model.GetStandardResponseData;
 import com.genesys.internal.workspace.model.RenderStandardResponseFieldCodesData;
 import com.genesys.internal.workspace.model.ReportStandareResponseUsageData;
@@ -552,13 +553,14 @@ public class StandardResponsesApi {
     }
     /**
      * Build call for getRootCategories
+     * @param getRootCategoriesData  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getRootCategoriesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    public com.squareup.okhttp.Call getRootCategoriesCall(GetRootCategoriesData getRootCategoriesData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = getRootCategoriesData;
 
         // create path and map variables
         String localVarPath = "/ucs/responses/categories/get-root";
@@ -599,10 +601,10 @@ public class StandardResponsesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getRootCategoriesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getRootCategoriesValidateBeforeCall(GetRootCategoriesData getRootCategoriesData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getRootCategoriesCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getRootCategoriesCall(getRootCategoriesData, progressListener, progressRequestListener);
         return call;
 
     }
@@ -610,22 +612,24 @@ public class StandardResponsesApi {
     /**
      * Get all Root categories.
      * Get all Root Categories information.
+     * @param getRootCategoriesData  (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse getRootCategories() throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = getRootCategoriesWithHttpInfo();
+    public ApiSuccessResponse getRootCategories(GetRootCategoriesData getRootCategoriesData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = getRootCategoriesWithHttpInfo(getRootCategoriesData);
         return resp.getData();
     }
 
     /**
      * Get all Root categories.
      * Get all Root Categories information.
+     * @param getRootCategoriesData  (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> getRootCategoriesWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getRootCategoriesValidateBeforeCall(null, null);
+    public ApiResponse<ApiSuccessResponse> getRootCategoriesWithHttpInfo(GetRootCategoriesData getRootCategoriesData) throws ApiException {
+        com.squareup.okhttp.Call call = getRootCategoriesValidateBeforeCall(getRootCategoriesData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -633,11 +637,12 @@ public class StandardResponsesApi {
     /**
      * Get all Root categories. (asynchronously)
      * Get all Root Categories information.
+     * @param getRootCategoriesData  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getRootCategoriesAsync(final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getRootCategoriesAsync(GetRootCategoriesData getRootCategoriesData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -658,7 +663,7 @@ public class StandardResponsesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getRootCategoriesValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getRootCategoriesValidateBeforeCall(getRootCategoriesData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
