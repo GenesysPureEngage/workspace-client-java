@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * MediamediatypeinteractionsidtransferagentData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-05T15:49:09.856Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-06T06:42:00.983Z")
 public class MediamediatypeinteractionsidtransferagentData {
   @SerializedName("agentId")
   private String agentId = null;
