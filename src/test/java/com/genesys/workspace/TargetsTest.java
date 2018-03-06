@@ -29,7 +29,8 @@ public class TargetsTest {
         api.setTargetsApi(internalApi);
         
         TargetsResponse response = Objects.makeTargetsResponse(10);
-        Mockito.when(internalApi.get((String)Mockito.any(), 
+
+        Mockito.when(internalApi.getTargets((String)Mockito.any(), 
                 (String)Mockito.any(), 
                 (String)Mockito.any(), 
                 (String)Mockito.any(), 

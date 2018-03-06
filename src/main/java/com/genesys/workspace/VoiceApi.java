@@ -1163,7 +1163,7 @@ public class VoiceApi {
      * @param userData The data to send. This is an array of objects with the properties key, type, and value.
      */
     public void sendUserEvent(KeyValueCollection userData) throws WorkspaceApiException {
-        this.sendUserEvent(userData, null);
+        this.sendUserEvent(userData, null, null);
     }
 
     /**
@@ -1173,10 +1173,22 @@ public class VoiceApi {
      * @param callUuid The universally unique identifier for the call that the event will be associated with. (optional)
      */
     public void sendUserEvent(KeyValueCollection userData, String callUuid) throws WorkspaceApiException {
+        this.sendUserEvent(userData, callUuid, null);
+    }
+
+    /**
+     * Send EventUserEvent to T-Server with the provided attached data. For details about EventUserEvent, refer to the 
+     * [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
+     * @param userData The data to send. This is an array of objects with the properties key, type, and value.
+     * @param callUuid The universally unique identifier for the call that the event will be associated with. (optional)
+     * @param connId The connectionId for the call that the event will be associated with. (optional)
+     */
+    public void sendUserEvent(KeyValueCollection userData, String callUuid, String connId) throws WorkspaceApiException {
         try {
             SendUserEventDataData sendUserEventData = new SendUserEventDataData();
             sendUserEventData.setUserData(Util.toKVList(userData));
             sendUserEventData.setCallUuid(callUuid);
+            sendUserEventData.setConnId(connId);
 
             SendUserEventData data = new SendUserEventData();
             data.data(sendUserEventData);
