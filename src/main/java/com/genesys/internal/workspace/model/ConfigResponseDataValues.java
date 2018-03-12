@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * ConfigResponseDataValues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-06T16:35:34.083Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-12T14:38:19.097Z")
 public class ConfigResponseDataValues {
   @SerializedName("name")
   private String name = null;
@@ -110,7 +110,7 @@ public class ConfigResponseDataValues {
    * @return _default
   **/
   @ApiModelProperty(value = "")
-  public Boolean isDefault() {
+  public Boolean Default() {
     return _default;
   }
 

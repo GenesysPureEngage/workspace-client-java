@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * UcsresponsesidrenderfieldcodesData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-06T16:35:34.083Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-12T14:38:19.097Z")
 public class UcsresponsesidrenderfieldcodesData {
   @SerializedName("interactionId")
   private String interactionId = null;
@@ -71,7 +71,7 @@ public class UcsresponsesidrenderfieldcodesData {
    * @return usePlainText
   **/
   @ApiModelProperty(value = "true to use Plain Text")
-  public Boolean isUsePlainText() {
+  public Boolean UsePlainText() {
     return usePlainText;
   }
 

@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * UcsresponsescategoriesidgetdetailsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-06T16:35:34.083Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-12T14:38:19.097Z")
 public class UcsresponsescategoriesidgetdetailsData {
   @SerializedName("returnChildrenCategories")
   private Boolean returnChildrenCategories = null;
@@ -47,7 +47,7 @@ public class UcsresponsescategoriesidgetdetailsData {
    * @return returnChildrenCategories
   **/
   @ApiModelProperty(value = "true to get children categories")
-  public Boolean isReturnChildrenCategories() {
+  public Boolean ReturnChildrenCategories() {
     return returnChildrenCategories;
   }
 
@@ -65,7 +65,7 @@ public class UcsresponsescategoriesidgetdetailsData {
    * @return returnChildrenSRInfo
   **/
   @ApiModelProperty(value = "true to get children standard responses")
-  public Boolean isReturnChildrenSRInfo() {
+  public Boolean ReturnChildrenSRInfo() {
     return returnChildrenSRInfo;
   }
 
@@ -83,7 +83,7 @@ public class UcsresponsescategoriesidgetdetailsData {
    * @return approved
   **/
   @ApiModelProperty(value = "true to get only approved categories")
-  public Boolean isApproved() {
+  public Boolean Approved() {
     return approved;
   }
 

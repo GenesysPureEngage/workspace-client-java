@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * ActivatechannelsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-06T16:35:34.083Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-12T14:38:19.097Z")
 public class ActivatechannelsData {
   @SerializedName("agentId")
   private String agentId = null;
@@ -219,7 +219,7 @@ public class ActivatechannelsData {
    * @return autoCompleteCall
   **/
   @ApiModelProperty(value = "Flag denoting whether or not calls should automatically be completed for the session. Defaults to true if not provided.")
-  public Boolean isAutoCompleteCall() {
+  public Boolean AutoCompleteCall() {
     return autoCompleteCall;
   }
 
