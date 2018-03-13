@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * IxnReasonCode
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-12T18:04:57.993Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-13T00:06:58.878Z")
 public class IxnReasonCode {
   @SerializedName("reasonSystemName")
   private String reasonSystemName = null;
