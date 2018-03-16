@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * MediamediatypeinteractionsidplaceinqueueData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-13T00:06:58.878Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-16T06:18:48.118Z")
 public class MediamediatypeinteractionsidplaceinqueueData {
   @SerializedName("queue")
   private String queue = null;
