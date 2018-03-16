@@ -13,10 +13,8 @@ import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 import java.net.CookieManager;
 import java.net.CookiePolicy;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -71,7 +69,12 @@ public class WorkspaceApi {
     private static String extractSessionCookie(ApiResponse<ApiSuccessResponse> response) throws WorkspaceApiException {
         logger.debug("Extracting session cookie...");
         String workspaceSessionCookie = null;
-        List<String> cookies = response.getHeaders().get("set-cookie");
+
+        // Required to get case insensitive headers
+        Map<String, List<String>> headers = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+        headers.putAll(response.getHeaders());
+
+        List<String> cookies = headers.get("set-cookie");
         for (String cookie : cookies) {
             if(cookie.startsWith("WORKSPACE_SESSIONID")){
                 workspaceSessionCookie = cookie;
