@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * VoicenotreadyData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-19T21:29:08.386Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-12T16:56:46.939Z")
 public class VoicenotreadyData {
   @SerializedName("reasonCode")
   private String reasonCode = null;
