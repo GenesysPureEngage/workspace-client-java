@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * MediaemailinteractionsidsaveData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T16:14:50.709Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T20:55:45.297Z")
 public class MediaemailinteractionsidsaveData {
   @SerializedName("body")
   private String body = null;
