@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * GetCategoryData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-17T16:42:21.356Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-18T11:14:46.790Z")
 public class GetCategoryData {
   @SerializedName("data")
   private UcsresponsescategoriesidgetdetailsData data = null;
