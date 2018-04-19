@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * MediachatinteractionsidsendmessageData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-18T15:00:48.423Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T20:34:31.808Z")
 public class MediachatinteractionsidsendmessageData {
   @SerializedName("message")
   private String message = null;
@@ -35,7 +35,7 @@ public class MediachatinteractionsidsendmessageData {
   private String messageType = null;
 
   /**
-   * visibility of operation
+   * Defines which participants in the chat can see the message.
    */
   @JsonAdapter(VisibilityEnum.Adapter.class)
   public enum VisibilityEnum {
@@ -87,7 +87,7 @@ public class MediachatinteractionsidsendmessageData {
   private VisibilityEnum visibility = null;
 
   /**
-   * how message should be treated
+   * Specifies how the message should be treated.
    */
   @JsonAdapter(TreatAsEnum.Adapter.class)
   public enum TreatAsEnum {
@@ -142,10 +142,10 @@ public class MediachatinteractionsidsendmessageData {
   }
 
    /**
-   * the message to send to the chat
+   * The message to send to the chat participants.
    * @return message
   **/
-  @ApiModelProperty(required = true, value = "the message to send to the chat")
+  @ApiModelProperty(required = true, value = "The message to send to the chat participants.")
   public String getMessage() {
     return message;
   }
@@ -160,10 +160,10 @@ public class MediachatinteractionsidsendmessageData {
   }
 
    /**
-   * arbitrary type of message
+   * The type of message.
    * @return messageType
   **/
-  @ApiModelProperty(value = "arbitrary type of message")
+  @ApiModelProperty(value = "The type of message.")
   public String getMessageType() {
     return messageType;
   }
@@ -178,10 +178,10 @@ public class MediachatinteractionsidsendmessageData {
   }
 
    /**
-   * visibility of operation
+   * Defines which participants in the chat can see the message.
    * @return visibility
   **/
-  @ApiModelProperty(value = "visibility of operation")
+  @ApiModelProperty(value = "Defines which participants in the chat can see the message.")
   public VisibilityEnum getVisibility() {
     return visibility;
   }
@@ -196,10 +196,10 @@ public class MediachatinteractionsidsendmessageData {
   }
 
    /**
-   * how message should be treated
+   * Specifies how the message should be treated.
    * @return treatAs
   **/
-  @ApiModelProperty(value = "how message should be treated")
+  @ApiModelProperty(value = "Specifies how the message should be treated.")
   public TreatAsEnum getTreatAs() {
     return treatAs;
   }

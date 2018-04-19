@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * MediachatinteractionsidinviteData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-18T15:00:48.423Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T20:34:31.808Z")
 public class MediachatinteractionsidinviteData {
   @SerializedName("agentId")
   private String agentId = null;
@@ -37,10 +37,10 @@ public class MediachatinteractionsidinviteData {
   }
 
    /**
-   * EmployeeId of the target agent.
+   * The unique ID of the agent.
    * @return agentId
   **/
-  @ApiModelProperty(required = true, value = "EmployeeId of the target agent.")
+  @ApiModelProperty(required = true, value = "The unique ID of the agent.")
   public String getAgentId() {
     return agentId;
   }

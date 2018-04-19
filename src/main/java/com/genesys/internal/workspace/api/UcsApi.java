@@ -38,6 +38,7 @@ import com.genesys.internal.workspace.model.ContactDetailsData;
 import com.genesys.internal.workspace.model.ContactHistoryData;
 import com.genesys.internal.workspace.model.CreateContactData;
 import com.genesys.internal.workspace.model.IdentifyContactData;
+import com.genesys.internal.workspace.model.InteractionDetailsData;
 import com.genesys.internal.workspace.model.LuceneSearchData;
 import com.genesys.internal.workspace.model.LuceneSearchInteractionData;
 import com.genesys.internal.workspace.model.UpdateContactData;
@@ -951,13 +952,14 @@ public class UcsApi {
     /**
      * Build call for getInteractionDetails
      * @param id id of the Interaction (required)
+     * @param interactionDetailsData  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getInteractionDetailsCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    public com.squareup.okhttp.Call getInteractionDetailsCall(String id, InteractionDetailsData interactionDetailsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = interactionDetailsData;
 
         // create path and map variables
         String localVarPath = "/ucs/interactions/{id}/get-details"
@@ -999,7 +1001,7 @@ public class UcsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getInteractionDetailsValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getInteractionDetailsValidateBeforeCall(String id, InteractionDetailsData interactionDetailsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -1007,7 +1009,7 @@ public class UcsApi {
         }
         
 
-        com.squareup.okhttp.Call call = getInteractionDetailsCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getInteractionDetailsCall(id, interactionDetailsData, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1016,11 +1018,12 @@ public class UcsApi {
      * Get the content of the interaction
      * 
      * @param id id of the Interaction (required)
+     * @param interactionDetailsData  (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse getInteractionDetails(String id) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = getInteractionDetailsWithHttpInfo(id);
+    public ApiSuccessResponse getInteractionDetails(String id, InteractionDetailsData interactionDetailsData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = getInteractionDetailsWithHttpInfo(id, interactionDetailsData);
         return resp.getData();
     }
 
@@ -1028,11 +1031,12 @@ public class UcsApi {
      * Get the content of the interaction
      * 
      * @param id id of the Interaction (required)
+     * @param interactionDetailsData  (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> getInteractionDetailsWithHttpInfo(String id) throws ApiException {
-        com.squareup.okhttp.Call call = getInteractionDetailsValidateBeforeCall(id, null, null);
+    public ApiResponse<ApiSuccessResponse> getInteractionDetailsWithHttpInfo(String id, InteractionDetailsData interactionDetailsData) throws ApiException {
+        com.squareup.okhttp.Call call = getInteractionDetailsValidateBeforeCall(id, interactionDetailsData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1041,11 +1045,12 @@ public class UcsApi {
      * Get the content of the interaction (asynchronously)
      * 
      * @param id id of the Interaction (required)
+     * @param interactionDetailsData  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getInteractionDetailsAsync(String id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getInteractionDetailsAsync(String id, InteractionDetailsData interactionDetailsData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1066,7 +1071,7 @@ public class UcsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getInteractionDetailsValidateBeforeCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getInteractionDetailsValidateBeforeCall(id, interactionDetailsData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

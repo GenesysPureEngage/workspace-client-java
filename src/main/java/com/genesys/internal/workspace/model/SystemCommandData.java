@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.MediamediatypeinteractionsidacceptData;
+import com.genesys.internal.workspace.model.MediachatinteractionsidsendsystemcommandData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,14 +25,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * AcceptData7
+ * SystemCommandData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-18T15:00:48.423Z")
-public class AcceptData7 {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T20:34:31.808Z")
+public class SystemCommandData {
   @SerializedName("data")
-  private MediamediatypeinteractionsidacceptData data = null;
+  private MediachatinteractionsidsendsystemcommandData data = null;
 
-  public AcceptData7 data(MediamediatypeinteractionsidacceptData data) {
+  public SystemCommandData data(MediachatinteractionsidsendsystemcommandData data) {
     this.data = data;
     return this;
   }
@@ -42,11 +42,11 @@ public class AcceptData7 {
    * @return data
   **/
   @ApiModelProperty(value = "")
-  public MediamediatypeinteractionsidacceptData getData() {
+  public MediachatinteractionsidsendsystemcommandData getData() {
     return data;
   }
 
-  public void setData(MediamediatypeinteractionsidacceptData data) {
+  public void setData(MediachatinteractionsidsendsystemcommandData data) {
     this.data = data;
   }
 
@@ -59,8 +59,8 @@ public class AcceptData7 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AcceptData7 acceptData7 = (AcceptData7) o;
-    return Objects.equals(this.data, acceptData7.data);
+    SystemCommandData systemCommandData = (SystemCommandData) o;
+    return Objects.equals(this.data, systemCommandData.data);
   }
 
   @Override
@@ -72,7 +72,7 @@ public class AcceptData7 {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AcceptData7 {\n");
+    sb.append("class SystemCommandData {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");

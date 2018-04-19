@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * MediamediatypeinteractionsidtransferagentData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-18T15:00:48.423Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T20:34:31.808Z")
 public class MediamediatypeinteractionsidtransferagentData {
   @SerializedName("agentId")
   private String agentId = null;
@@ -43,10 +43,10 @@ public class MediamediatypeinteractionsidtransferagentData {
   }
 
    /**
-   * EmployeeId of the target agent.
+   * The unique ID of the agent.
    * @return agentId
   **/
-  @ApiModelProperty(required = true, value = "EmployeeId of the target agent.")
+  @ApiModelProperty(required = true, value = "The unique ID of the agent.")
   public String getAgentId() {
     return agentId;
   }
@@ -69,10 +69,10 @@ public class MediamediatypeinteractionsidtransferagentData {
   }
 
    /**
-   * A key/value pairs list of additional data.
+   * A collection of key/value pairs.
    * @return extension
   **/
-  @ApiModelProperty(value = "A key/value pairs list of additional data.")
+  @ApiModelProperty(value = "A collection of key/value pairs.")
   public List<Kvpair> getExtension() {
     return extension;
   }

@@ -34,7 +34,9 @@ import com.genesys.internal.workspace.model.GetWorkbinContentData;
 import com.genesys.internal.workspace.model.GetWorkbinsContentData;
 import com.genesys.internal.workspace.model.PullInteractionFromWorkbinData;
 import com.genesys.internal.workspace.model.SubscribeToWorkbinNotificationsData;
+import com.genesys.internal.workspace.model.SubscribeToWorkbinsNotificationsData;
 import com.genesys.internal.workspace.model.UnsubscribeToWorkbinNotificationsData;
+import com.genesys.internal.workspace.model.UnsubscribeToWorkbinsNotificationsData;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -948,6 +950,128 @@ public class WorkbinsApi {
         return call;
     }
     /**
+     * Build call for subscribeToWorkbinsNotifications
+     * @param subscribeToWorkbinsNotificationsData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call subscribeToWorkbinsNotificationsCall(SubscribeToWorkbinsNotificationsData subscribeToWorkbinsNotificationsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = subscribeToWorkbinsNotificationsData;
+
+        // create path and map variables
+        String localVarPath = "/workbins/subscribe";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call subscribeToWorkbinsNotificationsValidateBeforeCall(SubscribeToWorkbinsNotificationsData subscribeToWorkbinsNotificationsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'subscribeToWorkbinsNotificationsData' is set
+        if (subscribeToWorkbinsNotificationsData == null) {
+            throw new ApiException("Missing the required parameter 'subscribeToWorkbinsNotificationsData' when calling subscribeToWorkbinsNotifications(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = subscribeToWorkbinsNotificationsCall(subscribeToWorkbinsNotificationsData, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Subscribe to be notified of changes of the content of multiple Workbins.
+     * 
+     * @param subscribeToWorkbinsNotificationsData  (required)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse subscribeToWorkbinsNotifications(SubscribeToWorkbinsNotificationsData subscribeToWorkbinsNotificationsData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = subscribeToWorkbinsNotificationsWithHttpInfo(subscribeToWorkbinsNotificationsData);
+        return resp.getData();
+    }
+
+    /**
+     * Subscribe to be notified of changes of the content of multiple Workbins.
+     * 
+     * @param subscribeToWorkbinsNotificationsData  (required)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> subscribeToWorkbinsNotificationsWithHttpInfo(SubscribeToWorkbinsNotificationsData subscribeToWorkbinsNotificationsData) throws ApiException {
+        com.squareup.okhttp.Call call = subscribeToWorkbinsNotificationsValidateBeforeCall(subscribeToWorkbinsNotificationsData, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Subscribe to be notified of changes of the content of multiple Workbins. (asynchronously)
+     * 
+     * @param subscribeToWorkbinsNotificationsData  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call subscribeToWorkbinsNotificationsAsync(SubscribeToWorkbinsNotificationsData subscribeToWorkbinsNotificationsData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = subscribeToWorkbinsNotificationsValidateBeforeCall(subscribeToWorkbinsNotificationsData, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for unsubscribeToWorkbinNotifications
      * @param workbinId Id of the Workbin (required)
      * @param unsubscribeToWorkbinNotificationsData  (required)
@@ -1075,6 +1199,128 @@ public class WorkbinsApi {
         }
 
         com.squareup.okhttp.Call call = unsubscribeToWorkbinNotificationsValidateBeforeCall(workbinId, unsubscribeToWorkbinNotificationsData, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for unsubscribeToWorkbinsNotifications
+     * @param unsubscribeToWorkbinsNotificationsData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call unsubscribeToWorkbinsNotificationsCall(UnsubscribeToWorkbinsNotificationsData unsubscribeToWorkbinsNotificationsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = unsubscribeToWorkbinsNotificationsData;
+
+        // create path and map variables
+        String localVarPath = "/workbins/unsubscribe";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call unsubscribeToWorkbinsNotificationsValidateBeforeCall(UnsubscribeToWorkbinsNotificationsData unsubscribeToWorkbinsNotificationsData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'unsubscribeToWorkbinsNotificationsData' is set
+        if (unsubscribeToWorkbinsNotificationsData == null) {
+            throw new ApiException("Missing the required parameter 'unsubscribeToWorkbinsNotificationsData' when calling unsubscribeToWorkbinsNotifications(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = unsubscribeToWorkbinsNotificationsCall(unsubscribeToWorkbinsNotificationsData, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Unsubscribe to the notifications of changes of the content of multiple Workbins.
+     * 
+     * @param unsubscribeToWorkbinsNotificationsData  (required)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse unsubscribeToWorkbinsNotifications(UnsubscribeToWorkbinsNotificationsData unsubscribeToWorkbinsNotificationsData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = unsubscribeToWorkbinsNotificationsWithHttpInfo(unsubscribeToWorkbinsNotificationsData);
+        return resp.getData();
+    }
+
+    /**
+     * Unsubscribe to the notifications of changes of the content of multiple Workbins.
+     * 
+     * @param unsubscribeToWorkbinsNotificationsData  (required)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> unsubscribeToWorkbinsNotificationsWithHttpInfo(UnsubscribeToWorkbinsNotificationsData unsubscribeToWorkbinsNotificationsData) throws ApiException {
+        com.squareup.okhttp.Call call = unsubscribeToWorkbinsNotificationsValidateBeforeCall(unsubscribeToWorkbinsNotificationsData, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Unsubscribe to the notifications of changes of the content of multiple Workbins. (asynchronously)
+     * 
+     * @param unsubscribeToWorkbinsNotificationsData  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call unsubscribeToWorkbinsNotificationsAsync(UnsubscribeToWorkbinsNotificationsData unsubscribeToWorkbinsNotificationsData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = unsubscribeToWorkbinsNotificationsValidateBeforeCall(unsubscribeToWorkbinsNotificationsData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.MediachatinteractionsidinvitebyqueueData;
+import com.genesys.internal.workspace.model.MediachatinteractionsidconsultbyqueueData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,12 +27,12 @@ import java.io.IOException;
 /**
  * ConsultData1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-18T15:00:48.423Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T20:34:31.808Z")
 public class ConsultData1 {
   @SerializedName("data")
-  private MediachatinteractionsidinvitebyqueueData data = null;
+  private MediachatinteractionsidconsultbyqueueData data = null;
 
-  public ConsultData1 data(MediachatinteractionsidinvitebyqueueData data) {
+  public ConsultData1 data(MediachatinteractionsidconsultbyqueueData data) {
     this.data = data;
     return this;
   }
@@ -42,11 +42,11 @@ public class ConsultData1 {
    * @return data
   **/
   @ApiModelProperty(required = true, value = "")
-  public MediachatinteractionsidinvitebyqueueData getData() {
+  public MediachatinteractionsidconsultbyqueueData getData() {
     return data;
   }
 
-  public void setData(MediachatinteractionsidinvitebyqueueData data) {
+  public void setData(MediachatinteractionsidconsultbyqueueData data) {
     this.data = data;
   }
 

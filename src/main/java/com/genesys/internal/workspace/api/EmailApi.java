@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.genesys.internal.workspace.model.AcceptData6;
+import com.genesys.internal.workspace.model.AcceptData5;
 import com.genesys.internal.workspace.model.ApiErrorResponse;
 import com.genesys.internal.workspace.model.ApiSuccessResponse;
 import com.genesys.internal.workspace.model.CreateData;
@@ -69,7 +69,7 @@ public class EmailApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call acceptEmailCall(String id, AcceptData6 acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call acceptEmailCall(String id, AcceptData5 acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = acceptData;
 
         // create path and map variables
@@ -112,7 +112,7 @@ public class EmailApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call acceptEmailValidateBeforeCall(String id, AcceptData6 acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call acceptEmailValidateBeforeCall(String id, AcceptData5 acceptData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -133,7 +133,7 @@ public class EmailApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse acceptEmail(String id, AcceptData6 acceptData) throws ApiException {
+    public ApiSuccessResponse acceptEmail(String id, AcceptData5 acceptData) throws ApiException {
         ApiResponse<ApiSuccessResponse> resp = acceptEmailWithHttpInfo(id, acceptData);
         return resp.getData();
     }
@@ -146,7 +146,7 @@ public class EmailApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> acceptEmailWithHttpInfo(String id, AcceptData6 acceptData) throws ApiException {
+    public ApiResponse<ApiSuccessResponse> acceptEmailWithHttpInfo(String id, AcceptData5 acceptData) throws ApiException {
         com.squareup.okhttp.Call call = acceptEmailValidateBeforeCall(id, acceptData, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -161,7 +161,7 @@ public class EmailApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call acceptEmailAsync(String id, AcceptData6 acceptData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call acceptEmailAsync(String id, AcceptData5 acceptData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

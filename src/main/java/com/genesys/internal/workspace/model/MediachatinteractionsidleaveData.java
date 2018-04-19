@@ -26,10 +26,10 @@ import java.io.IOException;
 /**
  * MediachatinteractionsidleaveData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-18T15:00:48.423Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T20:34:31.808Z")
 public class MediachatinteractionsidleaveData {
   /**
-   * the action to take after leave
+   * The action to take after the agent leaves.
    */
   @JsonAdapter(AfterActionEnum.Adapter.class)
   public enum AfterActionEnum {
@@ -87,7 +87,7 @@ public class MediachatinteractionsidleaveData {
   private String messageType = null;
 
   /**
-   * how message should be treated
+   * Specifies how the message should be treated.
    */
   @JsonAdapter(TreatAsEnum.Adapter.class)
   public enum TreatAsEnum {
@@ -142,10 +142,10 @@ public class MediachatinteractionsidleaveData {
   }
 
    /**
-   * the action to take after leave
+   * The action to take after the agent leaves.
    * @return afterAction
   **/
-  @ApiModelProperty(value = "the action to take after leave")
+  @ApiModelProperty(value = "The action to take after the agent leaves.")
   public AfterActionEnum getAfterAction() {
     return afterAction;
   }
@@ -160,10 +160,10 @@ public class MediachatinteractionsidleaveData {
   }
 
    /**
-   * the message to send to the chat
+   * The message to send to the chat participants.
    * @return message
   **/
-  @ApiModelProperty(value = "the message to send to the chat")
+  @ApiModelProperty(value = "The message to send to the chat participants.")
   public String getMessage() {
     return message;
   }
@@ -178,10 +178,10 @@ public class MediachatinteractionsidleaveData {
   }
 
    /**
-   * arbitrary type of message
+   * The type of message.
    * @return messageType
   **/
-  @ApiModelProperty(value = "arbitrary type of message")
+  @ApiModelProperty(value = "The type of message.")
   public String getMessageType() {
     return messageType;
   }
@@ -196,10 +196,10 @@ public class MediachatinteractionsidleaveData {
   }
 
    /**
-   * how message should be treated
+   * Specifies how the message should be treated.
    * @return treatAs
   **/
-  @ApiModelProperty(value = "how message should be treated")
+  @ApiModelProperty(value = "Specifies how the message should be treated.")
   public TreatAsEnum getTreatAs() {
     return treatAs;
   }

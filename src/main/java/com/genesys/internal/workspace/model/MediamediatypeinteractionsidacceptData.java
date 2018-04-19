@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * MediamediatypeinteractionsidacceptData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-18T15:00:48.423Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T20:34:31.808Z")
 public class MediamediatypeinteractionsidacceptData {
   @SerializedName("extension")
   private List<Kvpair> extension = null;
@@ -48,10 +48,10 @@ public class MediamediatypeinteractionsidacceptData {
   }
 
    /**
-   * A key/value pairs list of additional data.
+   * A collection of key/value pairs.
    * @return extension
   **/
-  @ApiModelProperty(value = "A key/value pairs list of additional data.")
+  @ApiModelProperty(value = "A collection of key/value pairs.")
   public List<Kvpair> getExtension() {
     return extension;
   }

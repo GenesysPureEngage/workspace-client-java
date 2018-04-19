@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * MediachatinteractionsidinvitebyqueueData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-18T15:00:48.423Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T20:34:31.808Z")
 public class MediachatinteractionsidinvitebyqueueData {
   @SerializedName("queue")
   private String queue = null;
@@ -37,10 +37,10 @@ public class MediachatinteractionsidinvitebyqueueData {
   }
 
    /**
-   * queue of submission.
+   * The name of the queue where the Workspace API should send the chat invite.
    * @return queue
   **/
-  @ApiModelProperty(required = true, value = "queue of submission.")
+  @ApiModelProperty(required = true, value = "The name of the queue where the Workspace API should send the chat invite.")
   public String getQueue() {
     return queue;
   }

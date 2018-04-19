@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * MediamediatypeinteractionsidplaceinqueueData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-18T15:00:48.423Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T20:34:31.808Z")
 public class MediamediatypeinteractionsidplaceinqueueData {
   @SerializedName("queue")
   private String queue = null;
@@ -56,10 +56,10 @@ public class MediamediatypeinteractionsidplaceinqueueData {
   }
 
    /**
-   * Queue name to submit the interaction.
+   * The name of the queue where the Workspace API should place the interaction.
    * @return queue
   **/
-  @ApiModelProperty(required = true, value = "Queue name to submit the interaction.")
+  @ApiModelProperty(required = true, value = "The name of the queue where the Workspace API should place the interaction.")
   public String getQueue() {
     return queue;
   }
@@ -74,10 +74,10 @@ public class MediamediatypeinteractionsidplaceinqueueData {
   }
 
    /**
-   * Get reason
+   * A collection of key/value pairs.
    * @return reason
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A collection of key/value pairs.")
   public IxnReasonCode getReason() {
     return reason;
   }
@@ -100,10 +100,10 @@ public class MediamediatypeinteractionsidplaceinqueueData {
   }
 
    /**
-   * A key/value pairs list of additional data.
+   * A collection of key/value pairs.
    * @return extension
   **/
-  @ApiModelProperty(value = "A key/value pairs list of additional data.")
+  @ApiModelProperty(value = "A collection of key/value pairs.")
   public List<Kvpair> getExtension() {
     return extension;
   }
@@ -126,10 +126,10 @@ public class MediamediatypeinteractionsidplaceinqueueData {
   }
 
    /**
-   * A key/value pairs list of properties to add.
+   * A collection of key/value pairs of properties to add to the interaction.
    * @return addedProperties
   **/
-  @ApiModelProperty(value = "A key/value pairs list of properties to add.")
+  @ApiModelProperty(value = "A collection of key/value pairs of properties to add to the interaction.")
   public List<Kvpair> getAddedProperties() {
     return addedProperties;
   }
@@ -152,10 +152,10 @@ public class MediamediatypeinteractionsidplaceinqueueData {
   }
 
    /**
-   * A key/value pairs list of properties to change.
+   * A collection of key/value pairs of properties to change on the interaction.
    * @return changedProperties
   **/
-  @ApiModelProperty(value = "A key/value pairs list of properties to change.")
+  @ApiModelProperty(value = "A collection of key/value pairs of properties to change on the interaction.")
   public List<Kvpair> getChangedProperties() {
     return changedProperties;
   }
@@ -178,10 +178,10 @@ public class MediamediatypeinteractionsidplaceinqueueData {
   }
 
    /**
-   * A key/value pairs list of properties to delete.
+   * A collection of key/value pairs of properties to delete from the interaction.
    * @return deletedProperties
   **/
-  @ApiModelProperty(value = "A key/value pairs list of properties to delete.")
+  @ApiModelProperty(value = "A collection of key/value pairs of properties to delete from the interaction.")
   public List<Kvpair> getDeletedProperties() {
     return deletedProperties;
   }

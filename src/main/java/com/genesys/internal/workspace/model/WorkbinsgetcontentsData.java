@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * WorkbinsgetcontentsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-18T15:00:48.423Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T20:34:31.808Z")
 public class WorkbinsgetcontentsData {
   @SerializedName("workbinIds")
   private String workbinIds = null;
@@ -58,10 +58,10 @@ public class WorkbinsgetcontentsData {
   }
 
    /**
-   * Id of the owner of the workbin
+   * Id of the owner of the workbins
    * @return ownerId
   **/
-  @ApiModelProperty(value = "Id of the owner of the workbin")
+  @ApiModelProperty(value = "Id of the owner of the workbins")
   public String getOwnerId() {
     return ownerId;
   }

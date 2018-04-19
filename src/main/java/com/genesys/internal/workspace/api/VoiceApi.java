@@ -2177,7 +2177,7 @@ public class VoiceApi {
     }
 
     /**
-     * Logout the media voice.
+     * Log out of the voice channel.
      * Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2188,7 +2188,7 @@ public class VoiceApi {
     }
 
     /**
-     * Logout the media voice.
+     * Log out of the voice channel.
      * Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2200,7 +2200,7 @@ public class VoiceApi {
     }
 
     /**
-     * Logout the media voice. (asynchronously)
+     * Log out of the voice channel. (asynchronously)
      * Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3796,8 +3796,8 @@ public class VoiceApi {
     }
 
     /**
-     * Turn off do-not-disturb.
-     * Turn off do-not-disturb for the current agent on the voice channel.
+     * Turn off Do Not Disturb.
+     * Turn off Do Not Disturb for the current agent on the voice channel.
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3807,8 +3807,8 @@ public class VoiceApi {
     }
 
     /**
-     * Turn off do-not-disturb.
-     * Turn off do-not-disturb for the current agent on the voice channel.
+     * Turn off Do Not Disturb.
+     * Turn off Do Not Disturb for the current agent on the voice channel.
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3819,8 +3819,8 @@ public class VoiceApi {
     }
 
     /**
-     * Turn off do-not-disturb. (asynchronously)
-     * Turn off do-not-disturb for the current agent on the voice channel.
+     * Turn off Do Not Disturb. (asynchronously)
+     * Turn off Do Not Disturb for the current agent on the voice channel.
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3909,8 +3909,8 @@ public class VoiceApi {
     }
 
     /**
-     * Set the agent state to do-not-disturb.
-     * Set the current agent&#39;s state to do-not-disturb on the voice channel.
+     * Set the agent state to Do Not Disturb.
+     * Set the current agent&#39;s state to Do Not Disturb on the voice channel.
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3920,8 +3920,8 @@ public class VoiceApi {
     }
 
     /**
-     * Set the agent state to do-not-disturb.
-     * Set the current agent&#39;s state to do-not-disturb on the voice channel.
+     * Set the agent state to Do Not Disturb.
+     * Set the current agent&#39;s state to Do Not Disturb on the voice channel.
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3932,8 +3932,8 @@ public class VoiceApi {
     }
 
     /**
-     * Set the agent state to do-not-disturb. (asynchronously)
-     * Set the current agent&#39;s state to do-not-disturb on the voice channel.
+     * Set the agent state to Do Not Disturb. (asynchronously)
+     * Set the current agent&#39;s state to Do Not Disturb on the voice channel.
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

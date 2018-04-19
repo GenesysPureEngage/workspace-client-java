@@ -28,13 +28,13 @@ import java.util.List;
 /**
  * MediaemailinteractionsidsaveData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-18T15:00:48.423Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T20:34:31.808Z")
 public class MediaemailinteractionsidsaveData {
   @SerializedName("body")
   private String body = null;
 
-  @SerializedName("bodyAsPlaintText")
-  private String bodyAsPlaintText = null;
+  @SerializedName("bodyAsPlainText")
+  private String bodyAsPlainText = null;
 
   @SerializedName("mime")
   private String mime = null;
@@ -75,22 +75,22 @@ public class MediaemailinteractionsidsaveData {
     this.body = body;
   }
 
-  public MediaemailinteractionsidsaveData bodyAsPlaintText(String bodyAsPlaintText) {
-    this.bodyAsPlaintText = bodyAsPlaintText;
+  public MediaemailinteractionsidsaveData bodyAsPlainText(String bodyAsPlainText) {
+    this.bodyAsPlainText = bodyAsPlainText;
     return this;
   }
 
    /**
    * Plain text body of email.
-   * @return bodyAsPlaintText
+   * @return bodyAsPlainText
   **/
   @ApiModelProperty(value = "Plain text body of email.")
-  public String getBodyAsPlaintText() {
-    return bodyAsPlaintText;
+  public String getBodyAsPlainText() {
+    return bodyAsPlainText;
   }
 
-  public void setBodyAsPlaintText(String bodyAsPlaintText) {
-    this.bodyAsPlaintText = bodyAsPlaintText;
+  public void setBodyAsPlainText(String bodyAsPlainText) {
+    this.bodyAsPlainText = bodyAsPlainText;
   }
 
   public MediaemailinteractionsidsaveData mime(String mime) {
@@ -251,7 +251,7 @@ public class MediaemailinteractionsidsaveData {
     }
     MediaemailinteractionsidsaveData mediaemailinteractionsidsaveData = (MediaemailinteractionsidsaveData) o;
     return Objects.equals(this.body, mediaemailinteractionsidsaveData.body) &&
-        Objects.equals(this.bodyAsPlaintText, mediaemailinteractionsidsaveData.bodyAsPlaintText) &&
+        Objects.equals(this.bodyAsPlainText, mediaemailinteractionsidsaveData.bodyAsPlainText) &&
         Objects.equals(this.mime, mediaemailinteractionsidsaveData.mime) &&
         Objects.equals(this.subject, mediaemailinteractionsidsaveData.subject) &&
         Objects.equals(this.comment, mediaemailinteractionsidsaveData.comment) &&
@@ -263,7 +263,7 @@ public class MediaemailinteractionsidsaveData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(body, bodyAsPlaintText, mime, subject, comment, from, to, cc, bcc);
+    return Objects.hash(body, bodyAsPlainText, mime, subject, comment, from, to, cc, bcc);
   }
 
 
@@ -273,7 +273,7 @@ public class MediaemailinteractionsidsaveData {
     sb.append("class MediaemailinteractionsidsaveData {\n");
     
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
-    sb.append("    bodyAsPlaintText: ").append(toIndentedString(bodyAsPlaintText)).append("\n");
+    sb.append("    bodyAsPlainText: ").append(toIndentedString(bodyAsPlainText)).append("\n");
     sb.append("    mime: ").append(toIndentedString(mime)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");

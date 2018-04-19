@@ -26,13 +26,13 @@ import java.io.IOException;
 /**
  * MediachatinteractionsidsendurlData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-18T15:00:48.423Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T20:34:31.808Z")
 public class MediachatinteractionsidsendurlData {
   @SerializedName("url")
   private String url = null;
 
   /**
-   * visibility of operation
+   * Defines which participants in the chat can see the URL.
    */
   @JsonAdapter(VisibilityEnum.Adapter.class)
   public enum VisibilityEnum {
@@ -89,10 +89,10 @@ public class MediachatinteractionsidsendurlData {
   }
 
    /**
-   * The url to send to the chat
+   * The URL to send to the chat participants.
    * @return url
   **/
-  @ApiModelProperty(required = true, value = "The url to send to the chat")
+  @ApiModelProperty(required = true, value = "The URL to send to the chat participants.")
   public String getUrl() {
     return url;
   }
@@ -107,10 +107,10 @@ public class MediachatinteractionsidsendurlData {
   }
 
    /**
-   * visibility of operation
+   * Defines which participants in the chat can see the URL.
    * @return visibility
   **/
-  @ApiModelProperty(value = "visibility of operation")
+  @ApiModelProperty(value = "Defines which participants in the chat can see the URL.")
   public VisibilityEnum getVisibility() {
     return visibility;
   }

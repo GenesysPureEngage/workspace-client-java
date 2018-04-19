@@ -26,13 +26,13 @@ import java.io.IOException;
 /**
  * MediachatinteractionsidsendtypingstartedData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-18T15:00:48.423Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T20:34:31.808Z")
 public class MediachatinteractionsidsendtypingstartedData {
   @SerializedName("message")
   private String message = null;
 
   /**
-   * visibility of operation
+   * Defines which participants in the chat can see the message.
    */
   @JsonAdapter(VisibilityEnum.Adapter.class)
   public enum VisibilityEnum {
@@ -89,10 +89,10 @@ public class MediachatinteractionsidsendtypingstartedData {
   }
 
    /**
-   * the message to send to the chat
+   * The message to send to the chat participants. For example, \&quot;Agent typing\&quot;.
    * @return message
   **/
-  @ApiModelProperty(value = "the message to send to the chat")
+  @ApiModelProperty(value = "The message to send to the chat participants. For example, \"Agent typing\".")
   public String getMessage() {
     return message;
   }
@@ -107,10 +107,10 @@ public class MediachatinteractionsidsendtypingstartedData {
   }
 
    /**
-   * visibility of operation
+   * Defines which participants in the chat can see the message.
    * @return visibility
   **/
-  @ApiModelProperty(value = "visibility of operation")
+  @ApiModelProperty(value = "Defines which participants in the chat can see the message.")
   public VisibilityEnum getVisibility() {
     return visibility;
   }
