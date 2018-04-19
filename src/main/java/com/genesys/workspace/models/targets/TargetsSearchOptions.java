@@ -7,12 +7,17 @@ public class TargetsSearchOptions {
     private int limit;
     private boolean exact;
     private String[] excludeGroups;
+    private String[] restrictGroups;
     private String[] excludeFromGroups;
     private String[] restrictToGroups;
 
-    public String[] getExcludeGroups() {
-        return excludeGroups;
+    public String[] getRestrictGroups() { return restrictGroups; }
+
+    public void setRestrictGroups(String[] restrictGroups) {
+        this.restrictGroups = restrictGroups;
     }
+
+    public String[] getExcludeGroups() { return excludeGroups; }
 
     public void setExcludeGroups(String[] excludeGroups) {
         this.excludeGroups = excludeGroups;

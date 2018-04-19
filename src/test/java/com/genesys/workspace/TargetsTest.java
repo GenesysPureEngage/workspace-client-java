@@ -32,7 +32,8 @@ public class TargetsTest {
 
         Mockito.when(internalApi.getTargets((String)Mockito.any(), 
                 (String)Mockito.any(), 
-                (String)Mockito.any(), 
+                (String)Mockito.any(),
+                (String)Mockito.any(),
                 (String)Mockito.any(), 
                 (String)Mockito.any(), 
                 (String)Mockito.any(), 
