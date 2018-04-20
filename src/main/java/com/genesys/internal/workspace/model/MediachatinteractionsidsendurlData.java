@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * MediachatinteractionsidsendurlData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-20T15:10:04.344Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-20T17:04:40.120Z")
 public class MediachatinteractionsidsendurlData {
   @SerializedName("url")
   private String url = null;
