@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * MediachatinteractionsidleaveData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-23T14:27:05.525Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-23T15:00:12.638Z")
 public class MediachatinteractionsidleaveData {
   /**
    * The action to take after the agent leaves.
