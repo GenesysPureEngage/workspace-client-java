@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * MediaemailinteractionsidsendData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-25T15:48:51.296Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-25T16:13:44.233Z")
 public class MediaemailinteractionsidsendData {
   @SerializedName("queue")
   private String queue = null;
