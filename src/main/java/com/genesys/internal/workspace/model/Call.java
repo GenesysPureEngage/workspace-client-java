@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * Call
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-25T17:21:21.923Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-25T17:44:08.241Z")
 public class Call {
   @SerializedName("type")
   private String type = null;
