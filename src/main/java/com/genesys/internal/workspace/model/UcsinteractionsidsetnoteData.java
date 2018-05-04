@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * UcsinteractionsidsetnoteData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-03T20:03:35.544Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-04T12:03:57.656Z")
 public class UcsinteractionsidsetnoteData {
   @SerializedName("note")
   private String note = null;
