@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * MediachatinteractionsidsendtypingstoppedData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-07T15:49:22.288Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-07T17:32:03.494Z")
 public class MediachatinteractionsidsendtypingstoppedData {
   @SerializedName("message")
   private String message = null;
