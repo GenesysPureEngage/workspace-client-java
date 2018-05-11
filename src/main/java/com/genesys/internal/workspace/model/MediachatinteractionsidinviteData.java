@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * MediachatinteractionsidinviteData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T20:28:51.671Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-11T13:54:16.738Z")
 public class MediachatinteractionsidinviteData {
   @SerializedName("agentId")
   private String agentId = null;
