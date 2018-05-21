@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * MediaemailinteractionsidacceptData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-21T19:11:02.994Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-21T20:23:38.831Z")
 public class MediaemailinteractionsidacceptData {
   @SerializedName("useReviewer")
   private Boolean useReviewer = null;
