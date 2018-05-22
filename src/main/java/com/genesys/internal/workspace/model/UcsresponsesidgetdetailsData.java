@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * UcsresponsesidgetdetailsData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-21T20:23:38.831Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-22T09:02:46.969Z")
 public class UcsresponsesidgetdetailsData {
   @SerializedName("version")
   private BigDecimal version = null;
