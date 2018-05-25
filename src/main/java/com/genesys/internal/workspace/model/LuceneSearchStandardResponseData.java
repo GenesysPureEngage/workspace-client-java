@@ -14,6 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
+import com.genesys.internal.workspace.model.UcsresponsessearchData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,38 +23,31 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * UcscontactsidgetdetailsData
+ * LuceneSearchStandardResponseData
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-25T12:44:19.479Z")
-public class UcscontactsidgetdetailsData {
-  @SerializedName("returnedAttributes")
-  private List<String> returnedAttributes = new ArrayList<String>();
+public class LuceneSearchStandardResponseData {
+  @SerializedName("data")
+  private UcsresponsessearchData data = null;
 
-  public UcscontactsidgetdetailsData returnedAttributes(List<String> returnedAttributes) {
-    this.returnedAttributes = returnedAttributes;
-    return this;
-  }
-
-  public UcscontactsidgetdetailsData addReturnedAttributesItem(String returnedAttributesItem) {
-    this.returnedAttributes.add(returnedAttributesItem);
+  public LuceneSearchStandardResponseData data(UcsresponsessearchData data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * The list of contact attributes to be returned for each contact in response
-   * @return returnedAttributes
+   * Get data
+   * @return data
   **/
-  @ApiModelProperty(required = true, value = "The list of contact attributes to be returned for each contact in response")
-  public List<String> getReturnedAttributes() {
-    return returnedAttributes;
+  @ApiModelProperty(required = true, value = "")
+  public UcsresponsessearchData getData() {
+    return data;
   }
 
-  public void setReturnedAttributes(List<String> returnedAttributes) {
-    this.returnedAttributes = returnedAttributes;
+  public void setData(UcsresponsessearchData data) {
+    this.data = data;
   }
 
 
@@ -65,22 +59,22 @@ public class UcscontactsidgetdetailsData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UcscontactsidgetdetailsData ucscontactsidgetdetailsData = (UcscontactsidgetdetailsData) o;
-    return Objects.equals(this.returnedAttributes, ucscontactsidgetdetailsData.returnedAttributes);
+    LuceneSearchStandardResponseData luceneSearchStandardResponseData = (LuceneSearchStandardResponseData) o;
+    return Objects.equals(this.data, luceneSearchStandardResponseData.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(returnedAttributes);
+    return Objects.hash(data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UcscontactsidgetdetailsData {\n");
+    sb.append("class LuceneSearchStandardResponseData {\n");
     
-    sb.append("    returnedAttributes: ").append(toIndentedString(returnedAttributes)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

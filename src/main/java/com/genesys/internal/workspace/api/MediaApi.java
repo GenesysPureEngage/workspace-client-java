@@ -1921,7 +1921,7 @@ public class MediaApi {
         return call;
     }
     /**
-     * Build call for mediaSwicthToBarge
+     * Build call for mediaSwicthToBargeIn
      * @param mediatype The media channel. (required)
      * @param id The ID of the chat interaction. (required)
      * @param progressListener Progress listener
@@ -1929,11 +1929,11 @@ public class MediaApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call mediaSwicthToBargeCall(String mediatype, String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call mediaSwicthToBargeInCall(String mediatype, String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/media/{mediatype}/interactions/{id}/switch-to-barge"
+        String localVarPath = "/media/{mediatype}/interactions/{id}/switch-to-barge-in"
             .replaceAll("\\{" + "mediatype" + "\\}", apiClient.escapeString(mediatype.toString()))
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
@@ -1973,20 +1973,20 @@ public class MediaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call mediaSwicthToBargeValidateBeforeCall(String mediatype, String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call mediaSwicthToBargeInValidateBeforeCall(String mediatype, String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'mediatype' is set
         if (mediatype == null) {
-            throw new ApiException("Missing the required parameter 'mediatype' when calling mediaSwicthToBarge(Async)");
+            throw new ApiException("Missing the required parameter 'mediatype' when calling mediaSwicthToBargeIn(Async)");
         }
         
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling mediaSwicthToBarge(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling mediaSwicthToBargeIn(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = mediaSwicthToBargeCall(mediatype, id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = mediaSwicthToBargeInCall(mediatype, id, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1999,8 +1999,8 @@ public class MediaApi {
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiSuccessResponse mediaSwicthToBarge(String mediatype, String id) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = mediaSwicthToBargeWithHttpInfo(mediatype, id);
+    public ApiSuccessResponse mediaSwicthToBargeIn(String mediatype, String id) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = mediaSwicthToBargeInWithHttpInfo(mediatype, id);
         return resp.getData();
     }
 
@@ -2012,8 +2012,8 @@ public class MediaApi {
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApiSuccessResponse> mediaSwicthToBargeWithHttpInfo(String mediatype, String id) throws ApiException {
-        com.squareup.okhttp.Call call = mediaSwicthToBargeValidateBeforeCall(mediatype, id, null, null);
+    public ApiResponse<ApiSuccessResponse> mediaSwicthToBargeInWithHttpInfo(String mediatype, String id) throws ApiException {
+        com.squareup.okhttp.Call call = mediaSwicthToBargeInValidateBeforeCall(mediatype, id, null, null);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2027,7 +2027,7 @@ public class MediaApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call mediaSwicthToBargeAsync(String mediatype, String id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call mediaSwicthToBargeInAsync(String mediatype, String id, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2048,7 +2048,7 @@ public class MediaApi {
             };
         }
 
-        com.squareup.okhttp.Call call = mediaSwicthToBargeValidateBeforeCall(mediatype, id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = mediaSwicthToBargeInValidateBeforeCall(mediatype, id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

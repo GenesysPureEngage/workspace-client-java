@@ -26,19 +26,43 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * UcsinteractionsidgetdetailsData
+ * UcsresponsessearchData
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-25T12:44:19.479Z")
-public class UcsinteractionsidgetdetailsData {
+public class UcsresponsessearchData {
+  @SerializedName("query")
+  private String query = null;
+
   @SerializedName("returnedAttributes")
   private List<String> returnedAttributes = null;
 
-  public UcsinteractionsidgetdetailsData returnedAttributes(List<String> returnedAttributes) {
+  @SerializedName("maxResults")
+  private Integer maxResults = null;
+
+  public UcsresponsessearchData query(String query) {
+    this.query = query;
+    return this;
+  }
+
+   /**
+   * The query to do the lucene search for standard responses
+   * @return query
+  **/
+  @ApiModelProperty(required = true, value = "The query to do the lucene search for standard responses")
+  public String getQuery() {
+    return query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  public UcsresponsessearchData returnedAttributes(List<String> returnedAttributes) {
     this.returnedAttributes = returnedAttributes;
     return this;
   }
 
-  public UcsinteractionsidgetdetailsData addReturnedAttributesItem(String returnedAttributesItem) {
+  public UcsresponsessearchData addReturnedAttributesItem(String returnedAttributesItem) {
     if (this.returnedAttributes == null) {
       this.returnedAttributes = new ArrayList<String>();
     }
@@ -47,16 +71,34 @@ public class UcsinteractionsidgetdetailsData {
   }
 
    /**
-   * The list of interaction attributes to be returned
+   * The list of standard responses attributes to be returned for each standard response in request response
    * @return returnedAttributes
   **/
-  @ApiModelProperty(value = "The list of interaction attributes to be returned")
+  @ApiModelProperty(value = "The list of standard responses attributes to be returned for each standard response in request response")
   public List<String> getReturnedAttributes() {
     return returnedAttributes;
   }
 
   public void setReturnedAttributes(List<String> returnedAttributes) {
     this.returnedAttributes = returnedAttributes;
+  }
+
+  public UcsresponsessearchData maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * The maximum number of standard responses to be returned
+   * @return maxResults
+  **/
+  @ApiModelProperty(value = "The maximum number of standard responses to be returned")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
   }
 
 
@@ -68,22 +110,26 @@ public class UcsinteractionsidgetdetailsData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UcsinteractionsidgetdetailsData ucsinteractionsidgetdetailsData = (UcsinteractionsidgetdetailsData) o;
-    return Objects.equals(this.returnedAttributes, ucsinteractionsidgetdetailsData.returnedAttributes);
+    UcsresponsessearchData ucsresponsessearchData = (UcsresponsessearchData) o;
+    return Objects.equals(this.query, ucsresponsessearchData.query) &&
+        Objects.equals(this.returnedAttributes, ucsresponsessearchData.returnedAttributes) &&
+        Objects.equals(this.maxResults, ucsresponsessearchData.maxResults);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(returnedAttributes);
+    return Objects.hash(query, returnedAttributes, maxResults);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UcsinteractionsidgetdetailsData {\n");
+    sb.append("class UcsresponsessearchData {\n");
     
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    returnedAttributes: ").append(toIndentedString(returnedAttributes)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("}");
     return sb.toString();
   }

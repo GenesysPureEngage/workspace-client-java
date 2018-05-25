@@ -27,10 +27,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * MediaemailinteractionsidreplyData
+ * MediaemailinteractionsidforwardData
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-25T12:44:19.479Z")
-public class MediaemailinteractionsidreplyData {
+public class MediaemailinteractionsidforwardData {
   @SerializedName("queue")
   private String queue = null;
 
@@ -61,16 +61,16 @@ public class MediaemailinteractionsidreplyData {
   @SerializedName("userData")
   private List<Kvpair> userData = null;
 
-  public MediaemailinteractionsidreplyData queue(String queue) {
+  public MediaemailinteractionsidforwardData queue(String queue) {
     this.queue = queue;
     return this;
   }
 
    /**
-   * the name of the queue to submit the reply email
+   * the name of the queue to submit the forward email
    * @return queue
   **/
-  @ApiModelProperty(required = true, value = "the name of the queue to submit the reply email")
+  @ApiModelProperty(required = true, value = "the name of the queue to submit the forward email")
   public String getQueue() {
     return queue;
   }
@@ -79,7 +79,7 @@ public class MediaemailinteractionsidreplyData {
     this.queue = queue;
   }
 
-  public MediaemailinteractionsidreplyData from(String from) {
+  public MediaemailinteractionsidforwardData from(String from) {
     this.from = from;
     return this;
   }
@@ -97,12 +97,12 @@ public class MediaemailinteractionsidreplyData {
     this.from = from;
   }
 
-  public MediaemailinteractionsidreplyData to( to) {
+  public MediaemailinteractionsidforwardData to( to) {
     this.to = to;
     return this;
   }
 
-  public MediaemailinteractionsidreplyData addToItem( toItem) {
+  public MediaemailinteractionsidforwardData addToItem( toItem) {
     if (this.to == null) {
       this.to = ;
     }
@@ -111,10 +111,10 @@ public class MediaemailinteractionsidreplyData {
   }
 
    /**
-   * The addresses mail of to. If the field is not defined. The to is reply address speficied in inboud or from address if reply is not defined.
+   * The addresses mail of to.
    * @return to
   **/
-  @ApiModelProperty(value = "The addresses mail of to. If the field is not defined. The to is reply address speficied in inboud or from address if reply is not defined.")
+  @ApiModelProperty(value = "The addresses mail of to.")
   public  getTo() {
     return to;
   }
@@ -123,12 +123,12 @@ public class MediaemailinteractionsidreplyData {
     this.to = to;
   }
 
-  public MediaemailinteractionsidreplyData cc(List<String> cc) {
+  public MediaemailinteractionsidforwardData cc(List<String> cc) {
     this.cc = cc;
     return this;
   }
 
-  public MediaemailinteractionsidreplyData addCcItem(String ccItem) {
+  public MediaemailinteractionsidforwardData addCcItem(String ccItem) {
     if (this.cc == null) {
       this.cc = new ArrayList<String>();
     }
@@ -149,12 +149,12 @@ public class MediaemailinteractionsidreplyData {
     this.cc = cc;
   }
 
-  public MediaemailinteractionsidreplyData bcc(List<String> bcc) {
+  public MediaemailinteractionsidforwardData bcc(List<String> bcc) {
     this.bcc = bcc;
     return this;
   }
 
-  public MediaemailinteractionsidreplyData addBccItem(String bccItem) {
+  public MediaemailinteractionsidforwardData addBccItem(String bccItem) {
     if (this.bcc == null) {
       this.bcc = new ArrayList<String>();
     }
@@ -175,7 +175,7 @@ public class MediaemailinteractionsidreplyData {
     this.bcc = bcc;
   }
 
-  public MediaemailinteractionsidreplyData body(String body) {
+  public MediaemailinteractionsidforwardData body(String body) {
     this.body = body;
     return this;
   }
@@ -193,7 +193,7 @@ public class MediaemailinteractionsidreplyData {
     this.body = body;
   }
 
-  public MediaemailinteractionsidreplyData bodyAsPlainText(String bodyAsPlainText) {
+  public MediaemailinteractionsidforwardData bodyAsPlainText(String bodyAsPlainText) {
     this.bodyAsPlainText = bodyAsPlainText;
     return this;
   }
@@ -211,7 +211,7 @@ public class MediaemailinteractionsidreplyData {
     this.bodyAsPlainText = bodyAsPlainText;
   }
 
-  public MediaemailinteractionsidreplyData mime(String mime) {
+  public MediaemailinteractionsidforwardData mime(String mime) {
     this.mime = mime;
     return this;
   }
@@ -229,7 +229,7 @@ public class MediaemailinteractionsidreplyData {
     this.mime = mime;
   }
 
-  public MediaemailinteractionsidreplyData subject(String subject) {
+  public MediaemailinteractionsidforwardData subject(String subject) {
     this.subject = subject;
     return this;
   }
@@ -247,12 +247,12 @@ public class MediaemailinteractionsidreplyData {
     this.subject = subject;
   }
 
-  public MediaemailinteractionsidreplyData userData(List<Kvpair> userData) {
+  public MediaemailinteractionsidforwardData userData(List<Kvpair> userData) {
     this.userData = userData;
     return this;
   }
 
-  public MediaemailinteractionsidreplyData addUserDataItem(Kvpair userDataItem) {
+  public MediaemailinteractionsidforwardData addUserDataItem(Kvpair userDataItem) {
     if (this.userData == null) {
       this.userData = new ArrayList<Kvpair>();
     }
@@ -282,17 +282,17 @@ public class MediaemailinteractionsidreplyData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MediaemailinteractionsidreplyData mediaemailinteractionsidreplyData = (MediaemailinteractionsidreplyData) o;
-    return Objects.equals(this.queue, mediaemailinteractionsidreplyData.queue) &&
-        Objects.equals(this.from, mediaemailinteractionsidreplyData.from) &&
-        Objects.equals(this.to, mediaemailinteractionsidreplyData.to) &&
-        Objects.equals(this.cc, mediaemailinteractionsidreplyData.cc) &&
-        Objects.equals(this.bcc, mediaemailinteractionsidreplyData.bcc) &&
-        Objects.equals(this.body, mediaemailinteractionsidreplyData.body) &&
-        Objects.equals(this.bodyAsPlainText, mediaemailinteractionsidreplyData.bodyAsPlainText) &&
-        Objects.equals(this.mime, mediaemailinteractionsidreplyData.mime) &&
-        Objects.equals(this.subject, mediaemailinteractionsidreplyData.subject) &&
-        Objects.equals(this.userData, mediaemailinteractionsidreplyData.userData);
+    MediaemailinteractionsidforwardData mediaemailinteractionsidforwardData = (MediaemailinteractionsidforwardData) o;
+    return Objects.equals(this.queue, mediaemailinteractionsidforwardData.queue) &&
+        Objects.equals(this.from, mediaemailinteractionsidforwardData.from) &&
+        Objects.equals(this.to, mediaemailinteractionsidforwardData.to) &&
+        Objects.equals(this.cc, mediaemailinteractionsidforwardData.cc) &&
+        Objects.equals(this.bcc, mediaemailinteractionsidforwardData.bcc) &&
+        Objects.equals(this.body, mediaemailinteractionsidforwardData.body) &&
+        Objects.equals(this.bodyAsPlainText, mediaemailinteractionsidforwardData.bodyAsPlainText) &&
+        Objects.equals(this.mime, mediaemailinteractionsidforwardData.mime) &&
+        Objects.equals(this.subject, mediaemailinteractionsidforwardData.subject) &&
+        Objects.equals(this.userData, mediaemailinteractionsidforwardData.userData);
   }
 
   @Override
@@ -304,7 +304,7 @@ public class MediaemailinteractionsidreplyData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MediaemailinteractionsidreplyData {\n");
+    sb.append("class MediaemailinteractionsidforwardData {\n");
     
     sb.append("    queue: ").append(toIndentedString(queue)).append("\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");

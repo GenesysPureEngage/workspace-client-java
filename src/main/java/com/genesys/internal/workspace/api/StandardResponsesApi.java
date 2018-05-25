@@ -32,6 +32,7 @@ import com.genesys.internal.workspace.model.ApiSuccessResponse;
 import com.genesys.internal.workspace.model.GetCategoryData;
 import com.genesys.internal.workspace.model.GetRootCategoriesData;
 import com.genesys.internal.workspace.model.GetStandardResponseData;
+import com.genesys.internal.workspace.model.LuceneSearchStandardResponseData;
 import com.genesys.internal.workspace.model.RenderStandardResponseFieldCodesData;
 import com.genesys.internal.workspace.model.ReportStandareResponseUsageData;
 
@@ -1306,6 +1307,128 @@ public class StandardResponsesApi {
         }
 
         com.squareup.okhttp.Call call = reportStandareResponseUsageValidateBeforeCall(id, reportStandareResponseUsageData, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for searchStandardResponses
+     * @param luceneSearchStandardResponseData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call searchStandardResponsesCall(LuceneSearchStandardResponseData luceneSearchStandardResponseData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = luceneSearchStandardResponseData;
+
+        // create path and map variables
+        String localVarPath = "/ucs/responses/search";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call searchStandardResponsesValidateBeforeCall(LuceneSearchStandardResponseData luceneSearchStandardResponseData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'luceneSearchStandardResponseData' is set
+        if (luceneSearchStandardResponseData == null) {
+            throw new ApiException("Missing the required parameter 'luceneSearchStandardResponseData' when calling searchStandardResponses(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = searchStandardResponsesCall(luceneSearchStandardResponseData, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Search for standard responses based on search query, using lucene search
+     * 
+     * @param luceneSearchStandardResponseData  (required)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse searchStandardResponses(LuceneSearchStandardResponseData luceneSearchStandardResponseData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = searchStandardResponsesWithHttpInfo(luceneSearchStandardResponseData);
+        return resp.getData();
+    }
+
+    /**
+     * Search for standard responses based on search query, using lucene search
+     * 
+     * @param luceneSearchStandardResponseData  (required)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> searchStandardResponsesWithHttpInfo(LuceneSearchStandardResponseData luceneSearchStandardResponseData) throws ApiException {
+        com.squareup.okhttp.Call call = searchStandardResponsesValidateBeforeCall(luceneSearchStandardResponseData, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Search for standard responses based on search query, using lucene search (asynchronously)
+     * 
+     * @param luceneSearchStandardResponseData  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call searchStandardResponsesAsync(LuceneSearchStandardResponseData luceneSearchStandardResponseData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = searchStandardResponsesValidateBeforeCall(luceneSearchStandardResponseData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
