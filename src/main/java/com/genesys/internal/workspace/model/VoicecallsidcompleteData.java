@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * VoicecallsidcompleteData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-25T12:44:19.479Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-25T21:04:41.926Z")
 public class VoicecallsidcompleteData {
   @SerializedName("userData")
   private List<Kvpair> userData = new ArrayList<Kvpair>();
