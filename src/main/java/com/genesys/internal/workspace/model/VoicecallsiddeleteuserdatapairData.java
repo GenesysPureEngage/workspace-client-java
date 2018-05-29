@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * VoicecallsiddeleteuserdatapairData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:04:52.058Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T14:05:05.515Z")
 public class VoicecallsiddeleteuserdatapairData {
   @SerializedName("key")
   private String key = null;

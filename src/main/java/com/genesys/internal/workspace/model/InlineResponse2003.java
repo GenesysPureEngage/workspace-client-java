@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * InlineResponse2003
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:04:52.058Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T14:05:05.515Z")
 public class InlineResponse2003 {
   @SerializedName("data")
   private InlineResponse2003Data data = null;
