@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * MediaemailinteractionsidreplyData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-25T21:04:41.926Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T10:49:40.885Z")
 public class MediaemailinteractionsidreplyData {
   @SerializedName("queue")
   private String queue = null;
@@ -38,7 +38,7 @@ public class MediaemailinteractionsidreplyData {
   private String from = null;
 
   @SerializedName("to")
-  private  to = null;
+  private List<String> to = null;
 
   @SerializedName("cc")
   private List<String> cc = null;
@@ -97,14 +97,14 @@ public class MediaemailinteractionsidreplyData {
     this.from = from;
   }
 
-  public MediaemailinteractionsidreplyData to( to) {
+  public MediaemailinteractionsidreplyData to(List<String> to) {
     this.to = to;
     return this;
   }
 
-  public MediaemailinteractionsidreplyData addToItem( toItem) {
+  public MediaemailinteractionsidreplyData addToItem(String toItem) {
     if (this.to == null) {
-      this.to = ;
+      this.to = new ArrayList<String>();
     }
     this.to.add(toItem);
     return this;
@@ -115,11 +115,11 @@ public class MediaemailinteractionsidreplyData {
    * @return to
   **/
   @ApiModelProperty(value = "The addresses mail of to. If the field is not defined. The to is reply address speficied in inboud or from address if reply is not defined.")
-  public  getTo() {
+  public List<String> getTo() {
     return to;
   }
 
-  public void setTo( to) {
+  public void setTo(List<String> to) {
     this.to = to;
   }
 
