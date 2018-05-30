@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CustomNotificationData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T14:05:05.515Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-30T15:53:53.731Z")
 public class CustomNotificationData {
   @SerializedName("data")
   private MediachatinteractionsidsendcustomnotificationData data = null;
