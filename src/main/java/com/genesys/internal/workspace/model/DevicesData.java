@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * DevicesData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-30T21:13:47.687Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-31T14:01:15.839Z")
 public class DevicesData {
   @SerializedName("devices")
   private List<Dn> devices = null;
