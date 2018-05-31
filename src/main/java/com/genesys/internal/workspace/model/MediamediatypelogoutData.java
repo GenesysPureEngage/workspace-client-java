@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * MediamediatypelogoutData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-31T14:42:18.790Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-31T15:24:48.621Z")
 public class MediamediatypelogoutData {
   @SerializedName("reason")
   private IxnReasonCode reason = null;

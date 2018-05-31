@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ConsultData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-31T14:42:18.790Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-31T15:24:48.621Z")
 public class ConsultData {
   @SerializedName("data")
   private MediachatinteractionsidconsultData data = null;
