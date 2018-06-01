@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * MediaStartMonitoringData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-01T10:08:52.702Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-01T15:04:46.504Z")
 public class MediaStartMonitoringData {
   @SerializedName("data")
   private MediamediatypestartmonitoringData data = null;
