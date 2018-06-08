@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * MediaemailinteractionscreateData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-05T18:17:33.426Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-08T11:05:55.325Z")
 public class MediaemailinteractionscreateData {
   @SerializedName("queue")
   private String queue = null;
