@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * InviteData1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-08T11:45:01.329Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-08T14:04:43.111Z")
 public class InviteData1 {
   @SerializedName("data")
   private MediachatinteractionsidinvitebyqueueData data = null;
