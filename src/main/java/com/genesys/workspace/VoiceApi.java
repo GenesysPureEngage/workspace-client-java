@@ -53,6 +53,8 @@ import com.genesys.workspace.events.DnEventListener;
 import com.genesys.workspace.events.DnStateChanged;
 import com.genesys.workspace.events.ErrorEventListener;
 import com.genesys.workspace.events.EventError;
+import com.genesys.workspace.events.EventUserEvent;
+import com.genesys.workspace.events.EventUserEventListener;
 import com.genesys.workspace.events.NotificationType;
 import com.genesys.workspace.models.AgentState;
 import com.genesys.workspace.models.AgentWorkMode;
@@ -80,12 +82,14 @@ public class VoiceApi {
     private Set<DnEventListener> dnEventListeners;
     private Set<CallEventListener> callEventListeners;
     private Set<ErrorEventListener> errorEventListeners;
+    private Set<EventUserEventListener> eventUserEventListeners;
 
     public VoiceApi() {
         this.calls = new HashMap<>();
         this.dnEventListeners = new HashSet<>();
         this.callEventListeners = new HashSet<>();
         this.errorEventListeners = new HashSet<>();
+        this.eventUserEventListeners = new HashSet<>();
     }
 
     void initialize(ApiClient apiClient) {
@@ -120,6 +124,32 @@ public class VoiceApi {
                 logger.debug("Exception in listener" + e);
             }
         }
+    }
+
+    private void publishEventUserEvent(EventUserEvent event){
+        for(EventUserEventListener listener: this.eventUserEventListeners){
+            try {
+               listener.handleEventUserEvent(event);
+            } catch (Exception e) {
+                logger.debug("Exception in eventUserEventListener" + e);
+            }
+        }
+    }
+
+    /**
+     * Add a listener to EventUserEvent events.
+     * @param listener the listener to be added
+     */
+    public void addEventUserEventListener(EventUserEventListener listener){
+        this.eventUserEventListeners.add(listener);
+    }
+
+    /**
+     * Removes a previously added EventUserEvent listener.
+     * @param listener The listener to be removed
+     */
+    public void removeEventUserEventListener(EventUserEventListener listener){
+        this.eventUserEventListeners.remove(listener);
     }
 
     /**
@@ -285,10 +315,16 @@ public class VoiceApi {
             case "EventError":
                 this.onEventError(data);
                 break;
-
+            case "EventUserEvent"
+                this.onEventUserEvent(data);
+                break;
             default:
                 logger.debug("Unexpected messageType: " + messageType);
         }
+    }
+
+    private void onEventUserEvent(Map<String, Object> data){
+       this.publishEventUserEvent(new EventUserEvent(data));
     }
 
     private void throwIfNotOk(String requestName, ApiSuccessResponse response) throws WorkspaceApiException {

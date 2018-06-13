@@ -70,6 +70,18 @@ Sets the debug flag
 
 ## VoiceApi
 
+###### `public void addEventUserEventListener(EventUserEventListener listener)`
+
+Adds a listener for EventUserEvent events.
+
+ * **Parameters:** `listener` — the listener to be added.  
+ 
+###### `public void removeEventUserEventListener(EventUserEventListener listener)`
+
+Removes a listener for EventUserEvent events.
+
+ * **Parameters:** `listener` — the listener to be removed.   
+
 ###### `public void addCallEventListener(CallEventListener listener)`
 
 Adds a listener for CallStateChanged events.
