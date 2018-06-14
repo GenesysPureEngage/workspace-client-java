@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ReplyData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-14T20:21:54.046Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-14T21:15:29.405Z")
 public class ReplyData {
   @SerializedName("data")
   private MediaemailinteractionsidreplyData data = null;
