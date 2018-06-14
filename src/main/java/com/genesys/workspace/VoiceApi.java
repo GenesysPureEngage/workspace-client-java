@@ -315,9 +315,11 @@ public class VoiceApi {
             case "EventError":
                 this.onEventError(data);
                 break;
-            case "EventUserEvent"
+
+            case "EventUserEvent":
                 this.onEventUserEvent(data);
                 break;
+
             default:
                 logger.debug("Unexpected messageType: " + messageType);
         }

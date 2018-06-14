@@ -1,5 +1,7 @@
 package com.genesys.workspace.events;
 
+import java.util.Map;
+
 public class EventUserEvent {
     private Map<String, Object> event;
 
