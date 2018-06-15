@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * RemoveFromConferenceData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-15T15:43:27.294Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-15T21:08:20.322Z")
 public class RemoveFromConferenceData {
   @SerializedName("data")
   private MediachatinteractionsidremovefromconferenceData data = null;
