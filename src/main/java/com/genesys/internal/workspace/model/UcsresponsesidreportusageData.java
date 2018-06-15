@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * UcsresponsesidreportusageData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-14T21:15:29.405Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-15T00:38:11.831Z")
 public class UcsresponsesidreportusageData {
   @SerializedName("interactionId")
   private String interactionId = null;
