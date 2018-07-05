@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * CurrentSessionDataUserActiveSession
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T13:05:14.918Z")
 public class CurrentSessionDataUserActiveSession {
   @SerializedName("autoCompleteCall")
   private Boolean autoCompleteCall = null;
@@ -62,7 +62,7 @@ public class CurrentSessionDataUserActiveSession {
    * @return autoCompleteCall
   **/
   @ApiModelProperty(value = "Specifies if calls are automatically completed.")
-  public Boolean getAutoCompleteCall() {
+  public Boolean AutoCompleteCall() {
     return autoCompleteCall;
   }
 

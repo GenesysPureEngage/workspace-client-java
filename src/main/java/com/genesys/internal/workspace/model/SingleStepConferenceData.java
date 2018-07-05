@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * SingleStepConferenceData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T13:05:14.918Z")
 public class SingleStepConferenceData {
   @SerializedName("data")
   private VoicecallsidsinglestepconferenceData data = null;
@@ -41,7 +41,7 @@ public class SingleStepConferenceData {
    * Get data
    * @return data
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public VoicecallsidsinglestepconferenceData getData() {
     return data;
   }

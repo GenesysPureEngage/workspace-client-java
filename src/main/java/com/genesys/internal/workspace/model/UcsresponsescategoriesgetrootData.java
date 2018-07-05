@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * UcsresponsescategoriesgetrootData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T13:05:14.918Z")
 public class UcsresponsescategoriesgetrootData {
   @SerializedName("approved")
   private Boolean approved = null;
@@ -41,7 +41,7 @@ public class UcsresponsescategoriesgetrootData {
    * @return approved
   **/
   @ApiModelProperty(value = "true to get only approved categories")
-  public Boolean getApproved() {
+  public Boolean Approved() {
     return approved;
   }
 

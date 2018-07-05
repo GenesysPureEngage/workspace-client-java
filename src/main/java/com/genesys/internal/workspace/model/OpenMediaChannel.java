@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * OpenMediaChannel
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T13:05:14.918Z")
 public class OpenMediaChannel {
   @SerializedName("name")
   private String name = null;
@@ -95,7 +95,7 @@ public class OpenMediaChannel {
    * @return dnd
   **/
   @ApiModelProperty(value = "")
-  public Boolean getDnd() {
+  public Boolean Dnd() {
     return dnd;
   }
 

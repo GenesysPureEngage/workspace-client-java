@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CreateContactData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T13:05:14.918Z")
 public class CreateContactData {
   @SerializedName("data")
   private UcscontactscreateData data = null;
@@ -41,7 +41,7 @@ public class CreateContactData {
    * Get data
    * @return data
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public UcscontactscreateData getData() {
     return data;
   }
