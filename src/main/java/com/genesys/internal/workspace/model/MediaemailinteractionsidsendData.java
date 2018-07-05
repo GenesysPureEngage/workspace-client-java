@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * MediaemailinteractionsidsendData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-16T05:06:46.797Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T05:21:19.770Z")
 public class MediaemailinteractionsidsendData {
   @SerializedName("queue")
   private String queue = null;
@@ -274,7 +274,7 @@ public class MediaemailinteractionsidsendData {
    * @return useReviewer
   **/
   @ApiModelProperty(value = "Indicate the agent is reviewer.")
-  public Boolean UseReviewer() {
+  public Boolean getUseReviewer() {
     return useReviewer;
   }
 

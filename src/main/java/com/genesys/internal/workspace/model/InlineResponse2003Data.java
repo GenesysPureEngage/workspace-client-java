@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * InlineResponse2003Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-16T05:06:46.797Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T05:21:19.770Z")
 public class InlineResponse2003Data {
   @SerializedName("messages")
   private List<Object> messages = new ArrayList<Object>();
