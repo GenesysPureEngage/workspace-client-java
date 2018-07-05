@@ -802,12 +802,12 @@ public class TargetsApi {
      * Build call for getTargets
      * @param searchTerm The text to search for in targets. (required)
      * @param filterName Filter the search based on this field. (optional)
-     * @param types A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
+     * @param types A comma-separated list of types to include in the search. Valid values are &#x60;acd-queue&#x60;, &#x60;agent-group&#x60;, &#x60;agent&#x60;, &#x60;route-point&#x60;, &#x60;skill&#x60;, and &#x60;custom-contact&#x60;. (optional)
      * @param excludeGroup A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)
      * @param restrictGroup A comma-separated list of agent group names. Workspace returns only these groups from the search. (optional)
      * @param excludeFromGroup A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)
      * @param restrictToGroup A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)
-     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
+     * @param sort The sort order, either ascending or descending. The default is descending. (optional)
      * @param limit The number of results to return. The default value is 50. (optional)
      * @param matchType Specify whether the search should only return exact matches. (optional)
      * @param progressListener Progress listener
@@ -895,12 +895,12 @@ public class TargetsApi {
      * Search for targets by the specified search term.
      * @param searchTerm The text to search for in targets. (required)
      * @param filterName Filter the search based on this field. (optional)
-     * @param types A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
+     * @param types A comma-separated list of types to include in the search. Valid values are &#x60;acd-queue&#x60;, &#x60;agent-group&#x60;, &#x60;agent&#x60;, &#x60;route-point&#x60;, &#x60;skill&#x60;, and &#x60;custom-contact&#x60;. (optional)
      * @param excludeGroup A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)
      * @param restrictGroup A comma-separated list of agent group names. Workspace returns only these groups from the search. (optional)
      * @param excludeFromGroup A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)
      * @param restrictToGroup A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)
-     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
+     * @param sort The sort order, either ascending or descending. The default is descending. (optional)
      * @param limit The number of results to return. The default value is 50. (optional)
      * @param matchType Specify whether the search should only return exact matches. (optional)
      * @return TargetsResponse
@@ -916,12 +916,12 @@ public class TargetsApi {
      * Search for targets by the specified search term.
      * @param searchTerm The text to search for in targets. (required)
      * @param filterName Filter the search based on this field. (optional)
-     * @param types A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
+     * @param types A comma-separated list of types to include in the search. Valid values are &#x60;acd-queue&#x60;, &#x60;agent-group&#x60;, &#x60;agent&#x60;, &#x60;route-point&#x60;, &#x60;skill&#x60;, and &#x60;custom-contact&#x60;. (optional)
      * @param excludeGroup A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)
      * @param restrictGroup A comma-separated list of agent group names. Workspace returns only these groups from the search. (optional)
      * @param excludeFromGroup A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)
      * @param restrictToGroup A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)
-     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
+     * @param sort The sort order, either ascending or descending. The default is descending. (optional)
      * @param limit The number of results to return. The default value is 50. (optional)
      * @param matchType Specify whether the search should only return exact matches. (optional)
      * @return ApiResponse&lt;TargetsResponse&gt;
@@ -938,12 +938,12 @@ public class TargetsApi {
      * Search for targets by the specified search term.
      * @param searchTerm The text to search for in targets. (required)
      * @param filterName Filter the search based on this field. (optional)
-     * @param types A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)
+     * @param types A comma-separated list of types to include in the search. Valid values are &#x60;acd-queue&#x60;, &#x60;agent-group&#x60;, &#x60;agent&#x60;, &#x60;route-point&#x60;, &#x60;skill&#x60;, and &#x60;custom-contact&#x60;. (optional)
      * @param excludeGroup A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)
      * @param restrictGroup A comma-separated list of agent group names. Workspace returns only these groups from the search. (optional)
      * @param excludeFromGroup A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)
      * @param restrictToGroup A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)
-     * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
+     * @param sort The sort order, either ascending or descending. The default is descending. (optional)
      * @param limit The number of results to return. The default value is 50. (optional)
      * @param matchType Specify whether the search should only return exact matches. (optional)
      * @param callback The callback to be executed when the API call finishes

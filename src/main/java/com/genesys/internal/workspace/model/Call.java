@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * Call
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T07:40:42.491Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
 public class Call {
   @SerializedName("type")
   private String type = null;
@@ -104,10 +104,10 @@ public class Call {
   }
 
    /**
-   * Get id
+   * The unique identifier for the call.
    * @return id
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The unique identifier for the call.")
   public String getId() {
     return id;
   }
@@ -122,10 +122,10 @@ public class Call {
   }
 
    /**
-   * Get previousConnId
+   * The previous connection ID is present if the ID has changed, as would be the case if an  agent is the target of a two-step conference or transfer.
    * @return previousConnId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The previous connection ID is present if the ID has changed, as would be the case if an  agent is the target of a two-step conference or transfer.")
   public String getPreviousConnId() {
     return previousConnId;
   }
@@ -140,10 +140,10 @@ public class Call {
   }
 
    /**
-   * Get parentConnId
+   * The parent connection ID is present on consult calls and identifies the call from which the  conference or transfer was initiated.
    * @return parentConnId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The parent connection ID is present on consult calls and identifies the call from which the  conference or transfer was initiated.")
   public String getParentConnId() {
     return parentConnId;
   }
@@ -158,10 +158,10 @@ public class Call {
   }
 
    /**
-   * Get phoneNumber
+   * The agent&#39;s phone number.
    * @return phoneNumber
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The agent's phone number.")
   public String getPhoneNumber() {
     return phoneNumber;
   }
@@ -176,10 +176,10 @@ public class Call {
   }
 
    /**
-   * Get connId
+   * The connection ID for the call. This value comes from the Tlib event.
    * @return connId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The connection ID for the call. This value comes from the Tlib event.")
   public String getConnId() {
     return connId;
   }
@@ -194,10 +194,10 @@ public class Call {
   }
 
    /**
-   * Get callUuid
+   * The universally unique identifier associated with the call. This is a separate identifier  that is specifically required by some requests.
    * @return callUuid
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The universally unique identifier associated with the call. This is a separate identifier  that is specifically required by some requests.")
   public String getCallUuid() {
     return callUuid;
   }
@@ -212,10 +212,10 @@ public class Call {
   }
 
    /**
-   * Get callType
+   * The type of call, such as Internal, Inbound, Outbound, Consult.
    * @return callType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of call, such as Internal, Inbound, Outbound, Consult.")
   public String getCallType() {
     return callType;
   }
@@ -230,10 +230,10 @@ public class Call {
   }
 
    /**
-   * Get state
+   * The state of the call - one of Ringing, Dialing, Established, Held, Released, or Completed.  Unless specifically configured, calls are automatically completed upon release.
    * @return state
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The state of the call - one of Ringing, Dialing, Established, Held, Released, or Completed.  Unless specifically configured, calls are automatically completed upon release.")
   public String getState() {
     return state;
   }
@@ -256,10 +256,10 @@ public class Call {
   }
 
    /**
-   * Get capabilities
+   * A list of capabilities for the current state. For example, if the current state is Dialing,  the list might be [\&quot;HangUp\&quot;, \&quot;Hold\&quot;].
    * @return capabilities
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of capabilities for the current state. For example, if the current state is Dialing,  the list might be [\"HangUp\", \"Hold\"].")
   public List<String> getCapabilities() {
     return capabilities;
   }
@@ -282,10 +282,10 @@ public class Call {
   }
 
    /**
-   * Get participants
+   * A list of call participants - the phone numbers of those currently on the call.
    * @return participants
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of call participants - the phone numbers of those currently on the call.")
   public List<CallParticipants> getParticipants() {
     return participants;
   }
@@ -300,10 +300,10 @@ public class Call {
   }
 
    /**
-   * Get dnis
+   * The Dialed Number Identification Service from the call.
    * @return dnis
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The Dialed Number Identification Service from the call.")
   public String getDnis() {
     return dnis;
   }
@@ -318,10 +318,10 @@ public class Call {
   }
 
    /**
-   * Get ani
+   * The Automatic Number Identification from the call.
    * @return ani
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The Automatic Number Identification from the call.")
   public String getAni() {
     return ani;
   }
@@ -336,10 +336,10 @@ public class Call {
   }
 
    /**
-   * Get recordingState
+   * The call recording state, one of Stopped, Recording, Paused. If the recording was never started for a call this property is absent.
    * @return recordingState
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The call recording state, one of Stopped, Recording, Paused. If the recording was never started for a call this property is absent.")
   public String getRecordingState() {
     return recordingState;
   }
@@ -362,10 +362,10 @@ public class Call {
   }
 
    /**
-   * A key/value pairs list of a data structure that provides additional information associated with this action.
+   * A key/value pairs list of a data associated with the call.
    * @return userData
   **/
-  @ApiModelProperty(value = "A key/value pairs list of a data structure that provides additional information associated with this action.")
+  @ApiModelProperty(value = "A key/value pairs list of a data associated with the call.")
   public List<Kvpair> getUserData() {
     return userData;
   }
@@ -388,10 +388,10 @@ public class Call {
   }
 
    /**
-   * A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System/Current/GenEM/Extensions).
+   * Media device/hardware reason codes and similar information. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System/Current/GenEM/Extensions).
    * @return extensions
   **/
-  @ApiModelProperty(value = "A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System/Current/GenEM/Extensions).")
+  @ApiModelProperty(value = "Media device/hardware reason codes and similar information. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System/Current/GenEM/Extensions).")
   public List<Kvpair> getExtensions() {
     return extensions;
   }

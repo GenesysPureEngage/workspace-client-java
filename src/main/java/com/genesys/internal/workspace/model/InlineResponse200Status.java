@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * InlineResponse200Status
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T07:40:42.491Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
 public class InlineResponse200Status {
   @SerializedName("code")
   private Integer code = null;
@@ -40,10 +40,10 @@ public class InlineResponse200Status {
   }
 
    /**
-   * On error will provide a code that can be used to get more detail about the error.
+   * Indicates whether the operation was successful. &#x60;0&#x60; is a successful synchronous operation;  &#x60;1&#x60; is a successful asynchronous operation; and &#x60;2&#x60; is a partially successful synchronous  operation. If the value is &#x60;2&#x60; the response includes **data** and **error** objects. All  other status codes indicate an error and include a **message** object. See  (Getting started)[/reference/] for more information about responses and errors.
    * @return code
   **/
-  @ApiModelProperty(value = "On error will provide a code that can be used to get more detail about the error.")
+  @ApiModelProperty(value = "Indicates whether the operation was successful. `0` is a successful synchronous operation;  `1` is a successful asynchronous operation; and `2` is a partially successful synchronous  operation. If the value is `2` the response includes **data** and **error** objects. All  other status codes indicate an error and include a **message** object. See  (Getting started)[/reference/] for more information about responses and errors.")
   public Integer getCode() {
     return code;
   }
@@ -58,10 +58,10 @@ public class InlineResponse200Status {
   }
 
    /**
-   * On error will provide a message with more detail about the error. Keep in mind that the error message will be fairly general and internal details are not exposed.
+   * Provides general information when a request returns an error response. For example, if your  request returns a response with error code &#x60;500&#x60; the message might be &#x60;Resource not found.&#x60;  See (Getting started)[/reference/] for more information about responses and errors.
    * @return message
   **/
-  @ApiModelProperty(value = "On error will provide a message with more detail about the error. Keep in mind that the error message will be fairly general and internal details are not exposed.")
+  @ApiModelProperty(value = "Provides general information when a request returns an error response. For example, if your  request returns a response with error code `500` the message might be `Resource not found.`  See (Getting started)[/reference/] for more information about responses and errors.")
   public String getMessage() {
     return message;
   }

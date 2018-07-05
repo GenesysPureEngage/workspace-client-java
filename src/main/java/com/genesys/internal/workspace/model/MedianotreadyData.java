@@ -28,10 +28,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * MediamediatypenotreadyData
+ * MedianotreadyData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T07:40:42.491Z")
-public class MediamediatypenotreadyData {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
+public class MedianotreadyData {
   @SerializedName("reasonCode")
   private String reasonCode = null;
 
@@ -41,7 +41,7 @@ public class MediamediatypenotreadyData {
   @SerializedName("extension")
   private List<Kvpair> extension = null;
 
-  public MediamediatypenotreadyData reasonCode(String reasonCode) {
+  public MedianotreadyData reasonCode(String reasonCode) {
     this.reasonCode = reasonCode;
     return this;
   }
@@ -59,7 +59,7 @@ public class MediamediatypenotreadyData {
     this.reasonCode = reasonCode;
   }
 
-  public MediamediatypenotreadyData reason(IxnReasonCode reason) {
+  public MedianotreadyData reason(IxnReasonCode reason) {
     this.reason = reason;
     return this;
   }
@@ -77,12 +77,12 @@ public class MediamediatypenotreadyData {
     this.reason = reason;
   }
 
-  public MediamediatypenotreadyData extension(List<Kvpair> extension) {
+  public MedianotreadyData extension(List<Kvpair> extension) {
     this.extension = extension;
     return this;
   }
 
-  public MediamediatypenotreadyData addExtensionItem(Kvpair extensionItem) {
+  public MedianotreadyData addExtensionItem(Kvpair extensionItem) {
     if (this.extension == null) {
       this.extension = new ArrayList<Kvpair>();
     }
@@ -112,10 +112,10 @@ public class MediamediatypenotreadyData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MediamediatypenotreadyData mediamediatypenotreadyData = (MediamediatypenotreadyData) o;
-    return Objects.equals(this.reasonCode, mediamediatypenotreadyData.reasonCode) &&
-        Objects.equals(this.reason, mediamediatypenotreadyData.reason) &&
-        Objects.equals(this.extension, mediamediatypenotreadyData.extension);
+    MedianotreadyData medianotreadyData = (MedianotreadyData) o;
+    return Objects.equals(this.reasonCode, medianotreadyData.reasonCode) &&
+        Objects.equals(this.reason, medianotreadyData.reason) &&
+        Objects.equals(this.extension, medianotreadyData.extension);
   }
 
   @Override
@@ -127,7 +127,7 @@ public class MediamediatypenotreadyData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MediamediatypenotreadyData {\n");
+    sb.append("class MedianotreadyData {\n");
     
     sb.append("    reasonCode: ").append(toIndentedString(reasonCode)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");

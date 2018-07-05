@@ -1297,7 +1297,7 @@ public class ChatApi {
 
     /**
      * Send a custom notification.
-     * Send a custom notification to the specified chat.
+     * Send a custom notification to the specified chat. The notification is typically used as a trigger for some custom behavior on the recipient&#39;s end.
      * @param id The ID of the chat interaction. (required)
      * @param customNotificationData Request parameters. (optional)
      * @return ApiSuccessResponse
@@ -1310,7 +1310,7 @@ public class ChatApi {
 
     /**
      * Send a custom notification.
-     * Send a custom notification to the specified chat.
+     * Send a custom notification to the specified chat. The notification is typically used as a trigger for some custom behavior on the recipient&#39;s end.
      * @param id The ID of the chat interaction. (required)
      * @param customNotificationData Request parameters. (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
@@ -1324,7 +1324,7 @@ public class ChatApi {
 
     /**
      * Send a custom notification. (asynchronously)
-     * Send a custom notification to the specified chat.
+     * Send a custom notification to the specified chat. The notification is typically used as a trigger for some custom behavior on the recipient&#39;s end.
      * @param id The ID of the chat interaction. (required)
      * @param customNotificationData Request parameters. (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -2058,8 +2058,8 @@ public class ChatApi {
     }
 
     /**
-     * Send a notice to modify the nickname
-     * Send a notice to modify my nickname to the specified chat.
+     * Update the agent&#39;s nickname.
+     * Update the agent&#39;s nickname for the specified chat.
      * @param id The ID of the chat interaction. (required)
      * @param updateNicknameData Request parameters. (optional)
      * @return ApiSuccessResponse
@@ -2071,8 +2071,8 @@ public class ChatApi {
     }
 
     /**
-     * Send a notice to modify the nickname
-     * Send a notice to modify my nickname to the specified chat.
+     * Update the agent&#39;s nickname.
+     * Update the agent&#39;s nickname for the specified chat.
      * @param id The ID of the chat interaction. (required)
      * @param updateNicknameData Request parameters. (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
@@ -2085,8 +2085,8 @@ public class ChatApi {
     }
 
     /**
-     * Send a notice to modify the nickname (asynchronously)
-     * Send a notice to modify my nickname to the specified chat.
+     * Update the agent&#39;s nickname. (asynchronously)
+     * Update the agent&#39;s nickname for the specified chat.
      * @param id The ID of the chat interaction. (required)
      * @param updateNicknameData Request parameters. (optional)
      * @param callback The callback to be executed when the API call finishes

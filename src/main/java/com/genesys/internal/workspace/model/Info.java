@@ -14,7 +14,6 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.StatisticsSubscribeDataData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,29 +24,50 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * StatisticsSubscribeData
+ * Info
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
-public class StatisticsSubscribeData {
-  @SerializedName("data")
-  private StatisticsSubscribeDataData data = null;
+public class Info {
+  @SerializedName("version")
+  private String version = null;
 
-  public StatisticsSubscribeData data(StatisticsSubscribeDataData data) {
-    this.data = data;
+  @SerializedName("changeset")
+  private String changeset = null;
+
+  public Info version(String version) {
+    this.version = version;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * server version
+   * @return version
   **/
-  @ApiModelProperty(value = "")
-  public StatisticsSubscribeDataData getData() {
-    return data;
+  @ApiModelProperty(value = "server version")
+  public String getVersion() {
+    return version;
   }
 
-  public void setData(StatisticsSubscribeDataData data) {
-    this.data = data;
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+  public Info changeset(String changeset) {
+    this.changeset = changeset;
+    return this;
+  }
+
+   /**
+   * changeset
+   * @return changeset
+  **/
+  @ApiModelProperty(value = "changeset")
+  public String getChangeset() {
+    return changeset;
+  }
+
+  public void setChangeset(String changeset) {
+    this.changeset = changeset;
   }
 
 
@@ -59,22 +79,24 @@ public class StatisticsSubscribeData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatisticsSubscribeData statisticsSubscribeData = (StatisticsSubscribeData) o;
-    return Objects.equals(this.data, statisticsSubscribeData.data);
+    Info info = (Info) o;
+    return Objects.equals(this.version, info.version) &&
+        Objects.equals(this.changeset, info.changeset);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(version, changeset);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatisticsSubscribeData {\n");
+    sb.append("class Info {\n");
     
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    changeset: ").append(toIndentedString(changeset)).append("\n");
     sb.append("}");
     return sb.toString();
   }

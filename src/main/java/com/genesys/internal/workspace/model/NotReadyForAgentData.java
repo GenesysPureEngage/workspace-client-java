@@ -14,6 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
+import com.genesys.internal.workspace.model.MedianotreadyData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,29 +25,29 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UcsinteractionsidsetnoteData
+ * NotReadyForAgentData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T07:40:42.491Z")
-public class UcsinteractionsidsetnoteData {
-  @SerializedName("note")
-  private String note = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
+public class NotReadyForAgentData {
+  @SerializedName("data")
+  private MedianotreadyData data = null;
 
-  public UcsinteractionsidsetnoteData note(String note) {
-    this.note = note;
+  public NotReadyForAgentData data(MedianotreadyData data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * The note to be set
-   * @return note
+   * Get data
+   * @return data
   **/
-  @ApiModelProperty(required = true, value = "The note to be set")
-  public String getNote() {
-    return note;
+  @ApiModelProperty(value = "")
+  public MedianotreadyData getData() {
+    return data;
   }
 
-  public void setNote(String note) {
-    this.note = note;
+  public void setData(MedianotreadyData data) {
+    this.data = data;
   }
 
 
@@ -58,22 +59,22 @@ public class UcsinteractionsidsetnoteData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UcsinteractionsidsetnoteData ucsinteractionsidsetnoteData = (UcsinteractionsidsetnoteData) o;
-    return Objects.equals(this.note, ucsinteractionsidsetnoteData.note);
+    NotReadyForAgentData notReadyForAgentData = (NotReadyForAgentData) o;
+    return Objects.equals(this.data, notReadyForAgentData.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(note);
+    return Objects.hash(data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UcsinteractionsidsetnoteData {\n");
+    sb.append("class NotReadyForAgentData {\n");
     
-    sb.append("    note: ").append(toIndentedString(note)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

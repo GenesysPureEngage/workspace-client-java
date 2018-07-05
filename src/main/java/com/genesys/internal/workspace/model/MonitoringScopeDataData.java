@@ -26,10 +26,10 @@ import java.io.IOException;
 /**
  * MonitoringScopeDataData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T07:40:42.491Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
 public class MonitoringScopeDataData {
   /**
-   * The monitoring scope (Call/Agent).
+   * Specifies whether supervisor monitoring applies to this specific call or to the agent.
    */
   @JsonAdapter(MonitoringScopeEnum.Adapter.class)
   public enum MonitoringScopeEnum {
@@ -84,10 +84,10 @@ public class MonitoringScopeDataData {
   }
 
    /**
-   * The monitoring scope (Call/Agent).
+   * Specifies whether supervisor monitoring applies to this specific call or to the agent.
    * @return monitoringScope
   **/
-  @ApiModelProperty(value = "The monitoring scope (Call/Agent).")
+  @ApiModelProperty(value = "Specifies whether supervisor monitoring applies to this specific call or to the agent.")
   public MonitoringScopeEnum getMonitoringScope() {
     return monitoringScope;
   }

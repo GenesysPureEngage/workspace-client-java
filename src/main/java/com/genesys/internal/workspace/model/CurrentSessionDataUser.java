@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * CurrentSessionDataUser
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T07:40:42.491Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
 public class CurrentSessionDataUser {
   @SerializedName("dbid")
   private Integer dbid = null;
@@ -65,10 +65,10 @@ public class CurrentSessionDataUser {
   }
 
    /**
-   * Get dbid
+   * A unique identifier for the user.
    * @return dbid
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A unique identifier for the user.")
   public Integer getDbid() {
     return dbid;
   }
@@ -83,10 +83,10 @@ public class CurrentSessionDataUser {
   }
 
    /**
-   * Get firstName
+   * The user&#39;s first name.
    * @return firstName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The user's first name.")
   public String getFirstName() {
     return firstName;
   }
@@ -101,10 +101,10 @@ public class CurrentSessionDataUser {
   }
 
    /**
-   * Get lastName
+   * The user&#39;s last name.
    * @return lastName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The user's last name.")
   public String getLastName() {
     return lastName;
   }
@@ -119,10 +119,10 @@ public class CurrentSessionDataUser {
   }
 
    /**
-   * Get userName
+   * The username.
    * @return userName
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The username.")
   public String getUserName() {
     return userName;
   }
@@ -137,10 +137,10 @@ public class CurrentSessionDataUser {
   }
 
    /**
-   * Get employeeId
+   * The unique employee ID.
    * @return employeeId
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The unique employee ID.")
   public String getEmployeeId() {
     return employeeId;
   }
@@ -155,10 +155,10 @@ public class CurrentSessionDataUser {
   }
 
    /**
-   * Get defaultPlace
+   * The user&#39;s default place.
    * @return defaultPlace
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The user's default place.")
   public String getDefaultPlace() {
     return defaultPlace;
   }
@@ -173,10 +173,10 @@ public class CurrentSessionDataUser {
   }
 
    /**
-   * Get agentLogin
+   * The agent&#39;s login ID.
    * @return agentLogin
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The agent's login ID.")
   public String getAgentLogin() {
     return agentLogin;
   }

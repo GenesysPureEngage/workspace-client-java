@@ -131,7 +131,7 @@ public class UsersApi {
 
     /**
      * Search for users.
-     * 
+     * Search for users with the specified filters.
      * @param searchTerm The text to search. (optional)
      * @param groupId The ID of the group where the user belongs. (optional)
      * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
@@ -147,7 +147,7 @@ public class UsersApi {
 
     /**
      * Search for users.
-     * 
+     * Search for users with the specified filters.
      * @param searchTerm The text to search. (optional)
      * @param groupId The ID of the group where the user belongs. (optional)
      * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)
@@ -164,7 +164,7 @@ public class UsersApi {
 
     /**
      * Search for users. (asynchronously)
-     * 
+     * Search for users with the specified filters.
      * @param searchTerm The text to search. (optional)
      * @param groupId The ID of the group where the user belongs. (optional)
      * @param sort The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)

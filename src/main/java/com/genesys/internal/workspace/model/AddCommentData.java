@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.MediamediatypeinteractionsidaddcommentData;
+import com.genesys.internal.workspace.model.MediamediatypeinteractionsidsetcommentData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,12 +27,12 @@ import java.io.IOException;
 /**
  * AddCommentData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T07:40:42.491Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
 public class AddCommentData {
   @SerializedName("data")
-  private MediamediatypeinteractionsidaddcommentData data = null;
+  private MediamediatypeinteractionsidsetcommentData data = null;
 
-  public AddCommentData data(MediamediatypeinteractionsidaddcommentData data) {
+  public AddCommentData data(MediamediatypeinteractionsidsetcommentData data) {
     this.data = data;
     return this;
   }
@@ -42,11 +42,11 @@ public class AddCommentData {
    * @return data
   **/
   @ApiModelProperty(value = "")
-  public MediamediatypeinteractionsidaddcommentData getData() {
+  public MediamediatypeinteractionsidsetcommentData getData() {
     return data;
   }
 
-  public void setData(MediamediatypeinteractionsidaddcommentData data) {
+  public void setData(MediamediatypeinteractionsidsetcommentData data) {
     this.data = data;
   }
 

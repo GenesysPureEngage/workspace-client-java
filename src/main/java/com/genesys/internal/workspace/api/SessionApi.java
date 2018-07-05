@@ -247,7 +247,7 @@ public class SessionApi {
 
     /**
      * Get the business attribute hierarchy.
-     * Returns the business attribute hierarchy for the specified business attribute.
+     * Get the business attribute hierarchy for the specified business attribute.
      * @param id The unique ID of the business attribute. (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -259,7 +259,7 @@ public class SessionApi {
 
     /**
      * Get the business attribute hierarchy.
-     * Returns the business attribute hierarchy for the specified business attribute.
+     * Get the business attribute hierarchy for the specified business attribute.
      * @param id The unique ID of the business attribute. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -272,7 +272,7 @@ public class SessionApi {
 
     /**
      * Get the business attribute hierarchy. (asynchronously)
-     * Returns the business attribute hierarchy for the specified business attribute.
+     * Get the business attribute hierarchy for the specified business attribute.
      * @param id The unique ID of the business attribute. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -366,7 +366,7 @@ public class SessionApi {
 
     /**
      * Get settings, action codes, business attributes and other configuration.
-     * Returns all configuration items needed by the user interface. This includes action codes, business attributes, transactions and settings at the moment.
+     * Get all configuration items needed by the user interface. This includes action codes, business attributes, transactions, and settings.
      * @param types A comma delimited list of types used to specify what content should be returned. If not specified the default is &#39;actionCodes, agentGroups,settings&#39;. Valid values are &#x60;actionCodes&#x60;, &#x60;agentGroups&#x60;, &#x60;settings&#x60;, &#x60;workspaceTransactions&#x60;, and &#x60;businessAttributes&#x60;. (optional)
      * @return ConfigResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -378,7 +378,7 @@ public class SessionApi {
 
     /**
      * Get settings, action codes, business attributes and other configuration.
-     * Returns all configuration items needed by the user interface. This includes action codes, business attributes, transactions and settings at the moment.
+     * Get all configuration items needed by the user interface. This includes action codes, business attributes, transactions, and settings.
      * @param types A comma delimited list of types used to specify what content should be returned. If not specified the default is &#39;actionCodes, agentGroups,settings&#39;. Valid values are &#x60;actionCodes&#x60;, &#x60;agentGroups&#x60;, &#x60;settings&#x60;, &#x60;workspaceTransactions&#x60;, and &#x60;businessAttributes&#x60;. (optional)
      * @return ApiResponse&lt;ConfigResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -391,7 +391,7 @@ public class SessionApi {
 
     /**
      * Get settings, action codes, business attributes and other configuration. (asynchronously)
-     * Returns all configuration items needed by the user interface. This includes action codes, business attributes, transactions and settings at the moment.
+     * Get all configuration items needed by the user interface. This includes action codes, business attributes, transactions, and settings.
      * @param types A comma delimited list of types used to specify what content should be returned. If not specified the default is &#39;actionCodes, agentGroups,settings&#39;. Valid values are &#x60;actionCodes&#x60;, &#x60;agentGroups&#x60;, &#x60;settings&#x60;, &#x60;workspaceTransactions&#x60;, and &#x60;businessAttributes&#x60;. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -481,8 +481,8 @@ public class SessionApi {
     }
 
     /**
-     * Read information about the logged in user, including any existing media logins and calls.
-     * This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session.
+     * Get information about the current user.
+     * Get information about the current user, including any existing media logins, calls, and interactions. The returned user information includes  state recovery information about the active session. You can make this  request at startup to check for an existing session.
      * @return CurrentSession
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -492,8 +492,8 @@ public class SessionApi {
     }
 
     /**
-     * Read information about the logged in user, including any existing media logins and calls.
-     * This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session.
+     * Get information about the current user.
+     * Get information about the current user, including any existing media logins, calls, and interactions. The returned user information includes  state recovery information about the active session. You can make this  request at startup to check for an existing session.
      * @return ApiResponse&lt;CurrentSession&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -504,8 +504,8 @@ public class SessionApi {
     }
 
     /**
-     * Read information about the logged in user, including any existing media logins and calls. (asynchronously)
-     * This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session.
+     * Get information about the current user. (asynchronously)
+     * Get information about the current user, including any existing media logins, calls, and interactions. The returned user information includes  state recovery information about the active session. You can make this  request at startup to check for an existing session.
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -602,7 +602,7 @@ public class SessionApi {
 
     /**
      * Get DNs for a place.
-     * Returns the DNs attached to the specified place.
+     * Get all DNs attached to the specified place.
      * @param placeName The name of the place. (required)
      * @return Devices
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -614,7 +614,7 @@ public class SessionApi {
 
     /**
      * Get DNs for a place.
-     * Returns the DNs attached to the specified place.
+     * Get all DNs attached to the specified place.
      * @param placeName The name of the place. (required)
      * @return ApiResponse&lt;Devices&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -627,7 +627,7 @@ public class SessionApi {
 
     /**
      * Get DNs for a place. (asynchronously)
-     * Returns the DNs attached to the specified place.
+     * Get all DNs attached to the specified place.
      * @param placeName The name of the place. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -717,8 +717,8 @@ public class SessionApi {
     }
 
     /**
-     * Retrieve ecrypted data about the current user
-     * This request can be used to retrieve ecrypted data about the user to use with other services
+     * Retrieve encrypted data about the current user
+     * This request can be used to retrieve encrypted data about the user to use with other services
      * @return CurrentSession
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -728,8 +728,8 @@ public class SessionApi {
     }
 
     /**
-     * Retrieve ecrypted data about the current user
-     * This request can be used to retrieve ecrypted data about the user to use with other services
+     * Retrieve encrypted data about the current user
+     * This request can be used to retrieve encrypted data about the user to use with other services
      * @return ApiResponse&lt;CurrentSession&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -740,8 +740,8 @@ public class SessionApi {
     }
 
     /**
-     * Retrieve ecrypted data about the current user (asynchronously)
-     * This request can be used to retrieve ecrypted data about the user to use with other services
+     * Retrieve encrypted data about the current user (asynchronously)
+     * This request can be used to retrieve encrypted data about the user to use with other services
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -970,7 +970,7 @@ public class SessionApi {
 
     /**
      * Login the specified user (HTTP session only).
-     * The login request authenticates the user and retrieves the authorization code.
+     * Starts the OAuth 2 flow for the Authorization Code grant type and returns a redirect to the  Authentication service. For more information, see the [Authentication API](/reference/authentication/).
      * @param redirectUri The URI the Authentication API uses to redirect the user after authentication. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -980,7 +980,7 @@ public class SessionApi {
 
     /**
      * Login the specified user (HTTP session only).
-     * The login request authenticates the user and retrieves the authorization code.
+     * Starts the OAuth 2 flow for the Authorization Code grant type and returns a redirect to the  Authentication service. For more information, see the [Authentication API](/reference/authentication/).
      * @param redirectUri The URI the Authentication API uses to redirect the user after authentication. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -992,7 +992,7 @@ public class SessionApi {
 
     /**
      * Login the specified user (HTTP session only). (asynchronously)
-     * The login request authenticates the user and retrieves the authorization code.
+     * Starts the OAuth 2 flow for the Authorization Code grant type and returns a redirect to the  Authentication service. For more information, see the [Authentication API](/reference/authentication/).
      * @param redirectUri The URI the Authentication API uses to redirect the user after authentication. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1081,7 +1081,7 @@ public class SessionApi {
     }
 
     /**
-     * Logout of activated channels and end the session.
+     * Log out of activated channels and end the session.
      * Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1092,7 +1092,7 @@ public class SessionApi {
     }
 
     /**
-     * Logout of activated channels and end the session.
+     * Log out of activated channels and end the session.
      * Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1104,7 +1104,7 @@ public class SessionApi {
     }
 
     /**
-     * Logout of activated channels and end the session. (asynchronously)
+     * Log out of activated channels and end the session. (asynchronously)
      * Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

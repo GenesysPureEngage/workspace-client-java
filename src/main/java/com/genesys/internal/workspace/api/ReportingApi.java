@@ -123,8 +123,8 @@ public class ReportingApi {
     }
 
     /**
-     * Get statistics for given subscriptionId.
-     * Get the statistics for the specified subscription ID.
+     * Get the values of statistics in a subscription.
+     * Get the values of a set of statistics that was opened with a subscription.
      * @param subscriptionId The unique ID of the subscription. (required)
      * @return InlineResponse2002
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -135,8 +135,8 @@ public class ReportingApi {
     }
 
     /**
-     * Get statistics for given subscriptionId.
-     * Get the statistics for the specified subscription ID.
+     * Get the values of statistics in a subscription.
+     * Get the values of a set of statistics that was opened with a subscription.
      * @param subscriptionId The unique ID of the subscription. (required)
      * @return ApiResponse&lt;InlineResponse2002&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -148,8 +148,8 @@ public class ReportingApi {
     }
 
     /**
-     * Get statistics for given subscriptionId. (asynchronously)
-     * Get the statistics for the specified subscription ID.
+     * Get the values of statistics in a subscription. (asynchronously)
+     * Get the values of a set of statistics that was opened with a subscription.
      * @param subscriptionId The unique ID of the subscription. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -369,8 +369,8 @@ public class ReportingApi {
     }
 
     /**
-     * Subscribe to statistics
-     * Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
+     * Subscribe to statistics.
+     * Open a subscription for the specified set of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
      * @param statisticsSubscribeData The collection of statistics you want to include in your subscription. (required)
      * @return InlineResponse2002
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -381,8 +381,8 @@ public class ReportingApi {
     }
 
     /**
-     * Subscribe to statistics
-     * Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
+     * Subscribe to statistics.
+     * Open a subscription for the specified set of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
      * @param statisticsSubscribeData The collection of statistics you want to include in your subscription. (required)
      * @return ApiResponse&lt;InlineResponse2002&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -394,8 +394,8 @@ public class ReportingApi {
     }
 
     /**
-     * Subscribe to statistics (asynchronously)
-     * Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
+     * Subscribe to statistics. (asynchronously)
+     * Open a subscription for the specified set of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
      * @param statisticsSubscribeData The collection of statistics you want to include in your subscription. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -492,8 +492,8 @@ public class ReportingApi {
     }
 
     /**
-     * Unsubscribe from statistics.
-     * Unsubscribe from the specified group of statistics.
+     * Delete a subscription.
+     * Delete the specified subscription by closing all its statistics.
      * @param subscriptionId The unique ID of the subscription. (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -504,8 +504,8 @@ public class ReportingApi {
     }
 
     /**
-     * Unsubscribe from statistics.
-     * Unsubscribe from the specified group of statistics.
+     * Delete a subscription.
+     * Delete the specified subscription by closing all its statistics.
      * @param subscriptionId The unique ID of the subscription. (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -517,8 +517,8 @@ public class ReportingApi {
     }
 
     /**
-     * Unsubscribe from statistics. (asynchronously)
-     * Unsubscribe from the specified group of statistics.
+     * Delete a subscription. (asynchronously)
+     * Delete the specified subscription by closing all its statistics.
      * @param subscriptionId The unique ID of the subscription. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

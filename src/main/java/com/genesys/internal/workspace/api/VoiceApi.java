@@ -1251,7 +1251,7 @@ public class VoiceApi {
     /**
      * Build call for deleteUserDataPair
      * @param id The connection ID of the call. (required)
-     * @param keyData The key of the data to remove. (required)
+     * @param keyData  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1322,7 +1322,7 @@ public class VoiceApi {
      * Remove a key/value pair from user data.
      * Delete data with the specified key from the call&#39;s user data.
      * @param id The connection ID of the call. (required)
-     * @param keyData The key of the data to remove. (required)
+     * @param keyData  (required)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1335,7 +1335,7 @@ public class VoiceApi {
      * Remove a key/value pair from user data.
      * Delete data with the specified key from the call&#39;s user data.
      * @param id The connection ID of the call. (required)
-     * @param keyData The key of the data to remove. (required)
+     * @param keyData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1349,7 +1349,7 @@ public class VoiceApi {
      * Remove a key/value pair from user data. (asynchronously)
      * Delete data with the specified key from the call&#39;s user data.
      * @param id The connection ID of the call. (required)
-     * @param keyData The key of the data to remove. (required)
+     * @param keyData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2178,7 +2178,7 @@ public class VoiceApi {
 
     /**
      * Log out of the voice channel.
-     * Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
+     * Log out the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2189,7 +2189,7 @@ public class VoiceApi {
 
     /**
      * Log out of the voice channel.
-     * Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
+     * Log out the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2201,7 +2201,7 @@ public class VoiceApi {
 
     /**
      * Log out of the voice channel. (asynchronously)
-     * Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
+     * Log out the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3563,8 +3563,8 @@ public class VoiceApi {
     }
 
     /**
-     * Set the agent state to NotReady.
-     * Set the current agent&#39;s state to NotReady on the voice channel.
+     * Set the agent state to Not Ready.
+     * Set the current agent&#39;s state to Not Ready on the voice channel.
      * @param notReadyData  (optional)
      * @return ApiSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3575,8 +3575,8 @@ public class VoiceApi {
     }
 
     /**
-     * Set the agent state to NotReady.
-     * Set the current agent&#39;s state to NotReady on the voice channel.
+     * Set the agent state to Not Ready.
+     * Set the current agent&#39;s state to Not Ready on the voice channel.
      * @param notReadyData  (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3588,8 +3588,8 @@ public class VoiceApi {
     }
 
     /**
-     * Set the agent state to NotReady. (asynchronously)
-     * Set the current agent&#39;s state to NotReady on the voice channel.
+     * Set the agent state to Not Ready. (asynchronously)
+     * Set the current agent&#39;s state to Not Ready on the voice channel.
      * @param notReadyData  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4784,8 +4784,8 @@ public class VoiceApi {
     }
 
     /**
-     * Switch to the barge in monitoring mode.
-     * Switch to the barge in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
+     * Switch to the barge-in monitoring mode.
+     * Switch to the barge-in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge-in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
      * @param id The connection ID of the call being monitored. (required)
      * @param monitoringScopeData  (optional)
      * @return ApiSuccessResponse
@@ -4797,8 +4797,8 @@ public class VoiceApi {
     }
 
     /**
-     * Switch to the barge in monitoring mode.
-     * Switch to the barge in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
+     * Switch to the barge-in monitoring mode.
+     * Switch to the barge-in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge-in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
      * @param id The connection ID of the call being monitored. (required)
      * @param monitoringScopeData  (optional)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
@@ -4811,8 +4811,8 @@ public class VoiceApi {
     }
 
     /**
-     * Switch to the barge in monitoring mode. (asynchronously)
-     * Switch to the barge in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
+     * Switch to the barge-in monitoring mode. (asynchronously)
+     * Switch to the barge-in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge-in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
      * @param id The connection ID of the call being monitored. (required)
      * @param monitoringScopeData  (optional)
      * @param callback The callback to be executed when the API call finishes

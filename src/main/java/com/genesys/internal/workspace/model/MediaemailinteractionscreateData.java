@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * MediaemailinteractionscreateData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T07:40:42.491Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
 public class MediaemailinteractionscreateData {
   @SerializedName("queue")
   private String queue = null;
@@ -42,6 +42,18 @@ public class MediaemailinteractionscreateData {
 
   @SerializedName("to")
   private String to = null;
+
+  @SerializedName("body")
+  private String body = null;
+
+  @SerializedName("bodyAsPlainText")
+  private String bodyAsPlainText = null;
+
+  @SerializedName("mime")
+  private String mime = null;
+
+  @SerializedName("subject")
+  private String subject = null;
 
   @SerializedName("userData")
   private List<Kvpair> userData = null;
@@ -118,6 +130,78 @@ public class MediaemailinteractionscreateData {
     this.to = to;
   }
 
+  public MediaemailinteractionscreateData body(String body) {
+    this.body = body;
+    return this;
+  }
+
+   /**
+   * The message to send. Html body
+   * @return body
+  **/
+  @ApiModelProperty(value = "The message to send. Html body")
+  public String getBody() {
+    return body;
+  }
+
+  public void setBody(String body) {
+    this.body = body;
+  }
+
+  public MediaemailinteractionscreateData bodyAsPlainText(String bodyAsPlainText) {
+    this.bodyAsPlainText = bodyAsPlainText;
+    return this;
+  }
+
+   /**
+   * The message to send. Plain text body
+   * @return bodyAsPlainText
+  **/
+  @ApiModelProperty(value = "The message to send. Plain text body")
+  public String getBodyAsPlainText() {
+    return bodyAsPlainText;
+  }
+
+  public void setBodyAsPlainText(String bodyAsPlainText) {
+    this.bodyAsPlainText = bodyAsPlainText;
+  }
+
+  public MediaemailinteractionscreateData mime(String mime) {
+    this.mime = mime;
+    return this;
+  }
+
+   /**
+   * Multipurpose internet mail extensions of email
+   * @return mime
+  **/
+  @ApiModelProperty(value = "Multipurpose internet mail extensions of email")
+  public String getMime() {
+    return mime;
+  }
+
+  public void setMime(String mime) {
+    this.mime = mime;
+  }
+
+  public MediaemailinteractionscreateData subject(String subject) {
+    this.subject = subject;
+    return this;
+  }
+
+   /**
+   * The subject value
+   * @return subject
+  **/
+  @ApiModelProperty(value = "The subject value")
+  public String getSubject() {
+    return subject;
+  }
+
+  public void setSubject(String subject) {
+    this.subject = subject;
+  }
+
   public MediaemailinteractionscreateData userData(List<Kvpair> userData) {
     this.userData = userData;
     return this;
@@ -158,12 +242,16 @@ public class MediaemailinteractionscreateData {
         Objects.equals(this.threadId, mediaemailinteractionscreateData.threadId) &&
         Objects.equals(this.contactId, mediaemailinteractionscreateData.contactId) &&
         Objects.equals(this.to, mediaemailinteractionscreateData.to) &&
+        Objects.equals(this.body, mediaemailinteractionscreateData.body) &&
+        Objects.equals(this.bodyAsPlainText, mediaemailinteractionscreateData.bodyAsPlainText) &&
+        Objects.equals(this.mime, mediaemailinteractionscreateData.mime) &&
+        Objects.equals(this.subject, mediaemailinteractionscreateData.subject) &&
         Objects.equals(this.userData, mediaemailinteractionscreateData.userData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(queue, threadId, contactId, to, userData);
+    return Objects.hash(queue, threadId, contactId, to, body, bodyAsPlainText, mime, subject, userData);
   }
 
 
@@ -176,6 +264,10 @@ public class MediaemailinteractionscreateData {
     sb.append("    threadId: ").append(toIndentedString(threadId)).append("\n");
     sb.append("    contactId: ").append(toIndentedString(contactId)).append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
+    sb.append("    body: ").append(toIndentedString(body)).append("\n");
+    sb.append("    bodyAsPlainText: ").append(toIndentedString(bodyAsPlainText)).append("\n");
+    sb.append("    mime: ").append(toIndentedString(mime)).append("\n");
+    sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("}");
     return sb.toString();

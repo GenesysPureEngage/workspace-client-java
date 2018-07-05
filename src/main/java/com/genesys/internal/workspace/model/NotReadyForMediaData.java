@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.MediamediatypenotreadyData;
+import com.genesys.internal.workspace.model.MedianotreadyData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,12 +27,12 @@ import java.io.IOException;
 /**
  * NotReadyForMediaData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T07:40:42.491Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
 public class NotReadyForMediaData {
   @SerializedName("data")
-  private MediamediatypenotreadyData data = null;
+  private MedianotreadyData data = null;
 
-  public NotReadyForMediaData data(MediamediatypenotreadyData data) {
+  public NotReadyForMediaData data(MedianotreadyData data) {
     this.data = data;
     return this;
   }
@@ -42,11 +42,11 @@ public class NotReadyForMediaData {
    * @return data
   **/
   @ApiModelProperty(value = "")
-  public MediamediatypenotreadyData getData() {
+  public MedianotreadyData getData() {
     return data;
   }
 
-  public void setData(MediamediatypenotreadyData data) {
+  public void setData(MedianotreadyData data) {
     this.data = data;
   }
 

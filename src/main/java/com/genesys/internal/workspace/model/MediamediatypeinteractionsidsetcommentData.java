@@ -14,7 +14,6 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.StatisticsSubscribeDataData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,29 +24,29 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * StatisticsSubscribeData
+ * MediamediatypeinteractionsidsetcommentData
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
-public class StatisticsSubscribeData {
-  @SerializedName("data")
-  private StatisticsSubscribeDataData data = null;
+public class MediamediatypeinteractionsidsetcommentData {
+  @SerializedName("comment")
+  private String comment = null;
 
-  public StatisticsSubscribeData data(StatisticsSubscribeDataData data) {
-    this.data = data;
+  public MediamediatypeinteractionsidsetcommentData comment(String comment) {
+    this.comment = comment;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * The comment to add to the interaction.
+   * @return comment
   **/
-  @ApiModelProperty(value = "")
-  public StatisticsSubscribeDataData getData() {
-    return data;
+  @ApiModelProperty(required = true, value = "The comment to add to the interaction.")
+  public String getComment() {
+    return comment;
   }
 
-  public void setData(StatisticsSubscribeDataData data) {
-    this.data = data;
+  public void setComment(String comment) {
+    this.comment = comment;
   }
 
 
@@ -59,22 +58,22 @@ public class StatisticsSubscribeData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatisticsSubscribeData statisticsSubscribeData = (StatisticsSubscribeData) o;
-    return Objects.equals(this.data, statisticsSubscribeData.data);
+    MediamediatypeinteractionsidsetcommentData mediamediatypeinteractionsidsetcommentData = (MediamediatypeinteractionsidsetcommentData) o;
+    return Objects.equals(this.comment, mediamediatypeinteractionsidsetcommentData.comment);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(comment);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatisticsSubscribeData {\n");
+    sb.append("class MediamediatypeinteractionsidsetcommentData {\n");
     
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -548,7 +548,7 @@ public class NotificationsApi {
 
     /**
      * Subscribe to CometD channel notification.
-     * See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. The following channels are available: * **_/workspace/v3/initialization** - Subscribe for initialization (login) event * **_/workspace/v3/voice** - Subscribe for call state change notification event 
+     * See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. For a list of all available channels, see the [CometD section](/reference/workspace/index.html) in the Workspace API overview. 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void notificationsSubscribe() throws ApiException {
@@ -557,7 +557,7 @@ public class NotificationsApi {
 
     /**
      * Subscribe to CometD channel notification.
-     * See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. The following channels are available: * **_/workspace/v3/initialization** - Subscribe for initialization (login) event * **_/workspace/v3/voice** - Subscribe for call state change notification event 
+     * See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. For a list of all available channels, see the [CometD section](/reference/workspace/index.html) in the Workspace API overview. 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -568,7 +568,7 @@ public class NotificationsApi {
 
     /**
      * Subscribe to CometD channel notification. (asynchronously)
-     * See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. The following channels are available: * **_/workspace/v3/initialization** - Subscribe for initialization (login) event * **_/workspace/v3/voice** - Subscribe for call state change notification event 
+     * See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. For a list of all available channels, see the [CometD section](/reference/workspace/index.html) in the Workspace API overview. 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

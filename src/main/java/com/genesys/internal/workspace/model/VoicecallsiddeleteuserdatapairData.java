@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * VoicecallsiddeleteuserdatapairData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T07:40:42.491Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
 public class VoicecallsiddeleteuserdatapairData {
   @SerializedName("key")
   private String key = null;
@@ -37,10 +37,10 @@ public class VoicecallsiddeleteuserdatapairData {
   }
 
    /**
-   * Get key
+   * The key of the data to remove.
    * @return key
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The key of the data to remove.")
   public String getKey() {
     return key;
   }

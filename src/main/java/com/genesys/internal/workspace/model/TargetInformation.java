@@ -26,10 +26,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The target to add/save.
+ * The target to save.
  */
-@ApiModel(description = "The target to add/save.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T07:40:42.491Z")
+@ApiModel(description = "The target to save.")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
 public class TargetInformation {
   @SerializedName("type")
   private String type = null;
@@ -55,10 +55,10 @@ public class TargetInformation {
   }
 
    /**
-   * Get type
+   * The type of target.
    * @return type
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of target.")
   public String getType() {
     return type;
   }
@@ -73,10 +73,10 @@ public class TargetInformation {
   }
 
    /**
-   * Get id
+   * The ID of the target.
    * @return id
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the target.")
   public String getId() {
     return id;
   }
@@ -91,10 +91,10 @@ public class TargetInformation {
   }
 
    /**
-   * Get firstName
+   * If the target is an agent, specify the first name.
    * @return firstName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "If the target is an agent, specify the first name.")
   public String getFirstName() {
     return firstName;
   }
@@ -109,10 +109,10 @@ public class TargetInformation {
   }
 
    /**
-   * Get lastName
+   * If the target is an agent, specify the last name.
    * @return lastName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "If the target is an agent, specify the last name.")
   public String getLastName() {
     return lastName;
   }
@@ -135,10 +135,10 @@ public class TargetInformation {
   }
 
    /**
-   * Get emailAddresses
+   * The email addresses to save for this personal favorite.
    * @return emailAddresses
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The email addresses to save for this personal favorite.")
   public List<String> getEmailAddresses() {
     return emailAddresses;
   }
@@ -161,10 +161,10 @@ public class TargetInformation {
   }
 
    /**
-   * Get numbers
+   * The phone numbers to save for this personal favorite.
    * @return numbers
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The phone numbers to save for this personal favorite.")
   public List<String> getNumbers() {
     return numbers;
   }

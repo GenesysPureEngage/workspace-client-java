@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Dn
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T07:40:42.491Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
 public class Dn {
   @SerializedName("number")
   private String number = null;
@@ -46,10 +46,10 @@ public class Dn {
   }
 
    /**
-   * Get number
+   * The directory number (phone number).
    * @return number
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The directory number (phone number).")
   public String getNumber() {
     return number;
   }
@@ -64,10 +64,10 @@ public class Dn {
   }
 
    /**
-   * Get agentId
+   * The agent ID used to log in.
    * @return agentId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The agent ID used to log in.")
   public String getAgentId() {
     return agentId;
   }
@@ -82,10 +82,10 @@ public class Dn {
   }
 
    /**
-   * Get agentState
+   * The current state - one of &#x60;LoggedOut&#x60;, &#x60;LoggedIn&#x60;, &#x60;Ready&#x60;, or &#x60;NotReady&#x60;.
    * @return agentState
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The current state - one of `LoggedOut`, `LoggedIn`, `Ready`, or `NotReady`.")
   public String getAgentState() {
     return agentState;
   }
@@ -100,10 +100,10 @@ public class Dn {
   }
 
    /**
-   * Get agentWorkMode
+   * The current workmode. This value can be either &#x60;AuxWork&#x60; or &#x60;AfterCallWork&#x60; if the agent&#39;s state is Not Ready,  or &#x60;AutoIn&#x60; or &#x60;ManualIn&#x60; if the agent&#39;s state is Ready.
    * @return agentWorkMode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The current workmode. This value can be either `AuxWork` or `AfterCallWork` if the agent's state is Not Ready,  or `AutoIn` or `ManualIn` if the agent's state is Ready.")
   public String getAgentWorkMode() {
     return agentWorkMode;
   }

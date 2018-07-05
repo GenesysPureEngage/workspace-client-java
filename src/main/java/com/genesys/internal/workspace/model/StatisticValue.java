@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * StatisticValue
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T07:40:42.491Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
 public class StatisticValue {
   @SerializedName("objectId")
   private String objectId = null;
@@ -52,10 +52,10 @@ public class StatisticValue {
   }
 
    /**
-   * ID of the object to get the statistic for
+   * The ID of the object to get statistics for.
    * @return objectId
   **/
-  @ApiModelProperty(required = true, value = "ID of the object to get the statistic for")
+  @ApiModelProperty(required = true, value = "The ID of the object to get statistics for.")
   public String getObjectId() {
     return objectId;
   }
@@ -70,10 +70,10 @@ public class StatisticValue {
   }
 
    /**
-   * Type of the obejct to get the statistic for
+   * The type of object to get statistics for.
    * @return objectType
   **/
-  @ApiModelProperty(required = true, value = "Type of the obejct to get the statistic for")
+  @ApiModelProperty(required = true, value = "The type of object to get statistics for.")
   public String getObjectType() {
     return objectType;
   }
@@ -88,10 +88,10 @@ public class StatisticValue {
   }
 
    /**
-   * Unique id for the statistic
+   * The ID of the statistic. This ID is unique inside the subscription.
    * @return statisticId
   **/
-  @ApiModelProperty(required = true, value = "Unique id for the statistic")
+  @ApiModelProperty(required = true, value = "The ID of the statistic. This ID is unique inside the subscription.")
   public String getStatisticId() {
     return statisticId;
   }
@@ -106,10 +106,10 @@ public class StatisticValue {
   }
 
    /**
-   * The name of the statistic
+   * The name of the statistic.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "The name of the statistic")
+  @ApiModelProperty(required = true, value = "The name of the statistic.")
   public String getName() {
     return name;
   }
@@ -124,10 +124,10 @@ public class StatisticValue {
   }
 
    /**
-   * Timestamp for given value of the statistic
+   * The timestamp when the statistic value was generated (provided by Stat Server).
    * @return timestamp
   **/
-  @ApiModelProperty(required = true, value = "Timestamp for given value of the statistic")
+  @ApiModelProperty(required = true, value = "The timestamp when the statistic value was generated (provided by Stat Server).")
   public Long getTimestamp() {
     return timestamp;
   }
@@ -142,10 +142,10 @@ public class StatisticValue {
   }
 
    /**
-   * Value of the statistic
+   * The value of the statistic. Its structure reflects the structure of the Stat Server message.
    * @return value
   **/
-  @ApiModelProperty(value = "Value of the statistic")
+  @ApiModelProperty(value = "The value of the statistic. Its structure reflects the structure of the Stat Server message.")
   public Object getValue() {
     return value;
   }

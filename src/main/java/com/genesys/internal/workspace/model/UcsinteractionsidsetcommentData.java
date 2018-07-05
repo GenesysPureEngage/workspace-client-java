@@ -24,23 +24,23 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * MediamediatypeinteractionsidaddcommentData
+ * UcsinteractionsidsetcommentData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T07:40:42.491Z")
-public class MediamediatypeinteractionsidaddcommentData {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
+public class UcsinteractionsidsetcommentData {
   @SerializedName("comment")
   private String comment = null;
 
-  public MediamediatypeinteractionsidaddcommentData comment(String comment) {
+  public UcsinteractionsidsetcommentData comment(String comment) {
     this.comment = comment;
     return this;
   }
 
    /**
-   * The comment to add to the interaction.
+   * The comment to be set
    * @return comment
   **/
-  @ApiModelProperty(required = true, value = "The comment to add to the interaction.")
+  @ApiModelProperty(required = true, value = "The comment to be set")
   public String getComment() {
     return comment;
   }
@@ -58,8 +58,8 @@ public class MediamediatypeinteractionsidaddcommentData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MediamediatypeinteractionsidaddcommentData mediamediatypeinteractionsidaddcommentData = (MediamediatypeinteractionsidaddcommentData) o;
-    return Objects.equals(this.comment, mediamediatypeinteractionsidaddcommentData.comment);
+    UcsinteractionsidsetcommentData ucsinteractionsidsetcommentData = (UcsinteractionsidsetcommentData) o;
+    return Objects.equals(this.comment, ucsinteractionsidsetcommentData.comment);
   }
 
   @Override
@@ -71,7 +71,7 @@ public class MediamediatypeinteractionsidaddcommentData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MediamediatypeinteractionsidaddcommentData {\n");
+    sb.append("class UcsinteractionsidsetcommentData {\n");
     
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("}");

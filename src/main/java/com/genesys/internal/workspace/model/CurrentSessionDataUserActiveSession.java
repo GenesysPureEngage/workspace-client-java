@@ -17,6 +17,7 @@ import java.util.Objects;
 import com.genesys.internal.workspace.model.Call;
 import com.genesys.internal.workspace.model.Dn;
 import com.genesys.internal.workspace.model.Media;
+import com.genesys.internal.workspace.model.Service;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,7 +32,7 @@ import java.util.List;
 /**
  * CurrentSessionDataUserActiveSession
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T07:40:42.491Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
 public class CurrentSessionDataUserActiveSession {
   @SerializedName("autoCompleteCall")
   private Boolean autoCompleteCall = null;
@@ -48,16 +49,19 @@ public class CurrentSessionDataUserActiveSession {
   @SerializedName("media")
   private Media media = null;
 
+  @SerializedName("services")
+  private List<Service> services = null;
+
   public CurrentSessionDataUserActiveSession autoCompleteCall(Boolean autoCompleteCall) {
     this.autoCompleteCall = autoCompleteCall;
     return this;
   }
 
    /**
-   * Get autoCompleteCall
+   * Specifies if calls are automatically completed.
    * @return autoCompleteCall
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Specifies if calls are automatically completed.")
   public Boolean getAutoCompleteCall() {
     return autoCompleteCall;
   }
@@ -72,10 +76,10 @@ public class CurrentSessionDataUserActiveSession {
   }
 
    /**
-   * Get currentPlace
+   * The user&#39;s current place.
    * @return currentPlace
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The user's current place.")
   public String getCurrentPlace() {
     return currentPlace;
   }
@@ -146,6 +150,32 @@ public class CurrentSessionDataUserActiveSession {
     this.media = media;
   }
 
+  public CurrentSessionDataUserActiveSession services(List<Service> services) {
+    this.services = services;
+    return this;
+  }
+
+  public CurrentSessionDataUserActiveSession addServicesItem(Service servicesItem) {
+    if (this.services == null) {
+      this.services = new ArrayList<Service>();
+    }
+    this.services.add(servicesItem);
+    return this;
+  }
+
+   /**
+   * An array containing the current state of any initialized services
+   * @return services
+  **/
+  @ApiModelProperty(value = "An array containing the current state of any initialized services")
+  public List<Service> getServices() {
+    return services;
+  }
+
+  public void setServices(List<Service> services) {
+    this.services = services;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -160,12 +190,13 @@ public class CurrentSessionDataUserActiveSession {
         Objects.equals(this.currentPlace, currentSessionDataUserActiveSession.currentPlace) &&
         Objects.equals(this.dn, currentSessionDataUserActiveSession.dn) &&
         Objects.equals(this.calls, currentSessionDataUserActiveSession.calls) &&
-        Objects.equals(this.media, currentSessionDataUserActiveSession.media);
+        Objects.equals(this.media, currentSessionDataUserActiveSession.media) &&
+        Objects.equals(this.services, currentSessionDataUserActiveSession.services);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoCompleteCall, currentPlace, dn, calls, media);
+    return Objects.hash(autoCompleteCall, currentPlace, dn, calls, media, services);
   }
 
 
@@ -179,6 +210,7 @@ public class CurrentSessionDataUserActiveSession {
     sb.append("    dn: ").append(toIndentedString(dn)).append("\n");
     sb.append("    calls: ").append(toIndentedString(calls)).append("\n");
     sb.append("    media: ").append(toIndentedString(media)).append("\n");
+    sb.append("    services: ").append(toIndentedString(services)).append("\n");
     sb.append("}");
     return sb.toString();
   }

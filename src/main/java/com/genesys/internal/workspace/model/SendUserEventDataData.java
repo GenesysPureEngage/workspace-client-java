@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * SendUserEventDataData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T07:40:42.491Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
 public class SendUserEventDataData {
   @SerializedName("userData")
   private List<Kvpair> userData = new ArrayList<Kvpair>();
@@ -69,10 +69,10 @@ public class SendUserEventDataData {
   }
 
    /**
-   * Get callUuid
+   * The universally unique identifier associated with the call.
    * @return callUuid
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The universally unique identifier associated with the call.")
   public String getCallUuid() {
     return callUuid;
   }
@@ -87,10 +87,10 @@ public class SendUserEventDataData {
   }
 
    /**
-   * Get connId
+   * The connection ID for the call. This value comes from the Tlib event.
    * @return connId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The connection ID for the call. This value comes from the Tlib event.")
   public String getConnId() {
     return connId;
   }

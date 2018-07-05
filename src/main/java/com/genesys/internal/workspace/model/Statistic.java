@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Statistic
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T07:40:42.491Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
 public class Statistic {
   @SerializedName("objectId")
   private String objectId = null;
@@ -43,10 +43,10 @@ public class Statistic {
   }
 
    /**
-   * ID of the object to get the statistic for
+   * The ID of the object to get statistics for.
    * @return objectId
   **/
-  @ApiModelProperty(required = true, value = "ID of the object to get the statistic for")
+  @ApiModelProperty(required = true, value = "The ID of the object to get statistics for.")
   public String getObjectId() {
     return objectId;
   }
@@ -61,10 +61,10 @@ public class Statistic {
   }
 
    /**
-   * Type of the obejct to get the statistic for
+   * The type of object to get statistics for.
    * @return objectType
   **/
-  @ApiModelProperty(required = true, value = "Type of the obejct to get the statistic for")
+  @ApiModelProperty(required = true, value = "The type of object to get statistics for.")
   public String getObjectType() {
     return objectType;
   }
@@ -79,10 +79,10 @@ public class Statistic {
   }
 
    /**
-   * Name of the statistic
+   * The name of the statistic.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Name of the statistic")
+  @ApiModelProperty(required = true, value = "The name of the statistic.")
   public String getName() {
     return name;
   }

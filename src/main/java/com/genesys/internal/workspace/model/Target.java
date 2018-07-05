@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Target
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T07:40:42.491Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
 public class Target {
   @SerializedName("DBID")
   private Integer DBID = null;
@@ -35,7 +35,7 @@ public class Target {
   private String name = null;
 
   /**
-   * The type of the target - agent, agent-group, acd-queue, route-point, skill, custom-contact or contact.
+   * The type of target.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -121,10 +121,10 @@ public class Target {
   }
 
    /**
-   * DBID of the object
+   * The unique database identifier.
    * @return DBID
   **/
-  @ApiModelProperty(value = "DBID of the object")
+  @ApiModelProperty(value = "The unique database identifier.")
   public Integer getDBID() {
     return DBID;
   }
@@ -139,10 +139,10 @@ public class Target {
   }
 
    /**
-   * For agents firstname and lastname (or username if neither is defined), for other types the name field is used.
+   * If the target is not **agent**, this property has a value. For example, the name of the agent group.  If the target is **agent**, then the firstName and lastName fields are returned instead (or the  username if neither is defined). 
    * @return name
   **/
-  @ApiModelProperty(value = "For agents firstname and lastname (or username if neither is defined), for other types the name field is used.")
+  @ApiModelProperty(value = "If the target is not **agent**, this property has a value. For example, the name of the agent group.  If the target is **agent**, then the firstName and lastName fields are returned instead (or the  username if neither is defined). ")
   public String getName() {
     return name;
   }
@@ -157,10 +157,10 @@ public class Target {
   }
 
    /**
-   * The type of the target - agent, agent-group, acd-queue, route-point, skill, custom-contact or contact.
+   * The type of target.
    * @return type
   **/
-  @ApiModelProperty(value = "The type of the target - agent, agent-group, acd-queue, route-point, skill, custom-contact or contact.")
+  @ApiModelProperty(value = "The type of target.")
   public TypeEnum getType() {
     return type;
   }
@@ -175,10 +175,10 @@ public class Target {
   }
 
    /**
-   * First name - only applicable to agents.
+   * The agent&#39;s first name.
    * @return firstName
   **/
-  @ApiModelProperty(value = "First name - only applicable to agents.")
+  @ApiModelProperty(value = "The agent's first name.")
   public String getFirstName() {
     return firstName;
   }
@@ -193,10 +193,10 @@ public class Target {
   }
 
    /**
-   * Last name - only applicable to agents.
+   * The agent&#39;s last name.
    * @return lastName
   **/
-  @ApiModelProperty(value = "Last name - only applicable to agents.")
+  @ApiModelProperty(value = "The agent's last name.")
   public String getLastName() {
     return lastName;
   }
@@ -211,10 +211,10 @@ public class Target {
   }
 
    /**
-   * Employee id - only applicable to agents.
+   * The agent&#39;s employee ID.
    * @return employeeId
   **/
-  @ApiModelProperty(value = "Employee id - only applicable to agents.")
+  @ApiModelProperty(value = "The agent's employee ID.")
   public String getEmployeeId() {
     return employeeId;
   }
@@ -229,10 +229,10 @@ public class Target {
   }
 
    /**
-   * Username - only applicable to agents.
+   * The agent&#39;s username.
    * @return userName
   **/
-  @ApiModelProperty(value = "Username - only applicable to agents.")
+  @ApiModelProperty(value = "The agent's username.")
   public String getUserName() {
     return userName;
   }
@@ -247,10 +247,10 @@ public class Target {
   }
 
    /**
-   * Only applicable to acd-queue and route-point
+   * The number associated with either an **acd-queue** or a **route-point**.
    * @return number
   **/
-  @ApiModelProperty(value = "Only applicable to acd-queue and route-point")
+  @ApiModelProperty(value = "The number associated with either an **acd-queue** or a **route-point**.")
   public String getNumber() {
     return number;
   }
@@ -265,10 +265,10 @@ public class Target {
   }
 
    /**
-   * Only applicable to acd-queue and route-point
+   * The name of the switch associated with either an **acd-queue** or a **route-point**.
    * @return switchName
   **/
-  @ApiModelProperty(value = "Only applicable to acd-queue and route-point")
+  @ApiModelProperty(value = "The name of the switch associated with either an **acd-queue** or a **route-point**.")
   public String getSwitchName() {
     return switchName;
   }
@@ -283,10 +283,10 @@ public class Target {
   }
 
    /**
-   * The structure depends on the target type. For agents, availability includes channel details. For acd-queues and route-points, waiting calls. For agent-groups, the number of ready agents.
+   * The structure of this object depends on the target type. For **agent**, availability includes channel details. For **acd-queue** and **route-point**, it includes waiting calls. For **agent-groups**, availability includes the number of ready agents.
    * @return availability
   **/
-  @ApiModelProperty(value = "The structure depends on the target type. For agents, availability includes channel details. For acd-queues and route-points, waiting calls. For agent-groups, the number of ready agents.")
+  @ApiModelProperty(value = "The structure of this object depends on the target type. For **agent**, availability includes channel details. For **acd-queue** and **route-point**, it includes waiting calls. For **agent-groups**, availability includes the number of ready agents.")
   public Object getAvailability() {
     return availability;
   }

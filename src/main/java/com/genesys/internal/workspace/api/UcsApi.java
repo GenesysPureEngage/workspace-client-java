@@ -31,8 +31,8 @@ import com.genesys.internal.workspace.model.AgentHistoryData;
 import com.genesys.internal.workspace.model.ApiErrorResponse;
 import com.genesys.internal.workspace.model.ApiSuccessResponse;
 import com.genesys.internal.workspace.model.AssignInteractionToContactData;
+import com.genesys.internal.workspace.model.CallCommentData;
 import com.genesys.internal.workspace.model.CallCompletedData;
-import com.genesys.internal.workspace.model.CallNoteData;
 import com.genesys.internal.workspace.model.ConfigResponse;
 import com.genesys.internal.workspace.model.ContactDetailsData;
 import com.genesys.internal.workspace.model.ContactHistoryData;
@@ -1385,7 +1385,7 @@ public class UcsApi {
     }
 
     /**
-     * Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene
+     * Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene
      * 
      * @param luceneSearchData  (required)
      * @return ApiSuccessResponse
@@ -1397,7 +1397,7 @@ public class UcsApi {
     }
 
     /**
-     * Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene
+     * Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene
      * 
      * @param luceneSearchData  (required)
      * @return ApiResponse&lt;ApiSuccessResponse&gt;
@@ -1410,7 +1410,7 @@ public class UcsApi {
     }
 
     /**
-     * Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene (asynchronously)
+     * Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene (asynchronously)
      * 
      * @param luceneSearchData  (required)
      * @param callback The callback to be executed when the API call finishes
@@ -1566,6 +1566,138 @@ public class UcsApi {
         return call;
     }
     /**
+     * Build call for setCallComment
+     * @param id id of the Interaction (required)
+     * @param callCommentData  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call setCallCommentCall(String id, CallCommentData callCommentData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = callCommentData;
+
+        // create path and map variables
+        String localVarPath = "/ucs/interactions/{id}/set-comment"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call setCallCommentValidateBeforeCall(String id, CallCommentData callCommentData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling setCallComment(Async)");
+        }
+        
+        // verify the required parameter 'callCommentData' is set
+        if (callCommentData == null) {
+            throw new ApiException("Missing the required parameter 'callCommentData' when calling setCallComment(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = setCallCommentCall(id, callCommentData, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Set the comment for the call
+     * 
+     * @param id id of the Interaction (required)
+     * @param callCommentData  (required)
+     * @return ApiSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiSuccessResponse setCallComment(String id, CallCommentData callCommentData) throws ApiException {
+        ApiResponse<ApiSuccessResponse> resp = setCallCommentWithHttpInfo(id, callCommentData);
+        return resp.getData();
+    }
+
+    /**
+     * Set the comment for the call
+     * 
+     * @param id id of the Interaction (required)
+     * @param callCommentData  (required)
+     * @return ApiResponse&lt;ApiSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiSuccessResponse> setCallCommentWithHttpInfo(String id, CallCommentData callCommentData) throws ApiException {
+        com.squareup.okhttp.Call call = setCallCommentValidateBeforeCall(id, callCommentData, null, null);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Set the comment for the call (asynchronously)
+     * 
+     * @param id id of the Interaction (required)
+     * @param callCommentData  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call setCallCommentAsync(String id, CallCommentData callCommentData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = setCallCommentValidateBeforeCall(id, callCommentData, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for setCallCompleted
      * @param id id of the Interaction (required)
      * @param callCompletedData  (required)
@@ -1693,138 +1825,6 @@ public class UcsApi {
         }
 
         com.squareup.okhttp.Call call = setCallCompletedValidateBeforeCall(id, callCompletedData, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for setCallNote
-     * @param id id of the Interaction (required)
-     * @param callNoteData  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call setCallNoteCall(String id, CallNoteData callNoteData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = callNoteData;
-
-        // create path and map variables
-        String localVarPath = "/ucs/interactions/{id}/set-note"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call setCallNoteValidateBeforeCall(String id, CallNoteData callNoteData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling setCallNote(Async)");
-        }
-        
-        // verify the required parameter 'callNoteData' is set
-        if (callNoteData == null) {
-            throw new ApiException("Missing the required parameter 'callNoteData' when calling setCallNote(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = setCallNoteCall(id, callNoteData, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Set the note for the call
-     * 
-     * @param id id of the Interaction (required)
-     * @param callNoteData  (required)
-     * @return ApiSuccessResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiSuccessResponse setCallNote(String id, CallNoteData callNoteData) throws ApiException {
-        ApiResponse<ApiSuccessResponse> resp = setCallNoteWithHttpInfo(id, callNoteData);
-        return resp.getData();
-    }
-
-    /**
-     * Set the note for the call
-     * 
-     * @param id id of the Interaction (required)
-     * @param callNoteData  (required)
-     * @return ApiResponse&lt;ApiSuccessResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ApiSuccessResponse> setCallNoteWithHttpInfo(String id, CallNoteData callNoteData) throws ApiException {
-        com.squareup.okhttp.Call call = setCallNoteValidateBeforeCall(id, callNoteData, null, null);
-        Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Set the note for the call (asynchronously)
-     * 
-     * @param id id of the Interaction (required)
-     * @param callNoteData  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call setCallNoteAsync(String id, CallNoteData callNoteData, final ApiCallback<ApiSuccessResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = setCallNoteValidateBeforeCall(id, callNoteData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ApiSuccessResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

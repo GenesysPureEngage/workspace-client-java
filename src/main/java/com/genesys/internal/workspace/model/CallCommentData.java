@@ -14,7 +14,7 @@
 package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
-import com.genesys.internal.workspace.model.UcsinteractionsidsetnoteData;
+import com.genesys.internal.workspace.model.UcsinteractionsidsetcommentData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,14 +25,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CallNoteData
+ * CallCommentData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T07:40:42.491Z")
-public class CallNoteData {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-05T12:04:21.715Z")
+public class CallCommentData {
   @SerializedName("data")
-  private UcsinteractionsidsetnoteData data = null;
+  private UcsinteractionsidsetcommentData data = null;
 
-  public CallNoteData data(UcsinteractionsidsetnoteData data) {
+  public CallCommentData data(UcsinteractionsidsetcommentData data) {
     this.data = data;
     return this;
   }
@@ -42,11 +42,11 @@ public class CallNoteData {
    * @return data
   **/
   @ApiModelProperty(value = "")
-  public UcsinteractionsidsetnoteData getData() {
+  public UcsinteractionsidsetcommentData getData() {
     return data;
   }
 
-  public void setData(UcsinteractionsidsetnoteData data) {
+  public void setData(UcsinteractionsidsetcommentData data) {
     this.data = data;
   }
 
@@ -59,8 +59,8 @@ public class CallNoteData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CallNoteData callNoteData = (CallNoteData) o;
-    return Objects.equals(this.data, callNoteData.data);
+    CallCommentData callCommentData = (CallCommentData) o;
+    return Objects.equals(this.data, callCommentData.data);
   }
 
   @Override
@@ -72,7 +72,7 @@ public class CallNoteData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CallNoteData {\n");
+    sb.append("class CallCommentData {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
