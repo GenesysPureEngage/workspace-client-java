@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * LogoutMediaData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-10T19:04:41.301Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-10T22:48:28.637Z")
 public class LogoutMediaData {
   @SerializedName("data")
   private MediamediatypelogoutData data = null;
