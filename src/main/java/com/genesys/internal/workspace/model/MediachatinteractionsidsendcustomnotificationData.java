@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * MediachatinteractionsidsendcustomnotificationData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-11T01:04:45.106Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-11T13:05:09.078Z")
 public class MediachatinteractionsidsendcustomnotificationData {
   @SerializedName("message")
   private String message = null;
