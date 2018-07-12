@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UserData2
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-11T13:05:09.078Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-12T14:53:01.175Z")
 public class UserData2 {
   @SerializedName("data")
   private MediamediatypeinteractionsiddeleteuserdataData data = null;
