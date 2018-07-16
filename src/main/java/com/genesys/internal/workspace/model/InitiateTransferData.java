@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * InitiateTransferData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-16T17:55:48.058Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-16T22:04:50.258Z")
 public class InitiateTransferData {
   @SerializedName("data")
   private VoicecallsidinitiatetransferData data = null;
