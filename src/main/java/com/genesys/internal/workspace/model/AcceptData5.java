@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * AcceptData5
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-20T17:36:30.926Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-23T14:05:30.241Z")
 public class AcceptData5 {
   @SerializedName("data")
   private MediaemailinteractionsidacceptData data = null;

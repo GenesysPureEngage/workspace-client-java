@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * MonitoringScopeDataData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-20T17:36:30.926Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-23T14:05:30.241Z")
 public class MonitoringScopeDataData {
   /**
    * Specifies whether supervisor monitoring applies to this specific call or to the agent.
