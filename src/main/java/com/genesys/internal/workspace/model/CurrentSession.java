@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * CurrentSession
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-24T19:04:52.509Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-24T20:04:44.312Z")
 public class CurrentSession {
   @SerializedName("status")
   private CurrentSessionStatus status = null;
