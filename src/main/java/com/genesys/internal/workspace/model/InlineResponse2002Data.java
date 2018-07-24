@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * InlineResponse2002Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-24T20:04:44.312Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-24T21:04:55.629Z")
 public class InlineResponse2002Data {
   @SerializedName("subscriptionId")
   private String subscriptionId = null;
