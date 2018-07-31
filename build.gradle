@@ -148,4 +148,6 @@ uploadArchives {
 nexusStaging {  
     username = ossrhUsername
     password = ossrhPassword
+	numberOfRetries = 50
+	delayBetweenRetriesInMillis = 4000
 }
