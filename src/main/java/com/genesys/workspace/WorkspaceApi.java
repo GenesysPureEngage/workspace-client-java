@@ -47,8 +47,8 @@ public class WorkspaceApi {
 	private Object initSignal;
 	
     /**
-     * Constructor 
-     * @param apiKey The API key to be included in HTTP requests.
+     * Create a new WorkspaceApi object.
+     * @param apiKey The API key used to access the Workspace API.
      * @param baseUrl The base URL of the PureEngage Cloud API.
     */
     public WorkspaceApi(String apiKey, String baseUrl) {
@@ -250,7 +250,7 @@ public class WorkspaceApi {
      * Initialize the API using the provided authorization code and redirect URI. The authorization code comes from using the 
      * Authorization Code Grant flow to authenticate with the Authentication API.
      * @param authCode The authorization code you received during authentication.
-     * @param redirectUri The redirect URI you used during authentication. Since this is not sent by the UI, it needs to match the redirectUri that you sent when using the Authentication API to get the authCode.
+     * @param redirectUri The redirect URI you used during authentication. This needs to match the `redirectUri` that you sent when using the Authentication API to get the authorization code.
      * @return CompletableFuture<User>
      */
     public User initialize(String authCode, String redirectUri) throws WorkspaceApiException {
@@ -259,7 +259,7 @@ public class WorkspaceApi {
 
     /**
      * Initialize the API using the provided access token.
-     * @param token The access token to use for initialization.
+     * @param token The access token retrieved from the Authentication API.
      */
     public User initialize(String token) throws WorkspaceApiException {
         return initialize(null, null, token);
@@ -330,7 +330,7 @@ public class WorkspaceApi {
     }
 
     /**
-     * Ends the current agent's session. This request logs out the agent on all activated channels, ends the HTTP session, 
+     * End the current agent's session. This request logs out the agent on all activated channels, ends the HTTP session, 
      * and cleans up related resources. After you end the session, you'll need to make a login request before making any 
      * new calls to the API.
      */
@@ -348,7 +348,7 @@ public class WorkspaceApi {
     }
 
     /**
-     * Activates the voice channel using the provided resources. If the channel is successfully activated, 
+     * Activate the voice channel using the provided resources. If the channel is successfully activated, 
      * Workspace sends additional information about the state of active resources (DNs, channels) via events. The 
      * resources you provide are associated with the agent for the duration of the session.
      * @param agentId The unique ID of the agent.
@@ -362,14 +362,14 @@ public class WorkspaceApi {
     }
 
     /**
-     * Activates the voice channel using the provided resources. If the channel is successfully activated, 
+     * Activate the voice channel using the provided resources. If the channel is successfully activated, 
      * Workspace sends additional information about the state of active resources (DNs, channels) via events. The 
      * resources you provide are associated with the agent for the duration of the session.
      * @param agentId The unique ID of the agent.
      * @param dn The DN (number) to use for the agent. You must provide either the place name or DN.
      * @param placeName The name of the place to use for the agent. You must provide either the place name or DN.
      * @param queueName The queue name. (optional)
-     * @param workMode The workmode. The possible values are AUTO_IN or MANUAL_IN. (optional)
+     * @param workMode The workmode. The possible values are `AUTO_IN` or `MANUAL_IN`. (optional)
      */
     public void activateChannels(
             String agentId,
@@ -423,7 +423,7 @@ public class WorkspaceApi {
     }
 
     /**
-     * Returns the Voice API.
+     * Get the Voice API.
      * @return VoiceApi
      */
     public VoiceApi voice() {
@@ -431,7 +431,7 @@ public class WorkspaceApi {
     }
 
     /**
-     * Returns the Targets API.
+     * Get the Targets API.
      * @return TargetsApi
      */
     public TargetsApi targets() {
@@ -439,8 +439,7 @@ public class WorkspaceApi {
     }
     
     /**
-     * Returns the Reporting API.
-     * 
+     * Get the Reporting API.
      * @return ReportingApi
      */
     public ReportingApi getReportingApi() {
@@ -448,7 +447,7 @@ public class WorkspaceApi {
     }
     
     /**
-      * Returns the current user.
+      * Get the current user.
       * @return User
       */
     public User getUser() {
@@ -456,7 +455,7 @@ public class WorkspaceApi {
     }
 
     /**
-      * Returns application options from Configuration Server.
+      * Get application options from Configuration Server.
       * @return KeyValueCollection
       */
     public KeyValueCollection getSettings() {
@@ -464,7 +463,7 @@ public class WorkspaceApi {
     }
 
     /**
-      * Returns action codes from Configuration Server. 
+      * Get action codes from Configuration Server. 
       * @return Collection<ActionCode>
       */
     public Collection<ActionCode> getActionCodes() {
@@ -472,7 +471,7 @@ public class WorkspaceApi {
     }
 
     /**
-      * Returns agent groups from Configuration Server.
+      * Get agent groups from Configuration Server.
       * @return Collection<AgentGroup>
       */
     public Collection<AgentGroup> getAgentGroups() {
@@ -480,7 +479,7 @@ public class WorkspaceApi {
     }
 
     /**
-      * Returns business attributes from Configuration Server.
+      * Get business attributes from Configuration Server.
       * @return Collection<BusinessAttribute>
       */
     public Collection<BusinessAttribute> getBusinessAttributes() {
@@ -488,7 +487,7 @@ public class WorkspaceApi {
     }
 
     /**
-      * Returns transactions from Configuration Server.
+      * Get transactions from Configuration Server.
       * @return Collection<Transaction>
       */
     public Collection<Transaction> getTransactions() {
