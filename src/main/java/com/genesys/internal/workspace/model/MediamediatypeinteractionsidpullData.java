@@ -28,12 +28,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * MedianotreadyData
+ * MediamediatypeinteractionsidpullData
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-28T13:13:22.851Z")
-public class MedianotreadyData {
-  @SerializedName("reasonCode")
-  private String reasonCode = null;
+public class MediamediatypeinteractionsidpullData {
+  @SerializedName("ownerId")
+  private String ownerId = null;
+
+  @SerializedName("workbinId")
+  private String workbinId = null;
 
   @SerializedName("reason")
   private IxnReasonCode reason = null;
@@ -41,34 +44,52 @@ public class MedianotreadyData {
   @SerializedName("extension")
   private List<Kvpair> extension = null;
 
-  public MedianotreadyData reasonCode(String reasonCode) {
-    this.reasonCode = reasonCode;
+  public MediamediatypeinteractionsidpullData ownerId(String ownerId) {
+    this.ownerId = ownerId;
     return this;
   }
 
    /**
-   * Get reasonCode
-   * @return reasonCode
+   * Id of the owner of the workbin
+   * @return ownerId
   **/
-  @ApiModelProperty(value = "")
-  public String getReasonCode() {
-    return reasonCode;
+  @ApiModelProperty(value = "Id of the owner of the workbin")
+  public String getOwnerId() {
+    return ownerId;
   }
 
-  public void setReasonCode(String reasonCode) {
-    this.reasonCode = reasonCode;
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
   }
 
-  public MedianotreadyData reason(IxnReasonCode reason) {
+  public MediamediatypeinteractionsidpullData workbinId(String workbinId) {
+    this.workbinId = workbinId;
+    return this;
+  }
+
+   /**
+   * Id of the workbin
+   * @return workbinId
+  **/
+  @ApiModelProperty(value = "Id of the workbin")
+  public String getWorkbinId() {
+    return workbinId;
+  }
+
+  public void setWorkbinId(String workbinId) {
+    this.workbinId = workbinId;
+  }
+
+  public MediamediatypeinteractionsidpullData reason(IxnReasonCode reason) {
     this.reason = reason;
     return this;
   }
 
    /**
-   * A collection of key/value pairs.
+   * Get reason
    * @return reason
   **/
-  @ApiModelProperty(value = "A collection of key/value pairs.")
+  @ApiModelProperty(value = "")
   public IxnReasonCode getReason() {
     return reason;
   }
@@ -77,12 +98,12 @@ public class MedianotreadyData {
     this.reason = reason;
   }
 
-  public MedianotreadyData extension(List<Kvpair> extension) {
+  public MediamediatypeinteractionsidpullData extension(List<Kvpair> extension) {
     this.extension = extension;
     return this;
   }
 
-  public MedianotreadyData addExtensionItem(Kvpair extensionItem) {
+  public MediamediatypeinteractionsidpullData addExtensionItem(Kvpair extensionItem) {
     if (this.extension == null) {
       this.extension = new ArrayList<Kvpair>();
     }
@@ -91,10 +112,10 @@ public class MedianotreadyData {
   }
 
    /**
-   * A collection of key/value pairs.
+   * A key/value pairs list of additional data.
    * @return extension
   **/
-  @ApiModelProperty(value = "A collection of key/value pairs.")
+  @ApiModelProperty(value = "A key/value pairs list of additional data.")
   public List<Kvpair> getExtension() {
     return extension;
   }
@@ -112,24 +133,26 @@ public class MedianotreadyData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MedianotreadyData medianotreadyData = (MedianotreadyData) o;
-    return Objects.equals(this.reasonCode, medianotreadyData.reasonCode) &&
-        Objects.equals(this.reason, medianotreadyData.reason) &&
-        Objects.equals(this.extension, medianotreadyData.extension);
+    MediamediatypeinteractionsidpullData mediamediatypeinteractionsidpullData = (MediamediatypeinteractionsidpullData) o;
+    return Objects.equals(this.ownerId, mediamediatypeinteractionsidpullData.ownerId) &&
+        Objects.equals(this.workbinId, mediamediatypeinteractionsidpullData.workbinId) &&
+        Objects.equals(this.reason, mediamediatypeinteractionsidpullData.reason) &&
+        Objects.equals(this.extension, mediamediatypeinteractionsidpullData.extension);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reasonCode, reason, extension);
+    return Objects.hash(ownerId, workbinId, reason, extension);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MedianotreadyData {\n");
+    sb.append("class MediamediatypeinteractionsidpullData {\n");
     
-    sb.append("    reasonCode: ").append(toIndentedString(reasonCode)).append("\n");
+    sb.append("    ownerId: ").append(toIndentedString(ownerId)).append("\n");
+    sb.append("    workbinId: ").append(toIndentedString(workbinId)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    extension: ").append(toIndentedString(extension)).append("\n");
     sb.append("}");
