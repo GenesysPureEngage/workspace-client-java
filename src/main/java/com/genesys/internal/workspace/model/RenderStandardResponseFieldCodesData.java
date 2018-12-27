@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * RenderStandardResponseFieldCodesData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-28T17:51:38.932Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-22T05:16:36.302Z")
 public class RenderStandardResponseFieldCodesData {
   @SerializedName("data")
   private UcsresponsesidrenderfieldcodesData data = null;
