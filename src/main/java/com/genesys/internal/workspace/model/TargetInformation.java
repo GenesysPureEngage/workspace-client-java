@@ -29,7 +29,7 @@ import java.util.List;
  * The target to save.
  */
 @ApiModel(description = "The target to save.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-11T03:30:03.382Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T19:45:26.412Z")
 public class TargetInformation {
   @SerializedName("type")
   private String type = null;
