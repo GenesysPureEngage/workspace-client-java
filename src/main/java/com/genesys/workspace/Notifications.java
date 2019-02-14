@@ -100,11 +100,15 @@ public class Notifications {
             }
         });
     }
-    
-    public void disconnect() throws WorkspaceApiException  {
+
+    public void disconnect() throws WorkspaceApiException {
+        disconnect(10000); // 10 second timeout by default
+    }
+
+    public void disconnect(long disconnectRequestTimeout) throws WorkspaceApiException  {
         try {
             if(client != null) {
-                client.disconnect();
+                client.disconnect(disconnectRequestTimeout);
             }
             if(httpClient != null) {
                 httpClient.stop();

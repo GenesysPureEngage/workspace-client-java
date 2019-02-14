@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * MediamanagementgetsnapshotData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T19:45:26.412Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-07T18:47:34.484Z")
 public class MediamanagementgetsnapshotData {
   @SerializedName("condition")
   private String condition = null;
