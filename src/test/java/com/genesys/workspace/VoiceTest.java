@@ -65,7 +65,7 @@ public class VoiceTest {
         Mockito.when(internalApi.hold((String)Mockito.any(), (HoldData) Mockito.any())).thenReturn(asyncSuccess);
         Mockito.when(internalApi.initiateConference((String)Mockito.any(), (InitiateConferenceData) Mockito.any())).thenReturn(asyncSuccess);
         Mockito.when(internalApi.initiateTransfer((String)Mockito.any(), (InitiateTransferData) Mockito.any())).thenReturn(asyncSuccess);
-        Mockito.when(internalApi.loginVoice()).thenReturn(asyncSuccess);
+        Mockito.when(internalApi.loginVoice(null)).thenReturn(asyncSuccess);
         Mockito.when(internalApi.logoutVoice()).thenReturn(asyncSuccess);
         Mockito.when(internalApi.makeCall((MakeCallData) Mockito.any())).thenReturn(asyncSuccess);
         Mockito.when(internalApi.merge((String)Mockito.any(), (MergeData) Mockito.any())).thenReturn(asyncSuccess);
