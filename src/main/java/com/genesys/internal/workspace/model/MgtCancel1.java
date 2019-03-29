@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * MgtCancel1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-19T11:02:32.055Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-29T01:59:33.656Z")
 public class MgtCancel1 {
   @SerializedName("operationId")
   private String operationId = null;
