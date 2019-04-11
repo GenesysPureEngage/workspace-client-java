@@ -51,7 +51,7 @@ public class ReportingApi {
      *  Subscribe to a group of statistics. The values are returned when you request them using `peek()`.
      * 
      * @param statistics The collection of statistics you want to include in your subscription.
-     * @return
+     * @return SubscribeData
      * @throws WorkspaceApiException 
      */
     public SubscribeData subscribe(Collection<Statistic> statistics) throws WorkspaceApiException {

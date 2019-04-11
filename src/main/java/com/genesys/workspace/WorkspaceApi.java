@@ -244,9 +244,9 @@ public class WorkspaceApi {
         }
     }
 
-    
 
-    /**
+
+   /**
      * Initialize the API using the provided authorization code and redirect URI. The authorization code comes from using the 
      * Authorization Code Grant flow to authenticate with the Authentication API.
      * @param authCode The authorization code you received during authentication.
@@ -254,7 +254,7 @@ public class WorkspaceApi {
      * @return CompletableFuture<User>
      */
     public User initialize(String authCode, String redirectUri) throws WorkspaceApiException {
-        return initialize(authCode, redirectUri, null);
+        return initialize(authCode, redirectUri, null, null);
     }
 
     /**
@@ -262,10 +262,10 @@ public class WorkspaceApi {
      * @param token The access token to use for initialization.
      */
     public User initialize(String token) throws WorkspaceApiException {
-        return initialize(null, null, token);
+        return initialize(null, null, null, token);
     }
 
-    private User initialize(String authCode, String redirectUri, String token) throws WorkspaceApiException {
+    private User initialize(String authCode, String redirectUri, String state, String token) throws WorkspaceApiException {
         try {
         	this.initSignal = new Object();
             ApiClient client = new ApiClient();
@@ -287,7 +287,7 @@ public class WorkspaceApi {
             reportingApi.initialize(client);
 
             String authorization = token != null ? "Bearer " + token : null;
-            final ApiResponse<ApiSuccessResponse> response = sessionApi.initializeWorkspaceWithHttpInfo(authCode, redirectUri, authorization);
+            final ApiResponse<ApiSuccessResponse> response = sessionApi.initializeWorkspaceWithHttpInfo(authCode, redirectUri, state, authorization);
             workspaceSessionId = extractSessionCookie(response);
             client.addDefaultHeader("Cookie", String.format("%s=%s", SESSION_COOKIE, workspaceSessionId));
 
@@ -346,8 +346,8 @@ public class WorkspaceApi {
     }
 
     /**
-     * Ends the current agent's session. This request logs out the agent on all activated channels, ends the HTTP session,
-     * and cleans up related resources. After you end the session, you'll need to make a login request before making any
+     * Ends the current agent's session. This request logs out the agent on all activated channels, ends the HTTP session, 
+     * and cleans up related resources. After you end the session, you'll need to make a login request before making any 
      * new calls to the API.
      * @param disconnectRequestTimeout The timeout in ms to wait for the disconnect to complete
      */

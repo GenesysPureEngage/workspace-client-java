@@ -388,7 +388,7 @@ public class VoiceApi {
      */
     public void dndOn() throws WorkspaceApiException {
         try {
-            ApiSuccessResponse response = this.voiceApi.setDNDOn();
+            ApiSuccessResponse response = this.voiceApi.setDNDOn(null);
             throwIfNotOk("dndOn", response);
         } catch (ApiException e) {
             throw new WorkspaceApiException("dndOn failed.", e);
@@ -400,7 +400,7 @@ public class VoiceApi {
      */
     public void dndOff() throws WorkspaceApiException {
         try {
-            ApiSuccessResponse response = this.voiceApi.setDNDOff();
+            ApiSuccessResponse response = this.voiceApi.setDNDOff(null);
             throwIfNotOk("dndOff", response);
         } catch (ApiException e) {
             throw new WorkspaceApiException("dndOff failed.", e);
@@ -424,12 +424,12 @@ public class VoiceApi {
     }
 
     /**
-     * Log out the current agent on the voice channel. This request is typically paired with `login()` - together 
+     * Logout the current agent on the voice channel. This request is typically paired with `login()` - together 
      * they let you login/logout an agent on the voice channel without logging out of the entire session.
      */
     public void logout() throws WorkspaceApiException {
         try {
-            ApiSuccessResponse response = this.voiceApi.logoutVoice();
+            ApiSuccessResponse response = this.voiceApi.logoutVoice(null);
             throwIfNotOk("voiceLogout", response);
         } catch (ApiException e) {
             throw new WorkspaceApiException("voiceLogout failed", e);
@@ -460,7 +460,7 @@ public class VoiceApi {
      */
     public void cancelForward() throws WorkspaceApiException {
         try {
-            ApiSuccessResponse response = this.voiceApi.cancelForward();
+            ApiSuccessResponse response = this.voiceApi.cancelForward(null);
             throwIfNotOk("cancelForward", response);
         } catch (ApiException e) {
             throw new WorkspaceApiException("cancelForward failed.", e);
@@ -1067,7 +1067,7 @@ public class VoiceApi {
         try {
             VoicecallsidcompleteData completeData = new VoicecallsidcompleteData();
             completeData.setUserData(Util.toKVList(userData));
-            UserData data = new UserData();
+            UserDataOperationId data = new UserDataOperationId();
             data.data(completeData);
 
             ApiSuccessResponse response = this.voiceApi.attachUserData(connId, data);
@@ -1086,7 +1086,7 @@ public class VoiceApi {
         try {
             VoicecallsidcompleteData completeData = new VoicecallsidcompleteData();
             completeData.setUserData(Util.toKVList(userData));
-            UserData data = new UserData();
+            UserDataOperationId data = new UserDataOperationId();
             data.data(completeData);
 
             ApiSuccessResponse response = this.voiceApi.updateUserData(connId, data);
@@ -1352,7 +1352,7 @@ public class VoiceApi {
      */
     public void startRecording(String connId) throws WorkspaceApiException {
         try {
-            ApiSuccessResponse response = this.voiceApi.startRecording(connId);
+            ApiSuccessResponse response = this.voiceApi.startRecording(connId, null);
             throwIfNotOk("startRecording", response);
         } catch (ApiException e) {
             throw new WorkspaceApiException("startRecording failed.", e);
@@ -1365,7 +1365,7 @@ public class VoiceApi {
      */
     public void pauseRecording(String connId) throws WorkspaceApiException {
         try {
-            ApiSuccessResponse response = this.voiceApi.pauseRecording(connId);
+            ApiSuccessResponse response = this.voiceApi.pauseRecording(connId, null);
             throwIfNotOk("pauseRecording", response);
         } catch (ApiException e) {
             throw new WorkspaceApiException("pauseRecording failed.", e);
@@ -1378,7 +1378,7 @@ public class VoiceApi {
      */
     public void resumeRecording(String connId) throws WorkspaceApiException {
         try {
-            ApiSuccessResponse response = this.voiceApi.resumeRecording(connId);
+            ApiSuccessResponse response = this.voiceApi.resumeRecording(connId, null);
             throwIfNotOk("resumeRecording", response);
         } catch (ApiException e) {
             throw new WorkspaceApiException("resumeRecording failed.", e);
@@ -1391,7 +1391,7 @@ public class VoiceApi {
      */
     public void stopRecording(String connId) throws WorkspaceApiException {
         try {
-            ApiSuccessResponse response = this.voiceApi.stopRecording(connId);
+            ApiSuccessResponse response = this.voiceApi.stopRecording(connId, null);
             throwIfNotOk("stopRecording", response);
         } catch (ApiException e) {
             throw new WorkspaceApiException("stopRecording failed.", e);

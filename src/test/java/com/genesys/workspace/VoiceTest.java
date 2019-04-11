@@ -1,31 +1,7 @@
 package com.genesys.workspace;
 
 import com.genesys.internal.common.ApiException;
-import com.genesys.internal.workspace.model.AlternateData;
-import com.genesys.internal.workspace.model.AnswerData;
-import com.genesys.internal.workspace.model.ApiSuccessResponse;
-import com.genesys.internal.workspace.model.ClearData;
-import com.genesys.internal.workspace.model.CompleteConferenceData;
-import com.genesys.internal.workspace.model.CompleteTransferData;
-import com.genesys.internal.workspace.model.DeleteFromConferenceData;
-import com.genesys.internal.workspace.model.ForwardData;
-import com.genesys.internal.workspace.model.HoldData;
-import com.genesys.internal.workspace.model.InitiateConferenceData;
-import com.genesys.internal.workspace.model.InitiateTransferData;
-import com.genesys.internal.workspace.model.KeyData;
-import com.genesys.internal.workspace.model.MakeCallData;
-import com.genesys.internal.workspace.model.MergeData;
-import com.genesys.internal.workspace.model.NotReadyData;
-import com.genesys.internal.workspace.model.ReadyData;
-import com.genesys.internal.workspace.model.ReconnectData;
-import com.genesys.internal.workspace.model.RedirectData;
-import com.genesys.internal.workspace.model.ReleaseData;
-import com.genesys.internal.workspace.model.RetrieveData;
-import com.genesys.internal.workspace.model.SendDTMFData;
-import com.genesys.internal.workspace.model.SendUserEventData;
-import com.genesys.internal.workspace.model.SingleStepConferenceData;
-import com.genesys.internal.workspace.model.SingleStepTransferData;
-import com.genesys.internal.workspace.model.UserData;
+import com.genesys.internal.workspace.model.*;
 import com.genesys.workspace.common.StatusCode;
 import com.genesys.workspace.common.WorkspaceApiException;
 import org.cometd.bayeux.Message;
@@ -52,8 +28,8 @@ public class VoiceTest {
         
         Mockito.when(internalApi.alternate((String)Mockito.any(), (AlternateData)Mockito.any())).thenReturn(asyncSuccess);        
         Mockito.when(internalApi.answer((String)Mockito.any(), (AnswerData) Mockito.any())).thenReturn(asyncSuccess);
-        Mockito.when(internalApi.attachUserData((String)Mockito.any(), (UserData) Mockito.any())).thenReturn(asyncSuccess);
-        Mockito.when(internalApi.cancelForward()).thenReturn(asyncSuccess);
+        Mockito.when(internalApi.attachUserData((String)Mockito.any(), (UserDataOperationId) Mockito.any())).thenReturn(asyncSuccess);
+        Mockito.when(internalApi.cancelForward((CancelForwardBody) Mockito.any())).thenReturn(asyncSuccess);
         Mockito.when(internalApi.clear((String)Mockito.any(), (ClearData) Mockito.any())).thenReturn(asyncSuccess);
         //Mockito.when(internalApi.completeCall(Mockito.any(), Mockito.any())).thenReturn(asyncSuccess);
         Mockito.when(internalApi.completeConference((String)Mockito.any(), (CompleteConferenceData) Mockito.any())).thenReturn(asyncSuccess);
@@ -65,32 +41,32 @@ public class VoiceTest {
         Mockito.when(internalApi.hold((String)Mockito.any(), (HoldData) Mockito.any())).thenReturn(asyncSuccess);
         Mockito.when(internalApi.initiateConference((String)Mockito.any(), (InitiateConferenceData) Mockito.any())).thenReturn(asyncSuccess);
         Mockito.when(internalApi.initiateTransfer((String)Mockito.any(), (InitiateTransferData) Mockito.any())).thenReturn(asyncSuccess);
-        Mockito.when(internalApi.loginVoice(null)).thenReturn(asyncSuccess);
-        Mockito.when(internalApi.logoutVoice()).thenReturn(asyncSuccess);
+        Mockito.when(internalApi.loginVoice((LoginData) Mockito.any())).thenReturn(asyncSuccess);
+        Mockito.when(internalApi.logoutVoice((DndOnBody) Mockito.any())).thenReturn(asyncSuccess);
         Mockito.when(internalApi.makeCall((MakeCallData) Mockito.any())).thenReturn(asyncSuccess);
         Mockito.when(internalApi.merge((String)Mockito.any(), (MergeData) Mockito.any())).thenReturn(asyncSuccess);
-        Mockito.when(internalApi.pauseRecording((String)Mockito.any())).thenReturn(asyncSuccess);
+        Mockito.when(internalApi.pauseRecording((String)Mockito.any(), (PauseRecordingBody)Mockito.any())).thenReturn(asyncSuccess);
         Mockito.when(internalApi.reconnect((String)Mockito.any(), (ReconnectData) Mockito.any())).thenReturn(asyncSuccess);
         Mockito.when(internalApi.redirect((String)Mockito.any(), (RedirectData) Mockito.any())).thenReturn(asyncSuccess);
         Mockito.when(internalApi.release((String)Mockito.any(), (ReleaseData) Mockito.any())).thenReturn(asyncSuccess);
-        Mockito.when(internalApi.resumeRecording((String) Mockito.any())).thenReturn(asyncSuccess);
+        Mockito.when(internalApi.resumeRecording((String) Mockito.any(), (ResumeRecordingBody) Mockito.any())).thenReturn(asyncSuccess);
         Mockito.when(internalApi.retrieve((String)Mockito.any(), (RetrieveData) Mockito.any())).thenReturn(asyncSuccess);
         Mockito.when(internalApi.sendDTMF((String)Mockito.any(), (SendDTMFData) Mockito.any())).thenReturn(asyncSuccess);
         Mockito.when(internalApi.sendUserEvent((SendUserEventData) Mockito.any())).thenReturn(asyncSuccess);
         Mockito.when(internalApi.setAgentStateNotReady((NotReadyData) Mockito.any())).thenReturn(asyncSuccess);
         Mockito.when(internalApi.setAgentStateReady((ReadyData) Mockito.any())).thenReturn(asyncSuccess);
-        Mockito.when(internalApi.setDNDOff()).thenReturn(asyncSuccess);
-        Mockito.when(internalApi.setDNDOn()).thenReturn(asyncSuccess);
+        Mockito.when(internalApi.setDNDOff((DndOffBody) Mockito.any())).thenReturn(asyncSuccess);
+        Mockito.when(internalApi.setDNDOn((DndOnBody1) Mockito.any())).thenReturn(asyncSuccess);
         Mockito.when(internalApi.singleStepConference((String)Mockito.any(), (SingleStepConferenceData) Mockito.any())).thenReturn(asyncSuccess);
         Mockito.when(internalApi.singleStepTransfer((String)Mockito.any(), (SingleStepTransferData) Mockito.any())).thenReturn(asyncSuccess);
         //Mockito.when(internalApi.startMonitoring(Mockito.any())).thenReturn(asyncSuccess);
-        Mockito.when(internalApi.startRecording((String) Mockito.any())).thenReturn(asyncSuccess);
+        Mockito.when(internalApi.startRecording((String) Mockito.any(), (StartRecordingBody) Mockito.any())).thenReturn(asyncSuccess);
         //Mockito.when(internalApi.stopMonitoring(Mockito.any())).thenReturn(asyncSuccess);
-        Mockito.when(internalApi.stopRecording((String) Mockito.any())).thenReturn(asyncSuccess);
+        Mockito.when(internalApi.stopRecording((String) Mockito.any(), (StopRecordingBody) Mockito.any())).thenReturn(asyncSuccess);
         //Mockito.when(internalApi.switchToBargeIn(Mockito.any(), Mockito.any())).thenReturn(asyncSuccess);
         //Mockito.when(internalApi.switchToCoaching(Mockito.any(), Mockito.any())).thenReturn(asyncSuccess);
         //Mockito.when(internalApi.switchToListenIn(Mockito.any(), Mockito.any())).thenReturn(asyncSuccess);
-        Mockito.when(internalApi.updateUserData((String)Mockito.any(), (UserData) Mockito.any())).thenReturn(asyncSuccess);
+        Mockito.when(internalApi.updateUserData((String)Mockito.any(), (UserDataOperationId) Mockito.any())).thenReturn(asyncSuccess);
     }
     
     @Test
