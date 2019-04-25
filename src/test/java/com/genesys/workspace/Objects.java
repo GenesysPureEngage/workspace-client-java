@@ -39,7 +39,7 @@ public class Objects {
     public static final String DIGITS = "123456";
     public static final String WORKMODE = "workMode";
     public static final String REASON_CODE = "reasonCode";
-    public static final String DND = "dnd";
+    public static final Boolean DND = true;
     public static final String AGENT_ID = "agentId";
     public static final String AGENT_DN = "agentDn";
     public static final String PLACE_NAME = "placeName";
@@ -198,7 +198,7 @@ public class Objects {
         return makeDnData(String.valueOf(random.nextInt()), String.valueOf(random.nextInt()), states[random.nextInt(states.length)], modes[random.nextInt(modes.length)], String.valueOf(random.nextInt()), DND);
     }
     
-    private static Map<String, Object> makeDnData(String agentId, String agentNumber, AgentState state, AgentWorkMode mode, String forwardTo, String dnd) {
+    private static Map<String, Object> makeDnData(String agentId, String agentNumber, AgentState state, AgentWorkMode mode, String forwardTo, Boolean dnd) {
         Map<String, Object> data = new HashMap<>();
         data.put("number", agentNumber);
         data.put("agentId", agentId);

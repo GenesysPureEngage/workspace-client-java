@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * GetWorkbinsContentData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-11T15:10:28.078Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-25T11:28:12.831Z")
 public class GetWorkbinsContentData {
   @SerializedName("operationId")
   private String operationId = null;

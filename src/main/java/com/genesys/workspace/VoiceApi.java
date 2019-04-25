@@ -170,14 +170,14 @@ public class VoiceApi {
         AgentState agentState = Util.parseAgentState((String)dnData.get("agentState"));
         AgentWorkMode workMode = Util.parseAgentWorkMode((String)dnData.get("agentWorkMode"));
         String forwardTo = (String)dnData.get("forwardTo");
-        String dnd = (String)dnData.get("dnd");
+        Boolean dnd = (Boolean)dnData.get("dnd");
 
         this.dn.setAgentId(agentId);
         this.dn.setNumber(number);
         this.dn.setAgentState(agentState);
         this.dn.setWorkMode(workMode);
         this.dn.setForwardTo(forwardTo);
-        this.dn.setDND(dnd != null && "on".equals(dnd));
+        this.dn.setDND(dnd);
 
         logger.debug("Dn updated: state [" + agentState + "] workMode [" + workMode + "]...");
         this.publishDnStateChanged(new DnStateChanged(this.dn));
