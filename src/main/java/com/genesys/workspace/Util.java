@@ -1,23 +1,25 @@
 package com.genesys.workspace;
 
 import com.genesys.internal.workspace.model.ApiSuccessResponse;
-import com.genesys.internal.workspace.model.InlineResponse200Status;
 import com.genesys.internal.workspace.model.Kvpair;
+import com.genesys.internal.workspace.model.TargetsResponseStatus;
 import com.genesys.workspace.common.StatusCode;
 import com.genesys.workspace.common.WorkspaceApiException;
 import com.genesys.workspace.events.NotificationType;
 import com.genesys.workspace.models.*;
 import com.genesys.workspace.models.cfg.ActionCodeType;
 import com.genesys.workspace.models.targets.availability.AgentActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Util {
     private static final Logger logger = LoggerFactory.getLogger(Util.class);
-    
+
     public static AgentState parseAgentState(String input) {
         AgentState state = AgentState.UNKNOWN;
         if (input != null) {
@@ -138,43 +140,43 @@ public class Util {
 
 
     public static KeyValueCollection extractKeyValueData(Object[] data) {
-        
+
         KeyValueCollection result = new KeyValueCollection();
         if (data == null) {
             return result;
         }
-        
-        for(int i=0; i < data.length; i++) {
-            Map<String, Object> pair = (Map<String, Object>)data[i];
-            String key = (String)pair.get("key");
-            String type = (String)pair.get("type");
-            
+
+        for (int i = 0; i < data.length; i++) {
+            Map<String, Object> pair = (Map<String, Object>) data[i];
+            String key = (String) pair.get("key");
+            String type = (String) pair.get("type");
+
             Object value = pair.get("value");
-            
-            switch(type) {
+
+            switch (type) {
                 case "int":
-                    result.addInt(key, (int)(long)value);
+                    result.addInt(key, (int) (long) value);
                     break;
                 case "str":
-                    result.addString(key, (String)value);
+                    result.addString(key, (String) value);
                     break;
                 case "kvlist":
-                    result.addList(key, Util.extractKeyValueData((Object[])pair.get("value")));
+                    result.addList(key, Util.extractKeyValueData((Object[]) pair.get("value")));
                     break;
                 default:
                     logger.error("Invalid type: {}", type);
                     break;
             }
         }
-        
+
         return result;
     }
 
     public static String[] extractParticipants(Object[] data) {
         String[] participants = new String[data.length];
-        for(int i = 0; i < data.length; i++) {
-            Map<String, Object> p = (Map<String, Object>)data[i];
-            String number = (String)p.get("number");
+        for (int i = 0; i < data.length; i++) {
+            Map<String, Object> p = (Map<String, Object>) data[i];
+            String number = (String) p.get("number");
             participants[i] = number;
         }
 
@@ -297,32 +299,32 @@ public class Util {
 
         return activity;
     }
-    
+
     public static void throwIfNotOk(ApiSuccessResponse resp) throws WorkspaceApiException {
         throwIfNotOk(resp.getStatus());
     }
 
-    public static void throwIfNotOk(InlineResponse200Status status) throws WorkspaceApiException {
+    public static void throwIfNotOk(TargetsResponseStatus status) throws WorkspaceApiException {
         Integer code = status.getCode();
         if (code != StatusCode.ASYNC_OK && code != StatusCode.OK) {
             throw new WorkspaceApiException(String.format("%s (code: %d)", status.getMessage(), code));
         }
     }
-    
+
     public static List<Kvpair> toKVList(KeyValueCollection collection) {
         List<Kvpair> list = new ArrayList<>();
-        if(collection != null) {
-            for(KeyValuePair p: collection) {
+        if (collection != null) {
+            for (KeyValuePair p : collection) {
                 String key = p.getKey();
                 Object value = p.getValue();
                 String type;
-                switch(p.getValueType()) {
-                    case INT: 
+                switch (p.getValueType()) {
+                    case INT:
                         type = "int";
                         break;
                     case LIST:
                         type = "kvlist";
-                        value = toKVList((KeyValueCollection)value);
+                        value = toKVList((KeyValueCollection) value);
                         break;
                     default:
                         type = "str";
@@ -336,7 +338,7 @@ public class Util {
                 list.add(pair);
             }
         }
-        
+
         return list;
     }
 }

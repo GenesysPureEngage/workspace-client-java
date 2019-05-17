@@ -1,11 +1,7 @@
 package com.genesys.workspace;
 
 import com.genesys.internal.common.ApiResponse;
-import com.genesys.internal.workspace.model.ApiSuccessResponse;
-import com.genesys.internal.workspace.model.InlineResponse200Status;
-import com.genesys.internal.workspace.model.Target;
-import com.genesys.internal.workspace.model.TargetsResponse;
-import com.genesys.internal.workspace.model.TargetsResponseData;
+import com.genesys.internal.workspace.model.*;
 import com.genesys.workspace.events.NotificationType;
 import com.genesys.workspace.models.AgentState;
 import com.genesys.workspace.models.AgentWorkMode;
@@ -89,7 +85,7 @@ public class Objects {
     
     public static TargetsResponse makeTargetsResponse(int n) {
         TargetsResponse response = new TargetsResponse();
-        response.setStatus(new InlineResponse200Status());
+        response.setStatus(new TargetsResponseStatus());
         TargetsResponseData data = new TargetsResponseData();
         data.setTotalMatches(n);
         data.setTargets(Objects.makeTargets(data.getTotalMatches()));
@@ -100,7 +96,7 @@ public class Objects {
 
     public static ApiSuccessResponse makeResponse(int code) {
         ApiSuccessResponse response = new ApiSuccessResponse();
-        InlineResponse200Status status = new InlineResponse200Status();
+        TargetsResponseStatus status = new TargetsResponseStatus();
         status.setCode(code);
         response.setStatus(status);
         
