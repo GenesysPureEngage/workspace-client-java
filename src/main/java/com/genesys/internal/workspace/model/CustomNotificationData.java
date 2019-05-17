@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * CustomNotificationData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-17T03:23:09.758Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-17T22:32:59.639Z")
 public class CustomNotificationData {
   @SerializedName("operationId")
   private String operationId = null;
