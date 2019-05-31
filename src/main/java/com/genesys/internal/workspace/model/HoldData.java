@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * HoldData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-29T16:59:47.933Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-30T18:19:13.634Z")
 public class HoldData {
   @SerializedName("operationId")
   private String operationId = null;
