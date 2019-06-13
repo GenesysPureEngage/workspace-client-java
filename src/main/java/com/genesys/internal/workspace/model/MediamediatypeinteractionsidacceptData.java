@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * MediamediatypeinteractionsidacceptData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-30T18:19:13.634Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-13T18:09:38.244Z")
 public class MediamediatypeinteractionsidacceptData {
   @SerializedName("nickname")
   private String nickname = null;
