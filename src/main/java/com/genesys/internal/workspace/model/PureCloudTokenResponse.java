@@ -15,7 +15,7 @@ package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.genesys.internal.workspace.model.MediamediatypeinteractionsidsendtypingstartedData;
+import com.genesys.internal.workspace.model.PureCloudTokenResponseData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,35 +26,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * TypingStartedData
+ * PureCloudTokenResponse
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-15T18:49:25.968Z")
-public class TypingStartedData {
-  @SerializedName("operationId")
-  private String operationId = null;
-
+public class PureCloudTokenResponse {
   @SerializedName("data")
-  private MediamediatypeinteractionsidsendtypingstartedData data = null;
+  private PureCloudTokenResponseData data = null;
 
-  public TypingStartedData operationId(String operationId) {
-    this.operationId = operationId;
-    return this;
-  }
-
-   /**
-   * Get operationId
-   * @return operationId
-  **/
-  @ApiModelProperty(value = "")
-  public String getOperationId() {
-    return operationId;
-  }
-
-  public void setOperationId(String operationId) {
-    this.operationId = operationId;
-  }
-
-  public TypingStartedData data(MediamediatypeinteractionsidsendtypingstartedData data) {
+  public PureCloudTokenResponse data(PureCloudTokenResponseData data) {
     this.data = data;
     return this;
   }
@@ -64,11 +43,11 @@ public class TypingStartedData {
    * @return data
   **/
   @ApiModelProperty(value = "")
-  public MediamediatypeinteractionsidsendtypingstartedData getData() {
+  public PureCloudTokenResponseData getData() {
     return data;
   }
 
-  public void setData(MediamediatypeinteractionsidsendtypingstartedData data) {
+  public void setData(PureCloudTokenResponseData data) {
     this.data = data;
   }
 
@@ -81,23 +60,21 @@ public class TypingStartedData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TypingStartedData typingStartedData = (TypingStartedData) o;
-    return Objects.equals(this.operationId, typingStartedData.operationId) &&
-        Objects.equals(this.data, typingStartedData.data);
+    PureCloudTokenResponse pureCloudTokenResponse = (PureCloudTokenResponse) o;
+    return Objects.equals(this.data, pureCloudTokenResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operationId, data);
+    return Objects.hash(data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TypingStartedData {\n");
+    sb.append("class PureCloudTokenResponse {\n");
     
-    sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();

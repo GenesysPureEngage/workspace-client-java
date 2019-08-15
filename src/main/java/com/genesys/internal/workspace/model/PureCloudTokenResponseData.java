@@ -26,17 +26,20 @@ import java.io.IOException;
 import java.math.BigDecimal;
 
 /**
- * ExchangeTokenResponseData
+ * PureCloudTokenResponseData
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-15T18:49:25.968Z")
-public class ExchangeTokenResponseData {
+public class PureCloudTokenResponseData {
   @SerializedName("access_token")
   private String accessToken = null;
+
+  @SerializedName("token_type")
+  private String tokenType = null;
 
   @SerializedName("expires_in")
   private BigDecimal expiresIn = null;
 
-  public ExchangeTokenResponseData accessToken(String accessToken) {
+  public PureCloudTokenResponseData accessToken(String accessToken) {
     this.accessToken = accessToken;
     return this;
   }
@@ -54,7 +57,25 @@ public class ExchangeTokenResponseData {
     this.accessToken = accessToken;
   }
 
-  public ExchangeTokenResponseData expiresIn(BigDecimal expiresIn) {
+  public PureCloudTokenResponseData tokenType(String tokenType) {
+    this.tokenType = tokenType;
+    return this;
+  }
+
+   /**
+   * type of the token
+   * @return tokenType
+  **/
+  @ApiModelProperty(value = "type of the token")
+  public String getTokenType() {
+    return tokenType;
+  }
+
+  public void setTokenType(String tokenType) {
+    this.tokenType = tokenType;
+  }
+
+  public PureCloudTokenResponseData expiresIn(BigDecimal expiresIn) {
     this.expiresIn = expiresIn;
     return this;
   }
@@ -81,23 +102,25 @@ public class ExchangeTokenResponseData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExchangeTokenResponseData exchangeTokenResponseData = (ExchangeTokenResponseData) o;
-    return Objects.equals(this.accessToken, exchangeTokenResponseData.accessToken) &&
-        Objects.equals(this.expiresIn, exchangeTokenResponseData.expiresIn);
+    PureCloudTokenResponseData pureCloudTokenResponseData = (PureCloudTokenResponseData) o;
+    return Objects.equals(this.accessToken, pureCloudTokenResponseData.accessToken) &&
+        Objects.equals(this.tokenType, pureCloudTokenResponseData.tokenType) &&
+        Objects.equals(this.expiresIn, pureCloudTokenResponseData.expiresIn);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessToken, expiresIn);
+    return Objects.hash(accessToken, tokenType, expiresIn);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExchangeTokenResponseData {\n");
+    sb.append("class PureCloudTokenResponseData {\n");
     
     sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
+    sb.append("    tokenType: ").append(toIndentedString(tokenType)).append("\n");
     sb.append("    expiresIn: ").append(toIndentedString(expiresIn)).append("\n");
     sb.append("}");
     return sb.toString();
