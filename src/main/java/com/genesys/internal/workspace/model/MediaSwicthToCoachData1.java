@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * MediaSwicthToCoachData1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-15T18:49:25.968Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-27T12:31:12.286Z")
 public class MediaSwicthToCoachData1 {
   @SerializedName("operationId")
   private String operationId = null;
