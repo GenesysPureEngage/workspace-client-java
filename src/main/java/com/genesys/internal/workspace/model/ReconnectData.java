@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * ReconnectData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-27T12:31:12.286Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-28T11:18:21.256Z")
 public class ReconnectData {
   @SerializedName("operationId")
   private String operationId = null;
