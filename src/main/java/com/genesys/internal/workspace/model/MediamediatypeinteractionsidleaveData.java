@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * MediamediatypeinteractionsidleaveData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-28T11:18:21.256Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-15T13:58:54.257Z")
 public class MediamediatypeinteractionsidleaveData {
   /**
    * The action to take after the agent leaves.
