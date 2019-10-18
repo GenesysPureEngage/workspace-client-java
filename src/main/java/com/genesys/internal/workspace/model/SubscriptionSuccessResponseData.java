@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * SubscriptionSuccessResponseData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-15T13:58:54.257Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-17T21:29:47.364Z")
 public class SubscriptionSuccessResponseData {
   @SerializedName("subscriptionId")
   private String subscriptionId = null;
