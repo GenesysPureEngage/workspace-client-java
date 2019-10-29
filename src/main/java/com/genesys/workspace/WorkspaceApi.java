@@ -287,7 +287,7 @@ public class WorkspaceApi {
             reportingApi.initialize(client);
 
             String authorization = token != null ? "Bearer " + token : null;
-            final ApiResponse<ApiSuccessResponse> response = sessionApi.initializeWorkspaceWithHttpInfo(authCode, redirectUri, state, authorization);
+            final ApiResponse<ApiSuccessResponse> response = sessionApi.initializeWorkspaceWithHttpInfo(authCode, redirectUri, state, false, authorization);
             workspaceSessionId = extractSessionCookie(response);
             client.addDefaultHeader("Cookie", String.format("%s=%s", SESSION_COOKIE, workspaceSessionId));
 
