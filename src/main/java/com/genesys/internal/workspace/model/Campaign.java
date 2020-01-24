@@ -15,6 +15,7 @@ package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.genesys.internal.workspace.model.CallingList;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,52 +24,62 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * CallParticipants
+ * Campaign
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-15T16:25:59.419Z")
-public class CallParticipants {
-  @SerializedName("number")
-  private String number = null;
+public class Campaign {
+  @SerializedName("name")
+  private String name = null;
 
-  @SerializedName("role")
-  private String role = null;
+  @SerializedName("callingLists")
+  private List<CallingList> callingLists = null;
 
-  public CallParticipants number(String number) {
-    this.number = number;
+  public Campaign name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * The participant&#39;s phone number.
-   * @return number
+   * name of the campaign
+   * @return name
   **/
-  @ApiModelProperty(value = "The participant's phone number.")
-  public String getNumber() {
-    return number;
+  @ApiModelProperty(value = "name of the campaign")
+  public String getName() {
+    return name;
   }
 
-  public void setNumber(String number) {
-    this.number = number;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public CallParticipants role(String role) {
-    this.role = role;
+  public Campaign callingLists(List<CallingList> callingLists) {
+    this.callingLists = callingLists;
+    return this;
+  }
+
+  public Campaign addCallingListsItem(CallingList callingListsItem) {
+    if (this.callingLists == null) {
+      this.callingLists = new ArrayList<CallingList>();
+    }
+    this.callingLists.add(callingListsItem);
     return this;
   }
 
    /**
-   * The participant&#39;s role.
-   * @return role
+   * Get callingLists
+   * @return callingLists
   **/
-  @ApiModelProperty(value = "The participant's role.")
-  public String getRole() {
-    return role;
+  @ApiModelProperty(value = "")
+  public List<CallingList> getCallingLists() {
+    return callingLists;
   }
 
-  public void setRole(String role) {
-    this.role = role;
+  public void setCallingLists(List<CallingList> callingLists) {
+    this.callingLists = callingLists;
   }
 
 
@@ -80,24 +91,24 @@ public class CallParticipants {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CallParticipants callParticipants = (CallParticipants) o;
-    return Objects.equals(this.number, callParticipants.number) &&
-        Objects.equals(this.role, callParticipants.role);
+    Campaign campaign = (Campaign) o;
+    return Objects.equals(this.name, campaign.name) &&
+        Objects.equals(this.callingLists, campaign.callingLists);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(number, role);
+    return Objects.hash(name, callingLists);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CallParticipants {\n");
+    sb.append("class Campaign {\n");
     
-    sb.append("    number: ").append(toIndentedString(number)).append("\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    callingLists: ").append(toIndentedString(callingLists)).append("\n");
     sb.append("}");
     return sb.toString();
   }

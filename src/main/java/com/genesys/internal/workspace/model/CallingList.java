@@ -15,7 +15,7 @@ package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.genesys.internal.workspace.model.StatisticsSubscribeDataData;
+import com.genesys.internal.workspace.model.Field;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,31 +24,62 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * StatisticsSubscribeData
+ * CallingList
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-15T16:25:59.419Z")
-public class StatisticsSubscribeData {
-  @SerializedName("data")
-  private StatisticsSubscribeDataData data = null;
+public class CallingList {
+  @SerializedName("name")
+  private String name = null;
 
-  public StatisticsSubscribeData data(StatisticsSubscribeDataData data) {
-    this.data = data;
+  @SerializedName("fields")
+  private List<Field> fields = null;
+
+  public CallingList name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * name of the calling list
+   * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
-  public StatisticsSubscribeDataData getData() {
-    return data;
+  @ApiModelProperty(value = "name of the calling list")
+  public String getName() {
+    return name;
   }
 
-  public void setData(StatisticsSubscribeDataData data) {
-    this.data = data;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public CallingList fields(List<Field> fields) {
+    this.fields = fields;
+    return this;
+  }
+
+  public CallingList addFieldsItem(Field fieldsItem) {
+    if (this.fields == null) {
+      this.fields = new ArrayList<Field>();
+    }
+    this.fields.add(fieldsItem);
+    return this;
+  }
+
+   /**
+   * Get fields
+   * @return fields
+  **/
+  @ApiModelProperty(value = "")
+  public List<Field> getFields() {
+    return fields;
+  }
+
+  public void setFields(List<Field> fields) {
+    this.fields = fields;
   }
 
 
@@ -60,22 +91,24 @@ public class StatisticsSubscribeData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatisticsSubscribeData statisticsSubscribeData = (StatisticsSubscribeData) o;
-    return Objects.equals(this.data, statisticsSubscribeData.data);
+    CallingList callingList = (CallingList) o;
+    return Objects.equals(this.name, callingList.name) &&
+        Objects.equals(this.fields, callingList.fields);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(name, fields);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatisticsSubscribeData {\n");
+    sb.append("class CallingList {\n");
     
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("}");
     return sb.toString();
   }
