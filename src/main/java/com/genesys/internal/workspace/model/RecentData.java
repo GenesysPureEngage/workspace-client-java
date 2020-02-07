@@ -29,7 +29,7 @@ import java.math.BigDecimal;
  * This includes the media channel where the target was recently used and the timestamp for when the target was used.
  */
 @ApiModel(description = "This includes the media channel where the target was recently used and the timestamp for when the target was used.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-15T16:25:59.419Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-30T13:06:30.692Z")
 public class RecentData {
   @SerializedName("media")
   private String media = null;
