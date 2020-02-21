@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * ForwardData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-30T13:06:30.692Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-13T21:21:10.908Z")
 public class ForwardData {
   @SerializedName("operationId")
   private String operationId = null;
