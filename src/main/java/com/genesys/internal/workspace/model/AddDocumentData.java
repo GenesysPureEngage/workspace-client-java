@@ -15,8 +15,7 @@ package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.genesys.internal.workspace.model.SubscriptionsSuccessResponseData;
-import com.genesys.internal.workspace.model.TargetsResponseStatus;
+import com.genesys.internal.workspace.model.MediamediatypeinteractionsidadddocumentData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,36 +26,35 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Request succeeded.
+ * AddDocumentData
  */
-@ApiModel(description = "Request succeeded.")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-13T13:18:25.403Z")
-public class SubscriptionsSuccessResponse {
-  @SerializedName("status")
-  private TargetsResponseStatus status = null;
+public class AddDocumentData {
+  @SerializedName("operationId")
+  private String operationId = null;
 
   @SerializedName("data")
-  private SubscriptionsSuccessResponseData data = null;
+  private MediamediatypeinteractionsidadddocumentData data = null;
 
-  public SubscriptionsSuccessResponse status(TargetsResponseStatus status) {
-    this.status = status;
+  public AddDocumentData operationId(String operationId) {
+    this.operationId = operationId;
     return this;
   }
 
    /**
-   * Get status
-   * @return status
+   * Get operationId
+   * @return operationId
   **/
-  @ApiModelProperty(required = true, value = "")
-  public TargetsResponseStatus getStatus() {
-    return status;
+  @ApiModelProperty(value = "")
+  public String getOperationId() {
+    return operationId;
   }
 
-  public void setStatus(TargetsResponseStatus status) {
-    this.status = status;
+  public void setOperationId(String operationId) {
+    this.operationId = operationId;
   }
 
-  public SubscriptionsSuccessResponse data(SubscriptionsSuccessResponseData data) {
+  public AddDocumentData data(MediamediatypeinteractionsidadddocumentData data) {
     this.data = data;
     return this;
   }
@@ -65,12 +63,12 @@ public class SubscriptionsSuccessResponse {
    * Get data
    * @return data
   **/
-  @ApiModelProperty(value = "")
-  public SubscriptionsSuccessResponseData getData() {
+  @ApiModelProperty(required = true, value = "")
+  public MediamediatypeinteractionsidadddocumentData getData() {
     return data;
   }
 
-  public void setData(SubscriptionsSuccessResponseData data) {
+  public void setData(MediamediatypeinteractionsidadddocumentData data) {
     this.data = data;
   }
 
@@ -83,23 +81,23 @@ public class SubscriptionsSuccessResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SubscriptionsSuccessResponse subscriptionsSuccessResponse = (SubscriptionsSuccessResponse) o;
-    return Objects.equals(this.status, subscriptionsSuccessResponse.status) &&
-        Objects.equals(this.data, subscriptionsSuccessResponse.data);
+    AddDocumentData addDocumentData = (AddDocumentData) o;
+    return Objects.equals(this.operationId, addDocumentData.operationId) &&
+        Objects.equals(this.data, addDocumentData.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, data);
+    return Objects.hash(operationId, data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SubscriptionsSuccessResponse {\n");
+    sb.append("class AddDocumentData {\n");
     
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();

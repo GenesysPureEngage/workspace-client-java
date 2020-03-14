@@ -15,8 +15,7 @@ package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.genesys.internal.workspace.model.SubscriptionsSuccessResponseData;
-import com.genesys.internal.workspace.model.TargetsResponseStatus;
+import com.genesys.internal.workspace.model.StatisticsSubscribeDataData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,36 +26,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Request succeeded.
+ * StatisticsGetValuesData
  */
-@ApiModel(description = "Request succeeded.")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-13T13:18:25.403Z")
-public class SubscriptionsSuccessResponse {
-  @SerializedName("status")
-  private TargetsResponseStatus status = null;
-
+public class StatisticsGetValuesData {
   @SerializedName("data")
-  private SubscriptionsSuccessResponseData data = null;
+  private StatisticsSubscribeDataData data = null;
 
-  public SubscriptionsSuccessResponse status(TargetsResponseStatus status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public TargetsResponseStatus getStatus() {
-    return status;
-  }
-
-  public void setStatus(TargetsResponseStatus status) {
-    this.status = status;
-  }
-
-  public SubscriptionsSuccessResponse data(SubscriptionsSuccessResponseData data) {
+  public StatisticsGetValuesData data(StatisticsSubscribeDataData data) {
     this.data = data;
     return this;
   }
@@ -65,12 +42,12 @@ public class SubscriptionsSuccessResponse {
    * Get data
    * @return data
   **/
-  @ApiModelProperty(value = "")
-  public SubscriptionsSuccessResponseData getData() {
+  @ApiModelProperty(required = true, value = "")
+  public StatisticsSubscribeDataData getData() {
     return data;
   }
 
-  public void setData(SubscriptionsSuccessResponseData data) {
+  public void setData(StatisticsSubscribeDataData data) {
     this.data = data;
   }
 
@@ -83,23 +60,21 @@ public class SubscriptionsSuccessResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SubscriptionsSuccessResponse subscriptionsSuccessResponse = (SubscriptionsSuccessResponse) o;
-    return Objects.equals(this.status, subscriptionsSuccessResponse.status) &&
-        Objects.equals(this.data, subscriptionsSuccessResponse.data);
+    StatisticsGetValuesData statisticsGetValuesData = (StatisticsGetValuesData) o;
+    return Objects.equals(this.data, statisticsGetValuesData.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, data);
+    return Objects.hash(data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SubscriptionsSuccessResponse {\n");
+    sb.append("class StatisticsGetValuesData {\n");
     
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();

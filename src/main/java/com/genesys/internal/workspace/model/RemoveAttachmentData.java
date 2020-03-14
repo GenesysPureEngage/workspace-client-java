@@ -15,8 +15,6 @@ package com.genesys.internal.workspace.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.genesys.internal.workspace.model.CurrentSessionStatus;
-import com.genesys.internal.workspace.model.DevicesData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,50 +25,29 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Devices
+ * RemoveAttachmentData
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-13T13:18:25.403Z")
-public class Devices {
-  @SerializedName("status")
-  private CurrentSessionStatus status = null;
+public class RemoveAttachmentData {
+  @SerializedName("operationId")
+  private String operationId = null;
 
-  @SerializedName("data")
-  private DevicesData data = null;
-
-  public Devices status(CurrentSessionStatus status) {
-    this.status = status;
+  public RemoveAttachmentData operationId(String operationId) {
+    this.operationId = operationId;
     return this;
   }
 
    /**
-   * Get status
-   * @return status
+   * Get operationId
+   * @return operationId
   **/
   @ApiModelProperty(value = "")
-  public CurrentSessionStatus getStatus() {
-    return status;
+  public String getOperationId() {
+    return operationId;
   }
 
-  public void setStatus(CurrentSessionStatus status) {
-    this.status = status;
-  }
-
-  public Devices data(DevicesData data) {
-    this.data = data;
-    return this;
-  }
-
-   /**
-   * Get data
-   * @return data
-  **/
-  @ApiModelProperty(value = "")
-  public DevicesData getData() {
-    return data;
-  }
-
-  public void setData(DevicesData data) {
-    this.data = data;
+  public void setOperationId(String operationId) {
+    this.operationId = operationId;
   }
 
 
@@ -82,24 +59,22 @@ public class Devices {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Devices devices = (Devices) o;
-    return Objects.equals(this.status, devices.status) &&
-        Objects.equals(this.data, devices.data);
+    RemoveAttachmentData removeAttachmentData = (RemoveAttachmentData) o;
+    return Objects.equals(this.operationId, removeAttachmentData.operationId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, data);
+    return Objects.hash(operationId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Devices {\n");
+    sb.append("class RemoveAttachmentData {\n");
     
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
