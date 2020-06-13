@@ -11,6 +11,7 @@ import com.genesys.workspace.models.*;
 import com.genesys.workspace.models.cfg.*;
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
+
 import java.net.CookieManager;
 import java.net.CookiePolicy;
 import java.util.*;
@@ -20,9 +21,9 @@ import org.slf4j.LoggerFactory;
 
 public class WorkspaceApi {
     private static final Logger logger = LoggerFactory.getLogger(WorkspaceApi.class);
-    
+
     public static final String SESSION_COOKIE = "WORKSPACE_SESSIONID";
-    
+
     private String apiKey;
     private String baseUrl;
     private String workspaceUrl;
@@ -32,25 +33,28 @@ public class WorkspaceApi {
     private TargetsApi targetsApi;
     private ReportingApi reportingApi;
     private VoiceApi voiceApi;
-    
+    private MediaApi mediaApi;
+    private ChatApi chatApi;
+
     private String workspaceSessionId;
     private boolean workspaceInitialized = false;
-    
+
     private User user;
     private KeyValueCollection settings;
     private List<AgentGroup> agentGroups;
     private List<BusinessAttribute> businessAttributes;
     private List<ActionCode> actionCodes;
     private List<Transaction> transactions;
-    
+
     private WorkspaceApiException initError;
-	private Object initSignal;
-	
+    private Object initSignal;
+
     /**
-     * Constructor 
-     * @param apiKey The API key to be included in HTTP requests.
+     * Constructor
+     *
+     * @param apiKey  The API key to be included in HTTP requests.
      * @param baseUrl The base URL of the PureEngage Cloud API.
-    */
+     */
     public WorkspaceApi(String apiKey, String baseUrl) {
         this(apiKey, baseUrl, new VoiceApi(), new TargetsApi(), new SessionApi(), new Notifications());
     }
@@ -64,6 +68,8 @@ public class WorkspaceApi {
         this.sessionApi = sessionApi;
         this.notifications = notifications;
         this.reportingApi = new ReportingApi();
+        this.mediaApi = new MediaApi();
+        this.chatApi = new ChatApi();
     }
 
     private static String extractSessionCookie(ApiResponse<ApiSuccessResponse> response) throws WorkspaceApiException {
@@ -76,85 +82,84 @@ public class WorkspaceApi {
 
         List<String> cookies = headers.get("set-cookie");
         for (String cookie : cookies) {
-            if(cookie.startsWith("WORKSPACE_SESSIONID")){
+            if (cookie.startsWith("WORKSPACE_SESSIONID")) {
                 workspaceSessionCookie = cookie;
                 break;
             }
         }
 
-        if(workspaceSessionCookie == null) {
+        if (workspaceSessionCookie == null) {
             throw new WorkspaceApiException("Failed to extract workspace session cookie.");
         }
 
         String value = workspaceSessionCookie;
         String sessionId = value.split(";")[0].split("=")[1];
         logger.debug("WORKSPACE_SESSIONID is " + sessionId);
-        
+
         return sessionId;
     }
-    
+
     void onInitMessage(Map<String, Object> data) {
-        String messageType = (String)data.get("messageType");
+        String messageType = (String) data.get("messageType");
         if ("WorkspaceInitializationComplete".equals(messageType)) {
-                String state = (String)data.get("state");
-                if ("Complete".equals(state)) {
-                    Map<String, Object> initData = (Map<String, Object>)data.get("data");
-                    Map<String, Object> userData = (Map<String, Object>)initData.get("user");
-                    String employeeId = (String)userData.get("employeeId");
-                    String defaultPlace = (String)userData.get("defaultPlace");
-                    String agentId = (String)userData.get("agentLogin");
-                    Object[] annexData = (Object[])userData.get("userProperties");
-                    KeyValueCollection userProperties = Util.extractKeyValueData(annexData);
+            String state = (String) data.get("state");
+            if ("Complete".equals(state)) {
+                Map<String, Object> initData = (Map<String, Object>) data.get("data");
+                Map<String, Object> userData = (Map<String, Object>) initData.get("user");
+                String employeeId = (String) userData.get("employeeId");
+                String defaultPlace = (String) userData.get("defaultPlace");
+                String agentId = (String) userData.get("agentLogin");
+                Object[] annexData = (Object[]) userData.get("userProperties");
+                KeyValueCollection userProperties = Util.extractKeyValueData(annexData);
 
-                    if (user == null) {
-                        user = new User();
-                    }
-
-                    user.setEmployeeId(employeeId);
-                    user.setAgentId(agentId);
-                    user.setDefaultPlace(defaultPlace);
-                    user.setUserProperties(userProperties);
-
-                    extractConfiguration((Map<String, Object>)initData.get("configuration"));
-
-                    this.workspaceInitialized = true;
-                    logger.debug("Initialization complete");
-
-                    synchronized (this.initSignal) {
-                        this.initSignal.notifyAll();
-                    }    
-                } else if ("Failed".equals(state)) {
-                    logger.debug("Workspace initialization failed!");
-                    this.initError = new WorkspaceApiException("initialize workspace failed");
-                    synchronized (this.initSignal) {
-                    this.initSignal.notifyAll();
-                    }
+                if (user == null) {
+                    user = new User();
                 }
-        }
-        else {
+
+                user.setEmployeeId(employeeId);
+                user.setAgentId(agentId);
+                user.setDefaultPlace(defaultPlace);
+                user.setUserProperties(userProperties);
+
+                extractConfiguration((Map<String, Object>) initData.get("configuration"));
+
+                this.workspaceInitialized = true;
+                logger.debug("Initialization complete");
+
+                synchronized (this.initSignal) {
+                    this.initSignal.notifyAll();
+                }
+            } else if ("Failed".equals(state)) {
+                logger.debug("Workspace initialization failed!");
+                this.initError = new WorkspaceApiException("initialize workspace failed");
+                synchronized (this.initSignal) {
+                    this.initSignal.notifyAll();
+                }
+            }
+        } else {
             logger.debug("{}", data);
         }
     }
 
     private void extractConfiguration(Map<String, Object> configData) {
-        Object[] actionCodesData = (Object[])configData.get("actionCodes");
+        Object[] actionCodesData = (Object[]) configData.get("actionCodes");
         this.actionCodes = new ArrayList<>();
         if (actionCodesData != null) {
             for (int i = 0; i < actionCodesData.length; i++) {
-                Map<String, Object> actionCodeData = (Map<String, Object>)actionCodesData[i];
-                String name = (String)actionCodeData.get("name");
-                String code = (String)actionCodeData.get("code");
-                ActionCodeType type = Util.parseActionCodeType((String)actionCodeData.get("type"));
-                Object[] userPropertyData = (Object[])actionCodeData.get("userProperties");
+                Map<String, Object> actionCodeData = (Map<String, Object>) actionCodesData[i];
+                String name = (String) actionCodeData.get("name");
+                String code = (String) actionCodeData.get("code");
+                ActionCodeType type = Util.parseActionCodeType((String) actionCodeData.get("type"));
+                Object[] userPropertyData = (Object[]) actionCodeData.get("userProperties");
                 KeyValueCollection userProperties = Util.extractKeyValueData(userPropertyData);
 
-                Object[] subCodesData = (Object[])actionCodeData.get("subCodes");
+                Object[] subCodesData = (Object[]) actionCodeData.get("subCodes");
                 List<SubCode> subCodes = new ArrayList<>();
                 if (subCodesData != null) {
                     for (int j = 0; j < subCodesData.length; j++) {
-                        Map<String, Object> subCodeData = (Map<String, Object>)subCodesData[j];
-                        String subCodeName = (String)subCodeData.get("name");
-                        String subCodeCode = (String)subCodeData.get("code");
+                        Map<String, Object> subCodeData = (Map<String, Object>) subCodesData[j];
+                        String subCodeName = (String) subCodeData.get("name");
+                        String subCodeCode = (String) subCodeData.get("code");
 
                         subCodes.add(new SubCode(subCodeName, subCodeCode));
                     }
@@ -164,28 +169,28 @@ public class WorkspaceApi {
             }
         }
 
-        Object[] settingsData = (Object[])configData.get("settings");
+        Object[] settingsData = (Object[]) configData.get("settings");
         this.settings = Util.extractKeyValueData(settingsData);
 
-        Object[] businessAttributesData = (Object[])configData.get("businessAttributes");
+        Object[] businessAttributesData = (Object[]) configData.get("businessAttributes");
         if (businessAttributesData != null) {
             this.businessAttributes = new ArrayList<>();
-            for (int i = 0; i < businessAttributesData.length; i ++) {
-                Map<String, Object> businessAttributeData = (Map<String, Object>)businessAttributesData[i];
-                Long dbid = (Long)businessAttributeData.get("id");
-                String name = (String)businessAttributeData.get("name");
-                String displayName = (String)businessAttributeData.get("displayName");
-                String description = (String)businessAttributeData.get("description");
-                Object[] valuesData = (Object[])businessAttributeData.get("values");
+            for (int i = 0; i < businessAttributesData.length; i++) {
+                Map<String, Object> businessAttributeData = (Map<String, Object>) businessAttributesData[i];
+                Long dbid = (Long) businessAttributeData.get("id");
+                String name = (String) businessAttributeData.get("name");
+                String displayName = (String) businessAttributeData.get("displayName");
+                String description = (String) businessAttributeData.get("description");
+                Object[] valuesData = (Object[]) businessAttributeData.get("values");
 
                 List<BusinessAttributeValue> values = new ArrayList<>();
                 if (valuesData != null) {
                     for (int j = 0; j < valuesData.length; j++) {
-                        Map<String, Object> valueData = (Map<String, Object>)valuesData[j];
-                        Long valueDBID = (Long)valueData.get("id");
-                        String valueName = (String)valueData.get("name");
-                        String valueDisplayName = (String)valueData.get("displayName");
-                        String valueDescription = (String)valueData.get("description");
+                        Map<String, Object> valueData = (Map<String, Object>) valuesData[j];
+                        Long valueDBID = (Long) valueData.get("id");
+                        String valueName = (String) valueData.get("name");
+                        String valueDisplayName = (String) valueData.get("displayName");
+                        String valueDescription = (String) valueData.get("description");
                         Object valueDefault = valueData.get("default");
 
                         values.add(new BusinessAttributeValue(
@@ -198,40 +203,40 @@ public class WorkspaceApi {
             }
         }
 
-        Object[] transactionsData = (Object[])configData.get("transactions");
+        Object[] transactionsData = (Object[]) configData.get("transactions");
         if (transactionsData != null) {
             this.transactions = new ArrayList<>();
-            for (int i = 0; i < transactionsData.length; i ++) {
-                Map<String, Object> transactionData = (Map<String, Object>)transactionsData[i];
-                String name = (String)transactionData.get("name");
-                String alias = (String)transactionData.get("alias");
-                Object[] userPropertyData = (Object[])transactionData.get("userProperties");
+            for (int i = 0; i < transactionsData.length; i++) {
+                Map<String, Object> transactionData = (Map<String, Object>) transactionsData[i];
+                String name = (String) transactionData.get("name");
+                String alias = (String) transactionData.get("alias");
+                Object[] userPropertyData = (Object[]) transactionData.get("userProperties");
                 KeyValueCollection userProperties = Util.extractKeyValueData(userPropertyData);
 
                 this.transactions.add(new Transaction(name, alias, userProperties));
             }
         }
 
-        Object[] agentGroupsData = (Object[])configData.get("agentGroups");
+        Object[] agentGroupsData = (Object[]) configData.get("agentGroups");
         if (agentGroupsData != null) {
             this.agentGroups = new ArrayList<>();
             for (int i = 0; i < agentGroupsData.length; i++) {
-                Map<String, Object> agentGroupData = (Map<String, Object>)agentGroupsData[i];
-                Long dbid = (Long)agentGroupData.get("DBID");
-                String name = (String)agentGroupData.get("name");
+                Map<String, Object> agentGroupData = (Map<String, Object>) agentGroupsData[i];
+                Long dbid = (Long) agentGroupData.get("DBID");
+                String name = (String) agentGroupData.get("name");
 
                 KeyValueCollection userProperties = new KeyValueCollection();
-                Map<String, Object> agentGroupSettingsData = (Map<String, Object>)agentGroupData.get("settings");
+                Map<String, Object> agentGroupSettingsData = (Map<String, Object>) agentGroupData.get("settings");
                 if (agentGroupSettingsData != null && !agentGroupSettingsData.isEmpty()) {
                     // Top level will be sections
                     for (Map.Entry<String, Object> entry : agentGroupSettingsData.entrySet()) {
 
                         String sectionName = entry.getKey();
-                        Map<String, Object> sectionData = (Map<String, Object>)entry.getValue();
+                        Map<String, Object> sectionData = (Map<String, Object>) entry.getValue();
                         KeyValueCollection section = new KeyValueCollection();
                         if (sectionData != null && !sectionData.isEmpty()) {
                             for (Map.Entry<String, Object> option : sectionData.entrySet()) {
-                                section.addString(option.getKey(), (String)option.getValue());
+                                section.addString(option.getKey(), (String) option.getValue());
                             }
                         }
 
@@ -245,11 +250,11 @@ public class WorkspaceApi {
     }
 
 
-
-   /**
-     * Initialize the API using the provided authorization code and redirect URI. The authorization code comes from using the 
+    /**
+     * Initialize the API using the provided authorization code and redirect URI. The authorization code comes from using the
      * Authorization Code Grant flow to authenticate with the Authentication API.
-     * @param authCode The authorization code you received during authentication.
+     *
+     * @param authCode    The authorization code you received during authentication.
      * @param redirectUri The redirect URI you used during authentication. Since this is not sent by the UI, it needs to match the redirectUri that you sent when using the Authentication API to get the authCode.
      * @return CompletableFuture<User>
      */
@@ -259,6 +264,7 @@ public class WorkspaceApi {
 
     /**
      * Initialize the API using the provided access token.
+     *
      * @param token The access token to use for initialization.
      */
     public User initialize(String token) throws WorkspaceApiException {
@@ -267,24 +273,26 @@ public class WorkspaceApi {
 
     private User initialize(String authCode, String redirectUri, String state, String token) throws WorkspaceApiException {
         try {
-        	this.initSignal = new Object();
+            this.initSignal = new Object();
             ApiClient client = new ApiClient();
             List<Interceptor> interceptors = client.getHttpClient().interceptors();
             interceptors.add(new TraceInterceptor());
-            
+
             final HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(HttpLoggingInterceptor.Logger.DEFAULT);
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             interceptors.add(loggingInterceptor);
-            
+
             client.setBasePath(workspaceUrl);
             CookieStoreImpl cookieStore = new CookieStoreImpl();
             client.getHttpClient().setCookieHandler(new CookieManager(cookieStore, CookiePolicy.ACCEPT_ALL));
             client.addDefaultHeader("x-api-key", apiKey);
-            
+
             sessionApi.setApiClient(client);
             voiceApi.initialize(client);
             targetsApi.initialize(client);
             reportingApi.initialize(client);
+            mediaApi.initialize(client);
+            chatApi.initialize(client);
 
             String authorization = token != null ? "Bearer " + token : null;
             final ApiResponse<ApiSuccessResponse> response = sessionApi.initializeWorkspaceWithHttpInfo(authCode, redirectUri, state, false, authorization);
@@ -308,20 +316,31 @@ public class WorkspaceApi {
                 }
             });
             //notifications.subscribe("/workspace/v3/voice", (channel, msg) -> voiceApi.onVoiceMessage(msg));
+            notifications.subscribe("/workspace/v3/media", new Notifications.NotificationListener() {
+                @Override
+                public void onNotification(String channel, Map<String, Object> data) {
+                    mediaApi.onMediaMessage(data);
+                }
+            });
+            notifications.subscribe("/workspace/v3/media/chat", new Notifications.NotificationListener() {
+                @Override
+                public void onNotification(String channel, Map<String, Object> data) {
+                    chatApi.onChatMessage(data);
+                }
+            });
             notifications.initialize(workspaceUrl + "/notifications", apiKey);
-            
-        	synchronized(this.initSignal) {
-        		this.initSignal.wait(30000);
-        	}
-        	
+
+            synchronized (this.initSignal) {
+                this.initSignal.wait(30000);
+            }
+
             if (this.initError != null) {
                 WorkspaceApiException e = this.initError;
                 initError = null;
                 throw e;
-            } 
-            else if (user!=null)
-            	return this.user;
-            
+            } else if (user != null)
+                return this.user;
+
             throw new WorkspaceApiException("timeout");
 
         } catch (InterruptedException | ApiException e) {
@@ -346,9 +365,10 @@ public class WorkspaceApi {
     }
 
     /**
-     * Ends the current agent's session. This request logs out the agent on all activated channels, ends the HTTP session, 
-     * and cleans up related resources. After you end the session, you'll need to make a login request before making any 
+     * Ends the current agent's session. This request logs out the agent on all activated channels, ends the HTTP session,
+     * and cleans up related resources. After you end the session, you'll need to make a login request before making any
      * new calls to the API.
+     *
      * @param disconnectRequestTimeout The timeout in ms to wait for the disconnect to complete
      */
     public void destroy(long disconnectRequestTimeout) throws WorkspaceApiException {
@@ -365,10 +385,11 @@ public class WorkspaceApi {
     }
 
     /**
-     * Activates the voice channel using the provided resources. If the channel is successfully activated, 
-     * Workspace sends additional information about the state of active resources (DNs, channels) via events. The 
+     * Activates the voice channel using the provided resources. If the channel is successfully activated,
+     * Workspace sends additional information about the state of active resources (DNs, channels) via events. The
      * resources you provide are associated with the agent for the duration of the session.
-     * @param agentId The unique ID of the agent.
+     *
+     * @param agentId   The unique ID of the agent.
      * @param placeName The name of the place to use for the agent.
      */
     public void activateChannels(
@@ -379,14 +400,15 @@ public class WorkspaceApi {
     }
 
     /**
-     * Activates the voice channel using the provided resources. If the channel is successfully activated, 
-     * Workspace sends additional information about the state of active resources (DNs, channels) via events. The 
+     * Activates the voice channel using the provided resources. If the channel is successfully activated,
+     * Workspace sends additional information about the state of active resources (DNs, channels) via events. The
      * resources you provide are associated with the agent for the duration of the session.
-     * @param agentId The unique ID of the agent.
-     * @param dn The DN (number) to use for the agent. You must provide either the place name or DN.
+     *
+     * @param agentId   The unique ID of the agent.
+     * @param dn        The DN (number) to use for the agent. You must provide either the place name or DN.
      * @param placeName The name of the place to use for the agent. You must provide either the place name or DN.
      * @param queueName The queue name. (optional)
-     * @param workMode The workmode. The possible values are AUTO_IN or MANUAL_IN. (optional)
+     * @param workMode  The workmode. The possible values are AUTO_IN or MANUAL_IN. (optional)
      */
     public void activateChannels(
             String agentId,
@@ -429,7 +451,7 @@ public class WorkspaceApi {
 
             logger.debug(msg + "...");
             ApiSuccessResponse response = this.sessionApi.activateChannels(channelsData);
-            if(response.getStatus().getCode() != 0) {
+            if (response.getStatus().getCode() != 0) {
                 throw new WorkspaceApiException(
                         "activateChannels failed with code: " +
                                 response.getStatus().getCode());
@@ -441,6 +463,7 @@ public class WorkspaceApi {
 
     /**
      * Returns the Voice API.
+     *
      * @return VoiceApi
      */
     public VoiceApi voice() {
@@ -449,65 +472,90 @@ public class WorkspaceApi {
 
     /**
      * Returns the Targets API.
+     *
      * @return TargetsApi
      */
     public TargetsApi targets() {
         return this.targetsApi;
     }
-    
+
     /**
      * Returns the Reporting API.
-     * 
+     *
      * @return ReportingApi
      */
     public ReportingApi getReportingApi() {
         return reportingApi;
     }
-    
+
     /**
-      * Returns the current user.
-      * @return User
-      */
+     * Returns the Media API.
+     *
+     * @return MediaApi
+     */
+    public MediaApi media() {
+        return mediaApi;
+    }
+
+    /**
+     * Returns the Chat API.
+     *
+     * @return MediaApi
+     */
+    public ChatApi chat() {
+        return chatApi;
+    }
+
+    /**
+     * Returns the current user.
+     *
+     * @return User
+     */
     public User getUser() {
         return this.user;
     }
 
     /**
-      * Returns application options from Configuration Server.
-      * @return KeyValueCollection
-      */
+     * Returns application options from Configuration Server.
+     *
+     * @return KeyValueCollection
+     */
     public KeyValueCollection getSettings() {
         return this.settings;
     }
 
     /**
-      * Returns action codes from Configuration Server. 
-      * @return Collection<ActionCode>
-      */
+     * Returns action codes from Configuration Server.
+     *
+     * @return Collection<ActionCode>
+     */
     public Collection<ActionCode> getActionCodes() {
         return this.actionCodes;
     }
 
     /**
-      * Returns agent groups from Configuration Server.
-      * @return Collection<AgentGroup>
-      */
+     * Returns agent groups from Configuration Server.
+     *
+     * @return Collection<AgentGroup>
+     */
     public Collection<AgentGroup> getAgentGroups() {
         return this.agentGroups;
     }
 
     /**
-      * Returns business attributes from Configuration Server.
-      * @return Collection<BusinessAttribute>
-      */
+     * Returns business attributes from Configuration Server.
+     *
+     * @return Collection<BusinessAttribute>
+     */
     public Collection<BusinessAttribute> getBusinessAttributes() {
         return this.businessAttributes;
     }
 
     /**
-      * Returns transactions from Configuration Server.
-      * @return Collection<Transaction>
-      */
+     * Returns transactions from Configuration Server.
+     *
+     * @return Collection<Transaction>
+     */
     public Collection<Transaction> getTransactions() {
         return this.transactions;
     }
