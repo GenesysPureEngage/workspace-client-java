@@ -166,6 +166,23 @@ public class MediaApi {
         return channels.get(mediaType);
     }
 
+    /**
+     * Example
+     *
+     * {
+     *    "media":{
+     *       "channels":[
+     *          {
+     *             "name":"chat",
+     *             "state":"NotReady",
+     *             "dnd":false
+     *          }
+     *       ]
+     *    },
+     *    "messageType":"ChannelStateChanged"
+     * }
+     *
+     */
     void onMediaMessage(Map<String, Object> data) {
         System.out.println("Media message: " + data);
         String messageType = (String) data.get("messageType");

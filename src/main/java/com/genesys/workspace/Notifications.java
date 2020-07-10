@@ -58,7 +58,7 @@ public class Notifications {
                     public void onMessage(ClientSessionChannel clientSessionChannel, Message message) {
                         String subscription = (String) message.get("subscription");
                         if (message.isSuccessful()) {
-                            logger.debug("Successfuly subscribed to channel: {}", subscription);
+                            logger.debug("Successfully subscribed to channel: {}", subscription);
                         } else {
                             logger.error("Cannot subscribe to channel: {}", subscription);
                         }
