@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * AddDocumentData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-10T14:04:17.835Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-23T11:10:30.669Z")
 public class AddDocumentData {
   @SerializedName("operationId")
   private String operationId = null;
