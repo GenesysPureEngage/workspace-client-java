@@ -30,7 +30,7 @@ import java.io.IOException;
  * Request succeeded.
  */
 @ApiModel(description = "Request succeeded.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-09T20:07:40.521Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-17T14:42:00.538Z")
 public class SubscriptionsSuccessResponse {
   @SerializedName("status")
   private TargetsResponseStatus status = null;
