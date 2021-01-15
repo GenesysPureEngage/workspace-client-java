@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * MediamediatypeinteractionsidupdatenicknameData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-02T21:45:42.174Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-14T20:02:44.864Z")
 public class MediamediatypeinteractionsidupdatenicknameData {
   @SerializedName("nickname")
   private String nickname = null;
