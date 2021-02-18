@@ -28,7 +28,7 @@ import java.io.IOException;
  * A collection of key/value pairs.
  */
 @ApiModel(description = "A collection of key/value pairs.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-14T20:02:44.864Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-17T16:43:38.991Z")
 public class IxnReasonCode {
   @SerializedName("reasonSystemName")
   private String reasonSystemName = null;
