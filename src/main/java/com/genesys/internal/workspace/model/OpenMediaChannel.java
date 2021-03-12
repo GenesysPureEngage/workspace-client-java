@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * OpenMediaChannel
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-17T16:43:38.991Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-02T18:41:12.751Z")
 public class OpenMediaChannel {
   @SerializedName("name")
   private String name = null;
