@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * ExchangeTokenResponseData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-02T18:41:12.751Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-16T18:16:07.107Z")
 public class ExchangeTokenResponseData {
   @SerializedName("access_token")
   private String accessToken = null;
