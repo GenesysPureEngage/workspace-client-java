@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * MediaactivateData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-01-27T00:26:51.593Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-03T19:45:16.214Z")
 public class MediaactivateData {
   @SerializedName("placeName")
   private String placeName = null;
